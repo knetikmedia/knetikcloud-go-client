@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -13,5 +13,5 @@ package swagger
 type ActivityOccurrenceResults struct {
 
 	// The game results for each user. Include all users that played (paid to get in) even if they were eliminated without a result. A null metric is allowed
-	Users []UserActivityResultsResource `json:"users"`
+	Users []UserActivityResults `json:"users"`
 }

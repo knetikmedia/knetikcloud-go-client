@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -499,14 +499,16 @@ func (a ContentArticlesApi) GetArticleTemplates(size int32, page int32, order st
  * Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single article&#39; to retrieve the full resource with assets for a given item as needed.
  *
  * @param filterCategory Filter for articles from a specific category by id
- * @param filterTagset Filter for articles with specified tags (separated by comma)
+ * @param filterTagset Filter for articles with at least one of a specified set of tags (separated by comma)
+ * @param filterTagIntersection Filter for articles with all of a specified set of tags (separated by comma)
+ * @param filterTagExclusion Filter for articles with none of a specified set of tags (separated by comma)
  * @param filterTitle Filter for articles whose title contains a string
  * @param size The number of objects returned per page
  * @param page The number of the page returned, starting with 1
  * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  * @return *PageResourceArticleResource
  */
-func (a ContentArticlesApi) GetArticles(filterCategory string, filterTagset string, filterTitle string, size int32, page int32, order string) (*PageResourceArticleResource, *APIResponse, error) {
+func (a ContentArticlesApi) GetArticles(filterCategory string, filterTagset string, filterTagIntersection string, filterTagExclusion string, filterTitle string, size int32, page int32, order string) (*PageResourceArticleResource, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -524,6 +526,8 @@ func (a ContentArticlesApi) GetArticles(filterCategory string, filterTagset stri
 	}
 	localVarQueryParams.Add("filter_category", a.Configuration.APIClient.ParameterToString(filterCategory, ""))
 	localVarQueryParams.Add("filter_tagset", a.Configuration.APIClient.ParameterToString(filterTagset, ""))
+	localVarQueryParams.Add("filter_tag_intersection", a.Configuration.APIClient.ParameterToString(filterTagIntersection, ""))
+	localVarQueryParams.Add("filter_tag_exclusion", a.Configuration.APIClient.ParameterToString(filterTagExclusion, ""))
 	localVarQueryParams.Add("filter_title", a.Configuration.APIClient.ParameterToString(filterTitle, ""))
 	localVarQueryParams.Add("size", a.Configuration.APIClient.ParameterToString(size, ""))
 	localVarQueryParams.Add("page", a.Configuration.APIClient.ParameterToString(page, ""))

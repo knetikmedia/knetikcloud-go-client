@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -41,9 +41,9 @@ func NewActivitiesApiWithBasePath(basePath string) *ActivitiesApi {
  * Create an activity
  *
  * @param activityResource The activity resource object
- * @return *RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc
+ * @return *ActivityResource
  */
-func (a ActivitiesApi) CreateActivity(activityResource RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc) (*RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc, *APIResponse, error) {
+func (a ActivitiesApi) CreateActivity(activityResource ActivityResource) (*ActivityResource, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -85,7 +85,7 @@ func (a ActivitiesApi) CreateActivity(activityResource RepresentsAnActivityThatC
 	}
 	// body params
 	localVarPostBody = &activityResource
-	var successPayload = new(RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc)
+	var successPayload = new(ActivityResource)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -109,9 +109,9 @@ func (a ActivitiesApi) CreateActivity(activityResource RepresentsAnActivityThatC
  *
  * @param test if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings
  * @param activityOccurrenceResource The activity occurrence object
- * @return *AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings
+ * @return *ActivityOccurrenceResource
  */
-func (a ActivitiesApi) CreateActivityOccurrence(test bool, activityOccurrenceResource AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings) (*AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings, *APIResponse, error) {
+func (a ActivitiesApi) CreateActivityOccurrence(test bool, activityOccurrenceResource ActivityOccurrenceResource) (*ActivityOccurrenceResource, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -154,7 +154,7 @@ func (a ActivitiesApi) CreateActivityOccurrence(test bool, activityOccurrenceRes
 	}
 	// body params
 	localVarPostBody = &activityOccurrenceResource
-	var successPayload = new(AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings)
+	var successPayload = new(ActivityOccurrenceResource)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -379,7 +379,7 @@ func (a ActivitiesApi) DeleteActivityTemplate(id string, cascade string) (*APIRe
  * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  * @return *PageResourceBareActivityResource
  */
-func (a ActivitiesApi) GetActivities(filterTemplate bool, filterName string, filterId Object, size int32, page int32, order string) (*PageResourceBareActivityResource, *APIResponse, error) {
+func (a ActivitiesApi) GetActivities(filterTemplate bool, filterName string, filterId string, size int32, page int32, order string) (*PageResourceBareActivityResource, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -442,9 +442,9 @@ func (a ActivitiesApi) GetActivities(filterTemplate bool, filterName string, fil
  * Get a single activity
  *
  * @param id The id of the activity
- * @return *RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc
+ * @return *ActivityResource
  */
-func (a ActivitiesApi) GetActivity(id int64) (*RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc, *APIResponse, error) {
+func (a ActivitiesApi) GetActivity(id int64) (*ActivityResource, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -480,7 +480,7 @@ func (a ActivitiesApi) GetActivity(id int64) (*RepresentsAnActivityThatCanBePara
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc)
+	var successPayload = new(ActivityResource)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)
@@ -639,7 +639,7 @@ func (a ActivitiesApi) GetActivityTemplates(size int32, page int32, order string
  * @param activityOccurrenceResults The activity occurrence object
  * @return *ActivityOccurrenceResults
  */
-func (a ActivitiesApi) SetActivityOccurrenceResults(activityOccurrenceId int64, activityOccurrenceResults ActivityOccurrenceResults) (*ActivityOccurrenceResults, *APIResponse, error) {
+func (a ActivitiesApi) SetActivityOccurrenceResults(activityOccurrenceId int64, activityOccurrenceResults ActivityOccurrenceResultsResource) (*ActivityOccurrenceResults, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -705,9 +705,9 @@ func (a ActivitiesApi) SetActivityOccurrenceResults(activityOccurrenceId int64, 
  *
  * @param id The id of the activity
  * @param activityResource The activity resource object
- * @return *RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc
+ * @return *ActivityResource
  */
-func (a ActivitiesApi) UpdateActivity(id int64, activityResource RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc) (*RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc, *APIResponse, error) {
+func (a ActivitiesApi) UpdateActivity(id int64, activityResource ActivityResource) (*ActivityResource, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Put")
 	// create path and map variables
@@ -750,7 +750,7 @@ func (a ActivitiesApi) UpdateActivity(id int64, activityResource RepresentsAnAct
 	}
 	// body params
 	localVarPostBody = &activityResource
-	var successPayload = new(RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc)
+	var successPayload = new(ActivityResource)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)

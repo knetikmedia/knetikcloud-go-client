@@ -519,12 +519,12 @@ Search videos using the documented filters
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **excludeFlagged** | **bool**| Skip videos that have been flagged by the current user | [optional] [default to true]
- **filterVideosByUploader** | [**Object**](.md)| Filter for videos by uploader id | [optional] 
+ **filterVideosByUploader** | **int32**| Filter for videos by uploader id | [optional] 
  **filterCategory** | **string**| Filter for videos from a specific category by id | [optional] 
  **filterTagset** | **string**| Filter for videos with specified tags (separated by comma) | [optional] 
  **filterVideosByName** | **string**| Filter for videos which name *STARTS* with the given string | [optional] 
- **filterVideosByContributor** | [**Object**](.md)| Filter for videos with contribution from the artist specified by ID | [optional] 
- **filterVideosByAuthor** | [**Object**](.md)| Filter for videos with an artist as author specified by ID | [optional] 
+ **filterVideosByContributor** | **int32**| Filter for videos with contribution from the artist specified by ID | [optional] 
+ **filterVideosByAuthor** | **int32**| Filter for videos with an artist as author specified by ID | [optional] 
  **filterHasAuthor** | **bool**| Filter for videos that have an author set if true, or that have no author if false | [optional] 
  **filterHasUploader** | **bool**| Filter for videos that have an uploader set if true, or that have no uploader if false | [optional] 
  **filterRelatedTo** | **string**| Filter for videos that have designated a particular video as the TO of a relationship. Pattern should match VIDEO_ID or VIDEO_ID:DETAILS to match with a specific details string as well | [optional] 

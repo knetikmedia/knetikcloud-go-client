@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ClientId** | **string** |  | [optional] [default to null]
 **Roles** | **[]string** |  | [optional] [default to null]
 **UserId** | **int32** |  | [optional] [default to null]
 

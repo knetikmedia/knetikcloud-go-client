@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -19,7 +19,7 @@ type BehaviorDefinitionResource struct {
 	PrerequisiteBehaviors []Behavior `json:"prerequisite_behaviors,omitempty"`
 
 	// Configurable properties of the behavior
-	Properties []PropertyDefinitionResource `json:"properties"`
+	Properties []PropertyFieldResource `json:"properties"`
 
 	// The behavior type
 	TypeHint string `json:"type_hint"`

@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -36,10 +36,16 @@ type InventorySubscriptionResource struct {
 	// The payment method object
 	PaymentMethod PaymentMethodResource `json:"payment_method,omitempty"`
 
-	// The recurring price
+	// The recurring price that has been set to override the base price. Null if not overriding
+	PriceOverride float64 `json:"price_override,omitempty"`
+
+	// An explanation for the reason the price is being overridden
+	PriceOverrideReason string `json:"price_override_reason,omitempty"`
+
+	// The default recurring price
 	RecurringPrice float64 `json:"recurring_price,omitempty"`
 
-	// The sku of the subscription
+	// The recurring sku of the subscription
 	Sku string `json:"sku,omitempty"`
 
 	// The date the subscription will start

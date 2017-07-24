@@ -4,22 +4,22 @@ All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**LinkAccounts1**](SocialGoogleApi.md#LinkAccounts1) | **Post** /social/google/users | Link facebook account
+[**LinkAccounts1**](SocialGoogleApi.md#LinkAccounts1) | **Post** /social/google/users | Link google account
 
 
 # **LinkAccounts1**
-> LinkAccounts1($facebookToken)
+> LinkAccounts1($googleToken)
 
-Link facebook account
+Link google account
 
-Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
+Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **facebookToken** | [**GoogleToken**](GoogleToken.md)| The token from facebook | [optional] 
+ **googleToken** | [**GoogleToken**](GoogleToken.md)| The token from google | [optional] 
 
 ### Return type
 

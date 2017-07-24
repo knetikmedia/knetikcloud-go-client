@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetArticles**
-> PageResourceArticleResource GetArticles($filterCategory, $filterTagset, $filterTitle, $size, $page, $order)
+> PageResourceArticleResource GetArticles($filterCategory, $filterTagset, $filterTagIntersection, $filterTagExclusion, $filterTitle, $size, $page, $order)
 
 List and search articles
 
@@ -227,7 +227,9 @@ Get a list of articles with optional filtering. Assets will not be filled in on 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterCategory** | **string**| Filter for articles from a specific category by id | [optional] 
- **filterTagset** | **string**| Filter for articles with specified tags (separated by comma) | [optional] 
+ **filterTagset** | **string**| Filter for articles with at least one of a specified set of tags (separated by comma) | [optional] 
+ **filterTagIntersection** | **string**| Filter for articles with all of a specified set of tags (separated by comma) | [optional] 
+ **filterTagExclusion** | **string**| Filter for articles with none of a specified set of tags (separated by comma) | [optional] 
  **filterTitle** | **string**| Filter for articles whose title contains a string | [optional] 
  **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
  **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]

@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**SetSubscriptionPaymentMethod**](UsersSubscriptionsApi.md#SetSubscriptionPaymentMethod) | **Put** /users/{user_id}/subscriptions/{inventory_id}/payment-method | Set the payment method to use for a subscription
 [**SetSubscriptionStatus**](UsersSubscriptionsApi.md#SetSubscriptionStatus) | **Put** /users/{user_id}/subscriptions/{inventory_id}/status | Set the status of a subscription
 [**SetUserSubscriptionPlan**](UsersSubscriptionsApi.md#SetUserSubscriptionPlan) | **Put** /users/{user_id}/subscriptions/{inventory_id}/plan | Set a new subscription plan for a user
+[**SetUserSubscriptionPrice**](UsersSubscriptionsApi.md#SetUserSubscriptionPrice) | **Put** /users/{user_id}/subscriptions/{inventory_id}/price-override | Set a new subscription price for a user
 
 
 # **GetUserSubscriptionDetails**
@@ -201,6 +202,37 @@ Name | Type | Description  | Notes
  **userId** | **int32**| The id of the user | 
  **inventoryId** | **int32**| The id of the user&#39;s inventory | 
  **planId** | **string**| The id of the new plan. Must be from the same subscription | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **SetUserSubscriptionPrice**
+> SetUserSubscriptionPrice($userId, $inventoryId, $theOverrideDetails)
+
+Set a new subscription price for a user
+
+This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **int32**| The id of the user | 
+ **inventoryId** | **int32**| The id of the user&#39;s inventory | 
+ **theOverrideDetails** | [**SubscriptionPriceOverrideRequest**](SubscriptionPriceOverrideRequest.md)| override | [optional] 
 
 ### Return type
 

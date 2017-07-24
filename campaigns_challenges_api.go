@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -373,17 +373,18 @@ func (a CampaignsChallengesApi) DeleteChallenge(id int64) (*APIResponse, error) 
 
 /**
  * Delete a challenge activity
+ * A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
  *
- * @param activityId The activity id
+ * @param id The challenge_activity id
  * @param challengeId The challenge id
  * @return void
  */
-func (a CampaignsChallengesApi) DeleteChallengeActivity(activityId int64, challengeId int64) (*APIResponse, error) {
+func (a CampaignsChallengesApi) DeleteChallengeActivity(id int64, challengeId int64) (*APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Delete")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/challenges/{challenge_id}/activities/{activity_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"activity_id"+"}", fmt.Sprintf("%v", activityId), -1)
+	localVarPath := a.Configuration.BasePath + "/challenges/{challenge_id}/activities/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"challenge_id"+"}", fmt.Sprintf("%v", challengeId), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -759,16 +760,19 @@ func (a CampaignsChallengesApi) GetChallengeActivities(challengeId int64, size i
 
 /**
  * Get a single challenge activity
+ * A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
  *
- * @param activityId The activity id
+ * @param id The challenge_activity id
+ * @param challengeId The challenge id
  * @return *ChallengeActivityResource
  */
-func (a CampaignsChallengesApi) GetChallengeActivity(activityId int64) (*ChallengeActivityResource, *APIResponse, error) {
+func (a CampaignsChallengesApi) GetChallengeActivity(id int64, challengeId int64) (*ChallengeActivityResource, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/challenges/{challenge_id}/activities/{activity_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"activity_id"+"}", fmt.Sprintf("%v", activityId), -1)
+	localVarPath := a.Configuration.BasePath + "/challenges/{challenge_id}/activities/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"challenge_id"+"}", fmt.Sprintf("%v", challengeId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1360,18 +1364,19 @@ func (a CampaignsChallengesApi) UpdateChallenge(id int64, challengeResource Chal
 
 /**
  * Update a challenge activity
+ * A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
  *
- * @param activityId The activity id
+ * @param id The challenge_activity id
  * @param challengeId The challenge id
  * @param challengeActivityResource The challenge activity resource object
  * @return *ChallengeActivityResource
  */
-func (a CampaignsChallengesApi) UpdateChallengeActivity(activityId int64, challengeId int64, challengeActivityResource ChallengeActivityResource) (*ChallengeActivityResource, *APIResponse, error) {
+func (a CampaignsChallengesApi) UpdateChallengeActivity(id int64, challengeId int64, challengeActivityResource ChallengeActivityResource) (*ChallengeActivityResource, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Put")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/challenges/{challenge_id}/activities/{activity_id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"activity_id"+"}", fmt.Sprintf("%v", activityId), -1)
+	localVarPath := a.Configuration.BasePath + "/challenges/{challenge_id}/activities/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"challenge_id"+"}", fmt.Sprintf("%v", challengeId), -1)
 
 	localVarHeaderParams := make(map[string]string)

@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -26,6 +26,9 @@ type UserBaseResource struct {
 
 	// The id of the user
 	Id int32 `json:"id,omitempty"`
+
+	// The date the user last interacted with the API (private)
+	LastActivity int64 `json:"last_activity,omitempty"`
 
 	// The date the user's info was last updated as a unix timestamp
 	LastUpdated int64 `json:"last_updated,omitempty"`

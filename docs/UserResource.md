@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **Gender** | **string** | The user&#39;s gender (private) | [optional] [default to null]
 **Id** | **int32** | The id of the user | [optional] [default to null]
 **LanguageCode** | **string** | The ISO3 code for the user&#39;s currency (private) | [optional] [default to null]
+**LastActivity** | **int64** | The date the user last interacted with the API (private) | [optional] [default to null]
 **LastName** | **string** | The user&#39;s last name (private) | [optional] [default to null]
 **LastUpdated** | **int64** | The date the user&#39;s info was last updated as a unix timestamp | [optional] [default to null]
 **MemberSince** | **int64** | The user&#39;s date of registration as a unix timestamp | [optional] [default to null]

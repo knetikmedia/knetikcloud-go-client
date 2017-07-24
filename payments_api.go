@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -241,12 +241,16 @@ func (a PaymentsApi) GetPaymentMethod(userId int32, id int32) (*PaymentMethodRes
  * Get all payment methods for a user
  *
  * @param userId ID of the user for whom the payment methods are being retrieved
+ * @param filterName Filter for payment methods whose name starts with a given string
+ * @param filterPaymentType Filter for payment methods with a specific payment type
+ * @param filterPaymentMethodTypeId Filter for payment methods with a specific payment method type by id
+ * @param filterPaymentMethodTypeName Filter for payment methods whose payment method type name starts with a given string
  * @param size The number of objects returned per page
  * @param page The number of the page returned, starting with 1
  * @param order a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  * @return []PaymentMethodResource
  */
-func (a PaymentsApi) GetPaymentMethods(userId int32, size int32, page int32, order string) ([]PaymentMethodResource, *APIResponse, error) {
+func (a PaymentsApi) GetPaymentMethods(userId int32, filterName string, filterPaymentType string, filterPaymentMethodTypeId int32, filterPaymentMethodTypeName string, size int32, page int32, order string) ([]PaymentMethodResource, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
@@ -268,6 +272,10 @@ func (a PaymentsApi) GetPaymentMethods(userId int32, size int32, page int32, ord
 	for key := range a.Configuration.DefaultHeader {
 		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
 	}
+	localVarQueryParams.Add("filter_name", a.Configuration.APIClient.ParameterToString(filterName, ""))
+	localVarQueryParams.Add("filter_payment_type", a.Configuration.APIClient.ParameterToString(filterPaymentType, ""))
+	localVarQueryParams.Add("filter_payment_method_type_id", a.Configuration.APIClient.ParameterToString(filterPaymentMethodTypeId, ""))
+	localVarQueryParams.Add("filter_payment_method_type_name", a.Configuration.APIClient.ParameterToString(filterPaymentMethodTypeName, ""))
 	localVarQueryParams.Add("size", a.Configuration.APIClient.ParameterToString(size, ""))
 	localVarQueryParams.Add("page", a.Configuration.APIClient.ParameterToString(page, ""))
 	localVarQueryParams.Add("order", a.Configuration.APIClient.ParameterToString(order, ""))

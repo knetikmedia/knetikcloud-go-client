@@ -9,13 +9,13 @@ Method | HTTP request | Description
 [**CreateChallengeActivityTemplate**](CampaignsChallengesApi.md#CreateChallengeActivityTemplate) | **Post** /challenge-activities/templates | Create a challenge activity template
 [**CreateChallengeTemplate**](CampaignsChallengesApi.md#CreateChallengeTemplate) | **Post** /challenges/templates | Create a challenge template
 [**DeleteChallenge**](CampaignsChallengesApi.md#DeleteChallenge) | **Delete** /challenges/{id} | Delete a challenge
-[**DeleteChallengeActivity**](CampaignsChallengesApi.md#DeleteChallengeActivity) | **Delete** /challenges/{challenge_id}/activities/{activity_id} | Delete a challenge activity
+[**DeleteChallengeActivity**](CampaignsChallengesApi.md#DeleteChallengeActivity) | **Delete** /challenges/{challenge_id}/activities/{id} | Delete a challenge activity
 [**DeleteChallengeActivityTemplate**](CampaignsChallengesApi.md#DeleteChallengeActivityTemplate) | **Delete** /challenge-activities/templates/{id} | Delete a challenge activity template
 [**DeleteChallengeEvent**](CampaignsChallengesApi.md#DeleteChallengeEvent) | **Delete** /challenges/events/{id} | Delete a challenge event
 [**DeleteChallengeTemplate**](CampaignsChallengesApi.md#DeleteChallengeTemplate) | **Delete** /challenges/templates/{id} | Delete a challenge template
 [**GetChallenge**](CampaignsChallengesApi.md#GetChallenge) | **Get** /challenges/{id} | Retrieve a challenge
 [**GetChallengeActivities**](CampaignsChallengesApi.md#GetChallengeActivities) | **Get** /challenges/{challenge_id}/activities | List and search challenge activities
-[**GetChallengeActivity**](CampaignsChallengesApi.md#GetChallengeActivity) | **Get** /challenges/{challenge_id}/activities/{activity_id} | Get a single challenge activity
+[**GetChallengeActivity**](CampaignsChallengesApi.md#GetChallengeActivity) | **Get** /challenges/{challenge_id}/activities/{id} | Get a single challenge activity
 [**GetChallengeActivityTemplate**](CampaignsChallengesApi.md#GetChallengeActivityTemplate) | **Get** /challenge-activities/templates/{id} | Get a single challenge activity template
 [**GetChallengeActivityTemplates**](CampaignsChallengesApi.md#GetChallengeActivityTemplates) | **Get** /challenge-activities/templates | List and search challenge activity templates
 [**GetChallengeEvent**](CampaignsChallengesApi.md#GetChallengeEvent) | **Get** /challenges/events/{id} | Retrieve a single challenge event details
@@ -24,7 +24,7 @@ Method | HTTP request | Description
 [**GetChallengeTemplates**](CampaignsChallengesApi.md#GetChallengeTemplates) | **Get** /challenges/templates | List and search challenge templates
 [**GetChallenges**](CampaignsChallengesApi.md#GetChallenges) | **Get** /challenges | Retrieve a list of challenges
 [**UpdateChallenge**](CampaignsChallengesApi.md#UpdateChallenge) | **Put** /challenges/{id} | Update a challenge
-[**UpdateChallengeActivity**](CampaignsChallengesApi.md#UpdateChallengeActivity) | **Put** /challenges/{challenge_id}/activities/{activity_id} | Update a challenge activity
+[**UpdateChallengeActivity**](CampaignsChallengesApi.md#UpdateChallengeActivity) | **Put** /challenges/{challenge_id}/activities/{id} | Update a challenge activity
 [**UpdateChallengeActivityTemplate**](CampaignsChallengesApi.md#UpdateChallengeActivityTemplate) | **Put** /challenge-activities/templates/{id} | Update an challenge activity template
 [**UpdateChallengeTemplate**](CampaignsChallengesApi.md#UpdateChallengeTemplate) | **Put** /challenges/templates/{id} | Update a challenge template
 
@@ -173,16 +173,18 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteChallengeActivity**
-> DeleteChallengeActivity($activityId, $challengeId)
+> DeleteChallengeActivity($id, $challengeId)
 
 Delete a challenge activity
+
+A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityId** | **int64**| The activity id | 
+ **id** | **int64**| The challenge_activity id | 
  **challengeId** | **int64**| The challenge id | 
 
 ### Return type
@@ -345,16 +347,19 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallengeActivity**
-> ChallengeActivityResource GetChallengeActivity($activityId)
+> ChallengeActivityResource GetChallengeActivity($id, $challengeId)
 
 Get a single challenge activity
+
+A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityId** | **int64**| The activity id | 
+ **id** | **int64**| The challenge_activity id | 
+ **challengeId** | **int64**| The challenge id | 
 
 ### Return type
 
@@ -607,16 +612,18 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateChallengeActivity**
-> ChallengeActivityResource UpdateChallengeActivity($activityId, $challengeId, $challengeActivityResource)
+> ChallengeActivityResource UpdateChallengeActivity($id, $challengeId, $challengeActivityResource)
 
 Update a challenge activity
+
+A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityId** | **int64**| The activity id | 
+ **id** | **int64**| The challenge_activity id | 
  **challengeId** | **int64**| The challenge id | 
  **challengeActivityResource** | [**ChallengeActivityResource**](ChallengeActivityResource.md)| The challenge activity resource object | [optional] 
 

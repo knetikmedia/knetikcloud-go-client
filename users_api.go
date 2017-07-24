@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -913,7 +913,7 @@ func (a UsersApi) StartPasswordReset(id int32) (*APIResponse, error) {
  * @param passwordReset An object containing one of three methods to look up a user
  * @return void
  */
-func (a UsersApi) SubmitPasswordReset(passwordReset ARequestToResetAUsersPasswordByUsingAKnownUserProperty) (*APIResponse, error) {
+func (a UsersApi) SubmitPasswordReset(passwordReset PasswordResetRequest) (*APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables

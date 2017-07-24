@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -1175,7 +1175,7 @@ func (a MediaVideosApi) GetVideoRelationships(videoId int64, size int32, page in
  * @param order A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  * @return *PageResourceVideoResource
  */
-func (a MediaVideosApi) GetVideos(excludeFlagged bool, filterVideosByUploader Object, filterCategory string, filterTagset string, filterVideosByName string, filterVideosByContributor Object, filterVideosByAuthor Object, filterHasAuthor bool, filterHasUploader bool, filterRelatedTo string, filterFriends bool, filterDisposition string, size int32, page int32, order string) (*PageResourceVideoResource, *APIResponse, error) {
+func (a MediaVideosApi) GetVideos(excludeFlagged bool, filterVideosByUploader int32, filterCategory string, filterTagset string, filterVideosByName string, filterVideosByContributor int32, filterVideosByAuthor int32, filterHasAuthor bool, filterHasUploader bool, filterRelatedTo string, filterFriends bool, filterDisposition string, size int32, page int32, order string) (*PageResourceVideoResource, *APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables

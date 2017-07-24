@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -10,7 +10,8 @@
 
 package swagger
 
-type TheDefinitionOfAnActivityParametersExDifficultyLevel struct {
+// The definition of an activity parameters: ex: difficulty level
+type AvailableSettingResource struct {
 
 	// Whether the setting is advanced. Default: false
 	AdvancedOption bool `json:"advanced_option,omitempty"`

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessTokenValiditySeconds** | **int32** | The expiration time of an initial oauth token in seconds | [optional] [default to null]
 **ClientKey** | **string** | The client_id field of the oauth token request | [default to null]
-**GrantTypes** | **[]string** | The oauth grant type as in: password (username/password auth), client_credentials (server-to-server, private clients), refresh_token (to allow clients to refresh their initial token), facebook, google, etc) See documentation for a complete list. use dedicated endpoint PUT /grant-types to edit this list | [optional] [default to null]
+**GrantTypes** | **[]string** | The oauth grant type as in: password (username/password auth), client_credentials (server-to-server, private clients), refresh_token (to allow clients to refresh their initial token), facebook, google, etc) See documentation for a complete list. Use dedicated endpoint PUT /grant-types to edit this list | [optional] [default to null]
 **Id** | **int32** | Generated unique ID for the client | [optional] [default to null]
 **IsPublic** | **bool** | Set to true if the client is public i.e the secret key can be secured | [optional] [default to null]
 **Locked** | **bool** | Used to flag system clients that are not meant to be tinkered with | [optional] [default to null]

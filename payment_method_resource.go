@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -29,16 +29,13 @@ type PaymentMethodResource struct {
 	// The expiration year for the payment method. Typically used for credit card payment methods
 	ExpirationYear int32 `json:"expiration_year,omitempty"`
 
-	// The unique ID for that resource
+	// The unique ID of the resource
 	Id int64 `json:"id,omitempty"`
 
 	// The last 4 digits of the account number for the payment method. Typically used for credit card payment methods
 	Last4 string `json:"last4,omitempty"`
 
-	// The user friendly name of that resource. Defaults to blank string
-	LongDescription string `json:"long_description,omitempty"`
-
-	// The user friendly name of that resource
+	// The user friendly name of the resource
 	Name string `json:"name"`
 
 	// The type of payment method. Must be a pre-existing value
@@ -46,9 +43,6 @@ type PaymentMethodResource struct {
 
 	// The generic payment type. Default is card
 	PaymentType string `json:"payment_type,omitempty"`
-
-	// The user friendly name of that resource. Defaults to blank string
-	ShortDescription string `json:"short_description,omitempty"`
 
 	// The sort value for the payment method
 	Sort int32 `json:"sort,omitempty"`

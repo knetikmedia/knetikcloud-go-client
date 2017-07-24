@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AffiliateId** | **int32** |  | [optional] [default to null]
 **BundleSku** | **string** |  | [optional] [default to null]
 **CurrentFulfillmentStatus** | **string** |  | [optional] [default to null]
 **Id** | **int32** |  | [optional] [default to null]

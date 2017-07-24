@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -36,13 +36,13 @@ func NewSocialGoogleApiWithBasePath(basePath string) *SocialGoogleApi {
 }
 
 /**
- * Link facebook account
- * Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
+ * Link google account
+ * Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
  *
- * @param facebookToken The token from facebook
+ * @param googleToken The token from google
  * @return void
  */
-func (a SocialGoogleApi) LinkAccounts1(facebookToken GoogleToken) (*APIResponse, error) {
+func (a SocialGoogleApi) LinkAccounts1(googleToken GoogleToken) (*APIResponse, error) {
 
 	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
@@ -83,7 +83,7 @@ func (a SocialGoogleApi) LinkAccounts1(facebookToken GoogleToken) (*APIResponse,
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &facebookToken
+	localVarPostBody = &googleToken
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
 	var localVarURL, _ = url.Parse(localVarPath)

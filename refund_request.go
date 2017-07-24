@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -14,6 +14,9 @@ type RefundRequest struct {
 
 	// The amount to refund. If left off, will refund the remaining balance of the transaction or specific item balance (if SKU provided), whichever is less.
 	Amount float64 `json:"amount,omitempty"`
+
+	// The SKU of a bundle item from the invoice that the target item is within.
+	BundleSku string `json:"bundle_sku,omitempty"`
 
 	// Notes about or reason for the refund
 	Notes string `json:"notes"`

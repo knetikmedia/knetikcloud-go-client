@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **CreateActivity**
-> RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc CreateActivity($activityResource)
+> ActivityResource CreateActivity($activityResource)
 
 Create an activity
 
@@ -29,11 +29,11 @@ Create an activity
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityResource** | [**RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc**](RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc.md)| The activity resource object | [optional] 
+ **activityResource** | [**ActivityResource**](ActivityResource.md)| The activity resource object | [optional] 
 
 ### Return type
 
-[**RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc**](Represents an activity that can be parameterized and tracked through metrics (scores, etc).md)
+[**ActivityResource**](ActivityResource.md)
 
 ### Authorization
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateActivityOccurrence**
-> AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings CreateActivityOccurrence($test, $activityOccurrenceResource)
+> ActivityOccurrenceResource CreateActivityOccurrence($test, $activityOccurrenceResource)
 
 Create a new activity occurrence. Ex: start a game
 
@@ -59,11 +59,11 @@ Has to enforce extra rules if not used as an admin
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **test** | **bool**| if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings | [optional] [default to false]
- **activityOccurrenceResource** | [**AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings**](AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings.md)| The activity occurrence object | [optional] 
+ **activityOccurrenceResource** | [**ActivityOccurrenceResource**](ActivityOccurrenceResource.md)| The activity occurrence object | [optional] 
 
 ### Return type
 
-[**AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings**](A occurrence of an activity (the actual game for example). Used to track scores, participants, and provide settings.md)
+[**ActivityOccurrenceResource**](ActivityOccurrenceResource.md)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterTemplate** | **bool**| Filter for activities that are templates, or specifically not if false | [optional] 
  **filterName** | **string**| Filter for activities that have a name starting with specified string | [optional] 
- **filterId** | [**Object**](.md)| Filter for activities with an id in the given comma separated list of ids | [optional] 
+ **filterId** | **string**| Filter for activities with an id in the given comma separated list of ids | [optional] 
  **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
  **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
@@ -195,7 +195,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetActivity**
-> RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc GetActivity($id)
+> ActivityResource GetActivity($id)
 
 Get a single activity
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc**](Represents an activity that can be parameterized and tracked through metrics (scores, etc).md)
+[**ActivityResource**](ActivityResource.md)
 
 ### Authorization
 
@@ -288,7 +288,7 @@ Sets the status of an activity occurrence to FINISHED and logs metrics
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activityOccurrenceId** | **int64**| The id of the activity occurrence | 
- **activityOccurrenceResults** | [**ActivityOccurrenceResults**](ActivityOccurrenceResults.md)| The activity occurrence object | [optional] 
+ **activityOccurrenceResults** | [**ActivityOccurrenceResultsResource**](ActivityOccurrenceResultsResource.md)| The activity occurrence object | [optional] 
 
 ### Return type
 
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateActivity**
-> RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc UpdateActivity($id, $activityResource)
+> ActivityResource UpdateActivity($id, $activityResource)
 
 Update an activity
 
@@ -316,11 +316,11 @@ Update an activity
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int64**| The id of the activity | 
- **activityResource** | [**RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc**](RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc.md)| The activity resource object | [optional] 
+ **activityResource** | [**ActivityResource**](ActivityResource.md)| The activity resource object | [optional] 
 
 ### Return type
 
-[**RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc**](Represents an activity that can be parameterized and tracked through metrics (scores, etc).md)
+[**ActivityResource**](ActivityResource.md)
 
 ### Authorization
 

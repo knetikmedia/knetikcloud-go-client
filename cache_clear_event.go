@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -30,4 +30,8 @@ type CacheClearEvent struct {
 
 	// The type of the event. Used for polymorphic type recognition and thus must match an expected type
 	Type_ string `json:"type"`
+
+	CustomerSetup bool `json:"customer_setup,omitempty"`
+
+	CustomerTeardown bool `json:"customer_teardown,omitempty"`
 }

@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -10,7 +10,8 @@
 
 package swagger
 
-type ARequestToResetAUsersPasswordByUsingAKnownUserProperty struct {
+// A request to reset a user's password by using a known user property
+type PasswordResetRequest struct {
 
 	// The user's email address
 	Email string `json:"email,omitempty"`

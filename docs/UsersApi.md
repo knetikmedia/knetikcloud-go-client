@@ -420,7 +420,7 @@ A reset code will be generated and a 'forgot_password' BRE event will be fired w
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **passwordReset** | [**ARequestToResetAUsersPasswordByUsingAKnownUserProperty**](ARequestToResetAUsersPasswordByUsingAKnownUserProperty.md)| An object containing one of three methods to look up a user | [optional] 
+ **passwordReset** | [**PasswordResetRequest**](PasswordResetRequest.md)| An object containing one of three methods to look up a user | [optional] 
 
 ### Return type
 

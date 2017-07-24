@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -17,6 +17,9 @@ type LeaderboardEntryResource struct {
 
 	// The raw score in this leaderboard. Null means non-compete or disqualification
 	Score int64 `json:"score,omitempty"`
+
+	// The date this score was recorded or updated. Unix timestamp in seconds
+	UpdatedDate int64 `json:"updated_date,omitempty"`
 
 	// The player for this entry
 	User SimpleUserResource `json:"user"`

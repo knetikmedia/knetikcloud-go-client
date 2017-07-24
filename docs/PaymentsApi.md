@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPaymentMethods**
-> []PaymentMethodResource GetPaymentMethods($userId, $size, $page, $order)
+> []PaymentMethodResource GetPaymentMethods($userId, $filterName, $filterPaymentType, $filterPaymentMethodTypeId, $filterPaymentMethodTypeName, $size, $page, $order)
 
 Get all payment methods for a user
 
@@ -108,6 +108,10 @@ Get all payment methods for a user
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| ID of the user for whom the payment methods are being retrieved | 
+ **filterName** | **string**| Filter for payment methods whose name starts with a given string | [optional] 
+ **filterPaymentType** | **string**| Filter for payment methods with a specific payment type | [optional] 
+ **filterPaymentMethodTypeId** | **int32**| Filter for payment methods with a specific payment method type by id | [optional] 
+ **filterPaymentMethodTypeName** | **string**| Filter for payment methods whose payment method type name starts with a given string | [optional] 
  **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
  **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
  **order** | **string**| a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]

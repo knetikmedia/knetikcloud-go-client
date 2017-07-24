@@ -1,7 +1,7 @@
 /* 
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -10,7 +10,8 @@
 
 package swagger
 
-type AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings struct {
+// A occurrence of an activity (the actual game for example). Used to track scores, participants, and provide settings
+type ActivityOccurrenceResource struct {
 
 	// The id of the activity
 	ActivityId int64 `json:"activity_id"`

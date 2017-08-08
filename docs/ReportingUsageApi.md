@@ -13,22 +13,30 @@ Method | HTTP request | Description
 
 
 # **GetUsageByDay**
-> PageResourceUsageInfo GetUsageByDay($startDate, $endDate, $combineEndpoints, $method, $url, $size, $page)
-
+> PageResourceUsageInfo GetUsageByDay(ctx, startDate, endDate, optional)
 Returns aggregated endpoint usage information by day
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
+  **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
  **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
- **combineEndpoints** | **bool**| Whether to combine counts from different endpoint. Removes the url and method from the result object | [optional] [default to false]
- **method** | **string**| Filter for a certain endpoint method.  Must include url as well to work | [optional] 
- **url** | **string**| Filter for a certain endpoint.  Must include method as well to work | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **combineEndpoints** | **bool**| Whether to combine counts from different endpoint. Removes the url and method from the result object | [default to false]
+ **method** | **string**| Filter for a certain endpoint method.  Must include url as well to work | 
+ **url** | **string**| Filter for a certain endpoint.  Must include method as well to work | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -46,22 +54,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsageByHour**
-> PageResourceUsageInfo GetUsageByHour($startDate, $endDate, $combineEndpoints, $method, $url, $size, $page)
-
+> PageResourceUsageInfo GetUsageByHour(ctx, startDate, endDate, optional)
 Returns aggregated endpoint usage information by hour
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
+  **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
  **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
- **combineEndpoints** | **bool**| Whether to combine counts from different endpoint. Removes the url and method from the result object | [optional] [default to false]
- **method** | **string**| Filter for a certain endpoint method.  Must include url as well to work | [optional] 
- **url** | **string**| Filter for a certain endpoint.  Must include method as well to work | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **combineEndpoints** | **bool**| Whether to combine counts from different endpoint. Removes the url and method from the result object | [default to false]
+ **method** | **string**| Filter for a certain endpoint method.  Must include url as well to work | 
+ **url** | **string**| Filter for a certain endpoint.  Must include method as well to work | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -79,22 +95,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsageByMinute**
-> PageResourceUsageInfo GetUsageByMinute($startDate, $endDate, $combineEndpoints, $method, $url, $size, $page)
-
+> PageResourceUsageInfo GetUsageByMinute(ctx, startDate, endDate, optional)
 Returns aggregated endpoint usage information by minute
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
+  **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
  **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
- **combineEndpoints** | **bool**| Whether to combine counts from different endpoint. Removes the url and method from the result object | [optional] [default to false]
- **method** | **string**| Filter for a certain endpoint method.  Must include url as well to work | [optional] 
- **url** | **string**| Filter for a certain endpoint.  Must include method as well to work | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **combineEndpoints** | **bool**| Whether to combine counts from different endpoint. Removes the url and method from the result object | [default to false]
+ **method** | **string**| Filter for a certain endpoint method.  Must include url as well to work | 
+ **url** | **string**| Filter for a certain endpoint.  Must include method as well to work | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -112,22 +136,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsageByMonth**
-> PageResourceUsageInfo GetUsageByMonth($startDate, $endDate, $combineEndpoints, $method, $url, $size, $page)
-
+> PageResourceUsageInfo GetUsageByMonth(ctx, startDate, endDate, optional)
 Returns aggregated endpoint usage information by month
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
+  **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
  **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
- **combineEndpoints** | **bool**| Whether to combine counts from different endpoint. Removes the url and method from the result object | [optional] [default to false]
- **method** | **string**| Filter for a certain endpoint method.  Must include url as well to work | [optional] 
- **url** | **string**| Filter for a certain endpoint.  Must include method as well to work | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **combineEndpoints** | **bool**| Whether to combine counts from different endpoint. Removes the url and method from the result object | [default to false]
+ **method** | **string**| Filter for a certain endpoint method.  Must include url as well to work | 
+ **url** | **string**| Filter for a certain endpoint.  Must include method as well to work | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -145,22 +177,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsageByYear**
-> PageResourceUsageInfo GetUsageByYear($startDate, $endDate, $combineEndpoints, $method, $url, $size, $page)
-
+> PageResourceUsageInfo GetUsageByYear(ctx, startDate, endDate, optional)
 Returns aggregated endpoint usage information by year
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
+  **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
  **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
- **combineEndpoints** | **bool**| Whether to combine counts from different endpoints. Removes the url and method from the result object | [optional] [default to false]
- **method** | **string**| Filter for a certain endpoint method.  Must include url as well to work | [optional] 
- **url** | **string**| Filter for a certain endpoint.  Must include method as well to work | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **combineEndpoints** | **bool**| Whether to combine counts from different endpoints. Removes the url and method from the result object | [default to false]
+ **method** | **string**| Filter for a certain endpoint method.  Must include url as well to work | 
+ **url** | **string**| Filter for a certain endpoint.  Must include method as well to work | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -178,17 +218,16 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsageEndpoints**
-> []string GetUsageEndpoints($startDate, $endDate)
-
+> []string GetUsageEndpoints(ctx, startDate, endDate)
 Returns list of endpoints called (method and url)
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
- **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
+  **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
 
 ### Return type
 

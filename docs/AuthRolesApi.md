@@ -17,16 +17,22 @@ Method | HTTP request | Description
 
 
 # **CreateRole**
-> RoleResource CreateRole($roleResource)
-
+> RoleResource CreateRole(ctx, optional)
 Create a new role
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleResource** | [**RoleResource**](RoleResource.md)| The role resource object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **roleResource** | [**RoleResource**](RoleResource.md)| The role resource object | 
 
 ### Return type
 
@@ -44,21 +50,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteRole**
-> DeleteRole($role, $force)
-
+> DeleteRole(ctx, role, optional)
 Delete a role
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **role** | **string**| The role value | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **role** | **string**| The role value | 
- **force** | **bool**| If true, removes role from users/clients | [optional] 
+ **force** | **bool**| If true, removes role from users/clients | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -72,16 +85,15 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetClientRoles**
-> []RoleResource GetClientRoles($clientKey)
-
+> []RoleResource GetClientRoles(ctx, clientKey)
 Get roles for a client
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientKey** | **string**| The client key | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **clientKey** | **string**| The client key | 
 
 ### Return type
 
@@ -99,16 +111,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRole**
-> RoleResource GetRole($role)
-
+> RoleResource GetRole(ctx, role)
 Get a single role
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **role** | **string**| The role value | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **role** | **string**| The role value | 
 
 ### Return type
 
@@ -126,18 +137,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRoles**
-> PageResourceRoleResource GetRoles($size, $page, $order)
-
+> PageResourceRoleResource GetRoles(ctx, optional)
 List and search roles
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterName** | **string**| Filter for roles that have a name starting with specified string | 
+ **filterRole** | **string**| Filter for roles that have a role starting with specified string | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | 
 
 ### Return type
 
@@ -155,16 +174,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserRoles**
-> []RoleResource GetUserRoles($userId)
-
+> []RoleResource GetUserRoles(ctx, userId)
 Get roles for a user
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The user&#39;s id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The user&#39;s id | 
 
 ### Return type
 
@@ -182,17 +200,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetClientRoles**
-> ClientResource SetClientRoles($clientKey, $rolesList)
-
+> ClientResource SetClientRoles(ctx, clientKey, optional)
 Set roles for a client
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **clientKey** | **string**| The client key | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientKey** | **string**| The client key | 
- **rolesList** | **[]string**| The list of unique roles | [optional] 
+ **rolesList** | **[]string**| The list of unique roles | 
 
 ### Return type
 
@@ -210,17 +235,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetPermissionsForRole**
-> RoleResource SetPermissionsForRole($role, $permissionsList)
-
+> RoleResource SetPermissionsForRole(ctx, role, optional)
 Set permissions for a role
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **role** | **string**| The role value | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **role** | **string**| The role value | 
- **permissionsList** | **[]string**| The list of unique permissions | [optional] 
+ **permissionsList** | **[]string**| The list of unique permissions | 
 
 ### Return type
 
@@ -238,17 +270,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetUserRoles**
-> UserResource SetUserRoles($userId, $rolesList)
-
+> UserResource SetUserRoles(ctx, userId, optional)
 Set roles for a user
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The user&#39;s id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| The user&#39;s id | 
- **rolesList** | **[]string**| The list of unique roles | [optional] 
+ **rolesList** | **[]string**| The list of unique roles | 
 
 ### Return type
 
@@ -266,17 +305,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateRole**
-> RoleResource UpdateRole($role, $roleResource)
-
+> RoleResource UpdateRole(ctx, role, optional)
 Update a role
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **role** | **string**| The role value | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **role** | **string**| The role value | 
- **roleResource** | [**RoleResource**](RoleResource.md)| The role resource object | [optional] 
+ **roleResource** | [**RoleResource**](RoleResource.md)| The role resource object | 
 
 ### Return type
 

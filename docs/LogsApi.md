@@ -14,20 +14,26 @@ Method | HTTP request | Description
 
 
 # **AddUserLog**
-> AddUserLog($logEntry)
-
+> AddUserLog(ctx, optional)
 Add a user log entry
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **logEntry** | [**UserActionLog**](UserActionLog.md)| The user log entry to be added | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **logEntry** | [**UserActionLog**](UserActionLog.md)| The user log entry to be added | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -41,16 +47,15 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBREEventLog**
-> BreEventLog GetBREEventLog($id)
-
+> BreEventLog GetBREEventLog(ctx, id)
 Get an existing BRE event log entry by id
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The BRE event log entry id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The BRE event log entry id | 
 
 ### Return type
 
@@ -68,21 +73,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBREEventLogs**
-> PageResourceBreEventLog GetBREEventLogs($filterStartDate, $filterEventName, $filterEventId, $size, $page, $order)
-
+> PageResourceBreEventLog GetBREEventLogs(ctx, optional)
 Returns a list of BRE event log entries
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterStartDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the event log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). | [optional] 
- **filterEventName** | **string**| Filter event logs by event name | [optional] 
- **filterEventId** | **string**| Filter event logs by request id | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:DESC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterStartDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the event log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). | 
+ **filterEventName** | **string**| Filter event logs by event name | 
+ **filterEventId** | **string**| Filter event logs by request id | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:DESC]
 
 ### Return type
 
@@ -100,16 +111,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBREForwardLog**
-> ForwardLog GetBREForwardLog($id)
-
+> ForwardLog GetBREForwardLog(ctx, id)
 Get an existing forward log entry by id
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The forward log entry id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The forward log entry id | 
 
 ### Return type
 
@@ -127,21 +137,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBREForwardLogs**
-> PageResourceForwardLog GetBREForwardLogs($filterStartDate, $filterEndDate, $filterStatusCode, $size, $page, $order)
-
+> PageResourceForwardLog GetBREForwardLogs(ctx, optional)
 Returns a list of forward log entries
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterStartDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). | [optional] 
- **filterEndDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). | [optional] 
- **filterStatusCode** | **int32**| Filter forward logs by http status code | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:DESC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterStartDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). | 
+ **filterEndDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). | 
+ **filterStatusCode** | **int32**| Filter forward logs by http status code | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:DESC]
 
 ### Return type
 
@@ -159,16 +175,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserLog**
-> UserActionLog GetUserLog($id)
-
+> UserActionLog GetUserLog(ctx, id)
 Returns a user log entry by id
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The user log entry id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The user log entry id | 
 
 ### Return type
 
@@ -186,20 +201,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserLogs**
-> PageResourceUserActionLog GetUserLogs($filterUser, $filterActionName, $size, $page, $order)
-
+> PageResourceUserActionLog GetUserLogs(ctx, optional)
 Returns a page of user logs entries
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterUser** | **int32**| Filter for actions taken by a specific user by id | [optional] 
- **filterActionName** | **string**| Filter for actions of a specific name | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to timestamp:DESC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterUser** | **int32**| Filter for actions taken by a specific user by id | 
+ **filterActionName** | **string**| Filter for actions of a specific name | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to timestamp:DESC]
 
 ### Return type
 

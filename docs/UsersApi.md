@@ -23,21 +23,20 @@ Method | HTTP request | Description
 
 
 # **AddUserTag**
-> AddUserTag($userId, $tag)
-
+> AddUserTag(ctx, userId, tag)
 Add a tag to a user
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The id of the user | 
- **tag** | **string**| tag | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
+  **tag** | [**StringWrapper**](StringWrapper.md)| tag | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -51,18 +50,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateUserTemplate**
-> TemplateResource CreateUserTemplate($userTemplateResource)
-
+> TemplateResource CreateUserTemplate(ctx, optional)
 Create a user template
 
 User Templates define a type of user and the properties they have
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userTemplateResource** | [**TemplateResource**](TemplateResource.md)| The user template resource object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userTemplateResource** | [**TemplateResource**](TemplateResource.md)| The user template resource object | 
 
 ### Return type
 
@@ -80,23 +85,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteUserTemplate**
-> DeleteUserTemplate($id, $cascade)
-
+> DeleteUserTemplate(ctx, id, optional)
 Delete a user template
 
 If cascade = 'detach', it will force delete the template even if it's attached to other objects
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **cascade** | **string**| The value needed to delete used templates | [optional] 
+ **cascade** | **string**| The value needed to delete used templates | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -110,18 +122,17 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUser**
-> UserResource GetUser($id)
-
+> UserResource GetUser(ctx, id)
 Get a single user
 
 Additional private info is included as USERS_ADMIN
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the user or &#39;me&#39; | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the user or &#39;me&#39; | 
 
 ### Return type
 
@@ -139,16 +150,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserTags**
-> []string GetUserTags($userId)
-
+> []string GetUserTags(ctx, userId)
 List tags for a user
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The id of the user | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
 
 ### Return type
 
@@ -166,16 +176,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserTemplate**
-> TemplateResource GetUserTemplate($id)
-
+> TemplateResource GetUserTemplate(ctx, id)
 Get a single user template
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the template | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
 
 ### Return type
 
@@ -193,18 +202,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserTemplates**
-> PageResourceTemplateResource GetUserTemplates($size, $page, $order)
-
+> PageResourceTemplateResource GetUserTemplates(ctx, optional)
 List and search user templates
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -222,30 +237,36 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsers**
-> PageResourceUserBaseResource GetUsers($filterDisplayname, $filterEmail, $filterFirstname, $filterFullname, $filterLastname, $filterUsername, $filterTag, $filterGroup, $filterRole, $filterSearch, $size, $page, $order)
-
+> PageResourceUserBaseResource GetUsers(ctx, optional)
 List and search users
 
 Additional private info is included as USERS_ADMIN
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterDisplayname** | **string**| Filter for users whose display name starts with provided string. | [optional] 
- **filterEmail** | **string**| Filter for users whose email starts with provided string. Requires USERS_ADMIN permission | [optional] 
- **filterFirstname** | **string**| Filter for users whose first name starts with provided string. Requires USERS_ADMIN permission | [optional] 
- **filterFullname** | **string**| Filter for users whose full name starts with provided string. Requires USERS_ADMIN permission | [optional] 
- **filterLastname** | **string**| Filter for users whose last name starts with provided string. Requires USERS_ADMIN permission | [optional] 
- **filterUsername** | **string**| Filter for users whose username starts with the provided string. Requires USERS_ADMIN permission | [optional] 
- **filterTag** | **string**| Filter for users who have a given tag | [optional] 
- **filterGroup** | **string**| Filter for users in a given group, by unique name | [optional] 
- **filterRole** | **string**| Filter for users with a given role | [optional] 
- **filterSearch** | **string**| Filter for users whose display_name starts with the provided string, or username if display_name is null | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterDisplayname** | **string**| Filter for users whose display name starts with provided string. | 
+ **filterEmail** | **string**| Filter for users whose email starts with provided string. Requires USERS_ADMIN permission | 
+ **filterFirstname** | **string**| Filter for users whose first name starts with provided string. Requires USERS_ADMIN permission | 
+ **filterFullname** | **string**| Filter for users whose full name starts with provided string. Requires USERS_ADMIN permission | 
+ **filterLastname** | **string**| Filter for users whose last name starts with provided string. Requires USERS_ADMIN permission | 
+ **filterUsername** | **string**| Filter for users whose username starts with the provided string. Requires USERS_ADMIN permission | 
+ **filterTag** | **string**| Filter for users who have a given tag | 
+ **filterGroup** | **string**| Filter for users in a given group, by unique name | 
+ **filterRole** | **string**| Filter for users with a given role | 
+ **filterSearch** | **string**| Filter for users whose display_name starts with the provided string, or username if display_name is null | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -263,23 +284,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PasswordReset**
-> PasswordReset($id, $newPasswordRequest)
-
+> PasswordReset(id, optional)
 Choose a new password after a reset
 
 Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security.
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **id** | **int32**| The id of the user | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int32**| The id of the user | 
- **newPasswordRequest** | [**NewPasswordRequest**](NewPasswordRequest.md)| The new password request object | [optional] 
+ **newPasswordRequest** | [**NewPasswordRequest**](NewPasswordRequest.md)| The new password request object | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -293,18 +320,23 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RegisterUser**
-> UserResource RegisterUser($userResource)
-
+> UserResource RegisterUser(optional)
 Register a new user
 
 Password should be in plain text and will be encrypted on receipt. Use SSL for security
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userResource** | [**UserResource**](UserResource.md)| The user resource object | [optional] 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userResource** | [**UserResource**](UserResource.md)| The user resource object | 
 
 ### Return type
 
@@ -322,21 +354,20 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RemoveUserTag**
-> RemoveUserTag($userId, $tag)
-
+> RemoveUserTag(ctx, userId, tag)
 Remove a tag from a user
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The id of the user | 
- **tag** | **string**| The tag to remove | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
+  **tag** | **string**| The tag to remove | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -350,23 +381,30 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetPassword**
-> SetPassword($id, $password)
-
+> SetPassword(ctx, id, optional)
 Set a user's password
 
 Password should be in plain text and will be encrypted on receipt. Use SSL for security.
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int32**| The id of the user | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int32**| The id of the user | 
- **password** | **string**| The new plain text password | [optional] 
+ **password** | [**StringWrapper**](StringWrapper.md)| The new plain text password | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -380,22 +418,20 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **StartPasswordReset**
-> StartPasswordReset($id)
-
+> StartPasswordReset(id)
 Reset a user's password
 
 A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int32**| The id of the user | 
+  **id** | **int32**| The id of the user | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -409,22 +445,27 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SubmitPasswordReset**
-> SubmitPasswordReset($passwordReset)
-
+> SubmitPasswordReset(optional)
 Reset a user's password without user id
 
 A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **passwordReset** | [**PasswordResetRequest**](PasswordResetRequest.md)| An object containing one of three methods to look up a user | [optional] 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **passwordReset** | [**PasswordResetRequest**](PasswordResetRequest.md)| An object containing one of three methods to look up a user | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -438,23 +479,30 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUser**
-> UpdateUser($id, $userResource)
-
+> UpdateUser(ctx, id, optional)
 Update a user
 
 Password will not be edited on this endpoint, use password specific endpoints.
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the user or &#39;me&#39; | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the user or &#39;me&#39; | 
- **userResource** | [**UserResource**](UserResource.md)| The user resource object | [optional] 
+ **userResource** | [**UserResource**](UserResource.md)| The user resource object | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -468,17 +516,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUserTemplate**
-> TemplateResource UpdateUserTemplate($id, $userTemplateResource)
-
+> TemplateResource UpdateUserTemplate(ctx, id, optional)
 Update a user template
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **userTemplateResource** | [**TemplateResource**](TemplateResource.md)| The user template resource object | [optional] 
+ **userTemplateResource** | [**TemplateResource**](TemplateResource.md)| The user template resource object | 
 
 ### Return type
 

@@ -13,23 +13,22 @@ Method | HTTP request | Description
 
 
 # **AddFriend**
-> AddFriend($userId, $id)
-
+> AddFriend(ctx, userId, id)
 Add a friend
 
 As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**| The id of the user or &#39;me&#39; if logged in | 
- **id** | **int32**| The id of the user to befriend | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **string**| The id of the user or &#39;me&#39; if logged in | 
+  **id** | **int32**| The id of the user to befriend | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -43,18 +42,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetFriends**
-> PageResourceSimpleUserResource GetFriends($userId, $size, $page)
-
+> PageResourceSimpleUserResource GetFriends(ctx, userId, optional)
 Get friends list
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **string**| The id of the user or &#39;me&#39; | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**| The id of the user or &#39;me&#39; | 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -72,18 +78,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetInviteToken**
-> string GetInviteToken($userId)
-
+> string GetInviteToken(ctx, userId)
 Returns the invite token
 
 This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request flow instead if confirmation is required
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**| The id of the user or &#39;me&#39; if logged in | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **string**| The id of the user or &#39;me&#39; if logged in | 
 
 ### Return type
 
@@ -101,20 +106,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetInvites**
-> PageResourceSimpleUserResource GetInvites($userId, $size, $page)
-
+> PageResourceSimpleUserResource GetInvites(ctx, userId, optional)
 Get pending invites
 
 Invites that the specified user received
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **string**| The id of the user or &#39;me&#39; | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**| The id of the user or &#39;me&#39; | 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -132,23 +144,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RedeemFriendshipToken**
-> RedeemFriendshipToken($userId, $token)
-
+> RedeemFriendshipToken(ctx, userId, optional)
 Redeem friendship token
 
 Immediately connects the requested user with the user mapped by the provided invite token
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **string**| The id of the user or &#39;me&#39; if logged in | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**| The id of the user or &#39;me&#39; if logged in | 
- **token** | **string**| The invite token | [optional] 
+ **token** | [**StringWrapper**](StringWrapper.md)| The invite token | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -162,21 +181,20 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RemoveOrDeclineFriend**
-> RemoveOrDeclineFriend($userId, $id)
-
+> RemoveOrDeclineFriend(ctx, userId, id)
 Remove or decline a friend
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **string**| The id of the user or &#39;me&#39; if logged in | 
- **id** | **int32**| The id of the user to befriend | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **string**| The id of the user or &#39;me&#39; if logged in | 
+  **id** | **int32**| The id of the user to befriend | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 

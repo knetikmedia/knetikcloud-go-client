@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Active** | **bool** | Whether the poll is active | [default to null]
 **AdditionalProperties** | [**map[string]Property**](Property.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type | [optional] [default to null]
 **Answers** | [**[]PollAnswerResource**](PollAnswerResource.md) | The answers to the poll | [default to null]
-**Category** | [**NestedCategory**](NestedCategory.md) | The category for the poll | [default to null]
+**Category** | [***NestedCategory**](NestedCategory.md) | The category for the poll | [default to null]
 **CreatedDate** | **int64** | The date/time this resource was created in seconds since unix epoch | [optional] [default to null]
 **Id** | **string** | The id of the poll | [optional] [default to null]
 **Tags** | **[]string** | The tags for the poll | [optional] [default to null]

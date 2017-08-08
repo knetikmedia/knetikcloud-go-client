@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Launch** | **string** | Details about how to launch the activity | [optional] [default to null]
 **LongDescription** | **string** | The user friendly name of that resource. Defaults to blank string | [optional] [default to null]
 **Name** | **string** | The user friendly name of that resource | [default to null]
-**RewardSet** | [**RewardSetResource**](RewardSetResource.md) | The rewards to give at the end of each occurence of the activity. When creating/updating only id is used. Reward set must be pre-existing | [optional] [default to null]
+**RewardSet** | [***RewardSetResource**](RewardSetResource.md) | The rewards to give at the end of each occurence of the activity. When creating/updating only id is used. Reward set must be pre-existing | [optional] [default to null]
 **Settings** | [**[]AvailableSettingResource**](AvailableSettingResource.md) | Define what parameters are required/available to start and run an activity. For example: Difficulty, Number of Questions, Character name, Avatar, Duration, etc. Not populated when getting listing | [optional] [default to null]
 **ShortDescription** | **string** | The user friendly name of that resource. Defaults to blank string | [optional] [default to null]
 **Template** | **bool** | Whether this activity is a template for other activities. Default: false | [optional] [default to null]

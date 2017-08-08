@@ -13,7 +13,7 @@ package swagger
 type QuestionTemplateResource struct {
 
 	// A property definition for all answers. If included each answer must match this definition's type and be valid
-	AnswerProperty PropertyDefinitionResource `json:"answer_property,omitempty"`
+	AnswerProperty *PropertyDefinitionResource `json:"answer_property,omitempty"`
 
 	// The date/time this resource was created in seconds since unix epoch
 	CreatedDate int64 `json:"created_date,omitempty"`
@@ -28,7 +28,7 @@ type QuestionTemplateResource struct {
 	Properties []PropertyDefinitionResource `json:"properties,omitempty"`
 
 	// A property definition for the question itself. If included the answer must match this definition's type and be valid
-	QuestionProperty PropertyDefinitionResource `json:"question_property,omitempty"`
+	QuestionProperty *PropertyDefinitionResource `json:"question_property,omitempty"`
 
 	// The date/time this resource was last updated in seconds since unix epoch
 	UpdatedDate int64 `json:"updated_date,omitempty"`

@@ -37,17 +37,24 @@ Method | HTTP request | Description
 
 
 # **AddQuestionAnswers**
-> AnswerResource AddQuestionAnswers($questionId, $answer)
-
+> AnswerResource AddQuestionAnswers(ctx, questionId, optional)
 Add an answer to a question
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **questionId** | **string**| The id of the question | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **questionId** | **string**| The id of the question | 
- **answer** | [**AnswerResource**](AnswerResource.md)| The new answer | [optional] 
+ **answer** | [**AnswerResource**](AnswerResource.md)| The new answer | 
 
 ### Return type
 
@@ -65,21 +72,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddQuestionTag**
-> AddQuestionTag($id, $tag)
-
+> AddQuestionTag(ctx, id, optional)
 Add a tag to a question
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the question | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the question | 
- **tag** | **string**| The new tag | [optional] 
+ **tag** | [**StringWrapper**](StringWrapper.md)| The new tag | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -93,26 +107,32 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddTagToQuestionsBatch**
-> int32 AddTagToQuestionsBatch($tag, $filterSearch, $filterIdset, $filterCategory, $filterTag, $filterTagset, $filterType, $filterPublished, $filterImportId)
-
+> int32 AddTagToQuestionsBatch(ctx, optional)
 Add a tag to a batch of questions
 
 All questions that dont't have the tag and match filters will have it added. The returned number is the number of questions updated.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tag** | **string**| The tag to add | [optional] 
- **filterSearch** | **string**| Filter for documents whose question, answers or tags contains provided string | [optional] 
- **filterIdset** | **string**| Filter for documents whose id is in the comma separated list provided | [optional] 
- **filterCategory** | **string**| Filter for questions with specified category, by id | [optional] 
- **filterTag** | **string**| Filter for questions with specified tag | [optional] 
- **filterTagset** | **string**| Filter for questions with specified tags (separated by comma) | [optional] 
- **filterType** | **string**| Filter for questions with specified type | [optional] 
- **filterPublished** | **bool**| Filter for questions currenctly published or not | [optional] 
- **filterImportId** | **int64**| Filter for questions from a specific import job | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tag** | [**StringWrapper**](StringWrapper.md)| The tag to add | 
+ **filterSearch** | **string**| Filter for documents whose question, answers or tags contains provided string | 
+ **filterIdset** | **string**| Filter for documents whose id is in the comma separated list provided | 
+ **filterCategory** | **string**| Filter for questions with specified category, by id | 
+ **filterTag** | **string**| Filter for questions with specified tag | 
+ **filterTagset** | **string**| Filter for questions with specified tags (separated by comma) | 
+ **filterType** | **string**| Filter for questions with specified type | 
+ **filterPublished** | **bool**| Filter for questions currenctly published or not | 
+ **filterImportId** | **int64**| Filter for questions from a specific import job | 
 
 ### Return type
 
@@ -130,18 +150,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateImportJob**
-> ImportJobResource CreateImportJob($request)
-
+> ImportJobResource CreateImportJob(ctx, optional)
 Create an import job
 
 Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**ImportJobResource**](ImportJobResource.md)| The new import job | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**ImportJobResource**](ImportJobResource.md)| The new import job | 
 
 ### Return type
 
@@ -159,16 +185,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateQuestion**
-> QuestionResource CreateQuestion($question)
-
+> QuestionResource CreateQuestion(ctx, optional)
 Create a question
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **question** | [**QuestionResource**](QuestionResource.md)| The new question | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **question** | [**QuestionResource**](QuestionResource.md)| The new question | 
 
 ### Return type
 
@@ -186,18 +218,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateQuestionTemplate**
-> QuestionTemplateResource CreateQuestionTemplate($questionTemplateResource)
-
+> QuestionTemplateResource CreateQuestionTemplate(ctx, optional)
 Create a question template
 
 Question templates define a type of question and the properties they have
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **questionTemplateResource** | [**QuestionTemplateResource**](QuestionTemplateResource.md)| The question template resource object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **questionTemplateResource** | [**QuestionTemplateResource**](QuestionTemplateResource.md)| The question template resource object | 
 
 ### Return type
 
@@ -215,22 +253,21 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteImportJob**
-> DeleteImportJob($id)
-
+> DeleteImportJob(ctx, id)
 Delete an import job
 
 Also deletes all questions that were imported by it
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int64**| The id of the job | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The id of the job | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -244,20 +281,19 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteQuestion**
-> DeleteQuestion($id)
-
+> DeleteQuestion(ctx, id)
 Delete a question
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the question | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the question | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -271,21 +307,20 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteQuestionAnswers**
-> DeleteQuestionAnswers($questionId, $id)
-
+> DeleteQuestionAnswers(ctx, questionId, id)
 Remove an answer from a question
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **questionId** | **string**| The id of the question | 
- **id** | **string**| The id of the answer | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **questionId** | **string**| The id of the question | 
+  **id** | **string**| The id of the answer | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -299,23 +334,30 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteQuestionTemplate**
-> DeleteQuestionTemplate($id, $cascade)
-
+> DeleteQuestionTemplate(ctx, id, optional)
 Delete a question template
 
 If cascade = 'detach', it will force delete the template even if it's attached to other objects
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **cascade** | **string**| The value needed to delete used templates | [optional] 
+ **cascade** | **string**| The value needed to delete used templates | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -329,16 +371,15 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetImportJob**
-> ImportJobResource GetImportJob($id)
-
+> ImportJobResource GetImportJob(ctx, id)
 Get an import job
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int64**| The id of the job | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The id of the job | 
 
 ### Return type
 
@@ -356,22 +397,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetImportJobs**
-> PageResourceImportJobResource GetImportJobs($filterVendor, $filterCategory, $filterName, $filterStatus, $size, $page, $order)
-
+> PageResourceImportJobResource GetImportJobs(ctx, optional)
 Get a list of import job
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterVendor** | **string**| Filter for jobs by vendor id | [optional] 
- **filterCategory** | **string**| Filter for jobs by category id | [optional] 
- **filterName** | **string**| Filter for jobs which name *STARTS* with the given string | [optional] 
- **filterStatus** | **string**| Filter for jobs that are in a specific set of statuses (comma separated) | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterVendor** | **string**| Filter for jobs by vendor id | 
+ **filterCategory** | **string**| Filter for jobs by category id | 
+ **filterName** | **string**| Filter for jobs which name *STARTS* with the given string | 
+ **filterStatus** | **string**| Filter for jobs that are in a specific set of statuses (comma separated) | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -389,16 +436,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetQuestion**
-> QuestionResource GetQuestion($id)
-
+> QuestionResource GetQuestion(ctx, id)
 Get a single question
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the question | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the question | 
 
 ### Return type
 
@@ -416,17 +462,16 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetQuestionAnswer**
-> AnswerResource GetQuestionAnswer($questionId, $id)
-
+> AnswerResource GetQuestionAnswer(ctx, questionId, id)
 Get an answer for a question
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **questionId** | **string**| The id of the question | 
- **id** | **string**| The id of the answer | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **questionId** | **string**| The id of the question | 
+  **id** | **string**| The id of the answer | 
 
 ### Return type
 
@@ -444,16 +489,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetQuestionAnswers**
-> []AnswerResource GetQuestionAnswers($questionId)
-
+> []AnswerResource GetQuestionAnswers(ctx, questionId)
 List the answers available for a question
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **questionId** | **string**| The id of the question | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **questionId** | **string**| The id of the question | 
 
 ### Return type
 
@@ -471,18 +515,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetQuestionDeltas**
-> []DeltaResource GetQuestionDeltas($since)
-
+> []DeltaResource GetQuestionDeltas(ctx, optional)
 List question deltas in ascending order of updated date
 
 The 'since' parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **since** | **int64**| Timestamp in seconds | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **since** | **int64**| Timestamp in seconds | 
 
 ### Return type
 
@@ -500,16 +550,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetQuestionTags**
-> []string GetQuestionTags($id)
-
+> []string GetQuestionTags(ctx, id)
 List the tags for a question
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the question | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the question | 
 
 ### Return type
 
@@ -527,16 +576,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetQuestionTemplate**
-> QuestionTemplateResource GetQuestionTemplate($id)
-
+> QuestionTemplateResource GetQuestionTemplate(ctx, id)
 Get a single question template
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the template | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
 
 ### Return type
 
@@ -554,18 +602,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetQuestionTemplates**
-> PageResourceQuestionTemplateResource GetQuestionTemplates($size, $page, $order)
-
+> PageResourceQuestionTemplateResource GetQuestionTemplates(ctx, optional)
 List and search question templates
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -583,26 +637,32 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetQuestions**
-> PageResourceQuestionResource GetQuestions($size, $page, $order, $filterSearch, $filterIdset, $filterCategory, $filterTagset, $filterTag, $filterType, $filterPublished, $filterImportId)
-
+> PageResourceQuestionResource GetQuestions(ctx, optional)
 List and search questions
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
- **filterSearch** | **string**| Filter for documents whose question, answers or tags contains provided string | [optional] 
- **filterIdset** | **string**| Filter for documents whose id is in the comma separated list provided | [optional] 
- **filterCategory** | **string**| Filter for questions with specified category, by id | [optional] 
- **filterTagset** | **string**| Filter for questions with specified tags (separated by comma) | [optional] 
- **filterTag** | **string**| Filter for questions with specified tag | [optional] 
- **filterType** | **string**| Filter for questions with specified type.  Allowable values: (&#39;TEXT&#39;, &#39;IMAGE&#39;, &#39;VIDEO&#39;, &#39;AUDIO&#39;) | [optional] 
- **filterPublished** | **bool**| Filter for questions currenctly published or not | [optional] 
- **filterImportId** | **int64**| Filter for questions from a specific import job | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
+ **filterSearch** | **string**| Filter for documents whose question, answers or tags contains provided string | 
+ **filterIdset** | **string**| Filter for documents whose id is in the comma separated list provided | 
+ **filterCategory** | **string**| Filter for questions with specified category, by id | 
+ **filterTagset** | **string**| Filter for questions with specified tags (separated by comma) | 
+ **filterTag** | **string**| Filter for questions with specified tag | 
+ **filterType** | **string**| Filter for questions with specified type.  Allowable values: (&#39;TEXT&#39;, &#39;IMAGE&#39;, &#39;VIDEO&#39;, &#39;AUDIO&#39;) | 
+ **filterPublished** | **bool**| Filter for questions currenctly published or not | 
+ **filterImportId** | **int64**| Filter for questions from a specific import job | 
 
 ### Return type
 
@@ -620,24 +680,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetQuestionsCount**
-> int64 GetQuestionsCount($filterSearch, $filterIdset, $filterCategory, $filterTag, $filterTagset, $filterType, $filterPublished)
-
+> int64 GetQuestionsCount(ctx, optional)
 Count questions based on filters
 
 This is also provided by the list endpoint so you don't need to call this for pagination purposes
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterSearch** | **string**| Filter for documents whose question, answers or tags contains provided string | [optional] 
- **filterIdset** | **string**| Filter for documents whose id is in the comma separated list provided | [optional] 
- **filterCategory** | **string**| Filter for questions with specified category, by id | [optional] 
- **filterTag** | **string**| Filter for questions with specified tag | [optional] 
- **filterTagset** | **string**| Filter for questions with specified tags (separated by comma) | [optional] 
- **filterType** | **string**| Filter for questions with specified type.  Allowable values: (&#39;TEXT&#39;, &#39;IMAGE&#39;, &#39;VIDEO&#39;, &#39;AUDIO&#39;) | [optional] 
- **filterPublished** | **bool**| Filter for questions currenctly published or not | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterSearch** | **string**| Filter for documents whose question, answers or tags contains provided string | 
+ **filterIdset** | **string**| Filter for documents whose id is in the comma separated list provided | 
+ **filterCategory** | **string**| Filter for questions with specified category, by id | 
+ **filterTag** | **string**| Filter for questions with specified tag | 
+ **filterTagset** | **string**| Filter for questions with specified tags (separated by comma) | 
+ **filterType** | **string**| Filter for questions with specified type.  Allowable values: (&#39;TEXT&#39;, &#39;IMAGE&#39;, &#39;VIDEO&#39;, &#39;AUDIO&#39;) | 
+ **filterPublished** | **bool**| Filter for questions currenctly published or not | 
 
 ### Return type
 
@@ -655,19 +721,18 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ProcessImportJob**
-> ImportJobResource ProcessImportJob($id, $publishNow)
-
+> ImportJobResource ProcessImportJob(ctx, id, publishNow)
 Start processing an import job
 
 Will process the CSV file and add new questions asynchronously. The status of the job must be 'VALID'.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int64**| The id of the job | 
- **publishNow** | **bool**| Whether the new questions should be published live immediately | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The id of the job | 
+  **publishNow** | **bool**| Whether the new questions should be published live immediately | 
 
 ### Return type
 
@@ -685,21 +750,20 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RemoveQuestionTag**
-> RemoveQuestionTag($id, $tag)
-
+> RemoveQuestionTag(ctx, id, tag)
 Remove a tag from a question
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the question | 
- **tag** | **string**| The tag to remove | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the question | 
+  **tag** | **string**| The tag to remove | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -713,26 +777,33 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RemoveTagToQuestionsBatch**
-> int32 RemoveTagToQuestionsBatch($tag, $filterSearch, $filterIdset, $filterCategory, $filterTag, $filterTagset, $filterType, $filterPublished, $filterImportId)
-
+> int32 RemoveTagToQuestionsBatch(ctx, tag, optional)
 Remove a tag from a batch of questions
 
 ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated.
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **tag** | **string**| The tag to remove | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tag** | **string**| The tag to remove | 
- **filterSearch** | **string**| Filter for documents whose question, answers or tags contains provided string | [optional] 
- **filterIdset** | **string**| Filter for documents whose id is in the comma separated list provided | [optional] 
- **filterCategory** | **string**| Filter for questions with specified category, by id | [optional] 
- **filterTag** | **string**| Filter for questions with specified tag | [optional] 
- **filterTagset** | **string**| Filter for questions with specified tags (separated by comma) | [optional] 
- **filterType** | **string**| Filter for questions with specified type.  Allowable values: (&#39;TEXT&#39;, &#39;IMAGE&#39;, &#39;VIDEO&#39;, &#39;AUDIO&#39;) | [optional] 
- **filterPublished** | **bool**| Filter for questions currenctly published or not | [optional] 
- **filterImportId** | **int64**| Filter for questions from a specific import job | [optional] 
+ **filterSearch** | **string**| Filter for documents whose question, answers or tags contains provided string | 
+ **filterIdset** | **string**| Filter for documents whose id is in the comma separated list provided | 
+ **filterCategory** | **string**| Filter for questions with specified category, by id | 
+ **filterTag** | **string**| Filter for questions with specified tag | 
+ **filterTagset** | **string**| Filter for questions with specified tags (separated by comma) | 
+ **filterType** | **string**| Filter for questions with specified type.  Allowable values: (&#39;TEXT&#39;, &#39;IMAGE&#39;, &#39;VIDEO&#39;, &#39;AUDIO&#39;) | 
+ **filterPublished** | **bool**| Filter for questions currenctly published or not | 
+ **filterImportId** | **int64**| Filter for questions from a specific import job | 
 
 ### Return type
 
@@ -750,20 +821,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SearchQuestionTags**
-> Collectionstring SearchQuestionTags($filterSearch, $filterCategory, $filterImportId)
-
+> Collectionstring SearchQuestionTags(ctx, optional)
 List and search tags by the beginning of the string
 
 For performance reasons, search & category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterSearch** | **string**| Filter for tags starting with the given text | [optional] 
- **filterCategory** | **string**| Filter for tags on questions from a specific category | [optional] 
- **filterImportId** | **int64**| Filter for tags on questions from a specific import job | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterSearch** | **string**| Filter for tags starting with the given text | 
+ **filterCategory** | **string**| Filter for tags on questions from a specific category | 
+ **filterImportId** | **int64**| Filter for tags on questions from a specific import job | 
 
 ### Return type
 
@@ -781,19 +858,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateImportJob**
-> ImportJobResource UpdateImportJob($id, $request)
-
+> ImportJobResource UpdateImportJob(ctx, id, optional)
 Update an import job
 
 Changes should be made before process is started for there to be any effect.
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The id of the job | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int64**| The id of the job | 
- **request** | [**ImportJobResource**](ImportJobResource.md)| The updated job | [optional] 
+ **request** | [**ImportJobResource**](ImportJobResource.md)| The updated job | 
 
 ### Return type
 
@@ -811,17 +895,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateQuestion**
-> QuestionResource UpdateQuestion($id, $question)
-
+> QuestionResource UpdateQuestion(ctx, id, optional)
 Update a question
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the question | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the question | 
- **question** | [**QuestionResource**](QuestionResource.md)| The updated question | [optional] 
+ **question** | [**QuestionResource**](QuestionResource.md)| The updated question | 
 
 ### Return type
 
@@ -839,22 +930,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateQuestionAnswer**
-> UpdateQuestionAnswer($questionId, $id, $answer)
-
+> UpdateQuestionAnswer(ctx, questionId, id, optional)
 Update an answer for a question
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **questionId** | **string**| The id of the question | 
+  **id** | **string**| The id of the answer | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **questionId** | **string**| The id of the question | 
  **id** | **string**| The id of the answer | 
- **answer** | [**AnswerResource**](AnswerResource.md)| The updated answer | [optional] 
+ **answer** | [**AnswerResource**](AnswerResource.md)| The updated answer | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -868,17 +967,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateQuestionTemplate**
-> QuestionTemplateResource UpdateQuestionTemplate($id, $questionTemplateResource)
-
+> QuestionTemplateResource UpdateQuestionTemplate(ctx, id, optional)
 Update a question template
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **questionTemplateResource** | [**QuestionTemplateResource**](QuestionTemplateResource.md)| The question template resource object | [optional] 
+ **questionTemplateResource** | [**QuestionTemplateResource**](QuestionTemplateResource.md)| The question template resource object | 
 
 ### Return type
 
@@ -896,25 +1002,31 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateQuestionsInBulk**
-> int32 UpdateQuestionsInBulk($question, $filterSearch, $filterIdset, $filterCategory, $filterTagset, $filterType, $filterPublished, $filterImportId)
-
+> int32 UpdateQuestionsInBulk(ctx, optional)
 Bulk update questions
 
 Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **question** | [**QuestionResource**](QuestionResource.md)| New values for a set of question fields | [optional] 
- **filterSearch** | **string**| Filter for documents whose question, answers or tags contains provided string | [optional] 
- **filterIdset** | **string**| Filter for documents whose id is in the comma separated list provided | [optional] 
- **filterCategory** | **string**| Filter for questions with specified category, by id | [optional] 
- **filterTagset** | **string**| Filter for questions with specified tags (separated by comma) | [optional] 
- **filterType** | **string**| Filter for questions with specified type.  Allowable values: (&#39;TEXT&#39;, &#39;IMAGE&#39;, &#39;VIDEO&#39;, &#39;AUDIO&#39;) | [optional] 
- **filterPublished** | **bool**| Filter for questions currenctly published or not | [optional] 
- **filterImportId** | **int64**| Filter for questions from a specific import job | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **question** | [**QuestionResource**](QuestionResource.md)| New values for a set of question fields | 
+ **filterSearch** | **string**| Filter for documents whose question, answers or tags contains provided string | 
+ **filterIdset** | **string**| Filter for documents whose id is in the comma separated list provided | 
+ **filterCategory** | **string**| Filter for questions with specified category, by id | 
+ **filterTagset** | **string**| Filter for questions with specified tags (separated by comma) | 
+ **filterType** | **string**| Filter for questions with specified type.  Allowable values: (&#39;TEXT&#39;, &#39;IMAGE&#39;, &#39;VIDEO&#39;, &#39;AUDIO&#39;) | 
+ **filterPublished** | **bool**| Filter for questions currenctly published or not | 
+ **filterImportId** | **int64**| Filter for questions from a specific import job | 
 
 ### Return type
 

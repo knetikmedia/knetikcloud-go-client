@@ -20,7 +20,7 @@ type NewCustomerEvent struct {
 
 	Section string `json:"section,omitempty"`
 
-	Source interface{} `json:"source,omitempty"`
+	Source *interface{} `json:"source,omitempty"`
 
 	Specifics string `json:"specifics,omitempty"`
 
@@ -31,5 +31,5 @@ type NewCustomerEvent struct {
 	// The type of the event. Used for polymorphic type recognition and thus must match an expected type
 	Type_ string `json:"type"`
 
-	CustomerConfig CustomerConfig `json:"customer_config,omitempty"`
+	CustomerConfig *CustomerConfig `json:"customer_config,omitempty"`
 }

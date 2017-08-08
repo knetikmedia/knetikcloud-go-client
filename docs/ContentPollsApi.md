@@ -19,17 +19,24 @@ Method | HTTP request | Description
 
 
 # **AnswerPoll**
-> PollResponseResource AnswerPoll($id, $answerKey)
-
+> PollResponseResource AnswerPoll(ctx, id, optional)
 Add your vote to a poll
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The poll id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The poll id | 
- **answerKey** | **string**| The answer key | [optional] 
+ **answerKey** | [**StringWrapper**](StringWrapper.md)| The answer key | 
 
 ### Return type
 
@@ -47,18 +54,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreatePoll**
-> PollResource CreatePoll($pollResource)
-
+> PollResource CreatePoll(ctx, optional)
 Create a new poll
 
 Polls are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pollResource** | [**PollResource**](PollResource.md)| The poll object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pollResource** | [**PollResource**](PollResource.md)| The poll object | 
 
 ### Return type
 
@@ -76,18 +89,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreatePollTemplate**
-> TemplateResource CreatePollTemplate($pollTemplateResource)
-
+> TemplateResource CreatePollTemplate(ctx, optional)
 Create a poll template
 
 Poll templates define a type of poll and the properties they have
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pollTemplateResource** | [**TemplateResource**](TemplateResource.md)| The poll template resource object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pollTemplateResource** | [**TemplateResource**](TemplateResource.md)| The poll template resource object | 
 
 ### Return type
 
@@ -105,20 +124,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeletePoll**
-> DeletePoll($id)
-
+> DeletePoll(ctx, id)
 Delete an existing poll
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The poll id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The poll id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -132,23 +150,30 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeletePollTemplate**
-> DeletePollTemplate($id, $cascade)
-
+> DeletePollTemplate(ctx, id, optional)
 Delete a poll template
 
 If cascade = 'detach', it will force delete the template even if it's attached to other objects
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **cascade** | **string**| The value needed to delete used templates | [optional] 
+ **cascade** | **string**| The value needed to delete used templates | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -162,16 +187,14 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPoll**
-> PollResource GetPoll($id)
-
+> PollResource GetPoll(id)
 Get a single poll
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The poll id | 
+  **id** | **string**| The poll id | 
 
 ### Return type
 
@@ -189,16 +212,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPollAnswer**
-> PollResponseResource GetPollAnswer($id)
-
+> PollResponseResource GetPollAnswer(ctx, id)
 Get poll answer
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The poll id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The poll id | 
 
 ### Return type
 
@@ -216,16 +238,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPollTemplate**
-> TemplateResource GetPollTemplate($id)
-
+> TemplateResource GetPollTemplate(ctx, id)
 Get a single poll template
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the template | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
 
 ### Return type
 
@@ -243,18 +264,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPollTemplates**
-> PageResourceTemplateResource GetPollTemplates($size, $page, $order)
-
+> PageResourceTemplateResource GetPollTemplates(ctx, optional)
 List and search poll templates
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -272,23 +299,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPolls**
-> PageResourcePollResource GetPolls($filterCategory, $filterTagset, $filterText, $size, $page, $order)
-
+> PageResourcePollResource GetPolls(optional)
 List and search polls
 
 Get a list of polls with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterCategory** | **string**| Filter for polls from a specific category by id | [optional] 
- **filterTagset** | **string**| Filter for polls with specified tags (separated by comma) | [optional] 
- **filterText** | **string**| Filter for polls whose text contains a string | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterCategory** | **string**| Filter for polls from a specific category by id | 
+ **filterTagset** | **string**| Filter for polls with specified tags (separated by comma) | 
+ **filterText** | **string**| Filter for polls whose text contains a string | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -306,17 +338,24 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdatePoll**
-> PollResource UpdatePoll($id, $pollResource)
-
+> PollResource UpdatePoll(ctx, id, optional)
 Update an existing poll
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The poll id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The poll id | 
- **pollResource** | [**PollResource**](PollResource.md)| The poll object | [optional] 
+ **pollResource** | [**PollResource**](PollResource.md)| The poll object | 
 
 ### Return type
 
@@ -334,17 +373,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdatePollTemplate**
-> TemplateResource UpdatePollTemplate($id, $pollTemplateResource)
-
+> TemplateResource UpdatePollTemplate(ctx, id, optional)
 Update a poll template
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **pollTemplateResource** | [**TemplateResource**](TemplateResource.md)| The poll template resource object | [optional] 
+ **pollTemplateResource** | [**TemplateResource**](TemplateResource.md)| The poll template resource object | 
 
 ### Return type
 

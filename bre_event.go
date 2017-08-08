@@ -16,5 +16,5 @@ type BreEvent struct {
 	EventName string `json:"event_name"`
 
 	// The parameters to the event. A Map (assosiative array) with a key for each trigger parameter name and a corrosponding value.
-	Params interface{} `json:"params"`
+	Params *interface{} `json:"params"`
 }

@@ -12,7 +12,7 @@ package swagger
 
 type ConfigLookupResource struct {
 
-	LookupKey ExpressionResource `json:"lookup_key,omitempty"`
+	LookupKey *ExpressionResource `json:"lookup_key,omitempty"`
 
 	Type_ string `json:"type,omitempty"`
 

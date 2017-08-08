@@ -8,22 +8,28 @@ Method | HTTP request | Description
 
 
 # **LinkAccounts**
-> LinkAccounts($facebookToken)
-
+> LinkAccounts(ctx, optional)
 Link facebook account
 
 Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **facebookToken** | [**FacebookToken**](FacebookToken.md)| The token from facebook | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **facebookToken** | [**FacebookToken**](FacebookToken.md)| The token from facebook | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 

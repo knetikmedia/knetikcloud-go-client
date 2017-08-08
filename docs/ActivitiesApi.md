@@ -20,16 +20,22 @@ Method | HTTP request | Description
 
 
 # **CreateActivity**
-> ActivityResource CreateActivity($activityResource)
-
+> ActivityResource CreateActivity(ctx, optional)
 Create an activity
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityResource** | [**ActivityResource**](ActivityResource.md)| The activity resource object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activityResource** | [**ActivityResource**](ActivityResource.md)| The activity resource object | 
 
 ### Return type
 
@@ -47,19 +53,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateActivityOccurrence**
-> ActivityOccurrenceResource CreateActivityOccurrence($test, $activityOccurrenceResource)
-
+> ActivityOccurrenceResource CreateActivityOccurrence(ctx, optional)
 Create a new activity occurrence. Ex: start a game
 
 Has to enforce extra rules if not used as an admin
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test** | **bool**| if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings | [optional] [default to false]
- **activityOccurrenceResource** | [**ActivityOccurrenceResource**](ActivityOccurrenceResource.md)| The activity occurrence object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **test** | **bool**| if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings | [default to false]
+ **activityOccurrenceResource** | [**ActivityOccurrenceResource**](ActivityOccurrenceResource.md)| The activity occurrence object | 
 
 ### Return type
 
@@ -77,18 +89,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateActivityTemplate**
-> TemplateResource CreateActivityTemplate($activityTemplateResource)
-
+> TemplateResource CreateActivityTemplate(ctx, optional)
 Create a activity template
 
 Activity Templates define a type of activity and the properties they have
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activityTemplateResource** | [**TemplateResource**](TemplateResource.md)| The activity template resource object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activityTemplateResource** | [**TemplateResource**](TemplateResource.md)| The activity template resource object | 
 
 ### Return type
 
@@ -106,20 +124,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteActivity**
-> DeleteActivity($id)
-
+> DeleteActivity(ctx, id)
 Delete an activity
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int64**| The id of the activity | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The id of the activity | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -133,23 +150,30 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteActivityTemplate**
-> DeleteActivityTemplate($id, $cascade)
-
+> DeleteActivityTemplate(ctx, id, optional)
 Delete a activity template
 
 If cascade = 'detach', it will force delete the template even if it's attached to other objects
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **cascade** | **string**| The value needed to delete used templates | [optional] 
+ **cascade** | **string**| The value needed to delete used templates | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -163,21 +187,26 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetActivities**
-> PageResourceBareActivityResource GetActivities($filterTemplate, $filterName, $filterId, $size, $page, $order)
-
+> PageResourceBareActivityResource GetActivities(optional)
 List activity definitions
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterTemplate** | **bool**| Filter for activities that are templates, or specifically not if false | [optional] 
- **filterName** | **string**| Filter for activities that have a name starting with specified string | [optional] 
- **filterId** | **string**| Filter for activities with an id in the given comma separated list of ids | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterTemplate** | **bool**| Filter for activities that are templates, or specifically not if false | 
+ **filterName** | **string**| Filter for activities that have a name starting with specified string | 
+ **filterId** | **string**| Filter for activities with an id in the given comma separated list of ids | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -195,16 +224,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetActivity**
-> ActivityResource GetActivity($id)
-
+> ActivityResource GetActivity(id)
 Get a single activity
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int64**| The id of the activity | 
+  **id** | **int64**| The id of the activity | 
 
 ### Return type
 
@@ -222,16 +249,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetActivityTemplate**
-> TemplateResource GetActivityTemplate($id)
-
+> TemplateResource GetActivityTemplate(ctx, id)
 Get a single activity template
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the template | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
 
 ### Return type
 
@@ -249,18 +275,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetActivityTemplates**
-> PageResourceTemplateResource GetActivityTemplates($size, $page, $order)
-
+> PageResourceTemplateResource GetActivityTemplates(ctx, optional)
 List and search activity templates
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -278,17 +310,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetActivityOccurrenceResults**
-> ActivityOccurrenceResults SetActivityOccurrenceResults($activityOccurrenceId, $activityOccurrenceResults)
-
+> ActivityOccurrenceResults SetActivityOccurrenceResults(ctx, activityOccurrenceId, optional)
 Sets the status of an activity occurrence to FINISHED and logs metrics
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **activityOccurrenceId** | **int64**| The id of the activity occurrence | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activityOccurrenceId** | **int64**| The id of the activity occurrence | 
- **activityOccurrenceResults** | [**ActivityOccurrenceResultsResource**](ActivityOccurrenceResultsResource.md)| The activity occurrence object | [optional] 
+ **activityOccurrenceResults** | [**ActivityOccurrenceResultsResource**](ActivityOccurrenceResultsResource.md)| The activity occurrence object | 
 
 ### Return type
 
@@ -306,17 +345,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateActivity**
-> ActivityResource UpdateActivity($id, $activityResource)
-
+> ActivityResource UpdateActivity(ctx, id, optional)
 Update an activity
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The id of the activity | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int64**| The id of the activity | 
- **activityResource** | [**ActivityResource**](ActivityResource.md)| The activity resource object | [optional] 
+ **activityResource** | [**ActivityResource**](ActivityResource.md)| The activity resource object | 
 
 ### Return type
 
@@ -334,23 +380,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateActivityOccurrence**
-> UpdateActivityOccurrence($activityOccurrenceId, $activityCccurrenceStatus)
-
+> UpdateActivityOccurrence(ctx, activityOccurrenceId, optional)
 Updated the status of an activity occurrence
 
 If setting to 'FINISHED' you must POST to /results instead to record the metrics and get synchronous reward results
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **activityOccurrenceId** | **int64**| The id of the activity occurrence | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activityOccurrenceId** | **int64**| The id of the activity occurrence | 
- **activityCccurrenceStatus** | **string**| The activity occurrence status object | [optional] 
+ **activityCccurrenceStatus** | **string**| The activity occurrence status object | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -364,17 +417,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateActivityTemplate**
-> TemplateResource UpdateActivityTemplate($id, $activityTemplateResource)
-
+> TemplateResource UpdateActivityTemplate(ctx, id, optional)
 Update an activity template
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **activityTemplateResource** | [**TemplateResource**](TemplateResource.md)| The activity template resource object | [optional] 
+ **activityTemplateResource** | [**TemplateResource**](TemplateResource.md)| The activity template resource object | 
 
 ### Return type
 

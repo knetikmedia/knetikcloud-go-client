@@ -13,7 +13,7 @@ package swagger
 type ActivityOccurrenceJoinResult struct {
 
 	// The details on the entitlement object needed to enter the occurrence (if any)
-	Entitlement ActivityEntitlementResource `json:"entitlement,omitempty"`
+	Entitlement *ActivityEntitlementResource `json:"entitlement,omitempty"`
 
 	// Zero if the user was/could be added to the occurrence. Jsapi error code indicating the reason of the failure otherwise
 	ErrorCode int32 `json:"error_code"`

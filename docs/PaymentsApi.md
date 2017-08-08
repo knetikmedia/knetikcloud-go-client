@@ -14,17 +14,24 @@ Method | HTTP request | Description
 
 
 # **CreatePaymentMethod**
-> PaymentMethodResource CreatePaymentMethod($userId, $paymentMethod)
-
+> PaymentMethodResource CreatePaymentMethod(ctx, userId, optional)
 Create a new payment method for a user
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| ID of the user for whom the payment method is being created | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| ID of the user for whom the payment method is being created | 
- **paymentMethod** | [**PaymentMethodResource**](PaymentMethodResource.md)| Payment method being created | [optional] 
+ **paymentMethod** | [**PaymentMethodResource**](PaymentMethodResource.md)| Payment method being created | 
 
 ### Return type
 
@@ -42,21 +49,20 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeletePaymentMethod**
-> DeletePaymentMethod($userId, $id)
-
+> DeletePaymentMethod(ctx, userId, id)
 Delete an existing payment method for a user
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| ID of the user for whom the payment method is being updated | 
- **id** | **int32**| ID of the payment method being deleted | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| ID of the user for whom the payment method is being updated | 
+  **id** | **int32**| ID of the payment method being deleted | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -70,17 +76,16 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPaymentMethod**
-> PaymentMethodResource GetPaymentMethod($userId, $id)
-
+> PaymentMethodResource GetPaymentMethod(ctx, userId, id)
 Get a single payment method for a user
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| ID of the user for whom the payment method is being retrieved | 
- **id** | **int32**| ID of the payment method being retrieved | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| ID of the user for whom the payment method is being retrieved | 
+  **id** | **int32**| ID of the payment method being retrieved | 
 
 ### Return type
 
@@ -98,23 +103,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPaymentMethods**
-> []PaymentMethodResource GetPaymentMethods($userId, $filterName, $filterPaymentType, $filterPaymentMethodTypeId, $filterPaymentMethodTypeName, $size, $page, $order)
-
+> []PaymentMethodResource GetPaymentMethods(ctx, userId, optional)
 Get all payment methods for a user
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| ID of the user for whom the payment methods are being retrieved | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| ID of the user for whom the payment methods are being retrieved | 
- **filterName** | **string**| Filter for payment methods whose name starts with a given string | [optional] 
- **filterPaymentType** | **string**| Filter for payment methods with a specific payment type | [optional] 
- **filterPaymentMethodTypeId** | **int32**| Filter for payment methods with a specific payment method type by id | [optional] 
- **filterPaymentMethodTypeName** | **string**| Filter for payment methods whose payment method type name starts with a given string | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **filterName** | **string**| Filter for payment methods whose name starts with a given string | 
+ **filterPaymentType** | **string**| Filter for payment methods with a specific payment type | 
+ **filterPaymentMethodTypeId** | **int32**| Filter for payment methods with a specific payment method type by id | 
+ **filterPaymentMethodTypeName** | **string**| Filter for payment methods whose payment method type name starts with a given string | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -132,16 +144,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PaymentAuthorization**
-> PaymentAuthorizationResource PaymentAuthorization($request)
-
+> PaymentAuthorizationResource PaymentAuthorization(ctx, optional)
 Authorize payment of an invoice for later capture
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**PaymentAuthorizationResource**](PaymentAuthorizationResource.md)| Payment authorization request | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**PaymentAuthorizationResource**](PaymentAuthorizationResource.md)| Payment authorization request | 
 
 ### Return type
 
@@ -159,20 +177,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PaymentCapture**
-> PaymentCapture($id)
-
+> PaymentCapture(ctx, id)
 Capture an existing invoice payment authorization
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int32**| ID of the payment authorization to capture | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int32**| ID of the payment authorization to capture | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -186,18 +203,26 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdatePaymentMethod**
-> PaymentMethodResource UpdatePaymentMethod($userId, $id, $paymentMethod)
-
+> PaymentMethodResource UpdatePaymentMethod(ctx, userId, id, optional)
 Update an existing payment method for a user
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| ID of the user for whom the payment method is being updated | 
+  **id** | **int32**| ID of the payment method being updated | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| ID of the user for whom the payment method is being updated | 
  **id** | **int32**| ID of the payment method being updated | 
- **paymentMethod** | [**PaymentMethodResource**](PaymentMethodResource.md)| The updated payment method data | [optional] 
+ **paymentMethod** | [**PaymentMethodResource**](PaymentMethodResource.md)| The updated payment method data | 
 
 ### Return type
 

@@ -13,10 +13,10 @@ package swagger
 type ContributionResource struct {
 
 	// A reference to the contributing artist
-	Artist SimpleReferenceResourcelong `json:"artist"`
+	Artist *SimpleReferenceResourcelong `json:"artist"`
 
 	// A reference to the media being contributed to
-	Media SimpleReferenceResourcelong `json:"media"`
+	Media *SimpleReferenceResourcelong `json:"media"`
 
 	// The nature of the contribution (role of the artist as in 'producer', 'performer', etc)
 	Role string `json:"role"`

@@ -16,5 +16,5 @@ type ParameterResource struct {
 
 	Type_ string `json:"type,omitempty"`
 
-	Value interface{} `json:"value,omitempty"`
+	Value *interface{} `json:"value,omitempty"`
 }

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LookupKey** | [**ExpressionResource**](ExpressionResource.md) |  | [optional] [default to null]
+**LookupKey** | [***ExpressionResource**](ExpressionResource.md) |  | [optional] [default to null]
 **Type_** | **string** |  | [optional] [default to null]
 **ValueType** | **string** |  | [optional] [default to null]
 

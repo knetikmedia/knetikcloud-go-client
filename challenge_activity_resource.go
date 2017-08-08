@@ -22,13 +22,13 @@ type ChallengeActivityResource struct {
 	ChallengeId int64 `json:"challenge_id,omitempty"`
 
 	// The entitlement item needed to participate in the activity as part of this event. Null indicates free entry. When creating/updating only id is used. Item must be pre-existing
-	Entitlement ActivityEntitlementResource `json:"entitlement,omitempty"`
+	Entitlement *ActivityEntitlementResource `json:"entitlement,omitempty"`
 
 	// The unique ID for this resource
 	Id int64 `json:"id,omitempty"`
 
 	// The rewards to give at the end of each occurence of the activity. When creating/updating only id is used. Reward set must be pre-existing
-	RewardSet RewardSetResource `json:"reward_set,omitempty"`
+	RewardSet *RewardSetResource `json:"reward_set,omitempty"`
 
 	// The list of settings and the select options
 	Settings []SelectedSettingResource `json:"settings,omitempty"`

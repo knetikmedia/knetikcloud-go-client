@@ -42,7 +42,7 @@ type Cart struct {
 
 	Shippable bool `json:"shippable,omitempty"`
 
-	ShippingAddress CartShippingAddressRequest `json:"shipping_address,omitempty"`
+	ShippingAddress *CartShippingAddressRequest `json:"shipping_address,omitempty"`
 
 	ShippingCost float64 `json:"shipping_cost,omitempty"`
 

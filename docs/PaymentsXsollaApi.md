@@ -9,16 +9,22 @@ Method | HTTP request | Description
 
 
 # **CreateXsollaTokenUrl**
-> string CreateXsollaTokenUrl($request)
-
+> string CreateXsollaTokenUrl(ctx, optional)
 Create a payment token that should be used to forward the user to Xsolla so they can complete payment
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**XsollaPaymentRequest**](XsollaPaymentRequest.md)| The payment request to be sent to XSolla | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**XsollaPaymentRequest**](XsollaPaymentRequest.md)| The payment request to be sent to XSolla | 
 
 ### Return type
 
@@ -37,18 +43,16 @@ Name | Type | Description  | Notes
 
 # **ReceiveXsollaNotification**
 > ReceiveXsollaNotification()
-
 Receives payment response from Xsolla
 
 Only used by Xsolla to call back to JSAPI after processing user payment action
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 

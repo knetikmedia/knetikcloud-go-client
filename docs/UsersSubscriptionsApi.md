@@ -15,17 +15,16 @@ Method | HTTP request | Description
 
 
 # **GetUserSubscriptionDetails**
-> InventorySubscriptionResource GetUserSubscriptionDetails($userId, $inventoryId)
-
+> InventorySubscriptionResource GetUserSubscriptionDetails(ctx, userId, inventoryId)
 Get details about a user's subscription
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The id of the user | 
- **inventoryId** | **int32**| The id of the user&#39;s inventory | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
+  **inventoryId** | **int32**| The id of the user&#39;s inventory | 
 
 ### Return type
 
@@ -43,16 +42,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsersSubscriptionDetails**
-> []InventorySubscriptionResource GetUsersSubscriptionDetails($userId)
-
+> []InventorySubscriptionResource GetUsersSubscriptionDetails(ctx, userId)
 Get details about a user's subscriptions
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The id of the user | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
 
 ### Return type
 
@@ -70,18 +68,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReactivateUserSubscription**
-> InvoiceResource ReactivateUserSubscription($userId, $inventoryId, $reactivateSubscriptionRequest)
-
+> InvoiceResource ReactivateUserSubscription(ctx, userId, inventoryId, optional)
 Reactivate a subscription and charge fee
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
+  **inventoryId** | **int32**| The id of the user&#39;s inventory | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| The id of the user | 
  **inventoryId** | **int32**| The id of the user&#39;s inventory | 
- **reactivateSubscriptionRequest** | [**ReactivateSubscriptionRequest**](ReactivateSubscriptionRequest.md)| The reactivate subscription request object inventory | [optional] 
+ **reactivateSubscriptionRequest** | [**ReactivateSubscriptionRequest**](ReactivateSubscriptionRequest.md)| The reactivate subscription request object inventory | 
 
 ### Return type
 
@@ -99,22 +105,21 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetSubscriptionBillDate**
-> SetSubscriptionBillDate($userId, $inventoryId, $billDate)
-
+> SetSubscriptionBillDate(ctx, userId, inventoryId, billDate)
 Set a new date to bill a subscription on
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The id of the user | 
- **inventoryId** | **int32**| The id of the user&#39;s inventory | 
- **billDate** | **int64**| The new bill date. Unix timestamp in seconds | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
+  **inventoryId** | **int32**| The id of the user&#39;s inventory | 
+  **billDate** | **int64**| The new bill date. Unix timestamp in seconds | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -128,24 +133,32 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetSubscriptionPaymentMethod**
-> SetSubscriptionPaymentMethod($userId, $inventoryId, $paymentMethodId)
-
+> SetSubscriptionPaymentMethod(ctx, userId, inventoryId, optional)
 Set the payment method to use for a subscription
 
 May send null to use floating default
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
+  **inventoryId** | **int32**| The id of the user&#39;s inventory | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| The id of the user | 
  **inventoryId** | **int32**| The id of the user&#39;s inventory | 
- **paymentMethodId** | **int32**| The id of the payment method | [optional] 
+ **paymentMethodId** | [**IntWrapper**](IntWrapper.md)| The id of the payment method | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -159,24 +172,23 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetSubscriptionStatus**
-> SetSubscriptionStatus($userId, $inventoryId, $status)
-
+> SetSubscriptionStatus(ctx, userId, inventoryId, status)
 Set the status of a subscription
 
-The body is a json string (put in quotes) that should match a desired invoice status type. Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
+Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The id of the user | 
- **inventoryId** | **int32**| The id of the user&#39;s inventory | 
- **status** | **string**| The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: (&#39;current&#39;, &#39;canceled&#39;, &#39;stopped&#39;, &#39;payment_failed&#39;, &#39;suspended&#39;) | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
+  **inventoryId** | **int32**| The id of the user&#39;s inventory | 
+  **status** | [**StringWrapper**](StringWrapper.md)| The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: (&#39;current&#39;, &#39;canceled&#39;, &#39;stopped&#39;, &#39;payment_failed&#39;, &#39;suspended&#39;) | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -190,22 +202,30 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetUserSubscriptionPlan**
-> SetUserSubscriptionPlan($userId, $inventoryId, $planId)
-
+> SetUserSubscriptionPlan(ctx, userId, inventoryId, optional)
 Set a new subscription plan for a user
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
+  **inventoryId** | **int32**| The id of the user&#39;s inventory | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| The id of the user | 
  **inventoryId** | **int32**| The id of the user&#39;s inventory | 
- **planId** | **string**| The id of the new plan. Must be from the same subscription | [optional] 
+ **planId** | [**StringWrapper**](StringWrapper.md)| The id of the new plan. Must be from the same subscription | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -219,24 +239,32 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetUserSubscriptionPrice**
-> SetUserSubscriptionPrice($userId, $inventoryId, $theOverrideDetails)
-
+> SetUserSubscriptionPrice(ctx, userId, inventoryId, optional)
 Set a new subscription price for a user
 
 This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
+  **inventoryId** | **int32**| The id of the user&#39;s inventory | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| The id of the user | 
  **inventoryId** | **int32**| The id of the user&#39;s inventory | 
- **theOverrideDetails** | [**SubscriptionPriceOverrideRequest**](SubscriptionPriceOverrideRequest.md)| override | [optional] 
+ **theOverrideDetails** | [**SubscriptionPriceOverrideRequest**](SubscriptionPriceOverrideRequest.md)| override | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 

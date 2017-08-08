@@ -13,7 +13,7 @@ package swagger
 type BatchRequest struct {
 
 	// The request body as would be passed to the URI
-	Body interface{} `json:"body"`
+	Body *interface{} `json:"body"`
 
 	// Content type used, Ex:(application/json)
 	ContentType string `json:"content_type"`

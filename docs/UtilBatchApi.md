@@ -9,18 +9,16 @@ Method | HTTP request | Description
 
 
 # **GetBatch**
-> []BatchReturn GetBatch($token)
-
+> []BatchReturn GetBatch(token)
 Get batch result with token
 
 Tokens expire in 24 hours
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **token** | **string**| token | 
+  **token** | **string**| token | 
 
 ### Return type
 
@@ -38,18 +36,23 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SendBatch**
-> []BatchReturn SendBatch($batch)
-
+> []BatchReturn SendBatch(optional)
 Request to run API call given the method, content type, path url, and body of request
 
 Should the request take longer than one of the alloted timeout parameters, a token will be returned instead, which can be used on the token endpoint in this service
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batch** | [**Batch**](Batch.md)| The batch object | [optional] 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batch** | [**Batch**](Batch.md)| The batch object | 
 
 ### Return type
 

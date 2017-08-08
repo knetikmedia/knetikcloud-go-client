@@ -10,21 +10,27 @@ Method | HTTP request | Description
 
 
 # **DeleteTokens**
-> DeleteTokens($username, $clientId)
-
+> DeleteTokens(ctx, optional)
 Delete tokens by username, client id, or both
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **string**| The username of the user | [optional] 
- **clientId** | **string**| The id of the client | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **username** | **string**| The username of the user | 
+ **clientId** | **string**| The id of the client | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -38,17 +44,16 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetToken**
-> OauthAccessTokenResource GetToken($username, $clientId)
-
+> OauthAccessTokenResource GetToken(ctx, username, clientId)
 Get a single token by username and client id
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **string**| The username of the user | 
- **clientId** | **string**| The id of the client | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **username** | **string**| The username of the user | 
+  **clientId** | **string**| The id of the client | 
 
 ### Return type
 
@@ -66,22 +71,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetTokens**
-> PageResourceOauthAccessTokenResource GetTokens($filterClientId, $filterUsername, $size, $page, $order)
-
+> PageResourceOauthAccessTokenResource GetTokens(ctx, optional)
 List usernames and client ids
 
 Token value not shown
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterClientId** | **string**| Filters for token whose client id matches provided string | [optional] 
- **filterUsername** | **string**| Filters for token whose username matches provided string | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterClientId** | **string**| Filters for token whose client id matches provided string | 
+ **filterUsername** | **string**| Filters for token whose username matches provided string | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | 
 
 ### Return type
 

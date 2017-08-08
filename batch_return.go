@@ -13,7 +13,7 @@ package swagger
 type BatchReturn struct {
 
 	// The result body
-	Body interface{} `json:"body,omitempty"`
+	Body *interface{} `json:"body,omitempty"`
 
 	// The HTTP response code
 	Code int32 `json:"code,omitempty"`

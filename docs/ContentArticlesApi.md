@@ -17,18 +17,24 @@ Method | HTTP request | Description
 
 
 # **CreateArticle**
-> ArticleResource CreateArticle($articleResource)
-
+> ArticleResource CreateArticle(ctx, optional)
 Create a new article
 
 Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **articleResource** | [**ArticleResource**](ArticleResource.md)| The new article | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **articleResource** | [**ArticleResource**](ArticleResource.md)| The new article | 
 
 ### Return type
 
@@ -46,18 +52,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateArticleTemplate**
-> TemplateResource CreateArticleTemplate($articleTemplateResource)
-
+> TemplateResource CreateArticleTemplate(ctx, optional)
 Create an article template
 
 Article Templates define a type of article and the properties they have
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **articleTemplateResource** | [**TemplateResource**](TemplateResource.md)| The article template resource object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **articleTemplateResource** | [**TemplateResource**](TemplateResource.md)| The article template resource object | 
 
 ### Return type
 
@@ -75,20 +87,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteArticle**
-> DeleteArticle($id)
-
+> DeleteArticle(ctx, id)
 Delete an existing article
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The article id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The article id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -102,23 +113,30 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteArticleTemplate**
-> DeleteArticleTemplate($id, $cascade)
-
+> DeleteArticleTemplate(ctx, id, optional)
 Delete an article template
 
 If cascade = 'detach', it will force delete the template even if it's attached to other objects
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **cascade** | **string**| The value needed to delete used templates | [optional] 
+ **cascade** | **string**| The value needed to delete used templates | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -132,16 +150,14 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetArticle**
-> ArticleResource GetArticle($id)
-
+> ArticleResource GetArticle(id)
 Get a single article
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The article id | 
+  **id** | **string**| The article id | 
 
 ### Return type
 
@@ -159,16 +175,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetArticleTemplate**
-> TemplateResource GetArticleTemplate($id)
-
+> TemplateResource GetArticleTemplate(ctx, id)
 Get a single article template
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the template | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
 
 ### Return type
 
@@ -186,18 +201,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetArticleTemplates**
-> PageResourceTemplateResource GetArticleTemplates($size, $page, $order)
-
+> PageResourceTemplateResource GetArticleTemplates(ctx, optional)
 List and search article templates
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -215,25 +236,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetArticles**
-> PageResourceArticleResource GetArticles($filterCategory, $filterTagset, $filterTagIntersection, $filterTagExclusion, $filterTitle, $size, $page, $order)
-
+> PageResourceArticleResource GetArticles(optional)
 List and search articles
 
 Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterCategory** | **string**| Filter for articles from a specific category by id | [optional] 
- **filterTagset** | **string**| Filter for articles with at least one of a specified set of tags (separated by comma) | [optional] 
- **filterTagIntersection** | **string**| Filter for articles with all of a specified set of tags (separated by comma) | [optional] 
- **filterTagExclusion** | **string**| Filter for articles with none of a specified set of tags (separated by comma) | [optional] 
- **filterTitle** | **string**| Filter for articles whose title contains a string | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterCategory** | **string**| Filter for articles from a specific category by id | 
+ **filterTagset** | **string**| Filter for articles with at least one of a specified set of tags (separated by comma) | 
+ **filterTagIntersection** | **string**| Filter for articles with all of a specified set of tags (separated by comma) | 
+ **filterTagExclusion** | **string**| Filter for articles with none of a specified set of tags (separated by comma) | 
+ **filterTitle** | **string**| Filter for articles whose title contains a string | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -251,17 +277,24 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateArticle**
-> ArticleResource UpdateArticle($id, $articleResource)
-
+> ArticleResource UpdateArticle(ctx, id, optional)
 Update an existing article
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The article id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The article id | 
- **articleResource** | [**ArticleResource**](ArticleResource.md)| The article object | [optional] 
+ **articleResource** | [**ArticleResource**](ArticleResource.md)| The article object | 
 
 ### Return type
 
@@ -279,17 +312,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateArticleTemplate**
-> TemplateResource UpdateArticleTemplate($id, $articleTemplateResource)
-
+> TemplateResource UpdateArticleTemplate(ctx, id, optional)
 Update an article template
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **articleTemplateResource** | [**TemplateResource**](TemplateResource.md)| The article template resource object | [optional] 
+ **articleTemplateResource** | [**TemplateResource**](TemplateResource.md)| The article template resource object | 
 
 ### Return type
 

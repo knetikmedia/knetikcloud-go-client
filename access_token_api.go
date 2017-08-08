@@ -12,95 +12,104 @@ package swagger
 
 import (
 	"net/url"
+	"net/http"
 	"strings"
+	"golang.org/x/net/context"
 	"encoding/json"
 )
 
-type AccessTokenApi struct {
-	Configuration *Configuration
-}
+// Linger please
+var (
+	_ context.Context
+)
 
-func NewAccessTokenApi() *AccessTokenApi {
-	configuration := NewConfiguration()
-	return &AccessTokenApi{
-		Configuration: configuration,
-	}
-}
+type AccessTokenApiService service
 
-func NewAccessTokenApiWithBasePath(basePath string) *AccessTokenApi {
-	configuration := NewConfiguration()
-	configuration.BasePath = basePath
 
-	return &AccessTokenApi{
-		Configuration: configuration,
-	}
-}
+/* AccessTokenApiService Get access token
 
-/**
- * Get access token
- *
- * @param grantType Grant type
- * @param clientId The id of the client
- * @param clientSecret The secret key of the client.  Used only with a grant_type of client_credentials
- * @param username The username of the client.  Used only with a grant_type of password
- * @param password The password of the client.  Used only with a grant_type of password
- * @return *OAuth2Resource
- */
-func (a AccessTokenApi) GetOAuthToken(grantType string, clientId string, clientSecret string, username string, password string) (*OAuth2Resource, *APIResponse, error) {
+ @param grantType Grant type
+ @param clientId The id of the client
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "clientSecret" (string) The secret key of the client.  Used only with a grant_type of client_credentials
+     @param "username" (string) The username of the client.  Used only with a grant_type of password
+     @param "password" (string) The password of the client.  Used only with a grant_type of password
+ @return OAuth2Resource*/
+func (a *AccessTokenApiService) GetOAuthToken(grantType string, clientId string, localVarOptionals map[string]interface{}) (OAuth2Resource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  OAuth2Resource
+	)
 
-	var localVarHttpMethod = strings.ToUpper("Post")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/oauth/token"
+	localVarPath := a.client.cfg.BasePath + "/oauth/token"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := make(map[string]string)
-	var localVarPostBody interface{}
-	var localVarFileName string
-	var localVarFileBytes []byte
-	// add default headers if any
-	for key := range a.Configuration.DefaultHeader {
-		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["clientSecret"], "string", "clientSecret"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["username"], "string", "username"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
 	}
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/x-www-form-urlencoded",  }
 
 	// set Content-Type header
-	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
 	if localVarHttpContentType != "" {
 		localVarHeaderParams["Content-Type"] = localVarHttpContentType
 	}
+
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
 		}
 
 	// set Accept header
-	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarFormParams["grantType"] = a.Configuration.APIClient.ParameterToString(grantType, "")
-	localVarFormParams["clientId"] = a.Configuration.APIClient.ParameterToString(clientId, "")
-	localVarFormParams["clientSecret"] = a.Configuration.APIClient.ParameterToString(clientSecret, "")
-	localVarFormParams["username"] = a.Configuration.APIClient.ParameterToString(username, "")
-	localVarFormParams["password"] = a.Configuration.APIClient.ParameterToString(password, "")
-	var successPayload = new(OAuth2Resource)
-	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-
-	var localVarURL, _ = url.Parse(localVarPath)
-	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "GetOAuthToken", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
-	if localVarHttpResponse != nil {
-		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
-		localVarAPIResponse.Payload = localVarHttpResponse.Body()
+	localVarFormParams.Add("grant_type", parameterToString(grantType, ""))
+	localVarFormParams.Add("client_id", parameterToString(clientId, ""))
+	if localVarTempParam, localVarOk := localVarOptionals["clientSecret"].(string); localVarOk {
+		localVarFormParams.Add("client_secret", parameterToString(localVarTempParam, ""))
 	}
-
+	if localVarTempParam, localVarOk := localVarOptionals["username"].(string); localVarOk {
+		localVarFormParams.Add("username", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
+		localVarFormParams.Add("password", parameterToString(localVarTempParam, ""))
+	}
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return successPayload, localVarAPIResponse, err
+		return successPayload, nil, err
 	}
-	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
-	return successPayload, localVarAPIResponse, err
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
 }
 

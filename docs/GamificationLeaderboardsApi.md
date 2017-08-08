@@ -10,22 +10,29 @@ Method | HTTP request | Description
 
 
 # **GetLeaderboard**
-> LeaderboardResource GetLeaderboard($contextType, $contextId, $size, $page, $order)
-
+> LeaderboardResource GetLeaderboard(contextType, contextId, optional)
 Retrieves leaderboard details and paginated entries
 
 The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource.
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **contextType** | **string**| The context type for the leaderboard | 
+  **contextId** | **string**| The context id for the leaderboard | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contextType** | **string**| The context type for the leaderboard | 
  **contextId** | **string**| The context id for the leaderboard | 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to score:DESC,updated:ASC,user_id:ASC]
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to score:DESC,updated:ASC,user_id:ASC]
 
 ### Return type
 
@@ -43,20 +50,19 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLeaderboardRank**
-> LeaderboardEntryResource GetLeaderboardRank($contextType, $contextId, $id)
-
+> LeaderboardEntryResource GetLeaderboardRank(ctx, contextType, contextId, id)
 Retrieves a specific user entry with rank
 
 The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contextType** | **string**| The context type for the leaderboard | 
- **contextId** | **string**| The context id for the leaderboard | 
- **id** | **string**| The id of a user | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **contextType** | **string**| The context type for the leaderboard | 
+  **contextId** | **string**| The context id for the leaderboard | 
+  **id** | **string**| The id of a user | 
 
 ### Return type
 
@@ -75,11 +81,9 @@ Name | Type | Description  | Notes
 
 # **GetLeaderboardStrategies**
 > []string GetLeaderboardStrategies()
-
 Get a list of available leaderboard strategy names
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type

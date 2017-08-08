@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CreatedDate** | **int64** | The date/time this resource was created in seconds since unix epoch | [optional] [default to null]
 **Id** | **int64** | The unique ID for that resource | [optional] [default to null]
 **Name** | **string** | The name of the disposition, 1-20 characters. (ex: like/dislike/favorite, etc) | [default to null]
-**User** | [**SimpleUserResource**](SimpleUserResource.md) | The user | [optional] [default to null]
+**User** | [***SimpleUserResource**](SimpleUserResource.md) | The user | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -22,5 +22,5 @@ type LeaderboardEntryResource struct {
 	UpdatedDate int64 `json:"updated_date,omitempty"`
 
 	// The player for this entry
-	User SimpleUserResource `json:"user"`
+	User *SimpleUserResource `json:"user"`
 }

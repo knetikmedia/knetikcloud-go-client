@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ErrorMsg** | **string** |  | [optional] [default to null]
 **HttpStatusCode** | **int32** | The http status code the forward log entry | [optional] [default to null]
 **Id** | **string** | The id of the forward log entry | [optional] [default to null]
-**Payload** | [**interface{}**](interface{}.md) | The payload of the forward log entry | [optional] [default to null]
+**Payload** | [***interface{}**](interface{}.md) | The payload of the forward log entry | [optional] [default to null]
 **Response** | **string** | The response string of the forward log entry | [optional] [default to null]
 **RetryCount** | **int32** | The retry count of the forward log entry | [optional] [default to null]
 **StartDate** | **int64** | The start date of the forward log entry | [optional] [default to null]

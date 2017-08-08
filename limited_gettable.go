@@ -17,5 +17,5 @@ type LimitedGettable struct {
 	// Used for polymorphic type recognition and thus must match an expected type with additional properties
 	TypeHint string `json:"type_hint,omitempty"`
 
-	Group LimitedGettableGroup `json:"group,omitempty"`
+	Group *LimitedGettableGroup `json:"group,omitempty"`
 }

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Entitlement** | [**ActivityEntitlementResource**](ActivityEntitlementResource.md) | The details on the entitlement object needed to enter the occurrence (if any) | [optional] [default to null]
+**Entitlement** | [***ActivityEntitlementResource**](ActivityEntitlementResource.md) | The details on the entitlement object needed to enter the occurrence (if any) | [optional] [default to null]
 **ErrorCode** | **int32** | Zero if the user was/could be added to the occurrence. Jsapi error code indicating the reason of the failure otherwise | [default to null]
 **Message** | **string** | An error message if failure | [optional] [default to null]
 **UserId** | **int64** | The user&#39;s id | [default to null]

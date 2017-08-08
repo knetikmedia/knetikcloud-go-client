@@ -9,11 +9,9 @@ Method | HTTP request | Description
 
 # **GetVersion**
 > Version GetVersion()
-
 Get current version info
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type

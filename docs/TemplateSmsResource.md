@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **From** | **string** | The phone number to attribute the outgoing message to. Optional if the config text.out_number is set. | [optional] [default to null]
-**Localizer** | [**Localizer**](Localizer.md) |  | [optional] [default to null]
+**Localizer** | [***Localizer**](Localizer.md) |  | [optional] [default to null]
 **Recipients** | **[]int32** | A list of user ids to send the message to. | [default to null]
 **TemplateKey** | **string** | The key for the template. | [default to null]
 **TemplateVars** | **[]string** | A list of values to fill in the template. Order matters. | [optional] [default to null]

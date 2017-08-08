@@ -12,11 +12,9 @@ Method | HTTP request | Description
 
 # **GetCountries**
 > []CountryResource GetCountries()
-
 Get a list of countries
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
@@ -36,13 +34,11 @@ No authorization required
 
 # **GetCountryByGeoLocation**
 > string GetCountryByGeoLocation()
-
 Get the iso3 code of your country
 
 Determined by geo ip location
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
@@ -61,16 +57,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetCountryStates**
-> []StateResource GetCountryStates($countryCodeIso3)
-
+> []StateResource GetCountryStates(countryCodeIso3)
 Get a list of a country's states
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **countryCodeIso3** | **string**| The iso3 code of the country | 
+  **countryCodeIso3** | **string**| The iso3 code of the country | 
 
 ### Return type
 
@@ -89,13 +83,11 @@ No authorization required
 
 # **GetCurrencyByGeoLocation**
 > CurrencyResource GetCurrencyByGeoLocation()
-
 Get the currency information of your country
 
 Determined by geo ip location, currency to country mapping and a fallback setting
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type

@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 **StateTax** | **float64** | The amount of state tax added | [optional] [default to null]
 **Subtotal** | **float64** | The sum price of all items before shipping, coupons and tax | [optional] [default to null]
 **UpdatedDate** | **int64** | The date the invoice was last updated, unix timestamp in seconds | [optional] [default to null]
-**User** | [**SimpleUserResource**](SimpleUserResource.md) | The owner of the invoice | [optional] [default to null]
+**User** | [***SimpleUserResource**](SimpleUserResource.md) | The owner of the invoice | [optional] [default to null]
 **VendorId** | **int32** | The id of the vendor | [optional] [default to null]
 **VendorName** | **string** | The name of the invoice | [optional] [default to null]
 

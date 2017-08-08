@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Customer** | **string** |  | [optional] [default to null]
 **DoNotBroadcast** | **bool** |  | [optional] [default to null]
 **Section** | **string** |  | [optional] [default to null]
-**Source** | [**interface{}**](interface{}.md) |  | [optional] [default to null]
+**Source** | [***interface{}**](interface{}.md) |  | [optional] [default to null]
 **Specifics** | **string** |  | [optional] [default to null]
 **Synchronous** | **bool** |  | [optional] [default to null]
 **Timestamp** | **int64** |  | [optional] [default to null]

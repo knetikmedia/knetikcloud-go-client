@@ -9,21 +9,27 @@ Method | HTTP request | Description
 
 
 # **GetChallengeEventLeaderboard**
-> PageResourceChallengeEventParticipantResource GetChallengeEventLeaderboard($filterEvent, $size, $page, $order)
-
+> PageResourceChallengeEventParticipantResource GetChallengeEventLeaderboard(ctx, optional)
 Retrieve a challenge event leaderboard details
 
 Lists all leaderboard entries with additional user details
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterEvent** | **int64**| A sepecific challenge event id | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterEvent** | **int64**| A sepecific challenge event id | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | 
 
 ### Return type
 
@@ -41,21 +47,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallengeEventParticipants**
-> PageResourceChallengeEventParticipantResource GetChallengeEventParticipants($filterEvent, $size, $page, $order)
-
+> PageResourceChallengeEventParticipantResource GetChallengeEventParticipants(ctx, optional)
 Retrieve a challenge event participant details
 
 Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterEvent** | **int64**| A sepecific challenge event id | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterEvent** | **int64**| A sepecific challenge event id | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | 
 
 ### Return type
 

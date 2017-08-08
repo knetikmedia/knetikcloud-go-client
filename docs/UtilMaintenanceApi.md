@@ -11,17 +11,15 @@ Method | HTTP request | Description
 
 
 # **DeleteMaintenance**
-> DeleteMaintenance()
-
+> DeleteMaintenance(ctx, )
 Delete maintenance info
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -36,13 +34,11 @@ void (empty response body)
 
 # **GetMaintenance**
 > Maintenance GetMaintenance()
-
 Get current maintenance info
 
 Get current maintenance info. 404 if no maintenance.
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
@@ -61,20 +57,26 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetMaintenance**
-> SetMaintenance($maintenance)
-
+> SetMaintenance(ctx, optional)
 Set current maintenance info
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **maintenance** | [**Maintenance**](Maintenance.md)| The maintenance object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **maintenance** | [**Maintenance**](Maintenance.md)| The maintenance object | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -88,20 +90,26 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateMaintenance**
-> UpdateMaintenance($maintenance)
-
+> UpdateMaintenance(ctx, optional)
 Update current maintenance info
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **maintenance** | [**Maintenance**](Maintenance.md)| The maintenance object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **maintenance** | [**Maintenance**](Maintenance.md)| The maintenance object | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 

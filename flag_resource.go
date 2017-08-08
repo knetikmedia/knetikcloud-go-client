@@ -31,5 +31,5 @@ type FlagResource struct {
 	UpdatedDate int64 `json:"updated_date,omitempty"`
 
 	// The basic user resource
-	User SimpleUserResource `json:"user,omitempty"`
+	User *SimpleUserResource `json:"user,omitempty"`
 }

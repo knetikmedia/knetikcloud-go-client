@@ -8,22 +8,28 @@ Method | HTTP request | Description
 
 
 # **AddMetric**
-> AddMetric($metric)
-
+> AddMetric(ctx, optional)
 Add a metric
 
 Post a new score/stat for an activity occurrence without ending the occurrence itself
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **metric** | [**MetricResource**](MetricResource.md)| The new metric | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metric** | [**MetricResource**](MetricResource.md)| The new metric | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 

@@ -22,7 +22,7 @@ type SubscriptionTemplateResource struct {
 	Name string `json:"name"`
 
 	// A template to apply to all plans on a subscription using this template
-	PlanTemplate TemplateResource `json:"plan_template,omitempty"`
+	PlanTemplate *TemplateResource `json:"plan_template,omitempty"`
 
 	// The customized properties that are present
 	Properties []PropertyDefinitionResource `json:"properties,omitempty"`

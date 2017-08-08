@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Actions** | [**ActionResource**](ActionResource.md) | A list of actions to execute, and the mapping for their parameters, when the rule runs. Minimum 1 | [default to null]
-**Condition** | [**PredicateOperation**](PredicateOperation.md) | A condition expression that must be met in a given event for the rule to run. Empty to always run | [optional] [default to null]
+**Actions** | [***ActionResource**](ActionResource.md) | A list of actions to execute, and the mapping for their parameters, when the rule runs. Minimum 1 | [default to null]
+**Condition** | [***PredicateOperation**](PredicateOperation.md) | A condition expression that must be met in a given event for the rule to run. Empty to always run | [optional] [default to null]
 **ConditionText** | **string** | The condition as a readable string. Filled in by the system from the condition | [optional] [default to null]
 **Description** | **string** | The human readable description of the rule | [optional] [default to null]
 **Enabled** | **bool** | Whether the rule is enabled to run (in conjunction with dates). Default true | [optional] [default to null]

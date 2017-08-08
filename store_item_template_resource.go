@@ -28,7 +28,7 @@ type StoreItemTemplateResource struct {
 	Properties []PropertyDefinitionResource `json:"properties,omitempty"`
 
 	// A template to apply to all skus on an item using this template
-	SkuTemplate TemplateResource `json:"sku_template,omitempty"`
+	SkuTemplate *TemplateResource `json:"sku_template,omitempty"`
 
 	// The date/time this resource was last updated in seconds since unix epoch
 	UpdatedDate int64 `json:"updated_date,omitempty"`

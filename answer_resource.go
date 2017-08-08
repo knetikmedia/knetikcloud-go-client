@@ -13,7 +13,7 @@ package swagger
 type AnswerResource struct {
 
 	// The answer to the question. Different 'type' values indicate different structures as the answer may be test, image, etc. See information on additional properties for the list and their structures
-	Answer Property `json:"answer"`
+	Answer *Property `json:"answer"`
 
 	// Whether the answer is correct or not
 	Correct bool `json:"correct"`

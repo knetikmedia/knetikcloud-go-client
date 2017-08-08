@@ -22,7 +22,7 @@ type PollResource struct {
 	Answers []PollAnswerResource `json:"answers"`
 
 	// The category for the poll
-	Category NestedCategory `json:"category"`
+	Category *NestedCategory `json:"category"`
 
 	// The date/time this resource was created in seconds since unix epoch
 	CreatedDate int64 `json:"created_date,omitempty"`

@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Ascending** | **bool** |  | [optional] [default to null]
+**Descending** | **bool** |  | [optional] [default to null]
 **Direction** | **string** |  | [optional] [default to null]
 **IgnoreCase** | **bool** |  | [optional] [default to null]
 **NullHandling** | **string** |  | [optional] [default to null]

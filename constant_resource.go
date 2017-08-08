@@ -14,7 +14,7 @@ type ConstantResource struct {
 
 	Type_ string `json:"type,omitempty"`
 
-	Value interface{} `json:"value,omitempty"`
+	Value *interface{} `json:"value,omitempty"`
 
 	ValueType string `json:"value_type,omitempty"`
 }

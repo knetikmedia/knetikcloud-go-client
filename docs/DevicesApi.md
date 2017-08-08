@@ -15,17 +15,16 @@ Method | HTTP request | Description
 
 
 # **AddDeviceUsers**
-> DeviceResource AddDeviceUsers($userResources, $id)
-
+> DeviceResource AddDeviceUsers(ctx, userResources, id)
 Add device users
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userResources** | [**[]SimpleUserResource**](SimpleUserResource.md)| userResources | 
- **id** | **int32**| id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userResources** | [**[]SimpleUserResource**](SimpleUserResource.md)| userResources | 
+  **id** | **int32**| id | 
 
 ### Return type
 
@@ -43,16 +42,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateDevice**
-> DeviceResource CreateDevice($device)
-
+> DeviceResource CreateDevice(ctx, device)
 Create a device
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **device** | [**DeviceResource**](DeviceResource.md)| device | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **device** | [**DeviceResource**](DeviceResource.md)| device | 
 
 ### Return type
 
@@ -70,20 +68,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteDevice**
-> DeleteDevice($id)
-
+> DeleteDevice(ctx, id)
 Delete a device
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int32**| id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int32**| id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -97,21 +94,20 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteDeviceUser**
-> DeleteDeviceUser($id, $userId)
-
+> DeleteDeviceUser(ctx, id, userId)
 Delete a device user
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int32**| The id of the device | 
- **userId** | **int32**| The user id of the device user | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int32**| The id of the device | 
+  **userId** | **int32**| The user id of the device user | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -125,21 +121,28 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteDeviceUsers**
-> DeleteDeviceUsers($id, $filterId)
-
+> DeleteDeviceUsers(ctx, id, optional)
 Delete all device users
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int32**| The id of the device | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int32**| The id of the device | 
- **filterId** | **string**| Filter for device users to delete with a user id in a given comma separated list of ids | [optional] 
+ **filterId** | **string**| Filter for device users to delete with a user id in a given comma separated list of ids | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -153,16 +156,15 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDevice**
-> DeviceResource GetDevice($id)
-
+> DeviceResource GetDevice(ctx, id)
 Get a single device
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int32**| id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int32**| id | 
 
 ### Return type
 
@@ -180,22 +182,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDevices**
-> PageResourceDeviceResource GetDevices($filterMake, $filterModel, $size, $page, $order)
-
+> PageResourceDeviceResource GetDevices(ctx, optional)
 List and search devices
 
 Get a list of devices with optional filtering
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterMake** | **string**| Filter for devices with specified make | [optional] 
- **filterModel** | **string**| Filter for devices with specified model | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterMake** | **string**| Filter for devices with specified make | 
+ **filterModel** | **string**| Filter for devices with specified model | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -213,17 +221,16 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateDevice**
-> DeviceResource UpdateDevice($device, $id)
-
+> DeviceResource UpdateDevice(ctx, device, id)
 Update a device
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **device** | [**DeviceResource**](DeviceResource.md)| device | 
- **id** | **int32**| id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **device** | [**DeviceResource**](DeviceResource.md)| device | 
+  **id** | **int32**| id | 
 
 ### Return type
 

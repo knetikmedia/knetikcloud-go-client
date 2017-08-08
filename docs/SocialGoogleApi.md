@@ -8,22 +8,28 @@ Method | HTTP request | Description
 
 
 # **LinkAccounts1**
-> LinkAccounts1($googleToken)
-
+> LinkAccounts1(ctx, optional)
 Link google account
 
 Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **googleToken** | [**GoogleToken**](GoogleToken.md)| The token from google | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **googleToken** | [**GoogleToken**](GoogleToken.md)| The token from google | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 

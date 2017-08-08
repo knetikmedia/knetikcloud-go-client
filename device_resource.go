@@ -61,7 +61,7 @@ type DeviceResource struct {
 	UpdatedDate int64 `json:"updated_date,omitempty"`
 
 	// The user that owns the device
-	User SimpleUserResource `json:"user,omitempty"`
+	User *SimpleUserResource `json:"user,omitempty"`
 
 	// The users currently using the device
 	Users []SimpleUserResource `json:"users,omitempty"`

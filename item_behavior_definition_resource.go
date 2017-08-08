@@ -13,7 +13,7 @@ package swagger
 type ItemBehaviorDefinitionResource struct {
 
 	// The default version of the behavior
-	Behavior Behavior `json:"behavior"`
+	Behavior *Behavior `json:"behavior"`
 
 	// Whether the behavior's values can be modified
 	Modifiable bool `json:"modifiable"`

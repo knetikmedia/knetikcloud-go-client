@@ -28,5 +28,5 @@ type DispositionResource struct {
 	Name string `json:"name"`
 
 	// The user
-	User SimpleUserResource `json:"user,omitempty"`
+	User *SimpleUserResource `json:"user,omitempty"`
 }

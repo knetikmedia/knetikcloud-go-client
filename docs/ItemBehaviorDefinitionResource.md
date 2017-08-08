@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Behavior** | [**Behavior**](Behavior.md) | The default version of the behavior | [default to null]
+**Behavior** | [***Behavior**](Behavior.md) | The default version of the behavior | [default to null]
 **Modifiable** | **bool** | Whether the behavior&#39;s values can be modified | [default to null]
 **Required** | **bool** | Whether the behavior can be removed | [default to null]
 

@@ -13,10 +13,10 @@ package swagger
 type BreRule struct {
 
 	// A list of actions to execute, and the mapping for their parameters, when the rule runs. Minimum 1
-	Actions ActionResource `json:"actions"`
+	Actions *ActionResource `json:"actions"`
 
 	// A condition expression that must be met in a given event for the rule to run. Empty to always run
-	Condition PredicateOperation `json:"condition,omitempty"`
+	Condition *PredicateOperation `json:"condition,omitempty"`
 
 	// The condition as a readable string. Filled in by the system from the condition
 	ConditionText string `json:"condition_text,omitempty"`

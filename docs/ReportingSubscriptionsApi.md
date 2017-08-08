@@ -8,17 +8,23 @@ Method | HTTP request | Description
 
 
 # **GetSubscriptionReports**
-> PageResourceBillingReport GetSubscriptionReports($size, $page)
-
+> PageResourceBillingReport GetSubscriptionReports(ctx, optional)
 Get a list of available subscription reports in most recent first order
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 

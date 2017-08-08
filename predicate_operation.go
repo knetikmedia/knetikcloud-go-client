@@ -14,5 +14,5 @@ type PredicateOperation struct {
 
 	Args []Expressionobject `json:"args,omitempty"`
 
-	Operator Operator `json:"operator,omitempty"`
+	Operator *Operator `json:"operator,omitempty"`
 }

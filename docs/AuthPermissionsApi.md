@@ -12,16 +12,22 @@ Method | HTTP request | Description
 
 
 # **CreatePermission**
-> PermissionResource CreatePermission($permissionResource)
-
+> PermissionResource CreatePermission(ctx, optional)
 Create a new permission
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **permissionResource** | [**PermissionResource**](PermissionResource.md)| The permission resource object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **permissionResource** | [**PermissionResource**](PermissionResource.md)| The permission resource object | 
 
 ### Return type
 
@@ -39,21 +45,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeletePermission**
-> DeletePermission($permission, $force)
-
+> DeletePermission(ctx, permission, optional)
 Delete a permission
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **permission** | **string**| The permission value | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **permission** | **string**| The permission value | 
- **force** | **bool**| If true, removes permission assigned to roles | [optional] 
+ **force** | **bool**| If true, removes permission assigned to roles | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -67,16 +80,15 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPermission**
-> PermissionResource GetPermission($permission)
-
+> PermissionResource GetPermission(ctx, permission)
 Get a single permission
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **permission** | **string**| The permission value | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **permission** | **string**| The permission value | 
 
 ### Return type
 
@@ -94,18 +106,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetPermissions**
-> PageResourcePermissionResource GetPermissions($size, $page, $order)
-
+> PageResourcePermissionResource GetPermissions(ctx, optional)
 List and search permissions
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to permission:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to permission:ASC]
 
 ### Return type
 
@@ -123,17 +141,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdatePermission**
-> PermissionResource UpdatePermission($permission, $permissionResource)
-
+> PermissionResource UpdatePermission(ctx, permission, optional)
 Update a permission
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **permission** | **string**| The permission value | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **permission** | **string**| The permission value | 
- **permissionResource** | [**PermissionResource**](PermissionResource.md)| The permission resource object | [optional] 
+ **permissionResource** | [**PermissionResource**](PermissionResource.md)| The permission resource object | 
 
 ### Return type
 

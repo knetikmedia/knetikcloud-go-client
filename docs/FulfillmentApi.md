@@ -12,16 +12,22 @@ Method | HTTP request | Description
 
 
 # **CreateFulfillmentType**
-> FulfillmentType CreateFulfillmentType($type_)
-
+> FulfillmentType CreateFulfillmentType(ctx, optional)
 Create a fulfillment type
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type_** | [**FulfillmentType**](FulfillmentType.md)| The fulfillment type | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type_** | [**FulfillmentType**](FulfillmentType.md)| The fulfillment type | 
 
 ### Return type
 
@@ -39,20 +45,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteFulfillmentType**
-> DeleteFulfillmentType($id)
-
+> DeleteFulfillmentType(ctx, id)
 Delete a fulfillment type
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int32**| The id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int32**| The id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -66,16 +71,14 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetFulfillmentType**
-> FulfillmentType GetFulfillmentType($id)
-
+> FulfillmentType GetFulfillmentType(id)
 Get a single fulfillment type
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int32**| The id | 
+  **id** | **int32**| The id | 
 
 ### Return type
 
@@ -93,18 +96,23 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetFulfillmentTypes**
-> PageResourceFulfillmentType GetFulfillmentTypes($size, $page, $order)
-
+> PageResourceFulfillmentType GetFulfillmentTypes(optional)
 List and search fulfillment types
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -122,21 +130,28 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateFulfillmentType**
-> UpdateFulfillmentType($id, $fulfillmentType)
-
+> UpdateFulfillmentType(ctx, id, optional)
 Update a fulfillment type
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int32**| The id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int32**| The id | 
- **fulfillmentType** | [**FulfillmentType**](FulfillmentType.md)| The fulfillment type | [optional] 
+ **fulfillmentType** | [**FulfillmentType**](FulfillmentType.md)| The fulfillment type | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 

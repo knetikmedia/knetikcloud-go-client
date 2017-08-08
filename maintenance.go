@@ -16,7 +16,7 @@ type Maintenance struct {
 	AccessLocked bool `json:"access_locked"`
 
 	// A simple object of any schema for client side use and processing
-	Details interface{} `json:"details,omitempty"`
+	Details *interface{} `json:"details,omitempty"`
 
 	// User displayable message about the maintenance
 	Message string `json:"message"`

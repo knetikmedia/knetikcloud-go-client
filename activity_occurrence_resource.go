@@ -23,7 +23,7 @@ type ActivityOccurrenceResource struct {
 	CreatedDate int64 `json:"created_date,omitempty"`
 
 	// The entitlement item required to enter the occurrence. Required if not part of an event. Must come from the set of entitlement items listed in the activity
-	Entitlement ActivityEntitlementResource `json:"entitlement,omitempty"`
+	Entitlement *ActivityEntitlementResource `json:"entitlement,omitempty"`
 
 	// The id of the event
 	EventId int64 `json:"event_id,omitempty"`

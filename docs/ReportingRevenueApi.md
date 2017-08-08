@@ -12,20 +12,27 @@ Method | HTTP request | Description
 
 
 # **GetItemRevenue**
-> RevenueReportResource GetItemRevenue($currencyCode, $startDate, $endDate)
-
+> RevenueReportResource GetItemRevenue(ctx, currencyCode, optional)
 Get item revenue info
 
 Get basic info about revenue from sales of items and bundles (not subscriptions, shipping, etc), summed up within a time range
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **currencyCode** | **string**| The code for a currency to get sales data for | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyCode** | **string**| The code for a currency to get sales data for | 
- **startDate** | **int64**| The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time | [optional] 
- **endDate** | **int64**| The end of the time range to aggregate, unix timestamp in seconds. Default is end of time | [optional] 
+ **startDate** | **int64**| The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time | 
+ **endDate** | **int64**| The end of the time range to aggregate, unix timestamp in seconds. Default is end of time | 
 
 ### Return type
 
@@ -43,20 +50,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRefundRevenue**
-> RevenueReportResource GetRefundRevenue($currencyCode, $startDate, $endDate)
-
+> RevenueReportResource GetRefundRevenue(ctx, currencyCode, optional)
 Get refund revenue info
 
 Get basic info about revenue loss from refunds (for all item types), summed up within a time range.
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **currencyCode** | **string**| The code for a currency to get refund data for | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyCode** | **string**| The code for a currency to get refund data for | 
- **startDate** | **int64**| The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time | [optional] 
- **endDate** | **int64**| The end of the time range to aggregate, unix timestamp in seconds. Default is end of time | [optional] 
+ **startDate** | **int64**| The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time | 
+ **endDate** | **int64**| The end of the time range to aggregate, unix timestamp in seconds. Default is end of time | 
 
 ### Return type
 
@@ -74,22 +88,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRevenueByCountry**
-> PageResourceRevenueCountryReportResource GetRevenueByCountry($currencyCode, $startDate, $endDate, $size, $page)
-
+> PageResourceRevenueCountryReportResource GetRevenueByCountry(ctx, currencyCode, optional)
 Get revenue info by country
 
 Get basic info about revenue from sales of all types, summed up within a time range and split out by country. Sorted for largest revenue at the top
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **currencyCode** | **string**| The code for a currency to get sales data for | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyCode** | **string**| The code for a currency to get sales data for | 
- **startDate** | **int64**| The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time | [optional] 
- **endDate** | **int64**| The end of the time range to aggregate, unix timestamp in seconds. Default is end of time | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **startDate** | **int64**| The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time | 
+ **endDate** | **int64**| The end of the time range to aggregate, unix timestamp in seconds. Default is end of time | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -107,22 +128,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRevenueByItem**
-> PageResourceRevenueProductReportResource GetRevenueByItem($currencyCode, $startDate, $endDate, $size, $page)
-
+> PageResourceRevenueProductReportResource GetRevenueByItem(ctx, currencyCode, optional)
 Get revenue info by item
 
 Get basic info about revenue from sales of all types, summed up within a time range and split out by specific item. Sorted for largest revenue at the top
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **currencyCode** | **string**| The code for a currency to get sales data for | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyCode** | **string**| The code for a currency to get sales data for | 
- **startDate** | **int64**| The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time | [optional] 
- **endDate** | **int64**| The end of the time range to aggregate, unix timestamp in seconds. Default is end of time | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **startDate** | **int64**| The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time | 
+ **endDate** | **int64**| The end of the time range to aggregate, unix timestamp in seconds. Default is end of time | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -140,20 +168,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetSubscriptionRevenue**
-> RevenueReportResource GetSubscriptionRevenue($currencyCode, $startDate, $endDate)
-
+> RevenueReportResource GetSubscriptionRevenue(ctx, currencyCode, optional)
 Get subscription revenue info
 
 Get basic info about revenue from sales of new subscriptions as well as recurring payemnts, summed up within a time range
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **currencyCode** | **string**| The code for a currency to get sales data for | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyCode** | **string**| The code for a currency to get sales data for | 
- **startDate** | **int64**| The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time | [optional] 
- **endDate** | **int64**| The end of the time range to aggregate, unix timestamp in seconds. Default is end of time | [optional] 
+ **startDate** | **int64**| The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time | 
+ **endDate** | **int64**| The end of the time range to aggregate, unix timestamp in seconds. Default is end of time | 
 
 ### Return type
 

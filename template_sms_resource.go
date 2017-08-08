@@ -15,7 +15,7 @@ type TemplateSmsResource struct {
 	// The phone number to attribute the outgoing message to. Optional if the config text.out_number is set.
 	From string `json:"from,omitempty"`
 
-	Localizer Localizer `json:"localizer,omitempty"`
+	Localizer *Localizer `json:"localizer,omitempty"`
 
 	// A list of user ids to send the message to.
 	Recipients []int32 `json:"recipients"`

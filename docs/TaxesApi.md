@@ -18,16 +18,22 @@ Method | HTTP request | Description
 
 
 # **CreateCountryTax**
-> CountryTaxResource CreateCountryTax($taxResource)
-
+> CountryTaxResource CreateCountryTax(ctx, optional)
 Create a country tax
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taxResource** | [**CountryTaxResource**](CountryTaxResource.md)| The tax object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **taxResource** | [**CountryTaxResource**](CountryTaxResource.md)| The tax object | 
 
 ### Return type
 
@@ -45,17 +51,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateStateTax**
-> StateTaxResource CreateStateTax($countryCodeIso3, $taxResource)
-
+> StateTaxResource CreateStateTax(ctx, countryCodeIso3, optional)
 Create a state tax
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **countryCodeIso3** | **string**| The iso3 code of the country | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **countryCodeIso3** | **string**| The iso3 code of the country | 
- **taxResource** | [**StateTaxResource**](StateTaxResource.md)| The tax object | [optional] 
+ **taxResource** | [**StateTaxResource**](StateTaxResource.md)| The tax object | 
 
 ### Return type
 
@@ -73,20 +86,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteCountryTax**
-> DeleteCountryTax($countryCodeIso3)
-
+> DeleteCountryTax(ctx, countryCodeIso3)
 Delete an existing tax
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **countryCodeIso3** | **string**| The iso3 code of the country | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **countryCodeIso3** | **string**| The iso3 code of the country | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -100,21 +112,20 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteStateTax**
-> DeleteStateTax($countryCodeIso3, $stateCode)
-
+> DeleteStateTax(ctx, countryCodeIso3, stateCode)
 Delete an existing state tax
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **countryCodeIso3** | **string**| The iso3 code of the country | 
- **stateCode** | **string**| The code of the state | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **countryCodeIso3** | **string**| The iso3 code of the country | 
+  **stateCode** | **string**| The code of the state | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -128,16 +139,14 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetCountryTax**
-> CountryTaxResource GetCountryTax($countryCodeIso3)
-
+> CountryTaxResource GetCountryTax(countryCodeIso3)
 Get a single tax
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **countryCodeIso3** | **string**| The iso3 code of the country | 
+  **countryCodeIso3** | **string**| The iso3 code of the country | 
 
 ### Return type
 
@@ -155,20 +164,25 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetCountryTaxes**
-> PageResourceCountryTaxResource GetCountryTaxes($size, $page, $order)
-
+> PageResourceCountryTaxResource GetCountryTaxes(optional)
 List and search taxes
 
 Get a list of taxes
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to name:ASC]
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to name:ASC]
 
 ### Return type
 
@@ -186,17 +200,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetStateTax**
-> StateTaxResource GetStateTax($countryCodeIso3, $stateCode)
-
+> StateTaxResource GetStateTax(countryCodeIso3, stateCode)
 Get a single state tax
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **countryCodeIso3** | **string**| The iso3 code of the country | 
- **stateCode** | **string**| The code of the state | 
+  **countryCodeIso3** | **string**| The iso3 code of the country | 
+  **stateCode** | **string**| The code of the state | 
 
 ### Return type
 
@@ -214,20 +226,25 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetStateTaxesForCountries**
-> PageResourceStateTaxResource GetStateTaxesForCountries($size, $page, $order)
-
+> PageResourceStateTaxResource GetStateTaxesForCountries(optional)
 List and search taxes across all countries
 
 Get a list of taxes
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | 
 
 ### Return type
 
@@ -245,21 +262,27 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetStateTaxesForCountry**
-> PageResourceStateTaxResource GetStateTaxesForCountry($countryCodeIso3, $size, $page, $order)
-
+> PageResourceStateTaxResource GetStateTaxesForCountry(countryCodeIso3, optional)
 List and search taxes within a country
 
 Get a list of taxes
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **countryCodeIso3** | **string**| The iso3 code of the country | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **countryCodeIso3** | **string**| The iso3 code of the country | 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | 
 
 ### Return type
 
@@ -277,17 +300,24 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateCountryTax**
-> CountryTaxResource UpdateCountryTax($countryCodeIso3, $taxResource)
-
+> CountryTaxResource UpdateCountryTax(ctx, countryCodeIso3, optional)
 Create or update a tax
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **countryCodeIso3** | **string**| The iso3 code of the country | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **countryCodeIso3** | **string**| The iso3 code of the country | 
- **taxResource** | [**CountryTaxResource**](CountryTaxResource.md)| The tax object | [optional] 
+ **taxResource** | [**CountryTaxResource**](CountryTaxResource.md)| The tax object | 
 
 ### Return type
 
@@ -305,18 +335,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateStateTax**
-> StateTaxResource UpdateStateTax($countryCodeIso3, $stateCode, $taxResource)
-
+> StateTaxResource UpdateStateTax(ctx, countryCodeIso3, stateCode, optional)
 Create or update a state tax
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **countryCodeIso3** | **string**| The iso3 code of the country | 
+  **stateCode** | **string**| The code of the state | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **countryCodeIso3** | **string**| The iso3 code of the country | 
  **stateCode** | **string**| The code of the state | 
- **taxResource** | [**StateTaxResource**](StateTaxResource.md)| The tax object | [optional] 
+ **taxResource** | [**StateTaxResource**](StateTaxResource.md)| The tax object | 
 
 ### Return type
 

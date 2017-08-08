@@ -19,7 +19,7 @@ type PaymentAuthorizationResource struct {
 	Created int64 `json:"created,omitempty"`
 
 	// The details for this authorization. Format dependent on payment provider
-	Details interface{} `json:"details,omitempty"`
+	Details *interface{} `json:"details,omitempty"`
 
 	// The id of the authorization
 	Id int32 `json:"id,omitempty"`
@@ -28,5 +28,5 @@ type PaymentAuthorizationResource struct {
 	Invoice int32 `json:"invoice,omitempty"`
 
 	// The payment type (which provider) this payment is through
-	PaymentType SimpleReferenceResourceint `json:"payment_type"`
+	PaymentType *SimpleReferenceResourceint `json:"payment_type"`
 }

@@ -24,7 +24,7 @@ type ForwardLog struct {
 	Id string `json:"id,omitempty"`
 
 	// The payload of the forward log entry
-	Payload interface{} `json:"payload,omitempty"`
+	Payload *interface{} `json:"payload,omitempty"`
 
 	// The response string of the forward log entry
 	Response string `json:"response,omitempty"`

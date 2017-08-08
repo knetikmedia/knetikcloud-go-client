@@ -25,11 +25,11 @@ type ActivityUserResource struct {
 	LeftDate int64 `json:"left_date,omitempty"`
 
 	// The metric for the user's results, after the game is over
-	Metric MetricResource `json:"metric,omitempty"`
+	Metric *MetricResource `json:"metric,omitempty"`
 
 	// The current status of the user in the occurrence (default: present)
 	Status string `json:"status,omitempty"`
 
 	// The user
-	User SimpleUserResource `json:"user"`
+	User *SimpleUserResource `json:"user"`
 }

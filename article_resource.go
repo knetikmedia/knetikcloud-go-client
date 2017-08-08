@@ -22,7 +22,7 @@ type ArticleResource struct {
 	Body string `json:"body"`
 
 	// The category for the article
-	Category NestedCategory `json:"category"`
+	Category *NestedCategory `json:"category"`
 
 	// The date/time this resource was created in seconds since unix epoch
 	CreatedDate int64 `json:"created_date,omitempty"`

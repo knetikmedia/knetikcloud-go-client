@@ -13,7 +13,7 @@ package swagger
 type VideoRelationshipResource struct {
 
 	// The owner of the relationship
-	From SimpleReferenceResourcelong `json:"from,omitempty"`
+	From *SimpleReferenceResourcelong `json:"from,omitempty"`
 
 	// The id of the relationship
 	Id int64 `json:"id,omitempty"`
@@ -22,5 +22,5 @@ type VideoRelationshipResource struct {
 	RelationshipDetails string `json:"relationship_details"`
 
 	// The target of the relationship.
-	To SimpleReferenceResourcelong `json:"to"`
+	To *SimpleReferenceResourcelong `json:"to"`
 }

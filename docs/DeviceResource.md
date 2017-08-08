@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Serial** | **string** | The serial number of the device | [optional] [default to null]
 **Status** | **string** | The current status the device (Active, Pending Active, Inactive, Repair | [optional] [default to null]
 **UpdatedDate** | **int64** | The date the device log was updated | [optional] [default to null]
-**User** | [**SimpleUserResource**](SimpleUserResource.md) | The user that owns the device | [optional] [default to null]
+**User** | [***SimpleUserResource**](SimpleUserResource.md) | The user that owns the device | [optional] [default to null]
 **Users** | [**[]SimpleUserResource**](SimpleUserResource.md) | The users currently using the device | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

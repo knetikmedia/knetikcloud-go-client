@@ -25,5 +25,5 @@ type PollResponseResource struct {
 	PollId string `json:"poll_id"`
 
 	// The user
-	User SimpleUserResource `json:"user"`
+	User *SimpleUserResource `json:"user"`
 }

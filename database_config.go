@@ -12,7 +12,7 @@ package swagger
 
 type DatabaseConfig struct {
 
-	Mongo MongoDatabaseConfig `json:"mongo,omitempty"`
+	Mongo *MongoDatabaseConfig `json:"mongo,omitempty"`
 
-	Sql SqlDatabaseConfig `json:"sql,omitempty"`
+	Sql *SqlDatabaseConfig `json:"sql,omitempty"`
 }

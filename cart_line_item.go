@@ -16,7 +16,7 @@ type CartLineItem struct {
 
 	Description string `json:"description,omitempty"`
 
-	Discount Discount `json:"discount,omitempty"`
+	Discount *Discount `json:"discount,omitempty"`
 
 	LineTotal float64 `json:"line_total,omitempty"`
 

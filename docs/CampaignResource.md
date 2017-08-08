@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The user friendly name of that resource | [default to null]
 **NextChallenge** | **string** | The name of the next challenge coming up | [optional] [default to null]
 **NextChallengeDate** | **int64** | The date/time of the next challenge coming up | [optional] [default to null]
-**RewardSet** | [**RewardSetResource**](RewardSetResource.md) | The rewards to give at the end of the campaign. When creating/updating only id is used. Reward set must be pre-existing | [optional] [default to null]
+**RewardSet** | [***RewardSetResource**](RewardSetResource.md) | The rewards to give at the end of the campaign. When creating/updating only id is used. Reward set must be pre-existing | [optional] [default to null]
 **RewardStatus** | **string** | Indicate if the rewards have been given out already | [optional] [default to null]
 **ShortDescription** | **string** | The user friendly name of that resource. Defaults to blank string | [optional] [default to null]
 **Template** | **string** | A campaign template this campaign is validated against (private). May be null and no validation of additional_properties will be done | [optional] [default to null]

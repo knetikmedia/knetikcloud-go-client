@@ -8,19 +8,25 @@ Method | HTTP request | Description
 
 
 # **GetBREActions**
-> []ActionResource GetBREActions($filterCategory, $filterName, $filterTags, $filterSearch)
-
+> []ActionResource GetBREActions(ctx, optional)
 Get a list of available actions
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterCategory** | **string**| Filter for actions that are within a specific category | [optional] 
- **filterName** | **string**| Filter for actions that have names containing the given string | [optional] 
- **filterTags** | **string**| Filter for actions that have all of the given tags (comma separated list) | [optional] 
- **filterSearch** | **string**| Filter for actions containing the given words somewhere within name, description and tags | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterCategory** | **string**| Filter for actions that are within a specific category | 
+ **filterName** | **string**| Filter for actions that have names containing the given string | 
+ **filterTags** | **string**| Filter for actions that have all of the given tags (comma separated list) | 
+ **filterSearch** | **string**| Filter for actions containing the given words somewhere within name, description and tags | 
 
 ### Return type
 

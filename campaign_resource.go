@@ -40,7 +40,7 @@ type CampaignResource struct {
 	NextChallengeDate int64 `json:"next_challenge_date,omitempty"`
 
 	// The rewards to give at the end of the campaign. When creating/updating only id is used. Reward set must be pre-existing
-	RewardSet RewardSetResource `json:"reward_set,omitempty"`
+	RewardSet *RewardSetResource `json:"reward_set,omitempty"`
 
 	// Indicate if the rewards have been given out already
 	RewardStatus string `json:"reward_status,omitempty"`

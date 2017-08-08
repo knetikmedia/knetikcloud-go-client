@@ -34,7 +34,7 @@ type InventorySubscriptionResource struct {
 	ItemId int32 `json:"item_id,omitempty"`
 
 	// The payment method object
-	PaymentMethod PaymentMethodResource `json:"payment_method,omitempty"`
+	PaymentMethod *PaymentMethodResource `json:"payment_method,omitempty"`
 
 	// The recurring price that has been set to override the base price. Null if not overriding
 	PriceOverride float64 `json:"price_override,omitempty"`
@@ -55,5 +55,5 @@ type InventorySubscriptionResource struct {
 	SubscriptionStatus int32 `json:"subscription_status,omitempty"`
 
 	// The user
-	User SimpleUserResource `json:"user,omitempty"`
+	User *SimpleUserResource `json:"user,omitempty"`
 }

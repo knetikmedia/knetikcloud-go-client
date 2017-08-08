@@ -35,7 +35,7 @@ type ActivityResource struct {
 	Name string `json:"name"`
 
 	// The rewards to give at the end of each occurence of the activity. When creating/updating only id is used. Reward set must be pre-existing
-	RewardSet RewardSetResource `json:"reward_set,omitempty"`
+	RewardSet *RewardSetResource `json:"reward_set,omitempty"`
 
 	// Define what parameters are required/available to start and run an activity. For example: Difficulty, Number of Questions, Character name, Avatar, Duration, etc. Not populated when getting listing
 	Settings []AvailableSettingResource `json:"settings,omitempty"`

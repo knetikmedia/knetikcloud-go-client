@@ -8,19 +8,25 @@ Method | HTTP request | Description
 
 
 # **GetSignedS3URL**
-> AmazonS3Activity GetSignedS3URL($filename, $contentType)
-
+> AmazonS3Activity GetSignedS3URL(ctx, optional)
 Get a signed S3 URL
 
 Requires the file name and file content type (i.e., 'video/mpeg')
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filename** | **string**| The file name | [optional] 
- **contentType** | **string**| The content type | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filename** | **string**| The file name | 
+ **contentType** | **string**| The content type | 
 
 ### Return type
 

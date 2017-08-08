@@ -20,7 +20,7 @@ type CacheClearEvent struct {
 
 	Section string `json:"section,omitempty"`
 
-	Source interface{} `json:"source,omitempty"`
+	Source *interface{} `json:"source,omitempty"`
 
 	Specifics string `json:"specifics,omitempty"`
 

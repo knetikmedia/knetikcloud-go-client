@@ -8,18 +8,24 @@ Method | HTTP request | Description
 
 
 # **SilentPostOptimal**
-> string SilentPostOptimal($request)
-
+> string SilentPostOptimal(ctx, optional)
 Initiate silent post with Optimal
 
 Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**OptimalPaymentRequest**](OptimalPaymentRequest.md)| The payment request to initiate | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**OptimalPaymentRequest**](OptimalPaymentRequest.md)| The payment request to initiate | 
 
 ### Return type
 

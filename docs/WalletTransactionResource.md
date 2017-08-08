@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **TransactionId** | **string** | The payment gateway (external) transaction ID | [optional] [default to null]
 **Type_** | **string** | The general type of the transaction | [optional] [default to null]
 **TypeHint** | **string** | The table name of the subclass | [optional] [default to null]
-**User** | [**SimpleUserResource**](SimpleUserResource.md) | The owner of the wallet | [optional] [default to null]
+**User** | [***SimpleUserResource**](SimpleUserResource.md) | The owner of the wallet | [optional] [default to null]
 **Value** | **float64** | The amount of the transaction, positive if a gain, negative if an expenditure | [optional] [default to null]
 **WalletId** | **int32** | The id of the wallet this transaction affected | [optional] [default to null]
 

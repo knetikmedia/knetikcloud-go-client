@@ -13,7 +13,7 @@ package swagger
 type DatePropertyDefinitionResource struct {
 
 	// A list of the fields on both the property definition and property of this type
-	FieldList PropertyFieldListResource `json:"field_list,omitempty"`
+	FieldList *PropertyFieldListResource `json:"field_list,omitempty"`
 
 	// The name of the property
 	Name string `json:"name"`

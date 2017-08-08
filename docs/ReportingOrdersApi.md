@@ -8,23 +8,30 @@ Method | HTTP request | Description
 
 
 # **GetInvoiceReports**
-> PageResourceAggregateInvoiceReportResource GetInvoiceReports($currencyCode, $granularity, $filterPaymentStatus, $filterFulfillmentStatus, $startDate, $endDate, $size, $page)
-
+> PageResourceAggregateInvoiceReportResource GetInvoiceReports(ctx, currencyCode, optional)
 Retrieve invoice counts aggregated by time ranges
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **currencyCode** | **string**| The code for a currency to get sales data for | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **currencyCode** | **string**| The code for a currency to get sales data for | 
- **granularity** | **string**| The time duration to aggregate by | [optional] [default to day]
- **filterPaymentStatus** | **string**| A payment status to filter results by, can be a comma separated list | [optional] 
- **filterFulfillmentStatus** | **string**| An invoice fulfillment status to filter results by, can be a comma separated list | [optional] 
- **startDate** | **int64**| The start of the time range to return, unix timestamp in seconds. Default is beginning of time | [optional] 
- **endDate** | **int64**| The end of the time range to return, unix timestamp in seconds. Default is end of time | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned | [optional] [default to 1]
+ **granularity** | **string**| The time duration to aggregate by | [default to day]
+ **filterPaymentStatus** | **string**| A payment status to filter results by, can be a comma separated list | 
+ **filterFulfillmentStatus** | **string**| An invoice fulfillment status to filter results by, can be a comma separated list | 
+ **startDate** | **int64**| The start of the time range to return, unix timestamp in seconds. Default is beginning of time | 
+ **endDate** | **int64**| The end of the time range to return, unix timestamp in seconds. Default is end of time | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned | [default to 1]
 
 ### Return type
 

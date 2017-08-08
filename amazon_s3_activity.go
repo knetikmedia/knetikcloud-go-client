@@ -15,6 +15,9 @@ type AmazonS3Activity struct {
 	// S3 action (i.e., 'PUT') associated with the activity
 	Action string `json:"action,omitempty"`
 
+	// URL for accessing the resource via CDN if configured (will default to the main url if not)
+	CdnUrl string `json:"cdn_url,omitempty"`
+
 	// Date the resource was created in S3
 	CreatedDate int64 `json:"created_date,omitempty"`
 
@@ -27,7 +30,7 @@ type AmazonS3Activity struct {
 	// S3 object key for the resource
 	ObjectKey string `json:"object_key,omitempty"`
 
-	// URL for accessing the S3 resource
+	// URL for posting and later accessing the S3 resource
 	Url string `json:"url,omitempty"`
 
 	// The id of the user that created this S3 activity

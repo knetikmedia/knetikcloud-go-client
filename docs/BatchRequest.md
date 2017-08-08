@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Body** | [**interface{}**](interface{}.md) | The request body as would be passed to the URI | [default to null]
+**Body** | [***interface{}**](interface{}.md) | The request body as would be passed to the URI | [default to null]
 **ContentType** | **string** | Content type used, Ex:(application/json) | [default to null]
 **Method** | **string** | The HTTP method used, Ex: (GET) | [default to null]
 **Timeout** | **int32** | Time in seconds before process will timeout.  Default is 60.  Range is 1-300 | [default to null]

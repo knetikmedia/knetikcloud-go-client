@@ -14,11 +14,11 @@ type CustomerConfig struct {
 
 	Aliases string `json:"aliases,omitempty"`
 
-	Database DatabaseConfig `json:"database,omitempty"`
+	Database *DatabaseConfig `json:"database,omitempty"`
 
-	Io IoConfig `json:"io,omitempty"`
+	Io *IoConfig `json:"io,omitempty"`
 
 	Name string `json:"name,omitempty"`
 
-	S3Config S3Config `json:"s3_config,omitempty"`
+	S3Config *S3Config `json:"s3_config,omitempty"`
 }

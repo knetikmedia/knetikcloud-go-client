@@ -19,7 +19,7 @@ type QuestionResource struct {
 	Answers []AnswerResource `json:"answers,omitempty"`
 
 	// The category for the question
-	Category NestedCategory `json:"category"`
+	Category *NestedCategory `json:"category"`
 
 	// The date/time this resource was created in seconds since unix epoch
 	CreatedDate int64 `json:"created_date,omitempty"`
@@ -37,7 +37,7 @@ type QuestionResource struct {
 	PublishedDate int64 `json:"published_date,omitempty"`
 
 	// The question. Different 'type' values indicate different structures as the question may be test, image, etc. See information on additional properties for the list and their structures
-	Question Property `json:"question"`
+	Question *Property `json:"question"`
 
 	// The first source of the question
 	Source1 string `json:"source1,omitempty"`

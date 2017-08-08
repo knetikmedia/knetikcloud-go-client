@@ -49,10 +49,10 @@ type ChallengeResource struct {
 	RewardLagMinutes int32 `json:"reward_lag_minutes,omitempty"`
 
 	// The rewards to give at the end of the challenge. When creating/updating only id is used. Reward set must be pre-existing
-	RewardSet RewardSetResource `json:"reward_set,omitempty"`
+	RewardSet *RewardSetResource `json:"reward_set,omitempty"`
 
 	// The repeat schedule for the challenge
-	Schedule Schedule `json:"schedule,omitempty"`
+	Schedule *Schedule `json:"schedule,omitempty"`
 
 	// The user friendly name of that resource. Defaults to blank string
 	ShortDescription string `json:"short_description,omitempty"`

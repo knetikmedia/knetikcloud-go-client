@@ -39,7 +39,7 @@ type PaymentMethodResource struct {
 	Name string `json:"name"`
 
 	// The type of payment method. Must be a pre-existing value
-	PaymentMethodType PaymentMethodTypeResource `json:"payment_method_type"`
+	PaymentMethodType *PaymentMethodTypeResource `json:"payment_method_type"`
 
 	// The generic payment type. Default is card
 	PaymentType string `json:"payment_type,omitempty"`

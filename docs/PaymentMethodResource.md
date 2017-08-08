@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Id** | **int64** | The unique ID of the resource | [optional] [default to null]
 **Last4** | **string** | The last 4 digits of the account number for the payment method. Typically used for credit card payment methods | [optional] [default to null]
 **Name** | **string** | The user friendly name of the resource | [default to null]
-**PaymentMethodType** | [**PaymentMethodTypeResource**](PaymentMethodTypeResource.md) | The type of payment method. Must be a pre-existing value | [default to null]
+**PaymentMethodType** | [***PaymentMethodTypeResource**](PaymentMethodTypeResource.md) | The type of payment method. Must be a pre-existing value | [default to null]
 **PaymentType** | **string** | The generic payment type. Default is card | [optional] [default to null]
 **Sort** | **int32** | The sort value for the payment method | [optional] [default to null]
 **Token** | **string** | The unique token for the payment method | [optional] [default to null]

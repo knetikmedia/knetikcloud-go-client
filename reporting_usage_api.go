@@ -12,479 +12,587 @@ package swagger
 
 import (
 	"net/url"
+	"net/http"
 	"strings"
+	"golang.org/x/net/context"
 	"encoding/json"
 )
 
-type ReportingUsageApi struct {
-	Configuration *Configuration
-}
+// Linger please
+var (
+	_ context.Context
+)
 
-func NewReportingUsageApi() *ReportingUsageApi {
-	configuration := NewConfiguration()
-	return &ReportingUsageApi{
-		Configuration: configuration,
-	}
-}
+type ReportingUsageApiService service
 
-func NewReportingUsageApiWithBasePath(basePath string) *ReportingUsageApi {
-	configuration := NewConfiguration()
-	configuration.BasePath = basePath
 
-	return &ReportingUsageApi{
-		Configuration: configuration,
-	}
-}
+/* ReportingUsageApiService Returns aggregated endpoint usage information by day
+ * @param ctx context.Context Authentication Context 
+ @param startDate The beginning of the range being requested, unix timestamp in seconds
+ @param endDate The ending of the range being requested, unix timestamp in seconds
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "combineEndpoints" (bool) Whether to combine counts from different endpoint. Removes the url and method from the result object
+     @param "method" (string) Filter for a certain endpoint method.  Must include url as well to work
+     @param "url" (string) Filter for a certain endpoint.  Must include method as well to work
+     @param "size" (int32) The number of objects returned per page
+     @param "page" (int32) The number of the page returned, starting with 1
+ @return PageResourceUsageInfo*/
+func (a *ReportingUsageApiService) GetUsageByDay(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PageResourceUsageInfo
+	)
 
-/**
- * Returns aggregated endpoint usage information by day
- *
- * @param startDate The beginning of the range being requested, unix timestamp in seconds
- * @param endDate The ending of the range being requested, unix timestamp in seconds
- * @param combineEndpoints Whether to combine counts from different endpoint. Removes the url and method from the result object
- * @param method Filter for a certain endpoint method.  Must include url as well to work
- * @param url Filter for a certain endpoint.  Must include method as well to work
- * @param size The number of objects returned per page
- * @param page The number of the page returned, starting with 1
- * @return *PageResourceUsageInfo
- */
-func (a ReportingUsageApi) GetUsageByDay(startDate int64, endDate int64, combineEndpoints bool, method string, url string, size int32, page int32) (*PageResourceUsageInfo, *APIResponse, error) {
-
-	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/reporting/usage/day"
+	localVarPath := a.client.cfg.BasePath + "/reporting/usage/day"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := make(map[string]string)
-	var localVarPostBody interface{}
-	var localVarFileName string
-	var localVarFileBytes []byte
-	// authentication '(OAuth2)' required
-	// oauth required
-	if a.Configuration.AccessToken != ""{
-		localVarHeaderParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}
-	// add default headers if any
-	for key := range a.Configuration.DefaultHeader {
-		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
-	}
-	localVarQueryParams.Add("start_date", a.Configuration.APIClient.ParameterToString(startDate, ""))
-	localVarQueryParams.Add("end_date", a.Configuration.APIClient.ParameterToString(endDate, ""))
-	localVarQueryParams.Add("combine_endpoints", a.Configuration.APIClient.ParameterToString(combineEndpoints, ""))
-	localVarQueryParams.Add("method", a.Configuration.APIClient.ParameterToString(method, ""))
-	localVarQueryParams.Add("url", a.Configuration.APIClient.ParameterToString(url, ""))
-	localVarQueryParams.Add("size", a.Configuration.APIClient.ParameterToString(size, ""))
-	localVarQueryParams.Add("page", a.Configuration.APIClient.ParameterToString(page, ""))
+	localVarFormParams := url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["combineEndpoints"], "bool", "combineEndpoints"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["method"], "string", "method"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["url"], "string", "url"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["size"], "int32", "size"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("start_date", parameterToString(startDate, ""))
+	localVarQueryParams.Add("end_date", parameterToString(endDate, ""))
+	if localVarTempParam, localVarOk := localVarOptionals["combineEndpoints"].(bool); localVarOk {
+		localVarQueryParams.Add("combine_endpoints", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["method"].(string); localVarOk {
+		localVarQueryParams.Add("method", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["url"].(string); localVarOk {
+		localVarQueryParams.Add("url", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["size"].(int32); localVarOk {
+		localVarQueryParams.Add("size", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
+		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
-	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
 	if localVarHttpContentType != "" {
 		localVarHeaderParams["Content-Type"] = localVarHttpContentType
 	}
+
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
 		}
 
 	// set Accept header
-	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(PageResourceUsageInfo)
-	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-
-	var localVarURL, _ = url.Parse(localVarPath)
-	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "GetUsageByDay", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
-	if localVarHttpResponse != nil {
-		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
-		localVarAPIResponse.Payload = localVarHttpResponse.Body()
-	}
-
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return successPayload, localVarAPIResponse, err
+		return successPayload, nil, err
 	}
-	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
-	return successPayload, localVarAPIResponse, err
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
 }
 
-/**
- * Returns aggregated endpoint usage information by hour
- *
- * @param startDate The beginning of the range being requested, unix timestamp in seconds
- * @param endDate The ending of the range being requested, unix timestamp in seconds
- * @param combineEndpoints Whether to combine counts from different endpoint. Removes the url and method from the result object
- * @param method Filter for a certain endpoint method.  Must include url as well to work
- * @param url Filter for a certain endpoint.  Must include method as well to work
- * @param size The number of objects returned per page
- * @param page The number of the page returned, starting with 1
- * @return *PageResourceUsageInfo
- */
-func (a ReportingUsageApi) GetUsageByHour(startDate int64, endDate int64, combineEndpoints bool, method string, url string, size int32, page int32) (*PageResourceUsageInfo, *APIResponse, error) {
+/* ReportingUsageApiService Returns aggregated endpoint usage information by hour
+ * @param ctx context.Context Authentication Context 
+ @param startDate The beginning of the range being requested, unix timestamp in seconds
+ @param endDate The ending of the range being requested, unix timestamp in seconds
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "combineEndpoints" (bool) Whether to combine counts from different endpoint. Removes the url and method from the result object
+     @param "method" (string) Filter for a certain endpoint method.  Must include url as well to work
+     @param "url" (string) Filter for a certain endpoint.  Must include method as well to work
+     @param "size" (int32) The number of objects returned per page
+     @param "page" (int32) The number of the page returned, starting with 1
+ @return PageResourceUsageInfo*/
+func (a *ReportingUsageApiService) GetUsageByHour(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PageResourceUsageInfo
+	)
 
-	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/reporting/usage/hour"
+	localVarPath := a.client.cfg.BasePath + "/reporting/usage/hour"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := make(map[string]string)
-	var localVarPostBody interface{}
-	var localVarFileName string
-	var localVarFileBytes []byte
-	// authentication '(OAuth2)' required
-	// oauth required
-	if a.Configuration.AccessToken != ""{
-		localVarHeaderParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}
-	// add default headers if any
-	for key := range a.Configuration.DefaultHeader {
-		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
-	}
-	localVarQueryParams.Add("start_date", a.Configuration.APIClient.ParameterToString(startDate, ""))
-	localVarQueryParams.Add("end_date", a.Configuration.APIClient.ParameterToString(endDate, ""))
-	localVarQueryParams.Add("combine_endpoints", a.Configuration.APIClient.ParameterToString(combineEndpoints, ""))
-	localVarQueryParams.Add("method", a.Configuration.APIClient.ParameterToString(method, ""))
-	localVarQueryParams.Add("url", a.Configuration.APIClient.ParameterToString(url, ""))
-	localVarQueryParams.Add("size", a.Configuration.APIClient.ParameterToString(size, ""))
-	localVarQueryParams.Add("page", a.Configuration.APIClient.ParameterToString(page, ""))
+	localVarFormParams := url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["combineEndpoints"], "bool", "combineEndpoints"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["method"], "string", "method"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["url"], "string", "url"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["size"], "int32", "size"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("start_date", parameterToString(startDate, ""))
+	localVarQueryParams.Add("end_date", parameterToString(endDate, ""))
+	if localVarTempParam, localVarOk := localVarOptionals["combineEndpoints"].(bool); localVarOk {
+		localVarQueryParams.Add("combine_endpoints", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["method"].(string); localVarOk {
+		localVarQueryParams.Add("method", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["url"].(string); localVarOk {
+		localVarQueryParams.Add("url", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["size"].(int32); localVarOk {
+		localVarQueryParams.Add("size", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
+		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
-	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
 	if localVarHttpContentType != "" {
 		localVarHeaderParams["Content-Type"] = localVarHttpContentType
 	}
+
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
 		}
 
 	// set Accept header
-	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(PageResourceUsageInfo)
-	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-
-	var localVarURL, _ = url.Parse(localVarPath)
-	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "GetUsageByHour", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
-	if localVarHttpResponse != nil {
-		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
-		localVarAPIResponse.Payload = localVarHttpResponse.Body()
-	}
-
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return successPayload, localVarAPIResponse, err
+		return successPayload, nil, err
 	}
-	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
-	return successPayload, localVarAPIResponse, err
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
 }
 
-/**
- * Returns aggregated endpoint usage information by minute
- *
- * @param startDate The beginning of the range being requested, unix timestamp in seconds
- * @param endDate The ending of the range being requested, unix timestamp in seconds
- * @param combineEndpoints Whether to combine counts from different endpoint. Removes the url and method from the result object
- * @param method Filter for a certain endpoint method.  Must include url as well to work
- * @param url Filter for a certain endpoint.  Must include method as well to work
- * @param size The number of objects returned per page
- * @param page The number of the page returned, starting with 1
- * @return *PageResourceUsageInfo
- */
-func (a ReportingUsageApi) GetUsageByMinute(startDate int64, endDate int64, combineEndpoints bool, method string, url string, size int32, page int32) (*PageResourceUsageInfo, *APIResponse, error) {
+/* ReportingUsageApiService Returns aggregated endpoint usage information by minute
+ * @param ctx context.Context Authentication Context 
+ @param startDate The beginning of the range being requested, unix timestamp in seconds
+ @param endDate The ending of the range being requested, unix timestamp in seconds
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "combineEndpoints" (bool) Whether to combine counts from different endpoint. Removes the url and method from the result object
+     @param "method" (string) Filter for a certain endpoint method.  Must include url as well to work
+     @param "url" (string) Filter for a certain endpoint.  Must include method as well to work
+     @param "size" (int32) The number of objects returned per page
+     @param "page" (int32) The number of the page returned, starting with 1
+ @return PageResourceUsageInfo*/
+func (a *ReportingUsageApiService) GetUsageByMinute(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PageResourceUsageInfo
+	)
 
-	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/reporting/usage/minute"
+	localVarPath := a.client.cfg.BasePath + "/reporting/usage/minute"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := make(map[string]string)
-	var localVarPostBody interface{}
-	var localVarFileName string
-	var localVarFileBytes []byte
-	// authentication '(OAuth2)' required
-	// oauth required
-	if a.Configuration.AccessToken != ""{
-		localVarHeaderParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}
-	// add default headers if any
-	for key := range a.Configuration.DefaultHeader {
-		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
-	}
-	localVarQueryParams.Add("start_date", a.Configuration.APIClient.ParameterToString(startDate, ""))
-	localVarQueryParams.Add("end_date", a.Configuration.APIClient.ParameterToString(endDate, ""))
-	localVarQueryParams.Add("combine_endpoints", a.Configuration.APIClient.ParameterToString(combineEndpoints, ""))
-	localVarQueryParams.Add("method", a.Configuration.APIClient.ParameterToString(method, ""))
-	localVarQueryParams.Add("url", a.Configuration.APIClient.ParameterToString(url, ""))
-	localVarQueryParams.Add("size", a.Configuration.APIClient.ParameterToString(size, ""))
-	localVarQueryParams.Add("page", a.Configuration.APIClient.ParameterToString(page, ""))
+	localVarFormParams := url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["combineEndpoints"], "bool", "combineEndpoints"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["method"], "string", "method"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["url"], "string", "url"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["size"], "int32", "size"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("start_date", parameterToString(startDate, ""))
+	localVarQueryParams.Add("end_date", parameterToString(endDate, ""))
+	if localVarTempParam, localVarOk := localVarOptionals["combineEndpoints"].(bool); localVarOk {
+		localVarQueryParams.Add("combine_endpoints", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["method"].(string); localVarOk {
+		localVarQueryParams.Add("method", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["url"].(string); localVarOk {
+		localVarQueryParams.Add("url", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["size"].(int32); localVarOk {
+		localVarQueryParams.Add("size", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
+		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
-	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
 	if localVarHttpContentType != "" {
 		localVarHeaderParams["Content-Type"] = localVarHttpContentType
 	}
+
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
 		}
 
 	// set Accept header
-	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(PageResourceUsageInfo)
-	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-
-	var localVarURL, _ = url.Parse(localVarPath)
-	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "GetUsageByMinute", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
-	if localVarHttpResponse != nil {
-		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
-		localVarAPIResponse.Payload = localVarHttpResponse.Body()
-	}
-
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return successPayload, localVarAPIResponse, err
+		return successPayload, nil, err
 	}
-	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
-	return successPayload, localVarAPIResponse, err
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
 }
 
-/**
- * Returns aggregated endpoint usage information by month
- *
- * @param startDate The beginning of the range being requested, unix timestamp in seconds
- * @param endDate The ending of the range being requested, unix timestamp in seconds
- * @param combineEndpoints Whether to combine counts from different endpoint. Removes the url and method from the result object
- * @param method Filter for a certain endpoint method.  Must include url as well to work
- * @param url Filter for a certain endpoint.  Must include method as well to work
- * @param size The number of objects returned per page
- * @param page The number of the page returned, starting with 1
- * @return *PageResourceUsageInfo
- */
-func (a ReportingUsageApi) GetUsageByMonth(startDate int64, endDate int64, combineEndpoints bool, method string, url string, size int32, page int32) (*PageResourceUsageInfo, *APIResponse, error) {
+/* ReportingUsageApiService Returns aggregated endpoint usage information by month
+ * @param ctx context.Context Authentication Context 
+ @param startDate The beginning of the range being requested, unix timestamp in seconds
+ @param endDate The ending of the range being requested, unix timestamp in seconds
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "combineEndpoints" (bool) Whether to combine counts from different endpoint. Removes the url and method from the result object
+     @param "method" (string) Filter for a certain endpoint method.  Must include url as well to work
+     @param "url" (string) Filter for a certain endpoint.  Must include method as well to work
+     @param "size" (int32) The number of objects returned per page
+     @param "page" (int32) The number of the page returned, starting with 1
+ @return PageResourceUsageInfo*/
+func (a *ReportingUsageApiService) GetUsageByMonth(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PageResourceUsageInfo
+	)
 
-	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/reporting/usage/month"
+	localVarPath := a.client.cfg.BasePath + "/reporting/usage/month"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := make(map[string]string)
-	var localVarPostBody interface{}
-	var localVarFileName string
-	var localVarFileBytes []byte
-	// authentication '(OAuth2)' required
-	// oauth required
-	if a.Configuration.AccessToken != ""{
-		localVarHeaderParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}
-	// add default headers if any
-	for key := range a.Configuration.DefaultHeader {
-		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
-	}
-	localVarQueryParams.Add("start_date", a.Configuration.APIClient.ParameterToString(startDate, ""))
-	localVarQueryParams.Add("end_date", a.Configuration.APIClient.ParameterToString(endDate, ""))
-	localVarQueryParams.Add("combine_endpoints", a.Configuration.APIClient.ParameterToString(combineEndpoints, ""))
-	localVarQueryParams.Add("method", a.Configuration.APIClient.ParameterToString(method, ""))
-	localVarQueryParams.Add("url", a.Configuration.APIClient.ParameterToString(url, ""))
-	localVarQueryParams.Add("size", a.Configuration.APIClient.ParameterToString(size, ""))
-	localVarQueryParams.Add("page", a.Configuration.APIClient.ParameterToString(page, ""))
+	localVarFormParams := url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["combineEndpoints"], "bool", "combineEndpoints"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["method"], "string", "method"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["url"], "string", "url"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["size"], "int32", "size"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("start_date", parameterToString(startDate, ""))
+	localVarQueryParams.Add("end_date", parameterToString(endDate, ""))
+	if localVarTempParam, localVarOk := localVarOptionals["combineEndpoints"].(bool); localVarOk {
+		localVarQueryParams.Add("combine_endpoints", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["method"].(string); localVarOk {
+		localVarQueryParams.Add("method", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["url"].(string); localVarOk {
+		localVarQueryParams.Add("url", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["size"].(int32); localVarOk {
+		localVarQueryParams.Add("size", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
+		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
-	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
 	if localVarHttpContentType != "" {
 		localVarHeaderParams["Content-Type"] = localVarHttpContentType
 	}
+
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
 		}
 
 	// set Accept header
-	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(PageResourceUsageInfo)
-	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-
-	var localVarURL, _ = url.Parse(localVarPath)
-	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "GetUsageByMonth", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
-	if localVarHttpResponse != nil {
-		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
-		localVarAPIResponse.Payload = localVarHttpResponse.Body()
-	}
-
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return successPayload, localVarAPIResponse, err
+		return successPayload, nil, err
 	}
-	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
-	return successPayload, localVarAPIResponse, err
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
 }
 
-/**
- * Returns aggregated endpoint usage information by year
- *
- * @param startDate The beginning of the range being requested, unix timestamp in seconds
- * @param endDate The ending of the range being requested, unix timestamp in seconds
- * @param combineEndpoints Whether to combine counts from different endpoints. Removes the url and method from the result object
- * @param method Filter for a certain endpoint method.  Must include url as well to work
- * @param url Filter for a certain endpoint.  Must include method as well to work
- * @param size The number of objects returned per page
- * @param page The number of the page returned, starting with 1
- * @return *PageResourceUsageInfo
- */
-func (a ReportingUsageApi) GetUsageByYear(startDate int64, endDate int64, combineEndpoints bool, method string, url string, size int32, page int32) (*PageResourceUsageInfo, *APIResponse, error) {
+/* ReportingUsageApiService Returns aggregated endpoint usage information by year
+ * @param ctx context.Context Authentication Context 
+ @param startDate The beginning of the range being requested, unix timestamp in seconds
+ @param endDate The ending of the range being requested, unix timestamp in seconds
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "combineEndpoints" (bool) Whether to combine counts from different endpoints. Removes the url and method from the result object
+     @param "method" (string) Filter for a certain endpoint method.  Must include url as well to work
+     @param "url" (string) Filter for a certain endpoint.  Must include method as well to work
+     @param "size" (int32) The number of objects returned per page
+     @param "page" (int32) The number of the page returned, starting with 1
+ @return PageResourceUsageInfo*/
+func (a *ReportingUsageApiService) GetUsageByYear(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PageResourceUsageInfo
+	)
 
-	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/reporting/usage/year"
+	localVarPath := a.client.cfg.BasePath + "/reporting/usage/year"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := make(map[string]string)
-	var localVarPostBody interface{}
-	var localVarFileName string
-	var localVarFileBytes []byte
-	// authentication '(OAuth2)' required
-	// oauth required
-	if a.Configuration.AccessToken != ""{
-		localVarHeaderParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}
-	// add default headers if any
-	for key := range a.Configuration.DefaultHeader {
-		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
-	}
-	localVarQueryParams.Add("start_date", a.Configuration.APIClient.ParameterToString(startDate, ""))
-	localVarQueryParams.Add("end_date", a.Configuration.APIClient.ParameterToString(endDate, ""))
-	localVarQueryParams.Add("combine_endpoints", a.Configuration.APIClient.ParameterToString(combineEndpoints, ""))
-	localVarQueryParams.Add("method", a.Configuration.APIClient.ParameterToString(method, ""))
-	localVarQueryParams.Add("url", a.Configuration.APIClient.ParameterToString(url, ""))
-	localVarQueryParams.Add("size", a.Configuration.APIClient.ParameterToString(size, ""))
-	localVarQueryParams.Add("page", a.Configuration.APIClient.ParameterToString(page, ""))
+	localVarFormParams := url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["combineEndpoints"], "bool", "combineEndpoints"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["method"], "string", "method"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["url"], "string", "url"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["size"], "int32", "size"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("start_date", parameterToString(startDate, ""))
+	localVarQueryParams.Add("end_date", parameterToString(endDate, ""))
+	if localVarTempParam, localVarOk := localVarOptionals["combineEndpoints"].(bool); localVarOk {
+		localVarQueryParams.Add("combine_endpoints", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["method"].(string); localVarOk {
+		localVarQueryParams.Add("method", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["url"].(string); localVarOk {
+		localVarQueryParams.Add("url", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["size"].(int32); localVarOk {
+		localVarQueryParams.Add("size", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
+		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
-	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
 	if localVarHttpContentType != "" {
 		localVarHeaderParams["Content-Type"] = localVarHttpContentType
 	}
+
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
 		}
 
 	// set Accept header
-	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(PageResourceUsageInfo)
-	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-
-	var localVarURL, _ = url.Parse(localVarPath)
-	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "GetUsageByYear", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
-	if localVarHttpResponse != nil {
-		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
-		localVarAPIResponse.Payload = localVarHttpResponse.Body()
-	}
-
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return successPayload, localVarAPIResponse, err
+		return successPayload, nil, err
 	}
-	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
-	return successPayload, localVarAPIResponse, err
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
 }
 
-/**
- * Returns list of endpoints called (method and url)
- *
- * @param startDate The beginning of the range being requested, unix timestamp in seconds
- * @param endDate The ending of the range being requested, unix timestamp in seconds
- * @return []string
- */
-func (a ReportingUsageApi) GetUsageEndpoints(startDate int64, endDate int64) ([]string, *APIResponse, error) {
+/* ReportingUsageApiService Returns list of endpoints called (method and url)
+ * @param ctx context.Context Authentication Context 
+ @param startDate The beginning of the range being requested, unix timestamp in seconds
+ @param endDate The ending of the range being requested, unix timestamp in seconds
+ @return []string*/
+func (a *ReportingUsageApiService) GetUsageEndpoints(ctx context.Context, startDate int64, endDate int64) ([]string,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  []string
+	)
 
-	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/reporting/usage/endpoints"
+	localVarPath := a.client.cfg.BasePath + "/reporting/usage/endpoints"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := make(map[string]string)
-	var localVarPostBody interface{}
-	var localVarFileName string
-	var localVarFileBytes []byte
-	// authentication '(OAuth2)' required
-	// oauth required
-	if a.Configuration.AccessToken != ""{
-		localVarHeaderParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}
-	// add default headers if any
-	for key := range a.Configuration.DefaultHeader {
-		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
-	}
-	localVarQueryParams.Add("start_date", a.Configuration.APIClient.ParameterToString(startDate, ""))
-	localVarQueryParams.Add("end_date", a.Configuration.APIClient.ParameterToString(endDate, ""))
+	localVarFormParams := url.Values{}
 
+
+	localVarQueryParams.Add("start_date", parameterToString(startDate, ""))
+	localVarQueryParams.Add("end_date", parameterToString(endDate, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
-	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
 	if localVarHttpContentType != "" {
 		localVarHeaderParams["Content-Type"] = localVarHttpContentType
 	}
+
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
 		}
 
 	// set Accept header
-	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new([]string)
-	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-
-	var localVarURL, _ = url.Parse(localVarPath)
-	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "GetUsageEndpoints", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
-	if localVarHttpResponse != nil {
-		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
-		localVarAPIResponse.Payload = localVarHttpResponse.Body()
-	}
-
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return *successPayload, localVarAPIResponse, err
+		return successPayload, nil, err
 	}
-	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
-	return *successPayload, localVarAPIResponse, err
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
 }
 

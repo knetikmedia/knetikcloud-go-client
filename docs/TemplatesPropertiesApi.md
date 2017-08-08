@@ -9,16 +9,14 @@ Method | HTTP request | Description
 
 
 # **GetTemplatePropertyType**
-> PropertyFieldListResource GetTemplatePropertyType($type_)
-
+> PropertyFieldListResource GetTemplatePropertyType(type_)
 Get details for a template property type
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type_** | **string**| type | 
+  **type_** | **string**| type | 
 
 ### Return type
 
@@ -37,11 +35,9 @@ No authorization required
 
 # **GetTemplatePropertyTypes**
 > []PropertyFieldListResource GetTemplatePropertyTypes()
-
 List template property types
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type

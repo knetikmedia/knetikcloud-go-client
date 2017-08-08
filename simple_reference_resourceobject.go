@@ -13,7 +13,7 @@ package swagger
 type SimpleReferenceResourceobject struct {
 
 	// The id of the referenced object
-	Id interface{} `json:"id"`
+	Id *interface{} `json:"id"`
 
 	// The name of the referenced object
 	Name string `json:"name,omitempty"`

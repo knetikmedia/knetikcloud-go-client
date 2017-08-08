@@ -12,18 +12,24 @@ Method | HTTP request | Description
 
 
 # **CreateBREGlobal**
-> BreGlobalResource CreateBREGlobal($breGlobalResource)
-
+> BreGlobalResource CreateBREGlobal(ctx, optional)
 Create a global definition
 
 Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **breGlobalResource** | [**BreGlobalResource**](BreGlobalResource.md)| The BRE global resource object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **breGlobalResource** | [**BreGlobalResource**](BreGlobalResource.md)| The BRE global resource object | 
 
 ### Return type
 
@@ -41,22 +47,21 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteBREGlobal**
-> DeleteBREGlobal($id)
-
+> DeleteBREGlobal(ctx, id)
 Delete a global
 
 May fail if there are existing rules against it. Cannot delete core globals
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the global definition | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the global definition | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -70,16 +75,15 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBREGlobal**
-> BreGlobalResource GetBREGlobal($id)
-
+> BreGlobalResource GetBREGlobal(ctx, id)
 Get a single global definition
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the global definition | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the global definition | 
 
 ### Return type
 
@@ -97,18 +101,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBREGlobals**
-> PageResourceBreGlobalResource GetBREGlobals($filterSystem, $size, $page)
-
+> PageResourceBreGlobalResource GetBREGlobals(ctx, optional)
 List global definitions
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterSystem** | **bool**| Filter for globals that are system globals when true, or not when false. Leave off for both mixed | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterSystem** | **bool**| Filter for globals that are system globals when true, or not when false. Leave off for both mixed | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -126,19 +136,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateBREGlobal**
-> BreGlobalResource UpdateBREGlobal($id, $breGlobalResource)
-
+> BreGlobalResource UpdateBREGlobal(ctx, id, optional)
 Update a global definition
 
 May fail if new parameters mismatch requirements of existing rules. Cannot update core globals
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the global definition | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the global definition | 
- **breGlobalResource** | [**BreGlobalResource**](BreGlobalResource.md)| The BRE global resource object | [optional] 
+ **breGlobalResource** | [**BreGlobalResource**](BreGlobalResource.md)| The BRE global resource object | 
 
 ### Return type
 

@@ -13,7 +13,7 @@ package swagger
 type UserInventoryResource struct {
 
 	// A map of data for behaviors
-	BehaviorData interface{} `json:"behavior_data,omitempty"`
+	BehaviorData *interface{} `json:"behavior_data,omitempty"`
 
 	// The date/time this resource was created in seconds since epoch
 	CreatedDate int64 `json:"created_date,omitempty"`
@@ -43,5 +43,5 @@ type UserInventoryResource struct {
 	UpdatedDate int64 `json:"updated_date,omitempty"`
 
 	// The id of the user this inventory belongs to
-	User SimpleUserResource `json:"user,omitempty"`
+	User *SimpleUserResource `json:"user,omitempty"`
 }

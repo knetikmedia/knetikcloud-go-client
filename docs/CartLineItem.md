@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CurrencyCode** | **string** |  | [optional] [default to null]
 **Description** | **string** |  | [optional] [default to null]
-**Discount** | [**Discount**](Discount.md) |  | [optional] [default to null]
+**Discount** | [***Discount**](Discount.md) |  | [optional] [default to null]
 **LineTotal** | **float64** |  | [optional] [default to null]
 **Name** | **string** |  | [optional] [default to null]
 **OriginalLineTotal** | **float64** |  | [optional] [default to null]

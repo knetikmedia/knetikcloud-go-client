@@ -14,6 +14,8 @@ type Order struct {
 
 	Ascending bool `json:"ascending,omitempty"`
 
+	Descending bool `json:"descending,omitempty"`
+
 	Direction string `json:"direction,omitempty"`
 
 	IgnoreCase bool `json:"ignore_case,omitempty"`

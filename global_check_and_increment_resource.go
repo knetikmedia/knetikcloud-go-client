@@ -12,9 +12,9 @@ package swagger
 
 type GlobalCheckAndIncrementResource struct {
 
-	CheckValueResource ExpressionResource `json:"check_value_resource,omitempty"`
+	CheckValueResource *ExpressionResource `json:"check_value_resource,omitempty"`
 
-	GlobalResource ExpressionResource `json:"global_resource,omitempty"`
+	GlobalResource *ExpressionResource `json:"global_resource,omitempty"`
 
 	Type_ string `json:"type,omitempty"`
 }

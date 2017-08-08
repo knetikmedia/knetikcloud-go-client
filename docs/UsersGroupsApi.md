@@ -24,17 +24,16 @@ Method | HTTP request | Description
 
 
 # **AddMemberToGroup**
-> GroupMemberResource AddMemberToGroup($uniqueName, $user)
-
+> GroupMemberResource AddMemberToGroup(ctx, uniqueName, user)
 Adds a new member to the group
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uniqueName** | **string**| The group unique name | 
- **user** | [**GroupMemberResource**](GroupMemberResource.md)| The id and status for a user to add to the group | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **uniqueName** | **string**| The group unique name | 
+  **user** | [**GroupMemberResource**](GroupMemberResource.md)| The id and status for a user to add to the group | 
 
 ### Return type
 
@@ -52,17 +51,16 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddMembersToGroup**
-> []GroupMemberResource AddMembersToGroup($uniqueName, $users)
-
+> []GroupMemberResource AddMembersToGroup(ctx, uniqueName, users)
 Adds multiple members to the group
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uniqueName** | **string**| The group unique name | 
- **users** | [**[]GroupMemberResource**](GroupMemberResource.md)| The id and status for a list of users to add to the group | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **uniqueName** | **string**| The group unique name | 
+  **users** | [**[]GroupMemberResource**](GroupMemberResource.md)| The id and status for a list of users to add to the group | 
 
 ### Return type
 
@@ -80,16 +78,22 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateGroup**
-> GroupResource CreateGroup($groupResource)
-
+> GroupResource CreateGroup(ctx, optional)
 Create a group
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupResource** | [**GroupResource**](GroupResource.md)| The new group | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupResource** | [**GroupResource**](GroupResource.md)| The new group | 
 
 ### Return type
 
@@ -107,18 +111,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateGroupTemplate**
-> TemplateResource CreateGroupTemplate($groupTemplateResource)
-
+> TemplateResource CreateGroupTemplate(ctx, optional)
 Create a group template
 
 Group Templates define a type of group and the properties they have
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupTemplateResource** | [**TemplateResource**](TemplateResource.md)| The group template resource object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **groupTemplateResource** | [**TemplateResource**](TemplateResource.md)| The group template resource object | 
 
 ### Return type
 
@@ -136,20 +146,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteGroup**
-> DeleteGroup($uniqueName)
-
+> DeleteGroup(ctx, uniqueName)
 Removes a group from the system IF no resources are attached to it
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uniqueName** | **string**| The group unique name | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **uniqueName** | **string**| The group unique name | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -163,23 +172,30 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteGroupTemplate**
-> DeleteGroupTemplate($id, $cascade)
-
+> DeleteGroupTemplate(ctx, id, optional)
 Delete a group template
 
 If cascade = 'detach', it will force delete the template even if it's attached to other objects
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **cascade** | **string**| The value needed to delete used templates | [optional] 
+ **cascade** | **string**| The value needed to delete used templates | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -193,16 +209,14 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetGroup**
-> GroupResource GetGroup($uniqueName)
-
+> GroupResource GetGroup(uniqueName)
 Loads a specific group's details
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uniqueName** | **string**| The group unique name | 
+  **uniqueName** | **string**| The group unique name | 
 
 ### Return type
 
@@ -220,17 +234,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetGroupMember**
-> GroupMemberResource GetGroupMember($uniqueName, $userId)
-
+> GroupMemberResource GetGroupMember(uniqueName, userId)
 Get a user from a group
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uniqueName** | **string**| The group unique name | 
- **userId** | **int32**| The id of the user | 
+  **uniqueName** | **string**| The group unique name | 
+  **userId** | **int32**| The id of the user | 
 
 ### Return type
 
@@ -248,19 +260,25 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetGroupMembers**
-> PageResourceGroupMemberResource GetGroupMembers($uniqueName, $size, $page, $order)
-
+> PageResourceGroupMemberResource GetGroupMembers(uniqueName, optional)
 Lists members of the group
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **uniqueName** | **string**| The group unique name | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uniqueName** | **string**| The group unique name | 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -278,16 +296,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetGroupTemplate**
-> TemplateResource GetGroupTemplate($id)
-
+> TemplateResource GetGroupTemplate(ctx, id)
 Get a single group template
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the template | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
 
 ### Return type
 
@@ -305,18 +322,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetGroupTemplates**
-> PageResourceTemplateResource GetGroupTemplates($size, $page, $order)
-
+> PageResourceTemplateResource GetGroupTemplates(ctx, optional)
 List and search group templates
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -334,16 +357,14 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetGroupsForUser**
-> []string GetGroupsForUser($userId)
-
+> []string GetGroupsForUser(userId)
 List groups a user is in
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The id of the user | 
+  **userId** | **int32**| The id of the user | 
 
 ### Return type
 
@@ -361,21 +382,20 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RemoveGroupMember**
-> RemoveGroupMember($uniqueName, $userId)
-
+> RemoveGroupMember(ctx, uniqueName, userId)
 Removes a user from a group
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uniqueName** | **string**| The group unique name | 
- **userId** | **int32**| The id of the user to remove | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **uniqueName** | **string**| The group unique name | 
+  **userId** | **int32**| The id of the user to remove | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -389,21 +409,28 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateGroup**
-> UpdateGroup($uniqueName, $groupResource)
-
+> UpdateGroup(ctx, uniqueName, optional)
 Update a group
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **uniqueName** | **string**| The group unique name | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uniqueName** | **string**| The group unique name | 
- **groupResource** | [**GroupResource**](GroupResource.md)| The updated group | [optional] 
+ **groupResource** | [**GroupResource**](GroupResource.md)| The updated group | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -417,22 +444,21 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateGroupMemberStatus**
-> UpdateGroupMemberStatus($uniqueName, $userId, $status)
-
+> UpdateGroupMemberStatus(ctx, uniqueName, userId, status)
 Change a user's status
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uniqueName** | **string**| The group unique name | 
- **userId** | **int32**| The user id of the member to modify | 
- **status** | **string**| The new status for the user | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **uniqueName** | **string**| The group unique name | 
+  **userId** | **int32**| The user id of the member to modify | 
+  **status** | **string**| The new status for the user | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -446,17 +472,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateGroupTemplate**
-> TemplateResource UpdateGroupTemplate($id, $groupTemplateResource)
-
+> TemplateResource UpdateGroupTemplate(ctx, id, optional)
 Update a group template
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **groupTemplateResource** | [**TemplateResource**](TemplateResource.md)| The group template resource object | [optional] 
+ **groupTemplateResource** | [**TemplateResource**](TemplateResource.md)| The group template resource object | 
 
 ### Return type
 
@@ -474,24 +507,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateGroups**
-> PageResourceGroupResource UpdateGroups($filterTemplate, $filterMemberCount, $filterName, $filterUniqueName, $filterParent, $filterStatus, $size, $page, $order)
-
+> PageResourceGroupResource UpdateGroups(optional)
 List and search groups
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterTemplate** | **string**| Filter for groups using a specific template, by id | [optional] 
- **filterMemberCount** | **string**| Filters groups by member count. Multiple values possible for range search. Format: filter_member_count&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_member_count&#x3D;GT,14,LT,17 | [optional] 
- **filterName** | **string**| Filter for groups with names starting with the given string | [optional] 
- **filterUniqueName** | **string**| Filter for groups whose unique_name starts with provided string | [optional] 
- **filterParent** | **string**| Filter for groups with a specific parent, by unique name | [optional] 
- **filterStatus** | **string**| Filter for groups with a certain status | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to name:ASC]
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterTemplate** | **string**| Filter for groups using a specific template, by id | 
+ **filterMemberCount** | **string**| Filters groups by member count. Multiple values possible for range search. Format: filter_member_count&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_member_count&#x3D;GT,14,LT,17 | 
+ **filterName** | **string**| Filter for groups with names starting with the given string | 
+ **filterUniqueName** | **string**| Filter for groups whose unique_name starts with provided string | 
+ **filterParent** | **string**| Filter for groups with a specific parent, by unique name | 
+ **filterStatus** | **string**| Filter for groups with a certain status | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to name:ASC]
 
 ### Return type
 

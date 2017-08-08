@@ -127,7 +127,7 @@ type InvoiceResource struct {
 	UpdatedDate int64 `json:"updated_date,omitempty"`
 
 	// The owner of the invoice
-	User SimpleUserResource `json:"user,omitempty"`
+	User *SimpleUserResource `json:"user,omitempty"`
 
 	// The id of the vendor
 	VendorId int32 `json:"vendor_id,omitempty"`

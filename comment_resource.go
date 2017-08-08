@@ -34,5 +34,5 @@ type CommentResource struct {
 	UpdatedDate int64 `json:"updated_date,omitempty"`
 
 	// The user who created the comment
-	User SimpleUserResource `json:"user,omitempty"`
+	User *SimpleUserResource `json:"user,omitempty"`
 }

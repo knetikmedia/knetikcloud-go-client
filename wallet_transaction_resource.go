@@ -52,7 +52,7 @@ type WalletTransactionResource struct {
 	TypeHint string `json:"type_hint,omitempty"`
 
 	// The owner of the wallet
-	User SimpleUserResource `json:"user,omitempty"`
+	User *SimpleUserResource `json:"user,omitempty"`
 
 	// The amount of the transaction, positive if a gain, negative if an expenditure
 	Value float64 `json:"value,omitempty"`

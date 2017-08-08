@@ -12,16 +12,22 @@ Method | HTTP request | Description
 
 
 # **CreateUserRelationship**
-> UserRelationshipResource CreateUserRelationship($relationship)
-
+> UserRelationshipResource CreateUserRelationship(ctx, optional)
 Create a user relationship
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **relationship** | [**UserRelationshipResource**](UserRelationshipResource.md)| The new relationship | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **relationship** | [**UserRelationshipResource**](UserRelationshipResource.md)| The new relationship | 
 
 ### Return type
 
@@ -39,20 +45,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteUserRelationship**
-> DeleteUserRelationship($id)
-
+> DeleteUserRelationship(ctx, id)
 Delete a user relationship
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int64**| The id of the relationship | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The id of the relationship | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -66,16 +71,15 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserRelationship**
-> UserRelationshipResource GetUserRelationship($id)
-
+> UserRelationshipResource GetUserRelationship(ctx, id)
 Get a user relationship
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int64**| The id of the relationship | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The id of the relationship | 
 
 ### Return type
 
@@ -93,18 +97,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserRelationships**
-> PageResourceUserRelationshipResource GetUserRelationships($size, $page, $order)
-
+> PageResourceUserRelationshipResource GetUserRelationships(ctx, optional)
 Get a list of user relationships
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | 
 
 ### Return type
 
@@ -122,17 +132,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUserRelationship**
-> UserRelationshipResource UpdateUserRelationship($id, $relationship)
-
+> UserRelationshipResource UpdateUserRelationship(ctx, id, optional)
 Update a user relationship
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The id of the relationship | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int64**| The id of the relationship | 
- **relationship** | [**UserRelationshipResource**](UserRelationshipResource.md)| The new relationship | [optional] 
+ **relationship** | [**UserRelationshipResource**](UserRelationshipResource.md)| The new relationship | 
 
 ### Return type
 

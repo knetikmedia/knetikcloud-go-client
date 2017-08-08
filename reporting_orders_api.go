@@ -12,107 +12,131 @@ package swagger
 
 import (
 	"net/url"
+	"net/http"
 	"strings"
+	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
 )
 
-type ReportingOrdersApi struct {
-	Configuration *Configuration
-}
+// Linger please
+var (
+	_ context.Context
+)
 
-func NewReportingOrdersApi() *ReportingOrdersApi {
-	configuration := NewConfiguration()
-	return &ReportingOrdersApi{
-		Configuration: configuration,
-	}
-}
+type ReportingOrdersApiService service
 
-func NewReportingOrdersApiWithBasePath(basePath string) *ReportingOrdersApi {
-	configuration := NewConfiguration()
-	configuration.BasePath = basePath
 
-	return &ReportingOrdersApi{
-		Configuration: configuration,
-	}
-}
+/* ReportingOrdersApiService Retrieve invoice counts aggregated by time ranges
+ * @param ctx context.Context Authentication Context 
+ @param currencyCode The code for a currency to get sales data for
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "granularity" (string) The time duration to aggregate by
+     @param "filterPaymentStatus" (string) A payment status to filter results by, can be a comma separated list
+     @param "filterFulfillmentStatus" (string) An invoice fulfillment status to filter results by, can be a comma separated list
+     @param "startDate" (int64) The start of the time range to return, unix timestamp in seconds. Default is beginning of time
+     @param "endDate" (int64) The end of the time range to return, unix timestamp in seconds. Default is end of time
+     @param "size" (int32) The number of objects returned per page
+     @param "page" (int32) The number of the page returned
+ @return PageResourceAggregateInvoiceReportResource*/
+func (a *ReportingOrdersApiService) GetInvoiceReports(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceAggregateInvoiceReportResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PageResourceAggregateInvoiceReportResource
+	)
 
-/**
- * Retrieve invoice counts aggregated by time ranges
- *
- * @param currencyCode The code for a currency to get sales data for
- * @param granularity The time duration to aggregate by
- * @param filterPaymentStatus A payment status to filter results by, can be a comma separated list
- * @param filterFulfillmentStatus An invoice fulfillment status to filter results by, can be a comma separated list
- * @param startDate The start of the time range to return, unix timestamp in seconds. Default is beginning of time
- * @param endDate The end of the time range to return, unix timestamp in seconds. Default is end of time
- * @param size The number of objects returned per page
- * @param page The number of the page returned
- * @return *PageResourceAggregateInvoiceReportResource
- */
-func (a ReportingOrdersApi) GetInvoiceReports(currencyCode string, granularity string, filterPaymentStatus string, filterFulfillmentStatus string, startDate int64, endDate int64, size int32, page int32) (*PageResourceAggregateInvoiceReportResource, *APIResponse, error) {
-
-	var localVarHttpMethod = strings.ToUpper("Get")
 	// create path and map variables
-	localVarPath := a.Configuration.BasePath + "/reporting/orders/count/{currency_code}"
+	localVarPath := a.client.cfg.BasePath + "/reporting/orders/count/{currency_code}"
 	localVarPath = strings.Replace(localVarPath, "{"+"currency_code"+"}", fmt.Sprintf("%v", currencyCode), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := make(map[string]string)
-	var localVarPostBody interface{}
-	var localVarFileName string
-	var localVarFileBytes []byte
-	// authentication '(OAuth2)' required
-	// oauth required
-	if a.Configuration.AccessToken != ""{
-		localVarHeaderParams["Authorization"] =  "Bearer " + a.Configuration.AccessToken
-	}
-	// add default headers if any
-	for key := range a.Configuration.DefaultHeader {
-		localVarHeaderParams[key] = a.Configuration.DefaultHeader[key]
-	}
-	localVarQueryParams.Add("granularity", a.Configuration.APIClient.ParameterToString(granularity, ""))
-	localVarQueryParams.Add("filter_payment_status", a.Configuration.APIClient.ParameterToString(filterPaymentStatus, ""))
-	localVarQueryParams.Add("filter_fulfillment_status", a.Configuration.APIClient.ParameterToString(filterFulfillmentStatus, ""))
-	localVarQueryParams.Add("start_date", a.Configuration.APIClient.ParameterToString(startDate, ""))
-	localVarQueryParams.Add("end_date", a.Configuration.APIClient.ParameterToString(endDate, ""))
-	localVarQueryParams.Add("size", a.Configuration.APIClient.ParameterToString(size, ""))
-	localVarQueryParams.Add("page", a.Configuration.APIClient.ParameterToString(page, ""))
+	localVarFormParams := url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["granularity"], "string", "granularity"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["filterPaymentStatus"], "string", "filterPaymentStatus"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["filterFulfillmentStatus"], "string", "filterFulfillmentStatus"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["startDate"], "int64", "startDate"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["endDate"], "int64", "endDate"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["size"], "int32", "size"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam, localVarOk := localVarOptionals["granularity"].(string); localVarOk {
+		localVarQueryParams.Add("granularity", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["filterPaymentStatus"].(string); localVarOk {
+		localVarQueryParams.Add("filter_payment_status", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["filterFulfillmentStatus"].(string); localVarOk {
+		localVarQueryParams.Add("filter_fulfillment_status", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["startDate"].(int64); localVarOk {
+		localVarQueryParams.Add("start_date", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["endDate"].(int64); localVarOk {
+		localVarQueryParams.Add("end_date", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["size"].(int32); localVarOk {
+		localVarQueryParams.Add("size", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
+		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
-	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
 	if localVarHttpContentType != "" {
 		localVarHeaderParams["Content-Type"] = localVarHttpContentType
 	}
+
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
 		}
 
 	// set Accept header
-	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	var successPayload = new(PageResourceAggregateInvoiceReportResource)
-	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-
-	var localVarURL, _ = url.Parse(localVarPath)
-	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "GetInvoiceReports", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
-	if localVarHttpResponse != nil {
-		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
-		localVarAPIResponse.Payload = localVarHttpResponse.Body()
-	}
-
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return successPayload, localVarAPIResponse, err
+		return successPayload, nil, err
 	}
-	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
-	return successPayload, localVarAPIResponse, err
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
 }
 

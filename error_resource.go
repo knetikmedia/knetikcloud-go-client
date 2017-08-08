@@ -13,10 +13,10 @@ package swagger
 type ErrorResource struct {
 
 	// Extra details about the error, if needed
-	Details interface{} `json:"details,omitempty"`
+	Details *interface{} `json:"details,omitempty"`
 
 	// The JSON key the message pertains to
-	Field interface{} `json:"field,omitempty"`
+	Field *interface{} `json:"field,omitempty"`
 
 	// The message explaining the error
 	Message string `json:"message,omitempty"`

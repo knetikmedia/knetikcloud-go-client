@@ -14,17 +14,16 @@ Method | HTTP request | Description
 
 
 # **GetUserWallet**
-> SimpleWallet GetUserWallet($userId, $currencyCode)
-
+> SimpleWallet GetUserWallet(ctx, userId, currencyCode)
 Returns the user's wallet for the given currency code
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The ID of the user for whom wallet is being retrieved | 
- **currencyCode** | **string**| Currency code of the user&#39;s wallet | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The ID of the user for whom wallet is being retrieved | 
+  **currencyCode** | **string**| Currency code of the user&#39;s wallet | 
 
 ### Return type
 
@@ -42,24 +41,32 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserWalletTransactions**
-> PageResourceWalletTransactionResource GetUserWalletTransactions($userId, $currencyCode, $filterType, $filterMaxDate, $filterMinDate, $filterSign, $size, $page, $order)
-
+> PageResourceWalletTransactionResource GetUserWalletTransactions(ctx, userId, currencyCode, optional)
 Retrieve a user's wallet transactions
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The ID of the user for whom wallet transactions are being retrieved | 
+  **currencyCode** | **string**| Currency code of the user&#39;s wallet | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| The ID of the user for whom wallet transactions are being retrieved | 
  **currencyCode** | **string**| Currency code of the user&#39;s wallet | 
- **filterType** | **string**| Filter for transactions with specified type | [optional] 
- **filterMaxDate** | **int64**| Filter for transactions from no earlier than the specified date as a unix timestamp in seconds | [optional] 
- **filterMinDate** | **int64**| Filter for transactions from no later than the specified date as a unix timestamp in seconds | [optional] 
- **filterSign** | **string**| Filter for transactions with amount with the given sign.  Allowable values: (&#39;positive&#39;, &#39;negative&#39;) | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **filterType** | **string**| Filter for transactions with specified type | 
+ **filterMaxDate** | **int64**| Filter for transactions from no earlier than the specified date as a unix timestamp in seconds | 
+ **filterMinDate** | **int64**| Filter for transactions from no later than the specified date as a unix timestamp in seconds | 
+ **filterSign** | **string**| Filter for transactions with amount with the given sign.  Allowable values: (&#39;positive&#39;, &#39;negative&#39;) | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -77,16 +84,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserWallets**
-> []SimpleWallet GetUserWallets($userId)
-
+> []SimpleWallet GetUserWallets(ctx, userId)
 List all of a user's wallets
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The ID of the user for whom wallets are being retrieved | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The ID of the user for whom wallets are being retrieved | 
 
 ### Return type
 
@@ -104,12 +110,10 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetWalletBalances**
-> PageResourceWalletTotalResponse GetWalletBalances()
-
+> PageResourceWalletTotalResponse GetWalletBalances(ctx, )
 Retrieves a summation of wallet balances by currency code
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
@@ -128,26 +132,32 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetWalletTransactions**
-> PageResourceWalletTransactionResource GetWalletTransactions($filterInvoice, $filterType, $filterDate, $filterSign, $filterUserId, $filterUsername, $filterDetails, $filterCurrencyCode, $size, $page, $order)
-
+> PageResourceWalletTransactionResource GetWalletTransactions(ctx, optional)
 Retrieve wallet transactions across the system
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filterInvoice** | **int32**| Filter for transactions from a specific invoice | [optional] 
- **filterType** | **string**| Filter for transactions with specified type | [optional] 
- **filterDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds. Can be repeated for a range, eg: GT,123,LT,456  Allowed operators: (GT, LT, EQ, GOE, LOE). | [optional] 
- **filterSign** | **string**| Filter for transactions with amount with the given sign | [optional] 
- **filterUserId** | **int32**| Filter for transactions for specific userId | [optional] 
- **filterUsername** | **string**| Filter for transactions for specific username that start with the given string | [optional] 
- **filterDetails** | **string**| Filter for transactions for specific details that start with the given string | [optional] 
- **filterCurrencyCode** | **string**| Filter for transactions for specific currency code | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterInvoice** | **int32**| Filter for transactions from a specific invoice | 
+ **filterType** | **string**| Filter for transactions with specified type | 
+ **filterDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds. Can be repeated for a range, eg: GT,123,LT,456  Allowed operators: (GT, LT, EQ, GOE, LOE). | 
+ **filterSign** | **string**| Filter for transactions with amount with the given sign | 
+ **filterUserId** | **int32**| Filter for transactions for specific userId | 
+ **filterUsername** | **string**| Filter for transactions for specific username that start with the given string | 
+ **filterDetails** | **string**| Filter for transactions for specific details that start with the given string | 
+ **filterCurrencyCode** | **string**| Filter for transactions for specific currency code | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -165,18 +175,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetWallets**
-> PageResourceSimpleWallet GetWallets($size, $page, $order)
-
+> PageResourceSimpleWallet GetWallets(ctx, optional)
 Retrieve a list of wallets across the system
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -194,18 +210,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateWalletBalance**
-> WalletTransactionResource UpdateWalletBalance($userId, $currencyCode, $request)
-
+> WalletTransactionResource UpdateWalletBalance(ctx, userId, currencyCode, optional)
 Updates the balance for a user's wallet
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The ID of the user for whom wallet is being modified | 
+  **currencyCode** | **string**| Currency code of the user&#39;s wallet | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| The ID of the user for whom wallet is being modified | 
  **currencyCode** | **string**| Currency code of the user&#39;s wallet | 
- **request** | [**WalletAlterRequest**](WalletAlterRequest.md)| The requested balance modification to be made to the user&#39;s wallet | [optional] 
+ **request** | [**WalletAlterRequest**](WalletAlterRequest.md)| The requested balance modification to be made to the user&#39;s wallet | 
 
 ### Return type
 

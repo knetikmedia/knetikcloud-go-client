@@ -31,23 +31,30 @@ Method | HTTP request | Description
 
 
 # **AddUserToVideoWhitelist**
-> AddUserToVideoWhitelist($id, $userId)
-
+> AddUserToVideoWhitelist(ctx, id, optional)
 Adds a user to a video's whitelist
 
 Whitelisted users can view video regardless of privacy setting.
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The video id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int64**| The video id | 
- **userId** | **int32**| The user id | [optional] 
+ **userId** | [**IntWrapper**](IntWrapper.md)| The user id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -61,16 +68,22 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddVideo**
-> VideoResource AddVideo($videoResource)
-
+> VideoResource AddVideo(ctx, optional)
 Adds a new video in the system
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **videoResource** | [**VideoResource**](VideoResource.md)| The video object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **videoResource** | [**VideoResource**](VideoResource.md)| The video object | 
 
 ### Return type
 
@@ -88,17 +101,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddVideoComment**
-> CommentResource AddVideoComment($videoId, $commentResource)
-
+> CommentResource AddVideoComment(ctx, videoId, optional)
 Add a new video comment
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **videoId** | **int32**| The video id  | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **int32**| The video id  | 
- **commentResource** | [**CommentResource**](CommentResource.md)| The comment object | [optional] 
+ **commentResource** | [**CommentResource**](CommentResource.md)| The comment object | 
 
 ### Return type
 
@@ -116,21 +136,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddVideoContributor**
-> AddVideoContributor($videoId, $contributionResource)
-
+> AddVideoContributor(ctx, videoId, optional)
 Adds a contributor to a video
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **videoId** | **int64**| The video id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **int64**| The video id | 
- **contributionResource** | [**ContributionResource**](ContributionResource.md)| The contribution object | [optional] 
+ **contributionResource** | [**ContributionResource**](ContributionResource.md)| The contribution object | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -144,17 +171,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddVideoFlag**
-> FlagResource AddVideoFlag($videoId, $reason)
-
+> FlagResource AddVideoFlag(ctx, videoId, optional)
 Add a new flag
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **videoId** | **int64**| The video id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **int64**| The video id | 
- **reason** | **string**| The flag reason | [optional] 
+ **reason** | [**StringWrapper**](StringWrapper.md)| The flag reason | 
 
 ### Return type
 
@@ -172,17 +206,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddVideoRelationships**
-> VideoRelationshipResource AddVideoRelationships($videoId, $videoRelationshipResource)
-
+> VideoRelationshipResource AddVideoRelationships(ctx, videoId, optional)
 Adds one or more existing videos as related to this one
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **videoId** | **int64**| The video id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **int64**| The video id | 
- **videoRelationshipResource** | [**VideoRelationshipResource**](VideoRelationshipResource.md)| The video relationship object  | [optional] 
+ **videoRelationshipResource** | [**VideoRelationshipResource**](VideoRelationshipResource.md)| The video relationship object  | 
 
 ### Return type
 
@@ -200,17 +241,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateVideoDisposition**
-> DispositionResource CreateVideoDisposition($videoId, $dispositionResource)
-
+> DispositionResource CreateVideoDisposition(ctx, videoId, optional)
 Create a video disposition
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **videoId** | **int32**| The video id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **int32**| The video id | 
- **dispositionResource** | [**DispositionResource**](DispositionResource.md)| The disposition object | [optional] 
+ **dispositionResource** | [**DispositionResource**](DispositionResource.md)| The disposition object | 
 
 ### Return type
 
@@ -228,20 +276,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteVideo**
-> DeleteVideo($id)
-
+> DeleteVideo(ctx, id)
 Deletes a video from the system if no resources are attached to it
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int64**| The video id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The video id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -255,21 +302,20 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteVideoComment**
-> DeleteVideoComment($videoId, $id)
-
+> DeleteVideoComment(ctx, videoId, id)
 Delete a video comment
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **videoId** | **int64**| The video id | 
- **id** | **int64**| The comment id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **videoId** | **int64**| The video id | 
+  **id** | **int64**| The comment id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -283,20 +329,19 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteVideoDisposition**
-> DeleteVideoDisposition($dispositionId)
-
+> DeleteVideoDisposition(ctx, dispositionId)
 Delete a video disposition
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dispositionId** | **int64**| The disposition id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **dispositionId** | **int64**| The disposition id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -310,20 +355,19 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteVideoFlag**
-> DeleteVideoFlag($videoId)
-
+> DeleteVideoFlag(ctx, videoId)
 Delete a flag
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **videoId** | **int64**| The video id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **videoId** | **int64**| The video id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -337,21 +381,20 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteVideoRelationship**
-> DeleteVideoRelationship($videoId, $id)
-
+> DeleteVideoRelationship(ctx, videoId, id)
 Delete a video's relationship
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **videoId** | **int64**| The video id | 
- **id** | **int64**| The relationship id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **videoId** | **int64**| The video id | 
+  **id** | **int64**| The relationship id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -365,19 +408,26 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserVideos**
-> PageResourceVideoResource GetUserVideos($userId, $excludeFlagged, $size, $page)
-
+> PageResourceVideoResource GetUserVideos(ctx, userId, optional)
 Get user videos
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The user id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| The user id | 
- **excludeFlagged** | **bool**| Skip videos that have been flagged by the current user | [optional] [default to true]
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **excludeFlagged** | **bool**| Skip videos that have been flagged by the current user | [default to true]
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -395,16 +445,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetVideo**
-> VideoResource GetVideo($id)
-
+> VideoResource GetVideo(ctx, id)
 Loads a specific video details
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int64**| The video id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The video id | 
 
 ### Return type
 
@@ -422,18 +471,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetVideoComments**
-> PageResourceCommentResource GetVideoComments($videoId, $size, $page)
-
+> PageResourceCommentResource GetVideoComments(videoId, optional)
 Returns a page of comments for a video
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **videoId** | **int32**| The video id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **int32**| The video id | 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -451,18 +506,24 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetVideoDispositions**
-> PageResourceDispositionResource GetVideoDispositions($videoId, $size, $page)
-
+> PageResourceDispositionResource GetVideoDispositions(videoId, optional)
 Returns a page of dispositions for a video
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **videoId** | **int32**| The video id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **int32**| The video id | 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -480,18 +541,24 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetVideoRelationships**
-> PageResourceVideoRelationshipResource GetVideoRelationships($videoId, $size, $page)
-
+> PageResourceVideoRelationshipResource GetVideoRelationships(videoId, optional)
 Returns a page of video relationships
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **videoId** | **int64**| The video id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **int64**| The video id | 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -509,30 +576,35 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetVideos**
-> PageResourceVideoResource GetVideos($excludeFlagged, $filterVideosByUploader, $filterCategory, $filterTagset, $filterVideosByName, $filterVideosByContributor, $filterVideosByAuthor, $filterHasAuthor, $filterHasUploader, $filterRelatedTo, $filterFriends, $filterDisposition, $size, $page, $order)
-
+> PageResourceVideoResource GetVideos(optional)
 Search videos using the documented filters
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **excludeFlagged** | **bool**| Skip videos that have been flagged by the current user | [optional] [default to true]
- **filterVideosByUploader** | **int32**| Filter for videos by uploader id | [optional] 
- **filterCategory** | **string**| Filter for videos from a specific category by id | [optional] 
- **filterTagset** | **string**| Filter for videos with specified tags (separated by comma) | [optional] 
- **filterVideosByName** | **string**| Filter for videos which name *STARTS* with the given string | [optional] 
- **filterVideosByContributor** | **int32**| Filter for videos with contribution from the artist specified by ID | [optional] 
- **filterVideosByAuthor** | **int32**| Filter for videos with an artist as author specified by ID | [optional] 
- **filterHasAuthor** | **bool**| Filter for videos that have an author set if true, or that have no author if false | [optional] 
- **filterHasUploader** | **bool**| Filter for videos that have an uploader set if true, or that have no uploader if false | [optional] 
- **filterRelatedTo** | **string**| Filter for videos that have designated a particular video as the TO of a relationship. Pattern should match VIDEO_ID or VIDEO_ID:DETAILS to match with a specific details string as well | [optional] 
- **filterFriends** | **bool**| Filter for videos uploaded by friends. &#39;true&#39; for friends of the caller (requires user token) or a user id for a specific user&#39;s friends (requires VIDEOS_ADMIN permission) | [optional] 
- **filterDisposition** | **string**| Filter for videos a given user has a given disposition towards. USER_ID:DISPOSITION where USER_ID is the id of the user who has this disposition or &#39;me&#39; for the caller (requires user token for &#39;me&#39;) and DISPOSITION is the name of the disposition. E.G. filter_disposition&#x3D;123:like or filter_disposition&#x3D;me:favorite | [optional] 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to author:ASC]
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **excludeFlagged** | **bool**| Skip videos that have been flagged by the current user | [default to true]
+ **filterVideosByUploader** | **int32**| Filter for videos by uploader id | 
+ **filterCategory** | **string**| Filter for videos from a specific category by id | 
+ **filterTagset** | **string**| Filter for videos with specified tags (separated by comma) | 
+ **filterVideosByName** | **string**| Filter for videos which name *STARTS* with the given string | 
+ **filterVideosByContributor** | **int32**| Filter for videos with contribution from the artist specified by ID | 
+ **filterVideosByAuthor** | **int32**| Filter for videos with an artist as author specified by ID | 
+ **filterHasAuthor** | **bool**| Filter for videos that have an author set if true, or that have no author if false | 
+ **filterHasUploader** | **bool**| Filter for videos that have an uploader set if true, or that have no uploader if false | 
+ **filterRelatedTo** | **string**| Filter for videos that have designated a particular video as the TO of a relationship. Pattern should match VIDEO_ID or VIDEO_ID:DETAILS to match with a specific details string as well | 
+ **filterFriends** | **bool**| Filter for videos uploaded by friends. &#39;true&#39; for friends of the caller (requires user token) or a user id for a specific user&#39;s friends (requires VIDEOS_ADMIN permission) | 
+ **filterDisposition** | **string**| Filter for videos a given user has a given disposition towards. USER_ID:DISPOSITION where USER_ID is the id of the user who has this disposition or &#39;me&#39; for the caller (requires user token for &#39;me&#39;) and DISPOSITION is the name of the disposition. E.G. filter_disposition&#x3D;123:like or filter_disposition&#x3D;me:favorite | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to author:ASC]
 
 ### Return type
 
@@ -550,23 +622,22 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RemoveUserFromVideoWhitelist**
-> RemoveUserFromVideoWhitelist($videoId, $id)
-
+> RemoveUserFromVideoWhitelist(ctx, videoId, id)
 Removes a user from a video's whitelist
 
 Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **videoId** | **int64**| The video id | 
- **id** | **int32**| The user id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **videoId** | **int64**| The video id | 
+  **id** | **int32**| The user id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -580,21 +651,20 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RemoveVideoContributor**
-> RemoveVideoContributor($videoId, $id)
-
+> RemoveVideoContributor(ctx, videoId, id)
 Removes a contributor from a video
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **videoId** | **int64**| The video id | 
- **id** | **int32**| The contributor id | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **videoId** | **int64**| The video id | 
+  **id** | **int32**| The contributor id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -608,21 +678,28 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateVideo**
-> UpdateVideo($id, $videoResource)
-
+> UpdateVideo(ctx, id, optional)
 Modifies a video's details
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int64**| The video id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int64**| The video id | 
- **videoResource** | [**VideoResource**](VideoResource.md)| The video object | [optional] 
+ **videoResource** | [**VideoResource**](VideoResource.md)| The video object | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -636,22 +713,30 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateVideoComment**
-> UpdateVideoComment($videoId, $id, $content)
-
+> UpdateVideoComment(ctx, videoId, id, optional)
 Update a video comment
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **videoId** | **int64**| The video id | 
+  **id** | **int64**| The comment id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **int64**| The video id | 
  **id** | **int64**| The comment id | 
- **content** | **string**| The comment content | [optional] 
+ **content** | [**StringWrapper**](StringWrapper.md)| The comment content | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -665,22 +750,30 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateVideoRelationship**
-> UpdateVideoRelationship($videoId, $relationshipId, $details)
-
+> UpdateVideoRelationship(ctx, videoId, relationshipId, optional)
 Update a video's relationship details
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **videoId** | **int64**| The video id | 
+  **relationshipId** | **int64**| The relationship id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **videoId** | **int64**| The video id | 
  **relationshipId** | **int64**| The relationship id | 
- **details** | **string**| The video relationship details | [optional] 
+ **details** | [**StringWrapper**](StringWrapper.md)| The video relationship details | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -694,20 +787,18 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ViewVideo**
-> ViewVideo($id)
-
+> ViewVideo(id)
 Increment a video's view count
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int64**| The video id | 
+  **id** | **int64**| The video id | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 

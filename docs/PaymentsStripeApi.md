@@ -9,18 +9,24 @@ Method | HTTP request | Description
 
 
 # **CreateStripePaymentMethod**
-> PaymentMethodResource CreateStripePaymentMethod($request)
-
+> PaymentMethodResource CreateStripePaymentMethod(ctx, optional)
 Create a Stripe payment method for a user
 
 Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints.
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**StripeCreatePaymentMethod**](StripeCreatePaymentMethod.md)| The request to create a Stripe customer with payment info | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**StripeCreatePaymentMethod**](StripeCreatePaymentMethod.md)| The request to create a Stripe customer with payment info | 
 
 ### Return type
 
@@ -38,20 +44,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PayStripeInvoice**
-> PayStripeInvoice($request)
-
+> PayStripeInvoice(optional)
 Pay with a single use token
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**StripePaymentRequest**](StripePaymentRequest.md)| The request to pay an invoice | [optional] 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**StripePaymentRequest**](StripePaymentRequest.md)| The request to pay an invoice | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Owner** | **int32** |  | [optional] [default to null]
 **SelectedShippingOptions** | [**[]CartShippingOption**](CartShippingOption.md) |  | [optional] [default to null]
 **Shippable** | **bool** |  | [optional] [default to null]
-**ShippingAddress** | [**CartShippingAddressRequest**](CartShippingAddressRequest.md) |  | [optional] [default to null]
+**ShippingAddress** | [***CartShippingAddressRequest**](CartShippingAddressRequest.md) |  | [optional] [default to null]
 **ShippingCost** | **float64** |  | [optional] [default to null]
 **StateTax** | **float64** |  | [optional] [default to null]
 **Status** | **string** |  | [optional] [default to null]

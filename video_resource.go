@@ -16,7 +16,7 @@ type VideoResource struct {
 	Active bool `json:"active,omitempty"`
 
 	// The original artist of the media
-	Author SimpleReferenceResourcelong `json:"author,omitempty"`
+	Author *SimpleReferenceResourcelong `json:"author,omitempty"`
 
 	// The date the media was created as a unix timestamp in seconds
 	Authored int64 `json:"authored,omitempty"`
@@ -25,7 +25,7 @@ type VideoResource struct {
 	Banned bool `json:"banned,omitempty"`
 
 	// The category of the video
-	Category SimpleReferenceResourcestring `json:"category"`
+	Category *SimpleReferenceResourcestring `json:"category"`
 
 	// The comments of the video
 	Comments []CommentResource `json:"comments,omitempty"`
@@ -88,7 +88,7 @@ type VideoResource struct {
 	UpdatedDate int64 `json:"updated_date,omitempty"`
 
 	// The user the media was uploaded by. May be null for system uploaded media. May only be set to a user other than the current caller if VIDEOS_ADMIN permission. Null will mean the caller is the uploader unless the caller has VIDEOS_ADMIN permission, in which case it will be set to null
-	Uploader SimpleUserResource `json:"uploader,omitempty"`
+	Uploader *SimpleUserResource `json:"uploader,omitempty"`
 
 	// The view count of the video
 	Views int64 `json:"views,omitempty"`

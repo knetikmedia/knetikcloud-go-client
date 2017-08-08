@@ -28,7 +28,7 @@ type BreEventLog struct {
 	Id string `json:"id,omitempty"`
 
 	// The event paramters of the BRE event log
-	Parameters interface{} `json:"parameters,omitempty"`
+	Parameters *interface{} `json:"parameters,omitempty"`
 
 	// The rules of the BRE event log
 	Rules []BreRuleLog `json:"rules,omitempty"`

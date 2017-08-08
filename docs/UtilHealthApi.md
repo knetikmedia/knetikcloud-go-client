@@ -9,11 +9,9 @@ Method | HTTP request | Description
 
 # **GetHealth**
 > interface{} GetHealth()
-
 Get health info
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type

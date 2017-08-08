@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Active** | **bool** | Whether the article is active | [default to null]
 **AdditionalProperties** | [**map[string]Property**](Property.md) | A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type | [optional] [default to null]
 **Body** | **string** | The body of the article | [default to null]
-**Category** | [**NestedCategory**](NestedCategory.md) | The category for the article | [default to null]
+**Category** | [***NestedCategory**](NestedCategory.md) | The category for the article | [default to null]
 **CreatedDate** | **int64** | The date/time this resource was created in seconds since unix epoch | [optional] [default to null]
 **Id** | **string** | The id of the article | [optional] [default to null]
 **Tags** | **[]string** | The tags for the article | [optional] [default to null]

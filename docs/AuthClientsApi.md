@@ -15,16 +15,22 @@ Method | HTTP request | Description
 
 
 # **CreateClient**
-> ClientResource CreateClient($clientResource)
-
+> ClientResource CreateClient(ctx, optional)
 Create a new client
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientResource** | [**ClientResource**](ClientResource.md)| The client resource object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientResource** | [**ClientResource**](ClientResource.md)| The client resource object | 
 
 ### Return type
 
@@ -42,20 +48,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteClient**
-> DeleteClient($clientKey)
-
+> DeleteClient(ctx, clientKey)
 Delete a client
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientKey** | **string**| The key of the client | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **clientKey** | **string**| The key of the client | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -69,16 +74,15 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetClient**
-> ClientResource GetClient($clientKey)
-
+> ClientResource GetClient(ctx, clientKey)
 Get a single client
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientKey** | **string**| The key of the client | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **clientKey** | **string**| The key of the client | 
 
 ### Return type
 
@@ -96,12 +100,10 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetClientGrantTypes**
-> []GrantTypeResource GetClientGrantTypes()
-
+> []GrantTypeResource GetClientGrantTypes(ctx, )
 List available client grant types
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
@@ -120,18 +122,24 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetClients**
-> PageResourceClientResource GetClients($size, $page, $order)
-
+> PageResourceClientResource GetClients(ctx, optional)
 List and search clients
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -149,21 +157,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetClientGrantTypes**
-> SetClientGrantTypes($clientKey, $grantList)
-
+> SetClientGrantTypes(ctx, clientKey, optional)
 Set grant types for a client
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **clientKey** | **string**| The key of the client | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientKey** | **string**| The key of the client | 
- **grantList** | **[]string**| A list of unique grant types | [optional] 
+ **grantList** | **[]string**| A list of unique grant types | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -177,21 +192,28 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetClientRedirectUris**
-> SetClientRedirectUris($clientKey, $redirectList)
-
+> SetClientRedirectUris(ctx, clientKey, optional)
 Set redirect uris for a client
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **clientKey** | **string**| The key of the client | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientKey** | **string**| The key of the client | 
- **redirectList** | **[]string**| A list of unique redirect uris | [optional] 
+ **redirectList** | **[]string**| A list of unique redirect uris | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -205,17 +227,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateClient**
-> ClientResource UpdateClient($clientKey, $clientResource)
-
+> ClientResource UpdateClient(ctx, clientKey, optional)
 Update a client
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **clientKey** | **string**| The key of the client | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **clientKey** | **string**| The key of the client | 
- **clientResource** | [**ClientResource**](ClientResource.md)| The client resource object | [optional] 
+ **clientResource** | [**ClientResource**](ClientResource.md)| The client resource object | 
 
 ### Return type
 

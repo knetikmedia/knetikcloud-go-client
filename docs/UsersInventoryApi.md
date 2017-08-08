@@ -28,19 +28,26 @@ Method | HTTP request | Description
 
 
 # **AddItemToUserInventory**
-> InvoiceResource AddItemToUserInventory($id, $userInventoryAddRequest)
-
+> InvoiceResource AddItemToUserInventory(ctx, id, optional)
 Adds an item to the user inventory
 
 The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int32**| The id of the user | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int32**| The id of the user | 
- **userInventoryAddRequest** | [**UserInventoryAddRequest**](UserInventoryAddRequest.md)| The user inventory add request object | [optional] 
+ **userInventoryAddRequest** | [**UserInventoryAddRequest**](UserInventoryAddRequest.md)| The user inventory add request object | 
 
 ### Return type
 
@@ -58,24 +65,32 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CheckUserEntitlementItem**
-> CheckUserEntitlementItem($userId, $itemId, $sku)
-
+> CheckUserEntitlementItem(ctx, userId, itemId, optional)
 Check for access to an item without consuming
 
 Useful for pre-check and accounts for all various buisness rules
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **string**| The id of the user to check for or &#39;me&#39; for logged in user | 
+  **itemId** | **int32**| The id of the item | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**| The id of the user to check for or &#39;me&#39; for logged in user | 
  **itemId** | **int32**| The id of the item | 
- **sku** | **string**| The specific sku of an entitlement list addition to check entitlement for. This is of very limited and specific use and should generally be left out | [optional] 
+ **sku** | **string**| The specific sku of an entitlement list addition to check entitlement for. This is of very limited and specific use and should generally be left out | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -89,17 +104,23 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateEntitlementItem**
-> EntitlementItem CreateEntitlementItem($cascade, $entitlementItem)
-
+> EntitlementItem CreateEntitlementItem(ctx, optional)
 Create an entitlement item
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cascade** | **bool**| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **entitlementItem** | [**EntitlementItem**](EntitlementItem.md)| The entitlement item object | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cascade** | **bool**| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [default to false]
+ **entitlementItem** | [**EntitlementItem**](EntitlementItem.md)| The entitlement item object | 
 
 ### Return type
 
@@ -117,18 +138,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateEntitlementTemplate**
-> ItemTemplateResource CreateEntitlementTemplate($template)
-
+> ItemTemplateResource CreateEntitlementTemplate(ctx, optional)
 Create an entitlement template
 
 Entitlement templates define a type of entitlement and the properties they have
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **template** | [**ItemTemplateResource**](ItemTemplateResource.md)| The entitlement template to be created | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **template** | [**ItemTemplateResource**](ItemTemplateResource.md)| The entitlement template to be created | 
 
 ### Return type
 
@@ -146,20 +173,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteEntitlementItem**
-> DeleteEntitlementItem($entitlementId)
-
+> DeleteEntitlementItem(ctx, entitlementId)
 Delete an entitlement item
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entitlementId** | **int32**| The id of the entitlement | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **entitlementId** | **int32**| The id of the entitlement | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -173,23 +199,30 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteEntitlementTemplate**
-> DeleteEntitlementTemplate($id, $cascade)
-
+> DeleteEntitlementTemplate(ctx, id, optional)
 Delete an entitlement template
 
 If cascade = 'detach', it will force delete the template even if it's attached to other objects
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **cascade** | **string**| The value needed to delete used templates | [optional] 
+ **cascade** | **string**| The value needed to delete used templates | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -203,16 +236,14 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetEntitlementItem**
-> EntitlementItem GetEntitlementItem($entitlementId)
-
+> EntitlementItem GetEntitlementItem(entitlementId)
 Get a single entitlement item
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **entitlementId** | **int32**| The id of the entitlement | 
+  **entitlementId** | **int32**| The id of the entitlement | 
 
 ### Return type
 
@@ -230,18 +261,23 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetEntitlementItems**
-> PageResourceEntitlementItem GetEntitlementItems($size, $page, $order)
-
+> PageResourceEntitlementItem GetEntitlementItems(optional)
 List and search entitlement items
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -259,16 +295,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetEntitlementTemplate**
-> ItemTemplateResource GetEntitlementTemplate($id)
-
+> ItemTemplateResource GetEntitlementTemplate(ctx, id)
 Get a single entitlement template
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| The id of the template | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
 
 ### Return type
 
@@ -286,18 +321,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetEntitlementTemplates**
-> PageResourceItemTemplateResource GetEntitlementTemplates($size, $page, $order)
-
+> PageResourceItemTemplateResource GetEntitlementTemplates(ctx, optional)
 List and search entitlement templates
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [optional] [default to id:ASC]
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
 
 ### Return type
 
@@ -315,24 +356,31 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserInventories**
-> PageResourceUserInventoryResource GetUserInventories($id, $inactive, $size, $page, $filterItemName, $filterItemId, $filterUsername, $filterGroup, $filterDate)
-
+> PageResourceUserInventoryResource GetUserInventories(ctx, id, optional)
 List the user inventory entries for a given user
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **int32**| The id of the user | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int32**| The id of the user | 
- **inactive** | **bool**| If true, accepts inactive user inventories | [optional] [default to false]
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **filterItemName** | **string**| Filter by items whose name starts with a string | [optional] 
- **filterItemId** | **int32**| Filter by item id | [optional] 
- **filterUsername** | **string**| Filter by entries owned by the user with the specified username | [optional] 
- **filterGroup** | **string**| Filter by entries owned by the users in a given group, by unique name | [optional] 
- **filterDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds. Can be repeated for a range, eg: GT,123,LT,456  Allowed operators: (GT, LT, EQ, GOE, LOE). | [optional] 
+ **inactive** | **bool**| If true, accepts inactive user inventories | [default to false]
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **filterItemName** | **string**| Filter by items whose name starts with a string | 
+ **filterItemId** | **int32**| Filter by item id | 
+ **filterUsername** | **string**| Filter by entries owned by the user with the specified username | 
+ **filterGroup** | **string**| Filter by entries owned by the users in a given group, by unique name | 
+ **filterDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds. Can be repeated for a range, eg: GT,123,LT,456  Allowed operators: (GT, LT, EQ, GOE, LOE). | 
 
 ### Return type
 
@@ -350,17 +398,16 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserInventory**
-> UserInventoryResource GetUserInventory($userId, $id)
-
+> UserInventoryResource GetUserInventory(ctx, userId, id)
 Get an inventory entry
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The id of the inventory owner or &#39;me&#39; for the logged in user | 
- **id** | **int32**| The id of the user inventory | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the inventory owner or &#39;me&#39; for the logged in user | 
+  **id** | **int32**| The id of the user inventory | 
 
 ### Return type
 
@@ -378,19 +425,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserInventoryLog**
-> PageResourceUserItemLogResource GetUserInventoryLog($userId, $id, $size, $page)
-
+> PageResourceUserItemLogResource GetUserInventoryLog(ctx, userId, id, optional)
 List the log entries for this inventory entry
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **string**| The id of the inventory owner or &#39;me&#39; for the logged in user | 
+  **id** | **int32**| The id of the user inventory | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**| The id of the inventory owner or &#39;me&#39; for the logged in user | 
  **id** | **int32**| The id of the user inventory | 
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
 
 ### Return type
 
@@ -408,23 +463,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsersInventory**
-> PageResourceUserInventoryResource GetUsersInventory($inactive, $size, $page, $filterItemName, $filterItemId, $filterUsername, $filterGroup, $filterDate)
-
+> PageResourceUserInventoryResource GetUsersInventory(ctx, optional)
 List the user inventory entries for all users
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inactive** | **bool**| If true, accepts inactive user inventories | [optional] [default to false]
- **size** | **int32**| The number of objects returned per page | [optional] [default to 25]
- **page** | **int32**| The number of the page returned, starting with 1 | [optional] [default to 1]
- **filterItemName** | **string**| Filter by items whose name starts with a string | [optional] 
- **filterItemId** | **int32**| Filter by item id | [optional] 
- **filterUsername** | **string**| Filter by entries owned by the user with the specified username | [optional] 
- **filterGroup** | **string**| Filter by entries owned by the users in a given group, by unique name | [optional] 
- **filterDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds. Can be repeated for a range, eg: GT,123,LT,456  Allowed operators: (GT, LT, EQ, GOE, LOE). | [optional] 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inactive** | **bool**| If true, accepts inactive user inventories | [default to false]
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **filterItemName** | **string**| Filter by items whose name starts with a string | 
+ **filterItemId** | **int32**| Filter by item id | 
+ **filterUsername** | **string**| Filter by entries owned by the user with the specified username | 
+ **filterGroup** | **string**| Filter by entries owned by the users in a given group, by unique name | 
+ **filterDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds. Can be repeated for a range, eg: GT,123,LT,456  Allowed operators: (GT, LT, EQ, GOE, LOE). | 
 
 ### Return type
 
@@ -442,21 +503,20 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GrantUserEntitlement**
-> GrantUserEntitlement($userId, $grantRequest)
-
+> GrantUserEntitlement(ctx, userId, grantRequest)
 Grant an entitlement
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **int32**| The id of the user to grant the entitlement to | 
- **grantRequest** | [**EntitlementGrantRequest**](EntitlementGrantRequest.md)| grantRequest | 
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user to grant the entitlement to | 
+  **grantRequest** | [**EntitlementGrantRequest**](EntitlementGrantRequest.md)| grantRequest | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -470,22 +530,29 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateEntitlementItem**
-> UpdateEntitlementItem($entitlementId, $cascade, $entitlementItem)
-
+> UpdateEntitlementItem(ctx, entitlementId, optional)
 Update an entitlement item
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **entitlementId** | **int32**| The id of the entitlement | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entitlementId** | **int32**| The id of the entitlement | 
- **cascade** | **bool**| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [optional] [default to false]
- **entitlementItem** | [**EntitlementItem**](EntitlementItem.md)| The entitlement item object | [optional] 
+ **cascade** | **bool**| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [default to false]
+ **entitlementItem** | [**EntitlementItem**](EntitlementItem.md)| The entitlement item object | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -499,17 +566,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateEntitlementTemplate**
-> ItemTemplateResource UpdateEntitlementTemplate($id, $template)
-
+> ItemTemplateResource UpdateEntitlementTemplate(ctx, id, optional)
 Update an entitlement template
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| The id of the template | 
- **template** | [**ItemTemplateResource**](ItemTemplateResource.md)| The updated template | [optional] 
+ **template** | [**ItemTemplateResource**](ItemTemplateResource.md)| The updated template | 
 
 ### Return type
 
@@ -527,22 +601,30 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUserInventoryBehaviorData**
-> UpdateUserInventoryBehaviorData($userId, $id, $data)
-
+> UpdateUserInventoryBehaviorData(ctx, userId, id, optional)
 Set the behavior data for an inventory entry
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
+  **id** | **int32**| The id of the user inventory | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| The id of the user | 
  **id** | **int32**| The id of the user inventory | 
- **data** | [**interface{}**](interface{}.md)| The data map | [optional] 
+ **data** | [**interface{}**](interface{}.md)| The data map | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -556,24 +638,32 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUserInventoryExpires**
-> UpdateUserInventoryExpires($userId, $id, $timestamp)
-
+> UpdateUserInventoryExpires(ctx, userId, id, optional)
 Set the expiration date
 
 Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill)
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| user_id | 
+  **id** | **int32**| The id of the user inventory | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| user_id | 
  **id** | **int32**| The id of the user inventory | 
- **timestamp** | **int64**| The new expiration date as a unix timestamp in seconds. May be null (no body). | [optional] 
+ **timestamp** | **int64**| The new expiration date as a unix timestamp in seconds. May be null (no body). | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -587,22 +677,30 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUserInventoryStatus**
-> UpdateUserInventoryStatus($userId, $id, $inventoryStatus)
-
+> UpdateUserInventoryStatus(ctx, userId, id, optional)
 Set the status for an inventory entry
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **int32**| The id of the user | 
+  **id** | **int32**| The id of the user inventory | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **int32**| The id of the user | 
  **id** | **int32**| The id of the user inventory | 
- **inventoryStatus** | **string**| The inventory status object | [optional] 
+ **inventoryStatus** | **string**| The inventory status object | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -616,23 +714,31 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UseUserEntitlementItem**
-> UseUserEntitlementItem($userId, $itemId, $sku, $info)
-
+> UseUserEntitlementItem(ctx, userId, itemId, optional)
 Use an item
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **userId** | **string**| The id of the user to check for or &#39;me&#39; for logged in user | 
+  **itemId** | **int32**| The id of the item | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**| The id of the user to check for or &#39;me&#39; for logged in user | 
  **itemId** | **int32**| The id of the item | 
- **sku** | **string**| The specific sku of an entitlement_list addition to check entitlement for. This is of very limited and specific use and should generally be left out | [optional] 
- **info** | **string**| Any additional info to add to the log about this use | [optional] 
+ **sku** | **string**| The specific sku of an entitlement_list addition to check entitlement for. This is of very limited and specific use and should generally be left out | 
+ **info** | **string**| Any additional info to add to the log about this use | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 

@@ -269,7 +269,7 @@ Class | Method | HTTP request | Description
 *InvoicesApi* | [**GetInvoiceLogs**](docs/InvoicesApi.md#getinvoicelogs) | **Get** /invoices/{id}/logs | List invoice logs
 *InvoicesApi* | [**GetInvoices**](docs/InvoicesApi.md#getinvoices) | **Get** /invoices | Retrieve invoices
 *InvoicesApi* | [**GetPaymentStatuses**](docs/InvoicesApi.md#getpaymentstatuses) | **Get** /invoices/payment-statuses | Lists available payment statuses
-*InvoicesApi* | [**PayInvoice**](docs/InvoicesApi.md#payinvoice) | **Post** /invoices/{id}/payments | Trigger payment of an invoice
+*InvoicesApi* | [**PayInvoice**](docs/InvoicesApi.md#payinvoice) | **Post** /invoices/{id}/payments | Pay an invoice using a saved payment method
 *InvoicesApi* | [**SetBundledInvoiceItemFulfillmentStatus**](docs/InvoicesApi.md#setbundledinvoiceitemfulfillmentstatus) | **Put** /invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status | Set the fulfillment status of a bundled invoice item
 *InvoicesApi* | [**SetExternalRef**](docs/InvoicesApi.md#setexternalref) | **Put** /invoices/{id}/external-ref | Set the external reference of an invoice
 *InvoicesApi* | [**SetInvoiceItemFulfillmentStatus**](docs/InvoicesApi.md#setinvoiceitemfulfillmentstatus) | **Put** /invoices/{id}/items/{sku}/fulfillment-status | Set the fulfillment status of an invoice item
@@ -336,6 +336,7 @@ Class | Method | HTTP request | Description
 *PaymentsApi* | [**PaymentCapture**](docs/PaymentsApi.md#paymentcapture) | **Post** /payment/authorizations/{id}/capture | Capture an existing invoice payment authorization
 *PaymentsApi* | [**UpdatePaymentMethod**](docs/PaymentsApi.md#updatepaymentmethod) | **Put** /users/{user_id}/payment-methods/{id} | Update an existing payment method for a user
 *PaymentsAppleApi* | [**VerifyAppleReceipt**](docs/PaymentsAppleApi.md#verifyapplereceipt) | **Post** /payment/provider/apple/receipt | Pay invoice with Apple receipt
+*PaymentsFattMerchantApi* | [**CreateOrUpdateFattMerchantPaymentMethod**](docs/PaymentsFattMerchantApi.md#createorupdatefattmerchantpaymentmethod) | **Put** /payment/provider/fattmerchant/payment-methods | Create or update a FattMerchant payment method for a user
 *PaymentsGoogleApi* | [**HandleGooglePayment**](docs/PaymentsGoogleApi.md#handlegooglepayment) | **Post** /payment/provider/google/payments | Mark an invoice paid with Google
 *PaymentsOptimalApi* | [**SilentPostOptimal**](docs/PaymentsOptimalApi.md#silentpostoptimal) | **Post** /payment/provider/optimal/silent | Initiate silent post with Optimal
 *PaymentsPayPalClassicApi* | [**CreatePayPalBillingAgreementUrl**](docs/PaymentsPayPalClassicApi.md#createpaypalbillingagreementurl) | **Post** /payment/provider/paypal/classic/agreements/start | Create a PayPal Classic billing agreement for the user
@@ -389,6 +390,7 @@ Class | Method | HTTP request | Description
 *StoreApi* | [**GetStore**](docs/StoreApi.md#getstore) | **Get** /store | Get a listing of store items
 *StoreApi* | [**GetStoreItem**](docs/StoreApi.md#getstoreitem) | **Get** /store/items/{id} | Get a single store item
 *StoreApi* | [**GetStoreItems**](docs/StoreApi.md#getstoreitems) | **Get** /store/items | List and search store items
+*StoreApi* | [**QuickBuy**](docs/StoreApi.md#quickbuy) | **Post** /store/quick-buy | One-step purchase and pay for a single SKU item from a user&#39;s wallet
 *StoreApi* | [**UpdateItemTemplate**](docs/StoreApi.md#updateitemtemplate) | **Put** /store/items/templates/{id} | Update an item template
 *StoreApi* | [**UpdateStoreItem**](docs/StoreApi.md#updatestoreitem) | **Put** /store/items/{id} | Update a store item
 *StoreBundlesApi* | [**CreateBundleItem**](docs/StoreBundlesApi.md#createbundleitem) | **Post** /store/bundles | Create a bundle item
@@ -648,6 +650,8 @@ Class | Method | HTTP request | Description
  - [ExpressionResource](docs/ExpressionResource.md)
  - [Expressionobject](docs/Expressionobject.md)
  - [FacebookToken](docs/FacebookToken.md)
+ - [FattMerchantPaymentMethod](docs/FattMerchantPaymentMethod.md)
+ - [FattMerchantPaymentMethodRequest](docs/FattMerchantPaymentMethodRequest.md)
  - [FinalizeBillingAgreementRequest](docs/FinalizeBillingAgreementRequest.md)
  - [FinalizePayPalPaymentRequest](docs/FinalizePayPalPaymentRequest.md)
  - [FlagReportResource](docs/FlagReportResource.md)
@@ -663,6 +667,7 @@ Class | Method | HTTP request | Description
  - [GroupResource](docs/GroupResource.md)
  - [ImportJobOutputResource](docs/ImportJobOutputResource.md)
  - [ImportJobResource](docs/ImportJobResource.md)
+ - [IntWrapper](docs/IntWrapper.md)
  - [IntegerOperationResource](docs/IntegerOperationResource.md)
  - [InventorySubscriptionResource](docs/InventorySubscriptionResource.md)
  - [InvoiceCreateRequest](docs/InvoiceCreateRequest.md)
@@ -773,6 +778,7 @@ Class | Method | HTTP request | Description
  - [PasswordResetRequest](docs/PasswordResetRequest.md)
  - [PayBySavedMethodRequest](docs/PayBySavedMethodRequest.md)
  - [PaymentAuthorizationResource](docs/PaymentAuthorizationResource.md)
+ - [PaymentMethodDetails](docs/PaymentMethodDetails.md)
  - [PaymentMethodResource](docs/PaymentMethodResource.md)
  - [PaymentMethodTypeResource](docs/PaymentMethodTypeResource.md)
  - [PermissionResource](docs/PermissionResource.md)
@@ -787,6 +793,7 @@ Class | Method | HTTP request | Description
  - [PropertyFieldResource](docs/PropertyFieldResource.md)
  - [QuestionResource](docs/QuestionResource.md)
  - [QuestionTemplateResource](docs/QuestionTemplateResource.md)
+ - [QuickBuyRequest](docs/QuickBuyRequest.md)
  - [RawEmailResource](docs/RawEmailResource.md)
  - [RawSmsResource](docs/RawSmsResource.md)
  - [ReactivateSubscriptionRequest](docs/ReactivateSubscriptionRequest.md)
@@ -820,6 +827,7 @@ Class | Method | HTTP request | Description
  - [StateTaxResource](docs/StateTaxResource.md)
  - [StoreItemTemplateResource](docs/StoreItemTemplateResource.md)
  - [StringOperationResource](docs/StringOperationResource.md)
+ - [StringWrapper](docs/StringWrapper.md)
  - [StripeCreatePaymentMethod](docs/StripeCreatePaymentMethod.md)
  - [StripePaymentRequest](docs/StripePaymentRequest.md)
  - [SubscriptionCreditResource](docs/SubscriptionCreditResource.md)
@@ -883,6 +891,7 @@ Class | Method | HTTP request | Description
  - [IntegerProperty](docs/IntegerProperty.md)
  - [IntegerPropertyDefinitionResource](docs/IntegerPropertyDefinitionResource.md)
  - [LimitedGettable](docs/LimitedGettable.md)
+ - [LogLevelEvent](docs/LogLevelEvent.md)
  - [LongProperty](docs/LongProperty.md)
  - [LongPropertyDefinitionResource](docs/LongPropertyDefinitionResource.md)
  - [NewCustomerEvent](docs/NewCustomerEvent.md)
@@ -913,15 +922,29 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
-
 ## OAuth2
-
 - **Type**: OAuth
 - **Flow**: implicit
 - **Authorization URL**: /oauth/token
 - **Scopes**: 
  - **global**: global
 
+Example
+```
+	auth := context.WithValue(context.TODO(), sw.ContextAccessToken, "ACCESSTOKENSTRING")
+    r, err := client.Service.Operation(auth, args)
+```
+
+Or via OAuth2 module to automaticly refresh tokens and perform user authentication.
+```
+	import 	"golang.org/x/oauth2"
+
+    / .. Perform OAuth2 round trip request and obtain a token .. //
+
+    tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
+	auth := context.WithValue(oauth2.NoContext, sw.ContextOAuth2, tokenSource)
+    r, err := client.Service.Operation(auth, args)
+```
 
 ## Author
 

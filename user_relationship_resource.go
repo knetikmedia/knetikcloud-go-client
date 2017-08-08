@@ -13,7 +13,7 @@ package swagger
 type UserRelationshipResource struct {
 
 	// The child in the relationship
-	Child SimpleUserResource `json:"child"`
+	Child *SimpleUserResource `json:"child"`
 
 	// Context about the relationship or its type
 	Context string `json:"context,omitempty"`
@@ -22,5 +22,5 @@ type UserRelationshipResource struct {
 	Id int64 `json:"id,omitempty"`
 
 	// The parent in the relationship
-	Parent SimpleUserResource `json:"parent"`
+	Parent *SimpleUserResource `json:"parent"`
 }

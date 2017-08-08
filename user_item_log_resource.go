@@ -19,7 +19,7 @@ type UserItemLogResource struct {
 	Info string `json:"info,omitempty"`
 
 	// The item interacted with
-	Item SimpleReferenceResourceint `json:"item,omitempty"`
+	Item *SimpleReferenceResourceint `json:"item,omitempty"`
 
 	// The date/time this event occurred in seconds since epoch
 	LogDate int64 `json:"log_date,omitempty"`
@@ -28,7 +28,7 @@ type UserItemLogResource struct {
 	Type_ string `json:"type,omitempty"`
 
 	// The user making the interaction
-	User SimpleUserResource `json:"user,omitempty"`
+	User *SimpleUserResource `json:"user,omitempty"`
 
 	// The id of the inventory entry this event is related to, if any
 	UserInventory int32 `json:"user_inventory,omitempty"`

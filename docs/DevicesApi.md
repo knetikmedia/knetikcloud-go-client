@@ -15,14 +15,13 @@ Method | HTTP request | Description
 
 
 # **AddDeviceUsers**
-> DeviceResource AddDeviceUsers(ctx, userResources, id)
+> DeviceResource AddDeviceUsers(userResources, id)
 Add device users
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userResources** | [**[]SimpleUserResource**](SimpleUserResource.md)| userResources | 
   **id** | **int32**| id | 
 
@@ -32,7 +31,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -42,14 +41,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateDevice**
-> DeviceResource CreateDevice(ctx, device)
+> DeviceResource CreateDevice(device)
 Create a device
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **device** | [**DeviceResource**](DeviceResource.md)| device | 
 
 ### Return type
@@ -58,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -68,14 +66,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteDevice**
-> DeleteDevice(ctx, id)
+> DeleteDevice(id)
 Delete a device
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int32**| id | 
 
 ### Return type
@@ -84,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -94,14 +91,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteDeviceUser**
-> DeleteDeviceUser(ctx, id, userId)
+> DeleteDeviceUser(id, userId)
 Delete a device user
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int32**| The id of the device | 
   **userId** | **int32**| The user id of the device user | 
 
@@ -111,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -121,14 +117,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteDeviceUsers**
-> DeleteDeviceUsers(ctx, id, optional)
+> DeleteDeviceUsers(id, optional)
 Delete all device users
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int32**| The id of the device | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -146,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -156,14 +151,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDevice**
-> DeviceResource GetDevice(ctx, id)
+> DeviceResource GetDevice(id)
 Get a single device
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int32**| id | 
 
 ### Return type
@@ -172,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -182,7 +176,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDevices**
-> PageResourceDeviceResource GetDevices(ctx, optional)
+> PageResourceDeviceResource GetDevices(optional)
 List and search devices
 
 Get a list of devices with optional filtering
@@ -191,7 +185,6 @@ Get a list of devices with optional filtering
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -211,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -221,14 +214,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateDevice**
-> DeviceResource UpdateDevice(ctx, device, id)
+> DeviceResource UpdateDevice(device, id)
 Update a device
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **device** | [**DeviceResource**](DeviceResource.md)| device | 
   **id** | **int32**| id | 
 
@@ -238,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

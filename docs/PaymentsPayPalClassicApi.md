@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **CreatePayPalBillingAgreementUrl**
-> string CreatePayPalBillingAgreementUrl(ctx, optional)
+> string CreatePayPalBillingAgreementUrl(optional)
 Create a PayPal Classic billing agreement for the user
 
 Returns the token that should be used to forward the user to PayPal so they can accept the agreement.
@@ -20,7 +20,6 @@ Returns the token that should be used to forward the user to PayPal so they can 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -36,7 +35,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -46,7 +45,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreatePayPalExpressCheckout**
-> string CreatePayPalExpressCheckout(ctx, optional)
+> string CreatePayPalExpressCheckout(optional)
 Create a payment token for PayPal express checkout
 
 Returns the token that should be used to forward the user to PayPal so they can complete the checkout.
@@ -55,7 +54,6 @@ Returns the token that should be used to forward the user to PayPal so they can 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -71,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -81,7 +79,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **FinalizePayPalBillingAgreement**
-> int32 FinalizePayPalBillingAgreement(ctx, optional)
+> int32 FinalizePayPalBillingAgreement(optional)
 Finalizes a billing agreement after the user has accepted through PayPal
 
 Returns the ID of the new payment method created for the user for the billing agreement.
@@ -90,7 +88,6 @@ Returns the ID of the new payment method created for the user for the billing ag
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -106,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -116,7 +113,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **FinalizePayPalCheckout**
-> FinalizePayPalCheckout(ctx, optional)
+> FinalizePayPalCheckout(optional)
 Finalizes a payment after the user has completed checkout with PayPal
 
 The invoice will be marked paid/failed by asynchronous IPN callback.
@@ -125,7 +122,6 @@ The invoice will be marked paid/failed by asynchronous IPN callback.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -141,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

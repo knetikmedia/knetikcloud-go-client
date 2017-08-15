@@ -29,9 +29,9 @@ type BRERuleEngineVariablesApiService service
 
 /* BRERuleEngineVariablesApiService Get a list of variable types available
  Types include integer, string, user and invoice. These are used to qualify trigger parameters and action variables with strong typing.
- * @param ctx context.Context Authentication Context 
+
  @return []VariableTypeResource*/
-func (a *BRERuleEngineVariablesApiService) GetBREVariableTypes(ctx context.Context, ) ([]VariableTypeResource,  *http.Response, error) {
+func (a *BRERuleEngineVariablesApiService) GetBREVariableTypes() ([]VariableTypeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -67,7 +67,7 @@ func (a *BRERuleEngineVariablesApiService) GetBREVariableTypes(ctx context.Conte
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -91,14 +91,14 @@ func (a *BRERuleEngineVariablesApiService) GetBREVariableTypes(ctx context.Conte
 
 /* BRERuleEngineVariablesApiService List valid values for a type
  Used to lookup users to fill in a user constant for example. Only types marked as enumerable are suppoorted here.
- * @param ctx context.Context Authentication Context 
+
  @param name The name of the type
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterName" (string) Filter results by those with names starting with this string
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceSimpleReferenceResourceobject*/
-func (a *BRERuleEngineVariablesApiService) GetBREVariableValues(ctx context.Context, name string, localVarOptionals map[string]interface{}) (PageResourceSimpleReferenceResourceobject,  *http.Response, error) {
+func (a *BRERuleEngineVariablesApiService) GetBREVariableValues(name string, localVarOptionals map[string]interface{}) (PageResourceSimpleReferenceResourceobject,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -153,7 +153,7 @@ func (a *BRERuleEngineVariablesApiService) GetBREVariableValues(ctx context.Cont
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

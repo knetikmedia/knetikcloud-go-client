@@ -28,11 +28,11 @@ type UsersSubscriptionsApiService service
 
 
 /* UsersSubscriptionsApiService Get details about a user&#39;s subscription
- * @param ctx context.Context Authentication Context 
+
  @param userId The id of the user
  @param inventoryId The id of the user&#39;s inventory
  @return InventorySubscriptionResource*/
-func (a *UsersSubscriptionsApiService) GetUserSubscriptionDetails(ctx context.Context, userId int32, inventoryId int32) (InventorySubscriptionResource,  *http.Response, error) {
+func (a *UsersSubscriptionsApiService) GetUserSubscriptionDetails(userId int32, inventoryId int32) (InventorySubscriptionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -70,7 +70,7 @@ func (a *UsersSubscriptionsApiService) GetUserSubscriptionDetails(ctx context.Co
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -93,10 +93,10 @@ func (a *UsersSubscriptionsApiService) GetUserSubscriptionDetails(ctx context.Co
 }
 
 /* UsersSubscriptionsApiService Get details about a user&#39;s subscriptions
- * @param ctx context.Context Authentication Context 
+
  @param userId The id of the user
  @return []InventorySubscriptionResource*/
-func (a *UsersSubscriptionsApiService) GetUsersSubscriptionDetails(ctx context.Context, userId int32) ([]InventorySubscriptionResource,  *http.Response, error) {
+func (a *UsersSubscriptionsApiService) GetUsersSubscriptionDetails(userId int32) ([]InventorySubscriptionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -133,7 +133,7 @@ func (a *UsersSubscriptionsApiService) GetUsersSubscriptionDetails(ctx context.C
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -156,13 +156,13 @@ func (a *UsersSubscriptionsApiService) GetUsersSubscriptionDetails(ctx context.C
 }
 
 /* UsersSubscriptionsApiService Reactivate a subscription and charge fee
- * @param ctx context.Context Authentication Context 
+
  @param userId The id of the user
  @param inventoryId The id of the user&#39;s inventory
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "reactivateSubscriptionRequest" (ReactivateSubscriptionRequest) The reactivate subscription request object inventory
  @return InvoiceResource*/
-func (a *UsersSubscriptionsApiService) ReactivateUserSubscription(ctx context.Context, userId int32, inventoryId int32, localVarOptionals map[string]interface{}) (InvoiceResource,  *http.Response, error) {
+func (a *UsersSubscriptionsApiService) ReactivateUserSubscription(userId int32, inventoryId int32, localVarOptionals map[string]interface{}) (InvoiceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -204,7 +204,7 @@ func (a *UsersSubscriptionsApiService) ReactivateUserSubscription(ctx context.Co
 	if localVarTempParam, localVarOk := localVarOptionals["reactivateSubscriptionRequest"].(ReactivateSubscriptionRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -227,12 +227,12 @@ func (a *UsersSubscriptionsApiService) ReactivateUserSubscription(ctx context.Co
 }
 
 /* UsersSubscriptionsApiService Set a new date to bill a subscription on
- * @param ctx context.Context Authentication Context 
+
  @param userId The id of the user
  @param inventoryId The id of the user&#39;s inventory
  @param billDate The new bill date. Unix timestamp in seconds
  @return */
-func (a *UsersSubscriptionsApiService) SetSubscriptionBillDate(ctx context.Context, userId int32, inventoryId int32, billDate int64) ( *http.Response, error) {
+func (a *UsersSubscriptionsApiService) SetSubscriptionBillDate(userId int32, inventoryId int32, billDate int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -271,7 +271,7 @@ func (a *UsersSubscriptionsApiService) SetSubscriptionBillDate(ctx context.Conte
 	}
 	// body params
 	localVarPostBody = &billDate
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -290,13 +290,13 @@ func (a *UsersSubscriptionsApiService) SetSubscriptionBillDate(ctx context.Conte
 
 /* UsersSubscriptionsApiService Set the payment method to use for a subscription
  May send null to use floating default
- * @param ctx context.Context Authentication Context 
+
  @param userId The id of the user
  @param inventoryId The id of the user&#39;s inventory
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "paymentMethodId" (IntWrapper) The id of the payment method
  @return */
-func (a *UsersSubscriptionsApiService) SetSubscriptionPaymentMethod(ctx context.Context, userId int32, inventoryId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *UsersSubscriptionsApiService) SetSubscriptionPaymentMethod(userId int32, inventoryId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -337,7 +337,7 @@ func (a *UsersSubscriptionsApiService) SetSubscriptionPaymentMethod(ctx context.
 	if localVarTempParam, localVarOk := localVarOptionals["paymentMethodId"].(IntWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -356,12 +356,12 @@ func (a *UsersSubscriptionsApiService) SetSubscriptionPaymentMethod(ctx context.
 
 /* UsersSubscriptionsApiService Set the status of a subscription
  Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
- * @param ctx context.Context Authentication Context 
+
  @param userId The id of the user
  @param inventoryId The id of the user&#39;s inventory
  @param status The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: (&#39;current&#39;, &#39;canceled&#39;, &#39;stopped&#39;, &#39;payment_failed&#39;, &#39;suspended&#39;)
  @return */
-func (a *UsersSubscriptionsApiService) SetSubscriptionStatus(ctx context.Context, userId int32, inventoryId int32, status StringWrapper) ( *http.Response, error) {
+func (a *UsersSubscriptionsApiService) SetSubscriptionStatus(userId int32, inventoryId int32, status StringWrapper) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -400,7 +400,7 @@ func (a *UsersSubscriptionsApiService) SetSubscriptionStatus(ctx context.Context
 	}
 	// body params
 	localVarPostBody = &status
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -418,13 +418,13 @@ func (a *UsersSubscriptionsApiService) SetSubscriptionStatus(ctx context.Context
 }
 
 /* UsersSubscriptionsApiService Set a new subscription plan for a user
- * @param ctx context.Context Authentication Context 
+
  @param userId The id of the user
  @param inventoryId The id of the user&#39;s inventory
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "planId" (StringWrapper) The id of the new plan. Must be from the same subscription
  @return */
-func (a *UsersSubscriptionsApiService) SetUserSubscriptionPlan(ctx context.Context, userId int32, inventoryId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *UsersSubscriptionsApiService) SetUserSubscriptionPlan(userId int32, inventoryId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -465,7 +465,7 @@ func (a *UsersSubscriptionsApiService) SetUserSubscriptionPlan(ctx context.Conte
 	if localVarTempParam, localVarOk := localVarOptionals["planId"].(StringWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -484,13 +484,13 @@ func (a *UsersSubscriptionsApiService) SetUserSubscriptionPlan(ctx context.Conte
 
 /* UsersSubscriptionsApiService Set a new subscription price for a user
  This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
- * @param ctx context.Context Authentication Context 
+
  @param userId The id of the user
  @param inventoryId The id of the user&#39;s inventory
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "theOverrideDetails" (SubscriptionPriceOverrideRequest) override
  @return */
-func (a *UsersSubscriptionsApiService) SetUserSubscriptionPrice(ctx context.Context, userId int32, inventoryId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *UsersSubscriptionsApiService) SetUserSubscriptionPrice(userId int32, inventoryId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -531,7 +531,7 @@ func (a *UsersSubscriptionsApiService) SetUserSubscriptionPrice(ctx context.Cont
 	if localVarTempParam, localVarOk := localVarOptionals["theOverrideDetails"].(SubscriptionPriceOverrideRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

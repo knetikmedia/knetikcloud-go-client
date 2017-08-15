@@ -27,14 +27,14 @@ type BRERuleEngineActionsApiService service
 
 
 /* BRERuleEngineActionsApiService Get a list of available actions
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterCategory" (string) Filter for actions that are within a specific category
      @param "filterName" (string) Filter for actions that have names containing the given string
      @param "filterTags" (string) Filter for actions that have all of the given tags (comma separated list)
      @param "filterSearch" (string) Filter for actions containing the given words somewhere within name, description and tags
  @return []ActionResource*/
-func (a *BRERuleEngineActionsApiService) GetBREActions(ctx context.Context, localVarOptionals map[string]interface{}) ([]ActionResource,  *http.Response, error) {
+func (a *BRERuleEngineActionsApiService) GetBREActions(localVarOptionals map[string]interface{}) ([]ActionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -94,7 +94,7 @@ func (a *BRERuleEngineActionsApiService) GetBREActions(ctx context.Context, loca
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

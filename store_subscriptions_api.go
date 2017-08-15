@@ -28,11 +28,11 @@ type StoreSubscriptionsApiService service
 
 
 /* StoreSubscriptionsApiService Creates a subscription item and associated plans
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "subscriptionResource" (SubscriptionResource) The subscription to be created
  @return SubscriptionResource*/
-func (a *StoreSubscriptionsApiService) CreateSubscription(ctx context.Context, localVarOptionals map[string]interface{}) (SubscriptionResource,  *http.Response, error) {
+func (a *StoreSubscriptionsApiService) CreateSubscription(localVarOptionals map[string]interface{}) (SubscriptionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *StoreSubscriptionsApiService) CreateSubscription(ctx context.Context, l
 	if localVarTempParam, localVarOk := localVarOptionals["subscriptionResource"].(SubscriptionResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -96,11 +96,11 @@ func (a *StoreSubscriptionsApiService) CreateSubscription(ctx context.Context, l
 
 /* StoreSubscriptionsApiService Create a subscription template
  Subscription Templates define a type of subscription and the properties they have.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "subscriptionTemplateResource" (SubscriptionTemplateResource) The new subscription template
  @return SubscriptionTemplateResource*/
-func (a *StoreSubscriptionsApiService) CreateSubscriptionTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (SubscriptionTemplateResource,  *http.Response, error) {
+func (a *StoreSubscriptionsApiService) CreateSubscriptionTemplate(localVarOptionals map[string]interface{}) (SubscriptionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -140,7 +140,7 @@ func (a *StoreSubscriptionsApiService) CreateSubscriptionTemplate(ctx context.Co
 	if localVarTempParam, localVarOk := localVarOptionals["subscriptionTemplateResource"].(SubscriptionTemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -164,11 +164,11 @@ func (a *StoreSubscriptionsApiService) CreateSubscriptionTemplate(ctx context.Co
 
 /* StoreSubscriptionsApiService Delete a subscription plan
  Must not be locked or a migration target
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the subscription
  @param planId The id of the plan
  @return */
-func (a *StoreSubscriptionsApiService) DeleteSubscription(ctx context.Context, id int32, planId string) ( *http.Response, error) {
+func (a *StoreSubscriptionsApiService) DeleteSubscription(id int32, planId string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -205,7 +205,7 @@ func (a *StoreSubscriptionsApiService) DeleteSubscription(ctx context.Context, i
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -223,12 +223,12 @@ func (a *StoreSubscriptionsApiService) DeleteSubscription(ctx context.Context, i
 }
 
 /* StoreSubscriptionsApiService Delete a subscription template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach
  @return */
-func (a *StoreSubscriptionsApiService) DeleteSubscriptionTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreSubscriptionsApiService) DeleteSubscriptionTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -270,7 +270,7 @@ func (a *StoreSubscriptionsApiService) DeleteSubscriptionTemplate(ctx context.Co
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -352,10 +352,10 @@ func (a *StoreSubscriptionsApiService) GetSubscription(id int32) (SubscriptionRe
 
 /* StoreSubscriptionsApiService Get a single subscription template
  Subscription Templates define a type of subscription and the properties they have.
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @return SubscriptionTemplateResource*/
-func (a *StoreSubscriptionsApiService) GetSubscriptionTemplate(ctx context.Context, id string) (SubscriptionTemplateResource,  *http.Response, error) {
+func (a *StoreSubscriptionsApiService) GetSubscriptionTemplate(id string) (SubscriptionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -392,7 +392,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptionTemplate(ctx context.Conte
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -415,13 +415,13 @@ func (a *StoreSubscriptionsApiService) GetSubscriptionTemplate(ctx context.Conte
 }
 
 /* StoreSubscriptionsApiService List and search subscription templates
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceSubscriptionTemplateResource*/
-func (a *StoreSubscriptionsApiService) GetSubscriptionTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceSubscriptionTemplateResource,  *http.Response, error) {
+func (a *StoreSubscriptionsApiService) GetSubscriptionTemplates(localVarOptionals map[string]interface{}) (PageResourceSubscriptionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -475,7 +475,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptionTemplates(ctx context.Cont
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -581,9 +581,9 @@ func (a *StoreSubscriptionsApiService) GetSubscriptions(localVarOptionals map[st
 }
 
 /* StoreSubscriptionsApiService Processes subscriptions and charge dues
- * @param ctx context.Context Authentication Context 
+
  @return */
-func (a *StoreSubscriptionsApiService) ProcessSubscriptions(ctx context.Context, ) ( *http.Response, error) {
+func (a *StoreSubscriptionsApiService) ProcessSubscriptions() ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -618,7 +618,7 @@ func (a *StoreSubscriptionsApiService) ProcessSubscriptions(ctx context.Context,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -637,12 +637,12 @@ func (a *StoreSubscriptionsApiService) ProcessSubscriptions(ctx context.Context,
 
 /* StoreSubscriptionsApiService Updates a subscription item and associated plans
  Will not remove plans left out
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the subscription
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "subscriptionResource" (SubscriptionResource) The subscription resource object
  @return */
-func (a *StoreSubscriptionsApiService) UpdateSubscription(ctx context.Context, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreSubscriptionsApiService) UpdateSubscription(id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -682,7 +682,7 @@ func (a *StoreSubscriptionsApiService) UpdateSubscription(ctx context.Context, i
 	if localVarTempParam, localVarOk := localVarOptionals["subscriptionResource"].(SubscriptionResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -700,12 +700,12 @@ func (a *StoreSubscriptionsApiService) UpdateSubscription(ctx context.Context, i
 }
 
 /* StoreSubscriptionsApiService Update a subscription template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "subscriptionTemplateResource" (SubscriptionTemplateResource) The subscription template resource object
  @return SubscriptionTemplateResource*/
-func (a *StoreSubscriptionsApiService) UpdateSubscriptionTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (SubscriptionTemplateResource,  *http.Response, error) {
+func (a *StoreSubscriptionsApiService) UpdateSubscriptionTemplate(id string, localVarOptionals map[string]interface{}) (SubscriptionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -746,7 +746,7 @@ func (a *StoreSubscriptionsApiService) UpdateSubscriptionTemplate(ctx context.Co
 	if localVarTempParam, localVarOk := localVarOptionals["subscriptionTemplateResource"].(SubscriptionTemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

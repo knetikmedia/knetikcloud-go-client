@@ -117,12 +117,12 @@ func (a *GamificationLeaderboardsApiService) GetLeaderboard(contextType string, 
 
 /* GamificationLeaderboardsApiService Retrieves a specific user entry with rank
  The context type identifies the type of entity (i.e., &#39;activity&#39;) being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard
- * @param ctx context.Context Authentication Context 
+
  @param contextType The context type for the leaderboard
  @param contextId The context id for the leaderboard
  @param id The id of a user
  @return LeaderboardEntryResource*/
-func (a *GamificationLeaderboardsApiService) GetLeaderboardRank(ctx context.Context, contextType string, contextId string, id string) (LeaderboardEntryResource,  *http.Response, error) {
+func (a *GamificationLeaderboardsApiService) GetLeaderboardRank(contextType string, contextId string, id string) (LeaderboardEntryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -161,7 +161,7 @@ func (a *GamificationLeaderboardsApiService) GetLeaderboardRank(ctx context.Cont
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

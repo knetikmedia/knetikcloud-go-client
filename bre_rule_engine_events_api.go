@@ -28,11 +28,11 @@ type BRERuleEngineEventsApiService service
 
 /* BRERuleEngineEventsApiService Fire a new event, based on an existing trigger
  Parameters within the event must match names and types from the trigger. Actual rule execution is asynchornous.  Returns request id, which will be used as the event id
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "breEvent" (BreEvent) The BRE event object
  @return string*/
-func (a *BRERuleEngineEventsApiService) SendBREEvent(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *BRERuleEngineEventsApiService) SendBREEvent(localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *BRERuleEngineEventsApiService) SendBREEvent(ctx context.Context, localV
 	if localVarTempParam, localVarOk := localVarOptionals["breEvent"].(BreEvent); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

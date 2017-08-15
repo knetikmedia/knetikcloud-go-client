@@ -28,11 +28,11 @@ type UsersGroupsApiService service
 
 
 /* UsersGroupsApiService Adds a new member to the group
- * @param ctx context.Context Authentication Context 
+
  @param uniqueName The group unique name
  @param user The id and status for a user to add to the group
  @return GroupMemberResource*/
-func (a *UsersGroupsApiService) AddMemberToGroup(ctx context.Context, uniqueName string, user GroupMemberResource) (GroupMemberResource,  *http.Response, error) {
+func (a *UsersGroupsApiService) AddMemberToGroup(uniqueName string, user GroupMemberResource) (GroupMemberResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -71,7 +71,7 @@ func (a *UsersGroupsApiService) AddMemberToGroup(ctx context.Context, uniqueName
 	}
 	// body params
 	localVarPostBody = &user
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -94,11 +94,11 @@ func (a *UsersGroupsApiService) AddMemberToGroup(ctx context.Context, uniqueName
 }
 
 /* UsersGroupsApiService Adds multiple members to the group
- * @param ctx context.Context Authentication Context 
+
  @param uniqueName The group unique name
  @param users The id and status for a list of users to add to the group
  @return []GroupMemberResource*/
-func (a *UsersGroupsApiService) AddMembersToGroup(ctx context.Context, uniqueName string, users []GroupMemberResource) ([]GroupMemberResource,  *http.Response, error) {
+func (a *UsersGroupsApiService) AddMembersToGroup(uniqueName string, users []GroupMemberResource) ([]GroupMemberResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -137,7 +137,7 @@ func (a *UsersGroupsApiService) AddMembersToGroup(ctx context.Context, uniqueNam
 	}
 	// body params
 	localVarPostBody = &users
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -160,11 +160,11 @@ func (a *UsersGroupsApiService) AddMembersToGroup(ctx context.Context, uniqueNam
 }
 
 /* UsersGroupsApiService Create a group
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupResource" (GroupResource) The new group
  @return GroupResource*/
-func (a *UsersGroupsApiService) CreateGroup(ctx context.Context, localVarOptionals map[string]interface{}) (GroupResource,  *http.Response, error) {
+func (a *UsersGroupsApiService) CreateGroup(localVarOptionals map[string]interface{}) (GroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -204,7 +204,7 @@ func (a *UsersGroupsApiService) CreateGroup(ctx context.Context, localVarOptiona
 	if localVarTempParam, localVarOk := localVarOptionals["groupResource"].(GroupResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -228,11 +228,11 @@ func (a *UsersGroupsApiService) CreateGroup(ctx context.Context, localVarOptiona
 
 /* UsersGroupsApiService Create a group template
  Group Templates define a type of group and the properties they have
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupTemplateResource" (TemplateResource) The group template resource object
  @return TemplateResource*/
-func (a *UsersGroupsApiService) CreateGroupTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *UsersGroupsApiService) CreateGroupTemplate(localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -272,7 +272,7 @@ func (a *UsersGroupsApiService) CreateGroupTemplate(ctx context.Context, localVa
 	if localVarTempParam, localVarOk := localVarOptionals["groupTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -295,10 +295,10 @@ func (a *UsersGroupsApiService) CreateGroupTemplate(ctx context.Context, localVa
 }
 
 /* UsersGroupsApiService Removes a group from the system IF no resources are attached to it
- * @param ctx context.Context Authentication Context 
+
  @param uniqueName The group unique name
  @return */
-func (a *UsersGroupsApiService) DeleteGroup(ctx context.Context, uniqueName string) ( *http.Response, error) {
+func (a *UsersGroupsApiService) DeleteGroup(uniqueName string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -334,7 +334,7 @@ func (a *UsersGroupsApiService) DeleteGroup(ctx context.Context, uniqueName stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -353,12 +353,12 @@ func (a *UsersGroupsApiService) DeleteGroup(ctx context.Context, uniqueName stri
 
 /* UsersGroupsApiService Delete a group template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *UsersGroupsApiService) DeleteGroupTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *UsersGroupsApiService) DeleteGroupTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -400,7 +400,7 @@ func (a *UsersGroupsApiService) DeleteGroupTemplate(ctx context.Context, id stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -631,10 +631,10 @@ func (a *UsersGroupsApiService) GetGroupMembers(uniqueName string, localVarOptio
 }
 
 /* UsersGroupsApiService Get a single group template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @return TemplateResource*/
-func (a *UsersGroupsApiService) GetGroupTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *UsersGroupsApiService) GetGroupTemplate(id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -671,7 +671,7 @@ func (a *UsersGroupsApiService) GetGroupTemplate(ctx context.Context, id string)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -694,13 +694,13 @@ func (a *UsersGroupsApiService) GetGroupTemplate(ctx context.Context, id string)
 }
 
 /* UsersGroupsApiService List and search group templates
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *UsersGroupsApiService) GetGroupTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *UsersGroupsApiService) GetGroupTemplates(localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -754,7 +754,7 @@ func (a *UsersGroupsApiService) GetGroupTemplates(ctx context.Context, localVarO
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -840,11 +840,11 @@ func (a *UsersGroupsApiService) GetGroupsForUser(userId int32) ([]string,  *http
 }
 
 /* UsersGroupsApiService Removes a user from a group
- * @param ctx context.Context Authentication Context 
+
  @param uniqueName The group unique name
  @param userId The id of the user to remove
  @return */
-func (a *UsersGroupsApiService) RemoveGroupMember(ctx context.Context, uniqueName string, userId int32) ( *http.Response, error) {
+func (a *UsersGroupsApiService) RemoveGroupMember(uniqueName string, userId int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -881,7 +881,7 @@ func (a *UsersGroupsApiService) RemoveGroupMember(ctx context.Context, uniqueNam
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -899,12 +899,12 @@ func (a *UsersGroupsApiService) RemoveGroupMember(ctx context.Context, uniqueNam
 }
 
 /* UsersGroupsApiService Update a group
- * @param ctx context.Context Authentication Context 
+
  @param uniqueName The group unique name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupResource" (GroupResource) The updated group
  @return */
-func (a *UsersGroupsApiService) UpdateGroup(ctx context.Context, uniqueName string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *UsersGroupsApiService) UpdateGroup(uniqueName string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -944,7 +944,7 @@ func (a *UsersGroupsApiService) UpdateGroup(ctx context.Context, uniqueName stri
 	if localVarTempParam, localVarOk := localVarOptionals["groupResource"].(GroupResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -962,12 +962,12 @@ func (a *UsersGroupsApiService) UpdateGroup(ctx context.Context, uniqueName stri
 }
 
 /* UsersGroupsApiService Change a user&#39;s status
- * @param ctx context.Context Authentication Context 
+
  @param uniqueName The group unique name
  @param userId The user id of the member to modify
  @param status The new status for the user
  @return */
-func (a *UsersGroupsApiService) UpdateGroupMemberStatus(ctx context.Context, uniqueName string, userId int32, status string) ( *http.Response, error) {
+func (a *UsersGroupsApiService) UpdateGroupMemberStatus(uniqueName string, userId int32, status string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1006,7 +1006,7 @@ func (a *UsersGroupsApiService) UpdateGroupMemberStatus(ctx context.Context, uni
 	}
 	// body params
 	localVarPostBody = &status
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -1024,12 +1024,12 @@ func (a *UsersGroupsApiService) UpdateGroupMemberStatus(ctx context.Context, uni
 }
 
 /* UsersGroupsApiService Update a group template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupTemplateResource" (TemplateResource) The group template resource object
  @return TemplateResource*/
-func (a *UsersGroupsApiService) UpdateGroupTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *UsersGroupsApiService) UpdateGroupTemplate(id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1070,7 +1070,7 @@ func (a *UsersGroupsApiService) UpdateGroupTemplate(ctx context.Context, id stri
 	if localVarTempParam, localVarOk := localVarOptionals["groupTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

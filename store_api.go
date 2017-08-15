@@ -29,11 +29,11 @@ type StoreApiService service
 
 /* StoreApiService Create an item template
  Item Templates define a type of item and the properties they have.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "itemTemplateResource" (StoreItemTemplateResource) The new item template
  @return StoreItemTemplateResource*/
-func (a *StoreApiService) CreateItemTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (StoreItemTemplateResource,  *http.Response, error) {
+func (a *StoreApiService) CreateItemTemplate(localVarOptionals map[string]interface{}) (StoreItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -73,7 +73,7 @@ func (a *StoreApiService) CreateItemTemplate(ctx context.Context, localVarOption
 	if localVarTempParam, localVarOk := localVarOptionals["itemTemplateResource"].(StoreItemTemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -97,12 +97,12 @@ func (a *StoreApiService) CreateItemTemplate(ctx context.Context, localVarOption
 
 /* StoreApiService Create a store item
  SKUs have to be unique in the entire store. If a duplicate SKU is found, a 400 error is generated and the response will have a \&quot;parameters\&quot; field that is a list of duplicates. A duplicate is an object like {item_id, offending_sku_list}. Ex:&lt;br /&gt; {..., parameters: [[{item: 1, skus: [\&quot;SKU-1\&quot;]}]]}&lt;br /&gt; If an item is brand new and has duplicate SKUs within itself, the item ID will be 0.  Item subclasses are not allowed here, you will have to use their respective endpoints.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "storeItem" (StoreItem) The store item object
  @return StoreItem*/
-func (a *StoreApiService) CreateStoreItem(ctx context.Context, localVarOptionals map[string]interface{}) (StoreItem,  *http.Response, error) {
+func (a *StoreApiService) CreateStoreItem(localVarOptionals map[string]interface{}) (StoreItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -148,7 +148,7 @@ func (a *StoreApiService) CreateStoreItem(ctx context.Context, localVarOptionals
 	if localVarTempParam, localVarOk := localVarOptionals["storeItem"].(StoreItem); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -171,12 +171,12 @@ func (a *StoreApiService) CreateStoreItem(ctx context.Context, localVarOptionals
 }
 
 /* StoreApiService Delete an item template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach
  @return */
-func (a *StoreApiService) DeleteItemTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreApiService) DeleteItemTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -218,7 +218,7 @@ func (a *StoreApiService) DeleteItemTemplate(ctx context.Context, id string, loc
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -236,10 +236,10 @@ func (a *StoreApiService) DeleteItemTemplate(ctx context.Context, id string, loc
 }
 
 /* StoreApiService Delete a store item
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the item
  @return */
-func (a *StoreApiService) DeleteStoreItem(ctx context.Context, id int32) ( *http.Response, error) {
+func (a *StoreApiService) DeleteStoreItem(id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -275,7 +275,7 @@ func (a *StoreApiService) DeleteStoreItem(ctx context.Context, id int32) ( *http
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -293,9 +293,9 @@ func (a *StoreApiService) DeleteStoreItem(ctx context.Context, id int32) ( *http
 }
 
 /* StoreApiService List available item behaviors
- * @param ctx context.Context Authentication Context 
+
  @return []BehaviorDefinitionResource*/
-func (a *StoreApiService) GetBehaviors(ctx context.Context, ) ([]BehaviorDefinitionResource,  *http.Response, error) {
+func (a *StoreApiService) GetBehaviors() ([]BehaviorDefinitionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -331,7 +331,7 @@ func (a *StoreApiService) GetBehaviors(ctx context.Context, ) ([]BehaviorDefinit
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -355,10 +355,10 @@ func (a *StoreApiService) GetBehaviors(ctx context.Context, ) ([]BehaviorDefinit
 
 /* StoreApiService Get a single item template
  Item Templates define a type of item and the properties they have.
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @return StoreItemTemplateResource*/
-func (a *StoreApiService) GetItemTemplate(ctx context.Context, id string) (StoreItemTemplateResource,  *http.Response, error) {
+func (a *StoreApiService) GetItemTemplate(id string) (StoreItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -395,7 +395,7 @@ func (a *StoreApiService) GetItemTemplate(ctx context.Context, id string) (Store
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -418,13 +418,13 @@ func (a *StoreApiService) GetItemTemplate(ctx context.Context, id string) (Store
 }
 
 /* StoreApiService List and search item templates
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceStoreItemTemplateResource*/
-func (a *StoreApiService) GetItemTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceStoreItemTemplateResource,  *http.Response, error) {
+func (a *StoreApiService) GetItemTemplates(localVarOptionals map[string]interface{}) (PageResourceStoreItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -478,7 +478,7 @@ func (a *StoreApiService) GetItemTemplates(ctx context.Context, localVarOptional
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -844,11 +844,11 @@ func (a *StoreApiService) GetStoreItems(localVarOptionals map[string]interface{}
 
 /* StoreApiService One-step purchase and pay for a single SKU item from a user&#39;s wallet
  Used to create and automatically pay an invoice for a single unit of a single SKU from a user&#39;s wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "quickBuyRequest" (QuickBuyRequest) Quick buy details
  @return InvoiceResource*/
-func (a *StoreApiService) QuickBuy(ctx context.Context, localVarOptionals map[string]interface{}) (InvoiceResource,  *http.Response, error) {
+func (a *StoreApiService) QuickBuy(localVarOptionals map[string]interface{}) (InvoiceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -888,7 +888,7 @@ func (a *StoreApiService) QuickBuy(ctx context.Context, localVarOptionals map[st
 	if localVarTempParam, localVarOk := localVarOptionals["quickBuyRequest"].(QuickBuyRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -911,12 +911,12 @@ func (a *StoreApiService) QuickBuy(ctx context.Context, localVarOptionals map[st
 }
 
 /* StoreApiService Update an item template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "itemTemplateResource" (StoreItemTemplateResource) The item template resource object
  @return StoreItemTemplateResource*/
-func (a *StoreApiService) UpdateItemTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (StoreItemTemplateResource,  *http.Response, error) {
+func (a *StoreApiService) UpdateItemTemplate(id string, localVarOptionals map[string]interface{}) (StoreItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -957,7 +957,7 @@ func (a *StoreApiService) UpdateItemTemplate(ctx context.Context, id string, loc
 	if localVarTempParam, localVarOk := localVarOptionals["itemTemplateResource"].(StoreItemTemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -980,13 +980,13 @@ func (a *StoreApiService) UpdateItemTemplate(ctx context.Context, id string, loc
 }
 
 /* StoreApiService Update a store item
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the item
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "storeItem" (StoreItem) The store item object
  @return StoreItem*/
-func (a *StoreApiService) UpdateStoreItem(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (StoreItem,  *http.Response, error) {
+func (a *StoreApiService) UpdateStoreItem(id int32, localVarOptionals map[string]interface{}) (StoreItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1033,7 +1033,7 @@ func (a *StoreApiService) UpdateStoreItem(ctx context.Context, id int32, localVa
 	if localVarTempParam, localVarOk := localVarOptionals["storeItem"].(StoreItem); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

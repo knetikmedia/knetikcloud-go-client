@@ -28,12 +28,12 @@ type CampaignsApiService service
 
 
 /* CampaignsApiService Add a challenge to a campaign
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the campaign
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "challengeId" (int64) The id of the challenge
  @return */
-func (a *CampaignsApiService) AddChallengeToCampaign(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *CampaignsApiService) AddChallengeToCampaign(id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -76,7 +76,7 @@ func (a *CampaignsApiService) AddChallengeToCampaign(ctx context.Context, id int
 	if localVarTempParam, localVarOk := localVarOptionals["challengeId"].(int64); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -94,11 +94,11 @@ func (a *CampaignsApiService) AddChallengeToCampaign(ctx context.Context, id int
 }
 
 /* CampaignsApiService Create a campaign
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "campaignResource" (CampaignResource) The campaign resource object
  @return CampaignResource*/
-func (a *CampaignsApiService) CreateCampaign(ctx context.Context, localVarOptionals map[string]interface{}) (CampaignResource,  *http.Response, error) {
+func (a *CampaignsApiService) CreateCampaign(localVarOptionals map[string]interface{}) (CampaignResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -138,7 +138,7 @@ func (a *CampaignsApiService) CreateCampaign(ctx context.Context, localVarOption
 	if localVarTempParam, localVarOk := localVarOptionals["campaignResource"].(CampaignResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -162,11 +162,11 @@ func (a *CampaignsApiService) CreateCampaign(ctx context.Context, localVarOption
 
 /* CampaignsApiService Create a campaign template
  Campaign Templates define a type of campaign and the properties they have
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "campaignTemplateResource" (TemplateResource) The campaign template resource object
  @return TemplateResource*/
-func (a *CampaignsApiService) CreateCampaignTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *CampaignsApiService) CreateCampaignTemplate(localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -206,7 +206,7 @@ func (a *CampaignsApiService) CreateCampaignTemplate(ctx context.Context, localV
 	if localVarTempParam, localVarOk := localVarOptionals["campaignTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -229,10 +229,10 @@ func (a *CampaignsApiService) CreateCampaignTemplate(ctx context.Context, localV
 }
 
 /* CampaignsApiService Delete a campaign
- * @param ctx context.Context Authentication Context 
+
  @param id The campaign id
  @return */
-func (a *CampaignsApiService) DeleteCampaign(ctx context.Context, id int64) ( *http.Response, error) {
+func (a *CampaignsApiService) DeleteCampaign(id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -268,7 +268,7 @@ func (a *CampaignsApiService) DeleteCampaign(ctx context.Context, id int64) ( *h
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -287,12 +287,12 @@ func (a *CampaignsApiService) DeleteCampaign(ctx context.Context, id int64) ( *h
 
 /* CampaignsApiService Delete a campaign template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *CampaignsApiService) DeleteCampaignTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *CampaignsApiService) DeleteCampaignTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -334,7 +334,7 @@ func (a *CampaignsApiService) DeleteCampaignTemplate(ctx context.Context, id str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -514,10 +514,10 @@ func (a *CampaignsApiService) GetCampaignChallenges(id int64, localVarOptionals 
 }
 
 /* CampaignsApiService Get a single campaign template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @return TemplateResource*/
-func (a *CampaignsApiService) GetCampaignTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *CampaignsApiService) GetCampaignTemplate(id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -554,7 +554,7 @@ func (a *CampaignsApiService) GetCampaignTemplate(ctx context.Context, id string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -577,13 +577,13 @@ func (a *CampaignsApiService) GetCampaignTemplate(ctx context.Context, id string
 }
 
 /* CampaignsApiService List and search campaign templates
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *CampaignsApiService) GetCampaignTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *CampaignsApiService) GetCampaignTemplates(localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -637,7 +637,7 @@ func (a *CampaignsApiService) GetCampaignTemplates(ctx context.Context, localVar
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -750,11 +750,11 @@ func (a *CampaignsApiService) GetCampaigns(localVarOptionals map[string]interfac
 }
 
 /* CampaignsApiService Remove a challenge from a campaign
- * @param ctx context.Context Authentication Context 
+
  @param campaignId The campaign id
  @param id The challenge id
  @return */
-func (a *CampaignsApiService) RemoveChallengeFromCampaign(ctx context.Context, campaignId int64, id int64) ( *http.Response, error) {
+func (a *CampaignsApiService) RemoveChallengeFromCampaign(campaignId int64, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -791,7 +791,7 @@ func (a *CampaignsApiService) RemoveChallengeFromCampaign(ctx context.Context, c
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -809,12 +809,12 @@ func (a *CampaignsApiService) RemoveChallengeFromCampaign(ctx context.Context, c
 }
 
 /* CampaignsApiService Update a campaign
- * @param ctx context.Context Authentication Context 
+
  @param id The campaign id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "campaignResource" (CampaignResource) The campaign resource object
  @return CampaignResource*/
-func (a *CampaignsApiService) UpdateCampaign(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (CampaignResource,  *http.Response, error) {
+func (a *CampaignsApiService) UpdateCampaign(id int64, localVarOptionals map[string]interface{}) (CampaignResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -855,7 +855,7 @@ func (a *CampaignsApiService) UpdateCampaign(ctx context.Context, id int64, loca
 	if localVarTempParam, localVarOk := localVarOptionals["campaignResource"].(CampaignResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -878,12 +878,12 @@ func (a *CampaignsApiService) UpdateCampaign(ctx context.Context, id int64, loca
 }
 
 /* CampaignsApiService Update an campaign template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "campaignTemplateResource" (TemplateResource) The campaign template resource object
  @return TemplateResource*/
-func (a *CampaignsApiService) UpdateCampaignTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *CampaignsApiService) UpdateCampaignTemplate(id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -924,7 +924,7 @@ func (a *CampaignsApiService) UpdateCampaignTemplate(ctx context.Context, id str
 	if localVarTempParam, localVarOk := localVarOptionals["campaignTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

@@ -29,13 +29,13 @@ type SearchApiService service
 
 /* SearchApiService Add a new object to an index
  Mainly intended for internal use.
- * @param ctx context.Context Authentication Context 
+
  @param type_ The index type
  @param id The ID of the object
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "object" (interface{}) The object to add
  @return */
-func (a *SearchApiService) AddSearchIndex(ctx context.Context, type_ string, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *SearchApiService) AddSearchIndex(type_ string, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -76,7 +76,7 @@ func (a *SearchApiService) AddSearchIndex(ctx context.Context, type_ string, id 
 	if localVarTempParam, localVarOk := localVarOptionals["object"].(interface{}); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -95,11 +95,11 @@ func (a *SearchApiService) AddSearchIndex(ctx context.Context, type_ string, id 
 
 /* SearchApiService Register reference mappings
  Add a new type mapping to connect data from one index to another, or discover an exsting one. Mainly intended for internal use.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "mappings" ([]SearchReferenceMapping) The mappings to add
  @return */
-func (a *SearchApiService) AddSearchMappings(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *SearchApiService) AddSearchMappings(localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -138,7 +138,7 @@ func (a *SearchApiService) AddSearchMappings(ctx context.Context, localVarOption
 	if localVarTempParam, localVarOk := localVarOptionals["mappings"].([]SearchReferenceMapping); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -157,11 +157,11 @@ func (a *SearchApiService) AddSearchMappings(ctx context.Context, localVarOption
 
 /* SearchApiService Delete an object
  Mainly intended for internal use. Requires SEARCH_ADMIN.
- * @param ctx context.Context Authentication Context 
+
  @param type_ The index type
  @param id The ID of the object to delete
  @return */
-func (a *SearchApiService) DeleteSearchIndex(ctx context.Context, type_ string, id string) ( *http.Response, error) {
+func (a *SearchApiService) DeleteSearchIndex(type_ string, id string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -198,7 +198,7 @@ func (a *SearchApiService) DeleteSearchIndex(ctx context.Context, type_ string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -217,10 +217,10 @@ func (a *SearchApiService) DeleteSearchIndex(ctx context.Context, type_ string, 
 
 /* SearchApiService Delete all objects in an index
  Mainly intended for internal use
- * @param ctx context.Context Authentication Context 
+
  @param type_ The index type
  @return */
-func (a *SearchApiService) DeleteSearchIndexes(ctx context.Context, type_ string) ( *http.Response, error) {
+func (a *SearchApiService) DeleteSearchIndexes(type_ string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -256,7 +256,7 @@ func (a *SearchApiService) DeleteSearchIndexes(ctx context.Context, type_ string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

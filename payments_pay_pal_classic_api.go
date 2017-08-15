@@ -28,11 +28,11 @@ type PaymentsPayPalClassicApiService service
 
 /* PaymentsPayPalClassicApiService Create a PayPal Classic billing agreement for the user
  Returns the token that should be used to forward the user to PayPal so they can accept the agreement.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (CreateBillingAgreementRequest) The request to create a PayPal billing agreement
  @return string*/
-func (a *PaymentsPayPalClassicApiService) CreatePayPalBillingAgreementUrl(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *PaymentsPayPalClassicApiService) CreatePayPalBillingAgreementUrl(localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *PaymentsPayPalClassicApiService) CreatePayPalBillingAgreementUrl(ctx co
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(CreateBillingAgreementRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -96,11 +96,11 @@ func (a *PaymentsPayPalClassicApiService) CreatePayPalBillingAgreementUrl(ctx co
 
 /* PaymentsPayPalClassicApiService Create a payment token for PayPal express checkout
  Returns the token that should be used to forward the user to PayPal so they can complete the checkout.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (CreatePayPalPaymentRequest) The request to create a PayPal payment token
  @return string*/
-func (a *PaymentsPayPalClassicApiService) CreatePayPalExpressCheckout(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *PaymentsPayPalClassicApiService) CreatePayPalExpressCheckout(localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -140,7 +140,7 @@ func (a *PaymentsPayPalClassicApiService) CreatePayPalExpressCheckout(ctx contex
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(CreatePayPalPaymentRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -164,11 +164,11 @@ func (a *PaymentsPayPalClassicApiService) CreatePayPalExpressCheckout(ctx contex
 
 /* PaymentsPayPalClassicApiService Finalizes a billing agreement after the user has accepted through PayPal
  Returns the ID of the new payment method created for the user for the billing agreement.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (FinalizeBillingAgreementRequest) The request to finalize a PayPal billing agreement
  @return int32*/
-func (a *PaymentsPayPalClassicApiService) FinalizePayPalBillingAgreement(ctx context.Context, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
+func (a *PaymentsPayPalClassicApiService) FinalizePayPalBillingAgreement(localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -208,7 +208,7 @@ func (a *PaymentsPayPalClassicApiService) FinalizePayPalBillingAgreement(ctx con
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(FinalizeBillingAgreementRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -232,11 +232,11 @@ func (a *PaymentsPayPalClassicApiService) FinalizePayPalBillingAgreement(ctx con
 
 /* PaymentsPayPalClassicApiService Finalizes a payment after the user has completed checkout with PayPal
  The invoice will be marked paid/failed by asynchronous IPN callback.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (FinalizePayPalPaymentRequest) The request to finalize the payment
  @return */
-func (a *PaymentsPayPalClassicApiService) FinalizePayPalCheckout(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *PaymentsPayPalClassicApiService) FinalizePayPalCheckout(localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -275,7 +275,7 @@ func (a *PaymentsPayPalClassicApiService) FinalizePayPalCheckout(ctx context.Con
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(FinalizePayPalPaymentRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

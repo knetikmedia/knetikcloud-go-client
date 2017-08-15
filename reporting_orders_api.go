@@ -28,7 +28,7 @@ type ReportingOrdersApiService service
 
 
 /* ReportingOrdersApiService Retrieve invoice counts aggregated by time ranges
- * @param ctx context.Context Authentication Context 
+
  @param currencyCode The code for a currency to get sales data for
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "granularity" (string) The time duration to aggregate by
@@ -39,7 +39,7 @@ type ReportingOrdersApiService service
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned
  @return PageResourceAggregateInvoiceReportResource*/
-func (a *ReportingOrdersApiService) GetInvoiceReports(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceAggregateInvoiceReportResource,  *http.Response, error) {
+func (a *ReportingOrdersApiService) GetInvoiceReports(currencyCode string, localVarOptionals map[string]interface{}) (PageResourceAggregateInvoiceReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -118,7 +118,7 @@ func (a *ReportingOrdersApiService) GetInvoiceReports(ctx context.Context, curre
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

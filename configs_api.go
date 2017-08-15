@@ -28,11 +28,11 @@ type ConfigsApiService service
 
 
 /* ConfigsApiService Create a new config
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "config" (Config) The config object
  @return Config*/
-func (a *ConfigsApiService) CreateConfig(ctx context.Context, localVarOptionals map[string]interface{}) (Config,  *http.Response, error) {
+func (a *ConfigsApiService) CreateConfig(localVarOptionals map[string]interface{}) (Config,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *ConfigsApiService) CreateConfig(ctx context.Context, localVarOptionals 
 	if localVarTempParam, localVarOk := localVarOptionals["config"].(Config); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,10 +95,10 @@ func (a *ConfigsApiService) CreateConfig(ctx context.Context, localVarOptionals 
 }
 
 /* ConfigsApiService Delete an existing config
- * @param ctx context.Context Authentication Context 
+
  @param name The config name
  @return */
-func (a *ConfigsApiService) DeleteConfig(ctx context.Context, name string) ( *http.Response, error) {
+func (a *ConfigsApiService) DeleteConfig(name string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -134,7 +134,7 @@ func (a *ConfigsApiService) DeleteConfig(ctx context.Context, name string) ( *ht
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -153,10 +153,10 @@ func (a *ConfigsApiService) DeleteConfig(ctx context.Context, name string) ( *ht
 
 /* ConfigsApiService Get a single config
  Only configs that are public readable will be shown without admin access
- * @param ctx context.Context Authentication Context 
+
  @param name The config name
  @return Config*/
-func (a *ConfigsApiService) GetConfig(ctx context.Context, name string) (Config,  *http.Response, error) {
+func (a *ConfigsApiService) GetConfig(name string) (Config,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -193,7 +193,7 @@ func (a *ConfigsApiService) GetConfig(ctx context.Context, name string) (Config,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -216,14 +216,14 @@ func (a *ConfigsApiService) GetConfig(ctx context.Context, name string) (Config,
 }
 
 /* ConfigsApiService List and search configs
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSearch" (string) Filter for configs whose name contains the given string
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceConfig*/
-func (a *ConfigsApiService) GetConfigs(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceConfig,  *http.Response, error) {
+func (a *ConfigsApiService) GetConfigs(localVarOptionals map[string]interface{}) (PageResourceConfig,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -283,7 +283,7 @@ func (a *ConfigsApiService) GetConfigs(ctx context.Context, localVarOptionals ma
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -306,12 +306,12 @@ func (a *ConfigsApiService) GetConfigs(ctx context.Context, localVarOptionals ma
 }
 
 /* ConfigsApiService Update an existing config
- * @param ctx context.Context Authentication Context 
+
  @param name The config name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "config" (Config) The config object
  @return */
-func (a *ConfigsApiService) UpdateConfig(ctx context.Context, name string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *ConfigsApiService) UpdateConfig(name string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -351,7 +351,7 @@ func (a *ConfigsApiService) UpdateConfig(ctx context.Context, name string, local
 	if localVarTempParam, localVarOk := localVarOptionals["config"].(Config); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

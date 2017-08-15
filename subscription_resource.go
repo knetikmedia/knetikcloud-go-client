@@ -18,6 +18,9 @@ type SubscriptionResource struct {
 	// Who can purchase this subscription
 	Availability string `json:"availability,omitempty"`
 
+	// The behaviors linked to the item, describing various options and interactions. May not be included in item lists
+	Behaviors []Behavior `json:"behaviors,omitempty"`
+
 	// A category for filtering items
 	Category string `json:"category,omitempty"`
 

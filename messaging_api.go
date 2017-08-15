@@ -26,11 +26,11 @@ type MessagingApiService service
 
 
 /* MessagingApiService Send a raw email to one or more users
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "rawEmailResource" (RawEmailResource) The new raw email to be sent
  @return */
-func (a *MessagingApiService) SendRawEmail(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MessagingApiService) SendRawEmail(localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -69,7 +69,7 @@ func (a *MessagingApiService) SendRawEmail(ctx context.Context, localVarOptional
 	if localVarTempParam, localVarOk := localVarOptionals["rawEmailResource"].(RawEmailResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -88,11 +88,11 @@ func (a *MessagingApiService) SendRawEmail(ctx context.Context, localVarOptional
 
 /* MessagingApiService Send a raw SMS
  Sends a raw SMS text message to one or more users. User&#39;s without registered mobile numbers will be skipped.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "rawSMSResource" (RawSmsResource) The new raw SMS to be sent
  @return */
-func (a *MessagingApiService) SendRawSMS(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MessagingApiService) SendRawSMS(localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -131,7 +131,7 @@ func (a *MessagingApiService) SendRawSMS(ctx context.Context, localVarOptionals 
 	if localVarTempParam, localVarOk := localVarOptionals["rawSMSResource"].(RawSmsResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -149,11 +149,11 @@ func (a *MessagingApiService) SendRawSMS(ctx context.Context, localVarOptionals 
 }
 
 /* MessagingApiService Send a templated email to one or more users
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "messageResource" (TemplateEmailResource) The new template email to be sent
  @return */
-func (a *MessagingApiService) SendTemplatedEmail(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MessagingApiService) SendTemplatedEmail(localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -192,7 +192,7 @@ func (a *MessagingApiService) SendTemplatedEmail(ctx context.Context, localVarOp
 	if localVarTempParam, localVarOk := localVarOptionals["messageResource"].(TemplateEmailResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -211,11 +211,11 @@ func (a *MessagingApiService) SendTemplatedEmail(ctx context.Context, localVarOp
 
 /* MessagingApiService Send a new templated SMS
  Sends a templated SMS text message to one or more users. User&#39;s without registered mobile numbers will be skipped.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "templateSMSResource" (TemplateSmsResource) The new template SMS to be sent
  @return */
-func (a *MessagingApiService) SendTemplatedSMS(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MessagingApiService) SendTemplatedSMS(localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -254,7 +254,7 @@ func (a *MessagingApiService) SendTemplatedSMS(ctx context.Context, localVarOpti
 	if localVarTempParam, localVarOk := localVarOptionals["templateSMSResource"].(TemplateSmsResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

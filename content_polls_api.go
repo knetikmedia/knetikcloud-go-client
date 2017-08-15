@@ -28,12 +28,12 @@ type ContentPollsApiService service
 
 
 /* ContentPollsApiService Add your vote to a poll
- * @param ctx context.Context Authentication Context 
+
  @param id The poll id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "answerKey" (StringWrapper) The answer key
  @return PollResponseResource*/
-func (a *ContentPollsApiService) AnswerPoll(ctx context.Context, id string, localVarOptionals map[string]interface{}) (PollResponseResource,  *http.Response, error) {
+func (a *ContentPollsApiService) AnswerPoll(id string, localVarOptionals map[string]interface{}) (PollResponseResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -74,7 +74,7 @@ func (a *ContentPollsApiService) AnswerPoll(ctx context.Context, id string, loca
 	if localVarTempParam, localVarOk := localVarOptionals["answerKey"].(StringWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -98,11 +98,11 @@ func (a *ContentPollsApiService) AnswerPoll(ctx context.Context, id string, loca
 
 /* ContentPollsApiService Create a new poll
  Polls are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "pollResource" (PollResource) The poll object
  @return PollResource*/
-func (a *ContentPollsApiService) CreatePoll(ctx context.Context, localVarOptionals map[string]interface{}) (PollResource,  *http.Response, error) {
+func (a *ContentPollsApiService) CreatePoll(localVarOptionals map[string]interface{}) (PollResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -142,7 +142,7 @@ func (a *ContentPollsApiService) CreatePoll(ctx context.Context, localVarOptiona
 	if localVarTempParam, localVarOk := localVarOptionals["pollResource"].(PollResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -166,11 +166,11 @@ func (a *ContentPollsApiService) CreatePoll(ctx context.Context, localVarOptiona
 
 /* ContentPollsApiService Create a poll template
  Poll templates define a type of poll and the properties they have
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "pollTemplateResource" (TemplateResource) The poll template resource object
  @return TemplateResource*/
-func (a *ContentPollsApiService) CreatePollTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *ContentPollsApiService) CreatePollTemplate(localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -210,7 +210,7 @@ func (a *ContentPollsApiService) CreatePollTemplate(ctx context.Context, localVa
 	if localVarTempParam, localVarOk := localVarOptionals["pollTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -233,10 +233,10 @@ func (a *ContentPollsApiService) CreatePollTemplate(ctx context.Context, localVa
 }
 
 /* ContentPollsApiService Delete an existing poll
- * @param ctx context.Context Authentication Context 
+
  @param id The poll id
  @return */
-func (a *ContentPollsApiService) DeletePoll(ctx context.Context, id string) ( *http.Response, error) {
+func (a *ContentPollsApiService) DeletePoll(id string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -272,7 +272,7 @@ func (a *ContentPollsApiService) DeletePoll(ctx context.Context, id string) ( *h
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -291,12 +291,12 @@ func (a *ContentPollsApiService) DeletePoll(ctx context.Context, id string) ( *h
 
 /* ContentPollsApiService Delete a poll template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *ContentPollsApiService) DeletePollTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *ContentPollsApiService) DeletePollTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -338,7 +338,7 @@ func (a *ContentPollsApiService) DeletePollTemplate(ctx context.Context, id stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -419,10 +419,10 @@ func (a *ContentPollsApiService) GetPoll(id string) (PollResource,  *http.Respon
 }
 
 /* ContentPollsApiService Get poll answer
- * @param ctx context.Context Authentication Context 
+
  @param id The poll id
  @return PollResponseResource*/
-func (a *ContentPollsApiService) GetPollAnswer(ctx context.Context, id string) (PollResponseResource,  *http.Response, error) {
+func (a *ContentPollsApiService) GetPollAnswer(id string) (PollResponseResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -459,7 +459,7 @@ func (a *ContentPollsApiService) GetPollAnswer(ctx context.Context, id string) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -482,10 +482,10 @@ func (a *ContentPollsApiService) GetPollAnswer(ctx context.Context, id string) (
 }
 
 /* ContentPollsApiService Get a single poll template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @return TemplateResource*/
-func (a *ContentPollsApiService) GetPollTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *ContentPollsApiService) GetPollTemplate(id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -522,7 +522,7 @@ func (a *ContentPollsApiService) GetPollTemplate(ctx context.Context, id string)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -545,13 +545,13 @@ func (a *ContentPollsApiService) GetPollTemplate(ctx context.Context, id string)
 }
 
 /* ContentPollsApiService List and search poll templates
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *ContentPollsApiService) GetPollTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *ContentPollsApiService) GetPollTemplates(localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -605,7 +605,7 @@ func (a *ContentPollsApiService) GetPollTemplates(ctx context.Context, localVarO
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -733,12 +733,12 @@ func (a *ContentPollsApiService) GetPolls(localVarOptionals map[string]interface
 }
 
 /* ContentPollsApiService Update an existing poll
- * @param ctx context.Context Authentication Context 
+
  @param id The poll id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "pollResource" (PollResource) The poll object
  @return PollResource*/
-func (a *ContentPollsApiService) UpdatePoll(ctx context.Context, id string, localVarOptionals map[string]interface{}) (PollResource,  *http.Response, error) {
+func (a *ContentPollsApiService) UpdatePoll(id string, localVarOptionals map[string]interface{}) (PollResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -779,7 +779,7 @@ func (a *ContentPollsApiService) UpdatePoll(ctx context.Context, id string, loca
 	if localVarTempParam, localVarOk := localVarOptionals["pollResource"].(PollResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -802,12 +802,12 @@ func (a *ContentPollsApiService) UpdatePoll(ctx context.Context, id string, loca
 }
 
 /* ContentPollsApiService Update a poll template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "pollTemplateResource" (TemplateResource) The poll template resource object
  @return TemplateResource*/
-func (a *ContentPollsApiService) UpdatePollTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *ContentPollsApiService) UpdatePollTemplate(id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -848,7 +848,7 @@ func (a *ContentPollsApiService) UpdatePollTemplate(ctx context.Context, id stri
 	if localVarTempParam, localVarOk := localVarOptionals["pollTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

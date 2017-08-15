@@ -26,14 +26,98 @@ var (
 type AmazonWebServicesS3ApiService service
 
 
-/* AmazonWebServicesS3ApiService Get a signed S3 URL
- Requires the file name and file content type (i.e., &#39;video/mpeg&#39;)
- * @param ctx context.Context Authentication Context 
+/* AmazonWebServicesS3ApiService Get a temporary signed S3 URL for download
+ To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details.
+
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "bucket" (string) S3 bucket name
+     @param "path" (string) The path to the file relative the bucket (the s3 object key)
+     @param "expiration" (int32) The number of seconds this URL will be valid. Default to 60
+ @return string*/
+func (a *AmazonWebServicesS3ApiService) GetDownloadURL(localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  string
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/amazon/s3/downloadurl"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["bucket"], "string", "bucket"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["path"], "string", "path"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["expiration"], "int32", "expiration"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam, localVarOk := localVarOptionals["bucket"].(string); localVarOk {
+		localVarQueryParams.Add("bucket", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["path"].(string); localVarOk {
+		localVarQueryParams.Add("path", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["expiration"].(int32); localVarOk {
+		localVarQueryParams.Add("expiration", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* AmazonWebServicesS3ApiService Get a signed S3 URL for upload
+ Requires the file name and file content type (i.e., &#39;video/mpeg&#39;). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after.
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filename" (string) The file name
      @param "contentType" (string) The content type
  @return AmazonS3Activity*/
-func (a *AmazonWebServicesS3ApiService) GetSignedS3URL(ctx context.Context, localVarOptionals map[string]interface{}) (AmazonS3Activity,  *http.Response, error) {
+func (a *AmazonWebServicesS3ApiService) GetSignedS3URL(localVarOptionals map[string]interface{}) (AmazonS3Activity,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -81,7 +165,7 @@ func (a *AmazonWebServicesS3ApiService) GetSignedS3URL(ctx context.Context, loca
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

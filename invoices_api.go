@@ -29,11 +29,11 @@ type InvoicesApiService service
 
 /* InvoicesApiService Create an invoice
  Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "req" (InvoiceCreateRequest) Invoice to be created
  @return []InvoiceResource*/
-func (a *InvoicesApiService) CreateInvoice(ctx context.Context, localVarOptionals map[string]interface{}) ([]InvoiceResource,  *http.Response, error) {
+func (a *InvoicesApiService) CreateInvoice(localVarOptionals map[string]interface{}) ([]InvoiceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -73,7 +73,7 @@ func (a *InvoicesApiService) CreateInvoice(ctx context.Context, localVarOptional
 	if localVarTempParam, localVarOk := localVarOptionals["req"].(InvoiceCreateRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -157,10 +157,10 @@ func (a *InvoicesApiService) GetFulFillmentStatuses() ([]string,  *http.Response
 }
 
 /* InvoicesApiService Retrieve an invoice
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the invoice
  @return InvoiceResource*/
-func (a *InvoicesApiService) GetInvoice(ctx context.Context, id int32) (InvoiceResource,  *http.Response, error) {
+func (a *InvoicesApiService) GetInvoice(id int32) (InvoiceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -197,7 +197,7 @@ func (a *InvoicesApiService) GetInvoice(ctx context.Context, id int32) (InvoiceR
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -220,13 +220,13 @@ func (a *InvoicesApiService) GetInvoice(ctx context.Context, id int32) (InvoiceR
 }
 
 /* InvoicesApiService List invoice logs
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the invoice
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceInvoiceLogEntry*/
-func (a *InvoicesApiService) GetInvoiceLogs(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (PageResourceInvoiceLogEntry,  *http.Response, error) {
+func (a *InvoicesApiService) GetInvoiceLogs(id int32, localVarOptionals map[string]interface{}) (PageResourceInvoiceLogEntry,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -275,7 +275,7 @@ func (a *InvoicesApiService) GetInvoiceLogs(ctx context.Context, id int32, local
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -299,7 +299,7 @@ func (a *InvoicesApiService) GetInvoiceLogs(ctx context.Context, id int32, local
 
 /* InvoicesApiService Retrieve invoices
  Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user&#39;s invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterUser" (int32) The id of a user to get invoices for. Automtically added if not being called with admin permissions.
      @param "filterEmail" (string) Filters invoices by customer&#39;s email. Admins only.
@@ -319,7 +319,7 @@ func (a *InvoicesApiService) GetInvoiceLogs(ctx context.Context, id int32, local
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceInvoiceResource*/
-func (a *InvoicesApiService) GetInvoices(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceInvoiceResource,  *http.Response, error) {
+func (a *InvoicesApiService) GetInvoices(localVarOptionals map[string]interface{}) (PageResourceInvoiceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -457,7 +457,7 @@ func (a *InvoicesApiService) GetInvoices(ctx context.Context, localVarOptionals 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -541,12 +541,12 @@ func (a *InvoicesApiService) GetPaymentStatuses() ([]string,  *http.Response, er
 }
 
 /* InvoicesApiService Pay an invoice using a saved payment method
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the invoice
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (PayBySavedMethodRequest) The payment method details. Will default to the appropriate user&#39;s wallet in the invoice currency if ommited.
  @return */
-func (a *InvoicesApiService) PayInvoice(ctx context.Context, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *InvoicesApiService) PayInvoice(id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -586,7 +586,7 @@ func (a *InvoicesApiService) PayInvoice(ctx context.Context, id int32, localVarO
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(PayBySavedMethodRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -605,13 +605,13 @@ func (a *InvoicesApiService) PayInvoice(ctx context.Context, id int32, localVarO
 
 /* InvoicesApiService Set the fulfillment status of a bundled invoice item
  This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the invoice
  @param bundleSku The sku of the bundle in the invoice that contains the given target
  @param sku The sku of an item in the bundle in the invoice
  @param status The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39;
  @return */
-func (a *InvoicesApiService) SetBundledInvoiceItemFulfillmentStatus(ctx context.Context, id int32, bundleSku string, sku string, status StringWrapper) ( *http.Response, error) {
+func (a *InvoicesApiService) SetBundledInvoiceItemFulfillmentStatus(id int32, bundleSku string, sku string, status StringWrapper) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -651,7 +651,7 @@ func (a *InvoicesApiService) SetBundledInvoiceItemFulfillmentStatus(ctx context.
 	}
 	// body params
 	localVarPostBody = &status
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -669,12 +669,12 @@ func (a *InvoicesApiService) SetBundledInvoiceItemFulfillmentStatus(ctx context.
 }
 
 /* InvoicesApiService Set the external reference of an invoice
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the invoice
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "externalRef" (StringWrapper) External reference info
  @return */
-func (a *InvoicesApiService) SetExternalRef(ctx context.Context, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *InvoicesApiService) SetExternalRef(id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -714,7 +714,7 @@ func (a *InvoicesApiService) SetExternalRef(ctx context.Context, id int32, local
 	if localVarTempParam, localVarOk := localVarOptionals["externalRef"].(StringWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -733,12 +733,12 @@ func (a *InvoicesApiService) SetExternalRef(ctx context.Context, id int32, local
 
 /* InvoicesApiService Set the fulfillment status of an invoice item
  This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the invoice
  @param sku The sku of an item in the invoice
  @param status The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39;
  @return */
-func (a *InvoicesApiService) SetInvoiceItemFulfillmentStatus(ctx context.Context, id int32, sku string, status StringWrapper) ( *http.Response, error) {
+func (a *InvoicesApiService) SetInvoiceItemFulfillmentStatus(id int32, sku string, status StringWrapper) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -777,7 +777,7 @@ func (a *InvoicesApiService) SetInvoiceItemFulfillmentStatus(ctx context.Context
 	}
 	// body params
 	localVarPostBody = &status
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -795,12 +795,12 @@ func (a *InvoicesApiService) SetInvoiceItemFulfillmentStatus(ctx context.Context
 }
 
 /* InvoicesApiService Set the order notes of an invoice
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the invoice
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "orderNotes" (StringWrapper) Payment status info
  @return */
-func (a *InvoicesApiService) SetOrderNotes(ctx context.Context, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *InvoicesApiService) SetOrderNotes(id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -840,7 +840,7 @@ func (a *InvoicesApiService) SetOrderNotes(ctx context.Context, id int32, localV
 	if localVarTempParam, localVarOk := localVarOptionals["orderNotes"].(StringWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -859,12 +859,12 @@ func (a *InvoicesApiService) SetOrderNotes(ctx context.Context, id int32, localV
 
 /* InvoicesApiService Set the payment status of an invoice
  This may trigger fulfillment if setting the status to &#39;paid&#39;. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which.
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the invoice
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (InvoicePaymentStatusRequest) Payment status info
  @return */
-func (a *InvoicesApiService) SetPaymentStatus(ctx context.Context, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *InvoicesApiService) SetPaymentStatus(id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -904,7 +904,7 @@ func (a *InvoicesApiService) SetPaymentStatus(ctx context.Context, id int32, loc
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(InvoicePaymentStatusRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -922,12 +922,12 @@ func (a *InvoicesApiService) SetPaymentStatus(ctx context.Context, id int32, loc
 }
 
 /* InvoicesApiService Set or update billing info
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the invoice
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "billingInfoRequest" (AddressResource) Address info
  @return */
-func (a *InvoicesApiService) UpdateBillingInfo(ctx context.Context, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *InvoicesApiService) UpdateBillingInfo(id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -967,7 +967,7 @@ func (a *InvoicesApiService) UpdateBillingInfo(ctx context.Context, id int32, lo
 	if localVarTempParam, localVarOk := localVarOptionals["billingInfoRequest"].(AddressResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

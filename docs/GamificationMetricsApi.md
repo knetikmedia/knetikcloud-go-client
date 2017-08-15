@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **AddMetric**
-> AddMetric(ctx, optional)
+> AddMetric(optional)
 Add a metric
 
 Post a new score/stat for an activity occurrence without ending the occurrence itself
@@ -17,7 +17,6 @@ Post a new score/stat for an activity occurrence without ending the occurrence i
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -33,7 +32,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

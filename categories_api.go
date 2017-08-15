@@ -28,11 +28,11 @@ type CategoriesApiService service
 
 
 /* CategoriesApiService Create a new category
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "category" (CategoryResource) The category to create
  @return CategoryResource*/
-func (a *CategoriesApiService) CreateCategory(ctx context.Context, localVarOptionals map[string]interface{}) (CategoryResource,  *http.Response, error) {
+func (a *CategoriesApiService) CreateCategory(localVarOptionals map[string]interface{}) (CategoryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *CategoriesApiService) CreateCategory(ctx context.Context, localVarOptio
 	if localVarTempParam, localVarOk := localVarOptionals["category"].(CategoryResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -96,11 +96,11 @@ func (a *CategoriesApiService) CreateCategory(ctx context.Context, localVarOptio
 
 /* CategoriesApiService Create a category template
  Templates define a type of category and the properties they have
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (TemplateResource) The template to create
  @return TemplateResource*/
-func (a *CategoriesApiService) CreateCategoryTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *CategoriesApiService) CreateCategoryTemplate(localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -140,7 +140,7 @@ func (a *CategoriesApiService) CreateCategoryTemplate(ctx context.Context, local
 	if localVarTempParam, localVarOk := localVarOptionals["template"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -163,10 +163,10 @@ func (a *CategoriesApiService) CreateCategoryTemplate(ctx context.Context, local
 }
 
 /* CategoriesApiService Delete an existing category
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the category to be deleted
  @return */
-func (a *CategoriesApiService) DeleteCategory(ctx context.Context, id string) ( *http.Response, error) {
+func (a *CategoriesApiService) DeleteCategory(id string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -202,7 +202,7 @@ func (a *CategoriesApiService) DeleteCategory(ctx context.Context, id string) ( 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -221,12 +221,12 @@ func (a *CategoriesApiService) DeleteCategory(ctx context.Context, id string) ( 
 
 /* CategoriesApiService Delete a category template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *CategoriesApiService) DeleteCategoryTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *CategoriesApiService) DeleteCategoryTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -268,7 +268,7 @@ func (a *CategoriesApiService) DeleteCategoryTemplate(ctx context.Context, id st
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -446,10 +446,10 @@ func (a *CategoriesApiService) GetCategory(id string) (CategoryResource,  *http.
 }
 
 /* CategoriesApiService Get a single category template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @return TemplateResource*/
-func (a *CategoriesApiService) GetCategoryTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *CategoriesApiService) GetCategoryTemplate(id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -486,7 +486,7 @@ func (a *CategoriesApiService) GetCategoryTemplate(ctx context.Context, id strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -509,13 +509,13 @@ func (a *CategoriesApiService) GetCategoryTemplate(ctx context.Context, id strin
 }
 
 /* CategoriesApiService List and search category templates
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *CategoriesApiService) GetCategoryTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *CategoriesApiService) GetCategoryTemplates(localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -569,7 +569,7 @@ func (a *CategoriesApiService) GetCategoryTemplates(ctx context.Context, localVa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -668,12 +668,12 @@ func (a *CategoriesApiService) GetTags(localVarOptionals map[string]interface{})
 }
 
 /* CategoriesApiService Update an existing category
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the category
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "category" (CategoryResource) The category to update
  @return CategoryResource*/
-func (a *CategoriesApiService) UpdateCategory(ctx context.Context, id string, localVarOptionals map[string]interface{}) (CategoryResource,  *http.Response, error) {
+func (a *CategoriesApiService) UpdateCategory(id string, localVarOptionals map[string]interface{}) (CategoryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -714,7 +714,7 @@ func (a *CategoriesApiService) UpdateCategory(ctx context.Context, id string, lo
 	if localVarTempParam, localVarOk := localVarOptionals["category"].(CategoryResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -737,12 +737,12 @@ func (a *CategoriesApiService) UpdateCategory(ctx context.Context, id string, lo
 }
 
 /* CategoriesApiService Update a category template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (TemplateResource) The updated template information
  @return TemplateResource*/
-func (a *CategoriesApiService) UpdateCategoryTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *CategoriesApiService) UpdateCategoryTemplate(id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -783,7 +783,7 @@ func (a *CategoriesApiService) UpdateCategoryTemplate(ctx context.Context, id st
 	if localVarTempParam, localVarOk := localVarOptionals["template"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

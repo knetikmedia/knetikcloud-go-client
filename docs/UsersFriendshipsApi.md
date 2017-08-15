@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **AddFriend**
-> AddFriend(ctx, userId, id)
+> AddFriend(userId, id)
 Add a friend
 
 As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship.
@@ -22,7 +22,6 @@ As a user, either creates or confirm a pending request. As an admin, call this e
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **string**| The id of the user or &#39;me&#39; if logged in | 
   **id** | **int32**| The id of the user to befriend | 
 
@@ -32,7 +31,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -42,14 +41,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetFriends**
-> PageResourceSimpleUserResource GetFriends(ctx, userId, optional)
+> PageResourceSimpleUserResource GetFriends(userId, optional)
 Get friends list
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **string**| The id of the user or &#39;me&#39; | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -68,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -78,7 +76,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetInviteToken**
-> string GetInviteToken(ctx, userId)
+> string GetInviteToken(userId)
 Returns the invite token
 
 This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request flow instead if confirmation is required
@@ -87,7 +85,6 @@ This is a unique invite token that allows direct connection to the request user.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **string**| The id of the user or &#39;me&#39; if logged in | 
 
 ### Return type
@@ -96,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -106,7 +103,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetInvites**
-> PageResourceSimpleUserResource GetInvites(ctx, userId, optional)
+> PageResourceSimpleUserResource GetInvites(userId, optional)
 Get pending invites
 
 Invites that the specified user received
@@ -115,7 +112,6 @@ Invites that the specified user received
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **string**| The id of the user or &#39;me&#39; | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -134,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -144,7 +140,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RedeemFriendshipToken**
-> RedeemFriendshipToken(ctx, userId, optional)
+> RedeemFriendshipToken(userId, optional)
 Redeem friendship token
 
 Immediately connects the requested user with the user mapped by the provided invite token
@@ -153,7 +149,6 @@ Immediately connects the requested user with the user mapped by the provided inv
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **string**| The id of the user or &#39;me&#39; if logged in | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -171,7 +166,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -181,14 +176,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RemoveOrDeclineFriend**
-> RemoveOrDeclineFriend(ctx, userId, id)
+> RemoveOrDeclineFriend(userId, id)
 Remove or decline a friend
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **string**| The id of the user or &#39;me&#39; if logged in | 
   **id** | **int32**| The id of the user to befriend | 
 
@@ -198,7 +192,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

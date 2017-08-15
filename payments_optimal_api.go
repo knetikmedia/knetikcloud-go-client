@@ -28,11 +28,11 @@ type PaymentsOptimalApiService service
 
 /* PaymentsOptimalApiService Initiate silent post with Optimal
  Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (OptimalPaymentRequest) The payment request to initiate
  @return string*/
-func (a *PaymentsOptimalApiService) SilentPostOptimal(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *PaymentsOptimalApiService) SilentPostOptimal(localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *PaymentsOptimalApiService) SilentPostOptimal(ctx context.Context, local
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(OptimalPaymentRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

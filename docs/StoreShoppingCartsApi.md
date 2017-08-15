@@ -20,14 +20,13 @@ Method | HTTP request | Description
 
 
 # **AddCustomDiscount**
-> AddCustomDiscount(ctx, id, optional)
+> AddCustomDiscount(id, optional)
 Adds a custom discount to the cart
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the cart | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -45,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -55,14 +54,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddDiscountToCart**
-> AddDiscountToCart(ctx, id, optional)
+> AddDiscountToCart(id, optional)
 Adds a discount coupon to the cart
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the cart | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -80,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -90,7 +88,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddItemToCart**
-> AddItemToCart(ctx, id, optional)
+> AddItemToCart(id, optional)
 Add an item to the cart
 
 Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment
@@ -99,7 +97,6 @@ Currently, carts cannot contain virtual and real currency items at the same time
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the cart | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -117,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -127,7 +124,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateCart**
-> string CreateCart(ctx, optional)
+> string CreateCart(optional)
 Create a cart
 
 You don't have to have a user to create a cart but the API requires authentication to checkout
@@ -136,7 +133,6 @@ You don't have to have a user to create a cart but the API requires authenticati
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -153,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -163,14 +159,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetCart**
-> Cart GetCart(ctx, id)
+> Cart GetCart(id)
 Returns the cart with the given GUID
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the cart | 
 
 ### Return type
@@ -179,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -189,14 +184,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetCarts**
-> PageResourceCartSummary GetCarts(ctx, optional)
+> PageResourceCartSummary GetCarts(optional)
 Get a list of carts
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -215,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -225,14 +219,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetShippable**
-> CartShippableResponse GetShippable(ctx, id)
+> CartShippableResponse GetShippable(id)
 Returns whether a cart requires shipping
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the cart | 
 
 ### Return type
@@ -241,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -251,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetShippingCountries**
-> SampleCountriesResponse GetShippingCountries(ctx, id)
+> SampleCountriesResponse GetShippingCountries(id)
 Get the list of available shipping countries per vendor
 
 Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable.
@@ -260,7 +253,6 @@ Since a cart can have multiple vendors with different shipping options, the coun
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the cart | 
 
 ### Return type
@@ -269,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -279,14 +271,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RemoveDiscountFromCart**
-> RemoveDiscountFromCart(ctx, id, code)
+> RemoveDiscountFromCart(id, code)
 Removes a discount coupon from the cart
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the cart | 
   **code** | **string**| The SKU code of the coupon to remove | 
 
@@ -296,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -306,7 +297,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetCartCurrency**
-> SetCartCurrency(ctx, id, optional)
+> SetCartCurrency(id, optional)
 Sets the currency to use for the cart
 
 May be disallowed by site settings.
@@ -315,7 +306,6 @@ May be disallowed by site settings.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the cart | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -333,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -343,14 +333,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetCartOwner**
-> SetCartOwner(ctx, id, optional)
+> SetCartOwner(id, optional)
 Sets the owner of a cart if none is set already
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the cart | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -368,7 +357,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -378,7 +367,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateItemInCart**
-> UpdateItemInCart(ctx, id, optional)
+> UpdateItemInCart(id, optional)
 Changes the quantity of an item already in the cart
 
 A quantity of zero will remove the item from the cart altogether.
@@ -387,7 +376,6 @@ A quantity of zero will remove the item from the cart altogether.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the cart | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -405,7 +393,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -415,14 +403,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateShippingAddress**
-> UpdateShippingAddress(ctx, id, optional)
+> UpdateShippingAddress(id, optional)
 Modifies or sets the order shipping address
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the cart | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -440,7 +427,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

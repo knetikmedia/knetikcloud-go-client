@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **LinkAccounts**
-> LinkAccounts(ctx, optional)
+> LinkAccounts(optional)
 Link facebook account
 
 Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
@@ -17,7 +17,6 @@ Links the current user account to a facebook account, using the acccess token fr
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -33,7 +32,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

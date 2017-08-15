@@ -29,12 +29,12 @@ type MediaVideosApiService service
 
 /* MediaVideosApiService Adds a user to a video&#39;s whitelist
  Whitelisted users can view video regardless of privacy setting.
- * @param ctx context.Context Authentication Context 
+
  @param id The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userId" (IntWrapper) The user id
  @return */
-func (a *MediaVideosApiService) AddUserToVideoWhitelist(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MediaVideosApiService) AddUserToVideoWhitelist(id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -74,7 +74,7 @@ func (a *MediaVideosApiService) AddUserToVideoWhitelist(ctx context.Context, id 
 	if localVarTempParam, localVarOk := localVarOptionals["userId"].(IntWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -92,11 +92,11 @@ func (a *MediaVideosApiService) AddUserToVideoWhitelist(ctx context.Context, id 
 }
 
 /* MediaVideosApiService Adds a new video in the system
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "videoResource" (VideoResource) The video object
  @return VideoResource*/
-func (a *MediaVideosApiService) AddVideo(ctx context.Context, localVarOptionals map[string]interface{}) (VideoResource,  *http.Response, error) {
+func (a *MediaVideosApiService) AddVideo(localVarOptionals map[string]interface{}) (VideoResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -136,7 +136,7 @@ func (a *MediaVideosApiService) AddVideo(ctx context.Context, localVarOptionals 
 	if localVarTempParam, localVarOk := localVarOptionals["videoResource"].(VideoResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -159,12 +159,12 @@ func (a *MediaVideosApiService) AddVideo(ctx context.Context, localVarOptionals 
 }
 
 /* MediaVideosApiService Add a new video comment
- * @param ctx context.Context Authentication Context 
+
  @param videoId The video id 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "commentResource" (CommentResource) The comment object
  @return CommentResource*/
-func (a *MediaVideosApiService) AddVideoComment(ctx context.Context, videoId int32, localVarOptionals map[string]interface{}) (CommentResource,  *http.Response, error) {
+func (a *MediaVideosApiService) AddVideoComment(videoId int32, localVarOptionals map[string]interface{}) (CommentResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -205,7 +205,7 @@ func (a *MediaVideosApiService) AddVideoComment(ctx context.Context, videoId int
 	if localVarTempParam, localVarOk := localVarOptionals["commentResource"].(CommentResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -228,12 +228,12 @@ func (a *MediaVideosApiService) AddVideoComment(ctx context.Context, videoId int
 }
 
 /* MediaVideosApiService Adds a contributor to a video
- * @param ctx context.Context Authentication Context 
+
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "contributionResource" (ContributionResource) The contribution object
  @return */
-func (a *MediaVideosApiService) AddVideoContributor(ctx context.Context, videoId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MediaVideosApiService) AddVideoContributor(videoId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -273,7 +273,7 @@ func (a *MediaVideosApiService) AddVideoContributor(ctx context.Context, videoId
 	if localVarTempParam, localVarOk := localVarOptionals["contributionResource"].(ContributionResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -291,12 +291,12 @@ func (a *MediaVideosApiService) AddVideoContributor(ctx context.Context, videoId
 }
 
 /* MediaVideosApiService Add a new flag
- * @param ctx context.Context Authentication Context 
+
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "reason" (StringWrapper) The flag reason
  @return FlagResource*/
-func (a *MediaVideosApiService) AddVideoFlag(ctx context.Context, videoId int64, localVarOptionals map[string]interface{}) (FlagResource,  *http.Response, error) {
+func (a *MediaVideosApiService) AddVideoFlag(videoId int64, localVarOptionals map[string]interface{}) (FlagResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -337,7 +337,7 @@ func (a *MediaVideosApiService) AddVideoFlag(ctx context.Context, videoId int64,
 	if localVarTempParam, localVarOk := localVarOptionals["reason"].(StringWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -360,12 +360,12 @@ func (a *MediaVideosApiService) AddVideoFlag(ctx context.Context, videoId int64,
 }
 
 /* MediaVideosApiService Adds one or more existing videos as related to this one
- * @param ctx context.Context Authentication Context 
+
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "videoRelationshipResource" (VideoRelationshipResource) The video relationship object 
  @return VideoRelationshipResource*/
-func (a *MediaVideosApiService) AddVideoRelationships(ctx context.Context, videoId int64, localVarOptionals map[string]interface{}) (VideoRelationshipResource,  *http.Response, error) {
+func (a *MediaVideosApiService) AddVideoRelationships(videoId int64, localVarOptionals map[string]interface{}) (VideoRelationshipResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -406,7 +406,7 @@ func (a *MediaVideosApiService) AddVideoRelationships(ctx context.Context, video
 	if localVarTempParam, localVarOk := localVarOptionals["videoRelationshipResource"].(VideoRelationshipResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -429,12 +429,12 @@ func (a *MediaVideosApiService) AddVideoRelationships(ctx context.Context, video
 }
 
 /* MediaVideosApiService Create a video disposition
- * @param ctx context.Context Authentication Context 
+
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "dispositionResource" (DispositionResource) The disposition object
  @return DispositionResource*/
-func (a *MediaVideosApiService) CreateVideoDisposition(ctx context.Context, videoId int32, localVarOptionals map[string]interface{}) (DispositionResource,  *http.Response, error) {
+func (a *MediaVideosApiService) CreateVideoDisposition(videoId int32, localVarOptionals map[string]interface{}) (DispositionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -475,7 +475,7 @@ func (a *MediaVideosApiService) CreateVideoDisposition(ctx context.Context, vide
 	if localVarTempParam, localVarOk := localVarOptionals["dispositionResource"].(DispositionResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -498,10 +498,10 @@ func (a *MediaVideosApiService) CreateVideoDisposition(ctx context.Context, vide
 }
 
 /* MediaVideosApiService Deletes a video from the system if no resources are attached to it
- * @param ctx context.Context Authentication Context 
+
  @param id The video id
  @return */
-func (a *MediaVideosApiService) DeleteVideo(ctx context.Context, id int64) ( *http.Response, error) {
+func (a *MediaVideosApiService) DeleteVideo(id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -537,7 +537,7 @@ func (a *MediaVideosApiService) DeleteVideo(ctx context.Context, id int64) ( *ht
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -555,11 +555,11 @@ func (a *MediaVideosApiService) DeleteVideo(ctx context.Context, id int64) ( *ht
 }
 
 /* MediaVideosApiService Delete a video comment
- * @param ctx context.Context Authentication Context 
+
  @param videoId The video id
  @param id The comment id
  @return */
-func (a *MediaVideosApiService) DeleteVideoComment(ctx context.Context, videoId int64, id int64) ( *http.Response, error) {
+func (a *MediaVideosApiService) DeleteVideoComment(videoId int64, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -596,7 +596,7 @@ func (a *MediaVideosApiService) DeleteVideoComment(ctx context.Context, videoId 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -614,10 +614,10 @@ func (a *MediaVideosApiService) DeleteVideoComment(ctx context.Context, videoId 
 }
 
 /* MediaVideosApiService Delete a video disposition
- * @param ctx context.Context Authentication Context 
+
  @param dispositionId The disposition id
  @return */
-func (a *MediaVideosApiService) DeleteVideoDisposition(ctx context.Context, dispositionId int64) ( *http.Response, error) {
+func (a *MediaVideosApiService) DeleteVideoDisposition(dispositionId int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -653,7 +653,7 @@ func (a *MediaVideosApiService) DeleteVideoDisposition(ctx context.Context, disp
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -671,10 +671,10 @@ func (a *MediaVideosApiService) DeleteVideoDisposition(ctx context.Context, disp
 }
 
 /* MediaVideosApiService Delete a flag
- * @param ctx context.Context Authentication Context 
+
  @param videoId The video id
  @return */
-func (a *MediaVideosApiService) DeleteVideoFlag(ctx context.Context, videoId int64) ( *http.Response, error) {
+func (a *MediaVideosApiService) DeleteVideoFlag(videoId int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -710,7 +710,7 @@ func (a *MediaVideosApiService) DeleteVideoFlag(ctx context.Context, videoId int
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -728,11 +728,11 @@ func (a *MediaVideosApiService) DeleteVideoFlag(ctx context.Context, videoId int
 }
 
 /* MediaVideosApiService Delete a video&#39;s relationship
- * @param ctx context.Context Authentication Context 
+
  @param videoId The video id
  @param id The relationship id
  @return */
-func (a *MediaVideosApiService) DeleteVideoRelationship(ctx context.Context, videoId int64, id int64) ( *http.Response, error) {
+func (a *MediaVideosApiService) DeleteVideoRelationship(videoId int64, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -769,7 +769,7 @@ func (a *MediaVideosApiService) DeleteVideoRelationship(ctx context.Context, vid
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -787,14 +787,14 @@ func (a *MediaVideosApiService) DeleteVideoRelationship(ctx context.Context, vid
 }
 
 /* MediaVideosApiService Get user videos
- * @param ctx context.Context Authentication Context 
+
  @param userId The user id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "excludeFlagged" (bool) Skip videos that have been flagged by the current user
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceVideoResource*/
-func (a *MediaVideosApiService) GetUserVideos(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) (PageResourceVideoResource,  *http.Response, error) {
+func (a *MediaVideosApiService) GetUserVideos(userId int32, localVarOptionals map[string]interface{}) (PageResourceVideoResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -849,7 +849,7 @@ func (a *MediaVideosApiService) GetUserVideos(ctx context.Context, userId int32,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -872,10 +872,10 @@ func (a *MediaVideosApiService) GetUserVideos(ctx context.Context, userId int32,
 }
 
 /* MediaVideosApiService Loads a specific video details
- * @param ctx context.Context Authentication Context 
+
  @param id The video id
  @return VideoResource*/
-func (a *MediaVideosApiService) GetVideo(ctx context.Context, id int64) (VideoResource,  *http.Response, error) {
+func (a *MediaVideosApiService) GetVideo(id int64) (VideoResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -912,7 +912,7 @@ func (a *MediaVideosApiService) GetVideo(ctx context.Context, id int64) (VideoRe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1337,11 +1337,11 @@ func (a *MediaVideosApiService) GetVideos(localVarOptionals map[string]interface
 
 /* MediaVideosApiService Removes a user from a video&#39;s whitelist
  Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting.
- * @param ctx context.Context Authentication Context 
+
  @param videoId The video id
  @param id The user id
  @return */
-func (a *MediaVideosApiService) RemoveUserFromVideoWhitelist(ctx context.Context, videoId int64, id int32) ( *http.Response, error) {
+func (a *MediaVideosApiService) RemoveUserFromVideoWhitelist(videoId int64, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -1378,7 +1378,7 @@ func (a *MediaVideosApiService) RemoveUserFromVideoWhitelist(ctx context.Context
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -1396,11 +1396,11 @@ func (a *MediaVideosApiService) RemoveUserFromVideoWhitelist(ctx context.Context
 }
 
 /* MediaVideosApiService Removes a contributor from a video
- * @param ctx context.Context Authentication Context 
+
  @param videoId The video id
  @param id The contributor id
  @return */
-func (a *MediaVideosApiService) RemoveVideoContributor(ctx context.Context, videoId int64, id int32) ( *http.Response, error) {
+func (a *MediaVideosApiService) RemoveVideoContributor(videoId int64, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -1437,7 +1437,7 @@ func (a *MediaVideosApiService) RemoveVideoContributor(ctx context.Context, vide
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -1455,12 +1455,12 @@ func (a *MediaVideosApiService) RemoveVideoContributor(ctx context.Context, vide
 }
 
 /* MediaVideosApiService Modifies a video&#39;s details
- * @param ctx context.Context Authentication Context 
+
  @param id The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "videoResource" (VideoResource) The video object
  @return */
-func (a *MediaVideosApiService) UpdateVideo(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MediaVideosApiService) UpdateVideo(id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1500,7 +1500,7 @@ func (a *MediaVideosApiService) UpdateVideo(ctx context.Context, id int64, local
 	if localVarTempParam, localVarOk := localVarOptionals["videoResource"].(VideoResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -1518,13 +1518,13 @@ func (a *MediaVideosApiService) UpdateVideo(ctx context.Context, id int64, local
 }
 
 /* MediaVideosApiService Update a video comment
- * @param ctx context.Context Authentication Context 
+
  @param videoId The video id
  @param id The comment id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "content" (StringWrapper) The comment content
  @return */
-func (a *MediaVideosApiService) UpdateVideoComment(ctx context.Context, videoId int64, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MediaVideosApiService) UpdateVideoComment(videoId int64, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1565,7 +1565,7 @@ func (a *MediaVideosApiService) UpdateVideoComment(ctx context.Context, videoId 
 	if localVarTempParam, localVarOk := localVarOptionals["content"].(StringWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -1583,13 +1583,13 @@ func (a *MediaVideosApiService) UpdateVideoComment(ctx context.Context, videoId 
 }
 
 /* MediaVideosApiService Update a video&#39;s relationship details
- * @param ctx context.Context Authentication Context 
+
  @param videoId The video id
  @param relationshipId The relationship id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "details" (StringWrapper) The video relationship details
  @return */
-func (a *MediaVideosApiService) UpdateVideoRelationship(ctx context.Context, videoId int64, relationshipId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MediaVideosApiService) UpdateVideoRelationship(videoId int64, relationshipId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1630,7 +1630,7 @@ func (a *MediaVideosApiService) UpdateVideoRelationship(ctx context.Context, vid
 	if localVarTempParam, localVarOk := localVarOptionals["details"].(StringWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

@@ -28,11 +28,11 @@ type TaxesApiService service
 
 
 /* TaxesApiService Create a country tax
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "taxResource" (CountryTaxResource) The tax object
  @return CountryTaxResource*/
-func (a *TaxesApiService) CreateCountryTax(ctx context.Context, localVarOptionals map[string]interface{}) (CountryTaxResource,  *http.Response, error) {
+func (a *TaxesApiService) CreateCountryTax(localVarOptionals map[string]interface{}) (CountryTaxResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *TaxesApiService) CreateCountryTax(ctx context.Context, localVarOptional
 	if localVarTempParam, localVarOk := localVarOptionals["taxResource"].(CountryTaxResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,12 +95,12 @@ func (a *TaxesApiService) CreateCountryTax(ctx context.Context, localVarOptional
 }
 
 /* TaxesApiService Create a state tax
- * @param ctx context.Context Authentication Context 
+
  @param countryCodeIso3 The iso3 code of the country
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "taxResource" (StateTaxResource) The tax object
  @return StateTaxResource*/
-func (a *TaxesApiService) CreateStateTax(ctx context.Context, countryCodeIso3 string, localVarOptionals map[string]interface{}) (StateTaxResource,  *http.Response, error) {
+func (a *TaxesApiService) CreateStateTax(countryCodeIso3 string, localVarOptionals map[string]interface{}) (StateTaxResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -141,7 +141,7 @@ func (a *TaxesApiService) CreateStateTax(ctx context.Context, countryCodeIso3 st
 	if localVarTempParam, localVarOk := localVarOptionals["taxResource"].(StateTaxResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -164,10 +164,10 @@ func (a *TaxesApiService) CreateStateTax(ctx context.Context, countryCodeIso3 st
 }
 
 /* TaxesApiService Delete an existing tax
- * @param ctx context.Context Authentication Context 
+
  @param countryCodeIso3 The iso3 code of the country
  @return */
-func (a *TaxesApiService) DeleteCountryTax(ctx context.Context, countryCodeIso3 string) ( *http.Response, error) {
+func (a *TaxesApiService) DeleteCountryTax(countryCodeIso3 string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -203,7 +203,7 @@ func (a *TaxesApiService) DeleteCountryTax(ctx context.Context, countryCodeIso3 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -221,11 +221,11 @@ func (a *TaxesApiService) DeleteCountryTax(ctx context.Context, countryCodeIso3 
 }
 
 /* TaxesApiService Delete an existing state tax
- * @param ctx context.Context Authentication Context 
+
  @param countryCodeIso3 The iso3 code of the country
  @param stateCode The code of the state
  @return */
-func (a *TaxesApiService) DeleteStateTax(ctx context.Context, countryCodeIso3 string, stateCode string) ( *http.Response, error) {
+func (a *TaxesApiService) DeleteStateTax(countryCodeIso3 string, stateCode string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -262,7 +262,7 @@ func (a *TaxesApiService) DeleteStateTax(ctx context.Context, countryCodeIso3 st
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -662,12 +662,12 @@ func (a *TaxesApiService) GetStateTaxesForCountry(countryCodeIso3 string, localV
 }
 
 /* TaxesApiService Create or update a tax
- * @param ctx context.Context Authentication Context 
+
  @param countryCodeIso3 The iso3 code of the country
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "taxResource" (CountryTaxResource) The tax object
  @return CountryTaxResource*/
-func (a *TaxesApiService) UpdateCountryTax(ctx context.Context, countryCodeIso3 string, localVarOptionals map[string]interface{}) (CountryTaxResource,  *http.Response, error) {
+func (a *TaxesApiService) UpdateCountryTax(countryCodeIso3 string, localVarOptionals map[string]interface{}) (CountryTaxResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -708,7 +708,7 @@ func (a *TaxesApiService) UpdateCountryTax(ctx context.Context, countryCodeIso3 
 	if localVarTempParam, localVarOk := localVarOptionals["taxResource"].(CountryTaxResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -731,13 +731,13 @@ func (a *TaxesApiService) UpdateCountryTax(ctx context.Context, countryCodeIso3 
 }
 
 /* TaxesApiService Create or update a state tax
- * @param ctx context.Context Authentication Context 
+
  @param countryCodeIso3 The iso3 code of the country
  @param stateCode The code of the state
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "taxResource" (StateTaxResource) The tax object
  @return StateTaxResource*/
-func (a *TaxesApiService) UpdateStateTax(ctx context.Context, countryCodeIso3 string, stateCode string, localVarOptionals map[string]interface{}) (StateTaxResource,  *http.Response, error) {
+func (a *TaxesApiService) UpdateStateTax(countryCodeIso3 string, stateCode string, localVarOptionals map[string]interface{}) (StateTaxResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -779,7 +779,7 @@ func (a *TaxesApiService) UpdateStateTax(ctx context.Context, countryCodeIso3 st
 	if localVarTempParam, localVarOk := localVarOptionals["taxResource"].(StateTaxResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

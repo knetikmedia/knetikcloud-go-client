@@ -17,14 +17,13 @@ Method | HTTP request | Description
 
 
 # **CreateLevel**
-> LevelingResource CreateLevel(ctx, optional)
+> LevelingResource CreateLevel(optional)
 Create a level schema
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -40,7 +39,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -50,14 +49,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteLevel**
-> DeleteLevel(ctx, name)
+> DeleteLevel(name)
 Delete a level
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **name** | **string**| The level schema name | 
 
 ### Return type
@@ -66,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,14 +74,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLevel**
-> LevelingResource GetLevel(ctx, name)
+> LevelingResource GetLevel(name)
 Retrieve a level
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **name** | **string**| The level schema name | 
 
 ### Return type
@@ -92,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -102,7 +99,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLevelTriggers**
-> []BreTriggerResource GetLevelTriggers(ctx, )
+> []BreTriggerResource GetLevelTriggers()
 Get the list of triggers that can be used to trigger a leveling progress update
 
 ### Required Parameters
@@ -114,7 +111,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -124,7 +121,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLevels**
-> PageResourceLevelingResource GetLevels(ctx, optional)
+> PageResourceLevelingResource GetLevels(optional)
 List and search levels
 
 Get a list of levels schemas with optional filtering
@@ -133,7 +130,6 @@ Get a list of levels schemas with optional filtering
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -152,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -162,14 +158,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserLevel**
-> UserLevelingResource GetUserLevel(ctx, userId, name)
+> UserLevelingResource GetUserLevel(userId, name)
 Get a user's progress for a given level schema
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
   **name** | **string**| The level schema name | 
 
@@ -179,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -189,7 +184,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserLevels**
-> PageResourceUserLevelingResource GetUserLevels(ctx, userId, optional)
+> PageResourceUserLevelingResource GetUserLevels(userId, optional)
 Get a user's progress for all level schemas
 
 Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here.
@@ -198,7 +193,6 @@ Filtering and sorting is based on the LevelingResource object, not the UserLevel
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -219,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -229,7 +223,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **IncrementProgress**
-> IncrementProgress(ctx, userId, name, optional)
+> IncrementProgress(userId, name, optional)
 Update or create a leveling progress record for a user
 
 If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
@@ -238,7 +232,6 @@ If no progress record yet exists for the user, it will be created. Otherwise the
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
   **name** | **string**| The level schema name | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -258,7 +251,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -268,7 +261,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetProgress**
-> SetProgress(ctx, userId, name, optional)
+> SetProgress(userId, name, optional)
 Set leveling progress for a user
 
 If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
@@ -277,7 +270,6 @@ If no progress record yet exists for the user, it will be created. Otherwise it 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
   **name** | **string**| The level schema name | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -297,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -307,14 +299,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateLevel**
-> LevelingResource UpdateLevel(ctx, name, optional)
+> LevelingResource UpdateLevel(name, optional)
 Update a level
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **name** | **string**| The level schema name | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -332,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

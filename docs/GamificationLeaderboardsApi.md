@@ -50,7 +50,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLeaderboardRank**
-> LeaderboardEntryResource GetLeaderboardRank(ctx, contextType, contextId, id)
+> LeaderboardEntryResource GetLeaderboardRank(contextType, contextId, id)
 Retrieves a specific user entry with rank
 
 The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard
@@ -59,7 +59,6 @@ The context type identifies the type of entity (i.e., 'activity') being tracked 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **contextType** | **string**| The context type for the leaderboard | 
   **contextId** | **string**| The context id for the leaderboard | 
   **id** | **string**| The id of a user | 
@@ -70,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

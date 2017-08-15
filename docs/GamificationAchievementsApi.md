@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 
 # **CreateAchievement**
-> AchievementDefinitionResource CreateAchievement(ctx, optional)
+> AchievementDefinitionResource CreateAchievement(optional)
 Create a new achievement definition
 
 If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user's achievement status must manually be updated via the API.
@@ -34,7 +34,6 @@ If the definition contains a trigger event name, a BRE rule is created, so that 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -50,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -60,7 +59,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateAchievementTemplate**
-> TemplateResource CreateAchievementTemplate(ctx, optional)
+> TemplateResource CreateAchievementTemplate(optional)
 Create an achievement template
 
 Achievement templates define a type of achievement and the properties they have
@@ -69,7 +68,6 @@ Achievement templates define a type of achievement and the properties they have
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -85,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -95,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteAchievement**
-> DeleteAchievement(ctx, name)
+> DeleteAchievement(name)
 Delete an achievement definition
 
 Will also disable the associated generated rule, if any.
@@ -104,7 +102,6 @@ Will also disable the associated generated rule, if any.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **name** | **string**| The name of the achievement | 
 
 ### Return type
@@ -113,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -123,7 +120,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteAchievementTemplate**
-> DeleteAchievementTemplate(ctx, id, optional)
+> DeleteAchievementTemplate(id, optional)
 Delete an achievement template
 
 If cascade = 'detach', it will force delete the template even if it's attached to other objects
@@ -132,7 +129,6 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the template | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -150,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -160,14 +156,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetAchievement**
-> AchievementDefinitionResource GetAchievement(ctx, name)
+> AchievementDefinitionResource GetAchievement(name)
 Get a single achievement definition
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **name** | **string**| The name of the achievement | 
 
 ### Return type
@@ -176,7 +171,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -186,14 +181,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetAchievementTemplate**
-> TemplateResource GetAchievementTemplate(ctx, id)
+> TemplateResource GetAchievementTemplate(id)
 Get a single achievement template
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the template | 
 
 ### Return type
@@ -202,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -212,14 +206,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetAchievementTemplates**
-> PageResourceTemplateResource GetAchievementTemplates(ctx, optional)
+> PageResourceTemplateResource GetAchievementTemplates(optional)
 List and search achievement templates
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -237,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -247,7 +240,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetAchievementTriggers**
-> []BreTriggerResource GetAchievementTriggers(ctx, )
+> []BreTriggerResource GetAchievementTriggers()
 Get the list of triggers that can be used to trigger an achievement progress update
 
 ### Required Parameters
@@ -259,7 +252,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -269,14 +262,13 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetAchievements**
-> PageResourceAchievementDefinitionResource GetAchievements(ctx, optional)
+> PageResourceAchievementDefinitionResource GetAchievements(optional)
 Get all achievement definitions in the system
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -298,7 +290,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -308,7 +300,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDerivedAchievements**
-> []AchievementDefinitionResource GetDerivedAchievements(ctx, name)
+> []AchievementDefinitionResource GetDerivedAchievements(name)
 Get a list of derived achievements
 
 Used by other services that depend on achievements
@@ -317,7 +309,6 @@ Used by other services that depend on achievements
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **name** | **string**| The name of the derived achievement | 
 
 ### Return type
@@ -326,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -336,7 +327,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserAchievementProgress**
-> UserAchievementGroupResource GetUserAchievementProgress(ctx, userId, achievementName)
+> UserAchievementGroupResource GetUserAchievementProgress(userId, achievementName)
 Retrieve progress on a given achievement for a given user
 
 Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
@@ -345,7 +336,6 @@ Assets will not be filled in on the resources returned. Use 'Get a single poll' 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The user&#39;s id | 
   **achievementName** | **string**| The achievement&#39;s name | 
 
@@ -355,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -365,7 +355,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserAchievementsProgress**
-> PageResourceUserAchievementGroupResource GetUserAchievementsProgress(ctx, userId, optional)
+> PageResourceUserAchievementGroupResource GetUserAchievementsProgress(userId, optional)
 Retrieve progress on achievements for a given user
 
 Assets will not be filled in on the resources returned. Use 'Get a single poll' to retrieve the full resource with assets for a given item as needed.
@@ -374,7 +364,6 @@ Assets will not be filled in on the resources returned. Use 'Get a single poll' 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The user&#39;s id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -396,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -406,7 +395,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsersAchievementProgress**
-> PageResourceUserAchievementGroupResource GetUsersAchievementProgress(ctx, achievementName, optional)
+> PageResourceUserAchievementGroupResource GetUsersAchievementProgress(achievementName, optional)
 Retrieve progress on a given achievement for all users
 
 Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed.
@@ -415,7 +404,6 @@ Assets will not be filled in on the resources returned. Use 'Get single achievem
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **achievementName** | **string**| The achievement&#39;s name | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -437,7 +425,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -447,7 +435,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsersAchievementsProgress**
-> PageResourceUserAchievementGroupResource GetUsersAchievementsProgress(ctx, optional)
+> PageResourceUserAchievementGroupResource GetUsersAchievementsProgress(optional)
 Retrieve progress on achievements for all users
 
 Assets will not be filled in on the resources returned. Use 'Get single achievement progress for user' to retrieve the full resource with assets for a given user as needed.
@@ -456,7 +444,6 @@ Assets will not be filled in on the resources returned. Use 'Get single achievem
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -476,7 +463,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -486,7 +473,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **IncrementAchievementProgress**
-> UserAchievementGroupResource IncrementAchievementProgress(ctx, userId, achievementName, optional)
+> UserAchievementGroupResource IncrementAchievementProgress(userId, achievementName, optional)
 Increment an achievement progress record for a user
 
 If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
@@ -495,7 +482,6 @@ If no progress record yet exists for the user, it will be created. Otherwise it 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The user&#39;s id | 
   **achievementName** | **string**| The achievement&#39;s name | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -515,7 +501,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -525,7 +511,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetAchievementProgress**
-> UserAchievementGroupResource SetAchievementProgress(ctx, userId, achievementName, optional)
+> UserAchievementGroupResource SetAchievementProgress(userId, achievementName, optional)
 Set an achievement progress record for a user
 
 If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement's max_value it will be marked as earned and a BRE event will be triggered for the <code>BreAchievementEarnedTrigger</code>.
@@ -534,7 +520,6 @@ If no progress record yet exists for the user, it will be created. Otherwise it 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The user&#39;s id | 
   **achievementName** | **string**| The achievement&#39;s name | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -554,7 +539,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -564,7 +549,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateAchievement**
-> AchievementDefinitionResource UpdateAchievement(ctx, name, optional)
+> AchievementDefinitionResource UpdateAchievement(name, optional)
 Update an achievement definition
 
 The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version.
@@ -573,7 +558,6 @@ The existing generated rule, if any, will be deleted. A new rule will be created
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **name** | **string**| The name of the achievement | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -591,7 +575,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -601,14 +585,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateAchievementTemplate**
-> TemplateResource UpdateAchievementTemplate(ctx, id, optional)
+> TemplateResource UpdateAchievementTemplate(id, optional)
 Update an achievement template
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the template | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -626,7 +609,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

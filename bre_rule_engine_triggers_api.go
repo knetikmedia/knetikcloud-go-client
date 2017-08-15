@@ -29,11 +29,11 @@ type BRERuleEngineTriggersApiService service
 
 /* BRERuleEngineTriggersApiService Create a trigger
  Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "breTriggerResource" (BreTriggerResource) The BRE trigger resource object
  @return BreTriggerResource*/
-func (a *BRERuleEngineTriggersApiService) CreateBRETrigger(ctx context.Context, localVarOptionals map[string]interface{}) (BreTriggerResource,  *http.Response, error) {
+func (a *BRERuleEngineTriggersApiService) CreateBRETrigger(localVarOptionals map[string]interface{}) (BreTriggerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -73,7 +73,7 @@ func (a *BRERuleEngineTriggersApiService) CreateBRETrigger(ctx context.Context, 
 	if localVarTempParam, localVarOk := localVarOptionals["breTriggerResource"].(BreTriggerResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -97,10 +97,10 @@ func (a *BRERuleEngineTriggersApiService) CreateBRETrigger(ctx context.Context, 
 
 /* BRERuleEngineTriggersApiService Delete a trigger
  May fail if there are existing rules against it. Cannot delete core triggers
- * @param ctx context.Context Authentication Context 
+
  @param eventName The trigger event name
  @return */
-func (a *BRERuleEngineTriggersApiService) DeleteBRETrigger(ctx context.Context, eventName string) ( *http.Response, error) {
+func (a *BRERuleEngineTriggersApiService) DeleteBRETrigger(eventName string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -136,7 +136,7 @@ func (a *BRERuleEngineTriggersApiService) DeleteBRETrigger(ctx context.Context, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -154,10 +154,10 @@ func (a *BRERuleEngineTriggersApiService) DeleteBRETrigger(ctx context.Context, 
 }
 
 /* BRERuleEngineTriggersApiService Get a single trigger
- * @param ctx context.Context Authentication Context 
+
  @param eventName The trigger event name
  @return BreTriggerResource*/
-func (a *BRERuleEngineTriggersApiService) GetBRETrigger(ctx context.Context, eventName string) (BreTriggerResource,  *http.Response, error) {
+func (a *BRERuleEngineTriggersApiService) GetBRETrigger(eventName string) (BreTriggerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -194,7 +194,7 @@ func (a *BRERuleEngineTriggersApiService) GetBRETrigger(ctx context.Context, eve
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -217,7 +217,7 @@ func (a *BRERuleEngineTriggersApiService) GetBRETrigger(ctx context.Context, eve
 }
 
 /* BRERuleEngineTriggersApiService List triggers
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSystem" (bool) Filter for triggers that are system triggers when true, or not when false. Leave off for both mixed
      @param "filterCategory" (string) Filter for triggers that are within a specific category
@@ -227,7 +227,7 @@ func (a *BRERuleEngineTriggersApiService) GetBRETrigger(ctx context.Context, eve
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceBreTriggerResource*/
-func (a *BRERuleEngineTriggersApiService) GetBRETriggers(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceBreTriggerResource,  *http.Response, error) {
+func (a *BRERuleEngineTriggersApiService) GetBRETriggers(localVarOptionals map[string]interface{}) (PageResourceBreTriggerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -305,7 +305,7 @@ func (a *BRERuleEngineTriggersApiService) GetBRETriggers(ctx context.Context, lo
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -329,12 +329,12 @@ func (a *BRERuleEngineTriggersApiService) GetBRETriggers(ctx context.Context, lo
 
 /* BRERuleEngineTriggersApiService Update a trigger
  May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers
- * @param ctx context.Context Authentication Context 
+
  @param eventName The trigger event name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "breTriggerResource" (BreTriggerResource) The BRE trigger resource object
  @return BreTriggerResource*/
-func (a *BRERuleEngineTriggersApiService) UpdateBRETrigger(ctx context.Context, eventName string, localVarOptionals map[string]interface{}) (BreTriggerResource,  *http.Response, error) {
+func (a *BRERuleEngineTriggersApiService) UpdateBRETrigger(eventName string, localVarOptionals map[string]interface{}) (BreTriggerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -375,7 +375,7 @@ func (a *BRERuleEngineTriggersApiService) UpdateBRETrigger(ctx context.Context, 
 	if localVarTempParam, localVarOk := localVarOptionals["breTriggerResource"].(BreTriggerResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

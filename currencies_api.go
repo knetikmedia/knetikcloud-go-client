@@ -28,11 +28,11 @@ type CurrenciesApiService service
 
 
 /* CurrenciesApiService Create a currency
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "currency" (CurrencyResource) The currency object
  @return CurrencyResource*/
-func (a *CurrenciesApiService) CreateCurrency(ctx context.Context, localVarOptionals map[string]interface{}) (CurrencyResource,  *http.Response, error) {
+func (a *CurrenciesApiService) CreateCurrency(localVarOptionals map[string]interface{}) (CurrencyResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *CurrenciesApiService) CreateCurrency(ctx context.Context, localVarOptio
 	if localVarTempParam, localVarOk := localVarOptionals["currency"].(CurrencyResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,10 +95,10 @@ func (a *CurrenciesApiService) CreateCurrency(ctx context.Context, localVarOptio
 }
 
 /* CurrenciesApiService Delete a currency
- * @param ctx context.Context Authentication Context 
+
  @param code The currency code
  @return */
-func (a *CurrenciesApiService) DeleteCurrency(ctx context.Context, code string) ( *http.Response, error) {
+func (a *CurrenciesApiService) DeleteCurrency(code string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -134,7 +134,7 @@ func (a *CurrenciesApiService) DeleteCurrency(ctx context.Context, code string) 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -312,12 +312,12 @@ func (a *CurrenciesApiService) GetCurrency(code string) (CurrencyResource,  *htt
 }
 
 /* CurrenciesApiService Update a currency
- * @param ctx context.Context Authentication Context 
+
  @param code The currency code
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "currency" (CurrencyResource) The currency object
  @return */
-func (a *CurrenciesApiService) UpdateCurrency(ctx context.Context, code string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *CurrenciesApiService) UpdateCurrency(code string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -357,7 +357,7 @@ func (a *CurrenciesApiService) UpdateCurrency(ctx context.Context, code string, 
 	if localVarTempParam, localVarOk := localVarOptionals["currency"].(CurrencyResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

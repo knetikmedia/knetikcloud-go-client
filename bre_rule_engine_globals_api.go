@@ -29,11 +29,11 @@ type BRERuleEngineGlobalsApiService service
 
 /* BRERuleEngineGlobalsApiService Create a global definition
  Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "breGlobalResource" (BreGlobalResource) The BRE global resource object
  @return BreGlobalResource*/
-func (a *BRERuleEngineGlobalsApiService) CreateBREGlobal(ctx context.Context, localVarOptionals map[string]interface{}) (BreGlobalResource,  *http.Response, error) {
+func (a *BRERuleEngineGlobalsApiService) CreateBREGlobal(localVarOptionals map[string]interface{}) (BreGlobalResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -73,7 +73,7 @@ func (a *BRERuleEngineGlobalsApiService) CreateBREGlobal(ctx context.Context, lo
 	if localVarTempParam, localVarOk := localVarOptionals["breGlobalResource"].(BreGlobalResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -97,10 +97,10 @@ func (a *BRERuleEngineGlobalsApiService) CreateBREGlobal(ctx context.Context, lo
 
 /* BRERuleEngineGlobalsApiService Delete a global
  May fail if there are existing rules against it. Cannot delete core globals
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the global definition
  @return */
-func (a *BRERuleEngineGlobalsApiService) DeleteBREGlobal(ctx context.Context, id string) ( *http.Response, error) {
+func (a *BRERuleEngineGlobalsApiService) DeleteBREGlobal(id string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -136,7 +136,7 @@ func (a *BRERuleEngineGlobalsApiService) DeleteBREGlobal(ctx context.Context, id
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -154,10 +154,10 @@ func (a *BRERuleEngineGlobalsApiService) DeleteBREGlobal(ctx context.Context, id
 }
 
 /* BRERuleEngineGlobalsApiService Get a single global definition
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the global definition
  @return BreGlobalResource*/
-func (a *BRERuleEngineGlobalsApiService) GetBREGlobal(ctx context.Context, id string) (BreGlobalResource,  *http.Response, error) {
+func (a *BRERuleEngineGlobalsApiService) GetBREGlobal(id string) (BreGlobalResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -194,7 +194,7 @@ func (a *BRERuleEngineGlobalsApiService) GetBREGlobal(ctx context.Context, id st
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -217,13 +217,13 @@ func (a *BRERuleEngineGlobalsApiService) GetBREGlobal(ctx context.Context, id st
 }
 
 /* BRERuleEngineGlobalsApiService List global definitions
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSystem" (bool) Filter for globals that are system globals when true, or not when false. Leave off for both mixed
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceBreGlobalResource*/
-func (a *BRERuleEngineGlobalsApiService) GetBREGlobals(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceBreGlobalResource,  *http.Response, error) {
+func (a *BRERuleEngineGlobalsApiService) GetBREGlobals(localVarOptionals map[string]interface{}) (PageResourceBreGlobalResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -277,7 +277,7 @@ func (a *BRERuleEngineGlobalsApiService) GetBREGlobals(ctx context.Context, loca
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -301,12 +301,12 @@ func (a *BRERuleEngineGlobalsApiService) GetBREGlobals(ctx context.Context, loca
 
 /* BRERuleEngineGlobalsApiService Update a global definition
  May fail if new parameters mismatch requirements of existing rules. Cannot update core globals
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the global definition
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "breGlobalResource" (BreGlobalResource) The BRE global resource object
  @return BreGlobalResource*/
-func (a *BRERuleEngineGlobalsApiService) UpdateBREGlobal(ctx context.Context, id string, localVarOptionals map[string]interface{}) (BreGlobalResource,  *http.Response, error) {
+func (a *BRERuleEngineGlobalsApiService) UpdateBREGlobal(id string, localVarOptionals map[string]interface{}) (BreGlobalResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -347,7 +347,7 @@ func (a *BRERuleEngineGlobalsApiService) UpdateBREGlobal(ctx context.Context, id
 	if localVarTempParam, localVarOk := localVarOptionals["breGlobalResource"].(BreGlobalResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

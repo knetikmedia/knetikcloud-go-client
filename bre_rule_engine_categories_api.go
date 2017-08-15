@@ -29,11 +29,11 @@ type BRERuleEngineCategoriesApiService service
 
 /* BRERuleEngineCategoriesApiService Create a BRE category template
  Templates define a type of BRE category and the properties they have
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (TemplateResource) The category template to create
  @return TemplateResource*/
-func (a *BRERuleEngineCategoriesApiService) CreateBRECategoryTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *BRERuleEngineCategoriesApiService) CreateBRECategoryTemplate(localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -73,7 +73,7 @@ func (a *BRERuleEngineCategoriesApiService) CreateBRECategoryTemplate(ctx contex
 	if localVarTempParam, localVarOk := localVarOptionals["template"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -97,12 +97,12 @@ func (a *BRERuleEngineCategoriesApiService) CreateBRECategoryTemplate(ctx contex
 
 /* BRERuleEngineCategoriesApiService Delete a BRE category template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *BRERuleEngineCategoriesApiService) DeleteBRECategoryTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *BRERuleEngineCategoriesApiService) DeleteBRECategoryTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -144,7 +144,7 @@ func (a *BRERuleEngineCategoriesApiService) DeleteBRECategoryTemplate(ctx contex
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -162,12 +162,12 @@ func (a *BRERuleEngineCategoriesApiService) DeleteBRECategoryTemplate(ctx contex
 }
 
 /* BRERuleEngineCategoriesApiService List categories
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceBreCategoryResource*/
-func (a *BRERuleEngineCategoriesApiService) GetBRECategories(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceBreCategoryResource,  *http.Response, error) {
+func (a *BRERuleEngineCategoriesApiService) GetBRECategories(localVarOptionals map[string]interface{}) (PageResourceBreCategoryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -215,7 +215,7 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategories(ctx context.Context
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -238,10 +238,10 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategories(ctx context.Context
 }
 
 /* BRERuleEngineCategoriesApiService Get a single category
- * @param ctx context.Context Authentication Context 
+
  @param name The category name
  @return BreCategoryResource*/
-func (a *BRERuleEngineCategoriesApiService) GetBRECategory(ctx context.Context, name string) (BreCategoryResource,  *http.Response, error) {
+func (a *BRERuleEngineCategoriesApiService) GetBRECategory(name string) (BreCategoryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -278,7 +278,7 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategory(ctx context.Context, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -301,10 +301,10 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategory(ctx context.Context, 
 }
 
 /* BRERuleEngineCategoriesApiService Get a single BRE category template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @return TemplateResource*/
-func (a *BRERuleEngineCategoriesApiService) GetBRECategoryTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *BRERuleEngineCategoriesApiService) GetBRECategoryTemplate(id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -341,7 +341,7 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategoryTemplate(ctx context.C
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -364,13 +364,13 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategoryTemplate(ctx context.C
 }
 
 /* BRERuleEngineCategoriesApiService List and search BRE category templates
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *BRERuleEngineCategoriesApiService) GetBRECategoryTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *BRERuleEngineCategoriesApiService) GetBRECategoryTemplates(localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -424,7 +424,7 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategoryTemplates(ctx context.
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -447,12 +447,12 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategoryTemplates(ctx context.
 }
 
 /* BRERuleEngineCategoriesApiService Update a category
- * @param ctx context.Context Authentication Context 
+
  @param name The category name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "category" (BreCategoryResource) The updated BRE category information
  @return BreCategoryResource*/
-func (a *BRERuleEngineCategoriesApiService) UpdateBRECategory(ctx context.Context, name string, localVarOptionals map[string]interface{}) (BreCategoryResource,  *http.Response, error) {
+func (a *BRERuleEngineCategoriesApiService) UpdateBRECategory(name string, localVarOptionals map[string]interface{}) (BreCategoryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -493,7 +493,7 @@ func (a *BRERuleEngineCategoriesApiService) UpdateBRECategory(ctx context.Contex
 	if localVarTempParam, localVarOk := localVarOptionals["category"].(BreCategoryResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -516,12 +516,12 @@ func (a *BRERuleEngineCategoriesApiService) UpdateBRECategory(ctx context.Contex
 }
 
 /* BRERuleEngineCategoriesApiService Update a BRE category template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (TemplateResource) The updated category template definition
  @return TemplateResource*/
-func (a *BRERuleEngineCategoriesApiService) UpdateBRECategoryTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *BRERuleEngineCategoriesApiService) UpdateBRECategoryTemplate(id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -562,7 +562,7 @@ func (a *BRERuleEngineCategoriesApiService) UpdateBRECategoryTemplate(ctx contex
 	if localVarTempParam, localVarOk := localVarOptionals["template"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

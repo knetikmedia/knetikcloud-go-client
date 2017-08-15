@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **SendBREEvent**
-> string SendBREEvent(ctx, optional)
+> string SendBREEvent(optional)
 Fire a new event, based on an existing trigger
 
 Parameters within the event must match names and types from the trigger. Actual rule execution is asynchornous.  Returns request id, which will be used as the event id
@@ -17,7 +17,6 @@ Parameters within the event must match names and types from the trigger. Actual 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -33,7 +32,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

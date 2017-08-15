@@ -28,11 +28,11 @@ type ActivitiesApiService service
 
 
 /* ActivitiesApiService Create an activity
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "activityResource" (ActivityResource) The activity resource object
  @return ActivityResource*/
-func (a *ActivitiesApiService) CreateActivity(ctx context.Context, localVarOptionals map[string]interface{}) (ActivityResource,  *http.Response, error) {
+func (a *ActivitiesApiService) CreateActivity(localVarOptionals map[string]interface{}) (ActivityResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *ActivitiesApiService) CreateActivity(ctx context.Context, localVarOptio
 	if localVarTempParam, localVarOk := localVarOptionals["activityResource"].(ActivityResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -96,12 +96,12 @@ func (a *ActivitiesApiService) CreateActivity(ctx context.Context, localVarOptio
 
 /* ActivitiesApiService Create a new activity occurrence. Ex: start a game
  Has to enforce extra rules if not used as an admin
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "test" (bool) if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings
      @param "activityOccurrenceResource" (ActivityOccurrenceResource) The activity occurrence object
  @return ActivityOccurrenceResource*/
-func (a *ActivitiesApiService) CreateActivityOccurrence(ctx context.Context, localVarOptionals map[string]interface{}) (ActivityOccurrenceResource,  *http.Response, error) {
+func (a *ActivitiesApiService) CreateActivityOccurrence(localVarOptionals map[string]interface{}) (ActivityOccurrenceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -147,7 +147,7 @@ func (a *ActivitiesApiService) CreateActivityOccurrence(ctx context.Context, loc
 	if localVarTempParam, localVarOk := localVarOptionals["activityOccurrenceResource"].(ActivityOccurrenceResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -171,11 +171,11 @@ func (a *ActivitiesApiService) CreateActivityOccurrence(ctx context.Context, loc
 
 /* ActivitiesApiService Create a activity template
  Activity Templates define a type of activity and the properties they have
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "activityTemplateResource" (TemplateResource) The activity template resource object
  @return TemplateResource*/
-func (a *ActivitiesApiService) CreateActivityTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *ActivitiesApiService) CreateActivityTemplate(localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -215,7 +215,7 @@ func (a *ActivitiesApiService) CreateActivityTemplate(ctx context.Context, local
 	if localVarTempParam, localVarOk := localVarOptionals["activityTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -238,10 +238,10 @@ func (a *ActivitiesApiService) CreateActivityTemplate(ctx context.Context, local
 }
 
 /* ActivitiesApiService Delete an activity
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the activity
  @return */
-func (a *ActivitiesApiService) DeleteActivity(ctx context.Context, id int64) ( *http.Response, error) {
+func (a *ActivitiesApiService) DeleteActivity(id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -277,7 +277,7 @@ func (a *ActivitiesApiService) DeleteActivity(ctx context.Context, id int64) ( *
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -296,12 +296,12 @@ func (a *ActivitiesApiService) DeleteActivity(ctx context.Context, id int64) ( *
 
 /* ActivitiesApiService Delete a activity template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *ActivitiesApiService) DeleteActivityTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *ActivitiesApiService) DeleteActivityTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -343,7 +343,7 @@ func (a *ActivitiesApiService) DeleteActivityTemplate(ctx context.Context, id st
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -528,10 +528,10 @@ func (a *ActivitiesApiService) GetActivity(id int64) (ActivityResource,  *http.R
 }
 
 /* ActivitiesApiService Get a single activity template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @return TemplateResource*/
-func (a *ActivitiesApiService) GetActivityTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *ActivitiesApiService) GetActivityTemplate(id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -568,7 +568,7 @@ func (a *ActivitiesApiService) GetActivityTemplate(ctx context.Context, id strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -591,13 +591,13 @@ func (a *ActivitiesApiService) GetActivityTemplate(ctx context.Context, id strin
 }
 
 /* ActivitiesApiService List and search activity templates
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *ActivitiesApiService) GetActivityTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *ActivitiesApiService) GetActivityTemplates(localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -651,7 +651,7 @@ func (a *ActivitiesApiService) GetActivityTemplates(ctx context.Context, localVa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -674,12 +674,12 @@ func (a *ActivitiesApiService) GetActivityTemplates(ctx context.Context, localVa
 }
 
 /* ActivitiesApiService Sets the status of an activity occurrence to FINISHED and logs metrics
- * @param ctx context.Context Authentication Context 
+
  @param activityOccurrenceId The id of the activity occurrence
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "activityOccurrenceResults" (ActivityOccurrenceResultsResource) The activity occurrence object
  @return ActivityOccurrenceResults*/
-func (a *ActivitiesApiService) SetActivityOccurrenceResults(ctx context.Context, activityOccurrenceId int64, localVarOptionals map[string]interface{}) (ActivityOccurrenceResults,  *http.Response, error) {
+func (a *ActivitiesApiService) SetActivityOccurrenceResults(activityOccurrenceId int64, localVarOptionals map[string]interface{}) (ActivityOccurrenceResults,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -720,7 +720,7 @@ func (a *ActivitiesApiService) SetActivityOccurrenceResults(ctx context.Context,
 	if localVarTempParam, localVarOk := localVarOptionals["activityOccurrenceResults"].(ActivityOccurrenceResultsResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -743,12 +743,12 @@ func (a *ActivitiesApiService) SetActivityOccurrenceResults(ctx context.Context,
 }
 
 /* ActivitiesApiService Update an activity
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the activity
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "activityResource" (ActivityResource) The activity resource object
  @return ActivityResource*/
-func (a *ActivitiesApiService) UpdateActivity(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (ActivityResource,  *http.Response, error) {
+func (a *ActivitiesApiService) UpdateActivity(id int64, localVarOptionals map[string]interface{}) (ActivityResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -789,7 +789,7 @@ func (a *ActivitiesApiService) UpdateActivity(ctx context.Context, id int64, loc
 	if localVarTempParam, localVarOk := localVarOptionals["activityResource"].(ActivityResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -813,12 +813,12 @@ func (a *ActivitiesApiService) UpdateActivity(ctx context.Context, id int64, loc
 
 /* ActivitiesApiService Updated the status of an activity occurrence
  If setting to &#39;FINISHED&#39; you must POST to /results instead to record the metrics and get synchronous reward results
- * @param ctx context.Context Authentication Context 
+
  @param activityOccurrenceId The id of the activity occurrence
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "activityCccurrenceStatus" (string) The activity occurrence status object
  @return */
-func (a *ActivitiesApiService) UpdateActivityOccurrence(ctx context.Context, activityOccurrenceId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *ActivitiesApiService) UpdateActivityOccurrence(activityOccurrenceId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -861,7 +861,7 @@ func (a *ActivitiesApiService) UpdateActivityOccurrence(ctx context.Context, act
 	if localVarTempParam, localVarOk := localVarOptionals["activityCccurrenceStatus"].(string); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -879,12 +879,12 @@ func (a *ActivitiesApiService) UpdateActivityOccurrence(ctx context.Context, act
 }
 
 /* ActivitiesApiService Update an activity template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "activityTemplateResource" (TemplateResource) The activity template resource object
  @return TemplateResource*/
-func (a *ActivitiesApiService) UpdateActivityTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *ActivitiesApiService) UpdateActivityTemplate(id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -925,7 +925,7 @@ func (a *ActivitiesApiService) UpdateActivityTemplate(ctx context.Context, id st
 	if localVarTempParam, localVarOk := localVarOptionals["activityTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

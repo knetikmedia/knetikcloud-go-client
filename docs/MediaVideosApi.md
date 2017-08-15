@@ -31,7 +31,7 @@ Method | HTTP request | Description
 
 
 # **AddUserToVideoWhitelist**
-> AddUserToVideoWhitelist(ctx, id, optional)
+> AddUserToVideoWhitelist(id, optional)
 Adds a user to a video's whitelist
 
 Whitelisted users can view video regardless of privacy setting.
@@ -40,7 +40,6 @@ Whitelisted users can view video regardless of privacy setting.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The video id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -58,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -68,14 +67,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddVideo**
-> VideoResource AddVideo(ctx, optional)
+> VideoResource AddVideo(optional)
 Adds a new video in the system
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -91,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -101,14 +99,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddVideoComment**
-> CommentResource AddVideoComment(ctx, videoId, optional)
+> CommentResource AddVideoComment(videoId, optional)
 Add a new video comment
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int32**| The video id  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -126,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -136,14 +133,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddVideoContributor**
-> AddVideoContributor(ctx, videoId, optional)
+> AddVideoContributor(videoId, optional)
 Adds a contributor to a video
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int64**| The video id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -161,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -171,14 +167,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddVideoFlag**
-> FlagResource AddVideoFlag(ctx, videoId, optional)
+> FlagResource AddVideoFlag(videoId, optional)
 Add a new flag
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int64**| The video id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -196,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -206,14 +201,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddVideoRelationships**
-> VideoRelationshipResource AddVideoRelationships(ctx, videoId, optional)
+> VideoRelationshipResource AddVideoRelationships(videoId, optional)
 Adds one or more existing videos as related to this one
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int64**| The video id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -231,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -241,14 +235,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateVideoDisposition**
-> DispositionResource CreateVideoDisposition(ctx, videoId, optional)
+> DispositionResource CreateVideoDisposition(videoId, optional)
 Create a video disposition
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int32**| The video id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -266,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -276,14 +269,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteVideo**
-> DeleteVideo(ctx, id)
+> DeleteVideo(id)
 Deletes a video from the system if no resources are attached to it
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The video id | 
 
 ### Return type
@@ -292,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -302,14 +294,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteVideoComment**
-> DeleteVideoComment(ctx, videoId, id)
+> DeleteVideoComment(videoId, id)
 Delete a video comment
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int64**| The video id | 
   **id** | **int64**| The comment id | 
 
@@ -319,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -329,14 +320,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteVideoDisposition**
-> DeleteVideoDisposition(ctx, dispositionId)
+> DeleteVideoDisposition(dispositionId)
 Delete a video disposition
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **dispositionId** | **int64**| The disposition id | 
 
 ### Return type
@@ -345,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -355,14 +345,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteVideoFlag**
-> DeleteVideoFlag(ctx, videoId)
+> DeleteVideoFlag(videoId)
 Delete a flag
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int64**| The video id | 
 
 ### Return type
@@ -371,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -381,14 +370,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteVideoRelationship**
-> DeleteVideoRelationship(ctx, videoId, id)
+> DeleteVideoRelationship(videoId, id)
 Delete a video's relationship
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int64**| The video id | 
   **id** | **int64**| The relationship id | 
 
@@ -398,7 +386,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -408,14 +396,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserVideos**
-> PageResourceVideoResource GetUserVideos(ctx, userId, optional)
+> PageResourceVideoResource GetUserVideos(userId, optional)
 Get user videos
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The user id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -435,7 +422,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -445,14 +432,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetVideo**
-> VideoResource GetVideo(ctx, id)
+> VideoResource GetVideo(id)
 Loads a specific video details
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The video id | 
 
 ### Return type
@@ -461,7 +447,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -622,7 +608,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RemoveUserFromVideoWhitelist**
-> RemoveUserFromVideoWhitelist(ctx, videoId, id)
+> RemoveUserFromVideoWhitelist(videoId, id)
 Removes a user from a video's whitelist
 
 Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting.
@@ -631,7 +617,6 @@ Remove the user with the id given in the path from the whitelist of users that c
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int64**| The video id | 
   **id** | **int32**| The user id | 
 
@@ -641,7 +626,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -651,14 +636,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RemoveVideoContributor**
-> RemoveVideoContributor(ctx, videoId, id)
+> RemoveVideoContributor(videoId, id)
 Removes a contributor from a video
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int64**| The video id | 
   **id** | **int32**| The contributor id | 
 
@@ -668,7 +652,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -678,14 +662,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateVideo**
-> UpdateVideo(ctx, id, optional)
+> UpdateVideo(id, optional)
 Modifies a video's details
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The video id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -703,7 +686,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -713,14 +696,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateVideoComment**
-> UpdateVideoComment(ctx, videoId, id, optional)
+> UpdateVideoComment(videoId, id, optional)
 Update a video comment
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int64**| The video id | 
   **id** | **int64**| The comment id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -740,7 +722,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -750,14 +732,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateVideoRelationship**
-> UpdateVideoRelationship(ctx, videoId, relationshipId, optional)
+> UpdateVideoRelationship(videoId, relationshipId, optional)
 Update a video's relationship details
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int64**| The video id | 
   **relationshipId** | **int64**| The relationship id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -777,7 +758,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

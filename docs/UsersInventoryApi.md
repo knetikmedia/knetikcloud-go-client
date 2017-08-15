@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 
 # **AddItemToUserInventory**
-> InvoiceResource AddItemToUserInventory(ctx, id, optional)
+> InvoiceResource AddItemToUserInventory(id, optional)
 Adds an item to the user inventory
 
 The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time
@@ -37,7 +37,6 @@ The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skip
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int32**| The id of the user | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -55,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -65,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CheckUserEntitlementItem**
-> CheckUserEntitlementItem(ctx, userId, itemId, optional)
+> CheckUserEntitlementItem(userId, itemId, optional)
 Check for access to an item without consuming
 
 Useful for pre-check and accounts for all various buisness rules
@@ -74,7 +73,6 @@ Useful for pre-check and accounts for all various buisness rules
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **string**| The id of the user to check for or &#39;me&#39; for logged in user | 
   **itemId** | **int32**| The id of the item | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -94,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -104,14 +102,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateEntitlementItem**
-> EntitlementItem CreateEntitlementItem(ctx, optional)
+> EntitlementItem CreateEntitlementItem(optional)
 Create an entitlement item
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -128,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -138,7 +135,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateEntitlementTemplate**
-> ItemTemplateResource CreateEntitlementTemplate(ctx, optional)
+> ItemTemplateResource CreateEntitlementTemplate(optional)
 Create an entitlement template
 
 Entitlement templates define a type of entitlement and the properties they have
@@ -147,7 +144,6 @@ Entitlement templates define a type of entitlement and the properties they have
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -163,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -173,14 +169,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteEntitlementItem**
-> DeleteEntitlementItem(ctx, entitlementId)
+> DeleteEntitlementItem(entitlementId)
 Delete an entitlement item
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **entitlementId** | **int32**| The id of the entitlement | 
 
 ### Return type
@@ -189,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -199,7 +194,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteEntitlementTemplate**
-> DeleteEntitlementTemplate(ctx, id, optional)
+> DeleteEntitlementTemplate(id, optional)
 Delete an entitlement template
 
 If cascade = 'detach', it will force delete the template even if it's attached to other objects
@@ -208,7 +203,6 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the template | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -226,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -295,14 +289,13 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetEntitlementTemplate**
-> ItemTemplateResource GetEntitlementTemplate(ctx, id)
+> ItemTemplateResource GetEntitlementTemplate(id)
 Get a single entitlement template
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the template | 
 
 ### Return type
@@ -311,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -321,14 +314,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetEntitlementTemplates**
-> PageResourceItemTemplateResource GetEntitlementTemplates(ctx, optional)
+> PageResourceItemTemplateResource GetEntitlementTemplates(optional)
 List and search entitlement templates
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -346,7 +338,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -356,14 +348,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserInventories**
-> PageResourceUserInventoryResource GetUserInventories(ctx, id, optional)
+> PageResourceUserInventoryResource GetUserInventories(id, optional)
 List the user inventory entries for a given user
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int32**| The id of the user | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -388,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -398,14 +389,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserInventory**
-> UserInventoryResource GetUserInventory(ctx, userId, id)
+> UserInventoryResource GetUserInventory(userId, id)
 Get an inventory entry
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the inventory owner or &#39;me&#39; for the logged in user | 
   **id** | **int32**| The id of the user inventory | 
 
@@ -415,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -425,14 +415,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserInventoryLog**
-> PageResourceUserItemLogResource GetUserInventoryLog(ctx, userId, id, optional)
+> PageResourceUserItemLogResource GetUserInventoryLog(userId, id, optional)
 List the log entries for this inventory entry
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **string**| The id of the inventory owner or &#39;me&#39; for the logged in user | 
   **id** | **int32**| The id of the user inventory | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -453,7 +442,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -463,14 +452,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsersInventory**
-> PageResourceUserInventoryResource GetUsersInventory(ctx, optional)
+> PageResourceUserInventoryResource GetUsersInventory(optional)
 List the user inventory entries for all users
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -493,7 +481,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -503,14 +491,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GrantUserEntitlement**
-> GrantUserEntitlement(ctx, userId, grantRequest)
+> GrantUserEntitlement(userId, grantRequest)
 Grant an entitlement
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user to grant the entitlement to | 
   **grantRequest** | [**EntitlementGrantRequest**](EntitlementGrantRequest.md)| grantRequest | 
 
@@ -520,7 +507,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -530,14 +517,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateEntitlementItem**
-> UpdateEntitlementItem(ctx, entitlementId, optional)
+> UpdateEntitlementItem(entitlementId, optional)
 Update an entitlement item
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **entitlementId** | **int32**| The id of the entitlement | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -556,7 +542,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -566,14 +552,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateEntitlementTemplate**
-> ItemTemplateResource UpdateEntitlementTemplate(ctx, id, optional)
+> ItemTemplateResource UpdateEntitlementTemplate(id, optional)
 Update an entitlement template
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the template | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -591,7 +576,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -601,14 +586,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUserInventoryBehaviorData**
-> UpdateUserInventoryBehaviorData(ctx, userId, id, optional)
+> UpdateUserInventoryBehaviorData(userId, id, optional)
 Set the behavior data for an inventory entry
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
   **id** | **int32**| The id of the user inventory | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -628,7 +612,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -638,7 +622,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUserInventoryExpires**
-> UpdateUserInventoryExpires(ctx, userId, id, optional)
+> UpdateUserInventoryExpires(userId, id, optional)
 Set the expiration date
 
 Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill)
@@ -647,7 +631,6 @@ Will change the current grace period for a subscription but not the bill date (p
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| user_id | 
   **id** | **int32**| The id of the user inventory | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -667,7 +650,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -677,14 +660,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUserInventoryStatus**
-> UpdateUserInventoryStatus(ctx, userId, id, optional)
+> UpdateUserInventoryStatus(userId, id, optional)
 Set the status for an inventory entry
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
   **id** | **int32**| The id of the user inventory | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -704,7 +686,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -714,14 +696,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UseUserEntitlementItem**
-> UseUserEntitlementItem(ctx, userId, itemId, optional)
+> UseUserEntitlementItem(userId, itemId, optional)
 Use an item
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **string**| The id of the user to check for or &#39;me&#39; for logged in user | 
   **itemId** | **int32**| The id of the item | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -742,7 +723,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

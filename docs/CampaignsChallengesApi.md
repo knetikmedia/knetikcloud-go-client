@@ -30,7 +30,7 @@ Method | HTTP request | Description
 
 
 # **CreateChallenge**
-> ChallengeResource CreateChallenge(ctx, optional)
+> ChallengeResource CreateChallenge(optional)
 Create a challenge
 
 Challenges do not run on their own.  They must be added to a campaign before events will spawn.
@@ -39,7 +39,6 @@ Challenges do not run on their own.  They must be added to a campaign before eve
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -55,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -65,14 +64,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateChallengeActivity**
-> ChallengeActivityResource CreateChallengeActivity(ctx, challengeId, optional)
+> ChallengeActivityResource CreateChallengeActivity(challengeId, optional)
 Create a challenge activity
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **challengeId** | **int64**| The challenge id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -91,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -101,7 +99,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateChallengeActivityTemplate**
-> TemplateResource CreateChallengeActivityTemplate(ctx, optional)
+> TemplateResource CreateChallengeActivityTemplate(optional)
 Create a challenge activity template
 
 Challenge Activity Templates define a type of challenge activity and the properties they have
@@ -110,7 +108,6 @@ Challenge Activity Templates define a type of challenge activity and the propert
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -126,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -136,7 +133,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateChallengeTemplate**
-> TemplateResource CreateChallengeTemplate(ctx, optional)
+> TemplateResource CreateChallengeTemplate(optional)
 Create a challenge template
 
 Challenge Templates define a type of challenge and the properties they have
@@ -145,7 +142,6 @@ Challenge Templates define a type of challenge and the properties they have
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -161,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -171,14 +167,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteChallenge**
-> DeleteChallenge(ctx, id)
+> DeleteChallenge(id)
 Delete a challenge
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The challenge id | 
 
 ### Return type
@@ -187,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -197,7 +192,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteChallengeActivity**
-> DeleteChallengeActivity(ctx, id, challengeId)
+> DeleteChallengeActivity(id, challengeId)
 Delete a challenge activity
 
 A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
@@ -206,7 +201,6 @@ A challenge can have multiple instances of the same activity and thus the id use
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The challenge_activity id | 
   **challengeId** | **int64**| The challenge id | 
 
@@ -216,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -226,7 +220,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteChallengeActivityTemplate**
-> DeleteChallengeActivityTemplate(ctx, id, optional)
+> DeleteChallengeActivityTemplate(id, optional)
 Delete a challenge activity template
 
 If cascade = 'detach', it will force delete the template even if it's attached to other objects
@@ -235,7 +229,6 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the template | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -253,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -263,14 +256,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteChallengeEvent**
-> DeleteChallengeEvent(ctx, id)
+> DeleteChallengeEvent(id)
 Delete a challenge event
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The challenge event id | 
 
 ### Return type
@@ -279,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -289,7 +281,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteChallengeTemplate**
-> DeleteChallengeTemplate(ctx, id, optional)
+> DeleteChallengeTemplate(id, optional)
 Delete a challenge template
 
 If cascade = 'detach', it will force delete the template even if it's attached to other objects
@@ -298,7 +290,6 @@ If cascade = 'detach', it will force delete the template even if it's attached t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the template | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -316,7 +307,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -415,14 +406,13 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallengeActivityTemplate**
-> TemplateResource GetChallengeActivityTemplate(ctx, id)
+> TemplateResource GetChallengeActivityTemplate(id)
 Get a single challenge activity template
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the template | 
 
 ### Return type
@@ -431,7 +421,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -441,14 +431,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallengeActivityTemplates**
-> PageResourceTemplateResource GetChallengeActivityTemplates(ctx, optional)
+> PageResourceTemplateResource GetChallengeActivityTemplates(optional)
 List and search challenge activity templates
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -466,7 +455,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -539,14 +528,13 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallengeTemplate**
-> TemplateResource GetChallengeTemplate(ctx, id)
+> TemplateResource GetChallengeTemplate(id)
 Get a single challenge template
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the template | 
 
 ### Return type
@@ -555,7 +543,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -565,14 +553,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallengeTemplates**
-> PageResourceTemplateResource GetChallengeTemplates(ctx, optional)
+> PageResourceTemplateResource GetChallengeTemplates(optional)
 List and search challenge templates
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -590,7 +577,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -638,7 +625,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateChallenge**
-> ChallengeResource UpdateChallenge(ctx, id, optional)
+> ChallengeResource UpdateChallenge(id, optional)
 Update a challenge
 
 If the challenge is a copy, changes will propagate to all the related challenges
@@ -647,7 +634,6 @@ If the challenge is a copy, changes will propagate to all the related challenges
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The challenge id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -665,7 +651,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -675,7 +661,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateChallengeActivity**
-> ChallengeActivityResource UpdateChallengeActivity(ctx, id, challengeId, optional)
+> ChallengeActivityResource UpdateChallengeActivity(id, challengeId, optional)
 Update a challenge activity
 
 A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
@@ -684,7 +670,6 @@ A challenge can have multiple instances of the same activity and thus the id use
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The challenge_activity id | 
   **challengeId** | **int64**| The challenge id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -704,7 +689,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -714,14 +699,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateChallengeActivityTemplate**
-> TemplateResource UpdateChallengeActivityTemplate(ctx, id, optional)
+> TemplateResource UpdateChallengeActivityTemplate(id, optional)
 Update an challenge activity template
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the template | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -739,7 +723,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -749,14 +733,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateChallengeTemplate**
-> TemplateResource UpdateChallengeTemplate(ctx, id, optional)
+> TemplateResource UpdateChallengeTemplate(id, optional)
 Update a challenge template
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the template | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -774,7 +757,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

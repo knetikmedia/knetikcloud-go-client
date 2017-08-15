@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **GetItemRevenue**
-> RevenueReportResource GetItemRevenue(ctx, currencyCode, optional)
+> RevenueReportResource GetItemRevenue(currencyCode, optional)
 Get item revenue info
 
 Get basic info about revenue from sales of items and bundles (not subscriptions, shipping, etc), summed up within a time range
@@ -21,7 +21,6 @@ Get basic info about revenue from sales of items and bundles (not subscriptions,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **currencyCode** | **string**| The code for a currency to get sales data for | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -40,7 +39,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -50,7 +49,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRefundRevenue**
-> RevenueReportResource GetRefundRevenue(ctx, currencyCode, optional)
+> RevenueReportResource GetRefundRevenue(currencyCode, optional)
 Get refund revenue info
 
 Get basic info about revenue loss from refunds (for all item types), summed up within a time range.
@@ -59,7 +58,6 @@ Get basic info about revenue loss from refunds (for all item types), summed up w
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **currencyCode** | **string**| The code for a currency to get refund data for | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -78,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -88,7 +86,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRevenueByCountry**
-> PageResourceRevenueCountryReportResource GetRevenueByCountry(ctx, currencyCode, optional)
+> PageResourceRevenueCountryReportResource GetRevenueByCountry(currencyCode, optional)
 Get revenue info by country
 
 Get basic info about revenue from sales of all types, summed up within a time range and split out by country. Sorted for largest revenue at the top
@@ -97,7 +95,6 @@ Get basic info about revenue from sales of all types, summed up within a time ra
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **currencyCode** | **string**| The code for a currency to get sales data for | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -118,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -128,7 +125,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetRevenueByItem**
-> PageResourceRevenueProductReportResource GetRevenueByItem(ctx, currencyCode, optional)
+> PageResourceRevenueProductReportResource GetRevenueByItem(currencyCode, optional)
 Get revenue info by item
 
 Get basic info about revenue from sales of all types, summed up within a time range and split out by specific item. Sorted for largest revenue at the top
@@ -137,7 +134,6 @@ Get basic info about revenue from sales of all types, summed up within a time ra
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **currencyCode** | **string**| The code for a currency to get sales data for | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -158,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -168,7 +164,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetSubscriptionRevenue**
-> RevenueReportResource GetSubscriptionRevenue(ctx, currencyCode, optional)
+> RevenueReportResource GetSubscriptionRevenue(currencyCode, optional)
 Get subscription revenue info
 
 Get basic info about revenue from sales of new subscriptions as well as recurring payemnts, summed up within a time range
@@ -177,7 +173,6 @@ Get basic info about revenue from sales of new subscriptions as well as recurrin
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **currencyCode** | **string**| The code for a currency to get sales data for | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -196,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

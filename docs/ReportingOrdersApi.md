@@ -8,14 +8,13 @@ Method | HTTP request | Description
 
 
 # **GetInvoiceReports**
-> PageResourceAggregateInvoiceReportResource GetInvoiceReports(ctx, currencyCode, optional)
+> PageResourceAggregateInvoiceReportResource GetInvoiceReports(currencyCode, optional)
 Retrieve invoice counts aggregated by time ranges
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **currencyCode** | **string**| The code for a currency to get sales data for | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -39,7 +38,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

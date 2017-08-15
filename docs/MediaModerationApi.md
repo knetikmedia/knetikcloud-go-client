@@ -10,14 +10,13 @@ Method | HTTP request | Description
 
 
 # **GetModerationReport**
-> FlagReportResource GetModerationReport(ctx, id)
+> FlagReportResource GetModerationReport(id)
 Get a flag report
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The flag report id | 
 
 ### Return type
@@ -26,7 +25,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -36,7 +35,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetModerationReports**
-> PageResourceFlagReportResource GetModerationReports(ctx, optional)
+> PageResourceFlagReportResource GetModerationReports(optional)
 Returns a page of flag reports
 
 Context can be either a free-form string or a pre-defined context name
@@ -45,7 +44,6 @@ Context can be either a free-form string or a pre-defined context name
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -64,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,7 +72,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateModerationReport**
-> UpdateModerationReport(ctx, id, optional)
+> UpdateModerationReport(id, optional)
 Update a flag report
 
 Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason.
@@ -83,7 +81,6 @@ Lets you set the resolution of a report. Resolution types is {banned,ignore} in 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The flag report id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -101,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

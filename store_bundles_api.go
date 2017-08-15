@@ -29,12 +29,12 @@ type StoreBundlesApiService service
 
 /* StoreBundlesApiService Create a bundle item
  The SKU for the bundle itself must be unique and there can only be one SKU.  Extra notes for price_override:  The price of all the items (multiplied by the quantity) must equal the price of the bundle.  With individual prices set, items will be processed individually and can be refunded as such.  However, if all prices are set to null, the price of the bundle will be used and will be treated as one item.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "bundleItem" (BundleItem) The bundle item object
  @return BundleItem*/
-func (a *StoreBundlesApiService) CreateBundleItem(ctx context.Context, localVarOptionals map[string]interface{}) (BundleItem,  *http.Response, error) {
+func (a *StoreBundlesApiService) CreateBundleItem(localVarOptionals map[string]interface{}) (BundleItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -80,7 +80,7 @@ func (a *StoreBundlesApiService) CreateBundleItem(ctx context.Context, localVarO
 	if localVarTempParam, localVarOk := localVarOptionals["bundleItem"].(BundleItem); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -104,11 +104,11 @@ func (a *StoreBundlesApiService) CreateBundleItem(ctx context.Context, localVarO
 
 /* StoreBundlesApiService Create a bundle template
  Bundle Templates define a type of bundle and the properties they have.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "bundleTemplateResource" (ItemTemplateResource) The new bundle template
  @return ItemTemplateResource*/
-func (a *StoreBundlesApiService) CreateBundleTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *StoreBundlesApiService) CreateBundleTemplate(localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -148,7 +148,7 @@ func (a *StoreBundlesApiService) CreateBundleTemplate(ctx context.Context, local
 	if localVarTempParam, localVarOk := localVarOptionals["bundleTemplateResource"].(ItemTemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -171,10 +171,10 @@ func (a *StoreBundlesApiService) CreateBundleTemplate(ctx context.Context, local
 }
 
 /* StoreBundlesApiService Delete a bundle item
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the bundle
  @return */
-func (a *StoreBundlesApiService) DeleteBundleItem(ctx context.Context, id int32) ( *http.Response, error) {
+func (a *StoreBundlesApiService) DeleteBundleItem(id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -210,7 +210,7 @@ func (a *StoreBundlesApiService) DeleteBundleItem(ctx context.Context, id int32)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -228,12 +228,12 @@ func (a *StoreBundlesApiService) DeleteBundleItem(ctx context.Context, id int32)
 }
 
 /* StoreBundlesApiService Delete a bundle template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach
  @return */
-func (a *StoreBundlesApiService) DeleteBundleTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreBundlesApiService) DeleteBundleTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -275,7 +275,7 @@ func (a *StoreBundlesApiService) DeleteBundleTemplate(ctx context.Context, id st
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -503,13 +503,13 @@ func (a *StoreBundlesApiService) GetBundleTemplates(localVarOptionals map[string
 }
 
 /* StoreBundlesApiService Update a bundle item
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the bundle
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "bundleItem" (BundleItem) The bundle item object
  @return BundleItem*/
-func (a *StoreBundlesApiService) UpdateBundleItem(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (BundleItem,  *http.Response, error) {
+func (a *StoreBundlesApiService) UpdateBundleItem(id int32, localVarOptionals map[string]interface{}) (BundleItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -556,7 +556,7 @@ func (a *StoreBundlesApiService) UpdateBundleItem(ctx context.Context, id int32,
 	if localVarTempParam, localVarOk := localVarOptionals["bundleItem"].(BundleItem); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -579,12 +579,12 @@ func (a *StoreBundlesApiService) UpdateBundleItem(ctx context.Context, id int32,
 }
 
 /* StoreBundlesApiService Update a bundle template
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "bundleTemplateResource" (ItemTemplateResource) The bundle template resource object
  @return ItemTemplateResource*/
-func (a *StoreBundlesApiService) UpdateBundleTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *StoreBundlesApiService) UpdateBundleTemplate(id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -625,7 +625,7 @@ func (a *StoreBundlesApiService) UpdateBundleTemplate(ctx context.Context, id st
 	if localVarTempParam, localVarOk := localVarOptionals["bundleTemplateResource"].(ItemTemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

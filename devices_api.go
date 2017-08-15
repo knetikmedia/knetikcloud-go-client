@@ -28,11 +28,11 @@ type DevicesApiService service
 
 
 /* DevicesApiService Add device users
- * @param ctx context.Context Authentication Context 
+
  @param userResources userResources
  @param id id
  @return DeviceResource*/
-func (a *DevicesApiService) AddDeviceUsers(ctx context.Context, userResources []SimpleUserResource, id int32) (DeviceResource,  *http.Response, error) {
+func (a *DevicesApiService) AddDeviceUsers(userResources []SimpleUserResource, id int32) (DeviceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -71,7 +71,7 @@ func (a *DevicesApiService) AddDeviceUsers(ctx context.Context, userResources []
 	}
 	// body params
 	localVarPostBody = &userResources
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -94,10 +94,10 @@ func (a *DevicesApiService) AddDeviceUsers(ctx context.Context, userResources []
 }
 
 /* DevicesApiService Create a device
- * @param ctx context.Context Authentication Context 
+
  @param device device
  @return DeviceResource*/
-func (a *DevicesApiService) CreateDevice(ctx context.Context, device DeviceResource) (DeviceResource,  *http.Response, error) {
+func (a *DevicesApiService) CreateDevice(device DeviceResource) (DeviceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -135,7 +135,7 @@ func (a *DevicesApiService) CreateDevice(ctx context.Context, device DeviceResou
 	}
 	// body params
 	localVarPostBody = &device
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -158,10 +158,10 @@ func (a *DevicesApiService) CreateDevice(ctx context.Context, device DeviceResou
 }
 
 /* DevicesApiService Delete a device
- * @param ctx context.Context Authentication Context 
+
  @param id id
  @return */
-func (a *DevicesApiService) DeleteDevice(ctx context.Context, id int32) ( *http.Response, error) {
+func (a *DevicesApiService) DeleteDevice(id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -197,7 +197,7 @@ func (a *DevicesApiService) DeleteDevice(ctx context.Context, id int32) ( *http.
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -215,11 +215,11 @@ func (a *DevicesApiService) DeleteDevice(ctx context.Context, id int32) ( *http.
 }
 
 /* DevicesApiService Delete a device user
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the device
  @param userId The user id of the device user
  @return */
-func (a *DevicesApiService) DeleteDeviceUser(ctx context.Context, id int32, userId int32) ( *http.Response, error) {
+func (a *DevicesApiService) DeleteDeviceUser(id int32, userId int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -256,7 +256,7 @@ func (a *DevicesApiService) DeleteDeviceUser(ctx context.Context, id int32, user
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -274,12 +274,12 @@ func (a *DevicesApiService) DeleteDeviceUser(ctx context.Context, id int32, user
 }
 
 /* DevicesApiService Delete all device users
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the device
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterId" (string) Filter for device users to delete with a user id in a given comma separated list of ids
  @return */
-func (a *DevicesApiService) DeleteDeviceUsers(ctx context.Context, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *DevicesApiService) DeleteDeviceUsers(id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -321,7 +321,7 @@ func (a *DevicesApiService) DeleteDeviceUsers(ctx context.Context, id int32, loc
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -339,10 +339,10 @@ func (a *DevicesApiService) DeleteDeviceUsers(ctx context.Context, id int32, loc
 }
 
 /* DevicesApiService Get a single device
- * @param ctx context.Context Authentication Context 
+
  @param id id
  @return DeviceResource*/
-func (a *DevicesApiService) GetDevice(ctx context.Context, id int32) (DeviceResource,  *http.Response, error) {
+func (a *DevicesApiService) GetDevice(id int32) (DeviceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -379,7 +379,7 @@ func (a *DevicesApiService) GetDevice(ctx context.Context, id int32) (DeviceReso
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -403,7 +403,7 @@ func (a *DevicesApiService) GetDevice(ctx context.Context, id int32) (DeviceReso
 
 /* DevicesApiService List and search devices
  Get a list of devices with optional filtering
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterMake" (string) Filter for devices with specified make
      @param "filterModel" (string) Filter for devices with specified model
@@ -411,7 +411,7 @@ func (a *DevicesApiService) GetDevice(ctx context.Context, id int32) (DeviceReso
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceDeviceResource*/
-func (a *DevicesApiService) GetDevices(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceDeviceResource,  *http.Response, error) {
+func (a *DevicesApiService) GetDevices(localVarOptionals map[string]interface{}) (PageResourceDeviceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -477,7 +477,7 @@ func (a *DevicesApiService) GetDevices(ctx context.Context, localVarOptionals ma
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -500,11 +500,11 @@ func (a *DevicesApiService) GetDevices(ctx context.Context, localVarOptionals ma
 }
 
 /* DevicesApiService Update a device
- * @param ctx context.Context Authentication Context 
+
  @param device device
  @param id id
  @return DeviceResource*/
-func (a *DevicesApiService) UpdateDevice(ctx context.Context, device DeviceResource, id int32) (DeviceResource,  *http.Response, error) {
+func (a *DevicesApiService) UpdateDevice(device DeviceResource, id int32) (DeviceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -543,7 +543,7 @@ func (a *DevicesApiService) UpdateDevice(ctx context.Context, device DeviceResou
 	}
 	// body params
 	localVarPostBody = &device
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

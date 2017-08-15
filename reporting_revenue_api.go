@@ -29,13 +29,13 @@ type ReportingRevenueApiService service
 
 /* ReportingRevenueApiService Get item revenue info
  Get basic info about revenue from sales of items and bundles (not subscriptions, shipping, etc), summed up within a time range
- * @param ctx context.Context Authentication Context 
+
  @param currencyCode The code for a currency to get sales data for
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "startDate" (int64) The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
      @param "endDate" (int64) The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
  @return RevenueReportResource*/
-func (a *ReportingRevenueApiService) GetItemRevenue(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (RevenueReportResource,  *http.Response, error) {
+func (a *ReportingRevenueApiService) GetItemRevenue(currencyCode string, localVarOptionals map[string]interface{}) (RevenueReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -84,7 +84,7 @@ func (a *ReportingRevenueApiService) GetItemRevenue(ctx context.Context, currenc
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -108,13 +108,13 @@ func (a *ReportingRevenueApiService) GetItemRevenue(ctx context.Context, currenc
 
 /* ReportingRevenueApiService Get refund revenue info
  Get basic info about revenue loss from refunds (for all item types), summed up within a time range.
- * @param ctx context.Context Authentication Context 
+
  @param currencyCode The code for a currency to get refund data for
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "startDate" (int64) The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
      @param "endDate" (int64) The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
  @return RevenueReportResource*/
-func (a *ReportingRevenueApiService) GetRefundRevenue(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (RevenueReportResource,  *http.Response, error) {
+func (a *ReportingRevenueApiService) GetRefundRevenue(currencyCode string, localVarOptionals map[string]interface{}) (RevenueReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -163,7 +163,7 @@ func (a *ReportingRevenueApiService) GetRefundRevenue(ctx context.Context, curre
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -187,7 +187,7 @@ func (a *ReportingRevenueApiService) GetRefundRevenue(ctx context.Context, curre
 
 /* ReportingRevenueApiService Get revenue info by country
  Get basic info about revenue from sales of all types, summed up within a time range and split out by country. Sorted for largest revenue at the top
- * @param ctx context.Context Authentication Context 
+
  @param currencyCode The code for a currency to get sales data for
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "startDate" (int64) The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
@@ -195,7 +195,7 @@ func (a *ReportingRevenueApiService) GetRefundRevenue(ctx context.Context, curre
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceRevenueCountryReportResource*/
-func (a *ReportingRevenueApiService) GetRevenueByCountry(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceRevenueCountryReportResource,  *http.Response, error) {
+func (a *ReportingRevenueApiService) GetRevenueByCountry(currencyCode string, localVarOptionals map[string]interface{}) (PageResourceRevenueCountryReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -256,7 +256,7 @@ func (a *ReportingRevenueApiService) GetRevenueByCountry(ctx context.Context, cu
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -280,7 +280,7 @@ func (a *ReportingRevenueApiService) GetRevenueByCountry(ctx context.Context, cu
 
 /* ReportingRevenueApiService Get revenue info by item
  Get basic info about revenue from sales of all types, summed up within a time range and split out by specific item. Sorted for largest revenue at the top
- * @param ctx context.Context Authentication Context 
+
  @param currencyCode The code for a currency to get sales data for
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "startDate" (int64) The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
@@ -288,7 +288,7 @@ func (a *ReportingRevenueApiService) GetRevenueByCountry(ctx context.Context, cu
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceRevenueProductReportResource*/
-func (a *ReportingRevenueApiService) GetRevenueByItem(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceRevenueProductReportResource,  *http.Response, error) {
+func (a *ReportingRevenueApiService) GetRevenueByItem(currencyCode string, localVarOptionals map[string]interface{}) (PageResourceRevenueProductReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -349,7 +349,7 @@ func (a *ReportingRevenueApiService) GetRevenueByItem(ctx context.Context, curre
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -373,13 +373,13 @@ func (a *ReportingRevenueApiService) GetRevenueByItem(ctx context.Context, curre
 
 /* ReportingRevenueApiService Get subscription revenue info
  Get basic info about revenue from sales of new subscriptions as well as recurring payemnts, summed up within a time range
- * @param ctx context.Context Authentication Context 
+
  @param currencyCode The code for a currency to get sales data for
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "startDate" (int64) The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
      @param "endDate" (int64) The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
  @return RevenueReportResource*/
-func (a *ReportingRevenueApiService) GetSubscriptionRevenue(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (RevenueReportResource,  *http.Response, error) {
+func (a *ReportingRevenueApiService) GetSubscriptionRevenue(currencyCode string, localVarOptionals map[string]interface{}) (RevenueReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -428,7 +428,7 @@ func (a *ReportingRevenueApiService) GetSubscriptionRevenue(ctx context.Context,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

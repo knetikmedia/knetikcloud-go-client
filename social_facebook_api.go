@@ -27,11 +27,11 @@ type SocialFacebookApiService service
 
 /* SocialFacebookApiService Link facebook account
  Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "facebookToken" (FacebookToken) The token from facebook
  @return */
-func (a *SocialFacebookApiService) LinkAccounts(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *SocialFacebookApiService) LinkAccounts(localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -70,7 +70,7 @@ func (a *SocialFacebookApiService) LinkAccounts(ctx context.Context, localVarOpt
 	if localVarTempParam, localVarOk := localVarOptionals["facebookToken"].(FacebookToken); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

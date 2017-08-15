@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **GetChallengeEventLeaderboard**
-> PageResourceChallengeEventParticipantResource GetChallengeEventLeaderboard(ctx, optional)
+> PageResourceChallengeEventParticipantResource GetChallengeEventLeaderboard(optional)
 Retrieve a challenge event leaderboard details
 
 Lists all leaderboard entries with additional user details
@@ -18,7 +18,6 @@ Lists all leaderboard entries with additional user details
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -37,7 +36,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -47,7 +46,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallengeEventParticipants**
-> PageResourceChallengeEventParticipantResource GetChallengeEventParticipants(ctx, optional)
+> PageResourceChallengeEventParticipantResource GetChallengeEventParticipants(optional)
 Retrieve a challenge event participant details
 
 Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation
@@ -56,7 +55,6 @@ Lists all user submitted scores sorted by value, including those that do not ape
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -75,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

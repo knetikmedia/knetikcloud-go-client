@@ -28,11 +28,11 @@ type FulfillmentApiService service
 
 
 /* FulfillmentApiService Create a fulfillment type
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "type_" (FulfillmentType) The fulfillment type
  @return FulfillmentType*/
-func (a *FulfillmentApiService) CreateFulfillmentType(ctx context.Context, localVarOptionals map[string]interface{}) (FulfillmentType,  *http.Response, error) {
+func (a *FulfillmentApiService) CreateFulfillmentType(localVarOptionals map[string]interface{}) (FulfillmentType,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *FulfillmentApiService) CreateFulfillmentType(ctx context.Context, local
 	if localVarTempParam, localVarOk := localVarOptionals["type_"].(FulfillmentType); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,10 +95,10 @@ func (a *FulfillmentApiService) CreateFulfillmentType(ctx context.Context, local
 }
 
 /* FulfillmentApiService Delete a fulfillment type
- * @param ctx context.Context Authentication Context 
+
  @param id The id
  @return */
-func (a *FulfillmentApiService) DeleteFulfillmentType(ctx context.Context, id int32) ( *http.Response, error) {
+func (a *FulfillmentApiService) DeleteFulfillmentType(id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -134,7 +134,7 @@ func (a *FulfillmentApiService) DeleteFulfillmentType(ctx context.Context, id in
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -298,12 +298,12 @@ func (a *FulfillmentApiService) GetFulfillmentTypes(localVarOptionals map[string
 }
 
 /* FulfillmentApiService Update a fulfillment type
- * @param ctx context.Context Authentication Context 
+
  @param id The id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "fulfillmentType" (FulfillmentType) The fulfillment type
  @return */
-func (a *FulfillmentApiService) UpdateFulfillmentType(ctx context.Context, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *FulfillmentApiService) UpdateFulfillmentType(id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -343,7 +343,7 @@ func (a *FulfillmentApiService) UpdateFulfillmentType(ctx context.Context, id in
 	if localVarTempParam, localVarOk := localVarOptionals["fulfillmentType"].(FulfillmentType); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

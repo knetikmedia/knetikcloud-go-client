@@ -36,7 +36,8 @@ Class | Method | HTTP request | Description
 *ActivitiesApi* | [**UpdateActivity**](docs/ActivitiesApi.md#updateactivity) | **Put** /activities/{id} | Update an activity
 *ActivitiesApi* | [**UpdateActivityOccurrence**](docs/ActivitiesApi.md#updateactivityoccurrence) | **Put** /activity-occurrences/{activity_occurrence_id}/status | Updated the status of an activity occurrence
 *ActivitiesApi* | [**UpdateActivityTemplate**](docs/ActivitiesApi.md#updateactivitytemplate) | **Put** /activities/templates/{id} | Update an activity template
-*AmazonWebServicesS3Api* | [**GetSignedS3URL**](docs/AmazonWebServicesS3Api.md#getsigneds3url) | **Get** /amazon/s3/signedposturl | Get a signed S3 URL
+*AmazonWebServicesS3Api* | [**GetDownloadURL**](docs/AmazonWebServicesS3Api.md#getdownloadurl) | **Get** /amazon/s3/downloadurl | Get a temporary signed S3 URL for download
+*AmazonWebServicesS3Api* | [**GetSignedS3URL**](docs/AmazonWebServicesS3Api.md#getsigneds3url) | **Get** /amazon/s3/signedposturl | Get a signed S3 URL for upload
 *AuthClientsApi* | [**CreateClient**](docs/AuthClientsApi.md#createclient) | **Post** /auth/clients | Create a new client
 *AuthClientsApi* | [**DeleteClient**](docs/AuthClientsApi.md#deleteclient) | **Delete** /auth/clients/{client_key} | Delete a client
 *AuthClientsApi* | [**GetClient**](docs/AuthClientsApi.md#getclient) | **Get** /auth/clients/{client_key} | Get a single client
@@ -922,12 +923,35 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
-## OAuth2
+## oauth2_client_credentials_grant
 - **Type**: OAuth
-- **Flow**: implicit
-- **Authorization URL**: /oauth/token
+- **Flow**: application
+- **Authorization URL**: 
 - **Scopes**: 
- - **global**: global
+ - **read write**: read write
+
+Example
+```
+	auth := context.WithValue(context.TODO(), sw.ContextAccessToken, "ACCESSTOKENSTRING")
+    r, err := client.Service.Operation(auth, args)
+```
+
+Or via OAuth2 module to automaticly refresh tokens and perform user authentication.
+```
+	import 	"golang.org/x/oauth2"
+
+    / .. Perform OAuth2 round trip request and obtain a token .. //
+
+    tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
+	auth := context.WithValue(oauth2.NoContext, sw.ContextOAuth2, tokenSource)
+    r, err := client.Service.Operation(auth, args)
+```
+## oauth2_password_grant
+- **Type**: OAuth
+- **Flow**: password
+- **Authorization URL**: 
+- **Scopes**: 
+ - **read write**: read write
 
 Example
 ```

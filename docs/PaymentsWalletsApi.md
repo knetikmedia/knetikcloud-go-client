@@ -14,14 +14,13 @@ Method | HTTP request | Description
 
 
 # **GetUserWallet**
-> SimpleWallet GetUserWallet(ctx, userId, currencyCode)
+> SimpleWallet GetUserWallet(userId, currencyCode)
 Returns the user's wallet for the given currency code
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The ID of the user for whom wallet is being retrieved | 
   **currencyCode** | **string**| Currency code of the user&#39;s wallet | 
 
@@ -31,7 +30,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -41,14 +40,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserWalletTransactions**
-> PageResourceWalletTransactionResource GetUserWalletTransactions(ctx, userId, currencyCode, optional)
+> PageResourceWalletTransactionResource GetUserWalletTransactions(userId, currencyCode, optional)
 Retrieve a user's wallet transactions
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The ID of the user for whom wallet transactions are being retrieved | 
   **currencyCode** | **string**| Currency code of the user&#39;s wallet | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -74,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -84,14 +82,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUserWallets**
-> []SimpleWallet GetUserWallets(ctx, userId)
+> []SimpleWallet GetUserWallets(userId)
 List all of a user's wallets
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The ID of the user for whom wallets are being retrieved | 
 
 ### Return type
@@ -100,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -110,7 +107,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetWalletBalances**
-> PageResourceWalletTotalResponse GetWalletBalances(ctx, )
+> PageResourceWalletTotalResponse GetWalletBalances()
 Retrieves a summation of wallet balances by currency code
 
 ### Required Parameters
@@ -122,7 +119,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -132,14 +129,13 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetWalletTransactions**
-> PageResourceWalletTransactionResource GetWalletTransactions(ctx, optional)
+> PageResourceWalletTransactionResource GetWalletTransactions(optional)
 Retrieve wallet transactions across the system
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -165,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -175,14 +171,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetWallets**
-> PageResourceSimpleWallet GetWallets(ctx, optional)
+> PageResourceSimpleWallet GetWallets(optional)
 Retrieve a list of wallets across the system
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -200,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -210,14 +205,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateWalletBalance**
-> WalletTransactionResource UpdateWalletBalance(ctx, userId, currencyCode, optional)
+> WalletTransactionResource UpdateWalletBalance(userId, currencyCode, optional)
 Updates the balance for a user's wallet
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The ID of the user for whom wallet is being modified | 
   **currencyCode** | **string**| Currency code of the user&#39;s wallet | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -237,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

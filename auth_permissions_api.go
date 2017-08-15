@@ -28,11 +28,11 @@ type AuthPermissionsApiService service
 
 
 /* AuthPermissionsApiService Create a new permission
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "permissionResource" (PermissionResource) The permission resource object
  @return PermissionResource*/
-func (a *AuthPermissionsApiService) CreatePermission(ctx context.Context, localVarOptionals map[string]interface{}) (PermissionResource,  *http.Response, error) {
+func (a *AuthPermissionsApiService) CreatePermission(localVarOptionals map[string]interface{}) (PermissionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *AuthPermissionsApiService) CreatePermission(ctx context.Context, localV
 	if localVarTempParam, localVarOk := localVarOptionals["permissionResource"].(PermissionResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,12 +95,12 @@ func (a *AuthPermissionsApiService) CreatePermission(ctx context.Context, localV
 }
 
 /* AuthPermissionsApiService Delete a permission
- * @param ctx context.Context Authentication Context 
+
  @param permission The permission value
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "force" (bool) If true, removes permission assigned to roles
  @return */
-func (a *AuthPermissionsApiService) DeletePermission(ctx context.Context, permission string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *AuthPermissionsApiService) DeletePermission(permission string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -142,7 +142,7 @@ func (a *AuthPermissionsApiService) DeletePermission(ctx context.Context, permis
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -160,10 +160,10 @@ func (a *AuthPermissionsApiService) DeletePermission(ctx context.Context, permis
 }
 
 /* AuthPermissionsApiService Get a single permission
- * @param ctx context.Context Authentication Context 
+
  @param permission The permission value
  @return PermissionResource*/
-func (a *AuthPermissionsApiService) GetPermission(ctx context.Context, permission string) (PermissionResource,  *http.Response, error) {
+func (a *AuthPermissionsApiService) GetPermission(permission string) (PermissionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -200,7 +200,7 @@ func (a *AuthPermissionsApiService) GetPermission(ctx context.Context, permissio
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -223,13 +223,13 @@ func (a *AuthPermissionsApiService) GetPermission(ctx context.Context, permissio
 }
 
 /* AuthPermissionsApiService List and search permissions
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourcePermissionResource*/
-func (a *AuthPermissionsApiService) GetPermissions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourcePermissionResource,  *http.Response, error) {
+func (a *AuthPermissionsApiService) GetPermissions(localVarOptionals map[string]interface{}) (PageResourcePermissionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -283,7 +283,7 @@ func (a *AuthPermissionsApiService) GetPermissions(ctx context.Context, localVar
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -306,12 +306,12 @@ func (a *AuthPermissionsApiService) GetPermissions(ctx context.Context, localVar
 }
 
 /* AuthPermissionsApiService Update a permission
- * @param ctx context.Context Authentication Context 
+
  @param permission The permission value
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "permissionResource" (PermissionResource) The permission resource object
  @return PermissionResource*/
-func (a *AuthPermissionsApiService) UpdatePermission(ctx context.Context, permission string, localVarOptionals map[string]interface{}) (PermissionResource,  *http.Response, error) {
+func (a *AuthPermissionsApiService) UpdatePermission(permission string, localVarOptionals map[string]interface{}) (PermissionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -352,7 +352,7 @@ func (a *AuthPermissionsApiService) UpdatePermission(ctx context.Context, permis
 	if localVarTempParam, localVarOk := localVarOptionals["permissionResource"].(PermissionResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

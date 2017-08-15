@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **CreateStripePaymentMethod**
-> PaymentMethodResource CreateStripePaymentMethod(ctx, optional)
+> PaymentMethodResource CreateStripePaymentMethod(optional)
 Create a Stripe payment method for a user
 
 Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints.
@@ -18,7 +18,6 @@ Stores customer information and creates a payment method that can be used to pay
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -34,7 +33,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

@@ -8,14 +8,13 @@ Method | HTTP request | Description
 
 
 # **GetBREActions**
-> []ActionResource GetBREActions(ctx, optional)
+> []ActionResource GetBREActions(optional)
 Get a list of available actions
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -34,7 +33,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

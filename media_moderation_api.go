@@ -28,10 +28,10 @@ type MediaModerationApiService service
 
 
 /* MediaModerationApiService Get a flag report
- * @param ctx context.Context Authentication Context 
+
  @param id The flag report id
  @return FlagReportResource*/
-func (a *MediaModerationApiService) GetModerationReport(ctx context.Context, id int64) (FlagReportResource,  *http.Response, error) {
+func (a *MediaModerationApiService) GetModerationReport(id int64) (FlagReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -68,7 +68,7 @@ func (a *MediaModerationApiService) GetModerationReport(ctx context.Context, id 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -92,14 +92,14 @@ func (a *MediaModerationApiService) GetModerationReport(ctx context.Context, id 
 
 /* MediaModerationApiService Returns a page of flag reports
  Context can be either a free-form string or a pre-defined context name
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "excludeResolved" (bool) Ignore resolved context
      @param "filterContext" (string) Filter by moderation context
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceFlagReportResource*/
-func (a *MediaModerationApiService) GetModerationReports(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceFlagReportResource,  *http.Response, error) {
+func (a *MediaModerationApiService) GetModerationReports(localVarOptionals map[string]interface{}) (PageResourceFlagReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -159,7 +159,7 @@ func (a *MediaModerationApiService) GetModerationReports(ctx context.Context, lo
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -183,12 +183,12 @@ func (a *MediaModerationApiService) GetModerationReports(ctx context.Context, lo
 
 /* MediaModerationApiService Update a flag report
  Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of &#39;banned&#39; you will need to pass the reason.
- * @param ctx context.Context Authentication Context 
+
  @param id The flag report id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "flagReportResource" (FlagReportResource) The new flag report
  @return */
-func (a *MediaModerationApiService) UpdateModerationReport(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MediaModerationApiService) UpdateModerationReport(id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -228,7 +228,7 @@ func (a *MediaModerationApiService) UpdateModerationReport(ctx context.Context, 
 	if localVarTempParam, localVarOk := localVarOptionals["flagReportResource"].(FlagReportResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

@@ -28,12 +28,12 @@ type PaymentsApiService service
 
 
 /* PaymentsApiService Create a new payment method for a user
- * @param ctx context.Context Authentication Context 
+
  @param userId ID of the user for whom the payment method is being created
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "paymentMethod" (PaymentMethodResource) Payment method being created
  @return PaymentMethodResource*/
-func (a *PaymentsApiService) CreatePaymentMethod(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) (PaymentMethodResource,  *http.Response, error) {
+func (a *PaymentsApiService) CreatePaymentMethod(userId int32, localVarOptionals map[string]interface{}) (PaymentMethodResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -74,7 +74,7 @@ func (a *PaymentsApiService) CreatePaymentMethod(ctx context.Context, userId int
 	if localVarTempParam, localVarOk := localVarOptionals["paymentMethod"].(PaymentMethodResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -97,11 +97,11 @@ func (a *PaymentsApiService) CreatePaymentMethod(ctx context.Context, userId int
 }
 
 /* PaymentsApiService Delete an existing payment method for a user
- * @param ctx context.Context Authentication Context 
+
  @param userId ID of the user for whom the payment method is being updated
  @param id ID of the payment method being deleted
  @return */
-func (a *PaymentsApiService) DeletePaymentMethod(ctx context.Context, userId int32, id int32) ( *http.Response, error) {
+func (a *PaymentsApiService) DeletePaymentMethod(userId int32, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -138,7 +138,7 @@ func (a *PaymentsApiService) DeletePaymentMethod(ctx context.Context, userId int
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -156,11 +156,11 @@ func (a *PaymentsApiService) DeletePaymentMethod(ctx context.Context, userId int
 }
 
 /* PaymentsApiService Get a single payment method for a user
- * @param ctx context.Context Authentication Context 
+
  @param userId ID of the user for whom the payment method is being retrieved
  @param id ID of the payment method being retrieved
  @return PaymentMethodResource*/
-func (a *PaymentsApiService) GetPaymentMethod(ctx context.Context, userId int32, id int32) (PaymentMethodResource,  *http.Response, error) {
+func (a *PaymentsApiService) GetPaymentMethod(userId int32, id int32) (PaymentMethodResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -198,7 +198,7 @@ func (a *PaymentsApiService) GetPaymentMethod(ctx context.Context, userId int32,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -221,7 +221,7 @@ func (a *PaymentsApiService) GetPaymentMethod(ctx context.Context, userId int32,
 }
 
 /* PaymentsApiService Get all payment methods for a user
- * @param ctx context.Context Authentication Context 
+
  @param userId ID of the user for whom the payment methods are being retrieved
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterName" (string) Filter for payment methods whose name starts with a given string
@@ -232,7 +232,7 @@ func (a *PaymentsApiService) GetPaymentMethod(ctx context.Context, userId int32,
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return []PaymentMethodResource*/
-func (a *PaymentsApiService) GetPaymentMethods(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) ([]PaymentMethodResource,  *http.Response, error) {
+func (a *PaymentsApiService) GetPaymentMethods(userId int32, localVarOptionals map[string]interface{}) ([]PaymentMethodResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -311,7 +311,7 @@ func (a *PaymentsApiService) GetPaymentMethods(ctx context.Context, userId int32
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -334,11 +334,11 @@ func (a *PaymentsApiService) GetPaymentMethods(ctx context.Context, userId int32
 }
 
 /* PaymentsApiService Authorize payment of an invoice for later capture
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (PaymentAuthorizationResource) Payment authorization request
  @return PaymentAuthorizationResource*/
-func (a *PaymentsApiService) PaymentAuthorization(ctx context.Context, localVarOptionals map[string]interface{}) (PaymentAuthorizationResource,  *http.Response, error) {
+func (a *PaymentsApiService) PaymentAuthorization(localVarOptionals map[string]interface{}) (PaymentAuthorizationResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -378,7 +378,7 @@ func (a *PaymentsApiService) PaymentAuthorization(ctx context.Context, localVarO
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(PaymentAuthorizationResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -401,10 +401,10 @@ func (a *PaymentsApiService) PaymentAuthorization(ctx context.Context, localVarO
 }
 
 /* PaymentsApiService Capture an existing invoice payment authorization
- * @param ctx context.Context Authentication Context 
+
  @param id ID of the payment authorization to capture
  @return */
-func (a *PaymentsApiService) PaymentCapture(ctx context.Context, id int32) ( *http.Response, error) {
+func (a *PaymentsApiService) PaymentCapture(id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -440,7 +440,7 @@ func (a *PaymentsApiService) PaymentCapture(ctx context.Context, id int32) ( *ht
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -458,13 +458,13 @@ func (a *PaymentsApiService) PaymentCapture(ctx context.Context, id int32) ( *ht
 }
 
 /* PaymentsApiService Update an existing payment method for a user
- * @param ctx context.Context Authentication Context 
+
  @param userId ID of the user for whom the payment method is being updated
  @param id ID of the payment method being updated
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "paymentMethod" (PaymentMethodResource) The updated payment method data
  @return PaymentMethodResource*/
-func (a *PaymentsApiService) UpdatePaymentMethod(ctx context.Context, userId int32, id int32, localVarOptionals map[string]interface{}) (PaymentMethodResource,  *http.Response, error) {
+func (a *PaymentsApiService) UpdatePaymentMethod(userId int32, id int32, localVarOptionals map[string]interface{}) (PaymentMethodResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -506,7 +506,7 @@ func (a *PaymentsApiService) UpdatePaymentMethod(ctx context.Context, userId int
 	if localVarTempParam, localVarOk := localVarOptionals["paymentMethod"].(PaymentMethodResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

@@ -27,7 +27,7 @@ type ReportingUsageApiService service
 
 
 /* ReportingUsageApiService Returns aggregated endpoint usage information by day
- * @param ctx context.Context Authentication Context 
+
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -37,7 +37,7 @@ type ReportingUsageApiService service
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUsageInfo*/
-func (a *ReportingUsageApiService) GetUsageByDay(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+func (a *ReportingUsageApiService) GetUsageByDay(startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -105,7 +105,7 @@ func (a *ReportingUsageApiService) GetUsageByDay(ctx context.Context, startDate 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -128,7 +128,7 @@ func (a *ReportingUsageApiService) GetUsageByDay(ctx context.Context, startDate 
 }
 
 /* ReportingUsageApiService Returns aggregated endpoint usage information by hour
- * @param ctx context.Context Authentication Context 
+
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -138,7 +138,7 @@ func (a *ReportingUsageApiService) GetUsageByDay(ctx context.Context, startDate 
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUsageInfo*/
-func (a *ReportingUsageApiService) GetUsageByHour(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+func (a *ReportingUsageApiService) GetUsageByHour(startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -206,7 +206,7 @@ func (a *ReportingUsageApiService) GetUsageByHour(ctx context.Context, startDate
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -229,7 +229,7 @@ func (a *ReportingUsageApiService) GetUsageByHour(ctx context.Context, startDate
 }
 
 /* ReportingUsageApiService Returns aggregated endpoint usage information by minute
- * @param ctx context.Context Authentication Context 
+
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -239,7 +239,7 @@ func (a *ReportingUsageApiService) GetUsageByHour(ctx context.Context, startDate
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUsageInfo*/
-func (a *ReportingUsageApiService) GetUsageByMinute(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+func (a *ReportingUsageApiService) GetUsageByMinute(startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -307,7 +307,7 @@ func (a *ReportingUsageApiService) GetUsageByMinute(ctx context.Context, startDa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -330,7 +330,7 @@ func (a *ReportingUsageApiService) GetUsageByMinute(ctx context.Context, startDa
 }
 
 /* ReportingUsageApiService Returns aggregated endpoint usage information by month
- * @param ctx context.Context Authentication Context 
+
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -340,7 +340,7 @@ func (a *ReportingUsageApiService) GetUsageByMinute(ctx context.Context, startDa
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUsageInfo*/
-func (a *ReportingUsageApiService) GetUsageByMonth(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+func (a *ReportingUsageApiService) GetUsageByMonth(startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -408,7 +408,7 @@ func (a *ReportingUsageApiService) GetUsageByMonth(ctx context.Context, startDat
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -431,7 +431,7 @@ func (a *ReportingUsageApiService) GetUsageByMonth(ctx context.Context, startDat
 }
 
 /* ReportingUsageApiService Returns aggregated endpoint usage information by year
- * @param ctx context.Context Authentication Context 
+
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -441,7 +441,7 @@ func (a *ReportingUsageApiService) GetUsageByMonth(ctx context.Context, startDat
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUsageInfo*/
-func (a *ReportingUsageApiService) GetUsageByYear(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+func (a *ReportingUsageApiService) GetUsageByYear(startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -509,7 +509,7 @@ func (a *ReportingUsageApiService) GetUsageByYear(ctx context.Context, startDate
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -532,11 +532,11 @@ func (a *ReportingUsageApiService) GetUsageByYear(ctx context.Context, startDate
 }
 
 /* ReportingUsageApiService Returns list of endpoints called (method and url)
- * @param ctx context.Context Authentication Context 
+
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
  @return []string*/
-func (a *ReportingUsageApiService) GetUsageEndpoints(ctx context.Context, startDate int64, endDate int64) ([]string,  *http.Response, error) {
+func (a *ReportingUsageApiService) GetUsageEndpoints(startDate int64, endDate int64) ([]string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -574,7 +574,7 @@ func (a *ReportingUsageApiService) GetUsageEndpoints(ctx context.Context, startD
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

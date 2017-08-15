@@ -28,12 +28,12 @@ type AuthTokensApiService service
 
 
 /* AuthTokensApiService Delete tokens by username, client id, or both
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "username" (string) The username of the user
      @param "clientId" (string) The id of the client
  @return */
-func (a *AuthTokensApiService) DeleteTokens(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *AuthTokensApiService) DeleteTokens(localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -80,7 +80,7 @@ func (a *AuthTokensApiService) DeleteTokens(ctx context.Context, localVarOptiona
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -98,11 +98,11 @@ func (a *AuthTokensApiService) DeleteTokens(ctx context.Context, localVarOptiona
 }
 
 /* AuthTokensApiService Get a single token by username and client id
- * @param ctx context.Context Authentication Context 
+
  @param username The username of the user
  @param clientId The id of the client
  @return OauthAccessTokenResource*/
-func (a *AuthTokensApiService) GetToken(ctx context.Context, username string, clientId string) (OauthAccessTokenResource,  *http.Response, error) {
+func (a *AuthTokensApiService) GetToken(username string, clientId string) (OauthAccessTokenResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -140,7 +140,7 @@ func (a *AuthTokensApiService) GetToken(ctx context.Context, username string, cl
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -164,7 +164,7 @@ func (a *AuthTokensApiService) GetToken(ctx context.Context, username string, cl
 
 /* AuthTokensApiService List usernames and client ids
  Token value not shown
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterClientId" (string) Filters for token whose client id matches provided string
      @param "filterUsername" (string) Filters for token whose username matches provided string
@@ -172,7 +172,7 @@ func (a *AuthTokensApiService) GetToken(ctx context.Context, username string, cl
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceOauthAccessTokenResource*/
-func (a *AuthTokensApiService) GetTokens(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceOauthAccessTokenResource,  *http.Response, error) {
+func (a *AuthTokensApiService) GetTokens(localVarOptionals map[string]interface{}) (PageResourceOauthAccessTokenResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -238,7 +238,7 @@ func (a *AuthTokensApiService) GetTokens(ctx context.Context, localVarOptionals 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

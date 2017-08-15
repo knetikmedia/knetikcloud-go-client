@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **CreateBREGlobal**
-> BreGlobalResource CreateBREGlobal(ctx, optional)
+> BreGlobalResource CreateBREGlobal(optional)
 Create a global definition
 
 Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use.
@@ -21,7 +21,6 @@ Once created you can then use in a custom rule. Note that global definitions can
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -37,7 +36,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -47,7 +46,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteBREGlobal**
-> DeleteBREGlobal(ctx, id)
+> DeleteBREGlobal(id)
 Delete a global
 
 May fail if there are existing rules against it. Cannot delete core globals
@@ -56,7 +55,6 @@ May fail if there are existing rules against it. Cannot delete core globals
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the global definition | 
 
 ### Return type
@@ -65,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -75,14 +73,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBREGlobal**
-> BreGlobalResource GetBREGlobal(ctx, id)
+> BreGlobalResource GetBREGlobal(id)
 Get a single global definition
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the global definition | 
 
 ### Return type
@@ -91,7 +88,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -101,14 +98,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBREGlobals**
-> PageResourceBreGlobalResource GetBREGlobals(ctx, optional)
+> PageResourceBreGlobalResource GetBREGlobals(optional)
 List global definitions
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -126,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -136,7 +132,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateBREGlobal**
-> BreGlobalResource UpdateBREGlobal(ctx, id, optional)
+> BreGlobalResource UpdateBREGlobal(id, optional)
 Update a global definition
 
 May fail if new parameters mismatch requirements of existing rules. Cannot update core globals
@@ -145,7 +141,6 @@ May fail if new parameters mismatch requirements of existing rules. Cannot updat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **string**| The id of the global definition | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -163,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

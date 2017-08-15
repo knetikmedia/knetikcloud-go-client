@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **CreateBRETrigger**
-> BreTriggerResource CreateBRETrigger(ctx, optional)
+> BreTriggerResource CreateBRETrigger(optional)
 Create a trigger
 
 Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services
@@ -21,7 +21,6 @@ Customer added triggers will not be fired automatically or have rules associated
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -37,7 +36,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -47,7 +46,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteBRETrigger**
-> DeleteBRETrigger(ctx, eventName)
+> DeleteBRETrigger(eventName)
 Delete a trigger
 
 May fail if there are existing rules against it. Cannot delete core triggers
@@ -56,7 +55,6 @@ May fail if there are existing rules against it. Cannot delete core triggers
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **eventName** | **string**| The trigger event name | 
 
 ### Return type
@@ -65,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -75,14 +73,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBRETrigger**
-> BreTriggerResource GetBRETrigger(ctx, eventName)
+> BreTriggerResource GetBRETrigger(eventName)
 Get a single trigger
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **eventName** | **string**| The trigger event name | 
 
 ### Return type
@@ -91,7 +88,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -101,14 +98,13 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBRETriggers**
-> PageResourceBreTriggerResource GetBRETriggers(ctx, optional)
+> PageResourceBreTriggerResource GetBRETriggers(optional)
 List triggers
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -130,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -140,7 +136,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateBRETrigger**
-> BreTriggerResource UpdateBRETrigger(ctx, eventName, optional)
+> BreTriggerResource UpdateBRETrigger(eventName, optional)
 Update a trigger
 
 May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers
@@ -149,7 +145,6 @@ May fail if new parameters mismatch requirements of existing rules. Cannot updat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **eventName** | **string**| The trigger event name | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -167,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

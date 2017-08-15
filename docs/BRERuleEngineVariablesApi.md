@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **GetBREVariableTypes**
-> []VariableTypeResource GetBREVariableTypes(ctx, )
+> []VariableTypeResource GetBREVariableTypes()
 Get a list of variable types available
 
 Types include integer, string, user and invoice. These are used to qualify trigger parameters and action variables with strong typing.
@@ -23,7 +23,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -33,7 +33,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetBREVariableValues**
-> PageResourceSimpleReferenceResourceobject GetBREVariableValues(ctx, name, optional)
+> PageResourceSimpleReferenceResourceobject GetBREVariableValues(name, optional)
 List valid values for a type
 
 Used to lookup users to fill in a user constant for example. Only types marked as enumerable are suppoorted here.
@@ -42,7 +42,6 @@ Used to lookup users to fill in a user constant for example. Only types marked a
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **name** | **string**| The name of the type | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -62,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

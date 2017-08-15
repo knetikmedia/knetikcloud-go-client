@@ -28,11 +28,11 @@ type AuthRolesApiService service
 
 
 /* AuthRolesApiService Create a new role
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "roleResource" (RoleResource) The role resource object
  @return RoleResource*/
-func (a *AuthRolesApiService) CreateRole(ctx context.Context, localVarOptionals map[string]interface{}) (RoleResource,  *http.Response, error) {
+func (a *AuthRolesApiService) CreateRole(localVarOptionals map[string]interface{}) (RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *AuthRolesApiService) CreateRole(ctx context.Context, localVarOptionals 
 	if localVarTempParam, localVarOk := localVarOptionals["roleResource"].(RoleResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,12 +95,12 @@ func (a *AuthRolesApiService) CreateRole(ctx context.Context, localVarOptionals 
 }
 
 /* AuthRolesApiService Delete a role
- * @param ctx context.Context Authentication Context 
+
  @param role The role value
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "force" (bool) If true, removes role from users/clients
  @return */
-func (a *AuthRolesApiService) DeleteRole(ctx context.Context, role string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *AuthRolesApiService) DeleteRole(role string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -142,7 +142,7 @@ func (a *AuthRolesApiService) DeleteRole(ctx context.Context, role string, local
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -160,10 +160,10 @@ func (a *AuthRolesApiService) DeleteRole(ctx context.Context, role string, local
 }
 
 /* AuthRolesApiService Get roles for a client
- * @param ctx context.Context Authentication Context 
+
  @param clientKey The client key
  @return []RoleResource*/
-func (a *AuthRolesApiService) GetClientRoles(ctx context.Context, clientKey string) ([]RoleResource,  *http.Response, error) {
+func (a *AuthRolesApiService) GetClientRoles(clientKey string) ([]RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -200,7 +200,7 @@ func (a *AuthRolesApiService) GetClientRoles(ctx context.Context, clientKey stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -223,10 +223,10 @@ func (a *AuthRolesApiService) GetClientRoles(ctx context.Context, clientKey stri
 }
 
 /* AuthRolesApiService Get a single role
- * @param ctx context.Context Authentication Context 
+
  @param role The role value
  @return RoleResource*/
-func (a *AuthRolesApiService) GetRole(ctx context.Context, role string) (RoleResource,  *http.Response, error) {
+func (a *AuthRolesApiService) GetRole(role string) (RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -263,7 +263,7 @@ func (a *AuthRolesApiService) GetRole(ctx context.Context, role string) (RoleRes
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -286,7 +286,7 @@ func (a *AuthRolesApiService) GetRole(ctx context.Context, role string) (RoleRes
 }
 
 /* AuthRolesApiService List and search roles
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterName" (string) Filter for roles that have a name starting with specified string
      @param "filterRole" (string) Filter for roles that have a role starting with specified string
@@ -294,7 +294,7 @@ func (a *AuthRolesApiService) GetRole(ctx context.Context, role string) (RoleRes
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceRoleResource*/
-func (a *AuthRolesApiService) GetRoles(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceRoleResource,  *http.Response, error) {
+func (a *AuthRolesApiService) GetRoles(localVarOptionals map[string]interface{}) (PageResourceRoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -360,7 +360,7 @@ func (a *AuthRolesApiService) GetRoles(ctx context.Context, localVarOptionals ma
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -383,10 +383,10 @@ func (a *AuthRolesApiService) GetRoles(ctx context.Context, localVarOptionals ma
 }
 
 /* AuthRolesApiService Get roles for a user
- * @param ctx context.Context Authentication Context 
+
  @param userId The user&#39;s id
  @return []RoleResource*/
-func (a *AuthRolesApiService) GetUserRoles(ctx context.Context, userId int32) ([]RoleResource,  *http.Response, error) {
+func (a *AuthRolesApiService) GetUserRoles(userId int32) ([]RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -423,7 +423,7 @@ func (a *AuthRolesApiService) GetUserRoles(ctx context.Context, userId int32) ([
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -446,12 +446,12 @@ func (a *AuthRolesApiService) GetUserRoles(ctx context.Context, userId int32) ([
 }
 
 /* AuthRolesApiService Set roles for a client
- * @param ctx context.Context Authentication Context 
+
  @param clientKey The client key
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "rolesList" ([]string) The list of unique roles
  @return ClientResource*/
-func (a *AuthRolesApiService) SetClientRoles(ctx context.Context, clientKey string, localVarOptionals map[string]interface{}) (ClientResource,  *http.Response, error) {
+func (a *AuthRolesApiService) SetClientRoles(clientKey string, localVarOptionals map[string]interface{}) (ClientResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -495,7 +495,7 @@ func (a *AuthRolesApiService) SetClientRoles(ctx context.Context, clientKey stri
 	if localVarTempParam, localVarOk := localVarOptionals["rolesList"].([]string); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -518,12 +518,12 @@ func (a *AuthRolesApiService) SetClientRoles(ctx context.Context, clientKey stri
 }
 
 /* AuthRolesApiService Set permissions for a role
- * @param ctx context.Context Authentication Context 
+
  @param role The role value
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "permissionsList" ([]string) The list of unique permissions
  @return RoleResource*/
-func (a *AuthRolesApiService) SetPermissionsForRole(ctx context.Context, role string, localVarOptionals map[string]interface{}) (RoleResource,  *http.Response, error) {
+func (a *AuthRolesApiService) SetPermissionsForRole(role string, localVarOptionals map[string]interface{}) (RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -567,7 +567,7 @@ func (a *AuthRolesApiService) SetPermissionsForRole(ctx context.Context, role st
 	if localVarTempParam, localVarOk := localVarOptionals["permissionsList"].([]string); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -590,12 +590,12 @@ func (a *AuthRolesApiService) SetPermissionsForRole(ctx context.Context, role st
 }
 
 /* AuthRolesApiService Set roles for a user
- * @param ctx context.Context Authentication Context 
+
  @param userId The user&#39;s id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "rolesList" ([]string) The list of unique roles
  @return UserResource*/
-func (a *AuthRolesApiService) SetUserRoles(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) (UserResource,  *http.Response, error) {
+func (a *AuthRolesApiService) SetUserRoles(userId int32, localVarOptionals map[string]interface{}) (UserResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -639,7 +639,7 @@ func (a *AuthRolesApiService) SetUserRoles(ctx context.Context, userId int32, lo
 	if localVarTempParam, localVarOk := localVarOptionals["rolesList"].([]string); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -662,12 +662,12 @@ func (a *AuthRolesApiService) SetUserRoles(ctx context.Context, userId int32, lo
 }
 
 /* AuthRolesApiService Update a role
- * @param ctx context.Context Authentication Context 
+
  @param role The role value
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "roleResource" (RoleResource) The role resource object
  @return RoleResource*/
-func (a *AuthRolesApiService) UpdateRole(ctx context.Context, role string, localVarOptionals map[string]interface{}) (RoleResource,  *http.Response, error) {
+func (a *AuthRolesApiService) UpdateRole(role string, localVarOptionals map[string]interface{}) (RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -708,7 +708,7 @@ func (a *AuthRolesApiService) UpdateRole(ctx context.Context, role string, local
 	if localVarTempParam, localVarOk := localVarOptionals["roleResource"].(RoleResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

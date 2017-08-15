@@ -28,11 +28,11 @@ type StoreSalesApiService service
 
 
 /* StoreSalesApiService Create a sale
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "catalogSale" (CatalogSale) The catalog sale object
  @return CatalogSale*/
-func (a *StoreSalesApiService) CreateCatalogSale(ctx context.Context, localVarOptionals map[string]interface{}) (CatalogSale,  *http.Response, error) {
+func (a *StoreSalesApiService) CreateCatalogSale(localVarOptionals map[string]interface{}) (CatalogSale,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *StoreSalesApiService) CreateCatalogSale(ctx context.Context, localVarOp
 	if localVarTempParam, localVarOk := localVarOptionals["catalogSale"].(CatalogSale); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,10 +95,10 @@ func (a *StoreSalesApiService) CreateCatalogSale(ctx context.Context, localVarOp
 }
 
 /* StoreSalesApiService Delete a sale
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the sale
  @return */
-func (a *StoreSalesApiService) DeleteCatalogSale(ctx context.Context, id int32) ( *http.Response, error) {
+func (a *StoreSalesApiService) DeleteCatalogSale(id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -134,7 +134,7 @@ func (a *StoreSalesApiService) DeleteCatalogSale(ctx context.Context, id int32) 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -152,10 +152,10 @@ func (a *StoreSalesApiService) DeleteCatalogSale(ctx context.Context, id int32) 
 }
 
 /* StoreSalesApiService Get a single sale
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the sale
  @return CatalogSale*/
-func (a *StoreSalesApiService) GetCatalogSale(ctx context.Context, id int32) (CatalogSale,  *http.Response, error) {
+func (a *StoreSalesApiService) GetCatalogSale(id int32) (CatalogSale,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -192,7 +192,7 @@ func (a *StoreSalesApiService) GetCatalogSale(ctx context.Context, id int32) (Ca
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -215,13 +215,13 @@ func (a *StoreSalesApiService) GetCatalogSale(ctx context.Context, id int32) (Ca
 }
 
 /* StoreSalesApiService List and search sales
- * @param ctx context.Context Authentication Context 
+
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceCatalogSale*/
-func (a *StoreSalesApiService) GetCatalogSales(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceCatalogSale,  *http.Response, error) {
+func (a *StoreSalesApiService) GetCatalogSales(localVarOptionals map[string]interface{}) (PageResourceCatalogSale,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -275,7 +275,7 @@ func (a *StoreSalesApiService) GetCatalogSales(ctx context.Context, localVarOpti
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -298,12 +298,12 @@ func (a *StoreSalesApiService) GetCatalogSales(ctx context.Context, localVarOpti
 }
 
 /* StoreSalesApiService Update a sale
- * @param ctx context.Context Authentication Context 
+
  @param id The id of the sale
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "catalogSale" (CatalogSale) The catalog sale object
  @return CatalogSale*/
-func (a *StoreSalesApiService) UpdateCatalogSale(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (CatalogSale,  *http.Response, error) {
+func (a *StoreSalesApiService) UpdateCatalogSale(id int32, localVarOptionals map[string]interface{}) (CatalogSale,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -344,7 +344,7 @@ func (a *StoreSalesApiService) UpdateCatalogSale(ctx context.Context, id int32, 
 	if localVarTempParam, localVarOk := localVarOptionals["catalogSale"].(CatalogSale); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

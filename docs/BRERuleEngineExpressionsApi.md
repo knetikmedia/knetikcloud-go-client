@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **GetBREExpressions**
-> []LookupTypeResource GetBREExpressions(ctx, )
+> []LookupTypeResource GetBREExpressions()
 Get a list of 'lookup' type expressions
 
 These are expression types that take a second expression as input and produce a value. These can be used in addition to the standard types, like parameter, global and constant (see BRE documentation for details).
@@ -22,7 +22,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

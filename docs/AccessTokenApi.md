@@ -27,8 +27,10 @@ Name | Type | Description  | Notes
  **grantType** | **string**| Grant type | [default to client_credentials]
  **clientId** | **string**| The id of the client | [default to knetik]
  **clientSecret** | **string**| The secret key of the client.  Used only with a grant_type of client_credentials | 
- **username** | **string**| The username of the client.  Used only with a grant_type of password | 
- **password** | **string**| The password of the client.  Used only with a grant_type of password | 
+ **username** | **string**| The username of the client. Used only with a grant_type of password | 
+ **password** | **string**| The password of the client. Used only with a grant_type of password | 
+ **token** | **string**| The 3rd party authentication token. Used only with a grant_type of facebook, google, etc (social plugins) | 
+ **refreshToken** | **string**| The refresh token obtained during prior authentication. Used only with a grant_type of refresh_token | 
 
 ### Return type
 

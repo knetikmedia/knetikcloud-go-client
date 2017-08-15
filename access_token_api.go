@@ -32,8 +32,10 @@ type AccessTokenApiService service
  @param clientId The id of the client
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "clientSecret" (string) The secret key of the client.  Used only with a grant_type of client_credentials
-     @param "username" (string) The username of the client.  Used only with a grant_type of password
-     @param "password" (string) The password of the client.  Used only with a grant_type of password
+     @param "username" (string) The username of the client. Used only with a grant_type of password
+     @param "password" (string) The password of the client. Used only with a grant_type of password
+     @param "token" (string) The 3rd party authentication token. Used only with a grant_type of facebook, google, etc (social plugins)
+     @param "refreshToken" (string) The refresh token obtained during prior authentication. Used only with a grant_type of refresh_token
  @return OAuth2Resource*/
 func (a *AccessTokenApiService) GetOAuthToken(grantType string, clientId string, localVarOptionals map[string]interface{}) (OAuth2Resource,  *http.Response, error) {
 	var (
@@ -58,6 +60,12 @@ func (a *AccessTokenApiService) GetOAuthToken(grantType string, clientId string,
 		return successPayload, nil, err
 	}
 	if err := typeCheckParameter(localVarOptionals["password"], "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["token"], "string", "token"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["refreshToken"], "string", "refreshToken"); err != nil {
 		return successPayload, nil, err
 	}
 
@@ -90,6 +98,12 @@ func (a *AccessTokenApiService) GetOAuthToken(grantType string, clientId string,
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["password"].(string); localVarOk {
 		localVarFormParams.Add("password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["token"].(string); localVarOk {
+		localVarFormParams.Add("token", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["refreshToken"].(string); localVarOk {
+		localVarFormParams.Add("refresh_token", parameterToString(localVarTempParam, ""))
 	}
 	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {

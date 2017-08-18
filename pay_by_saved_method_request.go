@@ -14,4 +14,7 @@ type PayBySavedMethodRequest struct {
 
 	// The id of the payment method to use. Must belong to the caller, be public or have PAYMENTS_ADMIN permission
 	PaymentMethod int32 `json:"payment_method"`
+
+	// The id of a user to bill. Must have PAYMENTS_ADMIN permission
+	UserId int32 `json:"user_id,omitempty"`
 }

@@ -27,9 +27,9 @@ type UtilMaintenanceApiService service
 
 
 /* UtilMaintenanceApiService Delete maintenance info
-
+ * @param ctx context.Context Authentication Context 
  @return */
-func (a *UtilMaintenanceApiService) DeleteMaintenance() ( *http.Response, error) {
+func (a *UtilMaintenanceApiService) DeleteMaintenance(ctx context.Context, ) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -64,7 +64,7 @@ func (a *UtilMaintenanceApiService) DeleteMaintenance() ( *http.Response, error)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -144,11 +144,11 @@ func (a *UtilMaintenanceApiService) GetMaintenance() (Maintenance,  *http.Respon
 }
 
 /* UtilMaintenanceApiService Set current maintenance info
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "maintenance" (Maintenance) The maintenance object
  @return */
-func (a *UtilMaintenanceApiService) SetMaintenance(localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *UtilMaintenanceApiService) SetMaintenance(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -187,7 +187,7 @@ func (a *UtilMaintenanceApiService) SetMaintenance(localVarOptionals map[string]
 	if localVarTempParam, localVarOk := localVarOptionals["maintenance"].(Maintenance); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -205,11 +205,11 @@ func (a *UtilMaintenanceApiService) SetMaintenance(localVarOptionals map[string]
 }
 
 /* UtilMaintenanceApiService Update current maintenance info
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "maintenance" (Maintenance) The maintenance object
  @return */
-func (a *UtilMaintenanceApiService) UpdateMaintenance(localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *UtilMaintenanceApiService) UpdateMaintenance(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -248,7 +248,7 @@ func (a *UtilMaintenanceApiService) UpdateMaintenance(localVarOptionals map[stri
 	if localVarTempParam, localVarOk := localVarOptionals["maintenance"].(Maintenance); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

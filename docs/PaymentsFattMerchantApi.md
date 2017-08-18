@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **CreateOrUpdateFattMerchantPaymentMethod**
-> PaymentMethodResource CreateOrUpdateFattMerchantPaymentMethod(optional)
+> PaymentMethodResource CreateOrUpdateFattMerchantPaymentMethod(ctx, ctx, optional)
 Create or update a FattMerchant payment method for a user
 
 Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints.
@@ -17,6 +17,8 @@ Stores customer information and creates a payment method that can be used to pay
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -32,7 +34,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

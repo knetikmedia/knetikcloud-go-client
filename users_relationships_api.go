@@ -28,11 +28,11 @@ type UsersRelationshipsApiService service
 
 
 /* UsersRelationshipsApiService Create a user relationship
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "relationship" (UserRelationshipResource) The new relationship
  @return UserRelationshipResource*/
-func (a *UsersRelationshipsApiService) CreateUserRelationship(localVarOptionals map[string]interface{}) (UserRelationshipResource,  *http.Response, error) {
+func (a *UsersRelationshipsApiService) CreateUserRelationship(ctx context.Context, localVarOptionals map[string]interface{}) (UserRelationshipResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *UsersRelationshipsApiService) CreateUserRelationship(localVarOptionals 
 	if localVarTempParam, localVarOk := localVarOptionals["relationship"].(UserRelationshipResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,10 +95,10 @@ func (a *UsersRelationshipsApiService) CreateUserRelationship(localVarOptionals 
 }
 
 /* UsersRelationshipsApiService Delete a user relationship
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the relationship
  @return */
-func (a *UsersRelationshipsApiService) DeleteUserRelationship(id int64) ( *http.Response, error) {
+func (a *UsersRelationshipsApiService) DeleteUserRelationship(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -134,7 +134,7 @@ func (a *UsersRelationshipsApiService) DeleteUserRelationship(id int64) ( *http.
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -152,10 +152,10 @@ func (a *UsersRelationshipsApiService) DeleteUserRelationship(id int64) ( *http.
 }
 
 /* UsersRelationshipsApiService Get a user relationship
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the relationship
  @return UserRelationshipResource*/
-func (a *UsersRelationshipsApiService) GetUserRelationship(id int64) (UserRelationshipResource,  *http.Response, error) {
+func (a *UsersRelationshipsApiService) GetUserRelationship(ctx context.Context, id int64) (UserRelationshipResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -192,7 +192,7 @@ func (a *UsersRelationshipsApiService) GetUserRelationship(id int64) (UserRelati
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -215,13 +215,13 @@ func (a *UsersRelationshipsApiService) GetUserRelationship(id int64) (UserRelati
 }
 
 /* UsersRelationshipsApiService Get a list of user relationships
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceUserRelationshipResource*/
-func (a *UsersRelationshipsApiService) GetUserRelationships(localVarOptionals map[string]interface{}) (PageResourceUserRelationshipResource,  *http.Response, error) {
+func (a *UsersRelationshipsApiService) GetUserRelationships(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceUserRelationshipResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -275,7 +275,7 @@ func (a *UsersRelationshipsApiService) GetUserRelationships(localVarOptionals ma
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -298,12 +298,12 @@ func (a *UsersRelationshipsApiService) GetUserRelationships(localVarOptionals ma
 }
 
 /* UsersRelationshipsApiService Update a user relationship
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the relationship
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "relationship" (UserRelationshipResource) The new relationship
  @return UserRelationshipResource*/
-func (a *UsersRelationshipsApiService) UpdateUserRelationship(id int64, localVarOptionals map[string]interface{}) (UserRelationshipResource,  *http.Response, error) {
+func (a *UsersRelationshipsApiService) UpdateUserRelationship(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (UserRelationshipResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -344,7 +344,7 @@ func (a *UsersRelationshipsApiService) UpdateUserRelationship(id int64, localVar
 	if localVarTempParam, localVarOk := localVarOptionals["relationship"].(UserRelationshipResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

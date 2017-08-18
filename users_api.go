@@ -28,11 +28,11 @@ type UsersApiService service
 
 
 /* UsersApiService Add a tag to a user
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param tag tag
  @return */
-func (a *UsersApiService) AddUserTag(userId int32, tag StringWrapper) ( *http.Response, error) {
+func (a *UsersApiService) AddUserTag(ctx context.Context, userId int32, tag StringWrapper) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -70,7 +70,7 @@ func (a *UsersApiService) AddUserTag(userId int32, tag StringWrapper) ( *http.Re
 	}
 	// body params
 	localVarPostBody = &tag
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -89,11 +89,11 @@ func (a *UsersApiService) AddUserTag(userId int32, tag StringWrapper) ( *http.Re
 
 /* UsersApiService Create a user template
  User Templates define a type of user and the properties they have
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userTemplateResource" (TemplateResource) The user template resource object
  @return TemplateResource*/
-func (a *UsersApiService) CreateUserTemplate(localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *UsersApiService) CreateUserTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -133,7 +133,7 @@ func (a *UsersApiService) CreateUserTemplate(localVarOptionals map[string]interf
 	if localVarTempParam, localVarOk := localVarOptionals["userTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -157,12 +157,12 @@ func (a *UsersApiService) CreateUserTemplate(localVarOptionals map[string]interf
 
 /* UsersApiService Delete a user template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *UsersApiService) DeleteUserTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *UsersApiService) DeleteUserTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -204,7 +204,7 @@ func (a *UsersApiService) DeleteUserTemplate(id string, localVarOptionals map[st
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -286,10 +286,10 @@ func (a *UsersApiService) GetUser(id string) (UserResource,  *http.Response, err
 }
 
 /* UsersApiService List tags for a user
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @return []string*/
-func (a *UsersApiService) GetUserTags(userId int32) ([]string,  *http.Response, error) {
+func (a *UsersApiService) GetUserTags(ctx context.Context, userId int32) ([]string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -326,7 +326,7 @@ func (a *UsersApiService) GetUserTags(userId int32) ([]string,  *http.Response, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -349,10 +349,10 @@ func (a *UsersApiService) GetUserTags(userId int32) ([]string,  *http.Response, 
 }
 
 /* UsersApiService Get a single user template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
-func (a *UsersApiService) GetUserTemplate(id string) (TemplateResource,  *http.Response, error) {
+func (a *UsersApiService) GetUserTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -389,7 +389,7 @@ func (a *UsersApiService) GetUserTemplate(id string) (TemplateResource,  *http.R
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -412,13 +412,13 @@ func (a *UsersApiService) GetUserTemplate(id string) (TemplateResource,  *http.R
 }
 
 /* UsersApiService List and search user templates
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *UsersApiService) GetUserTemplates(localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *UsersApiService) GetUserTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -472,7 +472,7 @@ func (a *UsersApiService) GetUserTemplates(localVarOptionals map[string]interfac
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -781,11 +781,11 @@ func (a *UsersApiService) RegisterUser(localVarOptionals map[string]interface{})
 }
 
 /* UsersApiService Remove a tag from a user
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param tag The tag to remove
  @return */
-func (a *UsersApiService) RemoveUserTag(userId int32, tag string) ( *http.Response, error) {
+func (a *UsersApiService) RemoveUserTag(ctx context.Context, userId int32, tag string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -822,7 +822,7 @@ func (a *UsersApiService) RemoveUserTag(userId int32, tag string) ( *http.Respon
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -841,12 +841,12 @@ func (a *UsersApiService) RemoveUserTag(userId int32, tag string) ( *http.Respon
 
 /* UsersApiService Set a user&#39;s password
  Password should be in plain text and will be encrypted on receipt. Use SSL for security.
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "password" (StringWrapper) The new plain text password
  @return */
-func (a *UsersApiService) SetPassword(id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *UsersApiService) SetPassword(ctx context.Context, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -886,7 +886,7 @@ func (a *UsersApiService) SetPassword(id int32, localVarOptionals map[string]int
 	if localVarTempParam, localVarOk := localVarOptionals["password"].(StringWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -1025,12 +1025,12 @@ func (a *UsersApiService) SubmitPasswordReset(localVarOptionals map[string]inter
 
 /* UsersApiService Update a user
  Password will not be edited on this endpoint, use password specific endpoints.
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the user or &#39;me&#39;
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userResource" (UserResource) The user resource object
  @return */
-func (a *UsersApiService) UpdateUser(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *UsersApiService) UpdateUser(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1070,7 +1070,7 @@ func (a *UsersApiService) UpdateUser(id string, localVarOptionals map[string]int
 	if localVarTempParam, localVarOk := localVarOptionals["userResource"].(UserResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -1088,12 +1088,12 @@ func (a *UsersApiService) UpdateUser(id string, localVarOptionals map[string]int
 }
 
 /* UsersApiService Update a user template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userTemplateResource" (TemplateResource) The user template resource object
  @return TemplateResource*/
-func (a *UsersApiService) UpdateUserTemplate(id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *UsersApiService) UpdateUserTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1134,7 +1134,7 @@ func (a *UsersApiService) UpdateUserTemplate(id string, localVarOptionals map[st
 	if localVarTempParam, localVarOk := localVarOptionals["userTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **LinkAccounts1**
-> LinkAccounts1(optional)
+> LinkAccounts1(ctx, ctx, optional)
 Link google account
 
 Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
@@ -17,6 +17,8 @@ Links the current user account to a google account, using the acccess token from
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -32,7 +34,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

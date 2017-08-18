@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **CreatePayPalBillingAgreementUrl**
-> string CreatePayPalBillingAgreementUrl(optional)
+> string CreatePayPalBillingAgreementUrl(ctx, ctx, optional)
 Create a PayPal Classic billing agreement for the user
 
 Returns the token that should be used to forward the user to PayPal so they can accept the agreement.
@@ -20,6 +20,8 @@ Returns the token that should be used to forward the user to PayPal so they can 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -35,7 +37,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -45,7 +47,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreatePayPalExpressCheckout**
-> string CreatePayPalExpressCheckout(optional)
+> string CreatePayPalExpressCheckout(ctx, ctx, optional)
 Create a payment token for PayPal express checkout
 
 Returns the token that should be used to forward the user to PayPal so they can complete the checkout.
@@ -54,6 +56,8 @@ Returns the token that should be used to forward the user to PayPal so they can 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -69,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -79,7 +83,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **FinalizePayPalBillingAgreement**
-> int32 FinalizePayPalBillingAgreement(optional)
+> int32 FinalizePayPalBillingAgreement(ctx, ctx, optional)
 Finalizes a billing agreement after the user has accepted through PayPal
 
 Returns the ID of the new payment method created for the user for the billing agreement.
@@ -88,6 +92,8 @@ Returns the ID of the new payment method created for the user for the billing ag
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -103,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -113,7 +119,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **FinalizePayPalCheckout**
-> FinalizePayPalCheckout(optional)
+> FinalizePayPalCheckout(ctx, ctx, optional)
 Finalizes a payment after the user has completed checkout with PayPal
 
 The invoice will be marked paid/failed by asynchronous IPN callback.
@@ -122,6 +128,8 @@ The invoice will be marked paid/failed by asynchronous IPN callback.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -137,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

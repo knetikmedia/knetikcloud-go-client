@@ -28,12 +28,12 @@ type StoreShoppingCartsApiService service
 
 
 /* StoreShoppingCartsApiService Adds a custom discount to the cart
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "customDiscount" (CouponDefinition) The details of the discount to add
  @return */
-func (a *StoreShoppingCartsApiService) AddCustomDiscount(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreShoppingCartsApiService) AddCustomDiscount(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -73,7 +73,7 @@ func (a *StoreShoppingCartsApiService) AddCustomDiscount(id string, localVarOpti
 	if localVarTempParam, localVarOk := localVarOptionals["customDiscount"].(CouponDefinition); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -91,12 +91,12 @@ func (a *StoreShoppingCartsApiService) AddCustomDiscount(id string, localVarOpti
 }
 
 /* StoreShoppingCartsApiService Adds a discount coupon to the cart
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "skuRequest" (SkuRequest) The request of the sku
  @return */
-func (a *StoreShoppingCartsApiService) AddDiscountToCart(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreShoppingCartsApiService) AddDiscountToCart(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -136,7 +136,7 @@ func (a *StoreShoppingCartsApiService) AddDiscountToCart(id string, localVarOpti
 	if localVarTempParam, localVarOk := localVarOptionals["skuRequest"].(SkuRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -155,12 +155,12 @@ func (a *StoreShoppingCartsApiService) AddDiscountToCart(id string, localVarOpti
 
 /* StoreShoppingCartsApiService Add an item to the cart
  Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cartItemRequest" (CartItemRequest) The cart item request object
  @return */
-func (a *StoreShoppingCartsApiService) AddItemToCart(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreShoppingCartsApiService) AddItemToCart(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -200,7 +200,7 @@ func (a *StoreShoppingCartsApiService) AddItemToCart(id string, localVarOptional
 	if localVarTempParam, localVarOk := localVarOptionals["cartItemRequest"].(CartItemRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -295,10 +295,10 @@ func (a *StoreShoppingCartsApiService) CreateCart(localVarOptionals map[string]i
 }
 
 /* StoreShoppingCartsApiService Returns the cart with the given GUID
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @return Cart*/
-func (a *StoreShoppingCartsApiService) GetCart(id string) (Cart,  *http.Response, error) {
+func (a *StoreShoppingCartsApiService) GetCart(ctx context.Context, id string) (Cart,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -335,7 +335,7 @@ func (a *StoreShoppingCartsApiService) GetCart(id string) (Cart,  *http.Response
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -358,14 +358,14 @@ func (a *StoreShoppingCartsApiService) GetCart(id string) (Cart,  *http.Response
 }
 
 /* StoreShoppingCartsApiService Get a list of carts
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterOwnerId" (int32) Filter by the id of the owner
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceCartSummary*/
-func (a *StoreShoppingCartsApiService) GetCarts(localVarOptionals map[string]interface{}) (PageResourceCartSummary,  *http.Response, error) {
+func (a *StoreShoppingCartsApiService) GetCarts(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceCartSummary,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -425,7 +425,7 @@ func (a *StoreShoppingCartsApiService) GetCarts(localVarOptionals map[string]int
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -448,10 +448,10 @@ func (a *StoreShoppingCartsApiService) GetCarts(localVarOptionals map[string]int
 }
 
 /* StoreShoppingCartsApiService Returns whether a cart requires shipping
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @return CartShippableResponse*/
-func (a *StoreShoppingCartsApiService) GetShippable(id string) (CartShippableResponse,  *http.Response, error) {
+func (a *StoreShoppingCartsApiService) GetShippable(ctx context.Context, id string) (CartShippableResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -488,7 +488,7 @@ func (a *StoreShoppingCartsApiService) GetShippable(id string) (CartShippableRes
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -512,10 +512,10 @@ func (a *StoreShoppingCartsApiService) GetShippable(id string) (CartShippableRes
 
 /* StoreShoppingCartsApiService Get the list of available shipping countries per vendor
  Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable.
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @return SampleCountriesResponse*/
-func (a *StoreShoppingCartsApiService) GetShippingCountries(id string) (SampleCountriesResponse,  *http.Response, error) {
+func (a *StoreShoppingCartsApiService) GetShippingCountries(ctx context.Context, id string) (SampleCountriesResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -552,7 +552,7 @@ func (a *StoreShoppingCartsApiService) GetShippingCountries(id string) (SampleCo
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -575,11 +575,11 @@ func (a *StoreShoppingCartsApiService) GetShippingCountries(id string) (SampleCo
 }
 
 /* StoreShoppingCartsApiService Removes a discount coupon from the cart
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param code The SKU code of the coupon to remove
  @return */
-func (a *StoreShoppingCartsApiService) RemoveDiscountFromCart(id string, code string) ( *http.Response, error) {
+func (a *StoreShoppingCartsApiService) RemoveDiscountFromCart(ctx context.Context, id string, code string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -616,7 +616,7 @@ func (a *StoreShoppingCartsApiService) RemoveDiscountFromCart(id string, code st
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -635,12 +635,12 @@ func (a *StoreShoppingCartsApiService) RemoveDiscountFromCart(id string, code st
 
 /* StoreShoppingCartsApiService Sets the currency to use for the cart
  May be disallowed by site settings.
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "currencyCode" (StringWrapper) The code of the currency
  @return */
-func (a *StoreShoppingCartsApiService) SetCartCurrency(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreShoppingCartsApiService) SetCartCurrency(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -680,7 +680,7 @@ func (a *StoreShoppingCartsApiService) SetCartCurrency(id string, localVarOption
 	if localVarTempParam, localVarOk := localVarOptionals["currencyCode"].(StringWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -698,12 +698,12 @@ func (a *StoreShoppingCartsApiService) SetCartCurrency(id string, localVarOption
 }
 
 /* StoreShoppingCartsApiService Sets the owner of a cart if none is set already
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userId" (IntWrapper) The id of the user
  @return */
-func (a *StoreShoppingCartsApiService) SetCartOwner(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreShoppingCartsApiService) SetCartOwner(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -743,7 +743,7 @@ func (a *StoreShoppingCartsApiService) SetCartOwner(id string, localVarOptionals
 	if localVarTempParam, localVarOk := localVarOptionals["userId"].(IntWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -762,12 +762,12 @@ func (a *StoreShoppingCartsApiService) SetCartOwner(id string, localVarOptionals
 
 /* StoreShoppingCartsApiService Changes the quantity of an item already in the cart
  A quantity of zero will remove the item from the cart altogether.
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cartItemRequest" (CartItemRequest) The cart item request object
  @return */
-func (a *StoreShoppingCartsApiService) UpdateItemInCart(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreShoppingCartsApiService) UpdateItemInCart(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -807,7 +807,7 @@ func (a *StoreShoppingCartsApiService) UpdateItemInCart(id string, localVarOptio
 	if localVarTempParam, localVarOk := localVarOptionals["cartItemRequest"].(CartItemRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -825,12 +825,12 @@ func (a *StoreShoppingCartsApiService) UpdateItemInCart(id string, localVarOptio
 }
 
 /* StoreShoppingCartsApiService Modifies or sets the order shipping address
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cartShippingAddressRequest" (CartShippingAddressRequest) The cart shipping address request object
  @return */
-func (a *StoreShoppingCartsApiService) UpdateShippingAddress(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreShoppingCartsApiService) UpdateShippingAddress(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -870,7 +870,7 @@ func (a *StoreShoppingCartsApiService) UpdateShippingAddress(id string, localVar
 	if localVarTempParam, localVarOk := localVarOptionals["cartShippingAddressRequest"].(CartShippingAddressRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

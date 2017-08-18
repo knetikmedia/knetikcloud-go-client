@@ -28,11 +28,11 @@ type AuthClientsApiService service
 
 
 /* AuthClientsApiService Create a new client
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "clientResource" (ClientResource) The client resource object
  @return ClientResource*/
-func (a *AuthClientsApiService) CreateClient(localVarOptionals map[string]interface{}) (ClientResource,  *http.Response, error) {
+func (a *AuthClientsApiService) CreateClient(ctx context.Context, localVarOptionals map[string]interface{}) (ClientResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *AuthClientsApiService) CreateClient(localVarOptionals map[string]interf
 	if localVarTempParam, localVarOk := localVarOptionals["clientResource"].(ClientResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,10 +95,10 @@ func (a *AuthClientsApiService) CreateClient(localVarOptionals map[string]interf
 }
 
 /* AuthClientsApiService Delete a client
-
+ * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @return */
-func (a *AuthClientsApiService) DeleteClient(clientKey string) ( *http.Response, error) {
+func (a *AuthClientsApiService) DeleteClient(ctx context.Context, clientKey string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -134,7 +134,7 @@ func (a *AuthClientsApiService) DeleteClient(clientKey string) ( *http.Response,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -152,10 +152,10 @@ func (a *AuthClientsApiService) DeleteClient(clientKey string) ( *http.Response,
 }
 
 /* AuthClientsApiService Get a single client
-
+ * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @return ClientResource*/
-func (a *AuthClientsApiService) GetClient(clientKey string) (ClientResource,  *http.Response, error) {
+func (a *AuthClientsApiService) GetClient(ctx context.Context, clientKey string) (ClientResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -192,7 +192,7 @@ func (a *AuthClientsApiService) GetClient(clientKey string) (ClientResource,  *h
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -215,9 +215,9 @@ func (a *AuthClientsApiService) GetClient(clientKey string) (ClientResource,  *h
 }
 
 /* AuthClientsApiService List available client grant types
-
+ * @param ctx context.Context Authentication Context 
  @return []GrantTypeResource*/
-func (a *AuthClientsApiService) GetClientGrantTypes() ([]GrantTypeResource,  *http.Response, error) {
+func (a *AuthClientsApiService) GetClientGrantTypes(ctx context.Context, ) ([]GrantTypeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -253,7 +253,7 @@ func (a *AuthClientsApiService) GetClientGrantTypes() ([]GrantTypeResource,  *ht
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -276,13 +276,13 @@ func (a *AuthClientsApiService) GetClientGrantTypes() ([]GrantTypeResource,  *ht
 }
 
 /* AuthClientsApiService List and search clients
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceClientResource*/
-func (a *AuthClientsApiService) GetClients(localVarOptionals map[string]interface{}) (PageResourceClientResource,  *http.Response, error) {
+func (a *AuthClientsApiService) GetClients(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceClientResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -336,7 +336,7 @@ func (a *AuthClientsApiService) GetClients(localVarOptionals map[string]interfac
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -359,12 +359,12 @@ func (a *AuthClientsApiService) GetClients(localVarOptionals map[string]interfac
 }
 
 /* AuthClientsApiService Set grant types for a client
-
+ * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "grantList" ([]string) A list of unique grant types
  @return */
-func (a *AuthClientsApiService) SetClientGrantTypes(clientKey string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *AuthClientsApiService) SetClientGrantTypes(ctx context.Context, clientKey string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -407,7 +407,7 @@ func (a *AuthClientsApiService) SetClientGrantTypes(clientKey string, localVarOp
 	if localVarTempParam, localVarOk := localVarOptionals["grantList"].([]string); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -425,12 +425,12 @@ func (a *AuthClientsApiService) SetClientGrantTypes(clientKey string, localVarOp
 }
 
 /* AuthClientsApiService Set redirect uris for a client
-
+ * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "redirectList" ([]string) A list of unique redirect uris
  @return */
-func (a *AuthClientsApiService) SetClientRedirectUris(clientKey string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *AuthClientsApiService) SetClientRedirectUris(ctx context.Context, clientKey string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -473,7 +473,7 @@ func (a *AuthClientsApiService) SetClientRedirectUris(clientKey string, localVar
 	if localVarTempParam, localVarOk := localVarOptionals["redirectList"].([]string); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -491,12 +491,12 @@ func (a *AuthClientsApiService) SetClientRedirectUris(clientKey string, localVar
 }
 
 /* AuthClientsApiService Update a client
-
+ * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "clientResource" (ClientResource) The client resource object
  @return ClientResource*/
-func (a *AuthClientsApiService) UpdateClient(clientKey string, localVarOptionals map[string]interface{}) (ClientResource,  *http.Response, error) {
+func (a *AuthClientsApiService) UpdateClient(ctx context.Context, clientKey string, localVarOptionals map[string]interface{}) (ClientResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -537,7 +537,7 @@ func (a *AuthClientsApiService) UpdateClient(clientKey string, localVarOptionals
 	if localVarTempParam, localVarOk := localVarOptionals["clientResource"].(ClientResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

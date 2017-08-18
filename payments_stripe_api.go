@@ -28,11 +28,11 @@ type PaymentsStripeApiService service
 
 /* PaymentsStripeApiService Create a Stripe payment method for a user
  Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (StripeCreatePaymentMethod) The request to create a Stripe customer with payment info
  @return PaymentMethodResource*/
-func (a *PaymentsStripeApiService) CreateStripePaymentMethod(localVarOptionals map[string]interface{}) (PaymentMethodResource,  *http.Response, error) {
+func (a *PaymentsStripeApiService) CreateStripePaymentMethod(ctx context.Context, localVarOptionals map[string]interface{}) (PaymentMethodResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *PaymentsStripeApiService) CreateStripePaymentMethod(localVarOptionals m
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(StripeCreatePaymentMethod); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

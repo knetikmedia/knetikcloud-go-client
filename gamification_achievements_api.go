@@ -29,11 +29,11 @@ type GamificationAchievementsApiService service
 
 /* GamificationAchievementsApiService Create a new achievement definition
  If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user&#39;s achievement status must manually be updated via the API.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "achievement" (AchievementDefinitionResource) The achievement definition
  @return AchievementDefinitionResource*/
-func (a *GamificationAchievementsApiService) CreateAchievement(localVarOptionals map[string]interface{}) (AchievementDefinitionResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) CreateAchievement(ctx context.Context, localVarOptionals map[string]interface{}) (AchievementDefinitionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -73,7 +73,7 @@ func (a *GamificationAchievementsApiService) CreateAchievement(localVarOptionals
 	if localVarTempParam, localVarOk := localVarOptionals["achievement"].(AchievementDefinitionResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -97,11 +97,11 @@ func (a *GamificationAchievementsApiService) CreateAchievement(localVarOptionals
 
 /* GamificationAchievementsApiService Create an achievement template
  Achievement templates define a type of achievement and the properties they have
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (TemplateResource) The achievement template to be created
  @return TemplateResource*/
-func (a *GamificationAchievementsApiService) CreateAchievementTemplate(localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) CreateAchievementTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -141,7 +141,7 @@ func (a *GamificationAchievementsApiService) CreateAchievementTemplate(localVarO
 	if localVarTempParam, localVarOk := localVarOptionals["template"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -165,10 +165,10 @@ func (a *GamificationAchievementsApiService) CreateAchievementTemplate(localVarO
 
 /* GamificationAchievementsApiService Delete an achievement definition
  Will also disable the associated generated rule, if any.
-
+ * @param ctx context.Context Authentication Context 
  @param name The name of the achievement
  @return */
-func (a *GamificationAchievementsApiService) DeleteAchievement(name string) ( *http.Response, error) {
+func (a *GamificationAchievementsApiService) DeleteAchievement(ctx context.Context, name string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -204,7 +204,7 @@ func (a *GamificationAchievementsApiService) DeleteAchievement(name string) ( *h
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -223,12 +223,12 @@ func (a *GamificationAchievementsApiService) DeleteAchievement(name string) ( *h
 
 /* GamificationAchievementsApiService Delete an achievement template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *GamificationAchievementsApiService) DeleteAchievementTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *GamificationAchievementsApiService) DeleteAchievementTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -270,7 +270,7 @@ func (a *GamificationAchievementsApiService) DeleteAchievementTemplate(id string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -288,10 +288,10 @@ func (a *GamificationAchievementsApiService) DeleteAchievementTemplate(id string
 }
 
 /* GamificationAchievementsApiService Get a single achievement definition
-
+ * @param ctx context.Context Authentication Context 
  @param name The name of the achievement
  @return AchievementDefinitionResource*/
-func (a *GamificationAchievementsApiService) GetAchievement(name string) (AchievementDefinitionResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) GetAchievement(ctx context.Context, name string) (AchievementDefinitionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -328,7 +328,7 @@ func (a *GamificationAchievementsApiService) GetAchievement(name string) (Achiev
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -351,10 +351,10 @@ func (a *GamificationAchievementsApiService) GetAchievement(name string) (Achiev
 }
 
 /* GamificationAchievementsApiService Get a single achievement template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
-func (a *GamificationAchievementsApiService) GetAchievementTemplate(id string) (TemplateResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) GetAchievementTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -391,7 +391,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTemplate(id string) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -414,13 +414,13 @@ func (a *GamificationAchievementsApiService) GetAchievementTemplate(id string) (
 }
 
 /* GamificationAchievementsApiService List and search achievement templates
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *GamificationAchievementsApiService) GetAchievementTemplates(localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) GetAchievementTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -474,7 +474,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTemplates(localVarOpt
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -497,9 +497,9 @@ func (a *GamificationAchievementsApiService) GetAchievementTemplates(localVarOpt
 }
 
 /* GamificationAchievementsApiService Get the list of triggers that can be used to trigger an achievement progress update
-
+ * @param ctx context.Context Authentication Context 
  @return []BreTriggerResource*/
-func (a *GamificationAchievementsApiService) GetAchievementTriggers() ([]BreTriggerResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) GetAchievementTriggers(ctx context.Context, ) ([]BreTriggerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -535,7 +535,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTriggers() ([]BreTrig
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -558,7 +558,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTriggers() ([]BreTrig
 }
 
 /* GamificationAchievementsApiService Get all achievement definitions in the system
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterTagset" (string) Filter for achievements with specified tags (separated by comma)
      @param "filterName" (string) Filter for achievements whose name contains a string
@@ -568,7 +568,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTriggers() ([]BreTrig
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
      @param "filterDerived" (bool) Filter for achievements that are derived from other services
  @return PageResourceAchievementDefinitionResource*/
-func (a *GamificationAchievementsApiService) GetAchievements(localVarOptionals map[string]interface{}) (PageResourceAchievementDefinitionResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) GetAchievements(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceAchievementDefinitionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -646,7 +646,7 @@ func (a *GamificationAchievementsApiService) GetAchievements(localVarOptionals m
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -670,10 +670,10 @@ func (a *GamificationAchievementsApiService) GetAchievements(localVarOptionals m
 
 /* GamificationAchievementsApiService Get a list of derived achievements
  Used by other services that depend on achievements
-
+ * @param ctx context.Context Authentication Context 
  @param name The name of the derived achievement
  @return []AchievementDefinitionResource*/
-func (a *GamificationAchievementsApiService) GetDerivedAchievements(name string) ([]AchievementDefinitionResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) GetDerivedAchievements(ctx context.Context, name string) ([]AchievementDefinitionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -710,7 +710,7 @@ func (a *GamificationAchievementsApiService) GetDerivedAchievements(name string)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -734,11 +734,11 @@ func (a *GamificationAchievementsApiService) GetDerivedAchievements(name string)
 
 /* GamificationAchievementsApiService Retrieve progress on a given achievement for a given user
  Assets will not be filled in on the resources returned. Use &#39;Get a single poll&#39; to retrieve the full resource with assets for a given item as needed.
-
+ * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @param achievementName The achievement&#39;s name
  @return UserAchievementGroupResource*/
-func (a *GamificationAchievementsApiService) GetUserAchievementProgress(userId int32, achievementName string) (UserAchievementGroupResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) GetUserAchievementProgress(ctx context.Context, userId int32, achievementName string) (UserAchievementGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -776,7 +776,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementProgress(userId i
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -800,7 +800,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementProgress(userId i
 
 /* GamificationAchievementsApiService Retrieve progress on achievements for a given user
  Assets will not be filled in on the resources returned. Use &#39;Get a single poll&#39; to retrieve the full resource with assets for a given item as needed.
-
+ * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterAchievementDerived" (bool) Filter for achievements that are derived from other services
@@ -809,7 +809,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementProgress(userId i
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUserAchievementGroupResource*/
-func (a *GamificationAchievementsApiService) GetUserAchievementsProgress(userId int32, localVarOptionals map[string]interface{}) (PageResourceUserAchievementGroupResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) GetUserAchievementsProgress(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) (PageResourceUserAchievementGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -876,7 +876,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementsProgress(userId 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -900,7 +900,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementsProgress(userId 
 
 /* GamificationAchievementsApiService Retrieve progress on a given achievement for all users
  Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed.
-
+ * @param ctx context.Context Authentication Context 
  @param achievementName The achievement&#39;s name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterAchievementDerived" (bool) Filter for achievements that are derived from other services
@@ -909,7 +909,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementsProgress(userId 
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUserAchievementGroupResource*/
-func (a *GamificationAchievementsApiService) GetUsersAchievementProgress(achievementName string, localVarOptionals map[string]interface{}) (PageResourceUserAchievementGroupResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) GetUsersAchievementProgress(ctx context.Context, achievementName string, localVarOptionals map[string]interface{}) (PageResourceUserAchievementGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -976,7 +976,7 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementProgress(achieve
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1000,7 +1000,7 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementProgress(achieve
 
 /* GamificationAchievementsApiService Retrieve progress on achievements for all users
  Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterAchievementDerived" (bool) Filter for achievements that are derived from other services
      @param "filterAchievementTagset" (string) Filter for achievements with specified tags (separated by comma)
@@ -1008,7 +1008,7 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementProgress(achieve
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUserAchievementGroupResource*/
-func (a *GamificationAchievementsApiService) GetUsersAchievementsProgress(localVarOptionals map[string]interface{}) (PageResourceUserAchievementGroupResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) GetUsersAchievementsProgress(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceUserAchievementGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1074,7 +1074,7 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementsProgress(localV
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1098,13 +1098,13 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementsProgress(localV
 
 /* GamificationAchievementsApiService Increment an achievement progress record for a user
  If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;.
-
+ * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @param achievementName The achievement&#39;s name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "progress" (IntWrapper) The amount to add to the progress value
  @return UserAchievementGroupResource*/
-func (a *GamificationAchievementsApiService) IncrementAchievementProgress(userId int32, achievementName string, localVarOptionals map[string]interface{}) (UserAchievementGroupResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) IncrementAchievementProgress(ctx context.Context, userId int32, achievementName string, localVarOptionals map[string]interface{}) (UserAchievementGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -1146,7 +1146,7 @@ func (a *GamificationAchievementsApiService) IncrementAchievementProgress(userId
 	if localVarTempParam, localVarOk := localVarOptionals["progress"].(IntWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1170,13 +1170,13 @@ func (a *GamificationAchievementsApiService) IncrementAchievementProgress(userId
 
 /* GamificationAchievementsApiService Set an achievement progress record for a user
  If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;.
-
+ * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @param achievementName The achievement&#39;s name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "progress" (IntWrapper) The new progress value
  @return UserAchievementGroupResource*/
-func (a *GamificationAchievementsApiService) SetAchievementProgress(userId int32, achievementName string, localVarOptionals map[string]interface{}) (UserAchievementGroupResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) SetAchievementProgress(ctx context.Context, userId int32, achievementName string, localVarOptionals map[string]interface{}) (UserAchievementGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1218,7 +1218,7 @@ func (a *GamificationAchievementsApiService) SetAchievementProgress(userId int32
 	if localVarTempParam, localVarOk := localVarOptionals["progress"].(IntWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1242,12 +1242,12 @@ func (a *GamificationAchievementsApiService) SetAchievementProgress(userId int32
 
 /* GamificationAchievementsApiService Update an achievement definition
  The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version.
-
+ * @param ctx context.Context Authentication Context 
  @param name The name of the achievement
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "achievement" (AchievementDefinitionResource) The achievement definition
  @return AchievementDefinitionResource*/
-func (a *GamificationAchievementsApiService) UpdateAchievement(name string, localVarOptionals map[string]interface{}) (AchievementDefinitionResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) UpdateAchievement(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AchievementDefinitionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1288,7 +1288,7 @@ func (a *GamificationAchievementsApiService) UpdateAchievement(name string, loca
 	if localVarTempParam, localVarOk := localVarOptionals["achievement"].(AchievementDefinitionResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1311,12 +1311,12 @@ func (a *GamificationAchievementsApiService) UpdateAchievement(name string, loca
 }
 
 /* GamificationAchievementsApiService Update an achievement template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (TemplateResource) The updated template
  @return TemplateResource*/
-func (a *GamificationAchievementsApiService) UpdateAchievementTemplate(id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *GamificationAchievementsApiService) UpdateAchievementTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1357,7 +1357,7 @@ func (a *GamificationAchievementsApiService) UpdateAchievementTemplate(id string
 	if localVarTempParam, localVarOk := localVarOptionals["template"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

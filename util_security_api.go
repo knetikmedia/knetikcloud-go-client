@@ -28,14 +28,14 @@ type UtilSecurityApiService service
 
 /* UtilSecurityApiService Returns the authentication log for a user
  A log entry is recorded everytime a user requests a new token. Standard pagination available
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userId" (int32) The user id
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceLocationLogResource*/
-func (a *UtilSecurityApiService) GetUserLocationLog(localVarOptionals map[string]interface{}) (PageResourceLocationLogResource,  *http.Response, error) {
+func (a *UtilSecurityApiService) GetUserLocationLog(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceLocationLogResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -95,7 +95,7 @@ func (a *UtilSecurityApiService) GetUserLocationLog(localVarOptionals map[string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -118,9 +118,9 @@ func (a *UtilSecurityApiService) GetUserLocationLog(localVarOptionals map[string
 }
 
 /* UtilSecurityApiService Returns the authentication token details. Use /users endpoint for detailed user&#39;s info
-
+ * @param ctx context.Context Authentication Context 
  @return TokenDetailsResource*/
-func (a *UtilSecurityApiService) GetUserTokenDetails() (TokenDetailsResource,  *http.Response, error) {
+func (a *UtilSecurityApiService) GetUserTokenDetails(ctx context.Context, ) (TokenDetailsResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -156,7 +156,7 @@ func (a *UtilSecurityApiService) GetUserTokenDetails() (TokenDetailsResource,  *
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

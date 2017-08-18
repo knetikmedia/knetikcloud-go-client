@@ -27,12 +27,12 @@ type ReportingSubscriptionsApiService service
 
 
 /* ReportingSubscriptionsApiService Get a list of available subscription reports in most recent first order
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceBillingReport*/
-func (a *ReportingSubscriptionsApiService) GetSubscriptionReports(localVarOptionals map[string]interface{}) (PageResourceBillingReport,  *http.Response, error) {
+func (a *ReportingSubscriptionsApiService) GetSubscriptionReports(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceBillingReport,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -80,7 +80,7 @@ func (a *ReportingSubscriptionsApiService) GetSubscriptionReports(localVarOption
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

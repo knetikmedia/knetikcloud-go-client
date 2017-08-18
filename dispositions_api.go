@@ -28,11 +28,11 @@ type DispositionsApiService service
 
 
 /* DispositionsApiService Add a new disposition
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "disposition" (DispositionResource) The new disposition record
  @return DispositionResource*/
-func (a *DispositionsApiService) AddDisposition(localVarOptionals map[string]interface{}) (DispositionResource,  *http.Response, error) {
+func (a *DispositionsApiService) AddDisposition(ctx context.Context, localVarOptionals map[string]interface{}) (DispositionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *DispositionsApiService) AddDisposition(localVarOptionals map[string]int
 	if localVarTempParam, localVarOk := localVarOptionals["disposition"].(DispositionResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,10 +95,10 @@ func (a *DispositionsApiService) AddDisposition(localVarOptionals map[string]int
 }
 
 /* DispositionsApiService Delete a disposition
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the disposition record
  @return */
-func (a *DispositionsApiService) DeleteDisposition(id int64) ( *http.Response, error) {
+func (a *DispositionsApiService) DeleteDisposition(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -134,7 +134,7 @@ func (a *DispositionsApiService) DeleteDisposition(id int64) ( *http.Response, e
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

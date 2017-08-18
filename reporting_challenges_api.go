@@ -28,14 +28,14 @@ type ReportingChallengesApiService service
 
 /* ReportingChallengesApiService Retrieve a challenge event leaderboard details
  Lists all leaderboard entries with additional user details
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterEvent" (int64) A sepecific challenge event id
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceChallengeEventParticipantResource*/
-func (a *ReportingChallengesApiService) GetChallengeEventLeaderboard(localVarOptionals map[string]interface{}) (PageResourceChallengeEventParticipantResource,  *http.Response, error) {
+func (a *ReportingChallengesApiService) GetChallengeEventLeaderboard(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceChallengeEventParticipantResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -95,7 +95,7 @@ func (a *ReportingChallengesApiService) GetChallengeEventLeaderboard(localVarOpt
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -119,14 +119,14 @@ func (a *ReportingChallengesApiService) GetChallengeEventLeaderboard(localVarOpt
 
 /* ReportingChallengesApiService Retrieve a challenge event participant details
  Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterEvent" (int64) A sepecific challenge event id
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceChallengeEventParticipantResource*/
-func (a *ReportingChallengesApiService) GetChallengeEventParticipants(localVarOptionals map[string]interface{}) (PageResourceChallengeEventParticipantResource,  *http.Response, error) {
+func (a *ReportingChallengesApiService) GetChallengeEventParticipants(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceChallengeEventParticipantResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -186,7 +186,7 @@ func (a *ReportingChallengesApiService) GetChallengeEventParticipants(localVarOp
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

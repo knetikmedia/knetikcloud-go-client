@@ -28,11 +28,11 @@ type GamificationLevelingApiService service
 
 
 /* GamificationLevelingApiService Create a level schema
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "level" (LevelingResource) The level schema definition
  @return LevelingResource*/
-func (a *GamificationLevelingApiService) CreateLevel(localVarOptionals map[string]interface{}) (LevelingResource,  *http.Response, error) {
+func (a *GamificationLevelingApiService) CreateLevel(ctx context.Context, localVarOptionals map[string]interface{}) (LevelingResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *GamificationLevelingApiService) CreateLevel(localVarOptionals map[strin
 	if localVarTempParam, localVarOk := localVarOptionals["level"].(LevelingResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,10 +95,10 @@ func (a *GamificationLevelingApiService) CreateLevel(localVarOptionals map[strin
 }
 
 /* GamificationLevelingApiService Delete a level
-
+ * @param ctx context.Context Authentication Context 
  @param name The level schema name
  @return */
-func (a *GamificationLevelingApiService) DeleteLevel(name string) ( *http.Response, error) {
+func (a *GamificationLevelingApiService) DeleteLevel(ctx context.Context, name string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -134,7 +134,7 @@ func (a *GamificationLevelingApiService) DeleteLevel(name string) ( *http.Respon
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -152,10 +152,10 @@ func (a *GamificationLevelingApiService) DeleteLevel(name string) ( *http.Respon
 }
 
 /* GamificationLevelingApiService Retrieve a level
-
+ * @param ctx context.Context Authentication Context 
  @param name The level schema name
  @return LevelingResource*/
-func (a *GamificationLevelingApiService) GetLevel(name string) (LevelingResource,  *http.Response, error) {
+func (a *GamificationLevelingApiService) GetLevel(ctx context.Context, name string) (LevelingResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -192,7 +192,7 @@ func (a *GamificationLevelingApiService) GetLevel(name string) (LevelingResource
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -215,9 +215,9 @@ func (a *GamificationLevelingApiService) GetLevel(name string) (LevelingResource
 }
 
 /* GamificationLevelingApiService Get the list of triggers that can be used to trigger a leveling progress update
-
+ * @param ctx context.Context Authentication Context 
  @return []BreTriggerResource*/
-func (a *GamificationLevelingApiService) GetLevelTriggers() ([]BreTriggerResource,  *http.Response, error) {
+func (a *GamificationLevelingApiService) GetLevelTriggers(ctx context.Context, ) ([]BreTriggerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -253,7 +253,7 @@ func (a *GamificationLevelingApiService) GetLevelTriggers() ([]BreTriggerResourc
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -277,14 +277,14 @@ func (a *GamificationLevelingApiService) GetLevelTriggers() ([]BreTriggerResourc
 
 /* GamificationLevelingApiService List and search levels
  Get a list of levels schemas with optional filtering
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterName" (string) Filter for level schemas whose name contains a given string
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceLevelingResource*/
-func (a *GamificationLevelingApiService) GetLevels(localVarOptionals map[string]interface{}) (PageResourceLevelingResource,  *http.Response, error) {
+func (a *GamificationLevelingApiService) GetLevels(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceLevelingResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -344,7 +344,7 @@ func (a *GamificationLevelingApiService) GetLevels(localVarOptionals map[string]
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -367,11 +367,11 @@ func (a *GamificationLevelingApiService) GetLevels(localVarOptionals map[string]
 }
 
 /* GamificationLevelingApiService Get a user&#39;s progress for a given level schema
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param name The level schema name
  @return UserLevelingResource*/
-func (a *GamificationLevelingApiService) GetUserLevel(userId int32, name string) (UserLevelingResource,  *http.Response, error) {
+func (a *GamificationLevelingApiService) GetUserLevel(ctx context.Context, userId int32, name string) (UserLevelingResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -409,7 +409,7 @@ func (a *GamificationLevelingApiService) GetUserLevel(userId int32, name string)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -433,7 +433,7 @@ func (a *GamificationLevelingApiService) GetUserLevel(userId int32, name string)
 
 /* GamificationLevelingApiService Get a user&#39;s progress for all level schemas
  Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here.
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterName" (string) Filter for level schemas whose name contains a given string
@@ -441,7 +441,7 @@ func (a *GamificationLevelingApiService) GetUserLevel(userId int32, name string)
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceUserLevelingResource*/
-func (a *GamificationLevelingApiService) GetUserLevels(userId int32, localVarOptionals map[string]interface{}) (PageResourceUserLevelingResource,  *http.Response, error) {
+func (a *GamificationLevelingApiService) GetUserLevels(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) (PageResourceUserLevelingResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -502,7 +502,7 @@ func (a *GamificationLevelingApiService) GetUserLevels(userId int32, localVarOpt
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -526,13 +526,13 @@ func (a *GamificationLevelingApiService) GetUserLevels(userId int32, localVarOpt
 
 /* GamificationLevelingApiService Update or create a leveling progress record for a user
  If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;.
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param name The level schema name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "progress" (IntWrapper) The amount of progress to add
  @return */
-func (a *GamificationLevelingApiService) IncrementProgress(userId int32, name string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *GamificationLevelingApiService) IncrementProgress(ctx context.Context, userId int32, name string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -573,7 +573,7 @@ func (a *GamificationLevelingApiService) IncrementProgress(userId int32, name st
 	if localVarTempParam, localVarOk := localVarOptionals["progress"].(IntWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -592,13 +592,13 @@ func (a *GamificationLevelingApiService) IncrementProgress(userId int32, name st
 
 /* GamificationLevelingApiService Set leveling progress for a user
  If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;.
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param name The level schema name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "progress" (IntWrapper) The new progress amount
  @return */
-func (a *GamificationLevelingApiService) SetProgress(userId int32, name string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *GamificationLevelingApiService) SetProgress(ctx context.Context, userId int32, name string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -639,7 +639,7 @@ func (a *GamificationLevelingApiService) SetProgress(userId int32, name string, 
 	if localVarTempParam, localVarOk := localVarOptionals["progress"].(IntWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -657,12 +657,12 @@ func (a *GamificationLevelingApiService) SetProgress(userId int32, name string, 
 }
 
 /* GamificationLevelingApiService Update a level
-
+ * @param ctx context.Context Authentication Context 
  @param name The level schema name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "newLevel" (LevelingResource) The level schema definition
  @return LevelingResource*/
-func (a *GamificationLevelingApiService) UpdateLevel(name string, localVarOptionals map[string]interface{}) (LevelingResource,  *http.Response, error) {
+func (a *GamificationLevelingApiService) UpdateLevel(ctx context.Context, name string, localVarOptionals map[string]interface{}) (LevelingResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -703,7 +703,7 @@ func (a *GamificationLevelingApiService) UpdateLevel(name string, localVarOption
 	if localVarTempParam, localVarOk := localVarOptionals["newLevel"].(LevelingResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

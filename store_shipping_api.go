@@ -29,12 +29,12 @@ type StoreShippingApiService service
 
 /* StoreShippingApiService Create a shipping item
  A shipping item represents a shipping option and cost. SKUs have to be unique in the entire store.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "shippingItem" (ShippingItem) The shipping item object
  @return ShippingItem*/
-func (a *StoreShippingApiService) CreateShippingItem(localVarOptionals map[string]interface{}) (ShippingItem,  *http.Response, error) {
+func (a *StoreShippingApiService) CreateShippingItem(ctx context.Context, localVarOptionals map[string]interface{}) (ShippingItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -80,7 +80,7 @@ func (a *StoreShippingApiService) CreateShippingItem(localVarOptionals map[strin
 	if localVarTempParam, localVarOk := localVarOptionals["shippingItem"].(ShippingItem); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -104,11 +104,11 @@ func (a *StoreShippingApiService) CreateShippingItem(localVarOptionals map[strin
 
 /* StoreShippingApiService Create a shipping template
  Shipping Templates define a type of shipping and the properties they have.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "shippingTemplateResource" (ItemTemplateResource) The new shipping template
  @return ItemTemplateResource*/
-func (a *StoreShippingApiService) CreateShippingTemplate(localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *StoreShippingApiService) CreateShippingTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -148,7 +148,7 @@ func (a *StoreShippingApiService) CreateShippingTemplate(localVarOptionals map[s
 	if localVarTempParam, localVarOk := localVarOptionals["shippingTemplateResource"].(ItemTemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -171,10 +171,10 @@ func (a *StoreShippingApiService) CreateShippingTemplate(localVarOptionals map[s
 }
 
 /* StoreShippingApiService Delete a shipping item
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the shipping item
  @return */
-func (a *StoreShippingApiService) DeleteShippingItem(id int32) ( *http.Response, error) {
+func (a *StoreShippingApiService) DeleteShippingItem(ctx context.Context, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -210,7 +210,7 @@ func (a *StoreShippingApiService) DeleteShippingItem(id int32) ( *http.Response,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -228,12 +228,12 @@ func (a *StoreShippingApiService) DeleteShippingItem(id int32) ( *http.Response,
 }
 
 /* StoreShippingApiService Delete a shipping template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach
  @return */
-func (a *StoreShippingApiService) DeleteShippingTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreShippingApiService) DeleteShippingTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -275,7 +275,7 @@ func (a *StoreShippingApiService) DeleteShippingTemplate(id string, localVarOpti
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -357,10 +357,10 @@ func (a *StoreShippingApiService) GetShippingItem(id int32) (ShippingItem,  *htt
 
 /* StoreShippingApiService Get a single shipping template
  Shipping Templates define a type of shipping and the properties they have.
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
-func (a *StoreShippingApiService) GetShippingTemplate(id string) (ItemTemplateResource,  *http.Response, error) {
+func (a *StoreShippingApiService) GetShippingTemplate(ctx context.Context, id string) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -397,7 +397,7 @@ func (a *StoreShippingApiService) GetShippingTemplate(id string) (ItemTemplateRe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -420,13 +420,13 @@ func (a *StoreShippingApiService) GetShippingTemplate(id string) (ItemTemplateRe
 }
 
 /* StoreShippingApiService List and search shipping templates
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceItemTemplateResource*/
-func (a *StoreShippingApiService) GetShippingTemplates(localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
+func (a *StoreShippingApiService) GetShippingTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -480,7 +480,7 @@ func (a *StoreShippingApiService) GetShippingTemplates(localVarOptionals map[str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -503,13 +503,13 @@ func (a *StoreShippingApiService) GetShippingTemplates(localVarOptionals map[str
 }
 
 /* StoreShippingApiService Update a shipping item
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the shipping item
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "shippingItem" (ShippingItem) The shipping item object
  @return ShippingItem*/
-func (a *StoreShippingApiService) UpdateShippingItem(id int32, localVarOptionals map[string]interface{}) (ShippingItem,  *http.Response, error) {
+func (a *StoreShippingApiService) UpdateShippingItem(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (ShippingItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -556,7 +556,7 @@ func (a *StoreShippingApiService) UpdateShippingItem(id int32, localVarOptionals
 	if localVarTempParam, localVarOk := localVarOptionals["shippingItem"].(ShippingItem); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -579,12 +579,12 @@ func (a *StoreShippingApiService) UpdateShippingItem(id int32, localVarOptionals
 }
 
 /* StoreShippingApiService Update a shipping template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "shippingTemplateResource" (ItemTemplateResource) The shipping template resource object
  @return ItemTemplateResource*/
-func (a *StoreShippingApiService) UpdateShippingTemplate(id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *StoreShippingApiService) UpdateShippingTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -625,7 +625,7 @@ func (a *StoreShippingApiService) UpdateShippingTemplate(id string, localVarOpti
 	if localVarTempParam, localVarOk := localVarOptionals["shippingTemplateResource"].(ItemTemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

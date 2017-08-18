@@ -29,11 +29,11 @@ type ContentArticlesApiService service
 
 /* ContentArticlesApiService Create a new article
  Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "articleResource" (ArticleResource) The new article
  @return ArticleResource*/
-func (a *ContentArticlesApiService) CreateArticle(localVarOptionals map[string]interface{}) (ArticleResource,  *http.Response, error) {
+func (a *ContentArticlesApiService) CreateArticle(ctx context.Context, localVarOptionals map[string]interface{}) (ArticleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -73,7 +73,7 @@ func (a *ContentArticlesApiService) CreateArticle(localVarOptionals map[string]i
 	if localVarTempParam, localVarOk := localVarOptionals["articleResource"].(ArticleResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -97,11 +97,11 @@ func (a *ContentArticlesApiService) CreateArticle(localVarOptionals map[string]i
 
 /* ContentArticlesApiService Create an article template
  Article Templates define a type of article and the properties they have
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "articleTemplateResource" (TemplateResource) The article template resource object
  @return TemplateResource*/
-func (a *ContentArticlesApiService) CreateArticleTemplate(localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *ContentArticlesApiService) CreateArticleTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -141,7 +141,7 @@ func (a *ContentArticlesApiService) CreateArticleTemplate(localVarOptionals map[
 	if localVarTempParam, localVarOk := localVarOptionals["articleTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -164,10 +164,10 @@ func (a *ContentArticlesApiService) CreateArticleTemplate(localVarOptionals map[
 }
 
 /* ContentArticlesApiService Delete an existing article
-
+ * @param ctx context.Context Authentication Context 
  @param id The article id
  @return */
-func (a *ContentArticlesApiService) DeleteArticle(id string) ( *http.Response, error) {
+func (a *ContentArticlesApiService) DeleteArticle(ctx context.Context, id string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -203,7 +203,7 @@ func (a *ContentArticlesApiService) DeleteArticle(id string) ( *http.Response, e
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -222,12 +222,12 @@ func (a *ContentArticlesApiService) DeleteArticle(id string) ( *http.Response, e
 
 /* ContentArticlesApiService Delete an article template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *ContentArticlesApiService) DeleteArticleTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *ContentArticlesApiService) DeleteArticleTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -269,7 +269,7 @@ func (a *ContentArticlesApiService) DeleteArticleTemplate(id string, localVarOpt
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -350,10 +350,10 @@ func (a *ContentArticlesApiService) GetArticle(id string) (ArticleResource,  *ht
 }
 
 /* ContentArticlesApiService Get a single article template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
-func (a *ContentArticlesApiService) GetArticleTemplate(id string) (TemplateResource,  *http.Response, error) {
+func (a *ContentArticlesApiService) GetArticleTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -390,7 +390,7 @@ func (a *ContentArticlesApiService) GetArticleTemplate(id string) (TemplateResou
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -413,13 +413,13 @@ func (a *ContentArticlesApiService) GetArticleTemplate(id string) (TemplateResou
 }
 
 /* ContentArticlesApiService List and search article templates
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *ContentArticlesApiService) GetArticleTemplates(localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *ContentArticlesApiService) GetArticleTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -473,7 +473,7 @@ func (a *ContentArticlesApiService) GetArticleTemplates(localVarOptionals map[st
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -622,12 +622,12 @@ func (a *ContentArticlesApiService) GetArticles(localVarOptionals map[string]int
 }
 
 /* ContentArticlesApiService Update an existing article
-
+ * @param ctx context.Context Authentication Context 
  @param id The article id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "articleResource" (ArticleResource) The article object
  @return ArticleResource*/
-func (a *ContentArticlesApiService) UpdateArticle(id string, localVarOptionals map[string]interface{}) (ArticleResource,  *http.Response, error) {
+func (a *ContentArticlesApiService) UpdateArticle(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ArticleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -668,7 +668,7 @@ func (a *ContentArticlesApiService) UpdateArticle(id string, localVarOptionals m
 	if localVarTempParam, localVarOk := localVarOptionals["articleResource"].(ArticleResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -691,12 +691,12 @@ func (a *ContentArticlesApiService) UpdateArticle(id string, localVarOptionals m
 }
 
 /* ContentArticlesApiService Update an article template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "articleTemplateResource" (TemplateResource) The article template resource object
  @return TemplateResource*/
-func (a *ContentArticlesApiService) UpdateArticleTemplate(id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *ContentArticlesApiService) UpdateArticleTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -737,7 +737,7 @@ func (a *ContentArticlesApiService) UpdateArticleTemplate(id string, localVarOpt
 	if localVarTempParam, localVarOk := localVarOptionals["articleTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

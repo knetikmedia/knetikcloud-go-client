@@ -28,12 +28,12 @@ type GamificationTriviaApiService service
 
 
 /* GamificationTriviaApiService Add an answer to a question
-
+ * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "answer" (AnswerResource) The new answer
  @return AnswerResource*/
-func (a *GamificationTriviaApiService) AddQuestionAnswers(questionId string, localVarOptionals map[string]interface{}) (AnswerResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) AddQuestionAnswers(ctx context.Context, questionId string, localVarOptionals map[string]interface{}) (AnswerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -74,7 +74,7 @@ func (a *GamificationTriviaApiService) AddQuestionAnswers(questionId string, loc
 	if localVarTempParam, localVarOk := localVarOptionals["answer"].(AnswerResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -97,12 +97,12 @@ func (a *GamificationTriviaApiService) AddQuestionAnswers(questionId string, loc
 }
 
 /* GamificationTriviaApiService Add a tag to a question
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "tag" (StringWrapper) The new tag
  @return */
-func (a *GamificationTriviaApiService) AddQuestionTag(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *GamificationTriviaApiService) AddQuestionTag(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -142,7 +142,7 @@ func (a *GamificationTriviaApiService) AddQuestionTag(id string, localVarOptiona
 	if localVarTempParam, localVarOk := localVarOptionals["tag"].(StringWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -161,7 +161,7 @@ func (a *GamificationTriviaApiService) AddQuestionTag(id string, localVarOptiona
 
 /* GamificationTriviaApiService Add a tag to a batch of questions
  All questions that dont&#39;t have the tag and match filters will have it added. The returned number is the number of questions updated.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "tag" (StringWrapper) The tag to add
      @param "filterSearch" (string) Filter for documents whose question, answers or tags contains provided string
@@ -173,7 +173,7 @@ func (a *GamificationTriviaApiService) AddQuestionTag(id string, localVarOptiona
      @param "filterPublished" (bool) Filter for questions currenctly published or not
      @param "filterImportId" (int64) Filter for questions from a specific import job
  @return int32*/
-func (a *GamificationTriviaApiService) AddTagToQuestionsBatch(localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
+func (a *GamificationTriviaApiService) AddTagToQuestionsBatch(ctx context.Context, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -261,7 +261,7 @@ func (a *GamificationTriviaApiService) AddTagToQuestionsBatch(localVarOptionals 
 	if localVarTempParam, localVarOk := localVarOptionals["tag"].(StringWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -285,11 +285,11 @@ func (a *GamificationTriviaApiService) AddTagToQuestionsBatch(localVarOptionals 
 
 /* GamificationTriviaApiService Create an import job
  Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (ImportJobResource) The new import job
  @return ImportJobResource*/
-func (a *GamificationTriviaApiService) CreateImportJob(localVarOptionals map[string]interface{}) (ImportJobResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) CreateImportJob(ctx context.Context, localVarOptionals map[string]interface{}) (ImportJobResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -329,7 +329,7 @@ func (a *GamificationTriviaApiService) CreateImportJob(localVarOptionals map[str
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(ImportJobResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -352,11 +352,11 @@ func (a *GamificationTriviaApiService) CreateImportJob(localVarOptionals map[str
 }
 
 /* GamificationTriviaApiService Create a question
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "question" (QuestionResource) The new question
  @return QuestionResource*/
-func (a *GamificationTriviaApiService) CreateQuestion(localVarOptionals map[string]interface{}) (QuestionResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) CreateQuestion(ctx context.Context, localVarOptionals map[string]interface{}) (QuestionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -396,7 +396,7 @@ func (a *GamificationTriviaApiService) CreateQuestion(localVarOptionals map[stri
 	if localVarTempParam, localVarOk := localVarOptionals["question"].(QuestionResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -420,11 +420,11 @@ func (a *GamificationTriviaApiService) CreateQuestion(localVarOptionals map[stri
 
 /* GamificationTriviaApiService Create a question template
  Question templates define a type of question and the properties they have
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "questionTemplateResource" (QuestionTemplateResource) The question template resource object
  @return QuestionTemplateResource*/
-func (a *GamificationTriviaApiService) CreateQuestionTemplate(localVarOptionals map[string]interface{}) (QuestionTemplateResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) CreateQuestionTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (QuestionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -464,7 +464,7 @@ func (a *GamificationTriviaApiService) CreateQuestionTemplate(localVarOptionals 
 	if localVarTempParam, localVarOk := localVarOptionals["questionTemplateResource"].(QuestionTemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -488,10 +488,10 @@ func (a *GamificationTriviaApiService) CreateQuestionTemplate(localVarOptionals 
 
 /* GamificationTriviaApiService Delete an import job
  Also deletes all questions that were imported by it
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the job
  @return */
-func (a *GamificationTriviaApiService) DeleteImportJob(id int64) ( *http.Response, error) {
+func (a *GamificationTriviaApiService) DeleteImportJob(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -527,7 +527,7 @@ func (a *GamificationTriviaApiService) DeleteImportJob(id int64) ( *http.Respons
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -545,10 +545,10 @@ func (a *GamificationTriviaApiService) DeleteImportJob(id int64) ( *http.Respons
 }
 
 /* GamificationTriviaApiService Delete a question
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @return */
-func (a *GamificationTriviaApiService) DeleteQuestion(id string) ( *http.Response, error) {
+func (a *GamificationTriviaApiService) DeleteQuestion(ctx context.Context, id string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -584,7 +584,7 @@ func (a *GamificationTriviaApiService) DeleteQuestion(id string) ( *http.Respons
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -602,11 +602,11 @@ func (a *GamificationTriviaApiService) DeleteQuestion(id string) ( *http.Respons
 }
 
 /* GamificationTriviaApiService Remove an answer from a question
-
+ * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @param id The id of the answer
  @return */
-func (a *GamificationTriviaApiService) DeleteQuestionAnswers(questionId string, id string) ( *http.Response, error) {
+func (a *GamificationTriviaApiService) DeleteQuestionAnswers(ctx context.Context, questionId string, id string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -643,7 +643,7 @@ func (a *GamificationTriviaApiService) DeleteQuestionAnswers(questionId string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -662,12 +662,12 @@ func (a *GamificationTriviaApiService) DeleteQuestionAnswers(questionId string, 
 
 /* GamificationTriviaApiService Delete a question template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *GamificationTriviaApiService) DeleteQuestionTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *GamificationTriviaApiService) DeleteQuestionTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -709,7 +709,7 @@ func (a *GamificationTriviaApiService) DeleteQuestionTemplate(id string, localVa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -727,10 +727,10 @@ func (a *GamificationTriviaApiService) DeleteQuestionTemplate(id string, localVa
 }
 
 /* GamificationTriviaApiService Get an import job
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the job
  @return ImportJobResource*/
-func (a *GamificationTriviaApiService) GetImportJob(id int64) (ImportJobResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) GetImportJob(ctx context.Context, id int64) (ImportJobResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -767,7 +767,7 @@ func (a *GamificationTriviaApiService) GetImportJob(id int64) (ImportJobResource
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -790,7 +790,7 @@ func (a *GamificationTriviaApiService) GetImportJob(id int64) (ImportJobResource
 }
 
 /* GamificationTriviaApiService Get a list of import job
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterVendor" (string) Filter for jobs by vendor id
      @param "filterCategory" (string) Filter for jobs by category id
@@ -800,7 +800,7 @@ func (a *GamificationTriviaApiService) GetImportJob(id int64) (ImportJobResource
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceImportJobResource*/
-func (a *GamificationTriviaApiService) GetImportJobs(localVarOptionals map[string]interface{}) (PageResourceImportJobResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) GetImportJobs(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceImportJobResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -878,7 +878,7 @@ func (a *GamificationTriviaApiService) GetImportJobs(localVarOptionals map[strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -901,10 +901,10 @@ func (a *GamificationTriviaApiService) GetImportJobs(localVarOptionals map[strin
 }
 
 /* GamificationTriviaApiService Get a single question
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @return QuestionResource*/
-func (a *GamificationTriviaApiService) GetQuestion(id string) (QuestionResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) GetQuestion(ctx context.Context, id string) (QuestionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -941,7 +941,7 @@ func (a *GamificationTriviaApiService) GetQuestion(id string) (QuestionResource,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -964,11 +964,11 @@ func (a *GamificationTriviaApiService) GetQuestion(id string) (QuestionResource,
 }
 
 /* GamificationTriviaApiService Get an answer for a question
-
+ * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @param id The id of the answer
  @return AnswerResource*/
-func (a *GamificationTriviaApiService) GetQuestionAnswer(questionId string, id string) (AnswerResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) GetQuestionAnswer(ctx context.Context, questionId string, id string) (AnswerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1006,7 +1006,7 @@ func (a *GamificationTriviaApiService) GetQuestionAnswer(questionId string, id s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1029,10 +1029,10 @@ func (a *GamificationTriviaApiService) GetQuestionAnswer(questionId string, id s
 }
 
 /* GamificationTriviaApiService List the answers available for a question
-
+ * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @return []AnswerResource*/
-func (a *GamificationTriviaApiService) GetQuestionAnswers(questionId string) ([]AnswerResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) GetQuestionAnswers(ctx context.Context, questionId string) ([]AnswerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1069,7 +1069,7 @@ func (a *GamificationTriviaApiService) GetQuestionAnswers(questionId string) ([]
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1093,11 +1093,11 @@ func (a *GamificationTriviaApiService) GetQuestionAnswers(questionId string) ([]
 
 /* GamificationTriviaApiService List question deltas in ascending order of updated date
  The &#39;since&#39; parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "since" (int64) Timestamp in seconds
  @return []DeltaResource*/
-func (a *GamificationTriviaApiService) GetQuestionDeltas(localVarOptionals map[string]interface{}) ([]DeltaResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) GetQuestionDeltas(ctx context.Context, localVarOptionals map[string]interface{}) ([]DeltaResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1139,7 +1139,7 @@ func (a *GamificationTriviaApiService) GetQuestionDeltas(localVarOptionals map[s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1162,10 +1162,10 @@ func (a *GamificationTriviaApiService) GetQuestionDeltas(localVarOptionals map[s
 }
 
 /* GamificationTriviaApiService List the tags for a question
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @return []string*/
-func (a *GamificationTriviaApiService) GetQuestionTags(id string) ([]string,  *http.Response, error) {
+func (a *GamificationTriviaApiService) GetQuestionTags(ctx context.Context, id string) ([]string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1202,7 +1202,7 @@ func (a *GamificationTriviaApiService) GetQuestionTags(id string) ([]string,  *h
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1225,10 +1225,10 @@ func (a *GamificationTriviaApiService) GetQuestionTags(id string) ([]string,  *h
 }
 
 /* GamificationTriviaApiService Get a single question template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return QuestionTemplateResource*/
-func (a *GamificationTriviaApiService) GetQuestionTemplate(id string) (QuestionTemplateResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) GetQuestionTemplate(ctx context.Context, id string) (QuestionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1265,7 +1265,7 @@ func (a *GamificationTriviaApiService) GetQuestionTemplate(id string) (QuestionT
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1288,13 +1288,13 @@ func (a *GamificationTriviaApiService) GetQuestionTemplate(id string) (QuestionT
 }
 
 /* GamificationTriviaApiService List and search question templates
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceQuestionTemplateResource*/
-func (a *GamificationTriviaApiService) GetQuestionTemplates(localVarOptionals map[string]interface{}) (PageResourceQuestionTemplateResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) GetQuestionTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceQuestionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1348,7 +1348,7 @@ func (a *GamificationTriviaApiService) GetQuestionTemplates(localVarOptionals ma
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1371,7 +1371,7 @@ func (a *GamificationTriviaApiService) GetQuestionTemplates(localVarOptionals ma
 }
 
 /* GamificationTriviaApiService List and search questions
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
@@ -1385,7 +1385,7 @@ func (a *GamificationTriviaApiService) GetQuestionTemplates(localVarOptionals ma
      @param "filterPublished" (bool) Filter for questions currenctly published or not
      @param "filterImportId" (int64) Filter for questions from a specific import job
  @return PageResourceQuestionResource*/
-func (a *GamificationTriviaApiService) GetQuestions(localVarOptionals map[string]interface{}) (PageResourceQuestionResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) GetQuestions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceQuestionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1487,7 +1487,7 @@ func (a *GamificationTriviaApiService) GetQuestions(localVarOptionals map[string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1511,7 +1511,7 @@ func (a *GamificationTriviaApiService) GetQuestions(localVarOptionals map[string
 
 /* GamificationTriviaApiService Count questions based on filters
  This is also provided by the list endpoint so you don&#39;t need to call this for pagination purposes
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSearch" (string) Filter for documents whose question, answers or tags contains provided string
      @param "filterIdset" (string) Filter for documents whose id is in the comma separated list provided
@@ -1521,7 +1521,7 @@ func (a *GamificationTriviaApiService) GetQuestions(localVarOptionals map[string
      @param "filterType" (string) Filter for questions with specified type.  Allowable values: (&#39;TEXT&#39;, &#39;IMAGE&#39;, &#39;VIDEO&#39;, &#39;AUDIO&#39;)
      @param "filterPublished" (bool) Filter for questions currenctly published or not
  @return int64*/
-func (a *GamificationTriviaApiService) GetQuestionsCount(localVarOptionals map[string]interface{}) (int64,  *http.Response, error) {
+func (a *GamificationTriviaApiService) GetQuestionsCount(ctx context.Context, localVarOptionals map[string]interface{}) (int64,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1599,7 +1599,7 @@ func (a *GamificationTriviaApiService) GetQuestionsCount(localVarOptionals map[s
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1623,11 +1623,11 @@ func (a *GamificationTriviaApiService) GetQuestionsCount(localVarOptionals map[s
 
 /* GamificationTriviaApiService Start processing an import job
  Will process the CSV file and add new questions asynchronously. The status of the job must be &#39;VALID&#39;.
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the job
  @param publishNow Whether the new questions should be published live immediately
  @return ImportJobResource*/
-func (a *GamificationTriviaApiService) ProcessImportJob(id int64, publishNow bool) (ImportJobResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) ProcessImportJob(ctx context.Context, id int64, publishNow bool) (ImportJobResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -1665,7 +1665,7 @@ func (a *GamificationTriviaApiService) ProcessImportJob(id int64, publishNow boo
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1688,11 +1688,11 @@ func (a *GamificationTriviaApiService) ProcessImportJob(id int64, publishNow boo
 }
 
 /* GamificationTriviaApiService Remove a tag from a question
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @param tag The tag to remove
  @return */
-func (a *GamificationTriviaApiService) RemoveQuestionTag(id string, tag string) ( *http.Response, error) {
+func (a *GamificationTriviaApiService) RemoveQuestionTag(ctx context.Context, id string, tag string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -1729,7 +1729,7 @@ func (a *GamificationTriviaApiService) RemoveQuestionTag(id string, tag string) 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -1748,7 +1748,7 @@ func (a *GamificationTriviaApiService) RemoveQuestionTag(id string, tag string) 
 
 /* GamificationTriviaApiService Remove a tag from a batch of questions
  ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated.
-
+ * @param ctx context.Context Authentication Context 
  @param tag The tag to remove
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSearch" (string) Filter for documents whose question, answers or tags contains provided string
@@ -1760,7 +1760,7 @@ func (a *GamificationTriviaApiService) RemoveQuestionTag(id string, tag string) 
      @param "filterPublished" (bool) Filter for questions currenctly published or not
      @param "filterImportId" (int64) Filter for questions from a specific import job
  @return int32*/
-func (a *GamificationTriviaApiService) RemoveTagToQuestionsBatch(tag string, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
+func (a *GamificationTriviaApiService) RemoveTagToQuestionsBatch(ctx context.Context, tag string, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -1845,7 +1845,7 @@ func (a *GamificationTriviaApiService) RemoveTagToQuestionsBatch(tag string, loc
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1869,13 +1869,13 @@ func (a *GamificationTriviaApiService) RemoveTagToQuestionsBatch(tag string, loc
 
 /* GamificationTriviaApiService List and search tags by the beginning of the string
  For performance reasons, search &amp; category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSearch" (string) Filter for tags starting with the given text
      @param "filterCategory" (string) Filter for tags on questions from a specific category
      @param "filterImportId" (int64) Filter for tags on questions from a specific import job
  @return Collectionstring*/
-func (a *GamificationTriviaApiService) SearchQuestionTags(localVarOptionals map[string]interface{}) (Collectionstring,  *http.Response, error) {
+func (a *GamificationTriviaApiService) SearchQuestionTags(ctx context.Context, localVarOptionals map[string]interface{}) (Collectionstring,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1929,7 +1929,7 @@ func (a *GamificationTriviaApiService) SearchQuestionTags(localVarOptionals map[
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1953,12 +1953,12 @@ func (a *GamificationTriviaApiService) SearchQuestionTags(localVarOptionals map[
 
 /* GamificationTriviaApiService Update an import job
  Changes should be made before process is started for there to be any effect.
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the job
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (ImportJobResource) The updated job
  @return ImportJobResource*/
-func (a *GamificationTriviaApiService) UpdateImportJob(id int64, localVarOptionals map[string]interface{}) (ImportJobResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) UpdateImportJob(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (ImportJobResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1999,7 +1999,7 @@ func (a *GamificationTriviaApiService) UpdateImportJob(id int64, localVarOptiona
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(ImportJobResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2022,12 +2022,12 @@ func (a *GamificationTriviaApiService) UpdateImportJob(id int64, localVarOptiona
 }
 
 /* GamificationTriviaApiService Update a question
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "question" (QuestionResource) The updated question
  @return QuestionResource*/
-func (a *GamificationTriviaApiService) UpdateQuestion(id string, localVarOptionals map[string]interface{}) (QuestionResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) UpdateQuestion(ctx context.Context, id string, localVarOptionals map[string]interface{}) (QuestionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -2068,7 +2068,7 @@ func (a *GamificationTriviaApiService) UpdateQuestion(id string, localVarOptiona
 	if localVarTempParam, localVarOk := localVarOptionals["question"].(QuestionResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2091,13 +2091,13 @@ func (a *GamificationTriviaApiService) UpdateQuestion(id string, localVarOptiona
 }
 
 /* GamificationTriviaApiService Update an answer for a question
-
+ * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @param id The id of the answer
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "answer" (AnswerResource) The updated answer
  @return */
-func (a *GamificationTriviaApiService) UpdateQuestionAnswer(questionId string, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *GamificationTriviaApiService) UpdateQuestionAnswer(ctx context.Context, questionId string, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -2138,7 +2138,7 @@ func (a *GamificationTriviaApiService) UpdateQuestionAnswer(questionId string, i
 	if localVarTempParam, localVarOk := localVarOptionals["answer"].(AnswerResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -2156,12 +2156,12 @@ func (a *GamificationTriviaApiService) UpdateQuestionAnswer(questionId string, i
 }
 
 /* GamificationTriviaApiService Update a question template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "questionTemplateResource" (QuestionTemplateResource) The question template resource object
  @return QuestionTemplateResource*/
-func (a *GamificationTriviaApiService) UpdateQuestionTemplate(id string, localVarOptionals map[string]interface{}) (QuestionTemplateResource,  *http.Response, error) {
+func (a *GamificationTriviaApiService) UpdateQuestionTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (QuestionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -2202,7 +2202,7 @@ func (a *GamificationTriviaApiService) UpdateQuestionTemplate(id string, localVa
 	if localVarTempParam, localVarOk := localVarOptionals["questionTemplateResource"].(QuestionTemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2226,7 +2226,7 @@ func (a *GamificationTriviaApiService) UpdateQuestionTemplate(id string, localVa
 
 /* GamificationTriviaApiService Bulk update questions
  Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "question" (QuestionResource) New values for a set of question fields
      @param "filterSearch" (string) Filter for documents whose question, answers or tags contains provided string
@@ -2237,7 +2237,7 @@ func (a *GamificationTriviaApiService) UpdateQuestionTemplate(id string, localVa
      @param "filterPublished" (bool) Filter for questions currenctly published or not
      @param "filterImportId" (int64) Filter for questions from a specific import job
  @return int32*/
-func (a *GamificationTriviaApiService) UpdateQuestionsInBulk(localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
+func (a *GamificationTriviaApiService) UpdateQuestionsInBulk(ctx context.Context, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -2319,7 +2319,7 @@ func (a *GamificationTriviaApiService) UpdateQuestionsInBulk(localVarOptionals m
 	if localVarTempParam, localVarOk := localVarOptionals["question"].(QuestionResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

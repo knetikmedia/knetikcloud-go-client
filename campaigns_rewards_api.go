@@ -28,11 +28,11 @@ type CampaignsRewardsApiService service
 
 
 /* CampaignsRewardsApiService Create a reward set
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "rewardSetResource" (RewardSetResource) The reward set resource object
  @return RewardSetResource*/
-func (a *CampaignsRewardsApiService) CreateRewardSet(localVarOptionals map[string]interface{}) (RewardSetResource,  *http.Response, error) {
+func (a *CampaignsRewardsApiService) CreateRewardSet(ctx context.Context, localVarOptionals map[string]interface{}) (RewardSetResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *CampaignsRewardsApiService) CreateRewardSet(localVarOptionals map[strin
 	if localVarTempParam, localVarOk := localVarOptionals["rewardSetResource"].(RewardSetResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,10 +95,10 @@ func (a *CampaignsRewardsApiService) CreateRewardSet(localVarOptionals map[strin
 }
 
 /* CampaignsRewardsApiService Delete a reward set
-
+ * @param ctx context.Context Authentication Context 
  @param id The reward id
  @return */
-func (a *CampaignsRewardsApiService) DeleteRewardSet(id int32) ( *http.Response, error) {
+func (a *CampaignsRewardsApiService) DeleteRewardSet(ctx context.Context, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -134,7 +134,7 @@ func (a *CampaignsRewardsApiService) DeleteRewardSet(id int32) ( *http.Response,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -298,12 +298,12 @@ func (a *CampaignsRewardsApiService) GetRewardSets(localVarOptionals map[string]
 }
 
 /* CampaignsRewardsApiService Update a reward set
-
+ * @param ctx context.Context Authentication Context 
  @param id The reward id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "rewardSetResource" (RewardSetResource) The reward set resource object
  @return RewardSetResource*/
-func (a *CampaignsRewardsApiService) UpdateRewardSet(id int32, localVarOptionals map[string]interface{}) (RewardSetResource,  *http.Response, error) {
+func (a *CampaignsRewardsApiService) UpdateRewardSet(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (RewardSetResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -344,7 +344,7 @@ func (a *CampaignsRewardsApiService) UpdateRewardSet(id int32, localVarOptionals
 	if localVarTempParam, localVarOk := localVarOptionals["rewardSetResource"].(RewardSetResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

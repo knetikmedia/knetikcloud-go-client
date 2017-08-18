@@ -15,13 +15,15 @@ Method | HTTP request | Description
 
 
 # **GetUserSubscriptionDetails**
-> InventorySubscriptionResource GetUserSubscriptionDetails(userId, inventoryId)
+> InventorySubscriptionResource GetUserSubscriptionDetails(ctx, ctx, userId, inventoryId)
 Get details about a user's subscription
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
   **inventoryId** | **int32**| The id of the user&#39;s inventory | 
 
@@ -31,7 +33,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -41,13 +43,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsersSubscriptionDetails**
-> []InventorySubscriptionResource GetUsersSubscriptionDetails(userId)
+> []InventorySubscriptionResource GetUsersSubscriptionDetails(ctx, ctx, userId)
 Get details about a user's subscriptions
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
 
 ### Return type
@@ -56,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -66,13 +70,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ReactivateUserSubscription**
-> InvoiceResource ReactivateUserSubscription(userId, inventoryId, optional)
+> InvoiceResource ReactivateUserSubscription(ctx, ctx, userId, inventoryId, optional)
 Reactivate a subscription and charge fee
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
   **inventoryId** | **int32**| The id of the user&#39;s inventory | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -92,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -102,13 +108,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetSubscriptionBillDate**
-> SetSubscriptionBillDate(userId, inventoryId, billDate)
+> SetSubscriptionBillDate(ctx, ctx, userId, inventoryId, billDate)
 Set a new date to bill a subscription on
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
   **inventoryId** | **int32**| The id of the user&#39;s inventory | 
   **billDate** | **int64**| The new bill date. Unix timestamp in seconds | 
@@ -119,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -129,7 +137,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetSubscriptionPaymentMethod**
-> SetSubscriptionPaymentMethod(userId, inventoryId, optional)
+> SetSubscriptionPaymentMethod(ctx, ctx, userId, inventoryId, optional)
 Set the payment method to use for a subscription
 
 May send null to use floating default
@@ -138,6 +146,8 @@ May send null to use floating default
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
   **inventoryId** | **int32**| The id of the user&#39;s inventory | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -157,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -167,7 +177,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetSubscriptionStatus**
-> SetSubscriptionStatus(userId, inventoryId, status)
+> SetSubscriptionStatus(ctx, ctx, userId, inventoryId, status)
 Set the status of a subscription
 
 Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
@@ -176,6 +186,8 @@ Note that the new status may be blocked if the system is not configured to allow
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
   **inventoryId** | **int32**| The id of the user&#39;s inventory | 
   **status** | [**StringWrapper**](StringWrapper.md)| The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: (&#39;current&#39;, &#39;canceled&#39;, &#39;stopped&#39;, &#39;payment_failed&#39;, &#39;suspended&#39;) | 
@@ -186,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -196,13 +208,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetUserSubscriptionPlan**
-> SetUserSubscriptionPlan(userId, inventoryId, optional)
+> SetUserSubscriptionPlan(ctx, ctx, userId, inventoryId, optional)
 Set a new subscription plan for a user
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
   **inventoryId** | **int32**| The id of the user&#39;s inventory | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -222,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -232,7 +246,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetUserSubscriptionPrice**
-> SetUserSubscriptionPrice(userId, inventoryId, optional)
+> SetUserSubscriptionPrice(ctx, ctx, userId, inventoryId, optional)
 Set a new subscription price for a user
 
 This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
@@ -241,6 +255,8 @@ This new price will be what the user is charged at the begining of each new peri
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **userId** | **int32**| The id of the user | 
   **inventoryId** | **int32**| The id of the user&#39;s inventory | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -260,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

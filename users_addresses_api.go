@@ -28,12 +28,12 @@ type UsersAddressesApiService service
 
 
 /* UsersAddressesApiService Create a new address
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "savedAddressResource" (SavedAddressResource) The new address
  @return SavedAddressResource*/
-func (a *UsersAddressesApiService) CreateAddress(userId string, localVarOptionals map[string]interface{}) (SavedAddressResource,  *http.Response, error) {
+func (a *UsersAddressesApiService) CreateAddress(ctx context.Context, userId string, localVarOptionals map[string]interface{}) (SavedAddressResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -74,7 +74,7 @@ func (a *UsersAddressesApiService) CreateAddress(userId string, localVarOptional
 	if localVarTempParam, localVarOk := localVarOptionals["savedAddressResource"].(SavedAddressResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -97,11 +97,11 @@ func (a *UsersAddressesApiService) CreateAddress(userId string, localVarOptional
 }
 
 /* UsersAddressesApiService Delete an address
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param id The id of the address
  @return */
-func (a *UsersAddressesApiService) DeleteAddress(userId string, id int32) ( *http.Response, error) {
+func (a *UsersAddressesApiService) DeleteAddress(ctx context.Context, userId string, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -138,7 +138,7 @@ func (a *UsersAddressesApiService) DeleteAddress(userId string, id int32) ( *htt
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -156,11 +156,11 @@ func (a *UsersAddressesApiService) DeleteAddress(userId string, id int32) ( *htt
 }
 
 /* UsersAddressesApiService Get a single address
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param id The id of the address
  @return SavedAddressResource*/
-func (a *UsersAddressesApiService) GetAddress(userId string, id int32) (SavedAddressResource,  *http.Response, error) {
+func (a *UsersAddressesApiService) GetAddress(ctx context.Context, userId string, id int32) (SavedAddressResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -198,7 +198,7 @@ func (a *UsersAddressesApiService) GetAddress(userId string, id int32) (SavedAdd
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -221,14 +221,14 @@ func (a *UsersAddressesApiService) GetAddress(userId string, id int32) (SavedAdd
 }
 
 /* UsersAddressesApiService List and search addresses
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceSavedAddressResource*/
-func (a *UsersAddressesApiService) GetAddresses(userId string, localVarOptionals map[string]interface{}) (PageResourceSavedAddressResource,  *http.Response, error) {
+func (a *UsersAddressesApiService) GetAddresses(ctx context.Context, userId string, localVarOptionals map[string]interface{}) (PageResourceSavedAddressResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -283,7 +283,7 @@ func (a *UsersAddressesApiService) GetAddresses(userId string, localVarOptionals
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -306,13 +306,13 @@ func (a *UsersAddressesApiService) GetAddresses(userId string, localVarOptionals
 }
 
 /* UsersAddressesApiService Update an address
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param id The id of the address
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "savedAddressResource" (SavedAddressResource) The saved address resource object
  @return SavedAddressResource*/
-func (a *UsersAddressesApiService) UpdateAddress(userId string, id int32, localVarOptionals map[string]interface{}) (SavedAddressResource,  *http.Response, error) {
+func (a *UsersAddressesApiService) UpdateAddress(ctx context.Context, userId string, id int32, localVarOptionals map[string]interface{}) (SavedAddressResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -354,7 +354,7 @@ func (a *UsersAddressesApiService) UpdateAddress(userId string, id int32, localV
 	if localVarTempParam, localVarOk := localVarOptionals["savedAddressResource"].(SavedAddressResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

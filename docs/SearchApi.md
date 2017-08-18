@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **AddSearchIndex**
-> AddSearchIndex(type_, id, optional)
+> AddSearchIndex(ctx, ctx, type_, id, optional)
 Add a new object to an index
 
 Mainly intended for internal use.
@@ -21,6 +21,8 @@ Mainly intended for internal use.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **type_** | **string**| The index type | 
   **id** | **string**| The ID of the object | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -40,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -50,7 +52,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddSearchMappings**
-> AddSearchMappings(optional)
+> AddSearchMappings(ctx, ctx, optional)
 Register reference mappings
 
 Add a new type mapping to connect data from one index to another, or discover an exsting one. Mainly intended for internal use.
@@ -59,6 +61,8 @@ Add a new type mapping to connect data from one index to another, or discover an
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -74,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -84,7 +88,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteSearchIndex**
-> DeleteSearchIndex(type_, id)
+> DeleteSearchIndex(ctx, ctx, type_, id)
 Delete an object
 
 Mainly intended for internal use. Requires SEARCH_ADMIN.
@@ -93,6 +97,8 @@ Mainly intended for internal use. Requires SEARCH_ADMIN.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **type_** | **string**| The index type | 
   **id** | **string**| The ID of the object to delete | 
 
@@ -102,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -112,7 +118,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteSearchIndexes**
-> DeleteSearchIndexes(type_)
+> DeleteSearchIndexes(ctx, ctx, type_)
 Delete all objects in an index
 
 Mainly intended for internal use
@@ -121,6 +127,8 @@ Mainly intended for internal use
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **type_** | **string**| The index type | 
 
 ### Return type
@@ -129,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

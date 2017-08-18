@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **GetChallengeEventLeaderboard**
-> PageResourceChallengeEventParticipantResource GetChallengeEventLeaderboard(optional)
+> PageResourceChallengeEventParticipantResource GetChallengeEventLeaderboard(ctx, ctx, optional)
 Retrieve a challenge event leaderboard details
 
 Lists all leaderboard entries with additional user details
@@ -18,6 +18,8 @@ Lists all leaderboard entries with additional user details
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -36,7 +38,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -46,7 +48,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallengeEventParticipants**
-> PageResourceChallengeEventParticipantResource GetChallengeEventParticipants(optional)
+> PageResourceChallengeEventParticipantResource GetChallengeEventParticipants(ctx, ctx, optional)
 Retrieve a challenge event participant details
 
 Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation
@@ -55,6 +57,8 @@ Lists all user submitted scores sorted by value, including those that do not ape
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -73,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

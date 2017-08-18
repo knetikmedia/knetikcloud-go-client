@@ -13,13 +13,15 @@ Method | HTTP request | Description
 
 
 # **GetUsageByDay**
-> PageResourceUsageInfo GetUsageByDay(startDate, endDate, optional)
+> PageResourceUsageInfo GetUsageByDay(ctx, ctx, startDate, endDate, optional)
 Returns aggregated endpoint usage information by day
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
   **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -43,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -53,13 +55,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsageByHour**
-> PageResourceUsageInfo GetUsageByHour(startDate, endDate, optional)
+> PageResourceUsageInfo GetUsageByHour(ctx, ctx, startDate, endDate, optional)
 Returns aggregated endpoint usage information by hour
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
   **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -83,7 +87,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -93,13 +97,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsageByMinute**
-> PageResourceUsageInfo GetUsageByMinute(startDate, endDate, optional)
+> PageResourceUsageInfo GetUsageByMinute(ctx, ctx, startDate, endDate, optional)
 Returns aggregated endpoint usage information by minute
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
   **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -123,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -133,13 +139,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsageByMonth**
-> PageResourceUsageInfo GetUsageByMonth(startDate, endDate, optional)
+> PageResourceUsageInfo GetUsageByMonth(ctx, ctx, startDate, endDate, optional)
 Returns aggregated endpoint usage information by month
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
   **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -163,7 +171,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -173,13 +181,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsageByYear**
-> PageResourceUsageInfo GetUsageByYear(startDate, endDate, optional)
+> PageResourceUsageInfo GetUsageByYear(ctx, ctx, startDate, endDate, optional)
 Returns aggregated endpoint usage information by year
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
   **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -203,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -213,13 +223,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetUsageEndpoints**
-> []string GetUsageEndpoints(startDate, endDate)
+> []string GetUsageEndpoints(ctx, ctx, startDate, endDate)
 Returns list of endpoints called (method and url)
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **startDate** | **int64**| The beginning of the range being requested, unix timestamp in seconds | 
   **endDate** | **int64**| The ending of the range being requested, unix timestamp in seconds | 
 
@@ -229,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

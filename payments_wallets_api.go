@@ -28,11 +28,11 @@ type PaymentsWalletsApiService service
 
 
 /* PaymentsWalletsApiService Returns the user&#39;s wallet for the given currency code
-
+ * @param ctx context.Context Authentication Context 
  @param userId The ID of the user for whom wallet is being retrieved
  @param currencyCode Currency code of the user&#39;s wallet
  @return SimpleWallet*/
-func (a *PaymentsWalletsApiService) GetUserWallet(userId int32, currencyCode string) (SimpleWallet,  *http.Response, error) {
+func (a *PaymentsWalletsApiService) GetUserWallet(ctx context.Context, userId int32, currencyCode string) (SimpleWallet,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -70,7 +70,7 @@ func (a *PaymentsWalletsApiService) GetUserWallet(userId int32, currencyCode str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -93,7 +93,7 @@ func (a *PaymentsWalletsApiService) GetUserWallet(userId int32, currencyCode str
 }
 
 /* PaymentsWalletsApiService Retrieve a user&#39;s wallet transactions
-
+ * @param ctx context.Context Authentication Context 
  @param userId The ID of the user for whom wallet transactions are being retrieved
  @param currencyCode Currency code of the user&#39;s wallet
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -105,7 +105,7 @@ func (a *PaymentsWalletsApiService) GetUserWallet(userId int32, currencyCode str
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceWalletTransactionResource*/
-func (a *PaymentsWalletsApiService) GetUserWalletTransactions(userId int32, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceWalletTransactionResource,  *http.Response, error) {
+func (a *PaymentsWalletsApiService) GetUserWalletTransactions(ctx context.Context, userId int32, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceWalletTransactionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -185,7 +185,7 @@ func (a *PaymentsWalletsApiService) GetUserWalletTransactions(userId int32, curr
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -208,10 +208,10 @@ func (a *PaymentsWalletsApiService) GetUserWalletTransactions(userId int32, curr
 }
 
 /* PaymentsWalletsApiService List all of a user&#39;s wallets
-
+ * @param ctx context.Context Authentication Context 
  @param userId The ID of the user for whom wallets are being retrieved
  @return []SimpleWallet*/
-func (a *PaymentsWalletsApiService) GetUserWallets(userId int32) ([]SimpleWallet,  *http.Response, error) {
+func (a *PaymentsWalletsApiService) GetUserWallets(ctx context.Context, userId int32) ([]SimpleWallet,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -248,7 +248,7 @@ func (a *PaymentsWalletsApiService) GetUserWallets(userId int32) ([]SimpleWallet
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -271,9 +271,9 @@ func (a *PaymentsWalletsApiService) GetUserWallets(userId int32) ([]SimpleWallet
 }
 
 /* PaymentsWalletsApiService Retrieves a summation of wallet balances by currency code
-
+ * @param ctx context.Context Authentication Context 
  @return PageResourceWalletTotalResponse*/
-func (a *PaymentsWalletsApiService) GetWalletBalances() (PageResourceWalletTotalResponse,  *http.Response, error) {
+func (a *PaymentsWalletsApiService) GetWalletBalances(ctx context.Context, ) (PageResourceWalletTotalResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -309,7 +309,7 @@ func (a *PaymentsWalletsApiService) GetWalletBalances() (PageResourceWalletTotal
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -332,7 +332,7 @@ func (a *PaymentsWalletsApiService) GetWalletBalances() (PageResourceWalletTotal
 }
 
 /* PaymentsWalletsApiService Retrieve wallet transactions across the system
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterInvoice" (int32) Filter for transactions from a specific invoice
      @param "filterType" (string) Filter for transactions with specified type
@@ -346,7 +346,7 @@ func (a *PaymentsWalletsApiService) GetWalletBalances() (PageResourceWalletTotal
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceWalletTransactionResource*/
-func (a *PaymentsWalletsApiService) GetWalletTransactions(localVarOptionals map[string]interface{}) (PageResourceWalletTransactionResource,  *http.Response, error) {
+func (a *PaymentsWalletsApiService) GetWalletTransactions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceWalletTransactionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -448,7 +448,7 @@ func (a *PaymentsWalletsApiService) GetWalletTransactions(localVarOptionals map[
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -471,13 +471,13 @@ func (a *PaymentsWalletsApiService) GetWalletTransactions(localVarOptionals map[
 }
 
 /* PaymentsWalletsApiService Retrieve a list of wallets across the system
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceSimpleWallet*/
-func (a *PaymentsWalletsApiService) GetWallets(localVarOptionals map[string]interface{}) (PageResourceSimpleWallet,  *http.Response, error) {
+func (a *PaymentsWalletsApiService) GetWallets(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceSimpleWallet,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -531,7 +531,7 @@ func (a *PaymentsWalletsApiService) GetWallets(localVarOptionals map[string]inte
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -554,13 +554,13 @@ func (a *PaymentsWalletsApiService) GetWallets(localVarOptionals map[string]inte
 }
 
 /* PaymentsWalletsApiService Updates the balance for a user&#39;s wallet
-
+ * @param ctx context.Context Authentication Context 
  @param userId The ID of the user for whom wallet is being modified
  @param currencyCode Currency code of the user&#39;s wallet
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (WalletAlterRequest) The requested balance modification to be made to the user&#39;s wallet
  @return WalletTransactionResource*/
-func (a *PaymentsWalletsApiService) UpdateWalletBalance(userId int32, currencyCode string, localVarOptionals map[string]interface{}) (WalletTransactionResource,  *http.Response, error) {
+func (a *PaymentsWalletsApiService) UpdateWalletBalance(ctx context.Context, userId int32, currencyCode string, localVarOptionals map[string]interface{}) (WalletTransactionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -602,7 +602,7 @@ func (a *PaymentsWalletsApiService) UpdateWalletBalance(userId int32, currencyCo
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(WalletAlterRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

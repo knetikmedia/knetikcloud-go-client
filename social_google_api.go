@@ -27,11 +27,11 @@ type SocialGoogleApiService service
 
 /* SocialGoogleApiService Link google account
  Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "googleToken" (GoogleToken) The token from google
  @return */
-func (a *SocialGoogleApiService) LinkAccounts1(localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *SocialGoogleApiService) LinkAccounts1(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -70,7 +70,7 @@ func (a *SocialGoogleApiService) LinkAccounts1(localVarOptionals map[string]inte
 	if localVarTempParam, localVarOk := localVarOptionals["googleToken"].(GoogleToken); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

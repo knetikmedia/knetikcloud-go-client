@@ -27,11 +27,11 @@ type GamificationMetricsApiService service
 
 /* GamificationMetricsApiService Add a metric
  Post a new score/stat for an activity occurrence without ending the occurrence itself
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "metric" (MetricResource) The new metric
  @return */
-func (a *GamificationMetricsApiService) AddMetric(localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *GamificationMetricsApiService) AddMetric(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -70,7 +70,7 @@ func (a *GamificationMetricsApiService) AddMetric(localVarOptionals map[string]i
 	if localVarTempParam, localVarOk := localVarOptionals["metric"].(MetricResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

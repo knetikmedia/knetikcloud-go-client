@@ -28,13 +28,13 @@ type AmazonWebServicesS3ApiService service
 
 /* AmazonWebServicesS3ApiService Get a temporary signed S3 URL for download
  To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "bucket" (string) S3 bucket name
      @param "path" (string) The path to the file relative the bucket (the s3 object key)
      @param "expiration" (int32) The number of seconds this URL will be valid. Default to 60
  @return string*/
-func (a *AmazonWebServicesS3ApiService) GetDownloadURL(localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *AmazonWebServicesS3ApiService) GetDownloadURL(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -88,7 +88,7 @@ func (a *AmazonWebServicesS3ApiService) GetDownloadURL(localVarOptionals map[str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -112,12 +112,12 @@ func (a *AmazonWebServicesS3ApiService) GetDownloadURL(localVarOptionals map[str
 
 /* AmazonWebServicesS3ApiService Get a signed S3 URL for upload
  Requires the file name and file content type (i.e., &#39;video/mpeg&#39;). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filename" (string) The file name
      @param "contentType" (string) The content type
  @return AmazonS3Activity*/
-func (a *AmazonWebServicesS3ApiService) GetSignedS3URL(localVarOptionals map[string]interface{}) (AmazonS3Activity,  *http.Response, error) {
+func (a *AmazonWebServicesS3ApiService) GetSignedS3URL(ctx context.Context, localVarOptionals map[string]interface{}) (AmazonS3Activity,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -165,7 +165,7 @@ func (a *AmazonWebServicesS3ApiService) GetSignedS3URL(localVarOptionals map[str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

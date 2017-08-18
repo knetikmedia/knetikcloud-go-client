@@ -29,11 +29,11 @@ type MediaArtistsApiService service
 
 /* MediaArtistsApiService Adds a new artist in the system
  Adds a new artist in the system. Use specific media contributions endpoint to add contributions
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "artistResource" (ArtistResource) The new artist
  @return ArtistResource*/
-func (a *MediaArtistsApiService) AddArtist(localVarOptionals map[string]interface{}) (ArtistResource,  *http.Response, error) {
+func (a *MediaArtistsApiService) AddArtist(ctx context.Context, localVarOptionals map[string]interface{}) (ArtistResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -73,7 +73,7 @@ func (a *MediaArtistsApiService) AddArtist(localVarOptionals map[string]interfac
 	if localVarTempParam, localVarOk := localVarOptionals["artistResource"].(ArtistResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -97,11 +97,11 @@ func (a *MediaArtistsApiService) AddArtist(localVarOptionals map[string]interfac
 
 /* MediaArtistsApiService Create an artist template
  Artist Templates define a type of artist and the properties they have
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "artistTemplateResource" (TemplateResource) The artist template resource object
  @return TemplateResource*/
-func (a *MediaArtistsApiService) CreateArtistTemplate(localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *MediaArtistsApiService) CreateArtistTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -141,7 +141,7 @@ func (a *MediaArtistsApiService) CreateArtistTemplate(localVarOptionals map[stri
 	if localVarTempParam, localVarOk := localVarOptionals["artistTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -164,10 +164,10 @@ func (a *MediaArtistsApiService) CreateArtistTemplate(localVarOptionals map[stri
 }
 
 /* MediaArtistsApiService Removes an artist from the system IF no resources are attached to it
-
+ * @param ctx context.Context Authentication Context 
  @param id The artist id
  @return */
-func (a *MediaArtistsApiService) DeleteArtist(id int64) ( *http.Response, error) {
+func (a *MediaArtistsApiService) DeleteArtist(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -203,7 +203,7 @@ func (a *MediaArtistsApiService) DeleteArtist(id int64) ( *http.Response, error)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -222,12 +222,12 @@ func (a *MediaArtistsApiService) DeleteArtist(id int64) ( *http.Response, error)
 
 /* MediaArtistsApiService Delete an artist template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *MediaArtistsApiService) DeleteArtistTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MediaArtistsApiService) DeleteArtistTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -269,7 +269,7 @@ func (a *MediaArtistsApiService) DeleteArtistTemplate(id string, localVarOptiona
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -358,10 +358,10 @@ func (a *MediaArtistsApiService) GetArtist(id int64, localVarOptionals map[strin
 }
 
 /* MediaArtistsApiService Get a single artist template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
-func (a *MediaArtistsApiService) GetArtistTemplate(id string) (TemplateResource,  *http.Response, error) {
+func (a *MediaArtistsApiService) GetArtistTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -398,7 +398,7 @@ func (a *MediaArtistsApiService) GetArtistTemplate(id string) (TemplateResource,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -421,13 +421,13 @@ func (a *MediaArtistsApiService) GetArtistTemplate(id string) (TemplateResource,
 }
 
 /* MediaArtistsApiService List and search artist templates
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *MediaArtistsApiService) GetArtistTemplates(localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *MediaArtistsApiService) GetArtistTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -481,7 +481,7 @@ func (a *MediaArtistsApiService) GetArtistTemplates(localVarOptionals map[string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -594,12 +594,12 @@ func (a *MediaArtistsApiService) GetArtists(localVarOptionals map[string]interfa
 }
 
 /* MediaArtistsApiService Modifies an artist details
-
+ * @param ctx context.Context Authentication Context 
  @param id The artist id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "artistResource" (ArtistResource) The new artist
  @return */
-func (a *MediaArtistsApiService) UpdateArtist(id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MediaArtistsApiService) UpdateArtist(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -639,7 +639,7 @@ func (a *MediaArtistsApiService) UpdateArtist(id int64, localVarOptionals map[st
 	if localVarTempParam, localVarOk := localVarOptionals["artistResource"].(ArtistResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -657,12 +657,12 @@ func (a *MediaArtistsApiService) UpdateArtist(id int64, localVarOptionals map[st
 }
 
 /* MediaArtistsApiService Update an artist template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "artistTemplateResource" (TemplateResource) The artist template resource object
  @return TemplateResource*/
-func (a *MediaArtistsApiService) UpdateArtistTemplate(id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *MediaArtistsApiService) UpdateArtistTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -703,7 +703,7 @@ func (a *MediaArtistsApiService) UpdateArtistTemplate(id string, localVarOptiona
 	if localVarTempParam, localVarOk := localVarOptionals["artistTemplateResource"].(TemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

@@ -28,11 +28,11 @@ type ContentCommentsApiService service
 
 
 /* ContentCommentsApiService Add a new comment
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "commentResource" (CommentResource) The comment to be added
  @return CommentResource*/
-func (a *ContentCommentsApiService) AddComment(localVarOptionals map[string]interface{}) (CommentResource,  *http.Response, error) {
+func (a *ContentCommentsApiService) AddComment(ctx context.Context, localVarOptionals map[string]interface{}) (CommentResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *ContentCommentsApiService) AddComment(localVarOptionals map[string]inte
 	if localVarTempParam, localVarOk := localVarOptionals["commentResource"].(CommentResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -95,10 +95,10 @@ func (a *ContentCommentsApiService) AddComment(localVarOptionals map[string]inte
 }
 
 /* ContentCommentsApiService Delete a comment
-
+ * @param ctx context.Context Authentication Context 
  @param id The comment id
  @return */
-func (a *ContentCommentsApiService) DeleteComment(id int64) ( *http.Response, error) {
+func (a *ContentCommentsApiService) DeleteComment(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -134,7 +134,7 @@ func (a *ContentCommentsApiService) DeleteComment(id int64) ( *http.Response, er
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -377,12 +377,12 @@ func (a *ContentCommentsApiService) SearchComments(localVarOptionals map[string]
 }
 
 /* ContentCommentsApiService Update a comment
-
+ * @param ctx context.Context Authentication Context 
  @param id The comment id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "content" (StringWrapper) The comment content
  @return */
-func (a *ContentCommentsApiService) UpdateComment(id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *ContentCommentsApiService) UpdateComment(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -422,7 +422,7 @@ func (a *ContentCommentsApiService) UpdateComment(id int64, localVarOptionals ma
 	if localVarTempParam, localVarOk := localVarOptionals["content"].(StringWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

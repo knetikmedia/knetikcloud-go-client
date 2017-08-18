@@ -28,11 +28,11 @@ type LogsApiService service
 
 
 /* LogsApiService Add a user log entry
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "logEntry" (UserActionLog) The user log entry to be added
  @return */
-func (a *LogsApiService) AddUserLog(localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *LogsApiService) AddUserLog(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -71,7 +71,7 @@ func (a *LogsApiService) AddUserLog(localVarOptionals map[string]interface{}) ( 
 	if localVarTempParam, localVarOk := localVarOptionals["logEntry"].(UserActionLog); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -89,10 +89,10 @@ func (a *LogsApiService) AddUserLog(localVarOptionals map[string]interface{}) ( 
 }
 
 /* LogsApiService Get an existing BRE event log entry by id
-
+ * @param ctx context.Context Authentication Context 
  @param id The BRE event log entry id
  @return BreEventLog*/
-func (a *LogsApiService) GetBREEventLog(id string) (BreEventLog,  *http.Response, error) {
+func (a *LogsApiService) GetBREEventLog(ctx context.Context, id string) (BreEventLog,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -129,7 +129,7 @@ func (a *LogsApiService) GetBREEventLog(id string) (BreEventLog,  *http.Response
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -152,7 +152,7 @@ func (a *LogsApiService) GetBREEventLog(id string) (BreEventLog,  *http.Response
 }
 
 /* LogsApiService Returns a list of BRE event log entries
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterStartDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the event log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
      @param "filterEventName" (string) Filter event logs by event name
@@ -161,7 +161,7 @@ func (a *LogsApiService) GetBREEventLog(id string) (BreEventLog,  *http.Response
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceBreEventLog*/
-func (a *LogsApiService) GetBREEventLogs(localVarOptionals map[string]interface{}) (PageResourceBreEventLog,  *http.Response, error) {
+func (a *LogsApiService) GetBREEventLogs(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceBreEventLog,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -233,7 +233,7 @@ func (a *LogsApiService) GetBREEventLogs(localVarOptionals map[string]interface{
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -256,10 +256,10 @@ func (a *LogsApiService) GetBREEventLogs(localVarOptionals map[string]interface{
 }
 
 /* LogsApiService Get an existing forward log entry by id
-
+ * @param ctx context.Context Authentication Context 
  @param id The forward log entry id
  @return ForwardLog*/
-func (a *LogsApiService) GetBREForwardLog(id string) (ForwardLog,  *http.Response, error) {
+func (a *LogsApiService) GetBREForwardLog(ctx context.Context, id string) (ForwardLog,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -296,7 +296,7 @@ func (a *LogsApiService) GetBREForwardLog(id string) (ForwardLog,  *http.Respons
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -319,7 +319,7 @@ func (a *LogsApiService) GetBREForwardLog(id string) (ForwardLog,  *http.Respons
 }
 
 /* LogsApiService Returns a list of forward log entries
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterStartDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
      @param "filterEndDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
@@ -328,7 +328,7 @@ func (a *LogsApiService) GetBREForwardLog(id string) (ForwardLog,  *http.Respons
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceForwardLog*/
-func (a *LogsApiService) GetBREForwardLogs(localVarOptionals map[string]interface{}) (PageResourceForwardLog,  *http.Response, error) {
+func (a *LogsApiService) GetBREForwardLogs(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceForwardLog,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -400,7 +400,7 @@ func (a *LogsApiService) GetBREForwardLogs(localVarOptionals map[string]interfac
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -423,10 +423,10 @@ func (a *LogsApiService) GetBREForwardLogs(localVarOptionals map[string]interfac
 }
 
 /* LogsApiService Returns a user log entry by id
-
+ * @param ctx context.Context Authentication Context 
  @param id The user log entry id
  @return UserActionLog*/
-func (a *LogsApiService) GetUserLog(id string) (UserActionLog,  *http.Response, error) {
+func (a *LogsApiService) GetUserLog(ctx context.Context, id string) (UserActionLog,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -463,7 +463,7 @@ func (a *LogsApiService) GetUserLog(id string) (UserActionLog,  *http.Response, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -486,7 +486,7 @@ func (a *LogsApiService) GetUserLog(id string) (UserActionLog,  *http.Response, 
 }
 
 /* LogsApiService Returns a page of user logs entries
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterUser" (int32) Filter for actions taken by a specific user by id
      @param "filterActionName" (string) Filter for actions of a specific name
@@ -494,7 +494,7 @@ func (a *LogsApiService) GetUserLog(id string) (UserActionLog,  *http.Response, 
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceUserActionLog*/
-func (a *LogsApiService) GetUserLogs(localVarOptionals map[string]interface{}) (PageResourceUserActionLog,  *http.Response, error) {
+func (a *LogsApiService) GetUserLogs(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceUserActionLog,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -560,7 +560,7 @@ func (a *LogsApiService) GetUserLogs(localVarOptionals map[string]interface{}) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

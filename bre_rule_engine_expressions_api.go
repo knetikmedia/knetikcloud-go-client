@@ -28,9 +28,9 @@ type BRERuleEngineExpressionsApiService service
 
 /* BRERuleEngineExpressionsApiService Get a list of &#39;lookup&#39; type expressions
  These are expression types that take a second expression as input and produce a value. These can be used in addition to the standard types, like parameter, global and constant (see BRE documentation for details).
-
+ * @param ctx context.Context Authentication Context 
  @return []LookupTypeResource*/
-func (a *BRERuleEngineExpressionsApiService) GetBREExpressions() ([]LookupTypeResource,  *http.Response, error) {
+func (a *BRERuleEngineExpressionsApiService) GetBREExpressions(ctx context.Context, ) ([]LookupTypeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -66,7 +66,7 @@ func (a *BRERuleEngineExpressionsApiService) GetBREExpressions() ([]LookupTypeRe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

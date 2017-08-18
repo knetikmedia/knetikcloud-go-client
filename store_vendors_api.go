@@ -28,11 +28,11 @@ type StoreVendorsApiService service
 
 
 /* StoreVendorsApiService Create a vendor
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "vendor" (VendorResource) The vendor
  @return VendorResource*/
-func (a *StoreVendorsApiService) CreateVendor(localVarOptionals map[string]interface{}) (VendorResource,  *http.Response, error) {
+func (a *StoreVendorsApiService) CreateVendor(ctx context.Context, localVarOptionals map[string]interface{}) (VendorResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *StoreVendorsApiService) CreateVendor(localVarOptionals map[string]inter
 	if localVarTempParam, localVarOk := localVarOptionals["vendor"].(VendorResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -96,11 +96,11 @@ func (a *StoreVendorsApiService) CreateVendor(localVarOptionals map[string]inter
 
 /* StoreVendorsApiService Create a vendor template
  Vendor Templates define a type of vendor and the properties they have.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "vendorTemplateResource" (ItemTemplateResource) The new vendor template
  @return ItemTemplateResource*/
-func (a *StoreVendorsApiService) CreateVendorTemplate(localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *StoreVendorsApiService) CreateVendorTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -140,7 +140,7 @@ func (a *StoreVendorsApiService) CreateVendorTemplate(localVarOptionals map[stri
 	if localVarTempParam, localVarOk := localVarOptionals["vendorTemplateResource"].(ItemTemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -163,10 +163,10 @@ func (a *StoreVendorsApiService) CreateVendorTemplate(localVarOptionals map[stri
 }
 
 /* StoreVendorsApiService Delete a vendor
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the vendor
  @return */
-func (a *StoreVendorsApiService) DeleteVendor(id int32) ( *http.Response, error) {
+func (a *StoreVendorsApiService) DeleteVendor(ctx context.Context, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -202,7 +202,7 @@ func (a *StoreVendorsApiService) DeleteVendor(id int32) ( *http.Response, error)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -220,12 +220,12 @@ func (a *StoreVendorsApiService) DeleteVendor(id int32) ( *http.Response, error)
 }
 
 /* StoreVendorsApiService Delete a vendor template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach
  @return */
-func (a *StoreVendorsApiService) DeleteVendorTemplate(id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *StoreVendorsApiService) DeleteVendorTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -267,7 +267,7 @@ func (a *StoreVendorsApiService) DeleteVendorTemplate(id string, localVarOptiona
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -349,10 +349,10 @@ func (a *StoreVendorsApiService) GetVendor(id int32) (VendorResource,  *http.Res
 
 /* StoreVendorsApiService Get a single vendor template
  Vendor Templates define a type of vendor and the properties they have.
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
-func (a *StoreVendorsApiService) GetVendorTemplate(id string) (ItemTemplateResource,  *http.Response, error) {
+func (a *StoreVendorsApiService) GetVendorTemplate(ctx context.Context, id string) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -389,7 +389,7 @@ func (a *StoreVendorsApiService) GetVendorTemplate(id string) (ItemTemplateResou
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -412,13 +412,13 @@ func (a *StoreVendorsApiService) GetVendorTemplate(id string) (ItemTemplateResou
 }
 
 /* StoreVendorsApiService List and search vendor templates
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceItemTemplateResource*/
-func (a *StoreVendorsApiService) GetVendorTemplates(localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
+func (a *StoreVendorsApiService) GetVendorTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -472,7 +472,7 @@ func (a *StoreVendorsApiService) GetVendorTemplates(localVarOptionals map[string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -585,12 +585,12 @@ func (a *StoreVendorsApiService) GetVendors(localVarOptionals map[string]interfa
 }
 
 /* StoreVendorsApiService Update a vendor
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the vendor
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "vendor" (VendorResource) The vendor
  @return VendorResource*/
-func (a *StoreVendorsApiService) UpdateVendor(id int32, localVarOptionals map[string]interface{}) (VendorResource,  *http.Response, error) {
+func (a *StoreVendorsApiService) UpdateVendor(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (VendorResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -631,7 +631,7 @@ func (a *StoreVendorsApiService) UpdateVendor(id int32, localVarOptionals map[st
 	if localVarTempParam, localVarOk := localVarOptionals["vendor"].(VendorResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -654,12 +654,12 @@ func (a *StoreVendorsApiService) UpdateVendor(id int32, localVarOptionals map[st
 }
 
 /* StoreVendorsApiService Update a vendor template
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "vendorTemplateResource" (ItemTemplateResource) The vendor template resource object
  @return ItemTemplateResource*/
-func (a *StoreVendorsApiService) UpdateVendorTemplate(id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *StoreVendorsApiService) UpdateVendorTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -700,7 +700,7 @@ func (a *StoreVendorsApiService) UpdateVendorTemplate(id string, localVarOptiona
 	if localVarTempParam, localVarOk := localVarOptionals["vendorTemplateResource"].(ItemTemplateResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

@@ -293,10 +293,10 @@ func (a *StoreBundlesApiService) DeleteBundleTemplate(ctx context.Context, id st
 }
 
 /* StoreBundlesApiService Get a single bundle item
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the bundle
  @return BundleItem*/
-func (a *StoreBundlesApiService) GetBundleItem(id int32) (BundleItem,  *http.Response, error) {
+func (a *StoreBundlesApiService) GetBundleItem(ctx context.Context, id int32) (BundleItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -333,7 +333,7 @@ func (a *StoreBundlesApiService) GetBundleItem(id int32) (BundleItem,  *http.Res
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -357,10 +357,10 @@ func (a *StoreBundlesApiService) GetBundleItem(id int32) (BundleItem,  *http.Res
 
 /* StoreBundlesApiService Get a single bundle template
  Bundle Templates define a type of bundle and the properties they have.
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
-func (a *StoreBundlesApiService) GetBundleTemplate(id string) (ItemTemplateResource,  *http.Response, error) {
+func (a *StoreBundlesApiService) GetBundleTemplate(ctx context.Context, id string) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -397,7 +397,7 @@ func (a *StoreBundlesApiService) GetBundleTemplate(id string) (ItemTemplateResou
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -420,13 +420,13 @@ func (a *StoreBundlesApiService) GetBundleTemplate(id string) (ItemTemplateResou
 }
 
 /* StoreBundlesApiService List and search bundle templates
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceItemTemplateResource*/
-func (a *StoreBundlesApiService) GetBundleTemplates(localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
+func (a *StoreBundlesApiService) GetBundleTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -480,7 +480,7 @@ func (a *StoreBundlesApiService) GetBundleTemplates(localVarOptionals map[string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

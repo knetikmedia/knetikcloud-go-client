@@ -280,10 +280,10 @@ func (a *TaxesApiService) DeleteStateTax(ctx context.Context, countryCodeIso3 st
 }
 
 /* TaxesApiService Get a single tax
-
+ * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @return CountryTaxResource*/
-func (a *TaxesApiService) GetCountryTax(countryCodeIso3 string) (CountryTaxResource,  *http.Response, error) {
+func (a *TaxesApiService) GetCountryTax(ctx context.Context, countryCodeIso3 string) (CountryTaxResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -320,7 +320,7 @@ func (a *TaxesApiService) GetCountryTax(countryCodeIso3 string) (CountryTaxResou
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -344,13 +344,13 @@ func (a *TaxesApiService) GetCountryTax(countryCodeIso3 string) (CountryTaxResou
 
 /* TaxesApiService List and search taxes
  Get a list of taxes
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceCountryTaxResource*/
-func (a *TaxesApiService) GetCountryTaxes(localVarOptionals map[string]interface{}) (PageResourceCountryTaxResource,  *http.Response, error) {
+func (a *TaxesApiService) GetCountryTaxes(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceCountryTaxResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -404,7 +404,7 @@ func (a *TaxesApiService) GetCountryTaxes(localVarOptionals map[string]interface
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -427,11 +427,11 @@ func (a *TaxesApiService) GetCountryTaxes(localVarOptionals map[string]interface
 }
 
 /* TaxesApiService Get a single state tax
-
+ * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @param stateCode The code of the state
  @return StateTaxResource*/
-func (a *TaxesApiService) GetStateTax(countryCodeIso3 string, stateCode string) (StateTaxResource,  *http.Response, error) {
+func (a *TaxesApiService) GetStateTax(ctx context.Context, countryCodeIso3 string, stateCode string) (StateTaxResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -469,7 +469,7 @@ func (a *TaxesApiService) GetStateTax(countryCodeIso3 string, stateCode string) 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -493,13 +493,13 @@ func (a *TaxesApiService) GetStateTax(countryCodeIso3 string, stateCode string) 
 
 /* TaxesApiService List and search taxes across all countries
  Get a list of taxes
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceStateTaxResource*/
-func (a *TaxesApiService) GetStateTaxesForCountries(localVarOptionals map[string]interface{}) (PageResourceStateTaxResource,  *http.Response, error) {
+func (a *TaxesApiService) GetStateTaxesForCountries(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceStateTaxResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -553,7 +553,7 @@ func (a *TaxesApiService) GetStateTaxesForCountries(localVarOptionals map[string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -577,14 +577,14 @@ func (a *TaxesApiService) GetStateTaxesForCountries(localVarOptionals map[string
 
 /* TaxesApiService List and search taxes within a country
  Get a list of taxes
-
+ * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceStateTaxResource*/
-func (a *TaxesApiService) GetStateTaxesForCountry(countryCodeIso3 string, localVarOptionals map[string]interface{}) (PageResourceStateTaxResource,  *http.Response, error) {
+func (a *TaxesApiService) GetStateTaxesForCountry(ctx context.Context, countryCodeIso3 string, localVarOptionals map[string]interface{}) (PageResourceStateTaxResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -639,7 +639,7 @@ func (a *TaxesApiService) GetStateTaxesForCountry(countryCodeIso3 string, localV
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

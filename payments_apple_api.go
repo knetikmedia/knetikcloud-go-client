@@ -28,11 +28,11 @@ type PaymentsAppleApiService service
 
 /* PaymentsAppleApiService Pay invoice with Apple receipt
  Mark an invoice paid using Apple payment receipt. A receipt will only be accepted once and the details of the transaction must match the invoice, including the product_id matching the sku text of the item in the invoice. Returns the transaction ID if successful.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (ApplyPaymentRequest) The request for paying an invoice through an Apple receipt
  @return string*/
-func (a *PaymentsAppleApiService) VerifyAppleReceipt(localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *PaymentsAppleApiService) VerifyAppleReceipt(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *PaymentsAppleApiService) VerifyAppleReceipt(localVarOptionals map[strin
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(ApplyPaymentRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

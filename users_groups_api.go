@@ -552,10 +552,10 @@ func (a *UsersGroupsApiService) DeleteGroupTemplate(ctx context.Context, id stri
 }
 
 /* UsersGroupsApiService Loads a specific group&#39;s details
-
+ * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @return GroupResource*/
-func (a *UsersGroupsApiService) GetGroup(uniqueName string) (GroupResource,  *http.Response, error) {
+func (a *UsersGroupsApiService) GetGroup(ctx context.Context, uniqueName string) (GroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -592,7 +592,7 @@ func (a *UsersGroupsApiService) GetGroup(uniqueName string) (GroupResource,  *ht
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -615,11 +615,11 @@ func (a *UsersGroupsApiService) GetGroup(uniqueName string) (GroupResource,  *ht
 }
 
 /* UsersGroupsApiService Get a user from a group
-
+ * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param userId The id of the user
  @return GroupMemberResource*/
-func (a *UsersGroupsApiService) GetGroupMember(uniqueName string, userId int32) (GroupMemberResource,  *http.Response, error) {
+func (a *UsersGroupsApiService) GetGroupMember(ctx context.Context, uniqueName string, userId int32) (GroupMemberResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -657,7 +657,7 @@ func (a *UsersGroupsApiService) GetGroupMember(uniqueName string, userId int32) 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -826,14 +826,14 @@ func (a *UsersGroupsApiService) GetGroupMemberTemplates(ctx context.Context, loc
 }
 
 /* UsersGroupsApiService Lists members of the group
-
+ * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceGroupMemberResource*/
-func (a *UsersGroupsApiService) GetGroupMembers(uniqueName string, localVarOptionals map[string]interface{}) (PageResourceGroupMemberResource,  *http.Response, error) {
+func (a *UsersGroupsApiService) GetGroupMembers(ctx context.Context, uniqueName string, localVarOptionals map[string]interface{}) (PageResourceGroupMemberResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -888,7 +888,7 @@ func (a *UsersGroupsApiService) GetGroupMembers(uniqueName string, localVarOptio
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1057,12 +1057,12 @@ func (a *UsersGroupsApiService) GetGroupTemplates(ctx context.Context, localVarO
 }
 
 /* UsersGroupsApiService List groups a user is in
-
+ * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterChildren" (bool) Whether to limit group list to children of groups only. If true, shows only groups with parents. If false, shows only groups with no parent.
  @return []string*/
-func (a *UsersGroupsApiService) GetGroupsForUser(userId int32, localVarOptionals map[string]interface{}) ([]string,  *http.Response, error) {
+func (a *UsersGroupsApiService) GetGroupsForUser(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) ([]string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1105,7 +1105,7 @@ func (a *UsersGroupsApiService) GetGroupsForUser(userId int32, localVarOptionals
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1128,7 +1128,7 @@ func (a *UsersGroupsApiService) GetGroupsForUser(userId int32, localVarOptionals
 }
 
 /* UsersGroupsApiService List and search groups
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterTemplate" (string) Filter for groups using a specific template, by id
      @param "filterMemberCount" (string) Filters groups by member count. Multiple values possible for range search. Format: filter_member_count&#x3D;OP,ts&amp;... where OP in (GT, LT, GOE, LOE, EQ). Ex: filter_member_count&#x3D;GT,14,LT,17
@@ -1140,7 +1140,7 @@ func (a *UsersGroupsApiService) GetGroupsForUser(userId int32, localVarOptionals
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceGroupResource*/
-func (a *UsersGroupsApiService) ListGroups(localVarOptionals map[string]interface{}) (PageResourceGroupResource,  *http.Response, error) {
+func (a *UsersGroupsApiService) ListGroups(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1230,7 +1230,7 @@ func (a *UsersGroupsApiService) ListGroups(localVarOptionals map[string]interfac
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

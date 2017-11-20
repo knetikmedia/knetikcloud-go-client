@@ -356,10 +356,10 @@ func (a *ContentPollsApiService) DeletePollTemplate(ctx context.Context, id stri
 }
 
 /* ContentPollsApiService Get a single poll
-
+ * @param ctx context.Context Authentication Context 
  @param id The poll id
  @return PollResource*/
-func (a *ContentPollsApiService) GetPoll(id string) (PollResource,  *http.Response, error) {
+func (a *ContentPollsApiService) GetPoll(ctx context.Context, id string) (PollResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -396,7 +396,7 @@ func (a *ContentPollsApiService) GetPoll(id string) (PollResource,  *http.Respon
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -629,7 +629,7 @@ func (a *ContentPollsApiService) GetPollTemplates(ctx context.Context, localVarO
 
 /* ContentPollsApiService List and search polls
  Get a list of polls with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single poll&#39; to retrieve the full resource with assets for a given item as needed.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterCategory" (string) Filter for polls from a specific category by id
      @param "filterTagset" (string) Filter for polls with specified tags (separated by comma)
@@ -638,7 +638,7 @@ func (a *ContentPollsApiService) GetPollTemplates(ctx context.Context, localVarO
      @param "page" (int32) The number of the page returned
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourcePollResource*/
-func (a *ContentPollsApiService) GetPolls(localVarOptionals map[string]interface{}) (PageResourcePollResource,  *http.Response, error) {
+func (a *ContentPollsApiService) GetPolls(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourcePollResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -710,7 +710,7 @@ func (a *ContentPollsApiService) GetPolls(localVarOptionals map[string]interface
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

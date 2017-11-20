@@ -96,9 +96,9 @@ func (a *InvoicesApiService) CreateInvoice(ctx context.Context, localVarOptional
 }
 
 /* InvoicesApiService Lists available fulfillment statuses
-
+ * @param ctx context.Context Authentication Context 
  @return []string*/
-func (a *InvoicesApiService) GetFulFillmentStatuses() ([]string,  *http.Response, error) {
+func (a *InvoicesApiService) GetFulFillmentStatuses(ctx context.Context, ) ([]string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -134,7 +134,7 @@ func (a *InvoicesApiService) GetFulFillmentStatuses() ([]string,  *http.Response
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -480,9 +480,9 @@ func (a *InvoicesApiService) GetInvoices(ctx context.Context, localVarOptionals 
 }
 
 /* InvoicesApiService Lists available payment statuses
-
+ * @param ctx context.Context Authentication Context 
  @return []string*/
-func (a *InvoicesApiService) GetPaymentStatuses() ([]string,  *http.Response, error) {
+func (a *InvoicesApiService) GetPaymentStatuses(ctx context.Context, ) ([]string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -518,7 +518,7 @@ func (a *InvoicesApiService) GetPaymentStatuses() ([]string,  *http.Response, er
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

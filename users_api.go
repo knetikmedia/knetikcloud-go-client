@@ -223,10 +223,10 @@ func (a *UsersApiService) DeleteUserTemplate(ctx context.Context, id string, loc
 
 /* UsersApiService Get a single user
  Additional private info is included as USERS_ADMIN
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the user or &#39;me&#39;
  @return UserResource*/
-func (a *UsersApiService) GetUser(id string) (UserResource,  *http.Response, error) {
+func (a *UsersApiService) GetUser(ctx context.Context, id string) (UserResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -263,7 +263,7 @@ func (a *UsersApiService) GetUser(id string) (UserResource,  *http.Response, err
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -496,7 +496,7 @@ func (a *UsersApiService) GetUserTemplates(ctx context.Context, localVarOptional
 
 /* UsersApiService List and search users
  Additional private info is included as USERS_ADMIN
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterDisplayname" (string) Filter for users whose display name starts with provided string.
      @param "filterEmail" (string) Filter for users whose email starts with provided string. Requires USERS_ADMIN permission
@@ -514,7 +514,7 @@ func (a *UsersApiService) GetUserTemplates(ctx context.Context, localVarOptional
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceUserBaseResource*/
-func (a *UsersApiService) GetUsers(localVarOptionals map[string]interface{}) (PageResourceUserBaseResource,  *http.Response, error) {
+func (a *UsersApiService) GetUsers(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceUserBaseResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -640,7 +640,7 @@ func (a *UsersApiService) GetUsers(localVarOptionals map[string]interface{}) (Pa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -664,12 +664,12 @@ func (a *UsersApiService) GetUsers(localVarOptionals map[string]interface{}) (Pa
 
 /* UsersApiService Choose a new password after a reset
  Finish resetting a user&#39;s password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security.
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "newPasswordRequest" (NewPasswordRequest) The new password request object
  @return */
-func (a *UsersApiService) PasswordReset(id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *UsersApiService) PasswordReset(ctx context.Context, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -709,7 +709,7 @@ func (a *UsersApiService) PasswordReset(id int32, localVarOptionals map[string]i
 	if localVarTempParam, localVarOk := localVarOptionals["newPasswordRequest"].(NewPasswordRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -728,11 +728,11 @@ func (a *UsersApiService) PasswordReset(id int32, localVarOptionals map[string]i
 
 /* UsersApiService Register a new user
  Password should be in plain text and will be encrypted on receipt. Use SSL for security
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userResource" (UserResource) The user resource object
  @return UserResource*/
-func (a *UsersApiService) RegisterUser(localVarOptionals map[string]interface{}) (UserResource,  *http.Response, error) {
+func (a *UsersApiService) RegisterUser(ctx context.Context, localVarOptionals map[string]interface{}) (UserResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -772,7 +772,7 @@ func (a *UsersApiService) RegisterUser(localVarOptionals map[string]interface{})
 	if localVarTempParam, localVarOk := localVarOptionals["userResource"].(UserResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -919,10 +919,10 @@ func (a *UsersApiService) SetPassword(ctx context.Context, id int32, localVarOpt
 
 /* UsersApiService Reset a user&#39;s password
  A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the user
  @return */
-func (a *UsersApiService) StartPasswordReset(id int32) ( *http.Response, error) {
+func (a *UsersApiService) StartPasswordReset(ctx context.Context, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -958,7 +958,7 @@ func (a *UsersApiService) StartPasswordReset(id int32) ( *http.Response, error) 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -977,11 +977,11 @@ func (a *UsersApiService) StartPasswordReset(id int32) ( *http.Response, error) 
 
 /* UsersApiService Reset a user&#39;s password without user id
  A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "passwordReset" (PasswordResetRequest) An object containing one of three methods to look up a user
  @return */
-func (a *UsersApiService) SubmitPasswordReset(localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *UsersApiService) SubmitPasswordReset(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -1020,7 +1020,7 @@ func (a *UsersApiService) SubmitPasswordReset(localVarOptionals map[string]inter
 	if localVarTempParam, localVarOk := localVarOptionals["passwordReset"].(PasswordResetRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

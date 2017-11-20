@@ -152,10 +152,10 @@ func (a *ContentCommentsApiService) DeleteComment(ctx context.Context, id int64)
 }
 
 /* ContentCommentsApiService Return a comment
-
+ * @param ctx context.Context Authentication Context 
  @param id The comment id
  @return CommentResource*/
-func (a *ContentCommentsApiService) GetComment(id int64) (CommentResource,  *http.Response, error) {
+func (a *ContentCommentsApiService) GetComment(ctx context.Context, id int64) (CommentResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -192,7 +192,7 @@ func (a *ContentCommentsApiService) GetComment(id int64) (CommentResource,  *htt
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -215,14 +215,14 @@ func (a *ContentCommentsApiService) GetComment(id int64) (CommentResource,  *htt
 }
 
 /* ContentCommentsApiService Returns a page of comments
-
+ * @param ctx context.Context Authentication Context 
  @param context Get comments by context type
  @param contextId Get comments by context id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceCommentResource*/
-func (a *ContentCommentsApiService) GetComments(context string, contextId int32, localVarOptionals map[string]interface{}) (PageResourceCommentResource,  *http.Response, error) {
+func (a *ContentCommentsApiService) GetComments(ctx context.Context, context string, contextId int32, localVarOptionals map[string]interface{}) (PageResourceCommentResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -272,7 +272,7 @@ func (a *ContentCommentsApiService) GetComments(context string, contextId int32,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

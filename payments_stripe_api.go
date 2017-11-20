@@ -96,11 +96,11 @@ func (a *PaymentsStripeApiService) CreateStripePaymentMethod(ctx context.Context
 
 /* PaymentsStripeApiService Pay with a single use token
  Obtain a token from Stripe, following their examples and documentation. Pays an invoice without creating a payment method. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (StripePaymentRequest) The request to pay an invoice
  @return */
-func (a *PaymentsStripeApiService) PayStripeInvoice(localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *PaymentsStripeApiService) PayStripeInvoice(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -139,7 +139,7 @@ func (a *PaymentsStripeApiService) PayStripeInvoice(localVarOptionals map[string
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(StripePaymentRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

@@ -287,10 +287,10 @@ func (a *ContentArticlesApiService) DeleteArticleTemplate(ctx context.Context, i
 }
 
 /* ContentArticlesApiService Get a single article
-
+ * @param ctx context.Context Authentication Context 
  @param id The article id
  @return ArticleResource*/
-func (a *ContentArticlesApiService) GetArticle(id string) (ArticleResource,  *http.Response, error) {
+func (a *ContentArticlesApiService) GetArticle(ctx context.Context, id string) (ArticleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -327,7 +327,7 @@ func (a *ContentArticlesApiService) GetArticle(id string) (ArticleResource,  *ht
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -497,7 +497,7 @@ func (a *ContentArticlesApiService) GetArticleTemplates(ctx context.Context, loc
 
 /* ContentArticlesApiService List and search articles
  Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single article&#39; to retrieve the full resource with assets for a given item as needed.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterActiveOnly" (bool) Filter for articles that are active (true) or inactive (false)
      @param "filterCategory" (string) Filter for articles from a specific category by id
@@ -509,7 +509,7 @@ func (a *ContentArticlesApiService) GetArticleTemplates(ctx context.Context, loc
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceArticleResource*/
-func (a *ContentArticlesApiService) GetArticles(localVarOptionals map[string]interface{}) (PageResourceArticleResource,  *http.Response, error) {
+func (a *ContentArticlesApiService) GetArticles(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceArticleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -599,7 +599,7 @@ func (a *ContentArticlesApiService) GetArticles(localVarOptionals map[string]int
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

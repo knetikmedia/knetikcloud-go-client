@@ -143,13 +143,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetCountryTax**
-> CountryTaxResource GetCountryTax(countryCodeIso3)
+> CountryTaxResource GetCountryTax(ctx, ctx, countryCodeIso3)
 Get a single tax
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **countryCodeIso3** | **string**| The iso3 code of the country | 
 
 ### Return type
@@ -158,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -168,7 +170,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetCountryTaxes**
-> PageResourceCountryTaxResource GetCountryTaxes(optional)
+> PageResourceCountryTaxResource GetCountryTaxes(ctx, ctx, optional)
 List and search taxes
 
 Get a list of taxes
@@ -177,6 +179,8 @@ Get a list of taxes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -194,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -204,13 +208,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetStateTax**
-> StateTaxResource GetStateTax(countryCodeIso3, stateCode)
+> StateTaxResource GetStateTax(ctx, ctx, countryCodeIso3, stateCode)
 Get a single state tax
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **countryCodeIso3** | **string**| The iso3 code of the country | 
   **stateCode** | **string**| The code of the state | 
 
@@ -220,7 +226,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -230,7 +236,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetStateTaxesForCountries**
-> PageResourceStateTaxResource GetStateTaxesForCountries(optional)
+> PageResourceStateTaxResource GetStateTaxesForCountries(ctx, ctx, optional)
 List and search taxes across all countries
 
 Get a list of taxes
@@ -239,6 +245,8 @@ Get a list of taxes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -256,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -266,7 +274,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetStateTaxesForCountry**
-> PageResourceStateTaxResource GetStateTaxesForCountry(countryCodeIso3, optional)
+> PageResourceStateTaxResource GetStateTaxesForCountry(ctx, ctx, countryCodeIso3, optional)
 List and search taxes within a country
 
 Get a list of taxes
@@ -275,6 +283,8 @@ Get a list of taxes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **countryCodeIso3** | **string**| The iso3 code of the country | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -294,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

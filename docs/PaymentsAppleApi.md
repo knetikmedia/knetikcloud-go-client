@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **VerifyAppleReceipt**
-> string VerifyAppleReceipt(optional)
+> string VerifyAppleReceipt(ctx, ctx, optional)
 Pay invoice with Apple receipt
 
 Mark an invoice paid using Apple payment receipt. A receipt will only be accepted once and the details of the transaction must match the invoice, including the product_id matching the sku text of the item in the invoice. Returns the transaction ID if successful.
@@ -17,6 +17,8 @@ Mark an invoice paid using Apple payment receipt. A receipt will only be accepte
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -32,7 +34,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **SearchIndex**
-> PageResourceMapstringobject SearchIndex(type_, optional)
+> PageResourceMapstringobject SearchIndex(ctx, ctx, type_, optional)
 Search an index
 
 The body is an ElasticSearch query in JSON format. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html'>documentation</a> for details on the format and search options. The searchable object's format depends on on the type but mostly matches the resource from it's main endpoint. Exceptions include referenced objects (like user) being replaced with the full user resource to allow deeper searching.
@@ -17,6 +17,8 @@ The body is an ElasticSearch query in JSON format. Please see their <a href='htt
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **type_** | **string**| The index type | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -36,7 +38,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

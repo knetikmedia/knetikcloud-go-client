@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **GetBatch**
-> []BatchReturn GetBatch(token)
+> []BatchReturn GetBatch(ctx, ctx, token)
 Get batch result with token
 
 Tokens expire in 24 hours
@@ -18,6 +18,8 @@ Tokens expire in 24 hours
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **token** | **string**| token | 
 
 ### Return type
@@ -26,7 +28,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

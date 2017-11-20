@@ -287,12 +287,12 @@ func (a *MediaArtistsApiService) DeleteArtistTemplate(ctx context.Context, id st
 }
 
 /* MediaArtistsApiService Loads a specific artist details
-
+ * @param ctx context.Context Authentication Context 
  @param id The artist id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "showContributions" (int32) The number of contributions to show fetch
  @return ArtistResource*/
-func (a *MediaArtistsApiService) GetArtist(id int64, localVarOptionals map[string]interface{}) (ArtistResource,  *http.Response, error) {
+func (a *MediaArtistsApiService) GetArtist(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (ArtistResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -335,7 +335,7 @@ func (a *MediaArtistsApiService) GetArtist(id int64, localVarOptionals map[strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -504,14 +504,14 @@ func (a *MediaArtistsApiService) GetArtistTemplates(ctx context.Context, localVa
 }
 
 /* MediaArtistsApiService Search for artists
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterArtistsByName" (string) Filter for artists which name *STARTS* with the given string
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceArtistResource*/
-func (a *MediaArtistsApiService) GetArtists(localVarOptionals map[string]interface{}) (PageResourceArtistResource,  *http.Response, error) {
+func (a *MediaArtistsApiService) GetArtists(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceArtistResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -571,7 +571,7 @@ func (a *MediaArtistsApiService) GetArtists(localVarOptionals map[string]interfa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

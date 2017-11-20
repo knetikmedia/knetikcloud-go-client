@@ -356,10 +356,10 @@ func (a *StoreCouponsApiService) GetCouponItem(ctx context.Context, id int32) (C
 }
 
 /* StoreCouponsApiService Get a coupon by sku
-
+ * @param ctx context.Context Authentication Context 
  @param sku A sku of the coupon
  @return CouponItem*/
-func (a *StoreCouponsApiService) GetCouponItemBySku(sku string) (CouponItem,  *http.Response, error) {
+func (a *StoreCouponsApiService) GetCouponItemBySku(ctx context.Context, sku string) (CouponItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -396,7 +396,7 @@ func (a *StoreCouponsApiService) GetCouponItemBySku(sku string) (CouponItem,  *h
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

@@ -28,11 +28,11 @@ type PaymentsGoogleApiService service
 
 /* PaymentsGoogleApiService Mark an invoice paid with Google
  Mark an invoice paid with Google. Verifies signature from Google and treats the developerPayload field inside the json payload as the id of the invoice to pay. Returns the transaction ID if successful.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (GooglePaymentRequest) The request for paying an invoice through a Google in-app payment
  @return int32*/
-func (a *PaymentsGoogleApiService) HandleGooglePayment(localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
+func (a *PaymentsGoogleApiService) HandleGooglePayment(ctx context.Context, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -72,7 +72,7 @@ func (a *PaymentsGoogleApiService) HandleGooglePayment(localVarOptionals map[str
 	if localVarTempParam, localVarOk := localVarOptionals["request"].(GooglePaymentRequest); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

@@ -29,7 +29,7 @@ type GamificationLeaderboardsApiService service
 
 /* GamificationLeaderboardsApiService Retrieves leaderboard details and paginated entries
  The context type identifies the type of entity (i.e., &#39;activity&#39;) being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource.
-
+ * @param ctx context.Context Authentication Context 
  @param contextType The context type for the leaderboard
  @param contextId The context id for the leaderboard
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -37,7 +37,7 @@ type GamificationLeaderboardsApiService service
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return LeaderboardResource*/
-func (a *GamificationLeaderboardsApiService) GetLeaderboard(contextType string, contextId string, localVarOptionals map[string]interface{}) (LeaderboardResource,  *http.Response, error) {
+func (a *GamificationLeaderboardsApiService) GetLeaderboard(ctx context.Context, contextType string, contextId string, localVarOptionals map[string]interface{}) (LeaderboardResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -93,7 +93,7 @@ func (a *GamificationLeaderboardsApiService) GetLeaderboard(contextType string, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -117,12 +117,12 @@ func (a *GamificationLeaderboardsApiService) GetLeaderboard(contextType string, 
 
 /* GamificationLeaderboardsApiService Retrieves a specific user entry with rank
  The context type identifies the type of entity (i.e., &#39;activity&#39;) being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard
-
+ * @param ctx context.Context Authentication Context 
  @param contextType The context type for the leaderboard
  @param contextId The context id for the leaderboard
  @param id The id of a user
  @return LeaderboardEntryResource*/
-func (a *GamificationLeaderboardsApiService) GetLeaderboardRank(contextType string, contextId string, id string) (LeaderboardEntryResource,  *http.Response, error) {
+func (a *GamificationLeaderboardsApiService) GetLeaderboardRank(ctx context.Context, contextType string, contextId string, id string) (LeaderboardEntryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -161,7 +161,7 @@ func (a *GamificationLeaderboardsApiService) GetLeaderboardRank(contextType stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -184,9 +184,9 @@ func (a *GamificationLeaderboardsApiService) GetLeaderboardRank(contextType stri
 }
 
 /* GamificationLeaderboardsApiService Get a list of available leaderboard strategy names
-
+ * @param ctx context.Context Authentication Context 
  @return []string*/
-func (a *GamificationLeaderboardsApiService) GetLeaderboardStrategies() ([]string,  *http.Response, error) {
+func (a *GamificationLeaderboardsApiService) GetLeaderboardStrategies(ctx context.Context, ) ([]string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -222,7 +222,7 @@ func (a *GamificationLeaderboardsApiService) GetLeaderboardStrategies() ([]strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

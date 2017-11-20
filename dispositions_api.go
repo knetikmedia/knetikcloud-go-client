@@ -152,10 +152,10 @@ func (a *DispositionsApiService) DeleteDisposition(ctx context.Context, id int64
 }
 
 /* DispositionsApiService Returns a disposition
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the disposition record
  @return DispositionResource*/
-func (a *DispositionsApiService) GetDisposition(id int64) (DispositionResource,  *http.Response, error) {
+func (a *DispositionsApiService) GetDisposition(ctx context.Context, id int64) (DispositionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -192,7 +192,7 @@ func (a *DispositionsApiService) GetDisposition(id int64) (DispositionResource, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

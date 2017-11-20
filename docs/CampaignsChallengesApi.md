@@ -335,13 +335,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallenge**
-> ChallengeResource GetChallenge(id)
+> ChallengeResource GetChallenge(ctx, ctx, id)
 Retrieve a challenge
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The challenge id | 
 
 ### Return type
@@ -350,7 +352,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -360,13 +362,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallengeActivities**
-> PageResourceBareChallengeActivityResource GetChallengeActivities(challengeId, optional)
+> PageResourceBareChallengeActivityResource GetChallengeActivities(ctx, ctx, challengeId, optional)
 List and search challenge activities
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **challengeId** | **int64**| The challenge id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -386,7 +390,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -396,7 +400,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallengeActivity**
-> ChallengeActivityResource GetChallengeActivity(id, challengeId)
+> ChallengeActivityResource GetChallengeActivity(ctx, ctx, id, challengeId)
 Get a single challenge activity
 
 A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
@@ -405,6 +409,8 @@ A challenge can have multiple instances of the same activity and thus the id use
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The challenge_activity id | 
   **challengeId** | **int64**| The challenge id | 
 
@@ -414,7 +420,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -487,13 +493,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallengeEvent**
-> ChallengeEventResource GetChallengeEvent(id)
+> ChallengeEventResource GetChallengeEvent(ctx, ctx, id)
 Retrieve a single challenge event details
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **id** | **int64**| The challenge event id | 
 
 ### Return type
@@ -502,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -512,13 +520,15 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallengeEvents**
-> PageResourceChallengeEventResource GetChallengeEvents(optional)
+> PageResourceChallengeEventResource GetChallengeEvents(ctx, ctx, optional)
 Retrieve a list of challenge events
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -540,7 +550,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -613,13 +623,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetChallenges**
-> PageResourceChallengeResource GetChallenges(optional)
+> PageResourceChallengeResource GetChallenges(ctx, ctx, optional)
 Retrieve a list of challenges
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -640,7 +652,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -711,6 +723,7 @@ Name | Type | Description  | Notes
  **id** | **int64**| The challenge_activity id | 
  **challengeId** | **int64**| The challenge id | 
  **challengeActivityResource** | [**ChallengeActivityResource**](ChallengeActivityResource.md)| The challenge activity resource object | 
+ **validateSettings** | **bool**| Whether to validate the settings being sent against the available settings on the base activity. | [default to false]
 
 ### Return type
 

@@ -221,10 +221,10 @@ func (a *PaymentsApiService) GetPaymentMethod(ctx context.Context, userId int32,
 }
 
 /* PaymentsApiService Get a single payment method type
-
+ * @param ctx context.Context Authentication Context 
  @param id ID of the payment method type being retrieved
  @return PaymentMethodTypeResource*/
-func (a *PaymentsApiService) GetPaymentMethodType(id int32) (PaymentMethodTypeResource,  *http.Response, error) {
+func (a *PaymentsApiService) GetPaymentMethodType(ctx context.Context, id int32) (PaymentMethodTypeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -261,7 +261,7 @@ func (a *PaymentsApiService) GetPaymentMethodType(id int32) (PaymentMethodTypeRe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -284,14 +284,14 @@ func (a *PaymentsApiService) GetPaymentMethodType(id int32) (PaymentMethodTypeRe
 }
 
 /* PaymentsApiService Get all payment method types
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterName" (string) Filter for payment method types whose name matches a given string
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourcePaymentMethodTypeResource*/
-func (a *PaymentsApiService) GetPaymentMethodTypes(localVarOptionals map[string]interface{}) (PageResourcePaymentMethodTypeResource,  *http.Response, error) {
+func (a *PaymentsApiService) GetPaymentMethodTypes(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourcePaymentMethodTypeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -351,7 +351,7 @@ func (a *PaymentsApiService) GetPaymentMethodTypes(localVarOptionals map[string]
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

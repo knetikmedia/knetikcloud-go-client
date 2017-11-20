@@ -29,10 +29,10 @@ type UtilBatchApiService service
 
 /* UtilBatchApiService Get batch result with token
  Tokens expire in 24 hours
-
+ * @param ctx context.Context Authentication Context 
  @param token token
  @return []BatchReturn*/
-func (a *UtilBatchApiService) GetBatch(token string) ([]BatchReturn,  *http.Response, error) {
+func (a *UtilBatchApiService) GetBatch(ctx context.Context, token string) ([]BatchReturn,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -69,7 +69,7 @@ func (a *UtilBatchApiService) GetBatch(token string) ([]BatchReturn,  *http.Resp
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

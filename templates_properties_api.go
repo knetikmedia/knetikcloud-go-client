@@ -28,10 +28,10 @@ type TemplatesPropertiesApiService service
 
 
 /* TemplatesPropertiesApiService Get details for a template property type
-
+ * @param ctx context.Context Authentication Context 
  @param type_ type
  @return PropertyFieldListResource*/
-func (a *TemplatesPropertiesApiService) GetTemplatePropertyType(type_ string) (PropertyFieldListResource,  *http.Response, error) {
+func (a *TemplatesPropertiesApiService) GetTemplatePropertyType(ctx context.Context, type_ string) (PropertyFieldListResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -68,7 +68,7 @@ func (a *TemplatesPropertiesApiService) GetTemplatePropertyType(type_ string) (P
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -91,9 +91,9 @@ func (a *TemplatesPropertiesApiService) GetTemplatePropertyType(type_ string) (P
 }
 
 /* TemplatesPropertiesApiService List template property types
-
+ * @param ctx context.Context Authentication Context 
  @return []PropertyFieldListResource*/
-func (a *TemplatesPropertiesApiService) GetTemplatePropertyTypes() ([]PropertyFieldListResource,  *http.Response, error) {
+func (a *TemplatesPropertiesApiService) GetTemplatePropertyTypes(ctx context.Context, ) ([]PropertyFieldListResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -129,7 +129,7 @@ func (a *TemplatesPropertiesApiService) GetTemplatePropertyTypes() ([]PropertyFi
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

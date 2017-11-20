@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **GetVersion**
-> Version GetVersion()
+> Version GetVersion(ctx, ctx, )
 Get current version info
 
 ### Required Parameters
@@ -20,7 +20,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **GetHealth**
-> interface{} GetHealth()
+> interface{} GetHealth(ctx, ctx, )
 Get health info
 
 ### Required Parameters
@@ -20,7 +20,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

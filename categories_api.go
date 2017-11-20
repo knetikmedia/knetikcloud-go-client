@@ -286,7 +286,7 @@ func (a *CategoriesApiService) DeleteCategoryTemplate(ctx context.Context, id st
 }
 
 /* CategoriesApiService List and search categories with optional filters
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSearch" (string) Filter for categories whose names begin with provided string
      @param "filterActive" (bool) Filter for categories that are specifically active or inactive
@@ -294,7 +294,7 @@ func (a *CategoriesApiService) DeleteCategoryTemplate(ctx context.Context, id st
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceCategoryResource*/
-func (a *CategoriesApiService) GetCategories(localVarOptionals map[string]interface{}) (PageResourceCategoryResource,  *http.Response, error) {
+func (a *CategoriesApiService) GetCategories(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceCategoryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -360,7 +360,7 @@ func (a *CategoriesApiService) GetCategories(localVarOptionals map[string]interf
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -383,10 +383,10 @@ func (a *CategoriesApiService) GetCategories(localVarOptionals map[string]interf
 }
 
 /* CategoriesApiService Get a single category
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the category to retrieve
  @return CategoryResource*/
-func (a *CategoriesApiService) GetCategory(id string) (CategoryResource,  *http.Response, error) {
+func (a *CategoriesApiService) GetCategory(ctx context.Context, id string) (CategoryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -423,7 +423,7 @@ func (a *CategoriesApiService) GetCategory(id string) (CategoryResource,  *http.
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -592,12 +592,12 @@ func (a *CategoriesApiService) GetCategoryTemplates(ctx context.Context, localVa
 }
 
 /* CategoriesApiService List all trivia tags in the system
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourcestring*/
-func (a *CategoriesApiService) GetTags(localVarOptionals map[string]interface{}) (PageResourcestring,  *http.Response, error) {
+func (a *CategoriesApiService) GetTags(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourcestring,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -645,7 +645,7 @@ func (a *CategoriesApiService) GetTags(localVarOptionals map[string]interface{})
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

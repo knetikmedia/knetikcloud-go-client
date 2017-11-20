@@ -361,7 +361,7 @@ func (a *ActivitiesApiService) DeleteActivityTemplate(ctx context.Context, id st
 }
 
 /* ActivitiesApiService List activity definitions
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterTemplate" (bool) Filter for activities that are templates, or specifically not if false
      @param "filterName" (string) Filter for activities that have a name starting with specified string
@@ -370,7 +370,7 @@ func (a *ActivitiesApiService) DeleteActivityTemplate(ctx context.Context, id st
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceBareActivityResource*/
-func (a *ActivitiesApiService) GetActivities(localVarOptionals map[string]interface{}) (PageResourceBareActivityResource,  *http.Response, error) {
+func (a *ActivitiesApiService) GetActivities(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceBareActivityResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -442,7 +442,7 @@ func (a *ActivitiesApiService) GetActivities(localVarOptionals map[string]interf
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -465,10 +465,10 @@ func (a *ActivitiesApiService) GetActivities(localVarOptionals map[string]interf
 }
 
 /* ActivitiesApiService Get a single activity
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the activity
  @return ActivityResource*/
-func (a *ActivitiesApiService) GetActivity(id int64) (ActivityResource,  *http.Response, error) {
+func (a *ActivitiesApiService) GetActivity(ctx context.Context, id int64) (ActivityResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -505,7 +505,7 @@ func (a *ActivitiesApiService) GetActivity(id int64) (ActivityResource,  *http.R
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

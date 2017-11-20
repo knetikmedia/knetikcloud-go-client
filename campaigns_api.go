@@ -352,10 +352,10 @@ func (a *CampaignsApiService) DeleteCampaignTemplate(ctx context.Context, id str
 }
 
 /* CampaignsApiService Returns a single campaign
-
+ * @param ctx context.Context Authentication Context 
  @param id The campaign id
  @return CampaignResource*/
-func (a *CampaignsApiService) GetCampaign(id int64) (CampaignResource,  *http.Response, error) {
+func (a *CampaignsApiService) GetCampaign(ctx context.Context, id int64) (CampaignResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -392,7 +392,7 @@ func (a *CampaignsApiService) GetCampaign(id int64) (CampaignResource,  *http.Re
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -415,7 +415,7 @@ func (a *CampaignsApiService) GetCampaign(id int64) (CampaignResource,  *http.Re
 }
 
 /* CampaignsApiService List the challenges associated with a campaign
-
+ * @param ctx context.Context Authentication Context 
  @param id The campaign id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterStartDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the challenge start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
@@ -424,7 +424,7 @@ func (a *CampaignsApiService) GetCampaign(id int64) (CampaignResource,  *http.Re
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceChallengeResource*/
-func (a *CampaignsApiService) GetCampaignChallenges(id int64, localVarOptionals map[string]interface{}) (PageResourceChallengeResource,  *http.Response, error) {
+func (a *CampaignsApiService) GetCampaignChallenges(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (PageResourceChallengeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -491,7 +491,7 @@ func (a *CampaignsApiService) GetCampaignChallenges(id int64, localVarOptionals 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -660,14 +660,14 @@ func (a *CampaignsApiService) GetCampaignTemplates(ctx context.Context, localVar
 }
 
 /* CampaignsApiService List and search campaigns
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterActive" (bool) Filter for campaigns that are active
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceCampaignResource*/
-func (a *CampaignsApiService) GetCampaigns(localVarOptionals map[string]interface{}) (PageResourceCampaignResource,  *http.Response, error) {
+func (a *CampaignsApiService) GetCampaigns(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceCampaignResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -727,7 +727,7 @@ func (a *CampaignsApiService) GetCampaigns(localVarOptionals map[string]interfac
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

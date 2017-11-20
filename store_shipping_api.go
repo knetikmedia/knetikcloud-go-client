@@ -293,10 +293,10 @@ func (a *StoreShippingApiService) DeleteShippingTemplate(ctx context.Context, id
 }
 
 /* StoreShippingApiService Get a single shipping item
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the shipping item
  @return ShippingItem*/
-func (a *StoreShippingApiService) GetShippingItem(id int32) (ShippingItem,  *http.Response, error) {
+func (a *StoreShippingApiService) GetShippingItem(ctx context.Context, id int32) (ShippingItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -333,7 +333,7 @@ func (a *StoreShippingApiService) GetShippingItem(id int32) (ShippingItem,  *htt
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

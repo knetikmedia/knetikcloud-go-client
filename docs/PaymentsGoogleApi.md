@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **HandleGooglePayment**
-> int32 HandleGooglePayment(optional)
+> int32 HandleGooglePayment(ctx, ctx, optional)
 Mark an invoice paid with Google
 
 Mark an invoice paid with Google. Verifies signature from Google and treats the developerPayload field inside the json payload as the id of the invoice to pay. Returns the transaction ID if successful.
@@ -17,6 +17,8 @@ Mark an invoice paid with Google. Verifies signature from Google and treats the 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -32,7 +34,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

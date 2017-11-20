@@ -83,9 +83,9 @@ func (a *UtilMaintenanceApiService) DeleteMaintenance(ctx context.Context, ) ( *
 
 /* UtilMaintenanceApiService Get current maintenance info
  Get current maintenance info. 404 if no maintenance.
-
+ * @param ctx context.Context Authentication Context 
  @return Maintenance*/
-func (a *UtilMaintenanceApiService) GetMaintenance() (Maintenance,  *http.Response, error) {
+func (a *UtilMaintenanceApiService) GetMaintenance(ctx context.Context, ) (Maintenance,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -121,7 +121,7 @@ func (a *UtilMaintenanceApiService) GetMaintenance() (Maintenance,  *http.Respon
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

@@ -28,9 +28,9 @@ type LocationsApiService service
 
 
 /* LocationsApiService Get a list of countries
-
+ * @param ctx context.Context Authentication Context 
  @return []CountryResource*/
-func (a *LocationsApiService) GetCountries() ([]CountryResource,  *http.Response, error) {
+func (a *LocationsApiService) GetCountries(ctx context.Context, ) ([]CountryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -66,7 +66,7 @@ func (a *LocationsApiService) GetCountries() ([]CountryResource,  *http.Response
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -90,9 +90,9 @@ func (a *LocationsApiService) GetCountries() ([]CountryResource,  *http.Response
 
 /* LocationsApiService Get the iso3 code of your country
  Determined by geo ip location
-
+ * @param ctx context.Context Authentication Context 
  @return string*/
-func (a *LocationsApiService) GetCountryByGeoLocation() (string,  *http.Response, error) {
+func (a *LocationsApiService) GetCountryByGeoLocation(ctx context.Context, ) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -128,7 +128,7 @@ func (a *LocationsApiService) GetCountryByGeoLocation() (string,  *http.Response
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -151,10 +151,10 @@ func (a *LocationsApiService) GetCountryByGeoLocation() (string,  *http.Response
 }
 
 /* LocationsApiService Get a list of a country&#39;s states
-
+ * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @return []StateResource*/
-func (a *LocationsApiService) GetCountryStates(countryCodeIso3 string) ([]StateResource,  *http.Response, error) {
+func (a *LocationsApiService) GetCountryStates(ctx context.Context, countryCodeIso3 string) ([]StateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -191,7 +191,7 @@ func (a *LocationsApiService) GetCountryStates(countryCodeIso3 string) ([]StateR
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -215,9 +215,9 @@ func (a *LocationsApiService) GetCountryStates(countryCodeIso3 string) ([]StateR
 
 /* LocationsApiService Get the currency information of your country
  Determined by geo ip location, currency to country mapping and a fallback setting
-
+ * @param ctx context.Context Authentication Context 
  @return CurrencyResource*/
-func (a *LocationsApiService) GetCurrencyByGeoLocation() (CurrencyResource,  *http.Response, error) {
+func (a *LocationsApiService) GetCurrencyByGeoLocation(ctx context.Context, ) (CurrencyResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -253,7 +253,7 @@ func (a *LocationsApiService) GetCurrencyByGeoLocation() (CurrencyResource,  *ht
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

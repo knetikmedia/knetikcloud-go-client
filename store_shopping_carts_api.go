@@ -219,12 +219,12 @@ func (a *StoreShoppingCartsApiService) AddItemToCart(ctx context.Context, id str
 
 /* StoreShoppingCartsApiService Create a cart
  You don&#39;t have to have a user to create a cart but the API requires authentication to checkout
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "owner" (int32) Set the owner of a cart. If not specified, defaults to the calling user&#39;s id. If specified and is not the calling user&#39;s id, SHOPPING_CARTS_ADMIN permission is required
      @param "currencyCode" (string) Set the currency for the cart, by currency code. May be disallowed by site settings.
  @return string*/
-func (a *StoreShoppingCartsApiService) CreateCart(localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *StoreShoppingCartsApiService) CreateCart(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -272,7 +272,7 @@ func (a *StoreShoppingCartsApiService) CreateCart(localVarOptionals map[string]i
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

@@ -27,9 +27,9 @@ type UtilHealthApiService service
 
 
 /* UtilHealthApiService Get health info
-
+ * @param ctx context.Context Authentication Context 
  @return interface{}*/
-func (a *UtilHealthApiService) GetHealth() (interface{},  *http.Response, error) {
+func (a *UtilHealthApiService) GetHealth(ctx context.Context, ) (interface{},  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -65,7 +65,7 @@ func (a *UtilHealthApiService) GetHealth() (interface{},  *http.Response, error)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

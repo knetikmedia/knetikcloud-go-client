@@ -33,7 +33,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetMaintenance**
-> Maintenance GetMaintenance()
+> Maintenance GetMaintenance(ctx, ctx, )
 Get current maintenance info
 
 Get current maintenance info. 404 if no maintenance.
@@ -47,7 +47,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

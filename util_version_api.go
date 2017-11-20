@@ -27,9 +27,9 @@ type UtilVersionApiService service
 
 
 /* UtilVersionApiService Get current version info
-
+ * @param ctx context.Context Authentication Context 
  @return Version*/
-func (a *UtilVersionApiService) GetVersion() (Version,  *http.Response, error) {
+func (a *UtilVersionApiService) GetVersion(ctx context.Context, ) (Version,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -65,7 +65,7 @@ func (a *UtilVersionApiService) GetVersion() (Version,  *http.Response, error) {
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

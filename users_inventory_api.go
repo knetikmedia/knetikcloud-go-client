@@ -431,10 +431,10 @@ func (a *UsersInventoryApiService) DeleteEntitlementTemplate(ctx context.Context
 }
 
 /* UsersInventoryApiService Get a single entitlement item
-
+ * @param ctx context.Context Authentication Context 
  @param entitlementId The id of the entitlement
  @return EntitlementItem*/
-func (a *UsersInventoryApiService) GetEntitlementItem(entitlementId int32) (EntitlementItem,  *http.Response, error) {
+func (a *UsersInventoryApiService) GetEntitlementItem(ctx context.Context, entitlementId int32) (EntitlementItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -471,7 +471,7 @@ func (a *UsersInventoryApiService) GetEntitlementItem(entitlementId int32) (Enti
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -494,14 +494,14 @@ func (a *UsersInventoryApiService) GetEntitlementItem(entitlementId int32) (Enti
 }
 
 /* UsersInventoryApiService List and search entitlement items
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterTemplate" (string) Filter for entitlements using a specified template
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceEntitlementItem*/
-func (a *UsersInventoryApiService) GetEntitlementItems(localVarOptionals map[string]interface{}) (PageResourceEntitlementItem,  *http.Response, error) {
+func (a *UsersInventoryApiService) GetEntitlementItems(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceEntitlementItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -561,7 +561,7 @@ func (a *UsersInventoryApiService) GetEntitlementItems(localVarOptionals map[str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

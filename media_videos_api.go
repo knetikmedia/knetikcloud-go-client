@@ -935,13 +935,13 @@ func (a *MediaVideosApiService) GetVideo(ctx context.Context, id int64) (VideoRe
 }
 
 /* MediaVideosApiService Returns a page of comments for a video
-
+ * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceCommentResource*/
-func (a *MediaVideosApiService) GetVideoComments(videoId int32, localVarOptionals map[string]interface{}) (PageResourceCommentResource,  *http.Response, error) {
+func (a *MediaVideosApiService) GetVideoComments(ctx context.Context, videoId int32, localVarOptionals map[string]interface{}) (PageResourceCommentResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -990,7 +990,7 @@ func (a *MediaVideosApiService) GetVideoComments(videoId int32, localVarOptional
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1013,13 +1013,13 @@ func (a *MediaVideosApiService) GetVideoComments(videoId int32, localVarOptional
 }
 
 /* MediaVideosApiService Returns a page of dispositions for a video
-
+ * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceDispositionResource*/
-func (a *MediaVideosApiService) GetVideoDispositions(videoId int32, localVarOptionals map[string]interface{}) (PageResourceDispositionResource,  *http.Response, error) {
+func (a *MediaVideosApiService) GetVideoDispositions(ctx context.Context, videoId int32, localVarOptionals map[string]interface{}) (PageResourceDispositionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1068,7 +1068,7 @@ func (a *MediaVideosApiService) GetVideoDispositions(videoId int32, localVarOpti
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1091,13 +1091,13 @@ func (a *MediaVideosApiService) GetVideoDispositions(videoId int32, localVarOpti
 }
 
 /* MediaVideosApiService Returns a page of video relationships
-
+ * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceVideoRelationshipResource*/
-func (a *MediaVideosApiService) GetVideoRelationships(videoId int64, localVarOptionals map[string]interface{}) (PageResourceVideoRelationshipResource,  *http.Response, error) {
+func (a *MediaVideosApiService) GetVideoRelationships(ctx context.Context, videoId int64, localVarOptionals map[string]interface{}) (PageResourceVideoRelationshipResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1146,7 +1146,7 @@ func (a *MediaVideosApiService) GetVideoRelationships(videoId int64, localVarOpt
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1169,7 +1169,7 @@ func (a *MediaVideosApiService) GetVideoRelationships(videoId int64, localVarOpt
 }
 
 /* MediaVideosApiService Search videos using the documented filters
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "excludeFlagged" (bool) Skip videos that have been flagged by the current user
      @param "filterVideosByUploader" (int32) Filter for videos by uploader id
@@ -1187,7 +1187,7 @@ func (a *MediaVideosApiService) GetVideoRelationships(videoId int64, localVarOpt
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceVideoResource*/
-func (a *MediaVideosApiService) GetVideos(localVarOptionals map[string]interface{}) (PageResourceVideoResource,  *http.Response, error) {
+func (a *MediaVideosApiService) GetVideos(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceVideoResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1313,7 +1313,7 @@ func (a *MediaVideosApiService) GetVideos(localVarOptionals map[string]interface
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

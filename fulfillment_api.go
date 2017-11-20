@@ -152,10 +152,10 @@ func (a *FulfillmentApiService) DeleteFulfillmentType(ctx context.Context, id in
 }
 
 /* FulfillmentApiService Get a single fulfillment type
-
+ * @param ctx context.Context Authentication Context 
  @param id The id
  @return FulfillmentType*/
-func (a *FulfillmentApiService) GetFulfillmentType(id int32) (FulfillmentType,  *http.Response, error) {
+func (a *FulfillmentApiService) GetFulfillmentType(ctx context.Context, id int32) (FulfillmentType,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -192,7 +192,7 @@ func (a *FulfillmentApiService) GetFulfillmentType(id int32) (FulfillmentType,  
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -215,13 +215,13 @@ func (a *FulfillmentApiService) GetFulfillmentType(id int32) (FulfillmentType,  
 }
 
 /* FulfillmentApiService List and search fulfillment types
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceFulfillmentType*/
-func (a *FulfillmentApiService) GetFulfillmentTypes(localVarOptionals map[string]interface{}) (PageResourceFulfillmentType,  *http.Response, error) {
+func (a *FulfillmentApiService) GetFulfillmentTypes(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceFulfillmentType,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -275,7 +275,7 @@ func (a *FulfillmentApiService) GetFulfillmentTypes(localVarOptionals map[string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

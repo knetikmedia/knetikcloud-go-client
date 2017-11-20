@@ -288,10 +288,10 @@ func (a *StoreSubscriptionsApiService) DeleteSubscriptionTemplate(ctx context.Co
 }
 
 /* StoreSubscriptionsApiService Retrieve a single subscription item and associated plans
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the subscription
  @return SubscriptionResource*/
-func (a *StoreSubscriptionsApiService) GetSubscription(id int32) (SubscriptionResource,  *http.Response, error) {
+func (a *StoreSubscriptionsApiService) GetSubscription(ctx context.Context, id int32) (SubscriptionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -328,7 +328,7 @@ func (a *StoreSubscriptionsApiService) GetSubscription(id int32) (SubscriptionRe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -498,13 +498,13 @@ func (a *StoreSubscriptionsApiService) GetSubscriptionTemplates(ctx context.Cont
 }
 
 /* StoreSubscriptionsApiService List available subscription items and associated plans
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceSubscriptionResource*/
-func (a *StoreSubscriptionsApiService) GetSubscriptions(localVarOptionals map[string]interface{}) (PageResourceSubscriptionResource,  *http.Response, error) {
+func (a *StoreSubscriptionsApiService) GetSubscriptions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceSubscriptionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -558,7 +558,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptions(localVarOptionals map[st
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

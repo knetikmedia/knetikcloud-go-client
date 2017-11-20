@@ -124,7 +124,7 @@ func (a *CampaignsChallengesApiService) CreateChallengeActivity(ctx context.Cont
 	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["validateSettings"].(bool); localVarOk {
-		localVarQueryParams.Add("validateSettings", parameterToString(localVarTempParam, ""))
+		localVarQueryParams.Add("validate_settings", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -614,10 +614,10 @@ func (a *CampaignsChallengesApiService) DeleteChallengeTemplate(ctx context.Cont
 }
 
 /* CampaignsChallengesApiService Retrieve a challenge
-
+ * @param ctx context.Context Authentication Context 
  @param id The challenge id
  @return ChallengeResource*/
-func (a *CampaignsChallengesApiService) GetChallenge(id int64) (ChallengeResource,  *http.Response, error) {
+func (a *CampaignsChallengesApiService) GetChallenge(ctx context.Context, id int64) (ChallengeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -654,7 +654,7 @@ func (a *CampaignsChallengesApiService) GetChallenge(id int64) (ChallengeResourc
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -677,14 +677,14 @@ func (a *CampaignsChallengesApiService) GetChallenge(id int64) (ChallengeResourc
 }
 
 /* CampaignsChallengesApiService List and search challenge activities
-
+ * @param ctx context.Context Authentication Context 
  @param challengeId The challenge id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceBareChallengeActivityResource*/
-func (a *CampaignsChallengesApiService) GetChallengeActivities(challengeId int64, localVarOptionals map[string]interface{}) (PageResourceBareChallengeActivityResource,  *http.Response, error) {
+func (a *CampaignsChallengesApiService) GetChallengeActivities(ctx context.Context, challengeId int64, localVarOptionals map[string]interface{}) (PageResourceBareChallengeActivityResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -739,7 +739,7 @@ func (a *CampaignsChallengesApiService) GetChallengeActivities(challengeId int64
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -763,11 +763,11 @@ func (a *CampaignsChallengesApiService) GetChallengeActivities(challengeId int64
 
 /* CampaignsChallengesApiService Get a single challenge activity
  A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
-
+ * @param ctx context.Context Authentication Context 
  @param id The challenge_activity id
  @param challengeId The challenge id
  @return ChallengeActivityResource*/
-func (a *CampaignsChallengesApiService) GetChallengeActivity(id int64, challengeId int64) (ChallengeActivityResource,  *http.Response, error) {
+func (a *CampaignsChallengesApiService) GetChallengeActivity(ctx context.Context, id int64, challengeId int64) (ChallengeActivityResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -805,7 +805,7 @@ func (a *CampaignsChallengesApiService) GetChallengeActivity(id int64, challenge
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -974,10 +974,10 @@ func (a *CampaignsChallengesApiService) GetChallengeActivityTemplates(ctx contex
 }
 
 /* CampaignsChallengesApiService Retrieve a single challenge event details
-
+ * @param ctx context.Context Authentication Context 
  @param id The challenge event id
  @return ChallengeEventResource*/
-func (a *CampaignsChallengesApiService) GetChallengeEvent(id int64) (ChallengeEventResource,  *http.Response, error) {
+func (a *CampaignsChallengesApiService) GetChallengeEvent(ctx context.Context, id int64) (ChallengeEventResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1014,7 +1014,7 @@ func (a *CampaignsChallengesApiService) GetChallengeEvent(id int64) (ChallengeEv
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1037,7 +1037,7 @@ func (a *CampaignsChallengesApiService) GetChallengeEvent(id int64) (ChallengeEv
 }
 
 /* CampaignsChallengesApiService Retrieve a list of challenge events
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterStartDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the event start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
      @param "filterEndDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the event end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
@@ -1047,7 +1047,7 @@ func (a *CampaignsChallengesApiService) GetChallengeEvent(id int64) (ChallengeEv
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceChallengeEventResource*/
-func (a *CampaignsChallengesApiService) GetChallengeEvents(localVarOptionals map[string]interface{}) (PageResourceChallengeEventResource,  *http.Response, error) {
+func (a *CampaignsChallengesApiService) GetChallengeEvents(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceChallengeEventResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1125,7 +1125,7 @@ func (a *CampaignsChallengesApiService) GetChallengeEvents(localVarOptionals map
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1294,7 +1294,7 @@ func (a *CampaignsChallengesApiService) GetChallengeTemplates(ctx context.Contex
 }
 
 /* CampaignsChallengesApiService Retrieve a list of challenges
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterActiveCampaign" (bool) Filter for challenges that are tied to active campaigns
      @param "filterStartDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the challenge start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
@@ -1303,7 +1303,7 @@ func (a *CampaignsChallengesApiService) GetChallengeTemplates(ctx context.Contex
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceChallengeResource*/
-func (a *CampaignsChallengesApiService) GetChallenges(localVarOptionals map[string]interface{}) (PageResourceChallengeResource,  *http.Response, error) {
+func (a *CampaignsChallengesApiService) GetChallenges(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceChallengeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1375,7 +1375,7 @@ func (a *CampaignsChallengesApiService) GetChallenges(localVarOptionals map[stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1474,6 +1474,7 @@ func (a *CampaignsChallengesApiService) UpdateChallenge(ctx context.Context, id 
  @param challengeId The challenge id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "challengeActivityResource" (ChallengeActivityResource) The challenge activity resource object
+     @param "validateSettings" (bool) Whether to validate the settings being sent against the available settings on the base activity.
  @return ChallengeActivityResource*/
 func (a *CampaignsChallengesApiService) UpdateChallengeActivity(ctx context.Context, id int64, challengeId int64, localVarOptionals map[string]interface{}) (ChallengeActivityResource,  *http.Response, error) {
 	var (
@@ -1493,7 +1494,13 @@ func (a *CampaignsChallengesApiService) UpdateChallengeActivity(ctx context.Cont
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["validateSettings"], "bool", "validateSettings"); err != nil {
+		return successPayload, nil, err
+	}
 
+	if localVarTempParam, localVarOk := localVarOptionals["validateSettings"].(bool); localVarOk {
+		localVarQueryParams.Add("validateSettings", parameterToString(localVarTempParam, ""))
+	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 

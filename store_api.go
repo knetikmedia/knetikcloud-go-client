@@ -501,10 +501,10 @@ func (a *StoreApiService) GetItemTemplates(ctx context.Context, localVarOptional
 }
 
 /* StoreApiService Get a single store item
-
+ * @param ctx context.Context Authentication Context 
  @param id The id of the item
  @return StoreItem*/
-func (a *StoreApiService) GetStoreItem(id int32) (StoreItem,  *http.Response, error) {
+func (a *StoreApiService) GetStoreItem(ctx context.Context, id int32) (StoreItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -541,7 +541,7 @@ func (a *StoreApiService) GetStoreItem(id int32) (StoreItem,  *http.Response, er
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -565,7 +565,7 @@ func (a *StoreApiService) GetStoreItem(id int32) (StoreItem,  *http.Response, er
 
 /* StoreApiService List and search store items
  If called without permission STORE_ADMIN the only items marked displayable, whose start and end date are null or appropriate to the current date, and whose geo policy allows the caller&#39;s country will be returned. Similarly skus will be filtered, possibly resulting in an item returned with no skus the user can purchase.
-
+ * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterNameSearch" (string) Filter for items whose name starts with a given string.
      @param "filterUniqueKey" (string) Filter for items whose unique_key is a given string.
@@ -585,7 +585,7 @@ func (a *StoreApiService) GetStoreItem(id int32) (StoreItem,  *http.Response, er
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceStoreItem*/
-func (a *StoreApiService) GetStoreItems(localVarOptionals map[string]interface{}) (PageResourceStoreItem,  *http.Response, error) {
+func (a *StoreApiService) GetStoreItems(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceStoreItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -723,7 +723,7 @@ func (a *StoreApiService) GetStoreItems(localVarOptionals map[string]interface{}
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

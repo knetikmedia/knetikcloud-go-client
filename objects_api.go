@@ -297,11 +297,11 @@ func (a *ObjectsApiService) DeleteObjectTemplate(ctx context.Context, id string,
 }
 
 /* ObjectsApiService Get a single object
-
+ * @param ctx context.Context Authentication Context 
  @param templateId The id of the template this object is part of
  @param objectId The id of the object
  @return ObjectResource*/
-func (a *ObjectsApiService) GetObjectItem(templateId string, objectId int32) (ObjectResource,  *http.Response, error) {
+func (a *ObjectsApiService) GetObjectItem(ctx context.Context, templateId string, objectId int32) (ObjectResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -339,7 +339,7 @@ func (a *ObjectsApiService) GetObjectItem(templateId string, objectId int32) (Ob
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -362,14 +362,14 @@ func (a *ObjectsApiService) GetObjectItem(templateId string, objectId int32) (Ob
 }
 
 /* ObjectsApiService List and search objects
-
+ * @param ctx context.Context Authentication Context 
  @param templateId The id of the template to get objects for
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceObjectResource*/
-func (a *ObjectsApiService) GetObjectItems(templateId string, localVarOptionals map[string]interface{}) (PageResourceObjectResource,  *http.Response, error) {
+func (a *ObjectsApiService) GetObjectItems(ctx context.Context, templateId string, localVarOptionals map[string]interface{}) (PageResourceObjectResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -424,7 +424,7 @@ func (a *ObjectsApiService) GetObjectItems(templateId string, localVarOptionals 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}

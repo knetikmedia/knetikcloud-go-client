@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **GetLeaderboard**
-> LeaderboardResource GetLeaderboard(contextType, contextId, optional)
+> LeaderboardResource GetLeaderboard(ctx, ctx, contextType, contextId, optional)
 Retrieves leaderboard details and paginated entries
 
 The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource.
@@ -19,6 +19,8 @@ The context type identifies the type of entity (i.e., 'activity') being tracked 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **contextType** | **string**| The context type for the leaderboard | 
   **contextId** | **string**| The context id for the leaderboard | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -40,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -50,7 +52,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLeaderboardRank**
-> LeaderboardEntryResource GetLeaderboardRank(contextType, contextId, id)
+> LeaderboardEntryResource GetLeaderboardRank(ctx, ctx, contextType, contextId, id)
 Retrieves a specific user entry with rank
 
 The context type identifies the type of entity (i.e., 'activity') being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard
@@ -59,6 +61,8 @@ The context type identifies the type of entity (i.e., 'activity') being tracked 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **contextType** | **string**| The context type for the leaderboard | 
   **contextId** | **string**| The context id for the leaderboard | 
   **id** | **string**| The id of a user | 
@@ -69,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 
@@ -79,7 +83,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLeaderboardStrategies**
-> []string GetLeaderboardStrategies()
+> []string GetLeaderboardStrategies(ctx, ctx, )
 Get a list of available leaderboard strategy names
 
 ### Required Parameters
@@ -91,7 +95,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
 
 ### HTTP request headers
 

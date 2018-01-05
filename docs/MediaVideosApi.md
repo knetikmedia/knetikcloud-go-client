@@ -1,6 +1,6 @@
 # \MediaVideosApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://devsandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,22 +11,27 @@ Method | HTTP request | Description
 [**AddVideoFlag**](MediaVideosApi.md#AddVideoFlag) | **Post** /media/videos/{video_id}/moderation | Add a new flag
 [**AddVideoRelationships**](MediaVideosApi.md#AddVideoRelationships) | **Post** /media/videos/{video_id}/related | Adds one or more existing videos as related to this one
 [**CreateVideoDisposition**](MediaVideosApi.md#CreateVideoDisposition) | **Post** /media/videos/{video_id}/dispositions | Create a video disposition
+[**CreateVideoTemplate**](MediaVideosApi.md#CreateVideoTemplate) | **Post** /media/videos/templates | Create a video template
 [**DeleteVideo**](MediaVideosApi.md#DeleteVideo) | **Delete** /media/videos/{id} | Deletes a video from the system if no resources are attached to it
 [**DeleteVideoComment**](MediaVideosApi.md#DeleteVideoComment) | **Delete** /media/videos/{video_id}/comments/{id} | Delete a video comment
 [**DeleteVideoDisposition**](MediaVideosApi.md#DeleteVideoDisposition) | **Delete** /media/videos/{video_id}/dispositions/{disposition_id} | Delete a video disposition
 [**DeleteVideoFlag**](MediaVideosApi.md#DeleteVideoFlag) | **Delete** /media/videos/{video_id}/moderation | Delete a flag
 [**DeleteVideoRelationship**](MediaVideosApi.md#DeleteVideoRelationship) | **Delete** /media/videos/{video_id}/related/{id} | Delete a video&#39;s relationship
+[**DeleteVideoTemplate**](MediaVideosApi.md#DeleteVideoTemplate) | **Delete** /media/videos/templates/{id} | Delete a video template
 [**GetUserVideos**](MediaVideosApi.md#GetUserVideos) | **Get** /users/{user_id}/videos | Get user videos
 [**GetVideo**](MediaVideosApi.md#GetVideo) | **Get** /media/videos/{id} | Loads a specific video details
 [**GetVideoComments**](MediaVideosApi.md#GetVideoComments) | **Get** /media/videos/{video_id}/comments | Returns a page of comments for a video
 [**GetVideoDispositions**](MediaVideosApi.md#GetVideoDispositions) | **Get** /media/videos/{video_id}/dispositions | Returns a page of dispositions for a video
 [**GetVideoRelationships**](MediaVideosApi.md#GetVideoRelationships) | **Get** /media/videos/{video_id}/related | Returns a page of video relationships
+[**GetVideoTemplate**](MediaVideosApi.md#GetVideoTemplate) | **Get** /media/videos/templates/{id} | Get a single video template
+[**GetVideoTemplates**](MediaVideosApi.md#GetVideoTemplates) | **Get** /media/videos/templates | List and search video templates
 [**GetVideos**](MediaVideosApi.md#GetVideos) | **Get** /media/videos | Search videos using the documented filters
 [**RemoveUserFromVideoWhitelist**](MediaVideosApi.md#RemoveUserFromVideoWhitelist) | **Delete** /media/videos/{video_id}/whitelist/{id} | Removes a user from a video&#39;s whitelist
 [**RemoveVideoContributor**](MediaVideosApi.md#RemoveVideoContributor) | **Delete** /media/videos/{video_id}/contributors/{id} | Removes a contributor from a video
 [**UpdateVideo**](MediaVideosApi.md#UpdateVideo) | **Put** /media/videos/{id} | Modifies a video&#39;s details
 [**UpdateVideoComment**](MediaVideosApi.md#UpdateVideoComment) | **Put** /media/videos/{video_id}/comments/{id}/content | Update a video comment
 [**UpdateVideoRelationship**](MediaVideosApi.md#UpdateVideoRelationship) | **Put** /media/videos/{video_id}/related/{id}/relationship_details | Update a video&#39;s relationship details
+[**UpdateVideoTemplate**](MediaVideosApi.md#UpdateVideoTemplate) | **Put** /media/videos/templates/{id} | Update a video template
 [**ViewVideo**](MediaVideosApi.md#ViewVideo) | **Post** /media/videos/{id}/views | Increment a video&#39;s view count
 
 
@@ -282,6 +287,42 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **CreateVideoTemplate**
+> TemplateResource CreateVideoTemplate(ctx, ctx, optional)
+Create a video template
+
+Video Templates define a type of video and the properties they have
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **videoTemplateResource** | [**TemplateResource**](TemplateResource.md)| The video template resource object | 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **DeleteVideo**
 > DeleteVideo(ctx, ctx, id)
 Deletes a video from the system if no resources are attached to it
@@ -403,6 +444,44 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **videoId** | **int64**| The video id | 
   **id** | **int64**| The relationship id | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteVideoTemplate**
+> DeleteVideoTemplate(ctx, ctx, id, optional)
+Delete a video template
+
+If cascade = 'detach', it will force delete the template even if it's attached to other objects
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The id of the template | 
+ **cascade** | **string**| The value needed to delete used templates | 
 
 ### Return type
 
@@ -583,6 +662,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PageResourceVideoRelationshipResource**](PageResource«VideoRelationshipResource».md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetVideoTemplate**
+> TemplateResource GetVideoTemplate(ctx, ctx, id)
+Get a single video template
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetVideoTemplates**
+> PageResourceTemplateResource GetVideoTemplates(ctx, ctx, optional)
+List and search video templates
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:ASC]
+
+### Return type
+
+[**PageResourceTemplateResource**](PageResource«TemplateResource».md)
 
 ### Authorization
 
@@ -801,6 +943,42 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateVideoTemplate**
+> TemplateResource UpdateVideoTemplate(ctx, ctx, id, optional)
+Update a video template
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **id** | **string**| The id of the template | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**| The id of the template | 
+ **videoTemplateResource** | [**TemplateResource**](TemplateResource.md)| The video template resource object | 
+
+### Return type
+
+[**TemplateResource**](TemplateResource.md)
 
 ### Authorization
 

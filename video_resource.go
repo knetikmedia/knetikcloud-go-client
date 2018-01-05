@@ -15,6 +15,9 @@ type VideoResource struct {
 	// Whether the video is available, based on various factors
 	Active bool `json:"active,omitempty"`
 
+	// A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type
+	AdditionalProperties map[string]Property `json:"additional_properties,omitempty"`
+
 	// The original artist of the media
 	Author *SimpleReferenceResourcelong `json:"author,omitempty"`
 
@@ -80,6 +83,9 @@ type VideoResource struct {
 
 	// The tags for the video
 	Tags []string `json:"tags,omitempty"`
+
+	// A video template this video is validated against (private). May be null and no validation of additional_properties will be done
+	Template string `json:"template,omitempty"`
 
 	// The country of a thumbnail version. Typically a url
 	Thumbnail string `json:"thumbnail,omitempty"`

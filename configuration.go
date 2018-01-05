@@ -40,7 +40,7 @@ type Configuration struct {
 
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		BasePath:      "https://sandbox.knetikcloud.com",
+		BasePath:      "https://devsandbox.knetikcloud.com",
 		DefaultHeader: make(map[string]string),
 		UserAgent:     "Swagger-Codegen/1.0.0/go",
 	}

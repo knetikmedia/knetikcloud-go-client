@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateObjectItem**
-> UpdateObjectItem(ctx, ctx, templateId, entitlementId, optional)
+> UpdateObjectItem(ctx, ctx, templateId, objectId, optional)
 Update an object
 
 ### Required Parameters
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **ctx** | **context.Context** | context containing the authentication | nil if no authentication
   **templateId** | **string**| The id of the template this object is part of | 
-  **entitlementId** | **int32**| The id of the entitlement | 
+  **objectId** | **int32**| The id of the object | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -304,9 +304,9 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **string**| The id of the template this object is part of | 
- **entitlementId** | **int32**| The id of the entitlement | 
+ **objectId** | **int32**| The id of the object | 
  **cascade** | **bool**| Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values. | [default to false]
- **objectItem** | [**EntitlementItem**](EntitlementItem.md)| The object item object | 
+ **objectItem** | [**ObjectResource**](ObjectResource.md)| The object item object | 
 
 ### Return type
 

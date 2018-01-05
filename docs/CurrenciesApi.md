@@ -89,6 +89,7 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **filterDefault** | **bool**| Filter for the one currency that is set as default (true), or all that are not (false) | 
  **filterEnabledCurrencies** | **bool**| Filter for alternate currencies setup explicitely in system config | 
  **filterType** | **string**| Filter currencies by type.  Allowable values: (&#39;virtual&#39;, &#39;real&#39;) | 
  **size** | **int32**| The number of objects returned per page | [default to 25]

@@ -9,10 +9,11 @@ Method | HTTP request | Description
 [**CreateGroup**](UsersGroupsApi.md#CreateGroup) | **Post** /users/groups | Create a group
 [**CreateGroupMemberTemplate**](UsersGroupsApi.md#CreateGroupMemberTemplate) | **Post** /users/groups/members/templates | Create an group member template
 [**CreateGroupTemplate**](UsersGroupsApi.md#CreateGroupTemplate) | **Post** /users/groups/templates | Create a group template
-[**DeleteGroup**](UsersGroupsApi.md#DeleteGroup) | **Delete** /users/groups/{unique_name} | Removes a group from the system IF no resources are attached to it
+[**DeleteGroup**](UsersGroupsApi.md#DeleteGroup) | **Delete** /users/groups/{unique_name} | Removes a group from the system
 [**DeleteGroupMemberTemplate**](UsersGroupsApi.md#DeleteGroupMemberTemplate) | **Delete** /users/groups/members/templates/{id} | Delete an group member template
 [**DeleteGroupTemplate**](UsersGroupsApi.md#DeleteGroupTemplate) | **Delete** /users/groups/templates/{id} | Delete a group template
 [**GetGroup**](UsersGroupsApi.md#GetGroup) | **Get** /users/groups/{unique_name} | Loads a specific group&#39;s details
+[**GetGroupAncestors**](UsersGroupsApi.md#GetGroupAncestors) | **Get** /users/groups/{unique_name}/ancestors | Get group ancestors
 [**GetGroupMember**](UsersGroupsApi.md#GetGroupMember) | **Get** /users/groups/{unique_name}/members/{user_id} | Get a user from a group
 [**GetGroupMemberTemplate**](UsersGroupsApi.md#GetGroupMemberTemplate) | **Get** /users/groups/members/templates/{id} | Get a single group member template
 [**GetGroupMemberTemplates**](UsersGroupsApi.md#GetGroupMemberTemplates) | **Get** /users/groups/members/templates | List and search group member templates
@@ -194,7 +195,9 @@ Name | Type | Description  | Notes
 
 # **DeleteGroup**
 > DeleteGroup(ctx, ctx, uniqueName)
-Removes a group from the system IF no resources are attached to it
+Removes a group from the system
+
+All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well.
 
 ### Required Parameters
 
@@ -314,6 +317,33 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetGroupAncestors**
+> []GroupResource GetGroupAncestors(uniqueName)
+Get group ancestors
+
+Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **uniqueName** | **string**| The group unique name | 
+
+### Return type
+
+[**[]GroupResource**](GroupResource.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -623,6 +653,8 @@ Name | Type | Description  | Notes
 # **UpdateGroup**
 > UpdateGroup(ctx, ctx, uniqueName, optional)
 Update a group
+
+If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
 
 ### Required Parameters
 

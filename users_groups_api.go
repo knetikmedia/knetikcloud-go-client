@@ -362,7 +362,8 @@ func (a *UsersGroupsApiService) CreateGroupTemplate(ctx context.Context, localVa
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Removes a group from the system IF no resources are attached to it
+/* UsersGroupsApiService Removes a group from the system
+ All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well.
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @return */
@@ -593,6 +594,70 @@ func (a *UsersGroupsApiService) GetGroup(ctx context.Context, uniqueName string)
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* UsersGroupsApiService Get group ancestors
+ Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
+
+ @param uniqueName The group unique name
+ @return []GroupResource*/
+func (a *UsersGroupsApiService) GetGroupAncestors(uniqueName string) ([]GroupResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  []GroupResource
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/users/groups/{unique_name}/ancestors"
+	localVarPath = strings.Replace(localVarPath, "{"+"unique_name"+"}", fmt.Sprintf("%v", uniqueName), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1312,6 +1377,7 @@ func (a *UsersGroupsApiService) RemoveGroupMember(ctx context.Context, uniqueNam
 }
 
 /* UsersGroupsApiService Update a group
+ If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param optional (nil or map[string]interface{}) with one or more of:

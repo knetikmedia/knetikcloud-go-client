@@ -15,14 +15,14 @@ type GroupMemberResource struct {
 	// A map of additional properties, keyed on the property name (private). Must match the names and types defined in the template for this type, or be an extra not from the template
 	AdditionalProperties map[string]Property `json:"additional_properties,omitempty"`
 
-	// The url of the user's avatar image
-	AvatarUrl string `json:"avatar_url,omitempty"`
+	// The group. Id is the unique name
+	Group *SimpleGroupResource `json:"group,omitempty"`
 
-	// The public username of the user
-	DisplayName string `json:"display_name,omitempty"`
+	// Whether this membership is explicit (the user was added directly to the group) or implicit (the user was added only to one or more child groups)
+	Implicit bool `json:"implicit,omitempty"`
 
-	// The id of the user
-	Id int32 `json:"id"`
+	// The id of the membership entry
+	MembershipId int64 `json:"membership_id,omitempty"`
 
 	// The position of the member in the group if applicable. Read notes for details
 	Order string `json:"order,omitempty"`
@@ -33,6 +33,6 @@ type GroupMemberResource struct {
 	// A template this member additional properties are validated against (private). May be null and no validation of properties will be done
 	Template string `json:"template,omitempty"`
 
-	// The username of the user
-	Username string `json:"username,omitempty"`
+	// The user
+	User *SimpleUserResource `json:"user"`
 }

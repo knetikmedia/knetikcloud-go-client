@@ -31,7 +31,5 @@ type CacheClearEvent struct {
 	// The type of the event. Used for polymorphic type recognition and thus must match an expected type
 	Type_ string `json:"type"`
 
-	CustomerSetup bool `json:"customer_setup,omitempty"`
-
-	CustomerTeardown bool `json:"customer_teardown,omitempty"`
+	Teardown bool `json:"teardown,omitempty"`
 }

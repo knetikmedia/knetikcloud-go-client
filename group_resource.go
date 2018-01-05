@@ -36,9 +36,12 @@ type GroupResource struct {
 	// The number of users in child groups
 	SubMemberCount int32 `json:"sub_member_count,omitempty"`
 
+	// Tags for search
+	Tags []string `json:"tags,omitempty"`
+
 	// A group template this group is validated against. May be null and no validation of additional_properties will be done
 	Template string `json:"template,omitempty"`
 
-	// Unique name used in url and references. Uppercase, lowercase, numbers and hyphens only. Max 50 characters. Cannot be altered once created
-	UniqueName string `json:"unique_name"`
+	// Unique name used in url and references. Uppercase, lowercase, numbers and hyphens only. Max 50 characters. Cannot be altered once created. Default: random UUID
+	UniqueName string `json:"unique_name,omitempty"`
 }

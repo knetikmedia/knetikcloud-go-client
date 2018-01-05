@@ -154,6 +154,7 @@ func (a *CurrenciesApiService) DeleteCurrency(ctx context.Context, code string) 
 /* CurrenciesApiService List and search currencies
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
+     @param "filterDefault" (bool) Filter for the one currency that is set as default (true), or all that are not (false)
      @param "filterEnabledCurrencies" (bool) Filter for alternate currencies setup explicitely in system config
      @param "filterType" (string) Filter currencies by type.  Allowable values: (&#39;virtual&#39;, &#39;real&#39;)
      @param "size" (int32) The number of objects returned per page
@@ -176,6 +177,9 @@ func (a *CurrenciesApiService) GetCurrencies(ctx context.Context, localVarOption
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["filterDefault"], "bool", "filterDefault"); err != nil {
+		return successPayload, nil, err
+	}
 	if err := typeCheckParameter(localVarOptionals["filterEnabledCurrencies"], "bool", "filterEnabledCurrencies"); err != nil {
 		return successPayload, nil, err
 	}
@@ -192,6 +196,9 @@ func (a *CurrenciesApiService) GetCurrencies(ctx context.Context, localVarOption
 		return successPayload, nil, err
 	}
 
+	if localVarTempParam, localVarOk := localVarOptionals["filterDefault"].(bool); localVarOk {
+		localVarQueryParams.Add("filter_default", parameterToString(localVarTempParam, ""))
+	}
 	if localVarTempParam, localVarOk := localVarOptionals["filterEnabledCurrencies"].(bool); localVarOk {
 		localVarQueryParams.Add("filter_enabled_currencies", parameterToString(localVarTempParam, ""))
 	}

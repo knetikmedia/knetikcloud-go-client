@@ -30,6 +30,9 @@ type BreRule struct {
 	// The date the rule ceases to take effect, or null if never. Unix timestamp in seconds
 	EndDate int64 `json:"end_date,omitempty"`
 
+	// How many times the rule has been evaluated (it's conditions checked, whether it then runs or not)
+	EvaluationCount int64 `json:"evaluation_count,omitempty"`
+
 	// The event name of the trigger this rule runs for. Affects which parameters are available
 	EventName string `json:"event_name"`
 
@@ -38,6 +41,9 @@ type BreRule struct {
 
 	// The human readable name of the rule
 	Name string `json:"name"`
+
+	// How many times the rule has run
+	RunCount int64 `json:"run_count,omitempty"`
 
 	// Used to sort rules to control the order they run in. Larger numbered sort values run first.  Default 500
 	Sort int32 `json:"sort,omitempty"`

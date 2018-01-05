@@ -595,12 +595,12 @@ func (a *ObjectsApiService) GetObjectTemplates(ctx context.Context, localVarOpti
 /* ObjectsApiService Update an object
  * @param ctx context.Context Authentication Context 
  @param templateId The id of the template this object is part of
- @param entitlementId The id of the entitlement
+ @param objectId The id of the object
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
-     @param "objectItem" (EntitlementItem) The object item object
+     @param "objectItem" (ObjectResource) The object item object
  @return */
-func (a *ObjectsApiService) UpdateObjectItem(ctx context.Context, templateId string, entitlementId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *ObjectsApiService) UpdateObjectItem(ctx context.Context, templateId string, objectId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -611,7 +611,7 @@ func (a *ObjectsApiService) UpdateObjectItem(ctx context.Context, templateId str
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/objects/{template_id}/{object_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"template_id"+"}", fmt.Sprintf("%v", templateId), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"entitlement_id"+"}", fmt.Sprintf("%v", entitlementId), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"object_id"+"}", fmt.Sprintf("%v", objectId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -644,7 +644,7 @@ func (a *ObjectsApiService) UpdateObjectItem(ctx context.Context, templateId str
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	if localVarTempParam, localVarOk := localVarOptionals["objectItem"].(EntitlementItem); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["objectItem"].(ObjectResource); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)

@@ -28,7 +28,7 @@ type GamificationLeaderboardsApiService service
 
 
 /* GamificationLeaderboardsApiService Retrieves leaderboard details and paginated entries
- The context type identifies the type of entity (i.e., &#39;activity&#39;) being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource.
+ The context type identifies the type of entity (i.e., &#39;activity&#39;) being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. Sorting is based on the fields of LeaderboardEntryResource rather than the returned LeaderboardResource. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param contextType The context type for the leaderboard
  @param contextId The context id for the leaderboard
@@ -75,7 +75,7 @@ func (a *GamificationLeaderboardsApiService) GetLeaderboard(ctx context.Context,
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -116,7 +116,7 @@ func (a *GamificationLeaderboardsApiService) GetLeaderboard(ctx context.Context,
 }
 
 /* GamificationLeaderboardsApiService Retrieves a specific user entry with rank
- The context type identifies the type of entity (i.e., &#39;activity&#39;) being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard
+ The context type identifies the type of entity (i.e., &#39;activity&#39;) being tracked on the leaderboard. The context ID is the unique ID of the actual entity tracked by the leaderboard. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param contextType The context type for the leaderboard
  @param contextId The context id for the leaderboard
@@ -143,7 +143,7 @@ func (a *GamificationLeaderboardsApiService) GetLeaderboardRank(ctx context.Cont
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -184,6 +184,7 @@ func (a *GamificationLeaderboardsApiService) GetLeaderboardRank(ctx context.Cont
 }
 
 /* GamificationLeaderboardsApiService Get a list of available leaderboard strategy names
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return []string*/
 func (a *GamificationLeaderboardsApiService) GetLeaderboardStrategies(ctx context.Context, ) ([]string,  *http.Response, error) {
@@ -204,7 +205,7 @@ func (a *GamificationLeaderboardsApiService) GetLeaderboardStrategies(ctx contex
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

@@ -27,7 +27,7 @@ type ReportingChallengesApiService service
 
 
 /* ReportingChallengesApiService Retrieve a challenge event leaderboard details
- Lists all leaderboard entries with additional user details
+ Lists all leaderboard entries with additional user details. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterEvent" (int64) A sepecific challenge event id
@@ -77,7 +77,7 @@ func (a *ReportingChallengesApiService) GetChallengeEventLeaderboard(ctx context
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -118,7 +118,7 @@ func (a *ReportingChallengesApiService) GetChallengeEventLeaderboard(ctx context
 }
 
 /* ReportingChallengesApiService Retrieve a challenge event participant details
- Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation
+ Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterEvent" (int64) A sepecific challenge event id
@@ -168,7 +168,7 @@ func (a *ReportingChallengesApiService) GetChallengeEventParticipants(ctx contex
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

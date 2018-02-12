@@ -1,6 +1,6 @@
 # \ContentArticlesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 > ArticleResource CreateArticle(ctx, ctx, optional)
 Create a new article
 
-Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
+Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.<br><br><b>Permissions:</b> ARTICLES_ADMIN
 
 ### Required Parameters
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 > TemplateResource CreateArticleTemplate(ctx, ctx, optional)
 Create an article template
 
-Article Templates define a type of article and the properties they have
+Article Templates define a type of article and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -92,6 +92,8 @@ Name | Type | Description  | Notes
 > DeleteArticle(ctx, ctx, id)
 Delete an existing article
 
+<b>Permissions Needed:</b> ARTICLES_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -110,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -119,7 +121,7 @@ Name | Type | Description  | Notes
 > DeleteArticleTemplate(ctx, ctx, id, optional)
 Delete an article template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -148,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -156,6 +158,8 @@ Name | Type | Description  | Notes
 # **GetArticle**
 > ArticleResource GetArticle(ctx, ctx, id)
 Get a single article
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -175,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -183,6 +187,8 @@ Name | Type | Description  | Notes
 # **GetArticleTemplate**
 > TemplateResource GetArticleTemplate(ctx, ctx, id)
 Get a single article template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTICLES_ADMIN
 
 ### Required Parameters
 
@@ -202,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -210,6 +216,8 @@ Name | Type | Description  | Notes
 # **GetArticleTemplates**
 > PageResourceTemplateResource GetArticleTemplates(ctx, ctx, optional)
 List and search article templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ARTICLES_ADMIN
 
 ### Required Parameters
 
@@ -238,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -247,7 +255,7 @@ Name | Type | Description  | Notes
 > PageResourceArticleResource GetArticles(ctx, ctx, optional)
 List and search articles
 
-Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed.
+Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed. <br><br><b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -282,7 +290,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -290,6 +298,8 @@ Name | Type | Description  | Notes
 # **UpdateArticle**
 > ArticleResource UpdateArticle(ctx, ctx, id, optional)
 Update an existing article
+
+<b>Permissions Needed:</b> ARTICLES_ADMIN
 
 ### Required Parameters
 
@@ -326,6 +336,8 @@ Name | Type | Description  | Notes
 # **UpdateArticleTemplate**
 > TemplateResource UpdateArticleTemplate(ctx, ctx, id, optional)
 Update an article template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 

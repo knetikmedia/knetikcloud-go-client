@@ -28,7 +28,7 @@ type BRERuleEngineVariablesApiService service
 
 
 /* BRERuleEngineVariablesApiService Get a list of variable types available
- Types include integer, string, user and invoice. These are used to qualify trigger parameters and action variables with strong typing.
+ Types include integer, string, user and invoice. These are used to qualify trigger parameters and action variables with strong typing. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_VARIABLES_USER
  * @param ctx context.Context Authentication Context 
  @return []VariableTypeResource*/
 func (a *BRERuleEngineVariablesApiService) GetBREVariableTypes(ctx context.Context, ) ([]VariableTypeResource,  *http.Response, error) {
@@ -49,7 +49,7 @@ func (a *BRERuleEngineVariablesApiService) GetBREVariableTypes(ctx context.Conte
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -90,7 +90,7 @@ func (a *BRERuleEngineVariablesApiService) GetBREVariableTypes(ctx context.Conte
 }
 
 /* BRERuleEngineVariablesApiService List valid values for a type
- Used to lookup users to fill in a user constant for example. Only types marked as enumerable are suppoorted here.
+ Used to lookup users to fill in a user constant for example. Only types marked as enumerable are suppoorted here. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_VARIABLES_USER
  * @param ctx context.Context Authentication Context 
  @param name The name of the type
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -135,7 +135,7 @@ func (a *BRERuleEngineVariablesApiService) GetBREVariableValues(ctx context.Cont
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

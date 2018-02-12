@@ -28,6 +28,7 @@ type GamificationTriviaApiService service
 
 
 /* GamificationTriviaApiService Add an answer to a question
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -97,6 +98,7 @@ func (a *GamificationTriviaApiService) AddQuestionAnswers(ctx context.Context, q
 }
 
 /* GamificationTriviaApiService Add a tag to a question
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -160,7 +162,7 @@ func (a *GamificationTriviaApiService) AddQuestionTag(ctx context.Context, id st
 }
 
 /* GamificationTriviaApiService Add a tag to a batch of questions
- All questions that dont&#39;t have the tag and match filters will have it added. The returned number is the number of questions updated.
+ All questions that dont&#39;t have the tag and match filters will have it added. The returned number is the number of questions updated. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "tag" (StringWrapper) The tag to add
@@ -284,7 +286,7 @@ func (a *GamificationTriviaApiService) AddTagToQuestionsBatch(ctx context.Contex
 }
 
 /* GamificationTriviaApiService Create an import job
- Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint.
+ Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (ImportJobResource) The new import job
@@ -352,6 +354,7 @@ func (a *GamificationTriviaApiService) CreateImportJob(ctx context.Context, loca
 }
 
 /* GamificationTriviaApiService Create a question
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "question" (QuestionResource) The new question
@@ -419,7 +422,7 @@ func (a *GamificationTriviaApiService) CreateQuestion(ctx context.Context, local
 }
 
 /* GamificationTriviaApiService Create a question template
- Question templates define a type of question and the properties they have
+ Question templates define a type of question and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "questionTemplateResource" (QuestionTemplateResource) The question template resource object
@@ -487,7 +490,7 @@ func (a *GamificationTriviaApiService) CreateQuestionTemplate(ctx context.Contex
 }
 
 /* GamificationTriviaApiService Delete an import job
- Also deletes all questions that were imported by it
+ Also deletes all questions that were imported by it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the job
  @return */
@@ -509,7 +512,7 @@ func (a *GamificationTriviaApiService) DeleteImportJob(ctx context.Context, id i
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -545,6 +548,7 @@ func (a *GamificationTriviaApiService) DeleteImportJob(ctx context.Context, id i
 }
 
 /* GamificationTriviaApiService Delete a question
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @return */
@@ -566,7 +570,7 @@ func (a *GamificationTriviaApiService) DeleteQuestion(ctx context.Context, id st
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -602,6 +606,7 @@ func (a *GamificationTriviaApiService) DeleteQuestion(ctx context.Context, id st
 }
 
 /* GamificationTriviaApiService Remove an answer from a question
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @param id The id of the answer
@@ -625,7 +630,7 @@ func (a *GamificationTriviaApiService) DeleteQuestionAnswers(ctx context.Context
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -661,7 +666,7 @@ func (a *GamificationTriviaApiService) DeleteQuestionAnswers(ctx context.Context
 }
 
 /* GamificationTriviaApiService Delete a question template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -691,7 +696,7 @@ func (a *GamificationTriviaApiService) DeleteQuestionTemplate(ctx context.Contex
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -727,6 +732,7 @@ func (a *GamificationTriviaApiService) DeleteQuestionTemplate(ctx context.Contex
 }
 
 /* GamificationTriviaApiService Get an import job
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the job
  @return ImportJobResource*/
@@ -749,7 +755,7 @@ func (a *GamificationTriviaApiService) GetImportJob(ctx context.Context, id int6
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -790,6 +796,7 @@ func (a *GamificationTriviaApiService) GetImportJob(ctx context.Context, id int6
 }
 
 /* GamificationTriviaApiService Get a list of import job
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterVendor" (string) Filter for jobs by vendor id
@@ -860,7 +867,7 @@ func (a *GamificationTriviaApiService) GetImportJobs(ctx context.Context, localV
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -901,6 +908,7 @@ func (a *GamificationTriviaApiService) GetImportJobs(ctx context.Context, localV
 }
 
 /* GamificationTriviaApiService Get a single question
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @return QuestionResource*/
@@ -923,7 +931,7 @@ func (a *GamificationTriviaApiService) GetQuestion(ctx context.Context, id strin
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -964,6 +972,7 @@ func (a *GamificationTriviaApiService) GetQuestion(ctx context.Context, id strin
 }
 
 /* GamificationTriviaApiService Get an answer for a question
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @param id The id of the answer
@@ -988,7 +997,7 @@ func (a *GamificationTriviaApiService) GetQuestionAnswer(ctx context.Context, qu
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1029,6 +1038,7 @@ func (a *GamificationTriviaApiService) GetQuestionAnswer(ctx context.Context, qu
 }
 
 /* GamificationTriviaApiService List the answers available for a question
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @return []AnswerResource*/
@@ -1051,7 +1061,7 @@ func (a *GamificationTriviaApiService) GetQuestionAnswers(ctx context.Context, q
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1092,7 +1102,7 @@ func (a *GamificationTriviaApiService) GetQuestionAnswers(ctx context.Context, q
 }
 
 /* GamificationTriviaApiService List question deltas in ascending order of updated date
- The &#39;since&#39; parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps
+ The &#39;since&#39; parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "since" (int64) Timestamp in seconds
@@ -1121,7 +1131,7 @@ func (a *GamificationTriviaApiService) GetQuestionDeltas(ctx context.Context, lo
 		localVarQueryParams.Add("since", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1162,6 +1172,7 @@ func (a *GamificationTriviaApiService) GetQuestionDeltas(ctx context.Context, lo
 }
 
 /* GamificationTriviaApiService List the tags for a question
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @return []string*/
@@ -1184,7 +1195,7 @@ func (a *GamificationTriviaApiService) GetQuestionTags(ctx context.Context, id s
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1225,6 +1236,7 @@ func (a *GamificationTriviaApiService) GetQuestionTags(ctx context.Context, id s
 }
 
 /* GamificationTriviaApiService Get a single question template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return QuestionTemplateResource*/
@@ -1247,7 +1259,7 @@ func (a *GamificationTriviaApiService) GetQuestionTemplate(ctx context.Context, 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1288,6 +1300,7 @@ func (a *GamificationTriviaApiService) GetQuestionTemplate(ctx context.Context, 
 }
 
 /* GamificationTriviaApiService List and search question templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -1330,7 +1343,7 @@ func (a *GamificationTriviaApiService) GetQuestionTemplates(ctx context.Context,
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1371,6 +1384,7 @@ func (a *GamificationTriviaApiService) GetQuestionTemplates(ctx context.Context,
 }
 
 /* GamificationTriviaApiService List and search questions
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -1469,7 +1483,7 @@ func (a *GamificationTriviaApiService) GetQuestions(ctx context.Context, localVa
 		localVarQueryParams.Add("filter_import_id", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1510,7 +1524,7 @@ func (a *GamificationTriviaApiService) GetQuestions(ctx context.Context, localVa
 }
 
 /* GamificationTriviaApiService Count questions based on filters
- This is also provided by the list endpoint so you don&#39;t need to call this for pagination purposes
+ This is also provided by the list endpoint so you don&#39;t need to call this for pagination purposes. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSearch" (string) Filter for documents whose question, answers or tags contains provided string
@@ -1581,7 +1595,7 @@ func (a *GamificationTriviaApiService) GetQuestionsCount(ctx context.Context, lo
 		localVarQueryParams.Add("filter_published", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1622,7 +1636,7 @@ func (a *GamificationTriviaApiService) GetQuestionsCount(ctx context.Context, lo
 }
 
 /* GamificationTriviaApiService Start processing an import job
- Will process the CSV file and add new questions asynchronously. The status of the job must be &#39;VALID&#39;.
+ Will process the CSV file and add new questions asynchronously. The status of the job must be &#39;VALID&#39;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the job
  @param publishNow Whether the new questions should be published live immediately
@@ -1688,6 +1702,7 @@ func (a *GamificationTriviaApiService) ProcessImportJob(ctx context.Context, id 
 }
 
 /* GamificationTriviaApiService Remove a tag from a question
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @param tag The tag to remove
@@ -1711,7 +1726,7 @@ func (a *GamificationTriviaApiService) RemoveQuestionTag(ctx context.Context, id
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1747,7 +1762,7 @@ func (a *GamificationTriviaApiService) RemoveQuestionTag(ctx context.Context, id
 }
 
 /* GamificationTriviaApiService Remove a tag from a batch of questions
- ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated.
+ ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param tag The tag to remove
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1827,7 +1842,7 @@ func (a *GamificationTriviaApiService) RemoveTagToQuestionsBatch(ctx context.Con
 		localVarQueryParams.Add("filter_import_id", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1868,7 +1883,7 @@ func (a *GamificationTriviaApiService) RemoveTagToQuestionsBatch(ctx context.Con
 }
 
 /* GamificationTriviaApiService List and search tags by the beginning of the string
- For performance reasons, search &amp; category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead.
+ For performance reasons, search &amp; category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSearch" (string) Filter for tags starting with the given text
@@ -1911,7 +1926,7 @@ func (a *GamificationTriviaApiService) SearchQuestionTags(ctx context.Context, l
 		localVarQueryParams.Add("filter_import_id", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1952,7 +1967,7 @@ func (a *GamificationTriviaApiService) SearchQuestionTags(ctx context.Context, l
 }
 
 /* GamificationTriviaApiService Update an import job
- Changes should be made before process is started for there to be any effect.
+ Changes should be made before process is started for there to be any effect. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the job
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -2022,6 +2037,7 @@ func (a *GamificationTriviaApiService) UpdateImportJob(ctx context.Context, id i
 }
 
 /* GamificationTriviaApiService Update a question
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -2091,6 +2107,7 @@ func (a *GamificationTriviaApiService) UpdateQuestion(ctx context.Context, id st
 }
 
 /* GamificationTriviaApiService Update an answer for a question
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @param id The id of the answer
@@ -2156,6 +2173,7 @@ func (a *GamificationTriviaApiService) UpdateQuestionAnswer(ctx context.Context,
 }
 
 /* GamificationTriviaApiService Update a question template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -2225,7 +2243,7 @@ func (a *GamificationTriviaApiService) UpdateQuestionTemplate(ctx context.Contex
 }
 
 /* GamificationTriviaApiService Bulk update questions
- Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated.
+ Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "question" (QuestionResource) New values for a set of question fields

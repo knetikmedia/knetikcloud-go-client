@@ -28,6 +28,7 @@ type ConfigsApiService service
 
 
 /* ConfigsApiService Create a new config
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TOPICS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "config" (Config) The config object
@@ -95,6 +96,7 @@ func (a *ConfigsApiService) CreateConfig(ctx context.Context, localVarOptionals 
 }
 
 /* ConfigsApiService Delete an existing config
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CONFIGS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The config name
  @return */
@@ -116,7 +118,7 @@ func (a *ConfigsApiService) DeleteConfig(ctx context.Context, name string) ( *ht
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -152,7 +154,7 @@ func (a *ConfigsApiService) DeleteConfig(ctx context.Context, name string) ( *ht
 }
 
 /* ConfigsApiService Get a single config
- Only configs that are public readable will be shown without admin access
+ Only configs that are public readable will be shown without admin access. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param name The config name
  @return Config*/
@@ -175,7 +177,7 @@ func (a *ConfigsApiService) GetConfig(ctx context.Context, name string) (Config,
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -216,6 +218,7 @@ func (a *ConfigsApiService) GetConfig(ctx context.Context, name string) (Config,
 }
 
 /* ConfigsApiService List and search configs
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSearch" (string) Filter for configs whose name contains the given string
@@ -265,7 +268,7 @@ func (a *ConfigsApiService) GetConfigs(ctx context.Context, localVarOptionals ma
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -306,6 +309,7 @@ func (a *ConfigsApiService) GetConfigs(ctx context.Context, localVarOptionals ma
 }
 
 /* ConfigsApiService Update an existing config
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CONFIGS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The config name
  @param optional (nil or map[string]interface{}) with one or more of:

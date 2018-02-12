@@ -1,6 +1,6 @@
 # \CampaignsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,6 +22,8 @@ Method | HTTP request | Description
 # **AddChallengeToCampaign**
 > AddChallengeToCampaign(ctx, ctx, id, optional)
 Add a challenge to a campaign
+
+<b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 
 ### Required Parameters
 
@@ -59,6 +61,8 @@ Name | Type | Description  | Notes
 > CampaignResource CreateCampaign(ctx, ctx, optional)
 Create a campaign
 
+<b>Permissions Needed:</b> CAMPAIGNS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -93,7 +97,7 @@ Name | Type | Description  | Notes
 > TemplateResource CreateCampaignTemplate(ctx, ctx, optional)
 Create a campaign template
 
-Campaign Templates define a type of campaign and the properties they have
+Campaign Templates define a type of campaign and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -129,6 +133,8 @@ Name | Type | Description  | Notes
 > DeleteCampaign(ctx, ctx, id)
 Delete a campaign
 
+<b>Permissions Needed:</b> CAMPAIGNS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -147,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -156,7 +162,7 @@ Name | Type | Description  | Notes
 > DeleteCampaignTemplate(ctx, ctx, id, optional)
 Delete a campaign template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -185,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -193,6 +199,8 @@ Name | Type | Description  | Notes
 # **GetCampaign**
 > CampaignResource GetCampaign(ctx, ctx, id)
 Returns a single campaign
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -212,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -220,6 +228,8 @@ Name | Type | Description  | Notes
 # **GetCampaignChallenges**
 > PageResourceChallengeResource GetCampaignChallenges(ctx, ctx, id, optional)
 List the challenges associated with a campaign
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -252,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -260,6 +270,8 @@ Name | Type | Description  | Notes
 # **GetCampaignTemplate**
 > TemplateResource GetCampaignTemplate(ctx, ctx, id)
 Get a single campaign template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
 
 ### Required Parameters
 
@@ -279,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -287,6 +299,8 @@ Name | Type | Description  | Notes
 # **GetCampaignTemplates**
 > PageResourceTemplateResource GetCampaignTemplates(ctx, ctx, optional)
 List and search campaign templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
 
 ### Required Parameters
 
@@ -315,7 +329,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -323,6 +337,8 @@ Name | Type | Description  | Notes
 # **GetCampaigns**
 > PageResourceCampaignResource GetCampaigns(ctx, ctx, optional)
 List and search campaigns
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -352,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -360,6 +376,8 @@ Name | Type | Description  | Notes
 # **RemoveChallengeFromCampaign**
 > RemoveChallengeFromCampaign(ctx, ctx, campaignId, id)
 Remove a challenge from a campaign
+
+<b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 
 ### Required Parameters
 
@@ -380,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -388,6 +406,8 @@ Name | Type | Description  | Notes
 # **UpdateCampaign**
 > CampaignResource UpdateCampaign(ctx, ctx, id, optional)
 Update a campaign
+
+<b>Permissions Needed:</b> CAMPAIGNS_ADMIN
 
 ### Required Parameters
 
@@ -424,6 +444,8 @@ Name | Type | Description  | Notes
 # **UpdateCampaignTemplate**
 > TemplateResource UpdateCampaignTemplate(ctx, ctx, id, optional)
 Update an campaign template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 

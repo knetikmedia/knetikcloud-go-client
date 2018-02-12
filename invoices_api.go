@@ -28,7 +28,7 @@ type InvoicesApiService service
 
 
 /* InvoicesApiService Create an invoice
- Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor.
+ Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_USER or INVOICES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "req" (InvoiceCreateRequest) Invoice to be created
@@ -96,6 +96,7 @@ func (a *InvoicesApiService) CreateInvoice(ctx context.Context, localVarOptional
 }
 
 /* InvoicesApiService Lists available fulfillment statuses
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return []string*/
 func (a *InvoicesApiService) GetFulFillmentStatuses(ctx context.Context, ) ([]string,  *http.Response, error) {
@@ -116,7 +117,7 @@ func (a *InvoicesApiService) GetFulFillmentStatuses(ctx context.Context, ) ([]st
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -157,6 +158,7 @@ func (a *InvoicesApiService) GetFulFillmentStatuses(ctx context.Context, ) ([]st
 }
 
 /* InvoicesApiService Retrieve an invoice
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_USER and owner, or INVOICES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the invoice
  @return InvoiceResource*/
@@ -179,7 +181,7 @@ func (a *InvoicesApiService) GetInvoice(ctx context.Context, id int32) (InvoiceR
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -220,6 +222,7 @@ func (a *InvoicesApiService) GetInvoice(ctx context.Context, id int32) (InvoiceR
 }
 
 /* InvoicesApiService List invoice logs
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_USER and owner, or INVOICES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the invoice
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -257,7 +260,7 @@ func (a *InvoicesApiService) GetInvoiceLogs(ctx context.Context, id int32, local
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -298,7 +301,7 @@ func (a *InvoicesApiService) GetInvoiceLogs(ctx context.Context, id int32, local
 }
 
 /* InvoicesApiService Retrieve invoices
- Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user&#39;s invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices.
+ Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user&#39;s invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_USER and owner, or INVOICES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterUser" (int32) The id of a user to get invoices for. Automtically added if not being called with admin permissions.
@@ -439,7 +442,7 @@ func (a *InvoicesApiService) GetInvoices(ctx context.Context, localVarOptionals 
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -480,6 +483,7 @@ func (a *InvoicesApiService) GetInvoices(ctx context.Context, localVarOptionals 
 }
 
 /* InvoicesApiService Lists available payment statuses
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return []string*/
 func (a *InvoicesApiService) GetPaymentStatuses(ctx context.Context, ) ([]string,  *http.Response, error) {
@@ -500,7 +504,7 @@ func (a *InvoicesApiService) GetPaymentStatuses(ctx context.Context, ) ([]string
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -541,6 +545,7 @@ func (a *InvoicesApiService) GetPaymentStatuses(ctx context.Context, ) ([]string
 }
 
 /* InvoicesApiService Pay an invoice using a saved payment method
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_USER and owner, or INVOICES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the invoice
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -604,7 +609,7 @@ func (a *InvoicesApiService) PayInvoice(ctx context.Context, id int32, localVarO
 }
 
 /* InvoicesApiService Set the fulfillment status of a bundled invoice item
- This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+ This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the invoice
  @param bundleSku The sku of the bundle in the invoice that contains the given target
@@ -669,6 +674,7 @@ func (a *InvoicesApiService) SetBundledInvoiceItemFulfillmentStatus(ctx context.
 }
 
 /* InvoicesApiService Set the external reference of an invoice
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the invoice
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -732,7 +738,7 @@ func (a *InvoicesApiService) SetExternalRef(ctx context.Context, id int32, local
 }
 
 /* InvoicesApiService Set the fulfillment status of an invoice item
- This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+ This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the invoice
  @param sku The sku of an item in the invoice
@@ -795,6 +801,7 @@ func (a *InvoicesApiService) SetInvoiceItemFulfillmentStatus(ctx context.Context
 }
 
 /* InvoicesApiService Set the order notes of an invoice
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the invoice
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -858,7 +865,7 @@ func (a *InvoicesApiService) SetOrderNotes(ctx context.Context, id int32, localV
 }
 
 /* InvoicesApiService Set the payment status of an invoice
- This may trigger fulfillment if setting the status to &#39;paid&#39;. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which.
+ This may trigger fulfillment if setting the status to &#39;paid&#39;. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the invoice
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -922,6 +929,7 @@ func (a *InvoicesApiService) SetPaymentStatus(ctx context.Context, id int32, loc
 }
 
 /* InvoicesApiService Set or update billing info
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVOICES_USER and owner, or INVOICES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the invoice
  @param optional (nil or map[string]interface{}) with one or more of:

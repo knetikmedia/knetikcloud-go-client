@@ -1,6 +1,6 @@
 # \BRERuleEngineGlobalsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 > BreGlobalResource CreateBREGlobal(ctx, ctx, optional)
 Create a global definition
 
-Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use.
+Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_ADMIN
 
 ### Required Parameters
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 > DeleteBREGlobal(ctx, ctx, id)
 Delete a global
 
-May fail if there are existing rules against it. Cannot delete core globals
+May fail if there are existing rules against it. Cannot delete core globals. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_ADMIN
 
 ### Required Parameters
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -79,6 +79,8 @@ Name | Type | Description  | Notes
 # **GetBREGlobal**
 > BreGlobalResource GetBREGlobal(ctx, ctx, id)
 Get a single global definition
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_USER
 
 ### Required Parameters
 
@@ -98,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -106,6 +108,8 @@ Name | Type | Description  | Notes
 # **GetBREGlobals**
 > PageResourceBreGlobalResource GetBREGlobals(ctx, ctx, optional)
 List global definitions
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_USER
 
 ### Required Parameters
 
@@ -134,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -143,7 +147,7 @@ Name | Type | Description  | Notes
 > BreGlobalResource UpdateBREGlobal(ctx, ctx, id, optional)
 Update a global definition
 
-May fail if new parameters mismatch requirements of existing rules. Cannot update core globals
+May fail if new parameters mismatch requirements of existing rules. Cannot update core globals. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_GLOBALS_ADMIN
 
 ### Required Parameters
 

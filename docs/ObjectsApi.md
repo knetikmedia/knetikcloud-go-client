@@ -1,6 +1,6 @@
 # \ObjectsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,6 +19,8 @@ Method | HTTP request | Description
 # **CreateObjectItem**
 > ObjectResource CreateObjectItem(ctx, ctx, templateId, optional)
 Create an object
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Required Parameters
 
@@ -57,7 +59,7 @@ Name | Type | Description  | Notes
 > ItemTemplateResource CreateObjectTemplate(ctx, ctx, optional)
 Create an object template
 
-Object templates define a type of entitlement and the properties they have
+Object templates define a type of entitlement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -93,6 +95,8 @@ Name | Type | Description  | Notes
 > DeleteObjectItem(ctx, ctx, templateId, objectId)
 Delete an object
 
+<b>Permissions Needed:</b> INVENTORY_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -112,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -121,7 +125,7 @@ Name | Type | Description  | Notes
 > DeleteObjectTemplate(ctx, ctx, id, optional)
 Delete an entitlement template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -150,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -158,6 +162,8 @@ Name | Type | Description  | Notes
 # **GetObjectItem**
 > ObjectResource GetObjectItem(ctx, ctx, templateId, objectId)
 Get a single object
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -178,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -186,6 +192,8 @@ Name | Type | Description  | Notes
 # **GetObjectItems**
 > PageResourceObjectResource GetObjectItems(ctx, ctx, templateId, optional)
 List and search objects
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -216,7 +224,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -224,6 +232,8 @@ Name | Type | Description  | Notes
 # **GetObjectTemplate**
 > ItemTemplateResource GetObjectTemplate(ctx, ctx, id)
 Get a single entitlement template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 
 ### Required Parameters
 
@@ -243,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -251,6 +261,8 @@ Name | Type | Description  | Notes
 # **GetObjectTemplates**
 > PageResourceItemTemplateResource GetObjectTemplates(ctx, ctx, optional)
 List and search entitlement templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 
 ### Required Parameters
 
@@ -279,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -287,6 +299,8 @@ Name | Type | Description  | Notes
 # **UpdateObjectItem**
 > UpdateObjectItem(ctx, ctx, templateId, objectId, optional)
 Update an object
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Required Parameters
 
@@ -326,6 +340,8 @@ Name | Type | Description  | Notes
 # **UpdateObjectTemplate**
 > ItemTemplateResource UpdateObjectTemplate(ctx, ctx, id, optional)
 Update an entitlement template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 

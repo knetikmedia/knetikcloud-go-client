@@ -28,6 +28,7 @@ type CurrenciesApiService service
 
 
 /* CurrenciesApiService Create a currency
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CURRENCIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "currency" (CurrencyResource) The currency object
@@ -95,6 +96,7 @@ func (a *CurrenciesApiService) CreateCurrency(ctx context.Context, localVarOptio
 }
 
 /* CurrenciesApiService Delete a currency
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CURRENCIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param code The currency code
  @return */
@@ -116,7 +118,7 @@ func (a *CurrenciesApiService) DeleteCurrency(ctx context.Context, code string) 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -152,6 +154,7 @@ func (a *CurrenciesApiService) DeleteCurrency(ctx context.Context, code string) 
 }
 
 /* CurrenciesApiService List and search currencies
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterDefault" (bool) Filter for the one currency that is set as default (true), or all that are not (false)
@@ -215,7 +218,7 @@ func (a *CurrenciesApiService) GetCurrencies(ctx context.Context, localVarOption
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -256,6 +259,7 @@ func (a *CurrenciesApiService) GetCurrencies(ctx context.Context, localVarOption
 }
 
 /* CurrenciesApiService Get a single currency
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param code The currency code
  @return CurrencyResource*/
@@ -278,7 +282,7 @@ func (a *CurrenciesApiService) GetCurrency(ctx context.Context, code string) (Cu
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -319,6 +323,7 @@ func (a *CurrenciesApiService) GetCurrency(ctx context.Context, code string) (Cu
 }
 
 /* CurrenciesApiService Update a currency
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CURRENCIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param code The currency code
  @param optional (nil or map[string]interface{}) with one or more of:

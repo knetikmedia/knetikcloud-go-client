@@ -21,6 +21,9 @@ type ChallengeActivityResource struct {
 	// The id of the challenge
 	ChallengeId int64 `json:"challenge_id,omitempty"`
 
+	// Defines core settings about the activity that affect how it can be created/played by users. Values may be left null to inherit from parent activity.
+	CoreSettings *CoreChallengeActivitySettings `json:"core_settings,omitempty"`
+
 	// The entitlement item needed to participate in the activity as part of this event. Null indicates free entry. When creating/updating only id is used. Item must be pre-existing
 	Entitlement *ActivityEntitlementResource `json:"entitlement,omitempty"`
 

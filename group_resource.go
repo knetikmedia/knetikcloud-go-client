@@ -15,7 +15,7 @@ type GroupResource struct {
 	// A map of additional properties, keyed on the property name.  Must match the names and types defined in the template for this item type
 	AdditionalProperties map[string]Property `json:"additional_properties,omitempty"`
 
-	// A description of the group. Max 250 characters
+	// A description of the group
 	Description string `json:"description,omitempty"`
 
 	// The number of users in the group

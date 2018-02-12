@@ -1,6 +1,6 @@
 # \CategoriesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,6 +20,8 @@ Method | HTTP request | Description
 # **CreateCategory**
 > CategoryResource CreateCategory(ctx, ctx, optional)
 Create a new category
+
+<b>Permissions Needed:</b> CATEGORIES_ADMIN
 
 ### Required Parameters
 
@@ -55,7 +57,7 @@ Name | Type | Description  | Notes
 > TemplateResource CreateCategoryTemplate(ctx, ctx, optional)
 Create a category template
 
-Templates define a type of category and the properties they have
+Templates define a type of category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -91,6 +93,8 @@ Name | Type | Description  | Notes
 > DeleteCategory(ctx, ctx, id)
 Delete an existing category
 
+<b>Permissions Needed:</b> CATEGORIES_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -109,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -118,7 +122,7 @@ Name | Type | Description  | Notes
 > DeleteCategoryTemplate(ctx, ctx, id, optional)
 Delete a category template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -147,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -155,6 +159,8 @@ Name | Type | Description  | Notes
 # **GetCategories**
 > PageResourceCategoryResource GetCategories(ctx, ctx, optional)
 List and search categories with optional filters
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -185,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -193,6 +199,8 @@ Name | Type | Description  | Notes
 # **GetCategory**
 > CategoryResource GetCategory(ctx, ctx, id)
 Get a single category
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -212,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -220,6 +228,8 @@ Name | Type | Description  | Notes
 # **GetCategoryTemplate**
 > TemplateResource GetCategoryTemplate(ctx, ctx, id)
 Get a single category template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN
 
 ### Required Parameters
 
@@ -239,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -247,6 +257,8 @@ Name | Type | Description  | Notes
 # **GetCategoryTemplates**
 > PageResourceTemplateResource GetCategoryTemplates(ctx, ctx, optional)
 List and search category templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN
 
 ### Required Parameters
 
@@ -275,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -283,6 +295,8 @@ Name | Type | Description  | Notes
 # **GetTags**
 > PageResourcestring GetTags(ctx, ctx, optional)
 List all trivia tags in the system
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -310,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -318,6 +332,8 @@ Name | Type | Description  | Notes
 # **UpdateCategory**
 > CategoryResource UpdateCategory(ctx, ctx, id, optional)
 Update an existing category
+
+<b>Permissions Needed:</b> CATEGORIES_ADMIN
 
 ### Required Parameters
 
@@ -354,6 +370,8 @@ Name | Type | Description  | Notes
 # **UpdateCategoryTemplate**
 > TemplateResource UpdateCategoryTemplate(ctx, ctx, id, optional)
 Update a category template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 

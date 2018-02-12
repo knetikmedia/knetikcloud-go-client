@@ -28,6 +28,7 @@ type ReportingOrdersApiService service
 
 
 /* ReportingOrdersApiService Retrieve invoice counts aggregated by time ranges
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_ORDERS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param currencyCode The code for a currency to get sales data for
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -100,7 +101,7 @@ func (a *ReportingOrdersApiService) GetInvoiceReports(ctx context.Context, curre
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

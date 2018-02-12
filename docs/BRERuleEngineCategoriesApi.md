@@ -1,6 +1,6 @@
 # \BRERuleEngineCategoriesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 > TemplateResource CreateBRECategoryTemplate(ctx, ctx, optional)
 Create a BRE category template
 
-Templates define a type of BRE category and the properties they have
+Templates define a type of BRE category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 > DeleteBRECategoryTemplate(ctx, ctx, id, optional)
 Delete a BRE category template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -91,6 +91,8 @@ Name | Type | Description  | Notes
 # **GetBRECategories**
 > PageResourceBreCategoryResource GetBRECategories(ctx, ctx, optional)
 List categories
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_USER
 
 ### Required Parameters
 
@@ -118,7 +120,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -126,6 +128,8 @@ Name | Type | Description  | Notes
 # **GetBRECategory**
 > BreCategoryResource GetBRECategory(ctx, ctx, name)
 Get a single category
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_USER
 
 ### Required Parameters
 
@@ -145,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -153,6 +157,8 @@ Name | Type | Description  | Notes
 # **GetBRECategoryTemplate**
 > TemplateResource GetBRECategoryTemplate(ctx, ctx, id)
 Get a single BRE category template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN
 
 ### Required Parameters
 
@@ -172,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -180,6 +186,8 @@ Name | Type | Description  | Notes
 # **GetBRECategoryTemplates**
 > PageResourceTemplateResource GetBRECategoryTemplates(ctx, ctx, optional)
 List and search BRE category templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN
 
 ### Required Parameters
 
@@ -208,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -216,6 +224,8 @@ Name | Type | Description  | Notes
 # **UpdateBRECategory**
 > BreCategoryResource UpdateBRECategory(ctx, ctx, name, optional)
 Update a category
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_ADMIN
 
 ### Required Parameters
 
@@ -252,6 +262,8 @@ Name | Type | Description  | Notes
 # **UpdateBRECategoryTemplate**
 > TemplateResource UpdateBRECategoryTemplate(ctx, ctx, id, optional)
 Update a BRE category template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 

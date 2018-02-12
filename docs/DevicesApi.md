@@ -1,6 +1,6 @@
 # \DevicesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,6 +22,8 @@ Method | HTTP request | Description
 # **AddDeviceUsers**
 > DeviceResource AddDeviceUsers(ctx, ctx, userResources, id)
 Add device users
+
+<b>Permissions Needed:</b> DEVICES_ADMIN or owner
 
 ### Required Parameters
 
@@ -51,6 +53,8 @@ Name | Type | Description  | Notes
 > DeviceResource CreateDevice(ctx, ctx, device)
 Create a device
 
+<b>Permissions Needed:</b> ANY
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -78,7 +82,7 @@ Name | Type | Description  | Notes
 > TemplateResource CreateDeviceTemplate(ctx, ctx, optional)
 Create a device template
 
-Device Templates define a type of device and the properties they have
+Device Templates define a type of device and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -114,6 +118,8 @@ Name | Type | Description  | Notes
 > DeleteDevice(ctx, ctx, id)
 Delete a device
 
+<b>Permissions Needed:</b> DEVICES_ADMIN or owner
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -132,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -141,7 +147,7 @@ Name | Type | Description  | Notes
 > DeleteDeviceTemplate(ctx, ctx, id, optional)
 Delete an device template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -170,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -178,6 +184,8 @@ Name | Type | Description  | Notes
 # **DeleteDeviceUser**
 > DeleteDeviceUser(ctx, ctx, id, userId)
 Delete a device user
+
+<b>Permissions Needed:</b> DEVICES_ADMIN or owner
 
 ### Required Parameters
 
@@ -198,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -206,6 +214,8 @@ Name | Type | Description  | Notes
 # **DeleteDeviceUsers**
 > DeleteDeviceUsers(ctx, ctx, id, optional)
 Delete all device users
+
+<b>Permissions Needed:</b> DEVICES_ADMIN or owner
 
 ### Required Parameters
 
@@ -234,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -242,6 +252,8 @@ Name | Type | Description  | Notes
 # **GetDevice**
 > DeviceResource GetDevice(ctx, ctx, id)
 Get a single device
+
+<b>Permissions Needed:</b> DEVICES_ADMIN or owner
 
 ### Required Parameters
 
@@ -261,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -269,6 +281,8 @@ Name | Type | Description  | Notes
 # **GetDeviceTemplate**
 > TemplateResource GetDeviceTemplate(ctx, ctx, id)
 Get a single device template
+
+<b>Permissions Needed:</b> description
 
 ### Required Parameters
 
@@ -288,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -296,6 +310,8 @@ Name | Type | Description  | Notes
 # **GetDeviceTemplates**
 > PageResourceTemplateResource GetDeviceTemplates(ctx, ctx, optional)
 List and search device templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or DEVICES_ADMIN
 
 ### Required Parameters
 
@@ -324,7 +340,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -333,7 +349,7 @@ Name | Type | Description  | Notes
 > PageResourceDeviceResource GetDevices(ctx, ctx, optional)
 List and search devices
 
-Get a list of devices with optional filtering
+Get a list of devices with optional filtering. <br><br><b>Permissions Needed:</b> DEVICES_ADMIN or user
 
 ### Required Parameters
 
@@ -368,7 +384,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -376,6 +392,8 @@ Name | Type | Description  | Notes
 # **UpdateDevice**
 > DeviceResource UpdateDevice(ctx, ctx, device, id)
 Update a device
+
+<b>Permissions Needed:</b> CUSTOMERS_ADMIN
 
 ### Required Parameters
 
@@ -404,6 +422,8 @@ Name | Type | Description  | Notes
 # **UpdateDeviceTemplate**
 > TemplateResource UpdateDeviceTemplate(ctx, ctx, id, optional)
 Update an device template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 

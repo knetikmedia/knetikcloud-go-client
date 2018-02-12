@@ -27,7 +27,7 @@ type UtilSecurityApiService service
 
 
 /* UtilSecurityApiService Returns the authentication log for a user
- A log entry is recorded everytime a user requests a new token. Standard pagination available
+ A log entry is recorded everytime a user requests a new token. Standard pagination available. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SECURITY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userId" (int32) The user id
@@ -77,7 +77,7 @@ func (a *UtilSecurityApiService) GetUserLocationLog(ctx context.Context, localVa
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -118,6 +118,7 @@ func (a *UtilSecurityApiService) GetUserLocationLog(ctx context.Context, localVa
 }
 
 /* UtilSecurityApiService Returns the authentication token details. Use /users endpoint for detailed user&#39;s info
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SECURITY_ADMIN
  * @param ctx context.Context Authentication Context 
  @return TokenDetailsResource*/
 func (a *UtilSecurityApiService) GetUserTokenDetails(ctx context.Context, ) (TokenDetailsResource,  *http.Response, error) {
@@ -138,7 +139,7 @@ func (a *UtilSecurityApiService) GetUserTokenDetails(ctx context.Context, ) (Tok
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

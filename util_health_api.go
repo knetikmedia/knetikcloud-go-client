@@ -27,6 +27,7 @@ type UtilHealthApiService service
 
 
 /* UtilHealthApiService Get health info
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return interface{}*/
 func (a *UtilHealthApiService) GetHealth(ctx context.Context, ) (interface{},  *http.Response, error) {
@@ -47,7 +48,7 @@ func (a *UtilHealthApiService) GetHealth(ctx context.Context, ) (interface{},  *
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

@@ -28,6 +28,7 @@ type LogsApiService service
 
 
 /* LogsApiService Add a user log entry
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "logEntry" (UserActionLog) The user log entry to be added
@@ -89,6 +90,7 @@ func (a *LogsApiService) AddUserLog(ctx context.Context, localVarOptionals map[s
 }
 
 /* LogsApiService Get an existing BRE event log entry by id
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The BRE event log entry id
  @return BreEventLog*/
@@ -111,7 +113,7 @@ func (a *LogsApiService) GetBREEventLog(ctx context.Context, id string) (BreEven
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -152,6 +154,7 @@ func (a *LogsApiService) GetBREEventLog(ctx context.Context, id string) (BreEven
 }
 
 /* LogsApiService Returns a list of BRE event log entries
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterStartDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the event log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
@@ -160,6 +163,7 @@ func (a *LogsApiService) GetBREEventLog(ctx context.Context, id string) (BreEven
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
+     @param "filterRuleId" (string) Filter event logs by request id
  @return PageResourceBreEventLog*/
 func (a *LogsApiService) GetBREEventLogs(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceBreEventLog,  *http.Response, error) {
 	var (
@@ -195,6 +199,9 @@ func (a *LogsApiService) GetBREEventLogs(ctx context.Context, localVarOptionals 
 	if err := typeCheckParameter(localVarOptionals["order"], "string", "order"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["filterRuleId"], "string", "filterRuleId"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["filterStartDate"].(string); localVarOk {
 		localVarQueryParams.Add("filter_start_date", parameterToString(localVarTempParam, ""))
@@ -214,8 +221,11 @@ func (a *LogsApiService) GetBREEventLogs(ctx context.Context, localVarOptionals 
 	if localVarTempParam, localVarOk := localVarOptionals["order"].(string); localVarOk {
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
+	if localVarTempParam, localVarOk := localVarOptionals["filterRuleId"].(string); localVarOk {
+		localVarQueryParams.Add("filter_rule_id", parameterToString(localVarTempParam, ""))
+	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -256,6 +266,7 @@ func (a *LogsApiService) GetBREEventLogs(ctx context.Context, localVarOptionals 
 }
 
 /* LogsApiService Get an existing forward log entry by id
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The forward log entry id
  @return ForwardLog*/
@@ -278,7 +289,7 @@ func (a *LogsApiService) GetBREForwardLog(ctx context.Context, id string) (Forwa
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -319,11 +330,13 @@ func (a *LogsApiService) GetBREForwardLog(ctx context.Context, id string) (Forwa
 }
 
 /* LogsApiService Returns a list of forward log entries
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EVENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterStartDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
      @param "filterEndDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
      @param "filterStatusCode" (int32) Filter forward logs by http status code
+     @param "filterUrl" (int32) Filter forward logs by URL starting with...
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
@@ -353,6 +366,9 @@ func (a *LogsApiService) GetBREForwardLogs(ctx context.Context, localVarOptional
 	if err := typeCheckParameter(localVarOptionals["filterStatusCode"], "int32", "filterStatusCode"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["filterUrl"], "int32", "filterUrl"); err != nil {
+		return successPayload, nil, err
+	}
 	if err := typeCheckParameter(localVarOptionals["size"], "int32", "size"); err != nil {
 		return successPayload, nil, err
 	}
@@ -372,6 +388,9 @@ func (a *LogsApiService) GetBREForwardLogs(ctx context.Context, localVarOptional
 	if localVarTempParam, localVarOk := localVarOptionals["filterStatusCode"].(int32); localVarOk {
 		localVarQueryParams.Add("filter_status_code", parameterToString(localVarTempParam, ""))
 	}
+	if localVarTempParam, localVarOk := localVarOptionals["filterUrl"].(int32); localVarOk {
+		localVarQueryParams.Add("filter_url", parameterToString(localVarTempParam, ""))
+	}
 	if localVarTempParam, localVarOk := localVarOptionals["size"].(int32); localVarOk {
 		localVarQueryParams.Add("size", parameterToString(localVarTempParam, ""))
 	}
@@ -382,7 +401,7 @@ func (a *LogsApiService) GetBREForwardLogs(ctx context.Context, localVarOptional
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -423,6 +442,7 @@ func (a *LogsApiService) GetBREForwardLogs(ctx context.Context, localVarOptional
 }
 
 /* LogsApiService Returns a user log entry by id
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; LOGS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The user log entry id
  @return UserActionLog*/
@@ -445,7 +465,7 @@ func (a *LogsApiService) GetUserLog(ctx context.Context, id string) (UserActionL
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -486,6 +506,7 @@ func (a *LogsApiService) GetUserLog(ctx context.Context, id string) (UserActionL
 }
 
 /* LogsApiService Returns a page of user logs entries
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; LOGS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterUser" (int32) Filter for actions taken by a specific user by id
@@ -542,7 +563,7 @@ func (a *LogsApiService) GetUserLogs(ctx context.Context, localVarOptionals map[
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

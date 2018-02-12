@@ -28,6 +28,7 @@ type StoreShoppingCartsApiService service
 
 
 /* StoreShoppingCartsApiService Adds a custom discount to the cart
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -91,6 +92,7 @@ func (a *StoreShoppingCartsApiService) AddCustomDiscount(ctx context.Context, id
 }
 
 /* StoreShoppingCartsApiService Adds a discount coupon to the cart
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -154,7 +156,7 @@ func (a *StoreShoppingCartsApiService) AddDiscountToCart(ctx context.Context, id
 }
 
 /* StoreShoppingCartsApiService Add an item to the cart
- Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment
+ Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -218,7 +220,7 @@ func (a *StoreShoppingCartsApiService) AddItemToCart(ctx context.Context, id str
 }
 
 /* StoreShoppingCartsApiService Create a cart
- You don&#39;t have to have a user to create a cart but the API requires authentication to checkout
+ You don&#39;t have to have a user to create a cart but the API requires authentication to checkout. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "owner" (int32) Set the owner of a cart. If not specified, defaults to the calling user&#39;s id. If specified and is not the calling user&#39;s id, SHOPPING_CARTS_ADMIN permission is required
@@ -295,6 +297,7 @@ func (a *StoreShoppingCartsApiService) CreateCart(ctx context.Context, localVarO
 }
 
 /* StoreShoppingCartsApiService Returns the cart with the given GUID
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @return Cart*/
@@ -317,7 +320,7 @@ func (a *StoreShoppingCartsApiService) GetCart(ctx context.Context, id string) (
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -358,6 +361,7 @@ func (a *StoreShoppingCartsApiService) GetCart(ctx context.Context, id string) (
 }
 
 /* StoreShoppingCartsApiService Get a list of carts
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterOwnerId" (int32) Filter by the id of the owner
@@ -407,7 +411,7 @@ func (a *StoreShoppingCartsApiService) GetCarts(ctx context.Context, localVarOpt
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -448,6 +452,7 @@ func (a *StoreShoppingCartsApiService) GetCarts(ctx context.Context, localVarOpt
 }
 
 /* StoreShoppingCartsApiService Returns whether a cart requires shipping
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @return CartShippableResponse*/
@@ -470,7 +475,7 @@ func (a *StoreShoppingCartsApiService) GetShippable(ctx context.Context, id stri
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -511,7 +516,7 @@ func (a *StoreShoppingCartsApiService) GetShippable(ctx context.Context, id stri
 }
 
 /* StoreShoppingCartsApiService Get the list of available shipping countries per vendor
- Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable.
+ Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @return SampleCountriesResponse*/
@@ -534,7 +539,7 @@ func (a *StoreShoppingCartsApiService) GetShippingCountries(ctx context.Context,
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -575,6 +580,7 @@ func (a *StoreShoppingCartsApiService) GetShippingCountries(ctx context.Context,
 }
 
 /* StoreShoppingCartsApiService Removes a discount coupon from the cart
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param code The SKU code of the coupon to remove
@@ -598,7 +604,7 @@ func (a *StoreShoppingCartsApiService) RemoveDiscountFromCart(ctx context.Contex
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -634,7 +640,7 @@ func (a *StoreShoppingCartsApiService) RemoveDiscountFromCart(ctx context.Contex
 }
 
 /* StoreShoppingCartsApiService Sets the currency to use for the cart
- May be disallowed by site settings.
+ May be disallowed by site settings. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -698,6 +704,7 @@ func (a *StoreShoppingCartsApiService) SetCartCurrency(ctx context.Context, id s
 }
 
 /* StoreShoppingCartsApiService Sets the owner of a cart if none is set already
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -761,7 +768,7 @@ func (a *StoreShoppingCartsApiService) SetCartOwner(ctx context.Context, id stri
 }
 
 /* StoreShoppingCartsApiService Changes the quantity of an item already in the cart
- A quantity of zero will remove the item from the cart altogether.
+ A quantity of zero will remove the item from the cart altogether. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -825,6 +832,7 @@ func (a *StoreShoppingCartsApiService) UpdateItemInCart(ctx context.Context, id 
 }
 
 /* StoreShoppingCartsApiService Modifies or sets the order shipping address
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:

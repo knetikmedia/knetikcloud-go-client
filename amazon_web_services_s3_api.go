@@ -27,7 +27,7 @@ type AmazonWebServicesS3ApiService service
 
 
 /* AmazonWebServicesS3ApiService Get a temporary signed S3 URL for download
- To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details.
+ To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; S3_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "bucket" (string) S3 bucket name
@@ -70,7 +70,7 @@ func (a *AmazonWebServicesS3ApiService) GetDownloadURL(ctx context.Context, loca
 		localVarQueryParams.Add("expiration", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -111,7 +111,7 @@ func (a *AmazonWebServicesS3ApiService) GetDownloadURL(ctx context.Context, loca
 }
 
 /* AmazonWebServicesS3ApiService Get a signed S3 URL for upload
- Requires the file name and file content type (i.e., &#39;video/mpeg&#39;). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after.
+ Requires the file name and file content type (i.e., &#39;video/mpeg&#39;). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; S3_USER or S3_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filename" (string) The file name
@@ -147,7 +147,7 @@ func (a *AmazonWebServicesS3ApiService) GetSignedS3URL(ctx context.Context, loca
 		localVarQueryParams.Add("content_type", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

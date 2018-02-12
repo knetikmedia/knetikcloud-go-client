@@ -28,6 +28,7 @@ type StoreSalesApiService service
 
 
 /* StoreSalesApiService Create a sale
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SALES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "catalogSale" (CatalogSale) The catalog sale object
@@ -95,6 +96,7 @@ func (a *StoreSalesApiService) CreateCatalogSale(ctx context.Context, localVarOp
 }
 
 /* StoreSalesApiService Delete a sale
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SALES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the sale
  @return */
@@ -116,7 +118,7 @@ func (a *StoreSalesApiService) DeleteCatalogSale(ctx context.Context, id int32) 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -152,6 +154,7 @@ func (a *StoreSalesApiService) DeleteCatalogSale(ctx context.Context, id int32) 
 }
 
 /* StoreSalesApiService Get a single sale
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SALES_USER or SALES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the sale
  @return CatalogSale*/
@@ -174,7 +177,7 @@ func (a *StoreSalesApiService) GetCatalogSale(ctx context.Context, id int32) (Ca
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -215,6 +218,7 @@ func (a *StoreSalesApiService) GetCatalogSale(ctx context.Context, id int32) (Ca
 }
 
 /* StoreSalesApiService List and search sales
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SALES_USER or SALES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -257,7 +261,7 @@ func (a *StoreSalesApiService) GetCatalogSales(ctx context.Context, localVarOpti
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -298,6 +302,7 @@ func (a *StoreSalesApiService) GetCatalogSales(ctx context.Context, localVarOpti
 }
 
 /* StoreSalesApiService Update a sale
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SALES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the sale
  @param optional (nil or map[string]interface{}) with one or more of:

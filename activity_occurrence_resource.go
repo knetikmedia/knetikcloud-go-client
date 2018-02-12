@@ -16,8 +16,14 @@ type ActivityOccurrenceResource struct {
 	// The id of the activity
 	ActivityId int64 `json:"activity_id"`
 
+	// The ids of banned users that cannot join the occurrence. See occurrence-user delete endpoint
+	Bans []int32 `json:"bans,omitempty"`
+
 	// The id of the challenge activity (as part of the event, required if eventId set)
 	ChallengeActivityId int64 `json:"challenge_activity_id,omitempty"`
+
+	// Defines core settings about the activity occurrence that affect how it behaves in the system. Validated against core settings in activity/challenge-activity.
+	CoreSettings *CoreActivityOccurrenceSettings `json:"core_settings,omitempty"`
 
 	// The date this occurrence was created, unix timestamp in seconds
 	CreatedDate int64 `json:"created_date,omitempty"`
@@ -27,6 +33,9 @@ type ActivityOccurrenceResource struct {
 
 	// The id of the event
 	EventId int64 `json:"event_id,omitempty"`
+
+	// The host of the occurrence, if not a participant (will be left out of users array). Must be the caller that creates the occurrence unless admin. Requires activity/challenge to allow host_option of 'non_player' if not admin as well
+	Host *SimpleUserResource `json:"host,omitempty"`
 
 	// The id of the activity occurrence
 	Id int64 `json:"id,omitempty"`

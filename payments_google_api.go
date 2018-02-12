@@ -27,7 +27,7 @@ type PaymentsGoogleApiService service
 
 
 /* PaymentsGoogleApiService Mark an invoice paid with Google
- Mark an invoice paid with Google. Verifies signature from Google and treats the developerPayload field inside the json payload as the id of the invoice to pay. Returns the transaction ID if successful.
+ Mark an invoice paid with Google. Verifies signature from Google and treats the developerPayload field inside the json payload as the id of the invoice to pay. Returns the transaction ID if successful. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (GooglePaymentRequest) The request for paying an invoice through a Google in-app payment

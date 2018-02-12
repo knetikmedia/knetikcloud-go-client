@@ -28,7 +28,7 @@ type UsersFriendshipsApiService service
 
 
 /* UsersFriendshipsApiService Add a friend
- As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship.
+ As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39; if logged in
  @param id The id of the user to befriend
@@ -88,6 +88,7 @@ func (a *UsersFriendshipsApiService) AddFriend(ctx context.Context, userId strin
 }
 
 /* UsersFriendshipsApiService Get friends list
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39;
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -139,7 +140,7 @@ func (a *UsersFriendshipsApiService) GetFriends(ctx context.Context, userId stri
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -180,7 +181,7 @@ func (a *UsersFriendshipsApiService) GetFriends(ctx context.Context, userId stri
 }
 
 /* UsersFriendshipsApiService Returns the invite token
- This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request flow instead if confirmation is required
+ This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)flow instead if confirmation is required
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39; if logged in
  @return string*/
@@ -203,7 +204,7 @@ func (a *UsersFriendshipsApiService) GetInviteToken(ctx context.Context, userId 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -244,7 +245,7 @@ func (a *UsersFriendshipsApiService) GetInviteToken(ctx context.Context, userId 
 }
 
 /* UsersFriendshipsApiService Get pending invites
- Invites that the specified user received
+ Invites that the specified user received. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39;
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -282,7 +283,7 @@ func (a *UsersFriendshipsApiService) GetInvites(ctx context.Context, userId stri
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -323,7 +324,7 @@ func (a *UsersFriendshipsApiService) GetInvites(ctx context.Context, userId stri
 }
 
 /* UsersFriendshipsApiService Redeem friendship token
- Immediately connects the requested user with the user mapped by the provided invite token
+ Immediately connects the requested user with the user mapped by the provided invite token. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39; if logged in
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -387,6 +388,7 @@ func (a *UsersFriendshipsApiService) RedeemFriendshipToken(ctx context.Context, 
 }
 
 /* UsersFriendshipsApiService Remove or decline a friend
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39; if logged in
  @param id The id of the user to befriend
@@ -410,7 +412,7 @@ func (a *UsersFriendshipsApiService) RemoveOrDeclineFriend(ctx context.Context, 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

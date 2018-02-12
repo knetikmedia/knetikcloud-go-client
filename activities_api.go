@@ -27,7 +27,92 @@ var (
 type ActivitiesApiService service
 
 
+/* ActivitiesApiService Add a user to an occurrence
+ If called with no body, defaults to the user making the call.
+ * @param ctx context.Context Authentication Context 
+ @param activityOccurrenceId The id of the activity occurrence
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "test" (bool) if true, indicates that the user should NOT be added. This can be used to test for eligibility
+     @param "bypassRestrictions" (bool) if true, indicates that restrictions such as max player count should be ignored. Can only be used with ACTIVITIES_ADMIN
+     @param "userId" (IntWrapper) The id of the user, or null for &#39;caller&#39;
+ @return ActivityOccurrenceResource*/
+func (a *ActivitiesApiService) AddUser(ctx context.Context, activityOccurrenceId int64, localVarOptionals map[string]interface{}) (ActivityOccurrenceResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ActivityOccurrenceResource
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/activity-occurrences/{activity_occurrence_id}/users"
+	localVarPath = strings.Replace(localVarPath, "{"+"activity_occurrence_id"+"}", fmt.Sprintf("%v", activityOccurrenceId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["test"], "bool", "test"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["bypassRestrictions"], "bool", "bypassRestrictions"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam, localVarOk := localVarOptionals["test"].(bool); localVarOk {
+		localVarQueryParams.Add("test", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["bypassRestrictions"].(bool); localVarOk {
+		localVarQueryParams.Add("bypass_restrictions", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarTempParam, localVarOk := localVarOptionals["userId"].(IntWrapper); localVarOk {
+		localVarPostBody = &localVarTempParam
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
 /* ActivitiesApiService Create an activity
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "activityResource" (ActivityResource) The activity resource object
@@ -95,7 +180,7 @@ func (a *ActivitiesApiService) CreateActivity(ctx context.Context, localVarOptio
 }
 
 /* ActivitiesApiService Create a new activity occurrence. Ex: start a game
- Has to enforce extra rules if not used as an admin
+ Has to enforce extra rules if not used as an admin. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_USER or ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "test" (bool) if true, indicates that the occurrence should NOT be created. This can be used to test for eligibility and valid settings
@@ -170,7 +255,7 @@ func (a *ActivitiesApiService) CreateActivityOccurrence(ctx context.Context, loc
 }
 
 /* ActivitiesApiService Create a activity template
- Activity Templates define a type of activity and the properties they have
+ Activity Templates define a type of activity and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "activityTemplateResource" (TemplateResource) The activity template resource object
@@ -238,6 +323,7 @@ func (a *ActivitiesApiService) CreateActivityTemplate(ctx context.Context, local
 }
 
 /* ActivitiesApiService Delete an activity
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the activity
  @return */
@@ -259,7 +345,7 @@ func (a *ActivitiesApiService) DeleteActivity(ctx context.Context, id int64) ( *
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -295,7 +381,7 @@ func (a *ActivitiesApiService) DeleteActivity(ctx context.Context, id int64) ( *
 }
 
 /* ActivitiesApiService Delete a activity template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -325,7 +411,7 @@ func (a *ActivitiesApiService) DeleteActivityTemplate(ctx context.Context, id st
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -361,6 +447,7 @@ func (a *ActivitiesApiService) DeleteActivityTemplate(ctx context.Context, id st
 }
 
 /* ActivitiesApiService List activity definitions
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterTemplate" (bool) Filter for activities that are templates, or specifically not if false
@@ -424,7 +511,7 @@ func (a *ActivitiesApiService) GetActivities(ctx context.Context, localVarOption
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -465,6 +552,7 @@ func (a *ActivitiesApiService) GetActivities(ctx context.Context, localVarOption
 }
 
 /* ActivitiesApiService Get a single activity
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the activity
  @return ActivityResource*/
@@ -487,7 +575,7 @@ func (a *ActivitiesApiService) GetActivity(ctx context.Context, id int64) (Activ
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -528,6 +616,7 @@ func (a *ActivitiesApiService) GetActivity(ctx context.Context, id int64) (Activ
 }
 
 /* ActivitiesApiService Load a single activity occurrence details
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param activityOccurrenceId The id of the activity occurrence
  @return ActivityOccurrenceResource*/
@@ -550,7 +639,7 @@ func (a *ActivitiesApiService) GetActivityOccurrenceDetails(ctx context.Context,
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -591,6 +680,7 @@ func (a *ActivitiesApiService) GetActivityOccurrenceDetails(ctx context.Context,
 }
 
 /* ActivitiesApiService Get a single activity template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -613,7 +703,7 @@ func (a *ActivitiesApiService) GetActivityTemplate(ctx context.Context, id strin
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -654,6 +744,7 @@ func (a *ActivitiesApiService) GetActivityTemplate(ctx context.Context, id strin
 }
 
 /* ActivitiesApiService List and search activity templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -696,7 +787,7 @@ func (a *ActivitiesApiService) GetActivityTemplates(ctx context.Context, localVa
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -737,10 +828,11 @@ func (a *ActivitiesApiService) GetActivityTemplates(ctx context.Context, localVa
 }
 
 /* ActivitiesApiService List activity occurrences
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterActivity" (string) Filter for occurrences of the given activity ID
-     @param "filterStatus" (string) Filter for occurrences of the given activity ID
+     @param "filterStatus" (string) Filter for occurrences in the given status
      @param "filterEvent" (int32) Filter for occurrences played during the given event
      @param "filterChallenge" (int32) Filter for occurrences played within the given challenge
      @param "size" (int32) The number of objects returned per page
@@ -807,7 +899,7 @@ func (a *ActivitiesApiService) ListActivityOccurrences(ctx context.Context, loca
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -847,7 +939,82 @@ func (a *ActivitiesApiService) ListActivityOccurrences(ctx context.Context, loca
 	return successPayload, localVarHttpResponse, err
 }
 
+/* ActivitiesApiService Remove a user from an occurrence
+ * @param ctx context.Context Authentication Context 
+ @param activityOccurrenceId The id of the activity occurrence
+ @param userId The id of the user, or &#39;me&#39;
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "ban" (bool) if true, indicates that the user should not be allowed to re-join. Can only be set by host or admin
+     @param "bypassRestrictions" (bool) if true, indicates that restrictions such as current status should be ignored. Can only be used with ACTIVITIES_ADMIN
+ @return */
+func (a *ActivitiesApiService) RemoveUser(ctx context.Context, activityOccurrenceId int64, userId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/activity-occurrences/{activity_occurrence_id}/users/{user_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"activity_occurrence_id"+"}", fmt.Sprintf("%v", activityOccurrenceId), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"user_id"+"}", fmt.Sprintf("%v", userId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["ban"], "bool", "ban"); err != nil {
+		return nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["bypassRestrictions"], "bool", "bypassRestrictions"); err != nil {
+		return nil, err
+	}
+
+	if localVarTempParam, localVarOk := localVarOptionals["ban"].(bool); localVarOk {
+		localVarQueryParams.Add("ban", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["bypassRestrictions"].(bool); localVarOk {
+		localVarQueryParams.Add("bypass_restrictions", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+
+	return localVarHttpResponse, err
+}
+
 /* ActivitiesApiService Sets the status of an activity occurrence to FINISHED and logs metrics
+ In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
  * @param ctx context.Context Authentication Context 
  @param activityOccurrenceId The id of the activity occurrence
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -916,7 +1083,151 @@ func (a *ActivitiesApiService) SetActivityOccurrenceResults(ctx context.Context,
 	return successPayload, localVarHttpResponse, err
 }
 
+/* ActivitiesApiService Sets the settings of an activity occurrence
+ * @param ctx context.Context Authentication Context 
+ @param activityOccurrenceId The id of the activity occurrence
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "settings" (ActivityOccurrenceSettingsResource) The new settings
+ @return ActivityOccurrenceResource*/
+func (a *ActivitiesApiService) SetActivityOccurrenceSettings(ctx context.Context, activityOccurrenceId int64, localVarOptionals map[string]interface{}) (ActivityOccurrenceResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ActivityOccurrenceResource
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/activity-occurrences/{activity_occurrence_id}/settings"
+	localVarPath = strings.Replace(localVarPath, "{"+"activity_occurrence_id"+"}", fmt.Sprintf("%v", activityOccurrenceId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarTempParam, localVarOk := localVarOptionals["settings"].(ActivityOccurrenceSettingsResource); localVarOk {
+		localVarPostBody = &localVarTempParam
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* ActivitiesApiService Set a user&#39;s status within an occurrence
+ * @param ctx context.Context Authentication Context 
+ @param activityOccurrenceId The id of the activity occurrence
+ @param userId The id of the user
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "status" (string) The new status
+ @return ActivityUserResource*/
+func (a *ActivitiesApiService) SetUserStatus(ctx context.Context, activityOccurrenceId int64, userId string, localVarOptionals map[string]interface{}) (ActivityUserResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ActivityUserResource
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/activity-occurrences/{activity_occurrence_id}/users/{user_id}/status"
+	localVarPath = strings.Replace(localVarPath, "{"+"activity_occurrence_id"+"}", fmt.Sprintf("%v", activityOccurrenceId), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"user_id"+"}", fmt.Sprintf("%v", userId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["status"], "string", "status"); err != nil {
+		return successPayload, nil, err
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarTempParam, localVarOk := localVarOptionals["status"].(string); localVarOk {
+		localVarPostBody = &localVarTempParam
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
 /* ActivitiesApiService Update an activity
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the activity
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -985,14 +1296,14 @@ func (a *ActivitiesApiService) UpdateActivity(ctx context.Context, id int64, loc
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ActivitiesApiService Updated the status of an activity occurrence
- If setting to &#39;FINISHED&#39; reward will be run based on current metrics that have been recorded already. Aternatively, see results endpoint to finish and record all metrics at once.
+/* ActivitiesApiService Update the status of an activity occurrence
+ If setting to &#39;FINISHED&#39; reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
  * @param ctx context.Context Authentication Context 
  @param activityOccurrenceId The id of the activity occurrence
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "activityOccurrenceStatus" (string) The activity occurrence status object
+     @param "activityOccurrenceStatus" (ValueWrapperstring) The activity occurrence status object
  @return */
-func (a *ActivitiesApiService) UpdateActivityOccurrence(ctx context.Context, activityOccurrenceId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *ActivitiesApiService) UpdateActivityOccurrenceStatus(ctx context.Context, activityOccurrenceId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1008,9 +1319,6 @@ func (a *ActivitiesApiService) UpdateActivityOccurrence(ctx context.Context, act
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if err := typeCheckParameter(localVarOptionals["activityOccurrenceStatus"], "string", "activityOccurrenceStatus"); err != nil {
-		return nil, err
-	}
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -1032,7 +1340,7 @@ func (a *ActivitiesApiService) UpdateActivityOccurrence(ctx context.Context, act
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	if localVarTempParam, localVarOk := localVarOptionals["activityOccurrenceStatus"].(string); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["activityOccurrenceStatus"].(ValueWrapperstring); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -1053,6 +1361,7 @@ func (a *ActivitiesApiService) UpdateActivityOccurrence(ctx context.Context, act
 }
 
 /* ActivitiesApiService Update an activity template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

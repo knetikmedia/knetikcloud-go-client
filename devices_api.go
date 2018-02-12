@@ -28,6 +28,7 @@ type DevicesApiService service
 
 
 /* DevicesApiService Add device users
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; DEVICES_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userResources userResources
  @param id id
@@ -94,6 +95,7 @@ func (a *DevicesApiService) AddDeviceUsers(ctx context.Context, userResources []
 }
 
 /* DevicesApiService Create a device
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param device device
  @return DeviceResource*/
@@ -158,7 +160,7 @@ func (a *DevicesApiService) CreateDevice(ctx context.Context, device DeviceResou
 }
 
 /* DevicesApiService Create a device template
- Device Templates define a type of device and the properties they have
+ Device Templates define a type of device and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "deviceTemplateResource" (TemplateResource) The device template resource object
@@ -226,6 +228,7 @@ func (a *DevicesApiService) CreateDeviceTemplate(ctx context.Context, localVarOp
 }
 
 /* DevicesApiService Delete a device
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; DEVICES_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id id
  @return */
@@ -247,7 +250,7 @@ func (a *DevicesApiService) DeleteDevice(ctx context.Context, id string) ( *http
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -283,7 +286,7 @@ func (a *DevicesApiService) DeleteDevice(ctx context.Context, id string) ( *http
 }
 
 /* DevicesApiService Delete an device template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -313,7 +316,7 @@ func (a *DevicesApiService) DeleteDeviceTemplate(ctx context.Context, id string,
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -349,6 +352,7 @@ func (a *DevicesApiService) DeleteDeviceTemplate(ctx context.Context, id string,
 }
 
 /* DevicesApiService Delete a device user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; DEVICES_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the device
  @param userId The user id of the device user
@@ -372,7 +376,7 @@ func (a *DevicesApiService) DeleteDeviceUser(ctx context.Context, id string, use
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -408,6 +412,7 @@ func (a *DevicesApiService) DeleteDeviceUser(ctx context.Context, id string, use
 }
 
 /* DevicesApiService Delete all device users
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; DEVICES_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the device
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -437,7 +442,7 @@ func (a *DevicesApiService) DeleteDeviceUsers(ctx context.Context, id string, lo
 		localVarQueryParams.Add("filter_id", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -473,6 +478,7 @@ func (a *DevicesApiService) DeleteDeviceUsers(ctx context.Context, id string, lo
 }
 
 /* DevicesApiService Get a single device
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; DEVICES_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id id
  @return DeviceResource*/
@@ -495,7 +501,7 @@ func (a *DevicesApiService) GetDevice(ctx context.Context, id string) (DeviceRes
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -536,6 +542,7 @@ func (a *DevicesApiService) GetDevice(ctx context.Context, id string) (DeviceRes
 }
 
 /* DevicesApiService Get a single device template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; description
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -558,7 +565,7 @@ func (a *DevicesApiService) GetDeviceTemplate(ctx context.Context, id string) (T
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -599,6 +606,7 @@ func (a *DevicesApiService) GetDeviceTemplate(ctx context.Context, id string) (T
 }
 
 /* DevicesApiService List and search device templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or DEVICES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -641,7 +649,7 @@ func (a *DevicesApiService) GetDeviceTemplates(ctx context.Context, localVarOpti
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -682,7 +690,7 @@ func (a *DevicesApiService) GetDeviceTemplates(ctx context.Context, localVarOpti
 }
 
 /* DevicesApiService List and search devices
- Get a list of devices with optional filtering
+ Get a list of devices with optional filtering. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; DEVICES_ADMIN or user
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterMake" (string) Filter for devices with specified make
@@ -767,7 +775,7 @@ func (a *DevicesApiService) GetDevices(ctx context.Context, localVarOptionals ma
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -808,6 +816,7 @@ func (a *DevicesApiService) GetDevices(ctx context.Context, localVarOptionals ma
 }
 
 /* DevicesApiService Update a device
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CUSTOMERS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param device device
  @param id id
@@ -874,6 +883,7 @@ func (a *DevicesApiService) UpdateDevice(ctx context.Context, device DeviceResou
 }
 
 /* DevicesApiService Update an device template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

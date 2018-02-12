@@ -28,6 +28,7 @@ type UsersApiService service
 
 
 /* UsersApiService Add a tag to a user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param tag tag
@@ -88,7 +89,7 @@ func (a *UsersApiService) AddUserTag(ctx context.Context, userId int32, tag Stri
 }
 
 /* UsersApiService Create a user template
- User Templates define a type of user and the properties they have
+ User Templates define a type of user and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userTemplateResource" (TemplateResource) The user template resource object
@@ -156,7 +157,7 @@ func (a *UsersApiService) CreateUserTemplate(ctx context.Context, localVarOption
 }
 
 /* UsersApiService Delete a user template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -186,7 +187,7 @@ func (a *UsersApiService) DeleteUserTemplate(ctx context.Context, id string, loc
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -221,8 +222,87 @@ func (a *UsersApiService) DeleteUserTemplate(ctx context.Context, id string, loc
 	return localVarHttpResponse, err
 }
 
+/* UsersApiService Get a list of direct messages with this user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+ * @param ctx context.Context Authentication Context 
+ @param recipientId The user id
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "size" (int32) The number of objects returned per page
+     @param "page" (int32) The number of the page returned, starting with 1
+ @return PageResourceChatMessageResource*/
+func (a *UsersApiService) GetDirectMessages1(ctx context.Context, recipientId int32, localVarOptionals map[string]interface{}) (PageResourceChatMessageResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PageResourceChatMessageResource
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/users/users/{recipient_id}/messages"
+	localVarPath = strings.Replace(localVarPath, "{"+"recipient_id"+"}", fmt.Sprintf("%v", recipientId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["size"], "int32", "size"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam, localVarOk := localVarOptionals["size"].(int32); localVarOk {
+		localVarQueryParams.Add("size", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
+		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
 /* UsersApiService Get a single user
- Additional private info is included as USERS_ADMIN
+ Additional private info is included as USERS_ADMIN. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the user or &#39;me&#39;
  @return UserResource*/
@@ -245,7 +325,7 @@ func (a *UsersApiService) GetUser(ctx context.Context, id string) (UserResource,
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -286,6 +366,7 @@ func (a *UsersApiService) GetUser(ctx context.Context, id string) (UserResource,
 }
 
 /* UsersApiService List tags for a user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @return []string*/
@@ -308,7 +389,7 @@ func (a *UsersApiService) GetUserTags(ctx context.Context, userId int32) ([]stri
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -349,6 +430,7 @@ func (a *UsersApiService) GetUserTags(ctx context.Context, userId int32) ([]stri
 }
 
 /* UsersApiService Get a single user template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or USERS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -371,7 +453,7 @@ func (a *UsersApiService) GetUserTemplate(ctx context.Context, id string) (Templ
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -412,6 +494,7 @@ func (a *UsersApiService) GetUserTemplate(ctx context.Context, id string) (Templ
 }
 
 /* UsersApiService List and search user templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or USERS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -454,7 +537,7 @@ func (a *UsersApiService) GetUserTemplates(ctx context.Context, localVarOptional
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -495,7 +578,7 @@ func (a *UsersApiService) GetUserTemplates(ctx context.Context, localVarOptional
 }
 
 /* UsersApiService List and search users
- Additional private info is included as USERS_ADMIN
+ Additional private info is included as USERS_ADMIN. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterDisplayname" (string) Filter for users whose display name starts with provided string.
@@ -622,7 +705,7 @@ func (a *UsersApiService) GetUsers(ctx context.Context, localVarOptionals map[st
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -663,7 +746,7 @@ func (a *UsersApiService) GetUsers(ctx context.Context, localVarOptionals map[st
 }
 
 /* UsersApiService Choose a new password after a reset
- Finish resetting a user&#39;s password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+ Finish resetting a user&#39;s password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -726,8 +809,77 @@ func (a *UsersApiService) PasswordReset(ctx context.Context, id int32, localVarO
 	return localVarHttpResponse, err
 }
 
+/* UsersApiService Send a user message
+
+ @param recipientId The user id
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "chatMessageRequest" (ChatMessageRequest) The chat message request
+ @return ChatMessageResource*/
+func (a *UsersApiService) PostUserMessage(recipientId int32, localVarOptionals map[string]interface{}) (ChatMessageResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ChatMessageResource
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/users/{recipient_id}/messages"
+	localVarPath = strings.Replace(localVarPath, "{"+"recipient_id"+"}", fmt.Sprintf("%v", recipientId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarTempParam, localVarOk := localVarOptionals["chatMessageRequest"].(ChatMessageRequest); localVarOk {
+		localVarPostBody = &localVarTempParam
+	}
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
 /* UsersApiService Register a new user
- Password should be in plain text and will be encrypted on receipt. Use SSL for security
+ Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userResource" (UserResource) The user resource object
@@ -795,6 +947,7 @@ func (a *UsersApiService) RegisterUser(ctx context.Context, localVarOptionals ma
 }
 
 /* UsersApiService Remove a tag from a user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param tag The tag to remove
@@ -818,7 +971,7 @@ func (a *UsersApiService) RemoveUserTag(ctx context.Context, userId int32, tag s
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -854,7 +1007,7 @@ func (a *UsersApiService) RemoveUserTag(ctx context.Context, userId int32, tag s
 }
 
 /* UsersApiService Set a user&#39;s password
- Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+ Password should be in plain text and will be encrypted on receipt. Use SSL for security. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or (USERS_USER and owner)
  * @param ctx context.Context Authentication Context 
  @param id The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -918,7 +1071,7 @@ func (a *UsersApiService) SetPassword(ctx context.Context, id int32, localVarOpt
 }
 
 /* UsersApiService Reset a user&#39;s password
- A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit
+ A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the user
  @return */
@@ -976,7 +1129,7 @@ func (a *UsersApiService) StartPasswordReset(ctx context.Context, id int32) ( *h
 }
 
 /* UsersApiService Reset a user&#39;s password without user id
- A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number
+ A reset code will be generated and a &#39;forgot_password&#39; BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "passwordReset" (PasswordResetRequest) An object containing one of three methods to look up a user
@@ -1038,7 +1191,7 @@ func (a *UsersApiService) SubmitPasswordReset(ctx context.Context, localVarOptio
 }
 
 /* UsersApiService Update a user
- Password will not be edited on this endpoint, use password specific endpoints.
+ Password will not be edited on this endpoint, use password specific endpoints. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the user or &#39;me&#39;
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1102,6 +1255,7 @@ func (a *UsersApiService) UpdateUser(ctx context.Context, id string, localVarOpt
 }
 
 /* UsersApiService Update a user template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

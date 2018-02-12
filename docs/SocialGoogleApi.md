@@ -1,6 +1,6 @@
 # \SocialGoogleApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 > LinkAccounts1(ctx, ctx, optional)
 Link google account
 
-Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.
+Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired. <br><br><b>Permissions Needed:</b> Non-google user token
 
 ### Required Parameters
 

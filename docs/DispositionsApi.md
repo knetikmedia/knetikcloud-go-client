@@ -1,6 +1,6 @@
 # \DispositionsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,6 +14,8 @@ Method | HTTP request | Description
 # **AddDisposition**
 > DispositionResource AddDisposition(ctx, ctx, optional)
 Add a new disposition
+
+<b>Permissions Needed:</b> DISPOSITIONS_USER and user, or DISPOSITIONS_ADMIN
 
 ### Required Parameters
 
@@ -49,6 +51,8 @@ Name | Type | Description  | Notes
 > DeleteDisposition(ctx, ctx, id)
 Delete a disposition
 
+<b>Permissions Needed:</b> DISPOSITIONS_USER and owner, or DISPOSITIONS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -67,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -75,6 +79,8 @@ Name | Type | Description  | Notes
 # **GetDisposition**
 > DispositionResource GetDisposition(ctx, ctx, id)
 Returns a disposition
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -94,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -102,6 +108,8 @@ Name | Type | Description  | Notes
 # **GetDispositionCounts**
 > []DispositionCount GetDispositionCounts(ctx, ctx, optional)
 Returns a list of disposition counts
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -129,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -137,6 +145,8 @@ Name | Type | Description  | Notes
 # **GetDispositions**
 > PageResourceDispositionResource GetDispositions(ctx, ctx, optional)
 Returns a page of dispositions
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -167,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

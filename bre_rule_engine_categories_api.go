@@ -28,7 +28,7 @@ type BRERuleEngineCategoriesApiService service
 
 
 /* BRERuleEngineCategoriesApiService Create a BRE category template
- Templates define a type of BRE category and the properties they have
+ Templates define a type of BRE category and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (TemplateResource) The category template to create
@@ -96,7 +96,7 @@ func (a *BRERuleEngineCategoriesApiService) CreateBRECategoryTemplate(ctx contex
 }
 
 /* BRERuleEngineCategoriesApiService Delete a BRE category template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -126,7 +126,7 @@ func (a *BRERuleEngineCategoriesApiService) DeleteBRECategoryTemplate(ctx contex
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -162,6 +162,7 @@ func (a *BRERuleEngineCategoriesApiService) DeleteBRECategoryTemplate(ctx contex
 }
 
 /* BRERuleEngineCategoriesApiService List categories
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_CATEGORIES_USER
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -197,7 +198,7 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategories(ctx context.Context
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -238,6 +239,7 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategories(ctx context.Context
 }
 
 /* BRERuleEngineCategoriesApiService Get a single category
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_CATEGORIES_USER
  * @param ctx context.Context Authentication Context 
  @param name The category name
  @return BreCategoryResource*/
@@ -260,7 +262,7 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategory(ctx context.Context, 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -301,6 +303,7 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategory(ctx context.Context, 
 }
 
 /* BRERuleEngineCategoriesApiService Get a single BRE category template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -323,7 +326,7 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategoryTemplate(ctx context.C
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -364,6 +367,7 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategoryTemplate(ctx context.C
 }
 
 /* BRERuleEngineCategoriesApiService List and search BRE category templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -406,7 +410,7 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategoryTemplates(ctx context.
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -447,6 +451,7 @@ func (a *BRERuleEngineCategoriesApiService) GetBRECategoryTemplates(ctx context.
 }
 
 /* BRERuleEngineCategoriesApiService Update a category
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_CATEGORIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The category name
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -516,6 +521,7 @@ func (a *BRERuleEngineCategoriesApiService) UpdateBRECategory(ctx context.Contex
 }
 
 /* BRERuleEngineCategoriesApiService Update a BRE category template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

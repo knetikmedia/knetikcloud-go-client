@@ -1,6 +1,6 @@
 # \PaymentsFattMerchantApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 > PaymentMethodResource CreateOrUpdateFattMerchantPaymentMethod(ctx, ctx, optional)
 Create or update a FattMerchant payment method for a user
 
-Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints.
+Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints. <br><br><b>Permissions Needed:</b> FATTMERCHANT_ADMIN or owner
 
 ### Required Parameters
 

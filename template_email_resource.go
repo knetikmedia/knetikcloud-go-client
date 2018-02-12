@@ -18,6 +18,9 @@ type TemplateEmailResource struct {
 	// A list of user ids to send the message to.
 	Recipients []int32 `json:"recipients"`
 
+	// The subject for email
+	Subject string `json:"subject,omitempty"`
+
 	// The key for the template
 	TemplateKey string `json:"template_key"`
 

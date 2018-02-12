@@ -27,6 +27,7 @@ type UtilMaintenanceApiService service
 
 
 /* UtilMaintenanceApiService Delete maintenance info
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; MAINTENANCE_ADMIN
  * @param ctx context.Context Authentication Context 
  @return */
 func (a *UtilMaintenanceApiService) DeleteMaintenance(ctx context.Context, ) ( *http.Response, error) {
@@ -46,7 +47,7 @@ func (a *UtilMaintenanceApiService) DeleteMaintenance(ctx context.Context, ) ( *
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -82,7 +83,7 @@ func (a *UtilMaintenanceApiService) DeleteMaintenance(ctx context.Context, ) ( *
 }
 
 /* UtilMaintenanceApiService Get current maintenance info
- Get current maintenance info. 404 if no maintenance.
+ Get current maintenance info. 404 if no maintenance. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return Maintenance*/
 func (a *UtilMaintenanceApiService) GetMaintenance(ctx context.Context, ) (Maintenance,  *http.Response, error) {
@@ -103,7 +104,7 @@ func (a *UtilMaintenanceApiService) GetMaintenance(ctx context.Context, ) (Maint
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -144,6 +145,7 @@ func (a *UtilMaintenanceApiService) GetMaintenance(ctx context.Context, ) (Maint
 }
 
 /* UtilMaintenanceApiService Set current maintenance info
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; MAINTENANCE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "maintenance" (Maintenance) The maintenance object
@@ -205,6 +207,7 @@ func (a *UtilMaintenanceApiService) SetMaintenance(ctx context.Context, localVar
 }
 
 /* UtilMaintenanceApiService Update current maintenance info
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; MAINTENANCE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "maintenance" (Maintenance) The maintenance object

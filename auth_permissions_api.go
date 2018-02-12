@@ -28,6 +28,7 @@ type AuthPermissionsApiService service
 
 
 /* AuthPermissionsApiService Create a new permission
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; PERMISSIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "permissionResource" (PermissionResource) The permission resource object
@@ -95,6 +96,7 @@ func (a *AuthPermissionsApiService) CreatePermission(ctx context.Context, localV
 }
 
 /* AuthPermissionsApiService Delete a permission
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; PERMISSIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param permission The permission value
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -124,7 +126,7 @@ func (a *AuthPermissionsApiService) DeletePermission(ctx context.Context, permis
 		localVarQueryParams.Add("force", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -160,6 +162,7 @@ func (a *AuthPermissionsApiService) DeletePermission(ctx context.Context, permis
 }
 
 /* AuthPermissionsApiService Get a single permission
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; PERMISSIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param permission The permission value
  @return PermissionResource*/
@@ -182,7 +185,7 @@ func (a *AuthPermissionsApiService) GetPermission(ctx context.Context, permissio
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -223,6 +226,7 @@ func (a *AuthPermissionsApiService) GetPermission(ctx context.Context, permissio
 }
 
 /* AuthPermissionsApiService List and search permissions
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; PERMISSIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -265,7 +269,7 @@ func (a *AuthPermissionsApiService) GetPermissions(ctx context.Context, localVar
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -306,6 +310,7 @@ func (a *AuthPermissionsApiService) GetPermissions(ctx context.Context, localVar
 }
 
 /* AuthPermissionsApiService Update a permission
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; PERMISSIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param permission The permission value
  @param optional (nil or map[string]interface{}) with one or more of:

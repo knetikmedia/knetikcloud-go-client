@@ -28,7 +28,7 @@ type StoreBundlesApiService service
 
 
 /* StoreBundlesApiService Create a bundle item
- The SKU for the bundle itself must be unique and there can only be one SKU.  Extra notes for price_override:  The price of all the items (multiplied by the quantity) must equal the price of the bundle.  With individual prices set, items will be processed individually and can be refunded as such.  However, if all prices are set to null, the price of the bundle will be used and will be treated as one item.
+ The SKU for the bundle itself must be unique and there can only be one SKU.  Extra notes for price_override:  The price of all the items (multiplied by the quantity) must equal the price of the bundle.  With individual prices set, items will be processed individually and can be refunded as such.  However, if all prices are set to null, the price of the bundle will be used and will be treated as one item. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
@@ -103,7 +103,7 @@ func (a *StoreBundlesApiService) CreateBundleItem(ctx context.Context, localVarO
 }
 
 /* StoreBundlesApiService Create a bundle template
- Bundle Templates define a type of bundle and the properties they have.
+ Bundle Templates define a type of bundle and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "bundleTemplateResource" (ItemTemplateResource) The new bundle template
@@ -171,6 +171,7 @@ func (a *StoreBundlesApiService) CreateBundleTemplate(ctx context.Context, local
 }
 
 /* StoreBundlesApiService Delete a bundle item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the bundle
  @return */
@@ -192,7 +193,7 @@ func (a *StoreBundlesApiService) DeleteBundleItem(ctx context.Context, id int32)
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -228,6 +229,7 @@ func (a *StoreBundlesApiService) DeleteBundleItem(ctx context.Context, id int32)
 }
 
 /* StoreBundlesApiService Delete a bundle template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -257,7 +259,7 @@ func (a *StoreBundlesApiService) DeleteBundleTemplate(ctx context.Context, id st
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -293,6 +295,7 @@ func (a *StoreBundlesApiService) DeleteBundleTemplate(ctx context.Context, id st
 }
 
 /* StoreBundlesApiService Get a single bundle item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the bundle
  @return BundleItem*/
@@ -315,7 +318,7 @@ func (a *StoreBundlesApiService) GetBundleItem(ctx context.Context, id int32) (B
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -356,7 +359,7 @@ func (a *StoreBundlesApiService) GetBundleItem(ctx context.Context, id int32) (B
 }
 
 /* StoreBundlesApiService Get a single bundle template
- Bundle Templates define a type of bundle and the properties they have.
+ Bundle Templates define a type of bundle and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
@@ -379,7 +382,7 @@ func (a *StoreBundlesApiService) GetBundleTemplate(ctx context.Context, id strin
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -420,6 +423,7 @@ func (a *StoreBundlesApiService) GetBundleTemplate(ctx context.Context, id strin
 }
 
 /* StoreBundlesApiService List and search bundle templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -462,7 +466,7 @@ func (a *StoreBundlesApiService) GetBundleTemplates(ctx context.Context, localVa
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -503,6 +507,7 @@ func (a *StoreBundlesApiService) GetBundleTemplates(ctx context.Context, localVa
 }
 
 /* StoreBundlesApiService Update a bundle item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the bundle
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -579,6 +584,7 @@ func (a *StoreBundlesApiService) UpdateBundleItem(ctx context.Context, id int32,
 }
 
 /* StoreBundlesApiService Update a bundle template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

@@ -1,6 +1,6 @@
 # \GamificationTriviaApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -40,6 +40,8 @@ Method | HTTP request | Description
 > AnswerResource AddQuestionAnswers(ctx, ctx, questionId, optional)
 Add an answer to a question
 
+<b>Permissions Needed:</b> TRIVIA_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -75,6 +77,8 @@ Name | Type | Description  | Notes
 # **AddQuestionTag**
 > AddQuestionTag(ctx, ctx, id, optional)
 Add a tag to a question
+
+<b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -112,7 +116,7 @@ Name | Type | Description  | Notes
 > int32 AddTagToQuestionsBatch(ctx, ctx, optional)
 Add a tag to a batch of questions
 
-All questions that dont't have the tag and match filters will have it added. The returned number is the number of questions updated.
+All questions that dont't have the tag and match filters will have it added. The returned number is the number of questions updated. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -156,7 +160,7 @@ Name | Type | Description  | Notes
 > ImportJobResource CreateImportJob(ctx, ctx, optional)
 Create an import job
 
-Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint.
+Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -192,6 +196,8 @@ Name | Type | Description  | Notes
 > QuestionResource CreateQuestion(ctx, ctx, optional)
 Create a question
 
+<b>Permissions Needed:</b> TRIVIA_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -226,7 +232,7 @@ Name | Type | Description  | Notes
 > QuestionTemplateResource CreateQuestionTemplate(ctx, ctx, optional)
 Create a question template
 
-Question templates define a type of question and the properties they have
+Question templates define a type of question and the properties they have. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -262,7 +268,7 @@ Name | Type | Description  | Notes
 > DeleteImportJob(ctx, ctx, id)
 Delete an import job
 
-Also deletes all questions that were imported by it
+Also deletes all questions that were imported by it. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -282,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -290,6 +296,8 @@ Name | Type | Description  | Notes
 # **DeleteQuestion**
 > DeleteQuestion(ctx, ctx, id)
 Delete a question
+
+<b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -309,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -317,6 +325,8 @@ Name | Type | Description  | Notes
 # **DeleteQuestionAnswers**
 > DeleteQuestionAnswers(ctx, ctx, questionId, id)
 Remove an answer from a question
+
+<b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -337,7 +347,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -346,7 +356,7 @@ Name | Type | Description  | Notes
 > DeleteQuestionTemplate(ctx, ctx, id, optional)
 Delete a question template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -375,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -383,6 +393,8 @@ Name | Type | Description  | Notes
 # **GetImportJob**
 > ImportJobResource GetImportJob(ctx, ctx, id)
 Get an import job
+
+<b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -402,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -410,6 +422,8 @@ Name | Type | Description  | Notes
 # **GetImportJobs**
 > PageResourceImportJobResource GetImportJobs(ctx, ctx, optional)
 Get a list of import job
+
+<b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -442,7 +456,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -450,6 +464,8 @@ Name | Type | Description  | Notes
 # **GetQuestion**
 > QuestionResource GetQuestion(ctx, ctx, id)
 Get a single question
+
+<b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -469,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -477,6 +493,8 @@ Name | Type | Description  | Notes
 # **GetQuestionAnswer**
 > AnswerResource GetQuestionAnswer(ctx, ctx, questionId, id)
 Get an answer for a question
+
+<b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -497,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -505,6 +523,8 @@ Name | Type | Description  | Notes
 # **GetQuestionAnswers**
 > []AnswerResource GetQuestionAnswers(ctx, ctx, questionId)
 List the answers available for a question
+
+<b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -524,7 +544,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -533,7 +553,7 @@ Name | Type | Description  | Notes
 > []DeltaResource GetQuestionDeltas(ctx, ctx, optional)
 List question deltas in ascending order of updated date
 
-The 'since' parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps
+The 'since' parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -560,7 +580,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -568,6 +588,8 @@ Name | Type | Description  | Notes
 # **GetQuestionTags**
 > []string GetQuestionTags(ctx, ctx, id)
 List the tags for a question
+
+<b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -587,7 +609,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -595,6 +617,8 @@ Name | Type | Description  | Notes
 # **GetQuestionTemplate**
 > QuestionTemplateResource GetQuestionTemplate(ctx, ctx, id)
 Get a single question template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -614,7 +638,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -622,6 +646,8 @@ Name | Type | Description  | Notes
 # **GetQuestionTemplates**
 > PageResourceQuestionTemplateResource GetQuestionTemplates(ctx, ctx, optional)
 List and search question templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -650,7 +676,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -658,6 +684,8 @@ Name | Type | Description  | Notes
 # **GetQuestions**
 > PageResourceQuestionResource GetQuestions(ctx, ctx, optional)
 List and search questions
+
+<b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -694,7 +722,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -703,7 +731,7 @@ Name | Type | Description  | Notes
 > int64 GetQuestionsCount(ctx, ctx, optional)
 Count questions based on filters
 
-This is also provided by the list endpoint so you don't need to call this for pagination purposes
+This is also provided by the list endpoint so you don't need to call this for pagination purposes. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -736,7 +764,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -745,7 +773,7 @@ Name | Type | Description  | Notes
 > ImportJobResource ProcessImportJob(ctx, ctx, id, publishNow)
 Start processing an import job
 
-Will process the CSV file and add new questions asynchronously. The status of the job must be 'VALID'.
+Will process the CSV file and add new questions asynchronously. The status of the job must be 'VALID'. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -775,6 +803,8 @@ Name | Type | Description  | Notes
 > RemoveQuestionTag(ctx, ctx, id, tag)
 Remove a tag from a question
 
+<b>Permissions Needed:</b> TRIVIA_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -794,7 +824,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -803,7 +833,7 @@ Name | Type | Description  | Notes
 > int32 RemoveTagToQuestionsBatch(ctx, ctx, tag, optional)
 Remove a tag from a batch of questions
 
-ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated.
+ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -839,7 +869,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -848,7 +878,7 @@ Name | Type | Description  | Notes
 > []string SearchQuestionTags(ctx, ctx, optional)
 List and search tags by the beginning of the string
 
-For performance reasons, search & category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead.
+For performance reasons, search & category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -877,7 +907,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -886,7 +916,7 @@ Name | Type | Description  | Notes
 > ImportJobResource UpdateImportJob(ctx, ctx, id, optional)
 Update an import job
 
-Changes should be made before process is started for there to be any effect.
+Changes should be made before process is started for there to be any effect. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -924,6 +954,8 @@ Name | Type | Description  | Notes
 > QuestionResource UpdateQuestion(ctx, ctx, id, optional)
 Update a question
 
+<b>Permissions Needed:</b> TRIVIA_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -959,6 +991,8 @@ Name | Type | Description  | Notes
 # **UpdateQuestionAnswer**
 > UpdateQuestionAnswer(ctx, ctx, questionId, id, optional)
 Update an answer for a question
+
+<b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 
@@ -998,6 +1032,8 @@ Name | Type | Description  | Notes
 > QuestionTemplateResource UpdateQuestionTemplate(ctx, ctx, id, optional)
 Update a question template
 
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -1034,7 +1070,7 @@ Name | Type | Description  | Notes
 > int32 UpdateQuestionsInBulk(ctx, ctx, optional)
 Bulk update questions
 
-Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated.
+Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated. <br><br><b>Permissions Needed:</b> TRIVIA_ADMIN
 
 ### Required Parameters
 

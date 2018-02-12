@@ -28,6 +28,7 @@ type PaymentsTransactionsApiService service
 
 
 /* PaymentsTransactionsApiService Get the details for a single transaction
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRANSACTIONS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id id
  @return TransactionResource*/
@@ -50,7 +51,7 @@ func (a *PaymentsTransactionsApiService) GetTransaction(ctx context.Context, id 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -91,6 +92,7 @@ func (a *PaymentsTransactionsApiService) GetTransaction(ctx context.Context, id 
 }
 
 /* PaymentsTransactionsApiService List and search transactions
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TRANSACTIONS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterInvoice" (int32) Filter for transactions from a specific invoice
@@ -140,7 +142,7 @@ func (a *PaymentsTransactionsApiService) GetTransactions(ctx context.Context, lo
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -181,7 +183,7 @@ func (a *PaymentsTransactionsApiService) GetTransactions(ctx context.Context, lo
 }
 
 /* PaymentsTransactionsApiService Refund a payment transaction, in full or in part
- Will not allow for refunding more than the full amount even with multiple partial refunds. Money is refunded to the payment method used to make the original payment. Payment method must support refunds.
+ Will not allow for refunding more than the full amount even with multiple partial refunds. Money is refunded to the payment method used to make the original payment. Payment method must support refunds. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the transaction to refund
  @param optional (nil or map[string]interface{}) with one or more of:

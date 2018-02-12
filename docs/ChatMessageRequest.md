@@ -1,12 +1,10 @@
-# IoConfig
+# ChatMessageRequest
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Customer** | **string** |  | [optional] [default to null]
-**Enabled** | **bool** |  | [optional] [default to null]
-**Environment** | **string** |  | [optional] [default to null]
-**Product** | **string** |  | [optional] [default to null]
+**Content** | [***interface{}**](interface{}.md) | The content of the message | [default to null]
+**MessageType** | **string** | The type of the message set by the client | [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

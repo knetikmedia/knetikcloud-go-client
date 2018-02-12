@@ -28,6 +28,7 @@ type LocationsApiService service
 
 
 /* LocationsApiService Get a list of countries
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return []CountryResource*/
 func (a *LocationsApiService) GetCountries(ctx context.Context, ) ([]CountryResource,  *http.Response, error) {
@@ -48,7 +49,7 @@ func (a *LocationsApiService) GetCountries(ctx context.Context, ) ([]CountryReso
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -89,7 +90,7 @@ func (a *LocationsApiService) GetCountries(ctx context.Context, ) ([]CountryReso
 }
 
 /* LocationsApiService Get the iso3 code of your country
- Determined by geo ip location
+ Determined by geo ip location. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return string*/
 func (a *LocationsApiService) GetCountryByGeoLocation(ctx context.Context, ) (string,  *http.Response, error) {
@@ -110,7 +111,7 @@ func (a *LocationsApiService) GetCountryByGeoLocation(ctx context.Context, ) (st
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -151,6 +152,7 @@ func (a *LocationsApiService) GetCountryByGeoLocation(ctx context.Context, ) (st
 }
 
 /* LocationsApiService Get a list of a country&#39;s states
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @return []StateResource*/
@@ -173,7 +175,7 @@ func (a *LocationsApiService) GetCountryStates(ctx context.Context, countryCodeI
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -214,7 +216,7 @@ func (a *LocationsApiService) GetCountryStates(ctx context.Context, countryCodeI
 }
 
 /* LocationsApiService Get the currency information of your country
- Determined by geo ip location, currency to country mapping and a fallback setting
+ Determined by geo ip location, currency to country mapping and a fallback setting. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return CurrencyResource*/
 func (a *LocationsApiService) GetCurrencyByGeoLocation(ctx context.Context, ) (CurrencyResource,  *http.Response, error) {
@@ -235,7 +237,7 @@ func (a *LocationsApiService) GetCurrencyByGeoLocation(ctx context.Context, ) (C
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

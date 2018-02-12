@@ -1,18 +1,20 @@
 # \UsersApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddUserTag**](UsersApi.md#AddUserTag) | **Post** /users/{user_id}/tags | Add a tag to a user
 [**CreateUserTemplate**](UsersApi.md#CreateUserTemplate) | **Post** /users/templates | Create a user template
 [**DeleteUserTemplate**](UsersApi.md#DeleteUserTemplate) | **Delete** /users/templates/{id} | Delete a user template
+[**GetDirectMessages1**](UsersApi.md#GetDirectMessages1) | **Get** /users/users/{recipient_id}/messages | Get a list of direct messages with this user
 [**GetUser**](UsersApi.md#GetUser) | **Get** /users/{id} | Get a single user
 [**GetUserTags**](UsersApi.md#GetUserTags) | **Get** /users/{user_id}/tags | List tags for a user
 [**GetUserTemplate**](UsersApi.md#GetUserTemplate) | **Get** /users/templates/{id} | Get a single user template
 [**GetUserTemplates**](UsersApi.md#GetUserTemplates) | **Get** /users/templates | List and search user templates
 [**GetUsers**](UsersApi.md#GetUsers) | **Get** /users | List and search users
 [**PasswordReset**](UsersApi.md#PasswordReset) | **Put** /users/{id}/password-reset | Choose a new password after a reset
+[**PostUserMessage**](UsersApi.md#PostUserMessage) | **Post** /users/{recipient_id}/messages | Send a user message
 [**RegisterUser**](UsersApi.md#RegisterUser) | **Post** /users | Register a new user
 [**RemoveUserTag**](UsersApi.md#RemoveUserTag) | **Delete** /users/{user_id}/tags/{tag} | Remove a tag from a user
 [**SetPassword**](UsersApi.md#SetPassword) | **Put** /users/{id}/password | Set a user&#39;s password
@@ -25,6 +27,8 @@ Method | HTTP request | Description
 # **AddUserTag**
 > AddUserTag(ctx, ctx, userId, tag)
 Add a tag to a user
+
+<b>Permissions Needed:</b> USERS_ADMIN
 
 ### Required Parameters
 
@@ -54,7 +58,7 @@ Name | Type | Description  | Notes
 > TemplateResource CreateUserTemplate(ctx, ctx, optional)
 Create a user template
 
-User Templates define a type of user and the properties they have
+User Templates define a type of user and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -90,7 +94,7 @@ Name | Type | Description  | Notes
 > DeleteUserTemplate(ctx, ctx, id, optional)
 Delete a user template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -119,7 +123,46 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetDirectMessages1**
+> PageResourceChatMessageResource GetDirectMessages1(ctx, ctx, recipientId, optional)
+Get a list of direct messages with this user
+
+<b>Permissions Needed:</b> ANY
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+  **recipientId** | **int32**| The user id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **recipientId** | **int32**| The user id | 
+ **size** | **int32**| The number of objects returned per page | [default to 25]
+ **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
+
+### Return type
+
+[**PageResourceChatMessageResource**](PageResource«ChatMessageResource».md)
+
+### Authorization
+
+[oauth2_client_credentials_grant](../README.md#oauth2_client_credentials_grant), [oauth2_password_grant](../README.md#oauth2_password_grant)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -128,7 +171,7 @@ Name | Type | Description  | Notes
 > UserResource GetUser(ctx, ctx, id)
 Get a single user
 
-Additional private info is included as USERS_ADMIN
+Additional private info is included as USERS_ADMIN. <br><br><b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -148,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -156,6 +199,8 @@ Name | Type | Description  | Notes
 # **GetUserTags**
 > []string GetUserTags(ctx, ctx, userId)
 List tags for a user
+
+<b>Permissions Needed:</b> USERS_ADMIN
 
 ### Required Parameters
 
@@ -175,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -183,6 +228,8 @@ Name | Type | Description  | Notes
 # **GetUserTemplate**
 > TemplateResource GetUserTemplate(ctx, ctx, id)
 Get a single user template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or USERS_ADMIN
 
 ### Required Parameters
 
@@ -202,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -210,6 +257,8 @@ Name | Type | Description  | Notes
 # **GetUserTemplates**
 > PageResourceTemplateResource GetUserTemplates(ctx, ctx, optional)
 List and search user templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or USERS_ADMIN
 
 ### Required Parameters
 
@@ -238,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -247,7 +296,7 @@ Name | Type | Description  | Notes
 > PageResourceUserBaseResource GetUsers(ctx, ctx, optional)
 List and search users
 
-Additional private info is included as USERS_ADMIN
+Additional private info is included as USERS_ADMIN. <br><br><b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -288,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -297,7 +346,7 @@ Name | Type | Description  | Notes
 > PasswordReset(ctx, ctx, id, optional)
 Choose a new password after a reset
 
-Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+Finish resetting a user's password using the secret provided from the password-reset endpoint.  Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -331,11 +380,45 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **PostUserMessage**
+> ChatMessageResource PostUserMessage(recipientId, optional)
+Send a user message
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **recipientId** | **int32**| The user id | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **recipientId** | **int32**| The user id | 
+ **chatMessageRequest** | [**ChatMessageRequest**](ChatMessageRequest.md)| The chat message request | 
+
+### Return type
+
+[**ChatMessageResource**](ChatMessageResource.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **RegisterUser**
 > UserResource RegisterUser(ctx, ctx, optional)
 Register a new user
 
-Password should be in plain text and will be encrypted on receipt. Use SSL for security
+Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -371,6 +454,8 @@ Name | Type | Description  | Notes
 > RemoveUserTag(ctx, ctx, userId, tag)
 Remove a tag from a user
 
+<b>Permissions Needed:</b> USERS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -390,7 +475,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -399,7 +484,7 @@ Name | Type | Description  | Notes
 > SetPassword(ctx, ctx, id, optional)
 Set a user's password
 
-Password should be in plain text and will be encrypted on receipt. Use SSL for security.
+Password should be in plain text and will be encrypted on receipt. Use SSL for security. <br><br><b>Permissions Needed:</b> USERS_ADMIN or (USERS_USER and owner)
 
 ### Required Parameters
 
@@ -437,7 +522,7 @@ Name | Type | Description  | Notes
 > StartPasswordReset(ctx, ctx, id)
 Reset a user's password
 
-A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit
+A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit. <br><br><b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -466,7 +551,7 @@ Name | Type | Description  | Notes
 > SubmitPasswordReset(ctx, ctx, optional)
 Reset a user's password without user id
 
-A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number
+A reset code will be generated and a 'forgot_password' BRE event will be fired with that code.  The default system rule will send an email to the selected user if an email service has been setup. You can modify that rule in BRE to send an SMS instead or any other type of notification as you see fit.  Must submit their email, username, or mobile phone number. <br><br><b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -502,7 +587,7 @@ Name | Type | Description  | Notes
 > UpdateUser(ctx, ctx, id, optional)
 Update a user
 
-Password will not be edited on this endpoint, use password specific endpoints.
+Password will not be edited on this endpoint, use password specific endpoints. <br><br><b>Permissions Needed:</b> USERS_ADMIN or owner
 
 ### Required Parameters
 
@@ -539,6 +624,8 @@ Name | Type | Description  | Notes
 # **UpdateUserTemplate**
 > TemplateResource UpdateUserTemplate(ctx, ctx, id, optional)
 Update a user template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 

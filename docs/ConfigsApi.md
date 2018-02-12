@@ -1,6 +1,6 @@
 # \ConfigsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,6 +14,8 @@ Method | HTTP request | Description
 # **CreateConfig**
 > Config CreateConfig(ctx, ctx, optional)
 Create a new config
+
+<b>Permissions Needed:</b> TOPICS_ADMIN
 
 ### Required Parameters
 
@@ -49,6 +51,8 @@ Name | Type | Description  | Notes
 > DeleteConfig(ctx, ctx, name)
 Delete an existing config
 
+<b>Permissions Needed:</b> CONFIGS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -67,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -76,7 +80,7 @@ Name | Type | Description  | Notes
 > Config GetConfig(ctx, ctx, name)
 Get a single config
 
-Only configs that are public readable will be shown without admin access
+Only configs that are public readable will be shown without admin access. <br><br><b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -96,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -104,6 +108,8 @@ Name | Type | Description  | Notes
 # **GetConfigs**
 > PageResourceConfig GetConfigs(ctx, ctx, optional)
 List and search configs
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -121,7 +127,7 @@ Name | Type | Description  | Notes
  **filterSearch** | **string**| Filter for configs whose name contains the given string | 
  **size** | **int32**| The number of objects returned per page | [default to 25]
  **page** | **int32**| The number of the page returned | [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | 
 
 ### Return type
 
@@ -133,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -141,6 +147,8 @@ Name | Type | Description  | Notes
 # **UpdateConfig**
 > UpdateConfig(ctx, ctx, name, optional)
 Update an existing config
+
+<b>Permissions Needed:</b> CONFIGS_ADMIN
 
 ### Required Parameters
 

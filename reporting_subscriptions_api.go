@@ -27,6 +27,7 @@ type ReportingSubscriptionsApiService service
 
 
 /* ReportingSubscriptionsApiService Get a list of available subscription reports in most recent first order
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -62,7 +63,7 @@ func (a *ReportingSubscriptionsApiService) GetSubscriptionReports(ctx context.Co
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

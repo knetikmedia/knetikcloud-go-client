@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The user friendly name of that resource | [default to null]
 **ShortDescription** | **string** | The user friendly name of that resource. Defaults to blank string | [optional] [default to null]
 **Template** | **bool** | Whether this activity is a template for other activities. Default: false | [optional] [default to null]
-**Type_** | **string** | The type of the activity | [default to null]
+**Type_** | **string** | The type of the activity | [optional] [default to null]
 **UniqueKey** | **string** | The unique key (for static reference in code) of the activity | [optional] [default to null]
 **UpdatedDate** | **int64** | The date/time this resource was last updated in seconds since unix epoch | [optional] [default to null]
 

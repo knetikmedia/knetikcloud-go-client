@@ -28,6 +28,7 @@ type AuthClientsApiService service
 
 
 /* AuthClientsApiService Create a new client
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "clientResource" (ClientResource) The client resource object
@@ -95,6 +96,7 @@ func (a *AuthClientsApiService) CreateClient(ctx context.Context, localVarOption
 }
 
 /* AuthClientsApiService Delete a client
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @return */
@@ -116,7 +118,7 @@ func (a *AuthClientsApiService) DeleteClient(ctx context.Context, clientKey stri
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -152,6 +154,7 @@ func (a *AuthClientsApiService) DeleteClient(ctx context.Context, clientKey stri
 }
 
 /* AuthClientsApiService Get a single client
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @return ClientResource*/
@@ -174,7 +177,7 @@ func (a *AuthClientsApiService) GetClient(ctx context.Context, clientKey string)
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -215,6 +218,7 @@ func (a *AuthClientsApiService) GetClient(ctx context.Context, clientKey string)
 }
 
 /* AuthClientsApiService List available client grant types
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @return []GrantTypeResource*/
 func (a *AuthClientsApiService) GetClientGrantTypes(ctx context.Context, ) ([]GrantTypeResource,  *http.Response, error) {
@@ -235,7 +239,7 @@ func (a *AuthClientsApiService) GetClientGrantTypes(ctx context.Context, ) ([]Gr
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -276,6 +280,7 @@ func (a *AuthClientsApiService) GetClientGrantTypes(ctx context.Context, ) ([]Gr
 }
 
 /* AuthClientsApiService List and search clients
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -318,7 +323,7 @@ func (a *AuthClientsApiService) GetClients(ctx context.Context, localVarOptional
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -359,6 +364,7 @@ func (a *AuthClientsApiService) GetClients(ctx context.Context, localVarOptional
 }
 
 /* AuthClientsApiService Set grant types for a client
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -425,6 +431,7 @@ func (a *AuthClientsApiService) SetClientGrantTypes(ctx context.Context, clientK
 }
 
 /* AuthClientsApiService Set redirect uris for a client
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -491,6 +498,7 @@ func (a *AuthClientsApiService) SetClientRedirectUris(ctx context.Context, clien
 }
 
 /* AuthClientsApiService Update a client
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @param optional (nil or map[string]interface{}) with one or more of:

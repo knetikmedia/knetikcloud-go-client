@@ -1,6 +1,6 @@
 # \StoreCouponsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 > CouponItem CreateCouponItem(ctx, ctx, optional)
 Create a coupon item
 
-SKUs have to be unique in the entire store.
+SKUs have to be unique in the entire store. <br><br><b>Permissions Needed:</b> COUPONS_ADMIN
 
 ### Required Parameters
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 > ItemTemplateResource CreateCouponTemplate(ctx, ctx, optional)
 Create a coupon template
 
-Coupon Templates define a type of coupon and the properties they have.
+Coupon Templates define a type of coupon and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -93,6 +93,8 @@ Name | Type | Description  | Notes
 > DeleteCouponItem(ctx, ctx, id)
 Delete a coupon item
 
+<b>Permissions Needed:</b> COUPONS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -111,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -119,6 +121,8 @@ Name | Type | Description  | Notes
 # **DeleteCouponTemplate**
 > DeleteCouponTemplate(ctx, ctx, id, optional)
 Delete a coupon template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -147,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -155,6 +159,8 @@ Name | Type | Description  | Notes
 # **GetCouponItem**
 > CouponItem GetCouponItem(ctx, ctx, id)
 Get a single coupon item
+
+<b>Permissions Needed:</b> COUPONS_ADMIN
 
 ### Required Parameters
 
@@ -174,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -182,6 +188,8 @@ Name | Type | Description  | Notes
 # **GetCouponItemBySku**
 > CouponItem GetCouponItemBySku(ctx, ctx, sku)
 Get a coupon by sku
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -201,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -210,7 +218,7 @@ Name | Type | Description  | Notes
 > ItemTemplateResource GetCouponTemplate(ctx, ctx, id)
 Get a single coupon template
 
-Coupon Templates define a type of coupon and the properties they have.
+Coupon Templates define a type of coupon and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN or COUPONS_ADMIN
 
 ### Required Parameters
 
@@ -230,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -238,6 +246,8 @@ Name | Type | Description  | Notes
 # **GetCouponTemplates**
 > PageResourceItemTemplateResource GetCouponTemplates(ctx, ctx, optional)
 List and search coupon templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or COUPONS_ADMIN
 
 ### Required Parameters
 
@@ -266,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -274,6 +284,8 @@ Name | Type | Description  | Notes
 # **UpdateCouponItem**
 > CouponItem UpdateCouponItem(ctx, ctx, id, optional)
 Update a coupon item
+
+<b>Permissions Needed:</b> COUPONS_ADMIN
 
 ### Required Parameters
 
@@ -311,6 +323,8 @@ Name | Type | Description  | Notes
 # **UpdateCouponTemplate**
 > ItemTemplateResource UpdateCouponTemplate(ctx, ctx, id, optional)
 Update a coupon template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 

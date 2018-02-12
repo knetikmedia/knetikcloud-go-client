@@ -1,6 +1,6 @@
 # \PaymentsWalletsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,6 +16,8 @@ Method | HTTP request | Description
 # **GetUserWallet**
 > SimpleWallet GetUserWallet(ctx, ctx, userId, currencyCode)
 Returns the user's wallet for the given currency code
+
+<b>Permissions Needed:</b> WALLETS_ADMIN or owner
 
 ### Required Parameters
 
@@ -36,7 +38,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -44,6 +46,8 @@ Name | Type | Description  | Notes
 # **GetUserWalletTransactions**
 > PageResourceWalletTransactionResource GetUserWalletTransactions(ctx, ctx, userId, currencyCode, optional)
 Retrieve a user's wallet transactions
+
+<b>Permissions Needed:</b> WALLETS_ADMIN or owner
 
 ### Required Parameters
 
@@ -80,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -88,6 +92,8 @@ Name | Type | Description  | Notes
 # **GetUserWallets**
 > []SimpleWallet GetUserWallets(ctx, ctx, userId)
 List all of a user's wallets
+
+<b>Permissions Needed:</b> WALLETS_ADMIN or owner
 
 ### Required Parameters
 
@@ -107,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -115,6 +121,8 @@ Name | Type | Description  | Notes
 # **GetWalletBalances**
 > PageResourceWalletTotalResponse GetWalletBalances(ctx, ctx, )
 Retrieves a summation of wallet balances by currency code
+
+<b>Permissions Needed:</b> WALLETS_ADMIN
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -129,7 +137,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -137,6 +145,8 @@ This endpoint does not need any parameter.
 # **GetWalletTransactions**
 > PageResourceWalletTransactionResource GetWalletTransactions(ctx, ctx, optional)
 Retrieve wallet transactions across the system
+
+<b>Permissions Needed:</b> WALLETS_ADMIN
 
 ### Required Parameters
 
@@ -173,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -181,6 +191,8 @@ Name | Type | Description  | Notes
 # **GetWallets**
 > PageResourceSimpleWallet GetWallets(ctx, ctx, optional)
 Retrieve a list of wallets across the system
+
+<b>Permissions Needed:</b> WALLETS_ADMIN
 
 ### Required Parameters
 
@@ -209,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -217,6 +229,8 @@ Name | Type | Description  | Notes
 # **UpdateWalletBalance**
 > WalletTransactionResource UpdateWalletBalance(ctx, ctx, userId, currencyCode, optional)
 Updates the balance for a user's wallet
+
+<b>Permissions Needed:</b> WALLETS_ADMIN
 
 ### Required Parameters
 

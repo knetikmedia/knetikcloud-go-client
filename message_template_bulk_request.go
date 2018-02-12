@@ -10,13 +10,11 @@
 
 package swagger
 
-type IoConfig struct {
+type MessageTemplateBulkRequest struct {
 
-	Customer string `json:"customer,omitempty"`
+	// The data to fill the templates with
+	Data *interface{} `json:"data"`
 
-	Enabled bool `json:"enabled,omitempty"`
-
-	Environment string `json:"environment,omitempty"`
-
-	Product string `json:"product,omitempty"`
+	// A list of message template ids
+	Ids []string `json:"ids"`
 }

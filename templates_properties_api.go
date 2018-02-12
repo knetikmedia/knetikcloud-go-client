@@ -28,6 +28,7 @@ type TemplatesPropertiesApiService service
 
 
 /* TemplatesPropertiesApiService Get details for a template property type
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param type_ type
  @return PropertyFieldListResource*/
@@ -50,7 +51,7 @@ func (a *TemplatesPropertiesApiService) GetTemplatePropertyType(ctx context.Cont
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -91,6 +92,7 @@ func (a *TemplatesPropertiesApiService) GetTemplatePropertyType(ctx context.Cont
 }
 
 /* TemplatesPropertiesApiService List template property types
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return []PropertyFieldListResource*/
 func (a *TemplatesPropertiesApiService) GetTemplatePropertyTypes(ctx context.Context, ) ([]PropertyFieldListResource,  *http.Response, error) {
@@ -111,7 +113,7 @@ func (a *TemplatesPropertiesApiService) GetTemplatePropertyTypes(ctx context.Con
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

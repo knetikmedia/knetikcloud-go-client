@@ -1,6 +1,6 @@
 # \AuthTokensApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,6 +12,8 @@ Method | HTTP request | Description
 # **DeleteTokens**
 > DeleteTokens(ctx, ctx, optional)
 Delete tokens by username, client id, or both
+
+<b>Permissions Needed:</b> TOKENS_ADMIN
 
 ### Required Parameters
 
@@ -39,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -47,6 +49,8 @@ Name | Type | Description  | Notes
 # **GetToken**
 > OauthAccessTokenResource GetToken(ctx, ctx, username, clientId)
 Get a single token by username and client id
+
+<b>Permissions Needed:</b> TOKENS_ADMIN
 
 ### Required Parameters
 
@@ -67,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -76,7 +80,7 @@ Name | Type | Description  | Notes
 > PageResourceOauthAccessTokenResource GetTokens(ctx, ctx, optional)
 List usernames and client ids
 
-Token value not shown
+Token value not shown. <br><br><b>Permissions Needed:</b> TOKENS_ADMIN
 
 ### Required Parameters
 
@@ -107,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

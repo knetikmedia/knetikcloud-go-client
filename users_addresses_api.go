@@ -28,6 +28,7 @@ type UsersAddressesApiService service
 
 
 /* UsersAddressesApiService Create a new address
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -97,6 +98,7 @@ func (a *UsersAddressesApiService) CreateAddress(ctx context.Context, userId str
 }
 
 /* UsersAddressesApiService Delete an address
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param id The id of the address
@@ -120,7 +122,7 @@ func (a *UsersAddressesApiService) DeleteAddress(ctx context.Context, userId str
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -156,6 +158,7 @@ func (a *UsersAddressesApiService) DeleteAddress(ctx context.Context, userId str
 }
 
 /* UsersAddressesApiService Get a single address
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param id The id of the address
@@ -180,7 +183,7 @@ func (a *UsersAddressesApiService) GetAddress(ctx context.Context, userId string
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -221,6 +224,7 @@ func (a *UsersAddressesApiService) GetAddress(ctx context.Context, userId string
 }
 
 /* UsersAddressesApiService List and search addresses
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -265,7 +269,7 @@ func (a *UsersAddressesApiService) GetAddresses(ctx context.Context, userId stri
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -306,6 +310,7 @@ func (a *UsersAddressesApiService) GetAddresses(ctx context.Context, userId stri
 }
 
 /* UsersAddressesApiService Update an address
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param id The id of the address

@@ -28,6 +28,7 @@ type FulfillmentApiService service
 
 
 /* FulfillmentApiService Create a fulfillment type
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; FULFILLMENT_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "type_" (FulfillmentType) The fulfillment type
@@ -95,6 +96,7 @@ func (a *FulfillmentApiService) CreateFulfillmentType(ctx context.Context, local
 }
 
 /* FulfillmentApiService Delete a fulfillment type
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; FULFILLMENT_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id
  @return */
@@ -116,7 +118,7 @@ func (a *FulfillmentApiService) DeleteFulfillmentType(ctx context.Context, id in
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -152,6 +154,7 @@ func (a *FulfillmentApiService) DeleteFulfillmentType(ctx context.Context, id in
 }
 
 /* FulfillmentApiService Get a single fulfillment type
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id
  @return FulfillmentType*/
@@ -174,7 +177,7 @@ func (a *FulfillmentApiService) GetFulfillmentType(ctx context.Context, id int32
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -215,6 +218,7 @@ func (a *FulfillmentApiService) GetFulfillmentType(ctx context.Context, id int32
 }
 
 /* FulfillmentApiService List and search fulfillment types
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -257,7 +261,7 @@ func (a *FulfillmentApiService) GetFulfillmentTypes(ctx context.Context, localVa
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -298,6 +302,7 @@ func (a *FulfillmentApiService) GetFulfillmentTypes(ctx context.Context, localVa
 }
 
 /* FulfillmentApiService Update a fulfillment type
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; FULFILLMENT_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id
  @param optional (nil or map[string]interface{}) with one or more of:

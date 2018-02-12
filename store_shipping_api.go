@@ -28,7 +28,7 @@ type StoreShippingApiService service
 
 
 /* StoreShippingApiService Create a shipping item
- A shipping item represents a shipping option and cost. SKUs have to be unique in the entire store.
+ A shipping item represents a shipping option and cost. SKUs have to be unique in the entire store. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SHIPPING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
@@ -171,6 +171,7 @@ func (a *StoreShippingApiService) CreateShippingTemplate(ctx context.Context, lo
 }
 
 /* StoreShippingApiService Delete a shipping item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SHIPPING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the shipping item
  @return */
@@ -192,7 +193,7 @@ func (a *StoreShippingApiService) DeleteShippingItem(ctx context.Context, id int
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -228,6 +229,7 @@ func (a *StoreShippingApiService) DeleteShippingItem(ctx context.Context, id int
 }
 
 /* StoreShippingApiService Delete a shipping template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -257,7 +259,7 @@ func (a *StoreShippingApiService) DeleteShippingTemplate(ctx context.Context, id
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -293,6 +295,7 @@ func (a *StoreShippingApiService) DeleteShippingTemplate(ctx context.Context, id
 }
 
 /* StoreShippingApiService Get a single shipping item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the shipping item
  @return ShippingItem*/
@@ -315,7 +318,7 @@ func (a *StoreShippingApiService) GetShippingItem(ctx context.Context, id int32)
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -356,7 +359,7 @@ func (a *StoreShippingApiService) GetShippingItem(ctx context.Context, id int32)
 }
 
 /* StoreShippingApiService Get a single shipping template
- Shipping Templates define a type of shipping and the properties they have.
+ Shipping Templates define a type of shipping and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SHIPPING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
@@ -379,7 +382,7 @@ func (a *StoreShippingApiService) GetShippingTemplate(ctx context.Context, id st
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -420,6 +423,7 @@ func (a *StoreShippingApiService) GetShippingTemplate(ctx context.Context, id st
 }
 
 /* StoreShippingApiService List and search shipping templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SHIPPING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -462,7 +466,7 @@ func (a *StoreShippingApiService) GetShippingTemplates(ctx context.Context, loca
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -503,6 +507,7 @@ func (a *StoreShippingApiService) GetShippingTemplates(ctx context.Context, loca
 }
 
 /* StoreShippingApiService Update a shipping item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SHIPPING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the shipping item
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -579,6 +584,7 @@ func (a *StoreShippingApiService) UpdateShippingItem(ctx context.Context, id int
 }
 
 /* StoreShippingApiService Update a shipping template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

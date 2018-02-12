@@ -63,6 +63,7 @@ type APIClient struct {
 	CampaignsChallengesApi	*CampaignsChallengesApiService
 	CampaignsRewardsApi	*CampaignsRewardsApiService
 	CategoriesApi	*CategoriesApiService
+	ChatApi	*ChatApiService
 	ConfigsApi	*ConfigsApiService
 	ContentArticlesApi	*ContentArticlesApiService
 	ContentCommentsApi	*ContentCommentsApiService
@@ -83,6 +84,8 @@ type APIClient struct {
 	MediaModerationApi	*MediaModerationApiService
 	MediaVideosApi	*MediaVideosApiService
 	MessagingApi	*MessagingApiService
+	MessagingTopicsApi	*MessagingTopicsApiService
+	NotificationsApi	*NotificationsApiService
 	ObjectsApi	*ObjectsApiService
 	PaymentsApi	*PaymentsApiService
 	PaymentsAppleApi	*PaymentsAppleApiService
@@ -162,6 +165,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CampaignsChallengesApi = (*CampaignsChallengesApiService)(&c.common)
 	c.CampaignsRewardsApi = (*CampaignsRewardsApiService)(&c.common)
 	c.CategoriesApi = (*CategoriesApiService)(&c.common)
+	c.ChatApi = (*ChatApiService)(&c.common)
 	c.ConfigsApi = (*ConfigsApiService)(&c.common)
 	c.ContentArticlesApi = (*ContentArticlesApiService)(&c.common)
 	c.ContentCommentsApi = (*ContentCommentsApiService)(&c.common)
@@ -182,6 +186,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.MediaModerationApi = (*MediaModerationApiService)(&c.common)
 	c.MediaVideosApi = (*MediaVideosApiService)(&c.common)
 	c.MessagingApi = (*MessagingApiService)(&c.common)
+	c.MessagingTopicsApi = (*MessagingTopicsApiService)(&c.common)
+	c.NotificationsApi = (*NotificationsApiService)(&c.common)
 	c.ObjectsApi = (*ObjectsApiService)(&c.common)
 	c.PaymentsApi = (*PaymentsApiService)(&c.common)
 	c.PaymentsAppleApi = (*PaymentsAppleApiService)(&c.common)

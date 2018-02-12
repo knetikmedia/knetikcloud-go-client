@@ -28,6 +28,7 @@ type MediaModerationApiService service
 
 
 /* MediaModerationApiService Add a flag
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "flagResource" (FlagResource) The flag resource object
@@ -95,6 +96,7 @@ func (a *MediaModerationApiService) AddFlag(ctx context.Context, localVarOptiona
 }
 
 /* MediaModerationApiService Delete a flag
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; MODERATION_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "contextName" (string) The name of the context
@@ -136,7 +138,7 @@ func (a *MediaModerationApiService) DeleteFlag(ctx context.Context, localVarOpti
 		localVarQueryParams.Add("user_id", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -172,6 +174,7 @@ func (a *MediaModerationApiService) DeleteFlag(ctx context.Context, localVarOpti
 }
 
 /* MediaModerationApiService Returns a page of flags
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; MODERATION_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterContext" (string) Filter by flag context
@@ -228,7 +231,7 @@ func (a *MediaModerationApiService) GetFlags(ctx context.Context, localVarOption
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -269,6 +272,7 @@ func (a *MediaModerationApiService) GetFlags(ctx context.Context, localVarOption
 }
 
 /* MediaModerationApiService Get a flag report
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; MODERATION_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The flag report id
  @return FlagReportResource*/
@@ -291,7 +295,7 @@ func (a *MediaModerationApiService) GetModerationReport(ctx context.Context, id 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -332,7 +336,7 @@ func (a *MediaModerationApiService) GetModerationReport(ctx context.Context, id 
 }
 
 /* MediaModerationApiService Returns a page of flag reports
- Context can be either a free-form string or a pre-defined context name
+ Context can be either a free-form string or a pre-defined context name. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; MODERATION_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "excludeResolved" (bool) Ignore resolved context
@@ -389,7 +393,7 @@ func (a *MediaModerationApiService) GetModerationReports(ctx context.Context, lo
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -430,7 +434,7 @@ func (a *MediaModerationApiService) GetModerationReports(ctx context.Context, lo
 }
 
 /* MediaModerationApiService Update a flag report
- Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of &#39;banned&#39; you will need to pass the reason.
+ Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of &#39;banned&#39; you will need to pass the reason. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; MODERATION_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The flag report id
  @param optional (nil or map[string]interface{}) with one or more of:

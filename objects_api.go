@@ -28,6 +28,7 @@ type ObjectsApiService service
 
 
 /* ObjectsApiService Create an object
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param templateId The id of the template this object is to be part of
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -104,7 +105,7 @@ func (a *ObjectsApiService) CreateObjectItem(ctx context.Context, templateId str
 }
 
 /* ObjectsApiService Create an object template
- Object templates define a type of entitlement and the properties they have
+ Object templates define a type of entitlement and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (ItemTemplateResource) The entitlement template to be created
@@ -172,6 +173,7 @@ func (a *ObjectsApiService) CreateObjectTemplate(ctx context.Context, localVarOp
 }
 
 /* ObjectsApiService Delete an object
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param templateId The id of the template this object is part of
  @param objectId The id of the object
@@ -195,7 +197,7 @@ func (a *ObjectsApiService) DeleteObjectItem(ctx context.Context, templateId str
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -231,7 +233,7 @@ func (a *ObjectsApiService) DeleteObjectItem(ctx context.Context, templateId str
 }
 
 /* ObjectsApiService Delete an entitlement template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -261,7 +263,7 @@ func (a *ObjectsApiService) DeleteObjectTemplate(ctx context.Context, id string,
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -297,6 +299,7 @@ func (a *ObjectsApiService) DeleteObjectTemplate(ctx context.Context, id string,
 }
 
 /* ObjectsApiService Get a single object
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param templateId The id of the template this object is part of
  @param objectId The id of the object
@@ -321,7 +324,7 @@ func (a *ObjectsApiService) GetObjectItem(ctx context.Context, templateId string
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -362,6 +365,7 @@ func (a *ObjectsApiService) GetObjectItem(ctx context.Context, templateId string
 }
 
 /* ObjectsApiService List and search objects
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param templateId The id of the template to get objects for
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -406,7 +410,7 @@ func (a *ObjectsApiService) GetObjectItems(ctx context.Context, templateId strin
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -447,6 +451,7 @@ func (a *ObjectsApiService) GetObjectItems(ctx context.Context, templateId strin
 }
 
 /* ObjectsApiService Get a single entitlement template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
@@ -469,7 +474,7 @@ func (a *ObjectsApiService) GetObjectTemplate(ctx context.Context, id string) (I
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -510,6 +515,7 @@ func (a *ObjectsApiService) GetObjectTemplate(ctx context.Context, id string) (I
 }
 
 /* ObjectsApiService List and search entitlement templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -552,7 +558,7 @@ func (a *ObjectsApiService) GetObjectTemplates(ctx context.Context, localVarOpti
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -593,6 +599,7 @@ func (a *ObjectsApiService) GetObjectTemplates(ctx context.Context, localVarOpti
 }
 
 /* ObjectsApiService Update an object
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param templateId The id of the template this object is part of
  @param objectId The id of the object
@@ -665,6 +672,7 @@ func (a *ObjectsApiService) UpdateObjectItem(ctx context.Context, templateId str
 }
 
 /* ObjectsApiService Update an entitlement template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

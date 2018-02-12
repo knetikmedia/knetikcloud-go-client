@@ -1,6 +1,6 @@
 # \CampaignsRewardsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,6 +14,8 @@ Method | HTTP request | Description
 # **CreateRewardSet**
 > RewardSetResource CreateRewardSet(ctx, ctx, optional)
 Create a reward set
+
+<b>Permissions Needed:</b> REWARDS_ADMIN
 
 ### Required Parameters
 
@@ -49,6 +51,8 @@ Name | Type | Description  | Notes
 > DeleteRewardSet(ctx, ctx, id)
 Delete a reward set
 
+<b>Permissions Needed:</b> REWARDS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -67,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -75,6 +79,8 @@ Name | Type | Description  | Notes
 # **GetRewardSet**
 > RewardSetResource GetRewardSet(ctx, ctx, id)
 Get a single reward set
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -94,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -102,6 +108,8 @@ Name | Type | Description  | Notes
 # **GetRewardSets**
 > PageResourceRewardSetResource GetRewardSets(ctx, ctx, optional)
 List and search reward sets
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -130,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -138,6 +146,8 @@ Name | Type | Description  | Notes
 # **UpdateRewardSet**
 > RewardSetResource UpdateRewardSet(ctx, ctx, id, optional)
 Update a reward set
+
+<b>Permissions Needed:</b> REWARDS_ADMIN
 
 ### Required Parameters
 

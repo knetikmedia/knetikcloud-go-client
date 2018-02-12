@@ -1,6 +1,6 @@
 # \TaxesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,6 +20,8 @@ Method | HTTP request | Description
 # **CreateCountryTax**
 > CountryTaxResource CreateCountryTax(ctx, ctx, optional)
 Create a country tax
+
+<b>Permissions Needed:</b> TAX_ADMIN
 
 ### Required Parameters
 
@@ -54,6 +56,8 @@ Name | Type | Description  | Notes
 # **CreateStateTax**
 > StateTaxResource CreateStateTax(ctx, ctx, countryCodeIso3, optional)
 Create a state tax
+
+<b>Permissions Needed:</b> TAX_ADMIN
 
 ### Required Parameters
 
@@ -91,6 +95,8 @@ Name | Type | Description  | Notes
 > DeleteCountryTax(ctx, ctx, countryCodeIso3)
 Delete an existing tax
 
+<b>Permissions Needed:</b> TAX_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -109,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -117,6 +123,8 @@ Name | Type | Description  | Notes
 # **DeleteStateTax**
 > DeleteStateTax(ctx, ctx, countryCodeIso3, stateCode)
 Delete an existing state tax
+
+<b>Permissions Needed:</b> TAX_ADMIN
 
 ### Required Parameters
 
@@ -137,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -145,6 +153,8 @@ Name | Type | Description  | Notes
 # **GetCountryTax**
 > CountryTaxResource GetCountryTax(ctx, ctx, countryCodeIso3)
 Get a single tax
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -164,7 +174,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -173,7 +183,7 @@ Name | Type | Description  | Notes
 > PageResourceCountryTaxResource GetCountryTaxes(ctx, ctx, optional)
 List and search taxes
 
-Get a list of taxes
+<b>Permissions Needed:</b> TAX_ADMIN
 
 ### Required Parameters
 
@@ -202,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -210,6 +220,8 @@ Name | Type | Description  | Notes
 # **GetStateTax**
 > StateTaxResource GetStateTax(ctx, ctx, countryCodeIso3, stateCode)
 Get a single state tax
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -230,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -239,7 +251,7 @@ Name | Type | Description  | Notes
 > PageResourceStateTaxResource GetStateTaxesForCountries(ctx, ctx, optional)
 List and search taxes across all countries
 
-Get a list of taxes
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -268,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -277,7 +289,7 @@ Name | Type | Description  | Notes
 > PageResourceStateTaxResource GetStateTaxesForCountry(ctx, ctx, countryCodeIso3, optional)
 List and search taxes within a country
 
-Get a list of taxes
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -308,7 +320,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -316,6 +328,8 @@ Name | Type | Description  | Notes
 # **UpdateCountryTax**
 > CountryTaxResource UpdateCountryTax(ctx, ctx, countryCodeIso3, optional)
 Create or update a tax
+
+<b>Permissions Needed:</b> TAX_ADMIN
 
 ### Required Parameters
 
@@ -352,6 +366,8 @@ Name | Type | Description  | Notes
 # **UpdateStateTax**
 > StateTaxResource UpdateStateTax(ctx, ctx, countryCodeIso3, stateCode, optional)
 Create or update a state tax
+
+<b>Permissions Needed:</b> TAX_ADMIN
 
 ### Required Parameters
 

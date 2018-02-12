@@ -1,6 +1,6 @@
 # \StoreShoppingCartsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,6 +22,8 @@ Method | HTTP request | Description
 # **AddCustomDiscount**
 > AddCustomDiscount(ctx, ctx, id, optional)
 Adds a custom discount to the cart
+
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN
 
 ### Required Parameters
 
@@ -59,6 +61,8 @@ Name | Type | Description  | Notes
 > AddDiscountToCart(ctx, ctx, id, optional)
 Adds a discount coupon to the cart
 
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -95,7 +99,7 @@ Name | Type | Description  | Notes
 > AddItemToCart(ctx, ctx, id, optional)
 Add an item to the cart
 
-Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment
+Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Required Parameters
 
@@ -133,7 +137,7 @@ Name | Type | Description  | Notes
 > string CreateCart(ctx, ctx, optional)
 Create a cart
 
-You don't have to have a user to create a cart but the API requires authentication to checkout
+You don't have to have a user to create a cart but the API requires authentication to checkout. <br><br><b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -170,6 +174,8 @@ Name | Type | Description  | Notes
 > Cart GetCart(ctx, ctx, id)
 Returns the cart with the given GUID
 
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -188,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -196,6 +202,8 @@ Name | Type | Description  | Notes
 # **GetCarts**
 > PageResourceCartSummary GetCarts(ctx, ctx, optional)
 Get a list of carts
+
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Required Parameters
 
@@ -225,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -233,6 +241,8 @@ Name | Type | Description  | Notes
 # **GetShippable**
 > CartShippableResponse GetShippable(ctx, ctx, id)
 Returns whether a cart requires shipping
+
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Required Parameters
 
@@ -252,7 +262,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -261,7 +271,7 @@ Name | Type | Description  | Notes
 > SampleCountriesResponse GetShippingCountries(ctx, ctx, id)
 Get the list of available shipping countries per vendor
 
-Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable.
+Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Required Parameters
 
@@ -281,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -289,6 +299,8 @@ Name | Type | Description  | Notes
 # **RemoveDiscountFromCart**
 > RemoveDiscountFromCart(ctx, ctx, id, code)
 Removes a discount coupon from the cart
+
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Required Parameters
 
@@ -309,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -318,7 +330,7 @@ Name | Type | Description  | Notes
 > SetCartCurrency(ctx, ctx, id, optional)
 Sets the currency to use for the cart
 
-May be disallowed by site settings.
+May be disallowed by site settings. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Required Parameters
 
@@ -356,6 +368,8 @@ Name | Type | Description  | Notes
 > SetCartOwner(ctx, ctx, id, optional)
 Sets the owner of a cart if none is set already
 
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -392,7 +406,7 @@ Name | Type | Description  | Notes
 > UpdateItemInCart(ctx, ctx, id, optional)
 Changes the quantity of an item already in the cart
 
-A quantity of zero will remove the item from the cart altogether.
+A quantity of zero will remove the item from the cart altogether. <br><br><b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Required Parameters
 
@@ -429,6 +443,8 @@ Name | Type | Description  | Notes
 # **UpdateShippingAddress**
 > UpdateShippingAddress(ctx, ctx, id, optional)
 Modifies or sets the order shipping address
+
+<b>Permissions Needed:</b> SHOPPING_CARTS_ADMIN or owner
 
 ### Required Parameters
 

@@ -28,7 +28,7 @@ type ContentArticlesApiService service
 
 
 /* ContentArticlesApiService Create a new article
- Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
+ Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.&lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions:&lt;/b&gt; ARTICLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "articleResource" (ArticleResource) The new article
@@ -96,7 +96,7 @@ func (a *ContentArticlesApiService) CreateArticle(ctx context.Context, localVarO
 }
 
 /* ContentArticlesApiService Create an article template
- Article Templates define a type of article and the properties they have
+ Article Templates define a type of article and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "articleTemplateResource" (TemplateResource) The article template resource object
@@ -164,6 +164,7 @@ func (a *ContentArticlesApiService) CreateArticleTemplate(ctx context.Context, l
 }
 
 /* ContentArticlesApiService Delete an existing article
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTICLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The article id
  @return */
@@ -185,7 +186,7 @@ func (a *ContentArticlesApiService) DeleteArticle(ctx context.Context, id string
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -221,7 +222,7 @@ func (a *ContentArticlesApiService) DeleteArticle(ctx context.Context, id string
 }
 
 /* ContentArticlesApiService Delete an article template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -251,7 +252,7 @@ func (a *ContentArticlesApiService) DeleteArticleTemplate(ctx context.Context, i
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -287,6 +288,7 @@ func (a *ContentArticlesApiService) DeleteArticleTemplate(ctx context.Context, i
 }
 
 /* ContentArticlesApiService Get a single article
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The article id
  @return ArticleResource*/
@@ -309,7 +311,7 @@ func (a *ContentArticlesApiService) GetArticle(ctx context.Context, id string) (
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -350,6 +352,7 @@ func (a *ContentArticlesApiService) GetArticle(ctx context.Context, id string) (
 }
 
 /* ContentArticlesApiService Get a single article template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTICLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -372,7 +375,7 @@ func (a *ContentArticlesApiService) GetArticleTemplate(ctx context.Context, id s
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -413,6 +416,7 @@ func (a *ContentArticlesApiService) GetArticleTemplate(ctx context.Context, id s
 }
 
 /* ContentArticlesApiService List and search article templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTICLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -455,7 +459,7 @@ func (a *ContentArticlesApiService) GetArticleTemplates(ctx context.Context, loc
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -496,7 +500,7 @@ func (a *ContentArticlesApiService) GetArticleTemplates(ctx context.Context, loc
 }
 
 /* ContentArticlesApiService List and search articles
- Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single article&#39; to retrieve the full resource with assets for a given item as needed.
+ Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single article&#39; to retrieve the full resource with assets for a given item as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterActiveOnly" (bool) Filter for articles that are active (true) or inactive (false)
@@ -581,7 +585,7 @@ func (a *ContentArticlesApiService) GetArticles(ctx context.Context, localVarOpt
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -622,6 +626,7 @@ func (a *ContentArticlesApiService) GetArticles(ctx context.Context, localVarOpt
 }
 
 /* ContentArticlesApiService Update an existing article
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTICLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The article id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -691,6 +696,7 @@ func (a *ContentArticlesApiService) UpdateArticle(ctx context.Context, id string
 }
 
 /* ContentArticlesApiService Update an article template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

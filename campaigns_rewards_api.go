@@ -28,6 +28,7 @@ type CampaignsRewardsApiService service
 
 
 /* CampaignsRewardsApiService Create a reward set
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; REWARDS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "rewardSetResource" (RewardSetResource) The reward set resource object
@@ -95,6 +96,7 @@ func (a *CampaignsRewardsApiService) CreateRewardSet(ctx context.Context, localV
 }
 
 /* CampaignsRewardsApiService Delete a reward set
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; REWARDS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The reward id
  @return */
@@ -116,7 +118,7 @@ func (a *CampaignsRewardsApiService) DeleteRewardSet(ctx context.Context, id int
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -152,6 +154,7 @@ func (a *CampaignsRewardsApiService) DeleteRewardSet(ctx context.Context, id int
 }
 
 /* CampaignsRewardsApiService Get a single reward set
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The reward id
  @return RewardSetResource*/
@@ -174,7 +177,7 @@ func (a *CampaignsRewardsApiService) GetRewardSet(ctx context.Context, id int32)
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -215,6 +218,7 @@ func (a *CampaignsRewardsApiService) GetRewardSet(ctx context.Context, id int32)
 }
 
 /* CampaignsRewardsApiService List and search reward sets
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -257,7 +261,7 @@ func (a *CampaignsRewardsApiService) GetRewardSets(ctx context.Context, localVar
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -298,6 +302,7 @@ func (a *CampaignsRewardsApiService) GetRewardSets(ctx context.Context, localVar
 }
 
 /* CampaignsRewardsApiService Update a reward set
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; REWARDS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The reward id
  @param optional (nil or map[string]interface{}) with one or more of:

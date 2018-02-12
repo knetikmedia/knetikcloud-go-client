@@ -28,7 +28,7 @@ type BRERuleEngineTriggersApiService service
 
 
 /* BRERuleEngineTriggersApiService Create a trigger
- Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services
+ Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_TRIGGERS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "breTriggerResource" (BreTriggerResource) The BRE trigger resource object
@@ -96,7 +96,7 @@ func (a *BRERuleEngineTriggersApiService) CreateBRETrigger(ctx context.Context, 
 }
 
 /* BRERuleEngineTriggersApiService Delete a trigger
- May fail if there are existing rules against it. Cannot delete core triggers
+ May fail if there are existing rules against it. Cannot delete core triggers. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_TRIGGERS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param eventName The trigger event name
  @return */
@@ -118,7 +118,7 @@ func (a *BRERuleEngineTriggersApiService) DeleteBRETrigger(ctx context.Context, 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -154,6 +154,7 @@ func (a *BRERuleEngineTriggersApiService) DeleteBRETrigger(ctx context.Context, 
 }
 
 /* BRERuleEngineTriggersApiService Get a single trigger
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_TRIGGERS_USER
  * @param ctx context.Context Authentication Context 
  @param eventName The trigger event name
  @return BreTriggerResource*/
@@ -176,7 +177,7 @@ func (a *BRERuleEngineTriggersApiService) GetBRETrigger(ctx context.Context, eve
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -217,6 +218,7 @@ func (a *BRERuleEngineTriggersApiService) GetBRETrigger(ctx context.Context, eve
 }
 
 /* BRERuleEngineTriggersApiService List triggers
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_TRIGGERS_USER
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSystem" (bool) Filter for triggers that are system triggers when true, or not when false. Leave off for both mixed
@@ -287,7 +289,7 @@ func (a *BRERuleEngineTriggersApiService) GetBRETriggers(ctx context.Context, lo
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -328,7 +330,7 @@ func (a *BRERuleEngineTriggersApiService) GetBRETriggers(ctx context.Context, lo
 }
 
 /* BRERuleEngineTriggersApiService Update a trigger
- May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers
+ May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_TRIGGERS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param eventName The trigger event name
  @param optional (nil or map[string]interface{}) with one or more of:

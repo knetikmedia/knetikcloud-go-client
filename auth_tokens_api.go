@@ -28,6 +28,7 @@ type AuthTokensApiService service
 
 
 /* AuthTokensApiService Delete tokens by username, client id, or both
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TOKENS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "username" (string) The username of the user
@@ -62,7 +63,7 @@ func (a *AuthTokensApiService) DeleteTokens(ctx context.Context, localVarOptiona
 		localVarQueryParams.Add("client_id", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -98,6 +99,7 @@ func (a *AuthTokensApiService) DeleteTokens(ctx context.Context, localVarOptiona
 }
 
 /* AuthTokensApiService Get a single token by username and client id
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TOKENS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param username The username of the user
  @param clientId The id of the client
@@ -122,7 +124,7 @@ func (a *AuthTokensApiService) GetToken(ctx context.Context, username string, cl
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -163,7 +165,7 @@ func (a *AuthTokensApiService) GetToken(ctx context.Context, username string, cl
 }
 
 /* AuthTokensApiService List usernames and client ids
- Token value not shown
+ Token value not shown. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TOKENS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterClientId" (string) Filters for token whose client id matches provided string
@@ -220,7 +222,7 @@ func (a *AuthTokensApiService) GetTokens(ctx context.Context, localVarOptionals 
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

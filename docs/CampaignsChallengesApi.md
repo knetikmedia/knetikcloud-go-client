@@ -1,6 +1,6 @@
 # \CampaignsChallengesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,7 +33,7 @@ Method | HTTP request | Description
 > ChallengeResource CreateChallenge(ctx, ctx, optional)
 Create a challenge
 
-Challenges do not run on their own.  They must be added to a campaign before events will spawn.
+Challenges do not run on their own.  They must be added to a campaign before events will spawn. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
 
 ### Required Parameters
 
@@ -68,6 +68,8 @@ Name | Type | Description  | Notes
 # **CreateChallengeActivity**
 > ChallengeActivityResource CreateChallengeActivity(ctx, ctx, challengeId, optional)
 Create a challenge activity
+
+<b>Permissions Needed:</b> CHALLENGES_ADMIN
 
 ### Required Parameters
 
@@ -106,7 +108,7 @@ Name | Type | Description  | Notes
 > TemplateResource CreateChallengeActivityTemplate(ctx, ctx, optional)
 Create a challenge activity template
 
-Challenge Activity Templates define a type of challenge activity and the properties they have
+Challenge Activity Templates define a type of challenge activity and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -142,7 +144,7 @@ Name | Type | Description  | Notes
 > TemplateResource CreateChallengeTemplate(ctx, ctx, optional)
 Create a challenge template
 
-Challenge Templates define a type of challenge and the properties they have
+Challenge Templates define a type of challenge and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -178,6 +180,8 @@ Name | Type | Description  | Notes
 > DeleteChallenge(ctx, ctx, id)
 Delete a challenge
 
+<b>Permissions Needed:</b> CHALLENGES_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -196,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -205,7 +209,7 @@ Name | Type | Description  | Notes
 > DeleteChallengeActivity(ctx, ctx, id, challengeId)
 Delete a challenge activity
 
-A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
 
 ### Required Parameters
 
@@ -226,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -235,7 +239,7 @@ Name | Type | Description  | Notes
 > DeleteChallengeActivityTemplate(ctx, ctx, id, optional)
 Delete a challenge activity template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -264,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -272,6 +276,8 @@ Name | Type | Description  | Notes
 # **DeleteChallengeEvent**
 > DeleteChallengeEvent(ctx, ctx, id)
 Delete a challenge event
+
+<b>Permissions Needed:</b> CHALLENGES_ADMIN
 
 ### Required Parameters
 
@@ -291,7 +297,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -300,7 +306,7 @@ Name | Type | Description  | Notes
 > DeleteChallengeTemplate(ctx, ctx, id, optional)
 Delete a challenge template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -329,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -337,6 +343,8 @@ Name | Type | Description  | Notes
 # **GetChallenge**
 > ChallengeResource GetChallenge(ctx, ctx, id)
 Retrieve a challenge
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -356,7 +364,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -364,6 +372,8 @@ Name | Type | Description  | Notes
 # **GetChallengeActivities**
 > PageResourceBareChallengeActivityResource GetChallengeActivities(ctx, ctx, challengeId, optional)
 List and search challenge activities
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -394,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -403,7 +413,7 @@ Name | Type | Description  | Notes
 > ChallengeActivityResource GetChallengeActivity(ctx, ctx, id, challengeId)
 Get a single challenge activity
 
-A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. <br><br><b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -424,7 +434,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -432,6 +442,8 @@ Name | Type | Description  | Notes
 # **GetChallengeActivityTemplate**
 > TemplateResource GetChallengeActivityTemplate(ctx, ctx, id)
 Get a single challenge activity template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
 
 ### Required Parameters
 
@@ -451,7 +463,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -459,6 +471,8 @@ Name | Type | Description  | Notes
 # **GetChallengeActivityTemplates**
 > PageResourceTemplateResource GetChallengeActivityTemplates(ctx, ctx, optional)
 List and search challenge activity templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
 
 ### Required Parameters
 
@@ -487,7 +501,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -495,6 +509,8 @@ Name | Type | Description  | Notes
 # **GetChallengeEvent**
 > ChallengeEventResource GetChallengeEvent(ctx, ctx, id)
 Retrieve a single challenge event details
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -514,7 +530,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -522,6 +538,8 @@ Name | Type | Description  | Notes
 # **GetChallengeEvents**
 > PageResourceChallengeEventResource GetChallengeEvents(ctx, ctx, optional)
 Retrieve a list of challenge events
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -554,7 +572,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -562,6 +580,8 @@ Name | Type | Description  | Notes
 # **GetChallengeTemplate**
 > TemplateResource GetChallengeTemplate(ctx, ctx, id)
 Get a single challenge template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
 
 ### Required Parameters
 
@@ -581,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -589,6 +609,8 @@ Name | Type | Description  | Notes
 # **GetChallengeTemplates**
 > PageResourceTemplateResource GetChallengeTemplates(ctx, ctx, optional)
 List and search challenge templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or CHALLENGES_ADMIN
 
 ### Required Parameters
 
@@ -617,7 +639,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -625,6 +647,8 @@ Name | Type | Description  | Notes
 # **GetChallenges**
 > PageResourceChallengeResource GetChallenges(ctx, ctx, optional)
 Retrieve a list of challenges
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -656,7 +680,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -665,7 +689,7 @@ Name | Type | Description  | Notes
 > ChallengeResource UpdateChallenge(ctx, ctx, id, optional)
 Update a challenge
 
-If the challenge is a copy, changes will propagate to all the related challenges
+If the challenge is a copy, changes will propagate to all the related challenges. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
 
 ### Required Parameters
 
@@ -703,7 +727,7 @@ Name | Type | Description  | Notes
 > ChallengeActivityResource UpdateChallengeActivity(ctx, ctx, id, challengeId, optional)
 Update a challenge activity
 
-A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. <br><br><b>Permissions Needed:</b> CHALLENGES_ADMIN
 
 ### Required Parameters
 
@@ -744,6 +768,8 @@ Name | Type | Description  | Notes
 > TemplateResource UpdateChallengeActivityTemplate(ctx, ctx, id, optional)
 Update an challenge activity template
 
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -779,6 +805,8 @@ Name | Type | Description  | Notes
 # **UpdateChallengeTemplate**
 > TemplateResource UpdateChallengeTemplate(ctx, ctx, id, optional)
 Update a challenge template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 

@@ -28,7 +28,7 @@ type UsersInventoryApiService service
 
 
 /* UsersInventoryApiService Adds an item to the user inventory
- The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time
+ The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -98,7 +98,7 @@ func (a *UsersInventoryApiService) AddItemToUserInventory(ctx context.Context, i
 }
 
 /* UsersInventoryApiService Check for access to an item without consuming
- Useful for pre-check and accounts for all various buisness rules
+ Useful for pre-check and accounts for all various buisness rules. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user to check for or &#39;me&#39; for logged in user
  @param itemId The id of the item
@@ -130,7 +130,7 @@ func (a *UsersInventoryApiService) CheckUserEntitlementItem(ctx context.Context,
 		localVarQueryParams.Add("sku", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -166,6 +166,7 @@ func (a *UsersInventoryApiService) CheckUserEntitlementItem(ctx context.Context,
 }
 
 /* UsersInventoryApiService Create an entitlement item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
@@ -240,7 +241,7 @@ func (a *UsersInventoryApiService) CreateEntitlementItem(ctx context.Context, lo
 }
 
 /* UsersInventoryApiService Create an entitlement template
- Entitlement templates define a type of entitlement and the properties they have
+ Entitlement templates define a type of entitlement and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (ItemTemplateResource) The entitlement template to be created
@@ -308,6 +309,7 @@ func (a *UsersInventoryApiService) CreateEntitlementTemplate(ctx context.Context
 }
 
 /* UsersInventoryApiService Delete an entitlement item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param entitlementId The id of the entitlement
  @return */
@@ -329,7 +331,7 @@ func (a *UsersInventoryApiService) DeleteEntitlementItem(ctx context.Context, en
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -365,7 +367,7 @@ func (a *UsersInventoryApiService) DeleteEntitlementItem(ctx context.Context, en
 }
 
 /* UsersInventoryApiService Delete an entitlement template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -395,7 +397,7 @@ func (a *UsersInventoryApiService) DeleteEntitlementTemplate(ctx context.Context
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -431,6 +433,7 @@ func (a *UsersInventoryApiService) DeleteEntitlementTemplate(ctx context.Context
 }
 
 /* UsersInventoryApiService Get a single entitlement item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param entitlementId The id of the entitlement
  @return EntitlementItem*/
@@ -453,7 +456,7 @@ func (a *UsersInventoryApiService) GetEntitlementItem(ctx context.Context, entit
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -494,6 +497,7 @@ func (a *UsersInventoryApiService) GetEntitlementItem(ctx context.Context, entit
 }
 
 /* UsersInventoryApiService List and search entitlement items
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterTemplate" (string) Filter for entitlements using a specified template
@@ -543,7 +547,7 @@ func (a *UsersInventoryApiService) GetEntitlementItems(ctx context.Context, loca
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -584,6 +588,7 @@ func (a *UsersInventoryApiService) GetEntitlementItems(ctx context.Context, loca
 }
 
 /* UsersInventoryApiService Get a single entitlement template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
@@ -606,7 +611,7 @@ func (a *UsersInventoryApiService) GetEntitlementTemplate(ctx context.Context, i
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -647,6 +652,7 @@ func (a *UsersInventoryApiService) GetEntitlementTemplate(ctx context.Context, i
 }
 
 /* UsersInventoryApiService List and search entitlement templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -689,7 +695,7 @@ func (a *UsersInventoryApiService) GetEntitlementTemplates(ctx context.Context, 
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -730,6 +736,7 @@ func (a *UsersInventoryApiService) GetEntitlementTemplates(ctx context.Context, 
 }
 
 /* UsersInventoryApiService List the user inventory entries for a given user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -809,7 +816,7 @@ func (a *UsersInventoryApiService) GetUserInventories(ctx context.Context, id in
 		localVarQueryParams.Add("filter_date", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -850,11 +857,12 @@ func (a *UsersInventoryApiService) GetUserInventories(ctx context.Context, id in
 }
 
 /* UsersInventoryApiService Get an inventory entry
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the inventory owner or &#39;me&#39; for the logged in user
  @param id The id of the user inventory
  @return UserInventoryResource*/
-func (a *UsersInventoryApiService) GetUserInventory(ctx context.Context, userId int32, id int32) (UserInventoryResource,  *http.Response, error) {
+func (a *UsersInventoryApiService) GetUserInventory(ctx context.Context, userId string, id int32) (UserInventoryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -874,7 +882,7 @@ func (a *UsersInventoryApiService) GetUserInventory(ctx context.Context, userId 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -915,6 +923,7 @@ func (a *UsersInventoryApiService) GetUserInventory(ctx context.Context, userId 
 }
 
 /* UsersInventoryApiService List the log entries for this inventory entry
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the inventory owner or &#39;me&#39; for the logged in user
  @param id The id of the user inventory
@@ -954,7 +963,7 @@ func (a *UsersInventoryApiService) GetUserInventoryLog(ctx context.Context, user
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -995,6 +1004,7 @@ func (a *UsersInventoryApiService) GetUserInventoryLog(ctx context.Context, user
 }
 
 /* UsersInventoryApiService List the user inventory entries for all users
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "inactive" (bool) If true, accepts inactive user inventories
@@ -1072,7 +1082,7 @@ func (a *UsersInventoryApiService) GetUsersInventory(ctx context.Context, localV
 		localVarQueryParams.Add("filter_date", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1113,6 +1123,7 @@ func (a *UsersInventoryApiService) GetUsersInventory(ctx context.Context, localV
 }
 
 /* UsersInventoryApiService Grant an entitlement
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user to grant the entitlement to
  @param grantRequest grantRequest
@@ -1173,6 +1184,7 @@ func (a *UsersInventoryApiService) GrantUserEntitlement(ctx context.Context, use
 }
 
 /* UsersInventoryApiService Update an entitlement item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param entitlementId The id of the entitlement
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1243,6 +1255,7 @@ func (a *UsersInventoryApiService) UpdateEntitlementItem(ctx context.Context, en
 }
 
 /* UsersInventoryApiService Update an entitlement template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1312,6 +1325,7 @@ func (a *UsersInventoryApiService) UpdateEntitlementTemplate(ctx context.Context
 }
 
 /* UsersInventoryApiService Set the behavior data for an inventory entry
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param id The id of the user inventory
@@ -1377,7 +1391,7 @@ func (a *UsersInventoryApiService) UpdateUserInventoryBehaviorData(ctx context.C
 }
 
 /* UsersInventoryApiService Set the expiration date
- Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill)
+ Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill). &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId user_id
  @param id The id of the user inventory
@@ -1446,6 +1460,7 @@ func (a *UsersInventoryApiService) UpdateUserInventoryExpires(ctx context.Contex
 }
 
 /* UsersInventoryApiService Set the status for an inventory entry
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param id The id of the user inventory
@@ -1514,6 +1529,7 @@ func (a *UsersInventoryApiService) UpdateUserInventoryStatus(ctx context.Context
 }
 
 /* UsersInventoryApiService Use an item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user to check for or &#39;me&#39; for logged in user
  @param itemId The id of the item

@@ -28,6 +28,7 @@ type DispositionsApiService service
 
 
 /* DispositionsApiService Add a new disposition
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; DISPOSITIONS_USER and user, or DISPOSITIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "disposition" (DispositionResource) The new disposition record
@@ -95,6 +96,7 @@ func (a *DispositionsApiService) AddDisposition(ctx context.Context, localVarOpt
 }
 
 /* DispositionsApiService Delete a disposition
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; DISPOSITIONS_USER and owner, or DISPOSITIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the disposition record
  @return */
@@ -116,7 +118,7 @@ func (a *DispositionsApiService) DeleteDisposition(ctx context.Context, id int64
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -152,6 +154,7 @@ func (a *DispositionsApiService) DeleteDisposition(ctx context.Context, id int64
 }
 
 /* DispositionsApiService Returns a disposition
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the disposition record
  @return DispositionResource*/
@@ -174,7 +177,7 @@ func (a *DispositionsApiService) GetDisposition(ctx context.Context, id int64) (
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -215,6 +218,7 @@ func (a *DispositionsApiService) GetDisposition(ctx context.Context, id int64) (
 }
 
 /* DispositionsApiService Returns a list of disposition counts
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterContext" (string) Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context&#x3D;video:47
@@ -250,7 +254,7 @@ func (a *DispositionsApiService) GetDispositionCounts(ctx context.Context, local
 		localVarQueryParams.Add("filter_owner", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -291,6 +295,7 @@ func (a *DispositionsApiService) GetDispositionCounts(ctx context.Context, local
 }
 
 /* DispositionsApiService Returns a page of dispositions
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterContext" (string) Filter for dispositions within a context type (games, articles, polls, etc). Optionally with a specific id like filter_context&#x3D;video:47
@@ -347,7 +352,7 @@ func (a *DispositionsApiService) GetDispositions(ctx context.Context, localVarOp
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

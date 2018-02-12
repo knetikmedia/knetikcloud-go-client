@@ -1,6 +1,6 @@
 # \UsersFriendshipsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 > AddFriend(ctx, ctx, userId, id)
 Add a friend
 
-As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship.
+As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 
 ### Required Parameters
 
@@ -45,6 +45,8 @@ Name | Type | Description  | Notes
 # **GetFriends**
 > PageResourceSimpleUserResource GetFriends(ctx, ctx, userId, optional)
 Get friends list
+
+<b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 
 ### Required Parameters
 
@@ -76,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -85,7 +87,7 @@ Name | Type | Description  | Notes
 > string GetInviteToken(ctx, ctx, userId)
 Returns the invite token
 
-This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request flow instead if confirmation is required
+This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)flow instead if confirmation is required
 
 ### Required Parameters
 
@@ -105,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -114,7 +116,7 @@ Name | Type | Description  | Notes
 > PageResourceSimpleUserResource GetInvites(ctx, ctx, userId, optional)
 Get pending invites
 
-Invites that the specified user received
+Invites that the specified user received. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 
 ### Required Parameters
 
@@ -144,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -153,7 +155,7 @@ Name | Type | Description  | Notes
 > RedeemFriendshipToken(ctx, ctx, userId, optional)
 Redeem friendship token
 
-Immediately connects the requested user with the user mapped by the provided invite token
+Immediately connects the requested user with the user mapped by the provided invite token. <br><br><b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
 
 ### Required Parameters
 
@@ -191,6 +193,8 @@ Name | Type | Description  | Notes
 > RemoveOrDeclineFriend(ctx, ctx, userId, id)
 Remove or decline a friend
 
+<b>Permissions Needed:</b> FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -210,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

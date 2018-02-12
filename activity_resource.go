@@ -16,6 +16,9 @@ type ActivityResource struct {
 	// A map of additional properties keyed on the property name. Used to further describe an activity. While settings will vary from one activity occurrence (a game) to another, additional properties are shared by all the occurrences of this activity. Ex: Activity Logo, Disclaimer, Greeting, etc. Validated against template if one exists for activities
 	AdditionalProperties map[string]Property `json:"additional_properties,omitempty"`
 
+	// Defines core settings about the activity that affect how it can be created/played by users.
+	CoreSettings *CoreActivitySettings `json:"core_settings,omitempty"`
+
 	// The date/time this resource was created in seconds since unix epoch
 	CreatedDate int64 `json:"created_date,omitempty"`
 
@@ -53,7 +56,7 @@ type ActivityResource struct {
 	TemplateId string `json:"template_id,omitempty"`
 
 	// The type of the activity
-	Type_ string `json:"type"`
+	Type_ string `json:"type,omitempty"`
 
 	// The unique key (for static reference in code) of the activity
 	UniqueKey string `json:"unique_key,omitempty"`

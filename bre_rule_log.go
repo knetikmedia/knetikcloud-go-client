@@ -12,6 +12,9 @@ package swagger
 
 type BreRuleLog struct {
 
+	// The actions of the BRE rule
+	Actions []BreActionLog `json:"actions,omitempty"`
+
 	// Whether the rule ran
 	Ran bool `json:"ran,omitempty"`
 

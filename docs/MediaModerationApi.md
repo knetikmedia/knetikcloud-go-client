@@ -1,6 +1,6 @@
 # \MediaModerationApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,6 +15,8 @@ Method | HTTP request | Description
 # **AddFlag**
 > FlagResource AddFlag(ctx, ctx, optional)
 Add a flag
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -50,6 +52,8 @@ Name | Type | Description  | Notes
 > DeleteFlag(ctx, ctx, optional)
 Delete a flag
 
+<b>Permissions Needed:</b> MODERATION_ADMIN or owner
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -77,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -85,6 +89,8 @@ Name | Type | Description  | Notes
 # **GetFlags**
 > PageResourceFlagResource GetFlags(ctx, ctx, optional)
 Returns a page of flags
+
+<b>Permissions Needed:</b> MODERATION_ADMIN or owner
 
 ### Required Parameters
 
@@ -115,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -123,6 +129,8 @@ Name | Type | Description  | Notes
 # **GetModerationReport**
 > FlagReportResource GetModerationReport(ctx, ctx, id)
 Get a flag report
+
+<b>Permissions Needed:</b> MODERATION_ADMIN
 
 ### Required Parameters
 
@@ -142,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -151,7 +159,7 @@ Name | Type | Description  | Notes
 > PageResourceFlagReportResource GetModerationReports(ctx, ctx, optional)
 Returns a page of flag reports
 
-Context can be either a free-form string or a pre-defined context name
+Context can be either a free-form string or a pre-defined context name. <br><br><b>Permissions Needed:</b> MODERATION_ADMIN
 
 ### Required Parameters
 
@@ -182,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -191,7 +199,7 @@ Name | Type | Description  | Notes
 > UpdateModerationReport(ctx, ctx, id, optional)
 Update a flag report
 
-Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason.
+Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of 'banned' you will need to pass the reason. <br><br><b>Permissions Needed:</b> MODERATION_ADMIN
 
 ### Required Parameters
 

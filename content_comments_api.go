@@ -28,6 +28,7 @@ type ContentCommentsApiService service
 
 
 /* ContentCommentsApiService Add a new comment
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; COMMENTS_USER or COMMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "commentResource" (CommentResource) The comment to be added
@@ -95,6 +96,7 @@ func (a *ContentCommentsApiService) AddComment(ctx context.Context, localVarOpti
 }
 
 /* ContentCommentsApiService Delete a comment
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; COMMENTS_USER or COMMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The comment id
  @return */
@@ -116,7 +118,7 @@ func (a *ContentCommentsApiService) DeleteComment(ctx context.Context, id int64)
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -152,6 +154,7 @@ func (a *ContentCommentsApiService) DeleteComment(ctx context.Context, id int64)
 }
 
 /* ContentCommentsApiService Return a comment
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The comment id
  @return CommentResource*/
@@ -174,7 +177,7 @@ func (a *ContentCommentsApiService) GetComment(ctx context.Context, id int64) (C
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -215,6 +218,7 @@ func (a *ContentCommentsApiService) GetComment(ctx context.Context, id int64) (C
 }
 
 /* ContentCommentsApiService Returns a page of comments
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param context Get comments by context type
  @param contextId Get comments by context id
@@ -254,7 +258,7 @@ func (a *ContentCommentsApiService) GetComments(ctx context.Context, context str
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -295,6 +299,7 @@ func (a *ContentCommentsApiService) GetComments(ctx context.Context, context str
 }
 
 /* ContentCommentsApiService Update a comment
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; COMMENTS_USER or COMMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The comment id
  @param optional (nil or map[string]interface{}) with one or more of:

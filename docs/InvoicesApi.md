@@ -1,6 +1,6 @@
 # \InvoicesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,7 +23,7 @@ Method | HTTP request | Description
 > []InvoiceResource CreateInvoice(ctx, ctx, optional)
 Create an invoice
 
-Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor.
+Create an invoice(s) by providing a cart GUID. Note that there may be multiple invoices created, one per vendor. <br><br><b>Permissions Needed:</b> INVOICES_USER or INVOICES_ADMIN
 
 ### Required Parameters
 
@@ -59,6 +59,8 @@ Name | Type | Description  | Notes
 > []string GetFulFillmentStatuses(ctx, ctx, )
 Lists available fulfillment statuses
 
+<b>Permissions Needed:</b> ANY
+
 ### Required Parameters
 This endpoint does not need any parameter.
 
@@ -72,7 +74,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -80,6 +82,8 @@ This endpoint does not need any parameter.
 # **GetInvoice**
 > InvoiceResource GetInvoice(ctx, ctx, id)
 Retrieve an invoice
+
+<b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 
 ### Required Parameters
 
@@ -99,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -107,6 +111,8 @@ Name | Type | Description  | Notes
 # **GetInvoiceLogs**
 > PageResourceInvoiceLogEntry GetInvoiceLogs(ctx, ctx, id, optional)
 List invoice logs
+
+<b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 
 ### Required Parameters
 
@@ -136,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -145,7 +151,7 @@ Name | Type | Description  | Notes
 > PageResourceInvoiceResource GetInvoices(ctx, ctx, optional)
 Retrieve invoices
 
-Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices.
+Without INVOICES_ADMIN permission the results are automatically filtered for only the logged in user's invoices. It is recomended however that filter_user be added to avoid issues for admin users accidentally getting additional invoices. <br><br><b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 
 ### Required Parameters
 
@@ -176,7 +182,7 @@ Name | Type | Description  | Notes
  **filterSku** | **string**| Filters invoices by item sku | 
  **size** | **int32**| The number of objects returned per page | [default to 25]
  **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | 
 
 ### Return type
 
@@ -188,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -196,6 +202,8 @@ Name | Type | Description  | Notes
 # **GetPaymentStatuses**
 > []string GetPaymentStatuses(ctx, ctx, )
 Lists available payment statuses
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -210,7 +218,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -218,6 +226,8 @@ This endpoint does not need any parameter.
 # **PayInvoice**
 > PayInvoice(ctx, ctx, id, optional)
 Pay an invoice using a saved payment method
+
+<b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 
 ### Required Parameters
 
@@ -255,7 +265,7 @@ Name | Type | Description  | Notes
 > SetBundledInvoiceItemFulfillmentStatus(ctx, ctx, id, bundleSku, sku, status)
 Set the fulfillment status of a bundled invoice item
 
-This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
 
 ### Required Parameters
 
@@ -286,6 +296,8 @@ Name | Type | Description  | Notes
 # **SetExternalRef**
 > SetExternalRef(ctx, ctx, id, optional)
 Set the external reference of an invoice
+
+<b>Permissions Needed:</b> INVOICES_ADMIN
 
 ### Required Parameters
 
@@ -323,7 +335,7 @@ Name | Type | Description  | Notes
 > SetInvoiceItemFulfillmentStatus(ctx, ctx, id, sku, status)
 Set the fulfillment status of an invoice item
 
-This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.
+This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
 
 ### Required Parameters
 
@@ -353,6 +365,8 @@ Name | Type | Description  | Notes
 # **SetOrderNotes**
 > SetOrderNotes(ctx, ctx, id, optional)
 Set the order notes of an invoice
+
+<b>Permissions Needed:</b> INVOICES_ADMIN
 
 ### Required Parameters
 
@@ -390,7 +404,7 @@ Name | Type | Description  | Notes
 > SetPaymentStatus(ctx, ctx, id, optional)
 Set the payment status of an invoice
 
-This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which.
+This may trigger fulfillment if setting the status to 'paid'. This is mainly intended to support external payment systems that cannot be incorporated into the payment method system. Payment status changes are restricted by a specific flow determining which status can lead to which. <br><br><b>Permissions Needed:</b> INVOICES_ADMIN
 
 ### Required Parameters
 
@@ -427,6 +441,8 @@ Name | Type | Description  | Notes
 # **UpdateBillingInfo**
 > UpdateBillingInfo(ctx, ctx, id, optional)
 Set or update billing info
+
+<b>Permissions Needed:</b> INVOICES_USER and owner, or INVOICES_ADMIN
 
 ### Required Parameters
 

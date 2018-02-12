@@ -28,6 +28,7 @@ type StoreVendorsApiService service
 
 
 /* StoreVendorsApiService Create a vendor
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VENDORS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "vendor" (VendorResource) The vendor
@@ -95,7 +96,7 @@ func (a *StoreVendorsApiService) CreateVendor(ctx context.Context, localVarOptio
 }
 
 /* StoreVendorsApiService Create a vendor template
- Vendor Templates define a type of vendor and the properties they have.
+ Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "vendorTemplateResource" (ItemTemplateResource) The new vendor template
@@ -163,6 +164,7 @@ func (a *StoreVendorsApiService) CreateVendorTemplate(ctx context.Context, local
 }
 
 /* StoreVendorsApiService Delete a vendor
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VENDORS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the vendor
  @return */
@@ -184,7 +186,7 @@ func (a *StoreVendorsApiService) DeleteVendor(ctx context.Context, id int32) ( *
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -220,6 +222,7 @@ func (a *StoreVendorsApiService) DeleteVendor(ctx context.Context, id int32) ( *
 }
 
 /* StoreVendorsApiService Delete a vendor template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -249,7 +252,7 @@ func (a *StoreVendorsApiService) DeleteVendorTemplate(ctx context.Context, id st
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -285,6 +288,7 @@ func (a *StoreVendorsApiService) DeleteVendorTemplate(ctx context.Context, id st
 }
 
 /* StoreVendorsApiService Get a single vendor
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the vendor
  @return VendorResource*/
@@ -307,7 +311,7 @@ func (a *StoreVendorsApiService) GetVendor(ctx context.Context, id int32) (Vendo
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -348,7 +352,7 @@ func (a *StoreVendorsApiService) GetVendor(ctx context.Context, id int32) (Vendo
 }
 
 /* StoreVendorsApiService Get a single vendor template
- Vendor Templates define a type of vendor and the properties they have.
+ Vendor Templates define a type of vendor and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
@@ -371,7 +375,7 @@ func (a *StoreVendorsApiService) GetVendorTemplate(ctx context.Context, id strin
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -412,6 +416,7 @@ func (a *StoreVendorsApiService) GetVendorTemplate(ctx context.Context, id strin
 }
 
 /* StoreVendorsApiService List and search vendor templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -454,7 +459,7 @@ func (a *StoreVendorsApiService) GetVendorTemplates(ctx context.Context, localVa
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -495,6 +500,7 @@ func (a *StoreVendorsApiService) GetVendorTemplates(ctx context.Context, localVa
 }
 
 /* StoreVendorsApiService List and search vendors
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterName" (string) Filters vendors by name starting with the text provided in the filter
@@ -544,7 +550,7 @@ func (a *StoreVendorsApiService) GetVendors(ctx context.Context, localVarOptiona
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -585,6 +591,7 @@ func (a *StoreVendorsApiService) GetVendors(ctx context.Context, localVarOptiona
 }
 
 /* StoreVendorsApiService Update a vendor
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VENDORS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the vendor
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -654,6 +661,7 @@ func (a *StoreVendorsApiService) UpdateVendor(ctx context.Context, id int32, loc
 }
 
 /* StoreVendorsApiService Update a vendor template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

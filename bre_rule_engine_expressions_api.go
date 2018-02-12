@@ -28,6 +28,7 @@ type BRERuleEngineExpressionsApiService service
 
 
 /* BRERuleEngineExpressionsApiService Lookup a specific expression
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EXPRESSIONS_USER
  * @param ctx context.Context Authentication Context 
  @param type_ Specifiy the type of expression as returned by the listing endpoint
  @return ExpressionResource*/
@@ -50,7 +51,7 @@ func (a *BRERuleEngineExpressionsApiService) GetBREExpression(ctx context.Contex
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -90,8 +91,8 @@ func (a *BRERuleEngineExpressionsApiService) GetBREExpression(ctx context.Contex
 	return successPayload, localVarHttpResponse, err
 }
 
-/* BRERuleEngineExpressionsApiService Get a list of supported expressions to use in conditions or actions.
- Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule.
+/* BRERuleEngineExpressionsApiService Get a list of supported expressions to use in conditions or actions
+ Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EXPRESSIONS_USER
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterTypeGroup" (string) Filter for expressions by type group
@@ -120,7 +121,7 @@ func (a *BRERuleEngineExpressionsApiService) GetBREExpressions(ctx context.Conte
 		localVarQueryParams.Add("filter_type_group", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -161,6 +162,7 @@ func (a *BRERuleEngineExpressionsApiService) GetBREExpressions(ctx context.Conte
 }
 
 /* BRERuleEngineExpressionsApiService Returns the textual representation of an expression
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_EXPRESSIONS_USER
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "expression" (ExpressionResource) The expression resource to be converted

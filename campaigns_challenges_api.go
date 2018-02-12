@@ -28,7 +28,7 @@ type CampaignsChallengesApiService service
 
 
 /* CampaignsChallengesApiService Create a challenge
- Challenges do not run on their own.  They must be added to a campaign before events will spawn.
+ Challenges do not run on their own.  They must be added to a campaign before events will spawn. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "challengeResource" (ChallengeResource) The challenge resource object
@@ -96,6 +96,7 @@ func (a *CampaignsChallengesApiService) CreateChallenge(ctx context.Context, loc
 }
 
 /* CampaignsChallengesApiService Create a challenge activity
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param challengeId The challenge id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -172,7 +173,7 @@ func (a *CampaignsChallengesApiService) CreateChallengeActivity(ctx context.Cont
 }
 
 /* CampaignsChallengesApiService Create a challenge activity template
- Challenge Activity Templates define a type of challenge activity and the properties they have
+ Challenge Activity Templates define a type of challenge activity and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "challengeActivityTemplateResource" (TemplateResource) The challengeActivity template resource object
@@ -240,7 +241,7 @@ func (a *CampaignsChallengesApiService) CreateChallengeActivityTemplate(ctx cont
 }
 
 /* CampaignsChallengesApiService Create a challenge template
- Challenge Templates define a type of challenge and the properties they have
+ Challenge Templates define a type of challenge and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "challengeTemplateResource" (TemplateResource) The challenge template resource object
@@ -308,6 +309,7 @@ func (a *CampaignsChallengesApiService) CreateChallengeTemplate(ctx context.Cont
 }
 
 /* CampaignsChallengesApiService Delete a challenge
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The challenge id
  @return */
@@ -329,7 +331,7 @@ func (a *CampaignsChallengesApiService) DeleteChallenge(ctx context.Context, id 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -365,7 +367,7 @@ func (a *CampaignsChallengesApiService) DeleteChallenge(ctx context.Context, id 
 }
 
 /* CampaignsChallengesApiService Delete a challenge activity
- A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+ A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The challenge_activity id
  @param challengeId The challenge id
@@ -389,7 +391,7 @@ func (a *CampaignsChallengesApiService) DeleteChallengeActivity(ctx context.Cont
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -425,7 +427,7 @@ func (a *CampaignsChallengesApiService) DeleteChallengeActivity(ctx context.Cont
 }
 
 /* CampaignsChallengesApiService Delete a challenge activity template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -455,7 +457,7 @@ func (a *CampaignsChallengesApiService) DeleteChallengeActivityTemplate(ctx cont
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -491,6 +493,7 @@ func (a *CampaignsChallengesApiService) DeleteChallengeActivityTemplate(ctx cont
 }
 
 /* CampaignsChallengesApiService Delete a challenge event
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The challenge event id
  @return */
@@ -512,7 +515,7 @@ func (a *CampaignsChallengesApiService) DeleteChallengeEvent(ctx context.Context
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -548,7 +551,7 @@ func (a *CampaignsChallengesApiService) DeleteChallengeEvent(ctx context.Context
 }
 
 /* CampaignsChallengesApiService Delete a challenge template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -578,7 +581,7 @@ func (a *CampaignsChallengesApiService) DeleteChallengeTemplate(ctx context.Cont
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -614,6 +617,7 @@ func (a *CampaignsChallengesApiService) DeleteChallengeTemplate(ctx context.Cont
 }
 
 /* CampaignsChallengesApiService Retrieve a challenge
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The challenge id
  @return ChallengeResource*/
@@ -636,7 +640,7 @@ func (a *CampaignsChallengesApiService) GetChallenge(ctx context.Context, id int
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -677,6 +681,7 @@ func (a *CampaignsChallengesApiService) GetChallenge(ctx context.Context, id int
 }
 
 /* CampaignsChallengesApiService List and search challenge activities
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param challengeId The challenge id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -721,7 +726,7 @@ func (a *CampaignsChallengesApiService) GetChallengeActivities(ctx context.Conte
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -762,7 +767,7 @@ func (a *CampaignsChallengesApiService) GetChallengeActivities(ctx context.Conte
 }
 
 /* CampaignsChallengesApiService Get a single challenge activity
- A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+ A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The challenge_activity id
  @param challengeId The challenge id
@@ -787,7 +792,7 @@ func (a *CampaignsChallengesApiService) GetChallengeActivity(ctx context.Context
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -828,6 +833,7 @@ func (a *CampaignsChallengesApiService) GetChallengeActivity(ctx context.Context
 }
 
 /* CampaignsChallengesApiService Get a single challenge activity template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -850,7 +856,7 @@ func (a *CampaignsChallengesApiService) GetChallengeActivityTemplate(ctx context
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -891,6 +897,7 @@ func (a *CampaignsChallengesApiService) GetChallengeActivityTemplate(ctx context
 }
 
 /* CampaignsChallengesApiService List and search challenge activity templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -933,7 +940,7 @@ func (a *CampaignsChallengesApiService) GetChallengeActivityTemplates(ctx contex
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -974,6 +981,7 @@ func (a *CampaignsChallengesApiService) GetChallengeActivityTemplates(ctx contex
 }
 
 /* CampaignsChallengesApiService Retrieve a single challenge event details
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The challenge event id
  @return ChallengeEventResource*/
@@ -996,7 +1004,7 @@ func (a *CampaignsChallengesApiService) GetChallengeEvent(ctx context.Context, i
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1037,6 +1045,7 @@ func (a *CampaignsChallengesApiService) GetChallengeEvent(ctx context.Context, i
 }
 
 /* CampaignsChallengesApiService Retrieve a list of challenge events
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterStartDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the event start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE).
@@ -1107,7 +1116,7 @@ func (a *CampaignsChallengesApiService) GetChallengeEvents(ctx context.Context, 
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1148,6 +1157,7 @@ func (a *CampaignsChallengesApiService) GetChallengeEvents(ctx context.Context, 
 }
 
 /* CampaignsChallengesApiService Get a single challenge template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -1170,7 +1180,7 @@ func (a *CampaignsChallengesApiService) GetChallengeTemplate(ctx context.Context
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1211,6 +1221,7 @@ func (a *CampaignsChallengesApiService) GetChallengeTemplate(ctx context.Context
 }
 
 /* CampaignsChallengesApiService List and search challenge templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -1253,7 +1264,7 @@ func (a *CampaignsChallengesApiService) GetChallengeTemplates(ctx context.Contex
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1294,6 +1305,7 @@ func (a *CampaignsChallengesApiService) GetChallengeTemplates(ctx context.Contex
 }
 
 /* CampaignsChallengesApiService Retrieve a list of challenges
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterActiveCampaign" (bool) Filter for challenges that are tied to active campaigns
@@ -1357,7 +1369,7 @@ func (a *CampaignsChallengesApiService) GetChallenges(ctx context.Context, local
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1398,7 +1410,7 @@ func (a *CampaignsChallengesApiService) GetChallenges(ctx context.Context, local
 }
 
 /* CampaignsChallengesApiService Update a challenge
- If the challenge is a copy, changes will propagate to all the related challenges
+ If the challenge is a copy, changes will propagate to all the related challenges. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The challenge id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1468,7 +1480,7 @@ func (a *CampaignsChallengesApiService) UpdateChallenge(ctx context.Context, id 
 }
 
 /* CampaignsChallengesApiService Update a challenge activity
- A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge
+ A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The challenge_activity id
  @param challengeId The challenge id
@@ -1547,6 +1559,7 @@ func (a *CampaignsChallengesApiService) UpdateChallengeActivity(ctx context.Cont
 }
 
 /* CampaignsChallengesApiService Update an challenge activity template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1616,6 +1629,7 @@ func (a *CampaignsChallengesApiService) UpdateChallengeActivityTemplate(ctx cont
 }
 
 /* CampaignsChallengesApiService Update a challenge template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

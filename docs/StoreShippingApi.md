@@ -1,6 +1,6 @@
 # \StoreShippingApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 > ShippingItem CreateShippingItem(ctx, ctx, optional)
 Create a shipping item
 
-A shipping item represents a shipping option and cost. SKUs have to be unique in the entire store.
+A shipping item represents a shipping option and cost. SKUs have to be unique in the entire store. <br><br><b>Permissions Needed:</b> SHIPPING_ADMIN
 
 ### Required Parameters
 
@@ -92,6 +92,8 @@ Name | Type | Description  | Notes
 > DeleteShippingItem(ctx, ctx, id)
 Delete a shipping item
 
+<b>Permissions Needed:</b> SHIPPING_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -110,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -118,6 +120,8 @@ Name | Type | Description  | Notes
 # **DeleteShippingTemplate**
 > DeleteShippingTemplate(ctx, ctx, id, optional)
 Delete a shipping template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -146,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -154,6 +158,8 @@ Name | Type | Description  | Notes
 # **GetShippingItem**
 > ShippingItem GetShippingItem(ctx, ctx, id)
 Get a single shipping item
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -173,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -182,7 +188,7 @@ Name | Type | Description  | Notes
 > ItemTemplateResource GetShippingTemplate(ctx, ctx, id)
 Get a single shipping template
 
-Shipping Templates define a type of shipping and the properties they have.
+Shipping Templates define a type of shipping and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN or SHIPPING_ADMIN
 
 ### Required Parameters
 
@@ -202,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -210,6 +216,8 @@ Name | Type | Description  | Notes
 # **GetShippingTemplates**
 > PageResourceItemTemplateResource GetShippingTemplates(ctx, ctx, optional)
 List and search shipping templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or SHIPPING_ADMIN
 
 ### Required Parameters
 
@@ -238,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -246,6 +254,8 @@ Name | Type | Description  | Notes
 # **UpdateShippingItem**
 > ShippingItem UpdateShippingItem(ctx, ctx, id, optional)
 Update a shipping item
+
+<b>Permissions Needed:</b> SHIPPING_ADMIN
 
 ### Required Parameters
 
@@ -283,6 +293,8 @@ Name | Type | Description  | Notes
 # **UpdateShippingTemplate**
 > ItemTemplateResource UpdateShippingTemplate(ctx, ctx, id, optional)
 Update a shipping template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 

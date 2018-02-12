@@ -27,7 +27,7 @@ type ReportingUsersApiService service
 
 
 /* ReportingUsersApiService Get user registration info
- Get user registration counts grouped by time range
+ Get user registration counts grouped by time range. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_USER_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "granularity" (string) The time duration to aggregate by
@@ -84,7 +84,7 @@ func (a *ReportingUsersApiService) GetUserRegistrations(ctx context.Context, loc
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

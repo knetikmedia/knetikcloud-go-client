@@ -30,6 +30,6 @@ type BreGlobalResource struct {
 	// Where this global came from. System globals cannot be removed or updated
 	SystemGlobal bool `json:"system_global,omitempty"`
 
-	// The variable type the global stores. See the See Bre Variables enpoint for list
+	// The variable type the global stores. See the BRE variables endpoint for list
 	Type_ string `json:"type"`
 }

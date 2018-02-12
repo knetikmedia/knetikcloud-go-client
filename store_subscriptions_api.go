@@ -28,6 +28,7 @@ type StoreSubscriptionsApiService service
 
 
 /* StoreSubscriptionsApiService Creates a subscription item and associated plans
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "subscriptionResource" (SubscriptionResource) The subscription to be created
@@ -95,7 +96,7 @@ func (a *StoreSubscriptionsApiService) CreateSubscription(ctx context.Context, l
 }
 
 /* StoreSubscriptionsApiService Create a subscription template
- Subscription Templates define a type of subscription and the properties they have.
+ Subscription Templates define a type of subscription and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "subscriptionTemplateResource" (SubscriptionTemplateResource) The new subscription template
@@ -163,7 +164,7 @@ func (a *StoreSubscriptionsApiService) CreateSubscriptionTemplate(ctx context.Co
 }
 
 /* StoreSubscriptionsApiService Delete a subscription plan
- Must not be locked or a migration target
+ Must not be locked or a migration target. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the subscription
  @param planId The id of the plan
@@ -187,7 +188,7 @@ func (a *StoreSubscriptionsApiService) DeleteSubscription(ctx context.Context, i
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -223,6 +224,7 @@ func (a *StoreSubscriptionsApiService) DeleteSubscription(ctx context.Context, i
 }
 
 /* StoreSubscriptionsApiService Delete a subscription template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -252,7 +254,7 @@ func (a *StoreSubscriptionsApiService) DeleteSubscriptionTemplate(ctx context.Co
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -288,6 +290,7 @@ func (a *StoreSubscriptionsApiService) DeleteSubscriptionTemplate(ctx context.Co
 }
 
 /* StoreSubscriptionsApiService Retrieve a single subscription item and associated plans
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the subscription
  @return SubscriptionResource*/
@@ -310,7 +313,7 @@ func (a *StoreSubscriptionsApiService) GetSubscription(ctx context.Context, id i
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -351,7 +354,7 @@ func (a *StoreSubscriptionsApiService) GetSubscription(ctx context.Context, id i
 }
 
 /* StoreSubscriptionsApiService Get a single subscription template
- Subscription Templates define a type of subscription and the properties they have.
+ Subscription Templates define a type of subscription and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return SubscriptionTemplateResource*/
@@ -374,7 +377,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptionTemplate(ctx context.Conte
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -415,6 +418,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptionTemplate(ctx context.Conte
 }
 
 /* StoreSubscriptionsApiService List and search subscription templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -457,7 +461,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptionTemplates(ctx context.Cont
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -498,6 +502,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptionTemplates(ctx context.Cont
 }
 
 /* StoreSubscriptionsApiService List available subscription items and associated plans
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -540,7 +545,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptions(ctx context.Context, loc
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -581,6 +586,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptions(ctx context.Context, loc
 }
 
 /* StoreSubscriptionsApiService Processes subscriptions and charge dues
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @return */
 func (a *StoreSubscriptionsApiService) ProcessSubscriptions(ctx context.Context, ) ( *http.Response, error) {
@@ -636,7 +642,7 @@ func (a *StoreSubscriptionsApiService) ProcessSubscriptions(ctx context.Context,
 }
 
 /* StoreSubscriptionsApiService Updates a subscription item and associated plans
- Will not remove plans left out
+ Will not remove plans left out. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the subscription
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -700,6 +706,7 @@ func (a *StoreSubscriptionsApiService) UpdateSubscription(ctx context.Context, i
 }
 
 /* StoreSubscriptionsApiService Update a subscription template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

@@ -16,8 +16,6 @@ type CustomerConfig struct {
 
 	Database *DatabaseConfig `json:"database,omitempty"`
 
-	Io *IoConfig `json:"io,omitempty"`
-
 	Name string `json:"name,omitempty"`
 
 	S3Config *S3Config `json:"s3_config,omitempty"`

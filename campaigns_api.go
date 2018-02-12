@@ -28,6 +28,7 @@ type CampaignsApiService service
 
 
 /* CampaignsApiService Add a challenge to a campaign
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CAMPAIGNS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the campaign
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -94,6 +95,7 @@ func (a *CampaignsApiService) AddChallengeToCampaign(ctx context.Context, id int
 }
 
 /* CampaignsApiService Create a campaign
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CAMPAIGNS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "campaignResource" (CampaignResource) The campaign resource object
@@ -161,7 +163,7 @@ func (a *CampaignsApiService) CreateCampaign(ctx context.Context, localVarOption
 }
 
 /* CampaignsApiService Create a campaign template
- Campaign Templates define a type of campaign and the properties they have
+ Campaign Templates define a type of campaign and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "campaignTemplateResource" (TemplateResource) The campaign template resource object
@@ -229,6 +231,7 @@ func (a *CampaignsApiService) CreateCampaignTemplate(ctx context.Context, localV
 }
 
 /* CampaignsApiService Delete a campaign
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CAMPAIGNS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The campaign id
  @return */
@@ -250,7 +253,7 @@ func (a *CampaignsApiService) DeleteCampaign(ctx context.Context, id int64) ( *h
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -286,7 +289,7 @@ func (a *CampaignsApiService) DeleteCampaign(ctx context.Context, id int64) ( *h
 }
 
 /* CampaignsApiService Delete a campaign template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -316,7 +319,7 @@ func (a *CampaignsApiService) DeleteCampaignTemplate(ctx context.Context, id str
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -352,6 +355,7 @@ func (a *CampaignsApiService) DeleteCampaignTemplate(ctx context.Context, id str
 }
 
 /* CampaignsApiService Returns a single campaign
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The campaign id
  @return CampaignResource*/
@@ -374,7 +378,7 @@ func (a *CampaignsApiService) GetCampaign(ctx context.Context, id int64) (Campai
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -415,6 +419,7 @@ func (a *CampaignsApiService) GetCampaign(ctx context.Context, id int64) (Campai
 }
 
 /* CampaignsApiService List the challenges associated with a campaign
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The campaign id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -473,7 +478,7 @@ func (a *CampaignsApiService) GetCampaignChallenges(ctx context.Context, id int6
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -514,6 +519,7 @@ func (a *CampaignsApiService) GetCampaignChallenges(ctx context.Context, id int6
 }
 
 /* CampaignsApiService Get a single campaign template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -536,7 +542,7 @@ func (a *CampaignsApiService) GetCampaignTemplate(ctx context.Context, id string
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -577,6 +583,7 @@ func (a *CampaignsApiService) GetCampaignTemplate(ctx context.Context, id string
 }
 
 /* CampaignsApiService List and search campaign templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CAMPAIGNS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -619,7 +626,7 @@ func (a *CampaignsApiService) GetCampaignTemplates(ctx context.Context, localVar
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -660,6 +667,7 @@ func (a *CampaignsApiService) GetCampaignTemplates(ctx context.Context, localVar
 }
 
 /* CampaignsApiService List and search campaigns
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterActive" (bool) Filter for campaigns that are active
@@ -709,7 +717,7 @@ func (a *CampaignsApiService) GetCampaigns(ctx context.Context, localVarOptional
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -750,6 +758,7 @@ func (a *CampaignsApiService) GetCampaigns(ctx context.Context, localVarOptional
 }
 
 /* CampaignsApiService Remove a challenge from a campaign
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CAMPAIGNS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param campaignId The campaign id
  @param id The challenge id
@@ -773,7 +782,7 @@ func (a *CampaignsApiService) RemoveChallengeFromCampaign(ctx context.Context, c
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -809,6 +818,7 @@ func (a *CampaignsApiService) RemoveChallengeFromCampaign(ctx context.Context, c
 }
 
 /* CampaignsApiService Update a campaign
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CAMPAIGNS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The campaign id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -878,6 +888,7 @@ func (a *CampaignsApiService) UpdateCampaign(ctx context.Context, id int64, loca
 }
 
 /* CampaignsApiService Update an campaign template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

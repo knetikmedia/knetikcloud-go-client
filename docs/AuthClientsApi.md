@@ -1,6 +1,6 @@
 # \AuthClientsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,6 +17,8 @@ Method | HTTP request | Description
 # **CreateClient**
 > ClientResource CreateClient(ctx, ctx, optional)
 Create a new client
+
+<b>Permissions Needed:</b> CLIENTS_ADMIN
 
 ### Required Parameters
 
@@ -52,6 +54,8 @@ Name | Type | Description  | Notes
 > DeleteClient(ctx, ctx, clientKey)
 Delete a client
 
+<b>Permissions Needed:</b> CLIENTS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -70,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -78,6 +82,8 @@ Name | Type | Description  | Notes
 # **GetClient**
 > ClientResource GetClient(ctx, ctx, clientKey)
 Get a single client
+
+<b>Permissions Needed:</b> CLIENTS_ADMIN
 
 ### Required Parameters
 
@@ -97,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -105,6 +111,8 @@ Name | Type | Description  | Notes
 # **GetClientGrantTypes**
 > []GrantTypeResource GetClientGrantTypes(ctx, ctx, )
 List available client grant types
+
+<b>Permissions Needed:</b> CLIENTS_ADMIN
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -119,7 +127,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -127,6 +135,8 @@ This endpoint does not need any parameter.
 # **GetClients**
 > PageResourceClientResource GetClients(ctx, ctx, optional)
 List and search clients
+
+<b>Permissions Needed:</b> CLIENTS_ADMIN
 
 ### Required Parameters
 
@@ -155,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -163,6 +173,8 @@ Name | Type | Description  | Notes
 # **SetClientGrantTypes**
 > SetClientGrantTypes(ctx, ctx, clientKey, optional)
 Set grant types for a client
+
+<b>Permissions Needed:</b> CLIENTS_ADMIN
 
 ### Required Parameters
 
@@ -200,6 +212,8 @@ Name | Type | Description  | Notes
 > SetClientRedirectUris(ctx, ctx, clientKey, optional)
 Set redirect uris for a client
 
+<b>Permissions Needed:</b> CLIENTS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -235,6 +249,8 @@ Name | Type | Description  | Notes
 # **UpdateClient**
 > ClientResource UpdateClient(ctx, ctx, clientKey, optional)
 Update a client
+
+<b>Permissions Needed:</b> CLIENTS_ADMIN
 
 ### Required Parameters
 

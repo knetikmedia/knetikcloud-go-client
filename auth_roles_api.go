@@ -28,6 +28,7 @@ type AuthRolesApiService service
 
 
 /* AuthRolesApiService Create a new role
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "roleResource" (RoleResource) The role resource object
@@ -95,6 +96,7 @@ func (a *AuthRolesApiService) CreateRole(ctx context.Context, localVarOptionals 
 }
 
 /* AuthRolesApiService Delete a role
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param role The role value
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -124,7 +126,7 @@ func (a *AuthRolesApiService) DeleteRole(ctx context.Context, role string, local
 		localVarQueryParams.Add("force", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -160,6 +162,7 @@ func (a *AuthRolesApiService) DeleteRole(ctx context.Context, role string, local
 }
 
 /* AuthRolesApiService Get roles for a client
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The client key
  @return []RoleResource*/
@@ -182,7 +185,7 @@ func (a *AuthRolesApiService) GetClientRoles(ctx context.Context, clientKey stri
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -223,6 +226,7 @@ func (a *AuthRolesApiService) GetClientRoles(ctx context.Context, clientKey stri
 }
 
 /* AuthRolesApiService Get a single role
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param role The role value
  @return RoleResource*/
@@ -245,7 +249,7 @@ func (a *AuthRolesApiService) GetRole(ctx context.Context, role string) (RoleRes
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -286,6 +290,7 @@ func (a *AuthRolesApiService) GetRole(ctx context.Context, role string) (RoleRes
 }
 
 /* AuthRolesApiService List and search roles
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterName" (string) Filter for roles that have a name starting with specified string
@@ -342,7 +347,7 @@ func (a *AuthRolesApiService) GetRoles(ctx context.Context, localVarOptionals ma
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -383,6 +388,7 @@ func (a *AuthRolesApiService) GetRoles(ctx context.Context, localVarOptionals ma
 }
 
 /* AuthRolesApiService Get roles for a user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @return []RoleResource*/
@@ -405,7 +411,7 @@ func (a *AuthRolesApiService) GetUserRoles(ctx context.Context, userId int32) ([
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -446,6 +452,7 @@ func (a *AuthRolesApiService) GetUserRoles(ctx context.Context, userId int32) ([
 }
 
 /* AuthRolesApiService Set roles for a client
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The client key
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -518,6 +525,7 @@ func (a *AuthRolesApiService) SetClientRoles(ctx context.Context, clientKey stri
 }
 
 /* AuthRolesApiService Set permissions for a role
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param role The role value
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -590,6 +598,7 @@ func (a *AuthRolesApiService) SetPermissionsForRole(ctx context.Context, role st
 }
 
 /* AuthRolesApiService Set roles for a user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -662,6 +671,7 @@ func (a *AuthRolesApiService) SetUserRoles(ctx context.Context, userId int32, lo
 }
 
 /* AuthRolesApiService Update a role
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param role The role value
  @param optional (nil or map[string]interface{}) with one or more of:

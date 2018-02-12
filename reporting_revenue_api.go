@@ -28,7 +28,7 @@ type ReportingRevenueApiService service
 
 
 /* ReportingRevenueApiService Get item revenue info
- Get basic info about revenue from sales of items and bundles (not subscriptions, shipping, etc), summed up within a time range
+ Get basic info about revenue from sales of items and bundles (not subscriptions, shipping, etc), summed up within a time range. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_REVENUE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param currencyCode The code for a currency to get sales data for
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -66,7 +66,7 @@ func (a *ReportingRevenueApiService) GetItemRevenue(ctx context.Context, currenc
 		localVarQueryParams.Add("end_date", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -107,7 +107,7 @@ func (a *ReportingRevenueApiService) GetItemRevenue(ctx context.Context, currenc
 }
 
 /* ReportingRevenueApiService Get refund revenue info
- Get basic info about revenue loss from refunds (for all item types), summed up within a time range.
+ Get basic info about revenue loss from refunds (for all item types), summed up within a time range. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_REVENUE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param currencyCode The code for a currency to get refund data for
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -145,7 +145,7 @@ func (a *ReportingRevenueApiService) GetRefundRevenue(ctx context.Context, curre
 		localVarQueryParams.Add("end_date", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -186,7 +186,7 @@ func (a *ReportingRevenueApiService) GetRefundRevenue(ctx context.Context, curre
 }
 
 /* ReportingRevenueApiService Get revenue info by country
- Get basic info about revenue from sales of all types, summed up within a time range and split out by country. Sorted for largest revenue at the top
+ Get basic info about revenue from sales of all types, summed up within a time range and split out by country. Sorted for largest revenue at the top. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_REVENUE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param currencyCode The code for a currency to get sales data for
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -238,7 +238,7 @@ func (a *ReportingRevenueApiService) GetRevenueByCountry(ctx context.Context, cu
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -279,7 +279,7 @@ func (a *ReportingRevenueApiService) GetRevenueByCountry(ctx context.Context, cu
 }
 
 /* ReportingRevenueApiService Get revenue info by item
- Get basic info about revenue from sales of all types, summed up within a time range and split out by specific item. Sorted for largest revenue at the top
+ Get basic info about revenue from sales of all types, summed up within a time range and split out by specific item. Sorted for largest revenue at the top. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_REVENUE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param currencyCode The code for a currency to get sales data for
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -331,7 +331,7 @@ func (a *ReportingRevenueApiService) GetRevenueByItem(ctx context.Context, curre
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -372,7 +372,7 @@ func (a *ReportingRevenueApiService) GetRevenueByItem(ctx context.Context, curre
 }
 
 /* ReportingRevenueApiService Get subscription revenue info
- Get basic info about revenue from sales of new subscriptions as well as recurring payemnts, summed up within a time range
+ Get basic info about revenue from sales of new subscriptions as well as recurring payemnts, summed up within a time range. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_REVENUE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param currencyCode The code for a currency to get sales data for
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -410,7 +410,7 @@ func (a *ReportingRevenueApiService) GetSubscriptionRevenue(ctx context.Context,
 		localVarQueryParams.Add("end_date", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

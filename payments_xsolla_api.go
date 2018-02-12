@@ -27,6 +27,7 @@ type PaymentsXsollaApiService service
 
 
 /* PaymentsXsollaApiService Create a payment token that should be used to forward the user to Xsolla so they can complete payment
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; XSOLLA_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (XsollaPaymentRequest) The payment request to be sent to XSolla

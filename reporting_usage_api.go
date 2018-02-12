@@ -27,6 +27,7 @@ type ReportingUsageApiService service
 
 
 /* ReportingUsageApiService Returns aggregated endpoint usage information by day
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
@@ -87,7 +88,7 @@ func (a *ReportingUsageApiService) GetUsageByDay(ctx context.Context, startDate 
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -128,6 +129,7 @@ func (a *ReportingUsageApiService) GetUsageByDay(ctx context.Context, startDate 
 }
 
 /* ReportingUsageApiService Returns aggregated endpoint usage information by hour
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
@@ -188,7 +190,7 @@ func (a *ReportingUsageApiService) GetUsageByHour(ctx context.Context, startDate
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -229,6 +231,7 @@ func (a *ReportingUsageApiService) GetUsageByHour(ctx context.Context, startDate
 }
 
 /* ReportingUsageApiService Returns aggregated endpoint usage information by minute
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
@@ -289,7 +292,7 @@ func (a *ReportingUsageApiService) GetUsageByMinute(ctx context.Context, startDa
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -330,6 +333,7 @@ func (a *ReportingUsageApiService) GetUsageByMinute(ctx context.Context, startDa
 }
 
 /* ReportingUsageApiService Returns aggregated endpoint usage information by month
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
@@ -390,7 +394,7 @@ func (a *ReportingUsageApiService) GetUsageByMonth(ctx context.Context, startDat
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -431,6 +435,7 @@ func (a *ReportingUsageApiService) GetUsageByMonth(ctx context.Context, startDat
 }
 
 /* ReportingUsageApiService Returns aggregated endpoint usage information by year
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
@@ -491,7 +496,7 @@ func (a *ReportingUsageApiService) GetUsageByYear(ctx context.Context, startDate
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -532,6 +537,7 @@ func (a *ReportingUsageApiService) GetUsageByYear(ctx context.Context, startDate
 }
 
 /* ReportingUsageApiService Returns list of endpoints called (method and url)
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
@@ -556,7 +562,7 @@ func (a *ReportingUsageApiService) GetUsageEndpoints(ctx context.Context, startD
 	localVarQueryParams.Add("start_date", parameterToString(startDate, ""))
 	localVarQueryParams.Add("end_date", parameterToString(endDate, ""))
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

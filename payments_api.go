@@ -28,6 +28,7 @@ type PaymentsApiService service
 
 
 /* PaymentsApiService Create a new payment method for a user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId ID of the user for whom the payment method is being created
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -97,6 +98,7 @@ func (a *PaymentsApiService) CreatePaymentMethod(ctx context.Context, userId int
 }
 
 /* PaymentsApiService Delete an existing payment method for a user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId ID of the user for whom the payment method is being updated
  @param id ID of the payment method being deleted
@@ -120,7 +122,7 @@ func (a *PaymentsApiService) DeletePaymentMethod(ctx context.Context, userId int
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -156,6 +158,7 @@ func (a *PaymentsApiService) DeletePaymentMethod(ctx context.Context, userId int
 }
 
 /* PaymentsApiService Get a single payment method for a user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId ID of the user for whom the payment method is being retrieved
  @param id ID of the payment method being retrieved
@@ -180,7 +183,7 @@ func (a *PaymentsApiService) GetPaymentMethod(ctx context.Context, userId int32,
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -221,6 +224,7 @@ func (a *PaymentsApiService) GetPaymentMethod(ctx context.Context, userId int32,
 }
 
 /* PaymentsApiService Get a single payment method type
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id ID of the payment method type being retrieved
  @return PaymentMethodTypeResource*/
@@ -243,7 +247,7 @@ func (a *PaymentsApiService) GetPaymentMethodType(ctx context.Context, id int32)
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -284,6 +288,7 @@ func (a *PaymentsApiService) GetPaymentMethodType(ctx context.Context, id int32)
 }
 
 /* PaymentsApiService Get all payment method types
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterName" (string) Filter for payment method types whose name matches a given string
@@ -333,7 +338,7 @@ func (a *PaymentsApiService) GetPaymentMethodTypes(ctx context.Context, localVar
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -374,6 +379,7 @@ func (a *PaymentsApiService) GetPaymentMethodTypes(ctx context.Context, localVar
 }
 
 /* PaymentsApiService Get all payment methods for a user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId ID of the user for whom the payment methods are being retrieved
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -446,7 +452,7 @@ func (a *PaymentsApiService) GetPaymentMethods(ctx context.Context, userId int32
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -487,6 +493,7 @@ func (a *PaymentsApiService) GetPaymentMethods(ctx context.Context, userId int32
 }
 
 /* PaymentsApiService Authorize payment of an invoice for later capture
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_ADMIN or PAYMENTS_USER
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (PaymentAuthorizationResource) Payment authorization request
@@ -554,6 +561,7 @@ func (a *PaymentsApiService) PaymentAuthorization(ctx context.Context, localVarO
 }
 
 /* PaymentsApiService Capture an existing invoice payment authorization
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id ID of the payment authorization to capture
  @return */
@@ -611,6 +619,7 @@ func (a *PaymentsApiService) PaymentCapture(ctx context.Context, id int32) ( *ht
 }
 
 /* PaymentsApiService Update an existing payment method for a user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId ID of the user for whom the payment method is being updated
  @param id ID of the payment method being updated

@@ -1,6 +1,6 @@
 # \AuthRolesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,6 +19,8 @@ Method | HTTP request | Description
 # **CreateRole**
 > RoleResource CreateRole(ctx, ctx, optional)
 Create a new role
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Required Parameters
 
@@ -54,6 +56,8 @@ Name | Type | Description  | Notes
 > DeleteRole(ctx, ctx, role, optional)
 Delete a role
 
+<b>Permissions Needed:</b> ROLES_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -81,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -89,6 +93,8 @@ Name | Type | Description  | Notes
 # **GetClientRoles**
 > []RoleResource GetClientRoles(ctx, ctx, clientKey)
 Get roles for a client
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Required Parameters
 
@@ -108,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -116,6 +122,8 @@ Name | Type | Description  | Notes
 # **GetRole**
 > RoleResource GetRole(ctx, ctx, role)
 Get a single role
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Required Parameters
 
@@ -135,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -143,6 +151,8 @@ Name | Type | Description  | Notes
 # **GetRoles**
 > PageResourceRoleResource GetRoles(ctx, ctx, optional)
 List and search roles
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Required Parameters
 
@@ -173,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -181,6 +191,8 @@ Name | Type | Description  | Notes
 # **GetUserRoles**
 > []RoleResource GetUserRoles(ctx, ctx, userId)
 Get roles for a user
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Required Parameters
 
@@ -200,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -208,6 +220,8 @@ Name | Type | Description  | Notes
 # **SetClientRoles**
 > ClientResource SetClientRoles(ctx, ctx, clientKey, optional)
 Set roles for a client
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Required Parameters
 
@@ -245,6 +259,8 @@ Name | Type | Description  | Notes
 > RoleResource SetPermissionsForRole(ctx, ctx, role, optional)
 Set permissions for a role
 
+<b>Permissions Needed:</b> ROLES_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -281,6 +297,8 @@ Name | Type | Description  | Notes
 > UserResource SetUserRoles(ctx, ctx, userId, optional)
 Set roles for a user
 
+<b>Permissions Needed:</b> ROLES_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -316,6 +334,8 @@ Name | Type | Description  | Notes
 # **UpdateRole**
 > RoleResource UpdateRole(ctx, ctx, role, optional)
 Update a role
+
+<b>Permissions Needed:</b> ROLES_ADMIN
 
 ### Required Parameters
 

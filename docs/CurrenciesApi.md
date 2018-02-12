@@ -1,6 +1,6 @@
 # \CurrenciesApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,6 +14,8 @@ Method | HTTP request | Description
 # **CreateCurrency**
 > CurrencyResource CreateCurrency(ctx, ctx, optional)
 Create a currency
+
+<b>Permissions Needed:</b> CURRENCIES_ADMIN
 
 ### Required Parameters
 
@@ -49,6 +51,8 @@ Name | Type | Description  | Notes
 > DeleteCurrency(ctx, ctx, code)
 Delete a currency
 
+<b>Permissions Needed:</b> CURRENCIES_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -67,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -75,6 +79,8 @@ Name | Type | Description  | Notes
 # **GetCurrencies**
 > PageResourceCurrencyResource GetCurrencies(ctx, ctx, optional)
 List and search currencies
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -106,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -114,6 +120,8 @@ Name | Type | Description  | Notes
 # **GetCurrency**
 > CurrencyResource GetCurrency(ctx, ctx, code)
 Get a single currency
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -133,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -141,6 +149,8 @@ Name | Type | Description  | Notes
 # **UpdateCurrency**
 > UpdateCurrency(ctx, ctx, code, optional)
 Update a currency
+
+<b>Permissions Needed:</b> CURRENCIES_ADMIN
 
 ### Required Parameters
 

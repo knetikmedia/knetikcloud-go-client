@@ -1,6 +1,6 @@
 # \MediaVideosApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -39,7 +39,7 @@ Method | HTTP request | Description
 > AddUserToVideoWhitelist(ctx, ctx, id, optional)
 Adds a user to a video's whitelist
 
-Whitelisted users can view video regardless of privacy setting.
+Whitelisted users can view video regardless of privacy setting. <br><br><b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -77,6 +77,8 @@ Name | Type | Description  | Notes
 > VideoResource AddVideo(ctx, ctx, optional)
 Adds a new video in the system
 
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -110,6 +112,8 @@ Name | Type | Description  | Notes
 # **AddVideoComment**
 > CommentResource AddVideoComment(ctx, ctx, videoId, optional)
 Add a new video comment
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -147,6 +151,8 @@ Name | Type | Description  | Notes
 > AddVideoContributor(ctx, ctx, videoId, optional)
 Adds a contributor to a video
 
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -182,6 +188,8 @@ Name | Type | Description  | Notes
 # **AddVideoFlag**
 > FlagResource AddVideoFlag(ctx, ctx, videoId, optional)
 Add a new flag
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -219,6 +227,8 @@ Name | Type | Description  | Notes
 > VideoRelationshipResource AddVideoRelationships(ctx, ctx, videoId, optional)
 Adds one or more existing videos as related to this one
 
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -254,6 +264,8 @@ Name | Type | Description  | Notes
 # **CreateVideoDisposition**
 > DispositionResource CreateVideoDisposition(ctx, ctx, videoId, optional)
 Create a video disposition
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -291,7 +303,7 @@ Name | Type | Description  | Notes
 > TemplateResource CreateVideoTemplate(ctx, ctx, optional)
 Create a video template
 
-Video Templates define a type of video and the properties they have
+Video Templates define a type of video and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -327,6 +339,8 @@ Name | Type | Description  | Notes
 > DeleteVideo(ctx, ctx, id)
 Deletes a video from the system if no resources are attached to it
 
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -345,7 +359,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -353,6 +367,8 @@ Name | Type | Description  | Notes
 # **DeleteVideoComment**
 > DeleteVideoComment(ctx, ctx, videoId, id)
 Delete a video comment
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -373,7 +389,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -381,6 +397,8 @@ Name | Type | Description  | Notes
 # **DeleteVideoDisposition**
 > DeleteVideoDisposition(ctx, ctx, dispositionId)
 Delete a video disposition
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -400,7 +418,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -408,6 +426,8 @@ Name | Type | Description  | Notes
 # **DeleteVideoFlag**
 > DeleteVideoFlag(ctx, ctx, videoId)
 Delete a flag
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -427,7 +447,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -435,6 +455,8 @@ Name | Type | Description  | Notes
 # **DeleteVideoRelationship**
 > DeleteVideoRelationship(ctx, ctx, videoId, id)
 Delete a video's relationship
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -455,7 +477,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -464,7 +486,7 @@ Name | Type | Description  | Notes
 > DeleteVideoTemplate(ctx, ctx, id, optional)
 Delete a video template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -493,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -501,6 +523,8 @@ Name | Type | Description  | Notes
 # **GetUserVideos**
 > PageResourceVideoResource GetUserVideos(ctx, ctx, userId, optional)
 Get user videos
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -531,7 +555,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -539,6 +563,8 @@ Name | Type | Description  | Notes
 # **GetVideo**
 > VideoResource GetVideo(ctx, ctx, id)
 Loads a specific video details
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -558,7 +584,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -566,6 +592,8 @@ Name | Type | Description  | Notes
 # **GetVideoComments**
 > PageResourceCommentResource GetVideoComments(ctx, ctx, videoId, optional)
 Returns a page of comments for a video
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -595,7 +623,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -603,6 +631,8 @@ Name | Type | Description  | Notes
 # **GetVideoDispositions**
 > PageResourceDispositionResource GetVideoDispositions(ctx, ctx, videoId, optional)
 Returns a page of dispositions for a video
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -632,7 +662,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -640,6 +670,8 @@ Name | Type | Description  | Notes
 # **GetVideoRelationships**
 > PageResourceVideoRelationshipResource GetVideoRelationships(ctx, ctx, videoId, optional)
 Returns a page of video relationships
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -669,7 +701,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -677,6 +709,8 @@ Name | Type | Description  | Notes
 # **GetVideoTemplate**
 > TemplateResource GetVideoTemplate(ctx, ctx, id)
 Get a single video template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -696,7 +730,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -704,6 +738,8 @@ Name | Type | Description  | Notes
 # **GetVideoTemplates**
 > PageResourceTemplateResource GetVideoTemplates(ctx, ctx, optional)
 List and search video templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -732,7 +768,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -740,6 +776,8 @@ Name | Type | Description  | Notes
 # **GetVideos**
 > PageResourceVideoResource GetVideos(ctx, ctx, optional)
 Search videos using the documented filters
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -780,7 +818,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -789,7 +827,7 @@ Name | Type | Description  | Notes
 > RemoveUserFromVideoWhitelist(ctx, ctx, videoId, id)
 Removes a user from a video's whitelist
 
-Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting.
+Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting. <br><br><b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -810,7 +848,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -818,6 +856,8 @@ Name | Type | Description  | Notes
 # **RemoveVideoContributor**
 > RemoveVideoContributor(ctx, ctx, videoId, id)
 Removes a contributor from a video
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -838,7 +878,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -846,6 +886,8 @@ Name | Type | Description  | Notes
 # **UpdateVideo**
 > UpdateVideo(ctx, ctx, id, optional)
 Modifies a video's details
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -882,6 +924,8 @@ Name | Type | Description  | Notes
 # **UpdateVideoComment**
 > UpdateVideoComment(ctx, ctx, videoId, id, optional)
 Update a video comment
+
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
 
 ### Required Parameters
 
@@ -921,6 +965,8 @@ Name | Type | Description  | Notes
 > UpdateVideoRelationship(ctx, ctx, videoId, relationshipId, optional)
 Update a video's relationship details
 
+<b>Permissions Needed:</b> VIDEOS_USER or VIDEOS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -959,6 +1005,8 @@ Name | Type | Description  | Notes
 > TemplateResource UpdateVideoTemplate(ctx, ctx, id, optional)
 Update a video template
 
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -994,6 +1042,8 @@ Name | Type | Description  | Notes
 # **ViewVideo**
 > ViewVideo(ctx, ctx, id)
 Increment a video's view count
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 

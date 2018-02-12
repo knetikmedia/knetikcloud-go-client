@@ -1,6 +1,6 @@
 # \AuthPermissionsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,6 +14,8 @@ Method | HTTP request | Description
 # **CreatePermission**
 > PermissionResource CreatePermission(ctx, ctx, optional)
 Create a new permission
+
+<b>Permissions Needed:</b> PERMISSIONS_ADMIN
 
 ### Required Parameters
 
@@ -49,6 +51,8 @@ Name | Type | Description  | Notes
 > DeletePermission(ctx, ctx, permission, optional)
 Delete a permission
 
+<b>Permissions Needed:</b> PERMISSIONS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -76,7 +80,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -84,6 +88,8 @@ Name | Type | Description  | Notes
 # **GetPermission**
 > PermissionResource GetPermission(ctx, ctx, permission)
 Get a single permission
+
+<b>Permissions Needed:</b> PERMISSIONS_ADMIN
 
 ### Required Parameters
 
@@ -103,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -111,6 +117,8 @@ Name | Type | Description  | Notes
 # **GetPermissions**
 > PageResourcePermissionResource GetPermissions(ctx, ctx, optional)
 List and search permissions
+
+<b>Permissions Needed:</b> PERMISSIONS_ADMIN
 
 ### Required Parameters
 
@@ -139,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,6 +155,8 @@ Name | Type | Description  | Notes
 # **UpdatePermission**
 > PermissionResource UpdatePermission(ctx, ctx, permission, optional)
 Update a permission
+
+<b>Permissions Needed:</b> PERMISSIONS_ADMIN
 
 ### Required Parameters
 

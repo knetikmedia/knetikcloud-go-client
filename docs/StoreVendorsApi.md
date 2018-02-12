@@ -1,6 +1,6 @@
 # \StoreVendorsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,6 +19,8 @@ Method | HTTP request | Description
 # **CreateVendor**
 > VendorResource CreateVendor(ctx, ctx, optional)
 Create a vendor
+
+<b>Permissions Needed:</b> VENDORS_ADMIN
 
 ### Required Parameters
 
@@ -54,7 +56,7 @@ Name | Type | Description  | Notes
 > ItemTemplateResource CreateVendorTemplate(ctx, ctx, optional)
 Create a vendor template
 
-Vendor Templates define a type of vendor and the properties they have.
+Vendor Templates define a type of vendor and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -90,6 +92,8 @@ Name | Type | Description  | Notes
 > DeleteVendor(ctx, ctx, id)
 Delete a vendor
 
+<b>Permissions Needed:</b> VENDORS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -108,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -116,6 +120,8 @@ Name | Type | Description  | Notes
 # **DeleteVendorTemplate**
 > DeleteVendorTemplate(ctx, ctx, id, optional)
 Delete a vendor template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -144,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -152,6 +158,8 @@ Name | Type | Description  | Notes
 # **GetVendor**
 > VendorResource GetVendor(ctx, ctx, id)
 Get a single vendor
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -171,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -180,7 +188,7 @@ Name | Type | Description  | Notes
 > ItemTemplateResource GetVendorTemplate(ctx, ctx, id)
 Get a single vendor template
 
-Vendor Templates define a type of vendor and the properties they have.
+Vendor Templates define a type of vendor and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -200,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -208,6 +216,8 @@ Name | Type | Description  | Notes
 # **GetVendorTemplates**
 > PageResourceItemTemplateResource GetVendorTemplates(ctx, ctx, optional)
 List and search vendor templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -224,7 +234,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **size** | **int32**| The number of objects returned per page | [default to 25]
  **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
- **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to 1]
+ **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | 
 
 ### Return type
 
@@ -236,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -244,6 +254,8 @@ Name | Type | Description  | Notes
 # **GetVendors**
 > PageResourceVendorResource GetVendors(ctx, ctx, optional)
 List and search vendors
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -273,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -281,6 +293,8 @@ Name | Type | Description  | Notes
 # **UpdateVendor**
 > VendorResource UpdateVendor(ctx, ctx, id, optional)
 Update a vendor
+
+<b>Permissions Needed:</b> VENDORS_ADMIN
 
 ### Required Parameters
 
@@ -317,6 +331,8 @@ Name | Type | Description  | Notes
 # **UpdateVendorTemplate**
 > ItemTemplateResource UpdateVendorTemplate(ctx, ctx, id, optional)
 Update a vendor template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 

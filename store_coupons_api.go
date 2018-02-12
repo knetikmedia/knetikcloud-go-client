@@ -28,7 +28,7 @@ type StoreCouponsApiService service
 
 
 /* StoreCouponsApiService Create a coupon item
- SKUs have to be unique in the entire store.
+ SKUs have to be unique in the entire store. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; COUPONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
@@ -103,7 +103,7 @@ func (a *StoreCouponsApiService) CreateCouponItem(ctx context.Context, localVarO
 }
 
 /* StoreCouponsApiService Create a coupon template
- Coupon Templates define a type of coupon and the properties they have.
+ Coupon Templates define a type of coupon and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "couponTemplateResource" (ItemTemplateResource) The new coupon template
@@ -171,6 +171,7 @@ func (a *StoreCouponsApiService) CreateCouponTemplate(ctx context.Context, local
 }
 
 /* StoreCouponsApiService Delete a coupon item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; COUPONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the coupon
  @return */
@@ -192,7 +193,7 @@ func (a *StoreCouponsApiService) DeleteCouponItem(ctx context.Context, id int32)
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -228,6 +229,7 @@ func (a *StoreCouponsApiService) DeleteCouponItem(ctx context.Context, id int32)
 }
 
 /* StoreCouponsApiService Delete a coupon template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -257,7 +259,7 @@ func (a *StoreCouponsApiService) DeleteCouponTemplate(ctx context.Context, id st
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -293,6 +295,7 @@ func (a *StoreCouponsApiService) DeleteCouponTemplate(ctx context.Context, id st
 }
 
 /* StoreCouponsApiService Get a single coupon item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; COUPONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the coupon
  @return CouponItem*/
@@ -315,7 +318,7 @@ func (a *StoreCouponsApiService) GetCouponItem(ctx context.Context, id int32) (C
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -356,6 +359,7 @@ func (a *StoreCouponsApiService) GetCouponItem(ctx context.Context, id int32) (C
 }
 
 /* StoreCouponsApiService Get a coupon by sku
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param sku A sku of the coupon
  @return CouponItem*/
@@ -378,7 +382,7 @@ func (a *StoreCouponsApiService) GetCouponItemBySku(ctx context.Context, sku str
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -419,7 +423,7 @@ func (a *StoreCouponsApiService) GetCouponItemBySku(ctx context.Context, sku str
 }
 
 /* StoreCouponsApiService Get a single coupon template
- Coupon Templates define a type of coupon and the properties they have.
+ Coupon Templates define a type of coupon and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or COUPONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
@@ -442,7 +446,7 @@ func (a *StoreCouponsApiService) GetCouponTemplate(ctx context.Context, id strin
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -483,6 +487,7 @@ func (a *StoreCouponsApiService) GetCouponTemplate(ctx context.Context, id strin
 }
 
 /* StoreCouponsApiService List and search coupon templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or COUPONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -525,7 +530,7 @@ func (a *StoreCouponsApiService) GetCouponTemplates(ctx context.Context, localVa
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -566,6 +571,7 @@ func (a *StoreCouponsApiService) GetCouponTemplates(ctx context.Context, localVa
 }
 
 /* StoreCouponsApiService Update a coupon item
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; COUPONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the coupon
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -642,6 +648,7 @@ func (a *StoreCouponsApiService) UpdateCouponItem(ctx context.Context, id int32,
 }
 
 /* StoreCouponsApiService Update a coupon template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

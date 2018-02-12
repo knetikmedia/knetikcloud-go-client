@@ -28,6 +28,7 @@ type GamificationLevelingApiService service
 
 
 /* GamificationLevelingApiService Create a level schema
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "level" (LevelingResource) The level schema definition
@@ -95,6 +96,7 @@ func (a *GamificationLevelingApiService) CreateLevel(ctx context.Context, localV
 }
 
 /* GamificationLevelingApiService Delete a level
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The level schema name
  @return */
@@ -116,7 +118,7 @@ func (a *GamificationLevelingApiService) DeleteLevel(ctx context.Context, name s
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -152,6 +154,7 @@ func (a *GamificationLevelingApiService) DeleteLevel(ctx context.Context, name s
 }
 
 /* GamificationLevelingApiService Retrieve a level
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The level schema name
  @return LevelingResource*/
@@ -174,7 +177,7 @@ func (a *GamificationLevelingApiService) GetLevel(ctx context.Context, name stri
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -215,6 +218,7 @@ func (a *GamificationLevelingApiService) GetLevel(ctx context.Context, name stri
 }
 
 /* GamificationLevelingApiService Get the list of triggers that can be used to trigger a leveling progress update
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @return []BreTriggerResource*/
 func (a *GamificationLevelingApiService) GetLevelTriggers(ctx context.Context, ) ([]BreTriggerResource,  *http.Response, error) {
@@ -235,7 +239,7 @@ func (a *GamificationLevelingApiService) GetLevelTriggers(ctx context.Context, )
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -276,7 +280,7 @@ func (a *GamificationLevelingApiService) GetLevelTriggers(ctx context.Context, )
 }
 
 /* GamificationLevelingApiService List and search levels
- Get a list of levels schemas with optional filtering
+ Get a list of levels schemas with optional filtering. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterName" (string) Filter for level schemas whose name contains a given string
@@ -326,7 +330,7 @@ func (a *GamificationLevelingApiService) GetLevels(ctx context.Context, localVar
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -367,6 +371,7 @@ func (a *GamificationLevelingApiService) GetLevels(ctx context.Context, localVar
 }
 
 /* GamificationLevelingApiService Get a user&#39;s progress for a given level schema
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN or self
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39;
  @param name The level schema name
@@ -391,7 +396,7 @@ func (a *GamificationLevelingApiService) GetUserLevel(ctx context.Context, userI
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -432,7 +437,7 @@ func (a *GamificationLevelingApiService) GetUserLevel(ctx context.Context, userI
 }
 
 /* GamificationLevelingApiService Get a user&#39;s progress for all level schemas
- Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here.
+ Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN or self
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39;
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -484,7 +489,7 @@ func (a *GamificationLevelingApiService) GetUserLevels(ctx context.Context, user
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -525,7 +530,7 @@ func (a *GamificationLevelingApiService) GetUserLevels(ctx context.Context, user
 }
 
 /* GamificationLevelingApiService Update or create a leveling progress record for a user
- If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;.
+ If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param name The level schema name
@@ -591,7 +596,7 @@ func (a *GamificationLevelingApiService) IncrementProgress(ctx context.Context, 
 }
 
 /* GamificationLevelingApiService Set leveling progress for a user
- If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;.
+ If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param name The level schema name
@@ -657,6 +662,7 @@ func (a *GamificationLevelingApiService) SetProgress(ctx context.Context, userId
 }
 
 /* GamificationLevelingApiService Update a level
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The level schema name
  @param optional (nil or map[string]interface{}) with one or more of:

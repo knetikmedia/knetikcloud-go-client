@@ -34,7 +34,7 @@ type BareActivityResource struct {
 	Template bool `json:"template,omitempty"`
 
 	// The type of the activity
-	Type_ string `json:"type"`
+	Type_ string `json:"type,omitempty"`
 
 	// The unique key (for static reference in code) of the activity
 	UniqueKey string `json:"unique_key,omitempty"`

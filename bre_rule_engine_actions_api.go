@@ -27,6 +27,7 @@ type BRERuleEngineActionsApiService service
 
 
 /* BRERuleEngineActionsApiService Get a list of available actions
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_ACTIONS_USER
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterCategory" (string) Filter for actions that are within a specific category
@@ -76,7 +77,7 @@ func (a *BRERuleEngineActionsApiService) GetBREActions(ctx context.Context, loca
 		localVarQueryParams.Add("filter_search", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

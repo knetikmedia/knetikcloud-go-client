@@ -28,7 +28,7 @@ type BRERuleEngineGlobalsApiService service
 
 
 /* BRERuleEngineGlobalsApiService Create a global definition
- Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use.
+ Once created you can then use in a custom rule. Note that global definitions cannot be modified or deleted if in use. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_GLOBALS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "breGlobalResource" (BreGlobalResource) The BRE global resource object
@@ -96,7 +96,7 @@ func (a *BRERuleEngineGlobalsApiService) CreateBREGlobal(ctx context.Context, lo
 }
 
 /* BRERuleEngineGlobalsApiService Delete a global
- May fail if there are existing rules against it. Cannot delete core globals
+ May fail if there are existing rules against it. Cannot delete core globals. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_GLOBALS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the global definition
  @return */
@@ -118,7 +118,7 @@ func (a *BRERuleEngineGlobalsApiService) DeleteBREGlobal(ctx context.Context, id
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -154,6 +154,7 @@ func (a *BRERuleEngineGlobalsApiService) DeleteBREGlobal(ctx context.Context, id
 }
 
 /* BRERuleEngineGlobalsApiService Get a single global definition
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_GLOBALS_USER
  * @param ctx context.Context Authentication Context 
  @param id The id of the global definition
  @return BreGlobalResource*/
@@ -176,7 +177,7 @@ func (a *BRERuleEngineGlobalsApiService) GetBREGlobal(ctx context.Context, id st
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -217,6 +218,7 @@ func (a *BRERuleEngineGlobalsApiService) GetBREGlobal(ctx context.Context, id st
 }
 
 /* BRERuleEngineGlobalsApiService List global definitions
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_GLOBALS_USER
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSystem" (bool) Filter for globals that are system globals when true, or not when false. Leave off for both mixed
@@ -259,7 +261,7 @@ func (a *BRERuleEngineGlobalsApiService) GetBREGlobals(ctx context.Context, loca
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -300,7 +302,7 @@ func (a *BRERuleEngineGlobalsApiService) GetBREGlobals(ctx context.Context, loca
 }
 
 /* BRERuleEngineGlobalsApiService Update a global definition
- May fail if new parameters mismatch requirements of existing rules. Cannot update core globals
+ May fail if new parameters mismatch requirements of existing rules. Cannot update core globals. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BRE_RULE_ENGINE_GLOBALS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the global definition
  @param optional (nil or map[string]interface{}) with one or more of:

@@ -28,6 +28,7 @@ type PaymentsWalletsApiService service
 
 
 /* PaymentsWalletsApiService Returns the user&#39;s wallet for the given currency code
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The ID of the user for whom wallet is being retrieved
  @param currencyCode Currency code of the user&#39;s wallet
@@ -52,7 +53,7 @@ func (a *PaymentsWalletsApiService) GetUserWallet(ctx context.Context, userId in
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -93,6 +94,7 @@ func (a *PaymentsWalletsApiService) GetUserWallet(ctx context.Context, userId in
 }
 
 /* PaymentsWalletsApiService Retrieve a user&#39;s wallet transactions
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The ID of the user for whom wallet transactions are being retrieved
  @param currencyCode Currency code of the user&#39;s wallet
@@ -167,7 +169,7 @@ func (a *PaymentsWalletsApiService) GetUserWalletTransactions(ctx context.Contex
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -208,6 +210,7 @@ func (a *PaymentsWalletsApiService) GetUserWalletTransactions(ctx context.Contex
 }
 
 /* PaymentsWalletsApiService List all of a user&#39;s wallets
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The ID of the user for whom wallets are being retrieved
  @return []SimpleWallet*/
@@ -230,7 +233,7 @@ func (a *PaymentsWalletsApiService) GetUserWallets(ctx context.Context, userId i
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -271,6 +274,7 @@ func (a *PaymentsWalletsApiService) GetUserWallets(ctx context.Context, userId i
 }
 
 /* PaymentsWalletsApiService Retrieves a summation of wallet balances by currency code
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN
  * @param ctx context.Context Authentication Context 
  @return PageResourceWalletTotalResponse*/
 func (a *PaymentsWalletsApiService) GetWalletBalances(ctx context.Context, ) (PageResourceWalletTotalResponse,  *http.Response, error) {
@@ -291,7 +295,7 @@ func (a *PaymentsWalletsApiService) GetWalletBalances(ctx context.Context, ) (Pa
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -332,6 +336,7 @@ func (a *PaymentsWalletsApiService) GetWalletBalances(ctx context.Context, ) (Pa
 }
 
 /* PaymentsWalletsApiService Retrieve wallet transactions across the system
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterInvoice" (int32) Filter for transactions from a specific invoice
@@ -430,7 +435,7 @@ func (a *PaymentsWalletsApiService) GetWalletTransactions(ctx context.Context, l
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -471,6 +476,7 @@ func (a *PaymentsWalletsApiService) GetWalletTransactions(ctx context.Context, l
 }
 
 /* PaymentsWalletsApiService Retrieve a list of wallets across the system
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -513,7 +519,7 @@ func (a *PaymentsWalletsApiService) GetWallets(ctx context.Context, localVarOpti
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -554,6 +560,7 @@ func (a *PaymentsWalletsApiService) GetWallets(ctx context.Context, localVarOpti
 }
 
 /* PaymentsWalletsApiService Updates the balance for a user&#39;s wallet
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The ID of the user for whom wallet is being modified
  @param currencyCode Currency code of the user&#39;s wallet

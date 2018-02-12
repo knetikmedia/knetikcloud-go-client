@@ -28,7 +28,7 @@ type GamificationAchievementsApiService service
 
 
 /* GamificationAchievementsApiService Create a new achievement definition
- If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user&#39;s achievement status must manually be updated via the API.
+ If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user&#39;s achievement status must manually be updated via the API. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "achievement" (AchievementDefinitionResource) The achievement definition
@@ -96,7 +96,7 @@ func (a *GamificationAchievementsApiService) CreateAchievement(ctx context.Conte
 }
 
 /* GamificationAchievementsApiService Create an achievement template
- Achievement templates define a type of achievement and the properties they have
+ Achievement templates define a type of achievement and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (TemplateResource) The achievement template to be created
@@ -164,7 +164,7 @@ func (a *GamificationAchievementsApiService) CreateAchievementTemplate(ctx conte
 }
 
 /* GamificationAchievementsApiService Delete an achievement definition
- Will also disable the associated generated rule, if any.
+ Will also disable the associated generated rule, if any. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The name of the achievement
  @return */
@@ -186,7 +186,7 @@ func (a *GamificationAchievementsApiService) DeleteAchievement(ctx context.Conte
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -222,7 +222,7 @@ func (a *GamificationAchievementsApiService) DeleteAchievement(ctx context.Conte
 }
 
 /* GamificationAchievementsApiService Delete an achievement template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -252,7 +252,7 @@ func (a *GamificationAchievementsApiService) DeleteAchievementTemplate(ctx conte
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -288,6 +288,7 @@ func (a *GamificationAchievementsApiService) DeleteAchievementTemplate(ctx conte
 }
 
 /* GamificationAchievementsApiService Get a single achievement definition
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN or ACHIEVEMENTS_USER
  * @param ctx context.Context Authentication Context 
  @param name The name of the achievement
  @return AchievementDefinitionResource*/
@@ -310,7 +311,7 @@ func (a *GamificationAchievementsApiService) GetAchievement(ctx context.Context,
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -351,6 +352,7 @@ func (a *GamificationAchievementsApiService) GetAchievement(ctx context.Context,
 }
 
 /* GamificationAchievementsApiService Get a single achievement template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -373,7 +375,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTemplate(ctx context.
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -414,6 +416,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTemplate(ctx context.
 }
 
 /* GamificationAchievementsApiService List and search achievement templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -456,7 +459,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTemplates(ctx context
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -497,6 +500,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTemplates(ctx context
 }
 
 /* GamificationAchievementsApiService Get the list of triggers that can be used to trigger an achievement progress update
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @return []BreTriggerResource*/
 func (a *GamificationAchievementsApiService) GetAchievementTriggers(ctx context.Context, ) ([]BreTriggerResource,  *http.Response, error) {
@@ -517,7 +521,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTriggers(ctx context.
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -558,6 +562,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTriggers(ctx context.
 }
 
 /* GamificationAchievementsApiService Get all achievement definitions in the system
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN or ACHIEVEMENTS_USER
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterTagset" (string) Filter for achievements with specified tags (separated by comma)
@@ -628,7 +633,7 @@ func (a *GamificationAchievementsApiService) GetAchievements(ctx context.Context
 		localVarQueryParams.Add("filter_derived", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -669,7 +674,7 @@ func (a *GamificationAchievementsApiService) GetAchievements(ctx context.Context
 }
 
 /* GamificationAchievementsApiService Get a list of derived achievements
- Used by other services that depend on achievements
+ Used by other services that depend on achievements.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The name of the derived achievement
  @return []AchievementDefinitionResource*/
@@ -692,7 +697,7 @@ func (a *GamificationAchievementsApiService) GetDerivedAchievements(ctx context.
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -733,7 +738,7 @@ func (a *GamificationAchievementsApiService) GetDerivedAchievements(ctx context.
 }
 
 /* GamificationAchievementsApiService Retrieve progress on a given achievement for a given user
- Assets will not be filled in on the resources returned. Use &#39;Get a single poll&#39; to retrieve the full resource with assets for a given item as needed.
+ Assets will not be filled in on the resources returned. Use &#39;Get a single poll&#39; to retrieve the full resource with assets for a given item as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @param achievementName The achievement&#39;s name
@@ -758,7 +763,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementProgress(ctx cont
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -799,7 +804,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementProgress(ctx cont
 }
 
 /* GamificationAchievementsApiService Retrieve progress on achievements for a given user
- Assets will not be filled in on the resources returned. Use &#39;Get a single poll&#39; to retrieve the full resource with assets for a given item as needed.
+ Assets will not be filled in on the resources returned. Use &#39;Get a single poll&#39; to retrieve the full resource with assets for a given item as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -858,7 +863,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementsProgress(ctx con
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -899,7 +904,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementsProgress(ctx con
 }
 
 /* GamificationAchievementsApiService Retrieve progress on a given achievement for all users
- Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed.
+ Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param achievementName The achievement&#39;s name
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -958,7 +963,7 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementProgress(ctx con
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -999,7 +1004,7 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementProgress(ctx con
 }
 
 /* GamificationAchievementsApiService Retrieve progress on achievements for all users
- Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed.
+ Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterAchievementDerived" (bool) Filter for achievements that are derived from other services
@@ -1056,7 +1061,7 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementsProgress(ctx co
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1097,7 +1102,7 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementsProgress(ctx co
 }
 
 /* GamificationAchievementsApiService Increment an achievement progress record for a user
- If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;.
+ If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @param achievementName The achievement&#39;s name
@@ -1169,7 +1174,7 @@ func (a *GamificationAchievementsApiService) IncrementAchievementProgress(ctx co
 }
 
 /* GamificationAchievementsApiService Set an achievement progress record for a user
- If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;.
+ If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @param achievementName The achievement&#39;s name
@@ -1241,7 +1246,7 @@ func (a *GamificationAchievementsApiService) SetAchievementProgress(ctx context.
 }
 
 /* GamificationAchievementsApiService Update an achievement definition
- The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version.
+ The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The name of the achievement
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1311,6 +1316,7 @@ func (a *GamificationAchievementsApiService) UpdateAchievement(ctx context.Conte
 }
 
 /* GamificationAchievementsApiService Update an achievement template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

@@ -28,6 +28,7 @@ type UsersGroupsApiService service
 
 
 /* UsersGroupsApiService Adds a new member to the group
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or self if open
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param user The id and status for a user to add to the group
@@ -94,6 +95,7 @@ func (a *UsersGroupsApiService) AddMemberToGroup(ctx context.Context, uniqueName
 }
 
 /* UsersGroupsApiService Adds multiple members to the group
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param users The id and status for a list of users to add to the group
@@ -160,6 +162,7 @@ func (a *UsersGroupsApiService) AddMembersToGroup(ctx context.Context, uniqueNam
 }
 
 /* UsersGroupsApiService Create a group
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupResource" (GroupResource) The new group
@@ -227,7 +230,7 @@ func (a *UsersGroupsApiService) CreateGroup(ctx context.Context, localVarOptiona
 }
 
 /* UsersGroupsApiService Create an group member template
- GroupMember Templates define a type of group member and the properties they have
+ GroupMember Templates define a type of group member and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupMemberTemplateResource" (TemplateResource) The group member template resource object
@@ -295,7 +298,7 @@ func (a *UsersGroupsApiService) CreateGroupMemberTemplate(ctx context.Context, l
 }
 
 /* UsersGroupsApiService Create a group template
- Group Templates define a type of group and the properties they have
+ Group Templates define a type of group and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupTemplateResource" (TemplateResource) The group template resource object
@@ -363,7 +366,7 @@ func (a *UsersGroupsApiService) CreateGroupTemplate(ctx context.Context, localVa
 }
 
 /* UsersGroupsApiService Removes a group from the system
- All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well.
+ All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @return */
@@ -385,7 +388,7 @@ func (a *UsersGroupsApiService) DeleteGroup(ctx context.Context, uniqueName stri
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -421,7 +424,7 @@ func (a *UsersGroupsApiService) DeleteGroup(ctx context.Context, uniqueName stri
 }
 
 /* UsersGroupsApiService Delete an group member template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -451,7 +454,7 @@ func (a *UsersGroupsApiService) DeleteGroupMemberTemplate(ctx context.Context, i
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -487,7 +490,7 @@ func (a *UsersGroupsApiService) DeleteGroupMemberTemplate(ctx context.Context, i
 }
 
 /* UsersGroupsApiService Delete a group template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -517,7 +520,7 @@ func (a *UsersGroupsApiService) DeleteGroupTemplate(ctx context.Context, id stri
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -552,7 +555,70 @@ func (a *UsersGroupsApiService) DeleteGroupTemplate(ctx context.Context, id stri
 	return localVarHttpResponse, err
 }
 
+/* UsersGroupsApiService Enable or disable notification of group messages
+ * @param ctx context.Context Authentication Context 
+ @param uniqueName The group unique name
+ @param userId The user id of the member or &#39;me&#39;
+ @param disabled disabled
+ @return */
+func (a *UsersGroupsApiService) DisableGroupNotification(ctx context.Context, uniqueName string, userId string, disabled ValueWrapperboolean) ( *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/users/groups/{unique_name}/members/{user_id}/messages/disabled"
+	localVarPath = strings.Replace(localVarPath, "{"+"unique_name"+"}", fmt.Sprintf("%v", uniqueName), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"user_id"+"}", fmt.Sprintf("%v", userId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &disabled
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+
+	return localVarHttpResponse, err
+}
+
 /* UsersGroupsApiService Loads a specific group&#39;s details
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @return GroupResource*/
@@ -575,7 +641,7 @@ func (a *UsersGroupsApiService) GetGroup(ctx context.Context, uniqueName string)
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -616,11 +682,11 @@ func (a *UsersGroupsApiService) GetGroup(ctx context.Context, uniqueName string)
 }
 
 /* UsersGroupsApiService Get group ancestors
- Returns a list of ancestor groups in reverse order (parent, then grandparent, etc
-
+ Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+ * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @return []GroupResource*/
-func (a *UsersGroupsApiService) GetGroupAncestors(uniqueName string) ([]GroupResource,  *http.Response, error) {
+func (a *UsersGroupsApiService) GetGroupAncestors(ctx context.Context, uniqueName string) ([]GroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -639,7 +705,7 @@ func (a *UsersGroupsApiService) GetGroupAncestors(uniqueName string) ([]GroupRes
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -657,7 +723,7 @@ func (a *UsersGroupsApiService) GetGroupAncestors(uniqueName string) ([]GroupRes
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -680,6 +746,7 @@ func (a *UsersGroupsApiService) GetGroupAncestors(uniqueName string) ([]GroupRes
 }
 
 /* UsersGroupsApiService Get a user from a group
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param userId The id of the user
@@ -704,7 +771,7 @@ func (a *UsersGroupsApiService) GetGroupMember(ctx context.Context, uniqueName s
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -745,6 +812,7 @@ func (a *UsersGroupsApiService) GetGroupMember(ctx context.Context, uniqueName s
 }
 
 /* UsersGroupsApiService Get a single group member template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -767,7 +835,7 @@ func (a *UsersGroupsApiService) GetGroupMemberTemplate(ctx context.Context, id s
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -808,6 +876,7 @@ func (a *UsersGroupsApiService) GetGroupMemberTemplate(ctx context.Context, id s
 }
 
 /* UsersGroupsApiService List and search group member templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -850,7 +919,7 @@ func (a *UsersGroupsApiService) GetGroupMemberTemplates(ctx context.Context, loc
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -891,6 +960,7 @@ func (a *UsersGroupsApiService) GetGroupMemberTemplates(ctx context.Context, loc
 }
 
 /* UsersGroupsApiService Lists members of the group
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -935,7 +1005,86 @@ func (a *UsersGroupsApiService) GetGroupMembers(ctx context.Context, uniqueName 
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* UsersGroupsApiService Get a list of group messages
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
+ * @param ctx context.Context Authentication Context 
+ @param uniqueName The group unique name
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "size" (int32) The number of objects returned per page
+     @param "page" (int32) The number of the page returned, starting with 1
+ @return PageResourceChatMessageResource*/
+func (a *UsersGroupsApiService) GetGroupMessages(ctx context.Context, uniqueName string, localVarOptionals map[string]interface{}) (PageResourceChatMessageResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PageResourceChatMessageResource
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/users/groups/{unique_name}/messages"
+	localVarPath = strings.Replace(localVarPath, "{"+"unique_name"+"}", fmt.Sprintf("%v", uniqueName), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["size"], "int32", "size"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam, localVarOk := localVarOptionals["size"].(int32); localVarOk {
+		localVarQueryParams.Add("size", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
+		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -976,6 +1125,7 @@ func (a *UsersGroupsApiService) GetGroupMembers(ctx context.Context, uniqueName 
 }
 
 /* UsersGroupsApiService Get a single group template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -998,7 +1148,7 @@ func (a *UsersGroupsApiService) GetGroupTemplate(ctx context.Context, id string)
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1039,6 +1189,7 @@ func (a *UsersGroupsApiService) GetGroupTemplate(ctx context.Context, id string)
 }
 
 /* UsersGroupsApiService List and search group templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -1081,7 +1232,7 @@ func (a *UsersGroupsApiService) GetGroupTemplates(ctx context.Context, localVarO
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1122,6 +1273,7 @@ func (a *UsersGroupsApiService) GetGroupTemplates(ctx context.Context, localVarO
 }
 
 /* UsersGroupsApiService List groups a user is in
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1152,7 +1304,7 @@ func (a *UsersGroupsApiService) GetGroupsForUser(ctx context.Context, userId int
 		localVarQueryParams.Add("filter_children", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1193,6 +1345,7 @@ func (a *UsersGroupsApiService) GetGroupsForUser(ctx context.Context, userId int
 }
 
 /* UsersGroupsApiService List and search groups
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterTemplate" (string) Filter for groups using a specific template, by id
@@ -1277,7 +1430,7 @@ func (a *UsersGroupsApiService) ListGroups(ctx context.Context, localVarOptional
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1317,7 +1470,77 @@ func (a *UsersGroupsApiService) ListGroups(ctx context.Context, localVarOptional
 	return successPayload, localVarHttpResponse, err
 }
 
+/* UsersGroupsApiService Send a group message
+
+ @param uniqueName The group unique name
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "chatMessageRequest" (ChatMessageRequest) The chat message request
+ @return ChatMessageResource*/
+func (a *UsersGroupsApiService) PostGroupMessage(uniqueName string, localVarOptionals map[string]interface{}) (ChatMessageResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ChatMessageResource
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/users/groups/{unique_name}/messages"
+	localVarPath = strings.Replace(localVarPath, "{"+"unique_name"+"}", fmt.Sprintf("%v", uniqueName), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarTempParam, localVarOk := localVarOptionals["chatMessageRequest"].(ChatMessageRequest); localVarOk {
+		localVarPostBody = &localVarTempParam
+	}
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
 /* UsersGroupsApiService Removes a user from a group
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or self if open
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param userId The id of the user to remove
@@ -1341,7 +1564,7 @@ func (a *UsersGroupsApiService) RemoveGroupMember(ctx context.Context, uniqueNam
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1377,7 +1600,7 @@ func (a *UsersGroupsApiService) RemoveGroupMember(ctx context.Context, uniqueNam
 }
 
 /* UsersGroupsApiService Update a group
- If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it.
+ If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or admin of the group
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1441,6 +1664,7 @@ func (a *UsersGroupsApiService) UpdateGroup(ctx context.Context, uniqueName stri
 }
 
 /* UsersGroupsApiService Change a user&#39;s order
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param userId The user id of the member to modify
@@ -1503,6 +1727,7 @@ func (a *UsersGroupsApiService) UpdateGroupMemberProperties(ctx context.Context,
 }
 
 /* UsersGroupsApiService Change a user&#39;s membership properties
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param userId The user id of the member to modify
@@ -1565,6 +1790,7 @@ func (a *UsersGroupsApiService) UpdateGroupMemberProperties1(ctx context.Context
 }
 
 /* UsersGroupsApiService Change a user&#39;s status
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param userId The user id of the member to modify
@@ -1627,6 +1853,7 @@ func (a *UsersGroupsApiService) UpdateGroupMemberStatus(ctx context.Context, uni
 }
 
 /* UsersGroupsApiService Update an group member template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1696,6 +1923,7 @@ func (a *UsersGroupsApiService) UpdateGroupMemberTemplate(ctx context.Context, i
 }
 
 /* UsersGroupsApiService Update a group template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

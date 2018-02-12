@@ -1,6 +1,6 @@
 # \UsersSubscriptionsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,6 +17,8 @@ Method | HTTP request | Description
 # **GetUserSubscriptionDetails**
 > InventorySubscriptionResource GetUserSubscriptionDetails(ctx, ctx, userId, inventoryId)
 Get details about a user's subscription
+
+<b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN or owner
 
 ### Required Parameters
 
@@ -37,7 +39,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -45,6 +47,8 @@ Name | Type | Description  | Notes
 # **GetUsersSubscriptionDetails**
 > []InventorySubscriptionResource GetUsersSubscriptionDetails(ctx, ctx, userId)
 Get details about a user's subscriptions
+
+<b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN or owner
 
 ### Required Parameters
 
@@ -64,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -72,6 +76,8 @@ Name | Type | Description  | Notes
 # **ReactivateUserSubscription**
 > InvoiceResource ReactivateUserSubscription(ctx, ctx, userId, inventoryId, optional)
 Reactivate a subscription and charge fee
+
+<b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN
 
 ### Required Parameters
 
@@ -111,6 +117,8 @@ Name | Type | Description  | Notes
 > SetSubscriptionBillDate(ctx, ctx, userId, inventoryId, billDate)
 Set a new date to bill a subscription on
 
+<b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -140,7 +148,7 @@ Name | Type | Description  | Notes
 > SetSubscriptionPaymentMethod(ctx, ctx, userId, inventoryId, optional)
 Set the payment method to use for a subscription
 
-May send null to use floating default
+May send null to use floating default. <br><br><b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN or owner
 
 ### Required Parameters
 
@@ -180,7 +188,7 @@ Name | Type | Description  | Notes
 > SetSubscriptionStatus(ctx, ctx, userId, inventoryId, status)
 Set the status of a subscription
 
-Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases
+Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases. <br><br><b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN or owner
 
 ### Required Parameters
 
@@ -210,6 +218,8 @@ Name | Type | Description  | Notes
 # **SetUserSubscriptionPlan**
 > SetUserSubscriptionPlan(ctx, ctx, userId, inventoryId, optional)
 Set a new subscription plan for a user
+
+<b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN
 
 ### Required Parameters
 
@@ -249,7 +259,7 @@ Name | Type | Description  | Notes
 > SetUserSubscriptionPrice(ctx, ctx, userId, inventoryId, optional)
 Set a new subscription price for a user
 
-This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.
+This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint. <br><br><b>Permissions Needed:</b> USERS_SUBSCRIPTIONS_ADMIN
 
 ### Required Parameters
 

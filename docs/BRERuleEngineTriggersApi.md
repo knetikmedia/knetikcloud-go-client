@@ -1,6 +1,6 @@
 # \BRERuleEngineTriggersApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 > BreTriggerResource CreateBRETrigger(ctx, ctx, optional)
 Create a trigger
 
-Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services
+Customer added triggers will not be fired automatically or have rules associated with them by default. Custom rules must be added to get use from the trigger and it must then be fired from the outside. See the Bre Event services. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
 
 ### Required Parameters
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 > DeleteBRETrigger(ctx, ctx, eventName)
 Delete a trigger
 
-May fail if there are existing rules against it. Cannot delete core triggers
+May fail if there are existing rules against it. Cannot delete core triggers. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
 
 ### Required Parameters
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -79,6 +79,8 @@ Name | Type | Description  | Notes
 # **GetBRETrigger**
 > BreTriggerResource GetBRETrigger(ctx, ctx, eventName)
 Get a single trigger
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_USER
 
 ### Required Parameters
 
@@ -98,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -106,6 +108,8 @@ Name | Type | Description  | Notes
 # **GetBRETriggers**
 > PageResourceBreTriggerResource GetBRETriggers(ctx, ctx, optional)
 List triggers
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_USER
 
 ### Required Parameters
 
@@ -138,7 +142,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +151,7 @@ Name | Type | Description  | Notes
 > BreTriggerResource UpdateBRETrigger(ctx, ctx, eventName, optional)
 Update a trigger
 
-May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers
+May fail if new parameters mismatch requirements of existing rules. Cannot update core triggers. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_TRIGGERS_ADMIN
 
 ### Required Parameters
 

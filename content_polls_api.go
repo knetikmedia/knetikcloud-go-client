@@ -28,6 +28,7 @@ type ContentPollsApiService service
 
 
 /* ContentPollsApiService Add your vote to a poll
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; POLLS_ADMIN or POLLS_USER
  * @param ctx context.Context Authentication Context 
  @param id The poll id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -97,7 +98,7 @@ func (a *ContentPollsApiService) AnswerPoll(ctx context.Context, id string, loca
 }
 
 /* ContentPollsApiService Create a new poll
- Polls are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.
+ Polls are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; POLLS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "pollResource" (PollResource) The poll object
@@ -165,7 +166,7 @@ func (a *ContentPollsApiService) CreatePoll(ctx context.Context, localVarOptiona
 }
 
 /* ContentPollsApiService Create a poll template
- Poll templates define a type of poll and the properties they have
+ Poll templates define a type of poll and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "pollTemplateResource" (TemplateResource) The poll template resource object
@@ -233,6 +234,7 @@ func (a *ContentPollsApiService) CreatePollTemplate(ctx context.Context, localVa
 }
 
 /* ContentPollsApiService Delete an existing poll
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; POLLS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The poll id
  @return */
@@ -254,7 +256,7 @@ func (a *ContentPollsApiService) DeletePoll(ctx context.Context, id string) ( *h
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -290,7 +292,7 @@ func (a *ContentPollsApiService) DeletePoll(ctx context.Context, id string) ( *h
 }
 
 /* ContentPollsApiService Delete a poll template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -320,7 +322,7 @@ func (a *ContentPollsApiService) DeletePollTemplate(ctx context.Context, id stri
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -356,6 +358,7 @@ func (a *ContentPollsApiService) DeletePollTemplate(ctx context.Context, id stri
 }
 
 /* ContentPollsApiService Get a single poll
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The poll id
  @return PollResource*/
@@ -378,7 +381,7 @@ func (a *ContentPollsApiService) GetPoll(ctx context.Context, id string) (PollRe
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -419,6 +422,7 @@ func (a *ContentPollsApiService) GetPoll(ctx context.Context, id string) (PollRe
 }
 
 /* ContentPollsApiService Get poll answer
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; POLLS_ADMIN or POLLS_USER
  * @param ctx context.Context Authentication Context 
  @param id The poll id
  @return PollResponseResource*/
@@ -441,7 +445,7 @@ func (a *ContentPollsApiService) GetPollAnswer(ctx context.Context, id string) (
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -482,6 +486,7 @@ func (a *ContentPollsApiService) GetPollAnswer(ctx context.Context, id string) (
 }
 
 /* ContentPollsApiService Get a single poll template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or POLLS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -504,7 +509,7 @@ func (a *ContentPollsApiService) GetPollTemplate(ctx context.Context, id string)
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -545,6 +550,7 @@ func (a *ContentPollsApiService) GetPollTemplate(ctx context.Context, id string)
 }
 
 /* ContentPollsApiService List and search poll templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or POLLS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -587,7 +593,7 @@ func (a *ContentPollsApiService) GetPollTemplates(ctx context.Context, localVarO
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -628,7 +634,7 @@ func (a *ContentPollsApiService) GetPollTemplates(ctx context.Context, localVarO
 }
 
 /* ContentPollsApiService List and search polls
- Get a list of polls with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single poll&#39; to retrieve the full resource with assets for a given item as needed.
+ Get a list of polls with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single poll&#39; to retrieve the full resource with assets for a given item as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterCategory" (string) Filter for polls from a specific category by id
@@ -692,7 +698,7 @@ func (a *ContentPollsApiService) GetPolls(ctx context.Context, localVarOptionals
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -733,6 +739,7 @@ func (a *ContentPollsApiService) GetPolls(ctx context.Context, localVarOptionals
 }
 
 /* ContentPollsApiService Update an existing poll
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; POLLS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The poll id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -802,6 +809,7 @@ func (a *ContentPollsApiService) UpdatePoll(ctx context.Context, id string, loca
 }
 
 /* ContentPollsApiService Update a poll template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

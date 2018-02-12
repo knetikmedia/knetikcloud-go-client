@@ -28,6 +28,7 @@ type CategoriesApiService service
 
 
 /* CategoriesApiService Create a new category
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CATEGORIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "category" (CategoryResource) The category to create
@@ -95,7 +96,7 @@ func (a *CategoriesApiService) CreateCategory(ctx context.Context, localVarOptio
 }
 
 /* CategoriesApiService Create a category template
- Templates define a type of category and the properties they have
+ Templates define a type of category and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (TemplateResource) The template to create
@@ -163,6 +164,7 @@ func (a *CategoriesApiService) CreateCategoryTemplate(ctx context.Context, local
 }
 
 /* CategoriesApiService Delete an existing category
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CATEGORIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the category to be deleted
  @return */
@@ -184,7 +186,7 @@ func (a *CategoriesApiService) DeleteCategory(ctx context.Context, id string) ( 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -220,7 +222,7 @@ func (a *CategoriesApiService) DeleteCategory(ctx context.Context, id string) ( 
 }
 
 /* CategoriesApiService Delete a category template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -250,7 +252,7 @@ func (a *CategoriesApiService) DeleteCategoryTemplate(ctx context.Context, id st
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -286,6 +288,7 @@ func (a *CategoriesApiService) DeleteCategoryTemplate(ctx context.Context, id st
 }
 
 /* CategoriesApiService List and search categories with optional filters
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterSearch" (string) Filter for categories whose names begin with provided string
@@ -342,7 +345,7 @@ func (a *CategoriesApiService) GetCategories(ctx context.Context, localVarOption
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -383,6 +386,7 @@ func (a *CategoriesApiService) GetCategories(ctx context.Context, localVarOption
 }
 
 /* CategoriesApiService Get a single category
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the category to retrieve
  @return CategoryResource*/
@@ -405,7 +409,7 @@ func (a *CategoriesApiService) GetCategory(ctx context.Context, id string) (Cate
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -446,6 +450,7 @@ func (a *CategoriesApiService) GetCategory(ctx context.Context, id string) (Cate
 }
 
 /* CategoriesApiService Get a single category template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CATEGORIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -468,7 +473,7 @@ func (a *CategoriesApiService) GetCategoryTemplate(ctx context.Context, id strin
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -509,6 +514,7 @@ func (a *CategoriesApiService) GetCategoryTemplate(ctx context.Context, id strin
 }
 
 /* CategoriesApiService List and search category templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CATEGORIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -551,7 +557,7 @@ func (a *CategoriesApiService) GetCategoryTemplates(ctx context.Context, localVa
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -592,6 +598,7 @@ func (a *CategoriesApiService) GetCategoryTemplates(ctx context.Context, localVa
 }
 
 /* CategoriesApiService List all trivia tags in the system
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -627,7 +634,7 @@ func (a *CategoriesApiService) GetTags(ctx context.Context, localVarOptionals ma
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -668,6 +675,7 @@ func (a *CategoriesApiService) GetTags(ctx context.Context, localVarOptionals ma
 }
 
 /* CategoriesApiService Update an existing category
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CATEGORIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the category
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -737,6 +745,7 @@ func (a *CategoriesApiService) UpdateCategory(ctx context.Context, id string, lo
 }
 
 /* CategoriesApiService Update a category template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

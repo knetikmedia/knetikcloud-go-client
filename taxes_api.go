@@ -28,6 +28,7 @@ type TaxesApiService service
 
 
 /* TaxesApiService Create a country tax
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TAX_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "taxResource" (CountryTaxResource) The tax object
@@ -95,6 +96,7 @@ func (a *TaxesApiService) CreateCountryTax(ctx context.Context, localVarOptional
 }
 
 /* TaxesApiService Create a state tax
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TAX_ADMIN
  * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -164,6 +166,7 @@ func (a *TaxesApiService) CreateStateTax(ctx context.Context, countryCodeIso3 st
 }
 
 /* TaxesApiService Delete an existing tax
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TAX_ADMIN
  * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @return */
@@ -185,7 +188,7 @@ func (a *TaxesApiService) DeleteCountryTax(ctx context.Context, countryCodeIso3 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -221,6 +224,7 @@ func (a *TaxesApiService) DeleteCountryTax(ctx context.Context, countryCodeIso3 
 }
 
 /* TaxesApiService Delete an existing state tax
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TAX_ADMIN
  * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @param stateCode The code of the state
@@ -244,7 +248,7 @@ func (a *TaxesApiService) DeleteStateTax(ctx context.Context, countryCodeIso3 st
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -280,6 +284,7 @@ func (a *TaxesApiService) DeleteStateTax(ctx context.Context, countryCodeIso3 st
 }
 
 /* TaxesApiService Get a single tax
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @return CountryTaxResource*/
@@ -302,7 +307,7 @@ func (a *TaxesApiService) GetCountryTax(ctx context.Context, countryCodeIso3 str
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -343,7 +348,7 @@ func (a *TaxesApiService) GetCountryTax(ctx context.Context, countryCodeIso3 str
 }
 
 /* TaxesApiService List and search taxes
- Get a list of taxes
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TAX_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -386,7 +391,7 @@ func (a *TaxesApiService) GetCountryTaxes(ctx context.Context, localVarOptionals
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -427,6 +432,7 @@ func (a *TaxesApiService) GetCountryTaxes(ctx context.Context, localVarOptionals
 }
 
 /* TaxesApiService Get a single state tax
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @param stateCode The code of the state
@@ -451,7 +457,7 @@ func (a *TaxesApiService) GetStateTax(ctx context.Context, countryCodeIso3 strin
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -492,7 +498,7 @@ func (a *TaxesApiService) GetStateTax(ctx context.Context, countryCodeIso3 strin
 }
 
 /* TaxesApiService List and search taxes across all countries
- Get a list of taxes
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -535,7 +541,7 @@ func (a *TaxesApiService) GetStateTaxesForCountries(ctx context.Context, localVa
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -576,7 +582,7 @@ func (a *TaxesApiService) GetStateTaxesForCountries(ctx context.Context, localVa
 }
 
 /* TaxesApiService List and search taxes within a country
- Get a list of taxes
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -621,7 +627,7 @@ func (a *TaxesApiService) GetStateTaxesForCountry(ctx context.Context, countryCo
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -662,6 +668,7 @@ func (a *TaxesApiService) GetStateTaxesForCountry(ctx context.Context, countryCo
 }
 
 /* TaxesApiService Create or update a tax
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TAX_ADMIN
  * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -731,6 +738,7 @@ func (a *TaxesApiService) UpdateCountryTax(ctx context.Context, countryCodeIso3 
 }
 
 /* TaxesApiService Create or update a state tax
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TAX_ADMIN
  * @param ctx context.Context Authentication Context 
  @param countryCodeIso3 The iso3 code of the country
  @param stateCode The code of the state

@@ -1,6 +1,6 @@
 # \UsersInventoryApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,7 +31,7 @@ Method | HTTP request | Description
 > InvoiceResource AddItemToUserInventory(ctx, ctx, id, optional)
 Adds an item to the user inventory
 
-The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time
+The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Required Parameters
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 > CheckUserEntitlementItem(ctx, ctx, userId, itemId, optional)
 Check for access to an item without consuming
 
-Useful for pre-check and accounts for all various buisness rules
+Useful for pre-check and accounts for all various buisness rules. <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 
 ### Required Parameters
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -108,6 +108,8 @@ Name | Type | Description  | Notes
 # **CreateEntitlementItem**
 > EntitlementItem CreateEntitlementItem(ctx, ctx, optional)
 Create an entitlement item
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Required Parameters
 
@@ -144,7 +146,7 @@ Name | Type | Description  | Notes
 > ItemTemplateResource CreateEntitlementTemplate(ctx, ctx, optional)
 Create an entitlement template
 
-Entitlement templates define a type of entitlement and the properties they have
+Entitlement templates define a type of entitlement and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -180,6 +182,8 @@ Name | Type | Description  | Notes
 > DeleteEntitlementItem(ctx, ctx, entitlementId)
 Delete an entitlement item
 
+<b>Permissions Needed:</b> INVENTORY_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -198,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -207,7 +211,7 @@ Name | Type | Description  | Notes
 > DeleteEntitlementTemplate(ctx, ctx, id, optional)
 Delete an entitlement template
 
-If cascade = 'detach', it will force delete the template even if it's attached to other objects
+If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN
 
 ### Required Parameters
 
@@ -236,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -244,6 +248,8 @@ Name | Type | Description  | Notes
 # **GetEntitlementItem**
 > EntitlementItem GetEntitlementItem(ctx, ctx, entitlementId)
 Get a single entitlement item
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -263,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -271,6 +277,8 @@ Name | Type | Description  | Notes
 # **GetEntitlementItems**
 > PageResourceEntitlementItem GetEntitlementItems(ctx, ctx, optional)
 List and search entitlement items
+
+<b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -300,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -308,6 +316,8 @@ Name | Type | Description  | Notes
 # **GetEntitlementTemplate**
 > ItemTemplateResource GetEntitlementTemplate(ctx, ctx, id)
 Get a single entitlement template
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 
 ### Required Parameters
 
@@ -327,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -335,6 +345,8 @@ Name | Type | Description  | Notes
 # **GetEntitlementTemplates**
 > PageResourceItemTemplateResource GetEntitlementTemplates(ctx, ctx, optional)
 List and search entitlement templates
+
+<b>Permissions Needed:</b> TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
 
 ### Required Parameters
 
@@ -363,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -371,6 +383,8 @@ Name | Type | Description  | Notes
 # **GetUserInventories**
 > PageResourceUserInventoryResource GetUserInventories(ctx, ctx, id, optional)
 List the user inventory entries for a given user
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 
 ### Required Parameters
 
@@ -406,7 +420,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -415,13 +429,15 @@ Name | Type | Description  | Notes
 > UserInventoryResource GetUserInventory(ctx, ctx, userId, id)
 Get an inventory entry
 
+<b>Permissions Needed:</b> INVENTORY_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **userId** | **int32**| The id of the inventory owner or &#39;me&#39; for the logged in user | 
+  **userId** | **string**| The id of the inventory owner or &#39;me&#39; for the logged in user | 
   **id** | **int32**| The id of the user inventory | 
 
 ### Return type
@@ -434,7 +450,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -442,6 +458,8 @@ Name | Type | Description  | Notes
 # **GetUserInventoryLog**
 > PageResourceUserItemLogResource GetUserInventoryLog(ctx, ctx, userId, id, optional)
 List the log entries for this inventory entry
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 
 ### Required Parameters
 
@@ -473,7 +491,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -481,6 +499,8 @@ Name | Type | Description  | Notes
 # **GetUsersInventory**
 > PageResourceUserInventoryResource GetUsersInventory(ctx, ctx, optional)
 List the user inventory entries for all users
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Required Parameters
 
@@ -514,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -522,6 +542,8 @@ Name | Type | Description  | Notes
 # **GrantUserEntitlement**
 > GrantUserEntitlement(ctx, ctx, userId, grantRequest)
 Grant an entitlement
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Required Parameters
 
@@ -550,6 +572,8 @@ Name | Type | Description  | Notes
 # **UpdateEntitlementItem**
 > UpdateEntitlementItem(ctx, ctx, entitlementId, optional)
 Update an entitlement item
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Required Parameters
 
@@ -588,6 +612,8 @@ Name | Type | Description  | Notes
 > ItemTemplateResource UpdateEntitlementTemplate(ctx, ctx, id, optional)
 Update an entitlement template
 
+<b>Permissions Needed:</b> TEMPLATE_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -623,6 +649,8 @@ Name | Type | Description  | Notes
 # **UpdateUserInventoryBehaviorData**
 > UpdateUserInventoryBehaviorData(ctx, ctx, userId, id, optional)
 Set the behavior data for an inventory entry
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Required Parameters
 
@@ -662,7 +690,7 @@ Name | Type | Description  | Notes
 > UpdateUserInventoryExpires(ctx, ctx, userId, id, optional)
 Set the expiration date
 
-Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill)
+Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill). <br><br><b>Permissions Needed:</b> INVENTORY_ADMIN
 
 ### Required Parameters
 
@@ -702,6 +730,8 @@ Name | Type | Description  | Notes
 > UpdateUserInventoryStatus(ctx, ctx, userId, id, optional)
 Set the status for an inventory entry
 
+<b>Permissions Needed:</b> INVENTORY_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -739,6 +769,8 @@ Name | Type | Description  | Notes
 # **UseUserEntitlementItem**
 > UseUserEntitlementItem(ctx, ctx, userId, itemId, optional)
 Use an item
+
+<b>Permissions Needed:</b> INVENTORY_ADMIN or owner
 
 ### Required Parameters
 

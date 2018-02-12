@@ -28,6 +28,7 @@ type UsersRelationshipsApiService service
 
 
 /* UsersRelationshipsApiService Create a user relationship
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "relationship" (UserRelationshipResource) The new relationship
@@ -95,6 +96,7 @@ func (a *UsersRelationshipsApiService) CreateUserRelationship(ctx context.Contex
 }
 
 /* UsersRelationshipsApiService Delete a user relationship
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the relationship
  @return */
@@ -116,7 +118,7 @@ func (a *UsersRelationshipsApiService) DeleteUserRelationship(ctx context.Contex
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -152,6 +154,7 @@ func (a *UsersRelationshipsApiService) DeleteUserRelationship(ctx context.Contex
 }
 
 /* UsersRelationshipsApiService Get a user relationship
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the relationship
  @return UserRelationshipResource*/
@@ -174,7 +177,7 @@ func (a *UsersRelationshipsApiService) GetUserRelationship(ctx context.Context, 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -215,6 +218,7 @@ func (a *UsersRelationshipsApiService) GetUserRelationship(ctx context.Context, 
 }
 
 /* UsersRelationshipsApiService Get a list of user relationships
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -257,7 +261,7 @@ func (a *UsersRelationshipsApiService) GetUserRelationships(ctx context.Context,
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -298,6 +302,7 @@ func (a *UsersRelationshipsApiService) GetUserRelationships(ctx context.Context,
 }
 
 /* UsersRelationshipsApiService Update a user relationship
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the relationship
  @param optional (nil or map[string]interface{}) with one or more of:

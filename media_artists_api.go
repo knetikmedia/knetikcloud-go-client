@@ -28,7 +28,7 @@ type MediaArtistsApiService service
 
 
 /* MediaArtistsApiService Adds a new artist in the system
- Adds a new artist in the system. Use specific media contributions endpoint to add contributions
+ Adds a new artist in the system. Use specific media contributions endpoint to add contributions. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "artistResource" (ArtistResource) The new artist
@@ -96,7 +96,7 @@ func (a *MediaArtistsApiService) AddArtist(ctx context.Context, localVarOptional
 }
 
 /* MediaArtistsApiService Create an artist template
- Artist Templates define a type of artist and the properties they have
+ Artist Templates define a type of artist and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "artistTemplateResource" (TemplateResource) The artist template resource object
@@ -164,6 +164,7 @@ func (a *MediaArtistsApiService) CreateArtistTemplate(ctx context.Context, local
 }
 
 /* MediaArtistsApiService Removes an artist from the system IF no resources are attached to it
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTISTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The artist id
  @return */
@@ -185,7 +186,7 @@ func (a *MediaArtistsApiService) DeleteArtist(ctx context.Context, id int64) ( *
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -221,7 +222,7 @@ func (a *MediaArtistsApiService) DeleteArtist(ctx context.Context, id int64) ( *
 }
 
 /* MediaArtistsApiService Delete an artist template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -251,7 +252,7 @@ func (a *MediaArtistsApiService) DeleteArtistTemplate(ctx context.Context, id st
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -287,6 +288,7 @@ func (a *MediaArtistsApiService) DeleteArtistTemplate(ctx context.Context, id st
 }
 
 /* MediaArtistsApiService Loads a specific artist details
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The artist id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -317,7 +319,7 @@ func (a *MediaArtistsApiService) GetArtist(ctx context.Context, id int64, localV
 		localVarQueryParams.Add("show_contributions", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -358,6 +360,7 @@ func (a *MediaArtistsApiService) GetArtist(ctx context.Context, id int64, localV
 }
 
 /* MediaArtistsApiService Get a single artist template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTISTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -380,7 +383,7 @@ func (a *MediaArtistsApiService) GetArtistTemplate(ctx context.Context, id strin
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -421,6 +424,7 @@ func (a *MediaArtistsApiService) GetArtistTemplate(ctx context.Context, id strin
 }
 
 /* MediaArtistsApiService List and search artist templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTISTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -463,7 +467,7 @@ func (a *MediaArtistsApiService) GetArtistTemplates(ctx context.Context, localVa
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -504,6 +508,7 @@ func (a *MediaArtistsApiService) GetArtistTemplates(ctx context.Context, localVa
 }
 
 /* MediaArtistsApiService Search for artists
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterArtistsByName" (string) Filter for artists which name *STARTS* with the given string
@@ -553,7 +558,7 @@ func (a *MediaArtistsApiService) GetArtists(ctx context.Context, localVarOptiona
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -594,6 +599,7 @@ func (a *MediaArtistsApiService) GetArtists(ctx context.Context, localVarOptiona
 }
 
 /* MediaArtistsApiService Modifies an artist details
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTISTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The artist id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -657,6 +663,7 @@ func (a *MediaArtistsApiService) UpdateArtist(ctx context.Context, id int64, loc
 }
 
 /* MediaArtistsApiService Update an artist template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:

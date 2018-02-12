@@ -28,7 +28,7 @@ type SearchApiService service
 
 
 /* SearchApiService Count matches with no template
- This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @return interface{}*/
@@ -51,7 +51,7 @@ func (a *SearchApiService) SearchCountGET(ctx context.Context, type_ string) (in
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -92,7 +92,7 @@ func (a *SearchApiService) SearchCountGET(ctx context.Context, type_ string) (in
 }
 
 /* SearchApiService Count matches with no template
- This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -162,7 +162,7 @@ func (a *SearchApiService) SearchCountPOST(ctx context.Context, type_ string, lo
 }
 
 /* SearchApiService Count matches with a template
- This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param template The index template
@@ -187,7 +187,7 @@ func (a *SearchApiService) SearchCountWithTemplateGET(ctx context.Context, type_
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -228,7 +228,7 @@ func (a *SearchApiService) SearchCountWithTemplateGET(ctx context.Context, type_
 }
 
 /* SearchApiService Count matches with a template
- This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _count.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param template The index template
@@ -300,7 +300,7 @@ func (a *SearchApiService) SearchCountWithTemplatePOST(ctx context.Context, type
 }
 
 /* SearchApiService Get document with no template
- This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param id The index id
@@ -325,7 +325,7 @@ func (a *SearchApiService) SearchDocumentGET(ctx context.Context, type_ string, 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -366,7 +366,7 @@ func (a *SearchApiService) SearchDocumentGET(ctx context.Context, type_ string, 
 }
 
 /* SearchApiService Get document with a template
- This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param id The index id
@@ -393,7 +393,7 @@ func (a *SearchApiService) SearchDocumentWithTemplateGET(ctx context.Context, ty
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -434,7 +434,7 @@ func (a *SearchApiService) SearchDocumentWithTemplateGET(ctx context.Context, ty
 }
 
 /* SearchApiService Explain matches with no template
- This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param id The index id
@@ -459,7 +459,7 @@ func (a *SearchApiService) SearchExplainGET(ctx context.Context, type_ string, i
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -500,7 +500,7 @@ func (a *SearchApiService) SearchExplainGET(ctx context.Context, type_ string, i
 }
 
 /* SearchApiService Explain matches with no template
- This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param id The index id
@@ -572,7 +572,7 @@ func (a *SearchApiService) SearchExplainPOST(ctx context.Context, type_ string, 
 }
 
 /* SearchApiService Explain matches with a template
- This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param id The index id
@@ -599,7 +599,7 @@ func (a *SearchApiService) SearchExplainWithTemplateGET(ctx context.Context, typ
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -640,7 +640,7 @@ func (a *SearchApiService) SearchExplainWithTemplateGET(ctx context.Context, typ
 }
 
 /* SearchApiService Explain matches with a template
- This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _explain.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param id The index id
@@ -714,7 +714,7 @@ func (a *SearchApiService) SearchExplainWithTemplatePOST(ctx context.Context, ty
 }
 
 /* SearchApiService Search an index with no template
- This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -784,7 +784,7 @@ func (a *SearchApiService) SearchIndex(ctx context.Context, type_ string, localV
 }
 
 /* SearchApiService Search an index with no template
- This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @return interface{}*/
@@ -807,7 +807,7 @@ func (a *SearchApiService) SearchIndexGET(ctx context.Context, type_ string) (in
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -848,7 +848,7 @@ func (a *SearchApiService) SearchIndexGET(ctx context.Context, type_ string) (in
 }
 
 /* SearchApiService Search an index with a template
- This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param template The index template
@@ -873,7 +873,7 @@ func (a *SearchApiService) SearchIndexWithTemplateGET(ctx context.Context, type_
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -914,7 +914,7 @@ func (a *SearchApiService) SearchIndexWithTemplateGET(ctx context.Context, type_
 }
 
 /* SearchApiService Search an index with a template
- This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _search.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param template The index template
@@ -986,7 +986,7 @@ func (a *SearchApiService) SearchIndexWithTemplatePOST(ctx context.Context, type
 }
 
 /* SearchApiService Get indices
- This is a 1 to 1 mapping of a ElasticSearch call to _cat/indices for indices.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _cat/indices for indices.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @return interface{}*/
 func (a *SearchApiService) SearchIndicesGET(ctx context.Context, ) (interface{},  *http.Response, error) {
@@ -1007,7 +1007,7 @@ func (a *SearchApiService) SearchIndicesGET(ctx context.Context, ) (interface{},
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1048,7 +1048,7 @@ func (a *SearchApiService) SearchIndicesGET(ctx context.Context, ) (interface{},
 }
 
 /* SearchApiService Get mapping with no template
- This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @return interface{}*/
@@ -1071,7 +1071,7 @@ func (a *SearchApiService) SearchMappingsGET(ctx context.Context, type_ string) 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1112,7 +1112,7 @@ func (a *SearchApiService) SearchMappingsGET(ctx context.Context, type_ string) 
 }
 
 /* SearchApiService Get mapping with a template
- This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _mapping.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param template The index template
@@ -1137,7 +1137,7 @@ func (a *SearchApiService) SearchMappingsWithTemplateGET(ctx context.Context, ty
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1178,7 +1178,7 @@ func (a *SearchApiService) SearchMappingsWithTemplateGET(ctx context.Context, ty
 }
 
 /* SearchApiService Validate matches with no template
- This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @return interface{}*/
@@ -1201,7 +1201,7 @@ func (a *SearchApiService) SearchValidateGET(ctx context.Context, type_ string) 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1242,7 +1242,7 @@ func (a *SearchApiService) SearchValidateGET(ctx context.Context, type_ string) 
 }
 
 /* SearchApiService Validate matches with no template
- This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1312,7 +1312,7 @@ func (a *SearchApiService) SearchValidatePOST(ctx context.Context, type_ string,
 }
 
 /* SearchApiService Validate matches with a template
- This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param template The index template
@@ -1337,7 +1337,7 @@ func (a *SearchApiService) SearchValidateWithTemplateGET(ctx context.Context, ty
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1378,7 +1378,7 @@ func (a *SearchApiService) SearchValidateWithTemplateGET(ctx context.Context, ty
 }
 
 /* SearchApiService Validate matches with a template
- This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html&#39;&gt;API guide&lt;/a&gt;
+ This is a 1 to 1 mapping of a ElasticSearch call to _validate/query.  Further information can be found at their &lt;a href&#x3D;&#39;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-validate.html&#39;&gt;API guide&lt;/a&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SEARCH_ADMIN
  * @param ctx context.Context Authentication Context 
  @param type_ The index type
  @param template The index template

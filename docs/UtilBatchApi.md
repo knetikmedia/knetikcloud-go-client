@@ -1,6 +1,6 @@
 # \UtilBatchApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 > []BatchReturn GetBatch(ctx, ctx, token)
 Get batch result with token
 
-Tokens expire in 24 hours
+Tokens expire in 24 hours. <br><br><b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 
@@ -32,7 +32,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 > []BatchReturn SendBatch(ctx, ctx, optional)
 Request to run API call given the method, content type, path url, and body of request
 
-Should the request take longer than one of the alloted timeout parameters, a token will be returned instead, which can be used on the token endpoint in this service
+Should the request take longer than one of the alloted timeout parameters, a token will be returned instead, which can be used on the token endpoint in this service. <br><br><b>Permissions Needed:</b> ANY
 
 ### Required Parameters
 

@@ -28,7 +28,7 @@ type MediaVideosApiService service
 
 
 /* MediaVideosApiService Adds a user to a video&#39;s whitelist
- Whitelisted users can view video regardless of privacy setting.
+ Whitelisted users can view video regardless of privacy setting. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The video id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -92,6 +92,7 @@ func (a *MediaVideosApiService) AddUserToVideoWhitelist(ctx context.Context, id 
 }
 
 /* MediaVideosApiService Adds a new video in the system
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "videoResource" (VideoResource) The video object
@@ -159,6 +160,7 @@ func (a *MediaVideosApiService) AddVideo(ctx context.Context, localVarOptionals 
 }
 
 /* MediaVideosApiService Add a new video comment
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -228,6 +230,7 @@ func (a *MediaVideosApiService) AddVideoComment(ctx context.Context, videoId int
 }
 
 /* MediaVideosApiService Adds a contributor to a video
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -291,6 +294,7 @@ func (a *MediaVideosApiService) AddVideoContributor(ctx context.Context, videoId
 }
 
 /* MediaVideosApiService Add a new flag
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -360,6 +364,7 @@ func (a *MediaVideosApiService) AddVideoFlag(ctx context.Context, videoId int64,
 }
 
 /* MediaVideosApiService Adds one or more existing videos as related to this one
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -429,6 +434,7 @@ func (a *MediaVideosApiService) AddVideoRelationships(ctx context.Context, video
 }
 
 /* MediaVideosApiService Create a video disposition
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -498,7 +504,7 @@ func (a *MediaVideosApiService) CreateVideoDisposition(ctx context.Context, vide
 }
 
 /* MediaVideosApiService Create a video template
- Video Templates define a type of video and the properties they have
+ Video Templates define a type of video and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "videoTemplateResource" (TemplateResource) The video template resource object
@@ -566,6 +572,7 @@ func (a *MediaVideosApiService) CreateVideoTemplate(ctx context.Context, localVa
 }
 
 /* MediaVideosApiService Deletes a video from the system if no resources are attached to it
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The video id
  @return */
@@ -587,7 +594,7 @@ func (a *MediaVideosApiService) DeleteVideo(ctx context.Context, id int64) ( *ht
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -623,6 +630,7 @@ func (a *MediaVideosApiService) DeleteVideo(ctx context.Context, id int64) ( *ht
 }
 
 /* MediaVideosApiService Delete a video comment
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param id The comment id
@@ -646,7 +654,7 @@ func (a *MediaVideosApiService) DeleteVideoComment(ctx context.Context, videoId 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -682,6 +690,7 @@ func (a *MediaVideosApiService) DeleteVideoComment(ctx context.Context, videoId 
 }
 
 /* MediaVideosApiService Delete a video disposition
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param dispositionId The disposition id
  @return */
@@ -703,7 +712,7 @@ func (a *MediaVideosApiService) DeleteVideoDisposition(ctx context.Context, disp
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -739,6 +748,7 @@ func (a *MediaVideosApiService) DeleteVideoDisposition(ctx context.Context, disp
 }
 
 /* MediaVideosApiService Delete a flag
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @return */
@@ -760,7 +770,7 @@ func (a *MediaVideosApiService) DeleteVideoFlag(ctx context.Context, videoId int
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -796,6 +806,7 @@ func (a *MediaVideosApiService) DeleteVideoFlag(ctx context.Context, videoId int
 }
 
 /* MediaVideosApiService Delete a video&#39;s relationship
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param id The relationship id
@@ -819,7 +830,7 @@ func (a *MediaVideosApiService) DeleteVideoRelationship(ctx context.Context, vid
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -855,7 +866,7 @@ func (a *MediaVideosApiService) DeleteVideoRelationship(ctx context.Context, vid
 }
 
 /* MediaVideosApiService Delete a video template
- If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects
+ If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -885,7 +896,7 @@ func (a *MediaVideosApiService) DeleteVideoTemplate(ctx context.Context, id stri
 		localVarQueryParams.Add("cascade", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -921,6 +932,7 @@ func (a *MediaVideosApiService) DeleteVideoTemplate(ctx context.Context, id stri
 }
 
 /* MediaVideosApiService Get user videos
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -965,7 +977,7 @@ func (a *MediaVideosApiService) GetUserVideos(ctx context.Context, userId int32,
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1006,6 +1018,7 @@ func (a *MediaVideosApiService) GetUserVideos(ctx context.Context, userId int32,
 }
 
 /* MediaVideosApiService Loads a specific video details
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The video id
  @return VideoResource*/
@@ -1028,7 +1041,7 @@ func (a *MediaVideosApiService) GetVideo(ctx context.Context, id int64) (VideoRe
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1069,6 +1082,7 @@ func (a *MediaVideosApiService) GetVideo(ctx context.Context, id int64) (VideoRe
 }
 
 /* MediaVideosApiService Returns a page of comments for a video
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1106,7 +1120,7 @@ func (a *MediaVideosApiService) GetVideoComments(ctx context.Context, videoId in
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1147,6 +1161,7 @@ func (a *MediaVideosApiService) GetVideoComments(ctx context.Context, videoId in
 }
 
 /* MediaVideosApiService Returns a page of dispositions for a video
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1184,7 +1199,7 @@ func (a *MediaVideosApiService) GetVideoDispositions(ctx context.Context, videoI
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1225,6 +1240,7 @@ func (a *MediaVideosApiService) GetVideoDispositions(ctx context.Context, videoI
 }
 
 /* MediaVideosApiService Returns a page of video relationships
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1262,7 +1278,7 @@ func (a *MediaVideosApiService) GetVideoRelationships(ctx context.Context, video
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1303,6 +1319,7 @@ func (a *MediaVideosApiService) GetVideoRelationships(ctx context.Context, video
 }
 
 /* MediaVideosApiService Get a single video template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
@@ -1325,7 +1342,7 @@ func (a *MediaVideosApiService) GetVideoTemplate(ctx context.Context, id string)
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1366,6 +1383,7 @@ func (a *MediaVideosApiService) GetVideoTemplate(ctx context.Context, id string)
 }
 
 /* MediaVideosApiService List and search video templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -1408,7 +1426,7 @@ func (a *MediaVideosApiService) GetVideoTemplates(ctx context.Context, localVarO
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1449,6 +1467,7 @@ func (a *MediaVideosApiService) GetVideoTemplates(ctx context.Context, localVarO
 }
 
 /* MediaVideosApiService Search videos using the documented filters
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "excludeFlagged" (bool) Skip videos that have been flagged by the current user
@@ -1575,7 +1594,7 @@ func (a *MediaVideosApiService) GetVideos(ctx context.Context, localVarOptionals
 		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1616,7 +1635,7 @@ func (a *MediaVideosApiService) GetVideos(ctx context.Context, localVarOptionals
 }
 
 /* MediaVideosApiService Removes a user from a video&#39;s whitelist
- Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting.
+ Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param id The user id
@@ -1640,7 +1659,7 @@ func (a *MediaVideosApiService) RemoveUserFromVideoWhitelist(ctx context.Context
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1676,6 +1695,7 @@ func (a *MediaVideosApiService) RemoveUserFromVideoWhitelist(ctx context.Context
 }
 
 /* MediaVideosApiService Removes a contributor from a video
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param id The contributor id
@@ -1699,7 +1719,7 @@ func (a *MediaVideosApiService) RemoveVideoContributor(ctx context.Context, vide
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1735,6 +1755,7 @@ func (a *MediaVideosApiService) RemoveVideoContributor(ctx context.Context, vide
 }
 
 /* MediaVideosApiService Modifies a video&#39;s details
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The video id
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1798,6 +1819,7 @@ func (a *MediaVideosApiService) UpdateVideo(ctx context.Context, id int64, local
 }
 
 /* MediaVideosApiService Update a video comment
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param id The comment id
@@ -1863,6 +1885,7 @@ func (a *MediaVideosApiService) UpdateVideoComment(ctx context.Context, videoId 
 }
 
 /* MediaVideosApiService Update a video&#39;s relationship details
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param relationshipId The relationship id
@@ -1928,6 +1951,7 @@ func (a *MediaVideosApiService) UpdateVideoRelationship(ctx context.Context, vid
 }
 
 /* MediaVideosApiService Update a video template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1997,6 +2021,7 @@ func (a *MediaVideosApiService) UpdateVideoTemplate(ctx context.Context, id stri
 }
 
 /* MediaVideosApiService Increment a video&#39;s view count
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The video id
  @return */

@@ -27,6 +27,7 @@ type UtilVersionApiService service
 
 
 /* UtilVersionApiService Get current version info
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return Version*/
 func (a *UtilVersionApiService) GetVersion(ctx context.Context, ) (Version,  *http.Response, error) {
@@ -47,7 +48,7 @@ func (a *UtilVersionApiService) GetVersion(ctx context.Context, ) (Version,  *ht
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

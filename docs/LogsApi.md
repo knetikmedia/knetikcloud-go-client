@@ -1,6 +1,6 @@
 # \LogsApi
 
-All URIs are relative to *https://devsandbox.knetikcloud.com*
+All URIs are relative to *https://sandbox.knetikcloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,6 +16,8 @@ Method | HTTP request | Description
 # **AddUserLog**
 > AddUserLog(ctx, ctx, optional)
 Add a user log entry
+
+<b>Permissions Needed:</b> owner
 
 ### Required Parameters
 
@@ -51,6 +53,8 @@ Name | Type | Description  | Notes
 > BreEventLog GetBREEventLog(ctx, ctx, id)
 Get an existing BRE event log entry by id
 
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -69,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -77,6 +81,8 @@ Name | Type | Description  | Notes
 # **GetBREEventLogs**
 > PageResourceBreEventLog GetBREEventLogs(ctx, ctx, optional)
 Returns a list of BRE event log entries
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 
 ### Required Parameters
 
@@ -97,6 +103,7 @@ Name | Type | Description  | Notes
  **size** | **int32**| The number of objects returned per page | [default to 25]
  **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
  **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:DESC]
+ **filterRuleId** | **string**| Filter event logs by request id | 
 
 ### Return type
 
@@ -108,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -116,6 +123,8 @@ Name | Type | Description  | Notes
 # **GetBREForwardLog**
 > ForwardLog GetBREForwardLog(ctx, ctx, id)
 Get an existing forward log entry by id
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 
 ### Required Parameters
 
@@ -135,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -143,6 +152,8 @@ Name | Type | Description  | Notes
 # **GetBREForwardLogs**
 > PageResourceForwardLog GetBREForwardLogs(ctx, ctx, optional)
 Returns a list of forward log entries
+
+<b>Permissions Needed:</b> BRE_RULE_ENGINE_EVENTS_ADMIN
 
 ### Required Parameters
 
@@ -160,6 +171,7 @@ Name | Type | Description  | Notes
  **filterStartDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). | 
  **filterEndDate** | **string**| A comma separated string without spaces.  First value is the operator to search on, second value is the log end date, a unix timestamp in seconds.  Allowed operators: (GT, LT, EQ, GOE, LOE). | 
  **filterStatusCode** | **int32**| Filter forward logs by http status code | 
+ **filterUrl** | **int32**| Filter forward logs by URL starting with... | 
  **size** | **int32**| The number of objects returned per page | [default to 25]
  **page** | **int32**| The number of the page returned, starting with 1 | [default to 1]
  **order** | **string**| A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC] | [default to id:DESC]
@@ -174,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -182,6 +194,8 @@ Name | Type | Description  | Notes
 # **GetUserLog**
 > UserActionLog GetUserLog(ctx, ctx, id)
 Returns a user log entry by id
+
+<b>Permissions Needed:</b> LOGS_ADMIN or owner
 
 ### Required Parameters
 
@@ -201,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -209,6 +223,8 @@ Name | Type | Description  | Notes
 # **GetUserLogs**
 > PageResourceUserActionLog GetUserLogs(ctx, ctx, optional)
 Returns a page of user logs entries
+
+<b>Permissions Needed:</b> LOGS_ADMIN or owner
 
 ### Required Parameters
 
@@ -239,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

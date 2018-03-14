@@ -23,10 +23,10 @@ var (
 	_ context.Context
 )
 
-type AccessTokenApiService service
+type Access_TokenApiService service
 
 
-/* AccessTokenApiService Get access token
+/* Access_TokenApiService Get access token
 
  @param grantType Grant type
  @param clientId The id of the client
@@ -37,7 +37,7 @@ type AccessTokenApiService service
      @param "token" (string) The 3rd party authentication token. Used only with a grant_type of facebook, google, etc (social plugins)
      @param "refreshToken" (string) The refresh token obtained during prior authentication. Used only with a grant_type of refresh_token
  @return OAuth2Resource*/
-func (a *AccessTokenApiService) GetOAuthToken(grantType string, clientId string, localVarOptionals map[string]interface{}) (OAuth2Resource,  *http.Response, error) {
+func (a *Access_TokenApiService) GetOAuthToken(grantType string, clientId string, localVarOptionals map[string]interface{}) (OAuth2Resource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}

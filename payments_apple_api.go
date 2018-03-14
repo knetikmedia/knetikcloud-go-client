@@ -23,16 +23,16 @@ var (
 	_ context.Context
 )
 
-type PaymentsAppleApiService service
+type Payments_AppleApiService service
 
 
-/* PaymentsAppleApiService Pay invoice with Apple receipt
+/* Payments_AppleApiService Pay invoice with Apple receipt
  Mark an invoice paid using Apple payment receipt. A receipt will only be accepted once and the details of the transaction must match the invoice, including the product_id matching the sku text of the item in the invoice. Returns the transaction ID if successful. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (ApplyPaymentRequest) The request for paying an invoice through an Apple receipt
  @return string*/
-func (a *PaymentsAppleApiService) VerifyAppleReceipt(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *Payments_AppleApiService) VerifyAppleReceipt(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}

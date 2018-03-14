@@ -23,16 +23,16 @@ var (
 	_ context.Context
 )
 
-type PaymentsFattMerchantApiService service
+type Payments_FattMerchantApiService service
 
 
-/* PaymentsFattMerchantApiService Create or update a FattMerchant payment method for a user
+/* Payments_FattMerchantApiService Create or update a FattMerchant payment method for a user
  Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; FATTMERCHANT_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (FattMerchantPaymentMethodRequest) Request containing payment method information for user
  @return PaymentMethodResource*/
-func (a *PaymentsFattMerchantApiService) CreateOrUpdateFattMerchantPaymentMethod(ctx context.Context, localVarOptionals map[string]interface{}) (PaymentMethodResource,  *http.Response, error) {
+func (a *Payments_FattMerchantApiService) CreateOrUpdateFattMerchantPaymentMethod(ctx context.Context, localVarOptionals map[string]interface{}) (PaymentMethodResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

@@ -24,15 +24,15 @@ var (
 	_ context.Context
 )
 
-type UtilBatchApiService service
+type Util_BatchApiService service
 
 
-/* UtilBatchApiService Get batch result with token
+/* Util_BatchApiService Get batch result with token
  Tokens expire in 24 hours. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param token token
  @return []BatchReturn*/
-func (a *UtilBatchApiService) GetBatch(ctx context.Context, token string) ([]BatchReturn,  *http.Response, error) {
+func (a *Util_BatchApiService) GetBatch(ctx context.Context, token string) ([]BatchReturn,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -91,13 +91,13 @@ func (a *UtilBatchApiService) GetBatch(ctx context.Context, token string) ([]Bat
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UtilBatchApiService Request to run API call given the method, content type, path url, and body of request
+/* Util_BatchApiService Request to run API call given the method, content type, path url, and body of request
  Should the request take longer than one of the alloted timeout parameters, a token will be returned instead, which can be used on the token endpoint in this service. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "batch" (Batch) The batch object
  @return []BatchReturn*/
-func (a *UtilBatchApiService) SendBatch(ctx context.Context, localVarOptionals map[string]interface{}) ([]BatchReturn,  *http.Response, error) {
+func (a *Util_BatchApiService) SendBatch(ctx context.Context, localVarOptionals map[string]interface{}) ([]BatchReturn,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}

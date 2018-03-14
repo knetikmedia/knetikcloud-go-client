@@ -24,10 +24,10 @@ var (
 	_ context.Context
 )
 
-type ReportingOrdersApiService service
+type Reporting_OrdersApiService service
 
 
-/* ReportingOrdersApiService Retrieve invoice counts aggregated by time ranges
+/* Reporting_OrdersApiService Retrieve invoice counts aggregated by time ranges
  &lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_ORDERS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param currencyCode The code for a currency to get sales data for
@@ -40,7 +40,7 @@ type ReportingOrdersApiService service
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned
  @return PageResourceAggregateInvoiceReportResource*/
-func (a *ReportingOrdersApiService) GetInvoiceReports(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceAggregateInvoiceReportResource,  *http.Response, error) {
+func (a *Reporting_OrdersApiService) GetInvoiceReports(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceAggregateInvoiceReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

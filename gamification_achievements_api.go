@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type GamificationAchievementsApiService service
+type Gamification_AchievementsApiService service
 
 
-/* GamificationAchievementsApiService Create a new achievement definition
+/* Gamification_AchievementsApiService Create a new achievement definition
  If the definition contains a trigger event name, a BRE rule is created, so that tracking logic is executed when the triggering event occurs. If no trigger event name is specified, the user&#39;s achievement status must manually be updated via the API. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "achievement" (AchievementDefinitionResource) The achievement definition
  @return AchievementDefinitionResource*/
-func (a *GamificationAchievementsApiService) CreateAchievement(ctx context.Context, localVarOptionals map[string]interface{}) (AchievementDefinitionResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) CreateAchievement(ctx context.Context, localVarOptionals map[string]interface{}) (AchievementDefinitionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,13 +95,13 @@ func (a *GamificationAchievementsApiService) CreateAchievement(ctx context.Conte
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Create an achievement template
+/* Gamification_AchievementsApiService Create an achievement template
  Achievement templates define a type of achievement and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (TemplateResource) The achievement template to be created
  @return TemplateResource*/
-func (a *GamificationAchievementsApiService) CreateAchievementTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) CreateAchievementTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -163,12 +163,12 @@ func (a *GamificationAchievementsApiService) CreateAchievementTemplate(ctx conte
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Delete an achievement definition
+/* Gamification_AchievementsApiService Delete an achievement definition
  Will also disable the associated generated rule, if any. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The name of the achievement
  @return */
-func (a *GamificationAchievementsApiService) DeleteAchievement(ctx context.Context, name string) ( *http.Response, error) {
+func (a *Gamification_AchievementsApiService) DeleteAchievement(ctx context.Context, name string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -221,14 +221,14 @@ func (a *GamificationAchievementsApiService) DeleteAchievement(ctx context.Conte
 	return localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Delete an achievement template
+/* Gamification_AchievementsApiService Delete an achievement template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *GamificationAchievementsApiService) DeleteAchievementTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Gamification_AchievementsApiService) DeleteAchievementTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -287,12 +287,12 @@ func (a *GamificationAchievementsApiService) DeleteAchievementTemplate(ctx conte
 	return localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Get a single achievement definition
+/* Gamification_AchievementsApiService Get a single achievement definition
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN or ACHIEVEMENTS_USER
  * @param ctx context.Context Authentication Context 
  @param name The name of the achievement
  @return AchievementDefinitionResource*/
-func (a *GamificationAchievementsApiService) GetAchievement(ctx context.Context, name string) (AchievementDefinitionResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) GetAchievement(ctx context.Context, name string) (AchievementDefinitionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -351,12 +351,12 @@ func (a *GamificationAchievementsApiService) GetAchievement(ctx context.Context,
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Get a single achievement template
+/* Gamification_AchievementsApiService Get a single achievement template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
-func (a *GamificationAchievementsApiService) GetAchievementTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) GetAchievementTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -415,7 +415,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTemplate(ctx context.
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService List and search achievement templates
+/* Gamification_AchievementsApiService List and search achievement templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -423,7 +423,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTemplate(ctx context.
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *GamificationAchievementsApiService) GetAchievementTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) GetAchievementTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -499,11 +499,11 @@ func (a *GamificationAchievementsApiService) GetAchievementTemplates(ctx context
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Get the list of triggers that can be used to trigger an achievement progress update
+/* Gamification_AchievementsApiService Get the list of triggers that can be used to trigger an achievement progress update
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @return []BreTriggerResource*/
-func (a *GamificationAchievementsApiService) GetAchievementTriggers(ctx context.Context, ) ([]BreTriggerResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) GetAchievementTriggers(ctx context.Context, ) ([]BreTriggerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -561,7 +561,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTriggers(ctx context.
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Get all achievement definitions in the system
+/* Gamification_AchievementsApiService Get all achievement definitions in the system
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN or ACHIEVEMENTS_USER
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -573,7 +573,7 @@ func (a *GamificationAchievementsApiService) GetAchievementTriggers(ctx context.
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
      @param "filterDerived" (bool) Filter for achievements that are derived from other services
  @return PageResourceAchievementDefinitionResource*/
-func (a *GamificationAchievementsApiService) GetAchievements(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceAchievementDefinitionResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) GetAchievements(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceAchievementDefinitionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -673,12 +673,12 @@ func (a *GamificationAchievementsApiService) GetAchievements(ctx context.Context
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Get a list of derived achievements
+/* Gamification_AchievementsApiService Get a list of derived achievements
  Used by other services that depend on achievements.  &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The name of the derived achievement
  @return []AchievementDefinitionResource*/
-func (a *GamificationAchievementsApiService) GetDerivedAchievements(ctx context.Context, name string) ([]AchievementDefinitionResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) GetDerivedAchievements(ctx context.Context, name string) ([]AchievementDefinitionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -737,13 +737,13 @@ func (a *GamificationAchievementsApiService) GetDerivedAchievements(ctx context.
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Retrieve progress on a given achievement for a given user
+/* Gamification_AchievementsApiService Retrieve progress on a given achievement for a given user
  Assets will not be filled in on the resources returned. Use &#39;Get a single poll&#39; to retrieve the full resource with assets for a given item as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @param achievementName The achievement&#39;s name
  @return UserAchievementGroupResource*/
-func (a *GamificationAchievementsApiService) GetUserAchievementProgress(ctx context.Context, userId int32, achievementName string) (UserAchievementGroupResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) GetUserAchievementProgress(ctx context.Context, userId int32, achievementName string) (UserAchievementGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -803,7 +803,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementProgress(ctx cont
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Retrieve progress on achievements for a given user
+/* Gamification_AchievementsApiService Retrieve progress on achievements for a given user
  Assets will not be filled in on the resources returned. Use &#39;Get a single poll&#39; to retrieve the full resource with assets for a given item as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
@@ -814,7 +814,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementProgress(ctx cont
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUserAchievementGroupResource*/
-func (a *GamificationAchievementsApiService) GetUserAchievementsProgress(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) (PageResourceUserAchievementGroupResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) GetUserAchievementsProgress(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) (PageResourceUserAchievementGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -903,7 +903,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementsProgress(ctx con
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Retrieve progress on a given achievement for all users
+/* Gamification_AchievementsApiService Retrieve progress on a given achievement for all users
  Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param achievementName The achievement&#39;s name
@@ -914,7 +914,7 @@ func (a *GamificationAchievementsApiService) GetUserAchievementsProgress(ctx con
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUserAchievementGroupResource*/
-func (a *GamificationAchievementsApiService) GetUsersAchievementProgress(ctx context.Context, achievementName string, localVarOptionals map[string]interface{}) (PageResourceUserAchievementGroupResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) GetUsersAchievementProgress(ctx context.Context, achievementName string, localVarOptionals map[string]interface{}) (PageResourceUserAchievementGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1003,7 +1003,7 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementProgress(ctx con
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Retrieve progress on achievements for all users
+/* Gamification_AchievementsApiService Retrieve progress on achievements for all users
  Assets will not be filled in on the resources returned. Use &#39;Get single achievement progress for user&#39; to retrieve the full resource with assets for a given user as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1013,7 +1013,7 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementProgress(ctx con
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUserAchievementGroupResource*/
-func (a *GamificationAchievementsApiService) GetUsersAchievementsProgress(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceUserAchievementGroupResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) GetUsersAchievementsProgress(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceUserAchievementGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1101,7 +1101,7 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementsProgress(ctx co
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Increment an achievement progress record for a user
+/* Gamification_AchievementsApiService Increment an achievement progress record for a user
  If no progress record yet exists for the user, it will be created. Otherwise it will be updated and the provided value added to the existing progress. May be negative. If progress meets or exceeds the achievement&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
@@ -1109,7 +1109,7 @@ func (a *GamificationAchievementsApiService) GetUsersAchievementsProgress(ctx co
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "progress" (IntWrapper) The amount to add to the progress value
  @return UserAchievementGroupResource*/
-func (a *GamificationAchievementsApiService) IncrementAchievementProgress(ctx context.Context, userId int32, achievementName string, localVarOptionals map[string]interface{}) (UserAchievementGroupResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) IncrementAchievementProgress(ctx context.Context, userId int32, achievementName string, localVarOptionals map[string]interface{}) (UserAchievementGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -1173,7 +1173,7 @@ func (a *GamificationAchievementsApiService) IncrementAchievementProgress(ctx co
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Set an achievement progress record for a user
+/* Gamification_AchievementsApiService Set an achievement progress record for a user
  If no progress record yet exists for the user, it will be created. Otherwise it will be updated and progress set to the provided value. If progress meets or exceeds the achievement&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
@@ -1181,7 +1181,7 @@ func (a *GamificationAchievementsApiService) IncrementAchievementProgress(ctx co
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "progress" (IntWrapper) The new progress value
  @return UserAchievementGroupResource*/
-func (a *GamificationAchievementsApiService) SetAchievementProgress(ctx context.Context, userId int32, achievementName string, localVarOptionals map[string]interface{}) (UserAchievementGroupResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) SetAchievementProgress(ctx context.Context, userId int32, achievementName string, localVarOptionals map[string]interface{}) (UserAchievementGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1245,14 +1245,14 @@ func (a *GamificationAchievementsApiService) SetAchievementProgress(ctx context.
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Update an achievement definition
+/* Gamification_AchievementsApiService Update an achievement definition
  The existing generated rule, if any, will be deleted. A new rule will be created if a trigger event name is specified in the new version. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The name of the achievement
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "achievement" (AchievementDefinitionResource) The achievement definition
  @return AchievementDefinitionResource*/
-func (a *GamificationAchievementsApiService) UpdateAchievement(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AchievementDefinitionResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) UpdateAchievement(ctx context.Context, name string, localVarOptionals map[string]interface{}) (AchievementDefinitionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1315,14 +1315,14 @@ func (a *GamificationAchievementsApiService) UpdateAchievement(ctx context.Conte
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationAchievementsApiService Update an achievement template
+/* Gamification_AchievementsApiService Update an achievement template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (TemplateResource) The updated template
  @return TemplateResource*/
-func (a *GamificationAchievementsApiService) UpdateAchievementTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Gamification_AchievementsApiService) UpdateAchievementTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

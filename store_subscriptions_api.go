@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type StoreSubscriptionsApiService service
+type Store_SubscriptionsApiService service
 
 
-/* StoreSubscriptionsApiService Creates a subscription item and associated plans
+/* Store_SubscriptionsApiService Creates a subscription item and associated plans
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "subscriptionResource" (SubscriptionResource) The subscription to be created
  @return SubscriptionResource*/
-func (a *StoreSubscriptionsApiService) CreateSubscription(ctx context.Context, localVarOptionals map[string]interface{}) (SubscriptionResource,  *http.Response, error) {
+func (a *Store_SubscriptionsApiService) CreateSubscription(ctx context.Context, localVarOptionals map[string]interface{}) (SubscriptionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,13 +95,13 @@ func (a *StoreSubscriptionsApiService) CreateSubscription(ctx context.Context, l
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreSubscriptionsApiService Create a subscription template
+/* Store_SubscriptionsApiService Create a subscription template
  Subscription Templates define a type of subscription and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "subscriptionTemplateResource" (SubscriptionTemplateResource) The new subscription template
  @return SubscriptionTemplateResource*/
-func (a *StoreSubscriptionsApiService) CreateSubscriptionTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (SubscriptionTemplateResource,  *http.Response, error) {
+func (a *Store_SubscriptionsApiService) CreateSubscriptionTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (SubscriptionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -163,13 +163,13 @@ func (a *StoreSubscriptionsApiService) CreateSubscriptionTemplate(ctx context.Co
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreSubscriptionsApiService Delete a subscription plan
+/* Store_SubscriptionsApiService Delete a subscription plan
  Must not be locked or a migration target. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the subscription
  @param planId The id of the plan
  @return */
-func (a *StoreSubscriptionsApiService) DeleteSubscription(ctx context.Context, id int32, planId string) ( *http.Response, error) {
+func (a *Store_SubscriptionsApiService) DeleteSubscription(ctx context.Context, id int32, planId string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -223,14 +223,14 @@ func (a *StoreSubscriptionsApiService) DeleteSubscription(ctx context.Context, i
 	return localVarHttpResponse, err
 }
 
-/* StoreSubscriptionsApiService Delete a subscription template
+/* Store_SubscriptionsApiService Delete a subscription template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach
  @return */
-func (a *StoreSubscriptionsApiService) DeleteSubscriptionTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Store_SubscriptionsApiService) DeleteSubscriptionTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -289,12 +289,12 @@ func (a *StoreSubscriptionsApiService) DeleteSubscriptionTemplate(ctx context.Co
 	return localVarHttpResponse, err
 }
 
-/* StoreSubscriptionsApiService Retrieve a single subscription item and associated plans
+/* Store_SubscriptionsApiService Retrieve a single subscription item and associated plans
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the subscription
  @return SubscriptionResource*/
-func (a *StoreSubscriptionsApiService) GetSubscription(ctx context.Context, id int32) (SubscriptionResource,  *http.Response, error) {
+func (a *Store_SubscriptionsApiService) GetSubscription(ctx context.Context, id int32) (SubscriptionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -353,12 +353,12 @@ func (a *StoreSubscriptionsApiService) GetSubscription(ctx context.Context, id i
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreSubscriptionsApiService Get a single subscription template
+/* Store_SubscriptionsApiService Get a single subscription template
  Subscription Templates define a type of subscription and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return SubscriptionTemplateResource*/
-func (a *StoreSubscriptionsApiService) GetSubscriptionTemplate(ctx context.Context, id string) (SubscriptionTemplateResource,  *http.Response, error) {
+func (a *Store_SubscriptionsApiService) GetSubscriptionTemplate(ctx context.Context, id string) (SubscriptionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -417,7 +417,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptionTemplate(ctx context.Conte
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreSubscriptionsApiService List and search subscription templates
+/* Store_SubscriptionsApiService List and search subscription templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -425,7 +425,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptionTemplate(ctx context.Conte
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceSubscriptionTemplateResource*/
-func (a *StoreSubscriptionsApiService) GetSubscriptionTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceSubscriptionTemplateResource,  *http.Response, error) {
+func (a *Store_SubscriptionsApiService) GetSubscriptionTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceSubscriptionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -501,7 +501,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptionTemplates(ctx context.Cont
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreSubscriptionsApiService List available subscription items and associated plans
+/* Store_SubscriptionsApiService List available subscription items and associated plans
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -509,7 +509,7 @@ func (a *StoreSubscriptionsApiService) GetSubscriptionTemplates(ctx context.Cont
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceSubscriptionResource*/
-func (a *StoreSubscriptionsApiService) GetSubscriptions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceSubscriptionResource,  *http.Response, error) {
+func (a *Store_SubscriptionsApiService) GetSubscriptions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceSubscriptionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -585,11 +585,11 @@ func (a *StoreSubscriptionsApiService) GetSubscriptions(ctx context.Context, loc
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreSubscriptionsApiService Processes subscriptions and charge dues
+/* Store_SubscriptionsApiService Processes subscriptions and charge dues
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @return */
-func (a *StoreSubscriptionsApiService) ProcessSubscriptions(ctx context.Context, ) ( *http.Response, error) {
+func (a *Store_SubscriptionsApiService) ProcessSubscriptions(ctx context.Context, ) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -641,14 +641,14 @@ func (a *StoreSubscriptionsApiService) ProcessSubscriptions(ctx context.Context,
 	return localVarHttpResponse, err
 }
 
-/* StoreSubscriptionsApiService Updates a subscription item and associated plans
+/* Store_SubscriptionsApiService Updates a subscription item and associated plans
  Will not remove plans left out. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the subscription
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "subscriptionResource" (SubscriptionResource) The subscription resource object
  @return */
-func (a *StoreSubscriptionsApiService) UpdateSubscription(ctx context.Context, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Store_SubscriptionsApiService) UpdateSubscription(ctx context.Context, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -705,14 +705,14 @@ func (a *StoreSubscriptionsApiService) UpdateSubscription(ctx context.Context, i
 	return localVarHttpResponse, err
 }
 
-/* StoreSubscriptionsApiService Update a subscription template
+/* Store_SubscriptionsApiService Update a subscription template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "subscriptionTemplateResource" (SubscriptionTemplateResource) The subscription template resource object
  @return SubscriptionTemplateResource*/
-func (a *StoreSubscriptionsApiService) UpdateSubscriptionTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (SubscriptionTemplateResource,  *http.Response, error) {
+func (a *Store_SubscriptionsApiService) UpdateSubscriptionTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (SubscriptionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

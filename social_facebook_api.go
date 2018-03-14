@@ -22,16 +22,16 @@ var (
 	_ context.Context
 )
 
-type SocialFacebookApiService service
+type Social_FacebookApiService service
 
 
-/* SocialFacebookApiService Link facebook account
+/* Social_FacebookApiService Link facebook account
  Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; Non-facebook user token
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "facebookToken" (FacebookToken) The token from facebook
  @return */
-func (a *SocialFacebookApiService) LinkAccounts(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Social_FacebookApiService) LinkAccounts(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}

@@ -23,18 +23,18 @@ var (
 	_ context.Context
 )
 
-type AmazonWebServicesS3ApiService service
+type Amazon_Web_Services_S3ApiService service
 
 
-/* AmazonWebServicesS3ApiService Get a temporary signed S3 URL for download
+/* Amazon_Web_Services_S3ApiService Get a temporary signed S3 URL for download
  To give access to files in your own S3 account, you will need to grant KnetikcCloud access to the file by adjusting your bucket policy accordingly. See S3 documentation for details. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; S3_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "bucket" (string) S3 bucket name
-     @param "path" (string) The path to the file relative the bucket (the s3 object key)
+     @param "path" (string) The path to the file relative to the bucket (the s3 object key)
      @param "expiration" (int32) The number of seconds this URL will be valid. Default to 60
  @return string*/
-func (a *AmazonWebServicesS3ApiService) GetDownloadURL(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *Amazon_Web_Services_S3ApiService) GetDownloadURL(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -110,14 +110,14 @@ func (a *AmazonWebServicesS3ApiService) GetDownloadURL(ctx context.Context, loca
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AmazonWebServicesS3ApiService Get a signed S3 URL for upload
+/* Amazon_Web_Services_S3ApiService Get a signed S3 URL for upload
  Requires the file name and file content type (i.e., &#39;video/mpeg&#39;). Make a PUT to the resulting url to upload the file and use the cdn_url to retrieve it after. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; S3_USER or S3_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filename" (string) The file name
      @param "contentType" (string) The content type
  @return AmazonS3Activity*/
-func (a *AmazonWebServicesS3ApiService) GetSignedS3URL(ctx context.Context, localVarOptionals map[string]interface{}) (AmazonS3Activity,  *http.Response, error) {
+func (a *Amazon_Web_Services_S3ApiService) GetSignedS3URL(ctx context.Context, localVarOptionals map[string]interface{}) (AmazonS3Activity,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

@@ -24,17 +24,17 @@ var (
 	_ context.Context
 )
 
-type StoreShoppingCartsApiService service
+type Store_Shopping_CartsApiService service
 
 
-/* StoreShoppingCartsApiService Adds a custom discount to the cart
+/* Store_Shopping_CartsApiService Adds a custom discount to the cart
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "customDiscount" (CouponDefinition) The details of the discount to add
  @return */
-func (a *StoreShoppingCartsApiService) AddCustomDiscount(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) AddCustomDiscount(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -91,14 +91,14 @@ func (a *StoreShoppingCartsApiService) AddCustomDiscount(ctx context.Context, id
 	return localVarHttpResponse, err
 }
 
-/* StoreShoppingCartsApiService Adds a discount coupon to the cart
+/* Store_Shopping_CartsApiService Adds a discount coupon to the cart
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "skuRequest" (SkuRequest) The request of the sku
  @return */
-func (a *StoreShoppingCartsApiService) AddDiscountToCart(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) AddDiscountToCart(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -155,14 +155,14 @@ func (a *StoreShoppingCartsApiService) AddDiscountToCart(ctx context.Context, id
 	return localVarHttpResponse, err
 }
 
-/* StoreShoppingCartsApiService Add an item to the cart
+/* Store_Shopping_CartsApiService Add an item to the cart
  Currently, carts cannot contain virtual and real currency items at the same time. Furthermore, the API only support a single virtual item at the moment. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cartItemRequest" (CartItemRequest) The cart item request object
  @return */
-func (a *StoreShoppingCartsApiService) AddItemToCart(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) AddItemToCart(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -219,14 +219,14 @@ func (a *StoreShoppingCartsApiService) AddItemToCart(ctx context.Context, id str
 	return localVarHttpResponse, err
 }
 
-/* StoreShoppingCartsApiService Create a cart
+/* Store_Shopping_CartsApiService Create a cart
  You don&#39;t have to have a user to create a cart but the API requires authentication to checkout. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "owner" (int32) Set the owner of a cart. If not specified, defaults to the calling user&#39;s id. If specified and is not the calling user&#39;s id, SHOPPING_CARTS_ADMIN permission is required
      @param "currencyCode" (string) Set the currency for the cart, by currency code. May be disallowed by site settings.
  @return string*/
-func (a *StoreShoppingCartsApiService) CreateCart(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) CreateCart(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -296,12 +296,12 @@ func (a *StoreShoppingCartsApiService) CreateCart(ctx context.Context, localVarO
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreShoppingCartsApiService Returns the cart with the given GUID
+/* Store_Shopping_CartsApiService Returns the cart with the given GUID
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @return Cart*/
-func (a *StoreShoppingCartsApiService) GetCart(ctx context.Context, id string) (Cart,  *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) GetCart(ctx context.Context, id string) (Cart,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -360,7 +360,7 @@ func (a *StoreShoppingCartsApiService) GetCart(ctx context.Context, id string) (
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreShoppingCartsApiService Get a list of carts
+/* Store_Shopping_CartsApiService Get a list of carts
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -369,7 +369,7 @@ func (a *StoreShoppingCartsApiService) GetCart(ctx context.Context, id string) (
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceCartSummary*/
-func (a *StoreShoppingCartsApiService) GetCarts(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceCartSummary,  *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) GetCarts(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceCartSummary,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -451,12 +451,12 @@ func (a *StoreShoppingCartsApiService) GetCarts(ctx context.Context, localVarOpt
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreShoppingCartsApiService Returns whether a cart requires shipping
+/* Store_Shopping_CartsApiService Returns whether a cart requires shipping
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @return CartShippableResponse*/
-func (a *StoreShoppingCartsApiService) GetShippable(ctx context.Context, id string) (CartShippableResponse,  *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) GetShippable(ctx context.Context, id string) (CartShippableResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -515,12 +515,12 @@ func (a *StoreShoppingCartsApiService) GetShippable(ctx context.Context, id stri
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreShoppingCartsApiService Get the list of available shipping countries per vendor
+/* Store_Shopping_CartsApiService Get the list of available shipping countries per vendor
  Since a cart can have multiple vendors with different shipping options, the countries are broken down by vendors. Please see notes about the response object as the fields are variable. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @return SampleCountriesResponse*/
-func (a *StoreShoppingCartsApiService) GetShippingCountries(ctx context.Context, id string) (SampleCountriesResponse,  *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) GetShippingCountries(ctx context.Context, id string) (SampleCountriesResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -579,13 +579,13 @@ func (a *StoreShoppingCartsApiService) GetShippingCountries(ctx context.Context,
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreShoppingCartsApiService Removes a discount coupon from the cart
+/* Store_Shopping_CartsApiService Removes a discount coupon from the cart
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param code The SKU code of the coupon to remove
  @return */
-func (a *StoreShoppingCartsApiService) RemoveDiscountFromCart(ctx context.Context, id string, code string) ( *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) RemoveDiscountFromCart(ctx context.Context, id string, code string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -639,14 +639,14 @@ func (a *StoreShoppingCartsApiService) RemoveDiscountFromCart(ctx context.Contex
 	return localVarHttpResponse, err
 }
 
-/* StoreShoppingCartsApiService Sets the currency to use for the cart
+/* Store_Shopping_CartsApiService Sets the currency to use for the cart
  May be disallowed by site settings. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "currencyCode" (StringWrapper) The code of the currency
  @return */
-func (a *StoreShoppingCartsApiService) SetCartCurrency(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) SetCartCurrency(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -703,14 +703,14 @@ func (a *StoreShoppingCartsApiService) SetCartCurrency(ctx context.Context, id s
 	return localVarHttpResponse, err
 }
 
-/* StoreShoppingCartsApiService Sets the owner of a cart if none is set already
+/* Store_Shopping_CartsApiService Sets the owner of a cart if none is set already
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userId" (IntWrapper) The id of the user
  @return */
-func (a *StoreShoppingCartsApiService) SetCartOwner(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) SetCartOwner(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -767,14 +767,14 @@ func (a *StoreShoppingCartsApiService) SetCartOwner(ctx context.Context, id stri
 	return localVarHttpResponse, err
 }
 
-/* StoreShoppingCartsApiService Changes the quantity of an item already in the cart
+/* Store_Shopping_CartsApiService Changes the quantity of an item already in the cart
  A quantity of zero will remove the item from the cart altogether. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cartItemRequest" (CartItemRequest) The cart item request object
  @return */
-func (a *StoreShoppingCartsApiService) UpdateItemInCart(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) UpdateItemInCart(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -831,14 +831,14 @@ func (a *StoreShoppingCartsApiService) UpdateItemInCart(ctx context.Context, id 
 	return localVarHttpResponse, err
 }
 
-/* StoreShoppingCartsApiService Modifies or sets the order shipping address
+/* Store_Shopping_CartsApiService Modifies or sets the order shipping address
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SHOPPING_CARTS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the cart
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cartShippingAddressRequest" (CartShippingAddressRequest) The cart shipping address request object
  @return */
-func (a *StoreShoppingCartsApiService) UpdateShippingAddress(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Store_Shopping_CartsApiService) UpdateShippingAddress(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

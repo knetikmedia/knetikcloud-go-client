@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type CampaignsChallengesApiService service
+type Campaigns_ChallengesApiService service
 
 
-/* CampaignsChallengesApiService Create a challenge
+/* Campaigns_ChallengesApiService Create a challenge
  Challenges do not run on their own.  They must be added to a campaign before events will spawn. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "challengeResource" (ChallengeResource) The challenge resource object
  @return ChallengeResource*/
-func (a *CampaignsChallengesApiService) CreateChallenge(ctx context.Context, localVarOptionals map[string]interface{}) (ChallengeResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) CreateChallenge(ctx context.Context, localVarOptionals map[string]interface{}) (ChallengeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,7 +95,7 @@ func (a *CampaignsChallengesApiService) CreateChallenge(ctx context.Context, loc
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Create a challenge activity
+/* Campaigns_ChallengesApiService Create a challenge activity
  &lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param challengeId The challenge id
@@ -103,7 +103,7 @@ func (a *CampaignsChallengesApiService) CreateChallenge(ctx context.Context, loc
      @param "challengeActivityResource" (ChallengeActivityResource) The challenge activity resource object
      @param "validateSettings" (bool) Whether to validate the settings being sent against the available settings on the base activity.
  @return ChallengeActivityResource*/
-func (a *CampaignsChallengesApiService) CreateChallengeActivity(ctx context.Context, challengeId int64, localVarOptionals map[string]interface{}) (ChallengeActivityResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) CreateChallengeActivity(ctx context.Context, challengeId int64, localVarOptionals map[string]interface{}) (ChallengeActivityResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -172,13 +172,13 @@ func (a *CampaignsChallengesApiService) CreateChallengeActivity(ctx context.Cont
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Create a challenge activity template
+/* Campaigns_ChallengesApiService Create a challenge activity template
  Challenge Activity Templates define a type of challenge activity and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "challengeActivityTemplateResource" (TemplateResource) The challengeActivity template resource object
  @return TemplateResource*/
-func (a *CampaignsChallengesApiService) CreateChallengeActivityTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) CreateChallengeActivityTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -240,13 +240,13 @@ func (a *CampaignsChallengesApiService) CreateChallengeActivityTemplate(ctx cont
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Create a challenge template
+/* Campaigns_ChallengesApiService Create a challenge template
  Challenge Templates define a type of challenge and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "challengeTemplateResource" (TemplateResource) The challenge template resource object
  @return TemplateResource*/
-func (a *CampaignsChallengesApiService) CreateChallengeTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) CreateChallengeTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -308,12 +308,12 @@ func (a *CampaignsChallengesApiService) CreateChallengeTemplate(ctx context.Cont
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Delete a challenge
+/* Campaigns_ChallengesApiService Delete a challenge
  &lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The challenge id
  @return */
-func (a *CampaignsChallengesApiService) DeleteChallenge(ctx context.Context, id int64) ( *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) DeleteChallenge(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -366,13 +366,13 @@ func (a *CampaignsChallengesApiService) DeleteChallenge(ctx context.Context, id 
 	return localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Delete a challenge activity
+/* Campaigns_ChallengesApiService Delete a challenge activity
  A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The challenge_activity id
  @param challengeId The challenge id
  @return */
-func (a *CampaignsChallengesApiService) DeleteChallengeActivity(ctx context.Context, id int64, challengeId int64) ( *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) DeleteChallengeActivity(ctx context.Context, id int64, challengeId int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -426,14 +426,14 @@ func (a *CampaignsChallengesApiService) DeleteChallengeActivity(ctx context.Cont
 	return localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Delete a challenge activity template
+/* Campaigns_ChallengesApiService Delete a challenge activity template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *CampaignsChallengesApiService) DeleteChallengeActivityTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) DeleteChallengeActivityTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -492,12 +492,12 @@ func (a *CampaignsChallengesApiService) DeleteChallengeActivityTemplate(ctx cont
 	return localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Delete a challenge event
+/* Campaigns_ChallengesApiService Delete a challenge event
  &lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The challenge event id
  @return */
-func (a *CampaignsChallengesApiService) DeleteChallengeEvent(ctx context.Context, id int64) ( *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) DeleteChallengeEvent(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -550,14 +550,14 @@ func (a *CampaignsChallengesApiService) DeleteChallengeEvent(ctx context.Context
 	return localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Delete a challenge template
+/* Campaigns_ChallengesApiService Delete a challenge template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *CampaignsChallengesApiService) DeleteChallengeTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) DeleteChallengeTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -616,12 +616,12 @@ func (a *CampaignsChallengesApiService) DeleteChallengeTemplate(ctx context.Cont
 	return localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Retrieve a challenge
+/* Campaigns_ChallengesApiService Retrieve a challenge
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The challenge id
  @return ChallengeResource*/
-func (a *CampaignsChallengesApiService) GetChallenge(ctx context.Context, id int64) (ChallengeResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) GetChallenge(ctx context.Context, id int64) (ChallengeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -680,7 +680,7 @@ func (a *CampaignsChallengesApiService) GetChallenge(ctx context.Context, id int
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService List and search challenge activities
+/* Campaigns_ChallengesApiService List and search challenge activities
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param challengeId The challenge id
@@ -689,7 +689,7 @@ func (a *CampaignsChallengesApiService) GetChallenge(ctx context.Context, id int
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceBareChallengeActivityResource*/
-func (a *CampaignsChallengesApiService) GetChallengeActivities(ctx context.Context, challengeId int64, localVarOptionals map[string]interface{}) (PageResourceBareChallengeActivityResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) GetChallengeActivities(ctx context.Context, challengeId int64, localVarOptionals map[string]interface{}) (PageResourceBareChallengeActivityResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -766,13 +766,13 @@ func (a *CampaignsChallengesApiService) GetChallengeActivities(ctx context.Conte
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Get a single challenge activity
+/* Campaigns_ChallengesApiService Get a single challenge activity
  A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The challenge_activity id
  @param challengeId The challenge id
  @return ChallengeActivityResource*/
-func (a *CampaignsChallengesApiService) GetChallengeActivity(ctx context.Context, id int64, challengeId int64) (ChallengeActivityResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) GetChallengeActivity(ctx context.Context, id int64, challengeId int64) (ChallengeActivityResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -832,12 +832,12 @@ func (a *CampaignsChallengesApiService) GetChallengeActivity(ctx context.Context
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Get a single challenge activity template
+/* Campaigns_ChallengesApiService Get a single challenge activity template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
-func (a *CampaignsChallengesApiService) GetChallengeActivityTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) GetChallengeActivityTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -896,7 +896,7 @@ func (a *CampaignsChallengesApiService) GetChallengeActivityTemplate(ctx context
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService List and search challenge activity templates
+/* Campaigns_ChallengesApiService List and search challenge activity templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -904,7 +904,7 @@ func (a *CampaignsChallengesApiService) GetChallengeActivityTemplate(ctx context
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *CampaignsChallengesApiService) GetChallengeActivityTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) GetChallengeActivityTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -980,12 +980,12 @@ func (a *CampaignsChallengesApiService) GetChallengeActivityTemplates(ctx contex
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Retrieve a single challenge event details
+/* Campaigns_ChallengesApiService Retrieve a single challenge event details
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The challenge event id
  @return ChallengeEventResource*/
-func (a *CampaignsChallengesApiService) GetChallengeEvent(ctx context.Context, id int64) (ChallengeEventResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) GetChallengeEvent(ctx context.Context, id int64) (ChallengeEventResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1044,7 +1044,7 @@ func (a *CampaignsChallengesApiService) GetChallengeEvent(ctx context.Context, i
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Retrieve a list of challenge events
+/* Campaigns_ChallengesApiService Retrieve a list of challenge events
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1056,7 +1056,7 @@ func (a *CampaignsChallengesApiService) GetChallengeEvent(ctx context.Context, i
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceChallengeEventResource*/
-func (a *CampaignsChallengesApiService) GetChallengeEvents(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceChallengeEventResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) GetChallengeEvents(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceChallengeEventResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1156,12 +1156,12 @@ func (a *CampaignsChallengesApiService) GetChallengeEvents(ctx context.Context, 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Get a single challenge template
+/* Campaigns_ChallengesApiService Get a single challenge template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
-func (a *CampaignsChallengesApiService) GetChallengeTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) GetChallengeTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1220,7 +1220,7 @@ func (a *CampaignsChallengesApiService) GetChallengeTemplate(ctx context.Context
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService List and search challenge templates
+/* Campaigns_ChallengesApiService List and search challenge templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1228,7 +1228,7 @@ func (a *CampaignsChallengesApiService) GetChallengeTemplate(ctx context.Context
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *CampaignsChallengesApiService) GetChallengeTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) GetChallengeTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1304,7 +1304,7 @@ func (a *CampaignsChallengesApiService) GetChallengeTemplates(ctx context.Contex
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Retrieve a list of challenges
+/* Campaigns_ChallengesApiService Retrieve a list of challenges
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1315,7 +1315,7 @@ func (a *CampaignsChallengesApiService) GetChallengeTemplates(ctx context.Contex
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceChallengeResource*/
-func (a *CampaignsChallengesApiService) GetChallenges(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceChallengeResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) GetChallenges(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceChallengeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1409,14 +1409,14 @@ func (a *CampaignsChallengesApiService) GetChallenges(ctx context.Context, local
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Update a challenge
+/* Campaigns_ChallengesApiService Update a challenge
  If the challenge is a copy, changes will propagate to all the related challenges. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The challenge id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "challengeResource" (ChallengeResource) The challenge resource object
  @return ChallengeResource*/
-func (a *CampaignsChallengesApiService) UpdateChallenge(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (ChallengeResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) UpdateChallenge(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (ChallengeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1479,7 +1479,7 @@ func (a *CampaignsChallengesApiService) UpdateChallenge(ctx context.Context, id 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Update a challenge activity
+/* Campaigns_ChallengesApiService Update a challenge activity
  A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The challenge_activity id
@@ -1487,14 +1487,13 @@ func (a *CampaignsChallengesApiService) UpdateChallenge(ctx context.Context, id 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "challengeActivityResource" (ChallengeActivityResource) The challenge activity resource object
      @param "validateSettings" (bool) Whether to validate the settings being sent against the available settings on the base activity.
- @return ChallengeActivityResource*/
-func (a *CampaignsChallengesApiService) UpdateChallengeActivity(ctx context.Context, id int64, challengeId int64, localVarOptionals map[string]interface{}) (ChallengeActivityResource,  *http.Response, error) {
+ @return */
+func (a *Campaigns_ChallengesApiService) UpdateChallengeActivity(ctx context.Context, id int64, challengeId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ChallengeActivityResource
 	)
 
 	// create path and map variables
@@ -1507,7 +1506,7 @@ func (a *CampaignsChallengesApiService) UpdateChallengeActivity(ctx context.Cont
 	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(localVarOptionals["validateSettings"], "bool", "validateSettings"); err != nil {
-		return successPayload, nil, err
+		return nil, err
 	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["validateSettings"].(bool); localVarOk {
@@ -1538,34 +1537,29 @@ func (a *CampaignsChallengesApiService) UpdateChallengeActivity(ctx context.Cont
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return successPayload, nil, err
+		return nil, err
 	}
 
 	 localVarHttpResponse, err := a.client.callAPI(r)
 	 if err != nil || localVarHttpResponse == nil {
-		  return successPayload, localVarHttpResponse, err
+		  return localVarHttpResponse, err
 	 }
 	 defer localVarHttpResponse.Body.Close()
 	 if localVarHttpResponse.StatusCode >= 300 {
-		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 	 }
-	
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-	 	return successPayload, localVarHttpResponse, err
-	}
 
-
-	return successPayload, localVarHttpResponse, err
+	return localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Update an challenge activity template
+/* Campaigns_ChallengesApiService Update an challenge activity template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "challengeActivityTemplateResource" (TemplateResource) The challengeActivity template resource object
  @return TemplateResource*/
-func (a *CampaignsChallengesApiService) UpdateChallengeActivityTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) UpdateChallengeActivityTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1628,14 +1622,14 @@ func (a *CampaignsChallengesApiService) UpdateChallengeActivityTemplate(ctx cont
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsChallengesApiService Update a challenge template
+/* Campaigns_ChallengesApiService Update a challenge template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "challengeTemplateResource" (TemplateResource) The challenge template resource object
  @return TemplateResource*/
-func (a *CampaignsChallengesApiService) UpdateChallengeTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Campaigns_ChallengesApiService) UpdateChallengeTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

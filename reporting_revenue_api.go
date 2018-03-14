@@ -24,10 +24,10 @@ var (
 	_ context.Context
 )
 
-type ReportingRevenueApiService service
+type Reporting_RevenueApiService service
 
 
-/* ReportingRevenueApiService Get item revenue info
+/* Reporting_RevenueApiService Get item revenue info
  Get basic info about revenue from sales of items and bundles (not subscriptions, shipping, etc), summed up within a time range. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_REVENUE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param currencyCode The code for a currency to get sales data for
@@ -35,7 +35,7 @@ type ReportingRevenueApiService service
      @param "startDate" (int64) The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
      @param "endDate" (int64) The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
  @return RevenueReportResource*/
-func (a *ReportingRevenueApiService) GetItemRevenue(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (RevenueReportResource,  *http.Response, error) {
+func (a *Reporting_RevenueApiService) GetItemRevenue(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (RevenueReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -106,7 +106,7 @@ func (a *ReportingRevenueApiService) GetItemRevenue(ctx context.Context, currenc
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ReportingRevenueApiService Get refund revenue info
+/* Reporting_RevenueApiService Get refund revenue info
  Get basic info about revenue loss from refunds (for all item types), summed up within a time range. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_REVENUE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param currencyCode The code for a currency to get refund data for
@@ -114,7 +114,7 @@ func (a *ReportingRevenueApiService) GetItemRevenue(ctx context.Context, currenc
      @param "startDate" (int64) The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
      @param "endDate" (int64) The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
  @return RevenueReportResource*/
-func (a *ReportingRevenueApiService) GetRefundRevenue(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (RevenueReportResource,  *http.Response, error) {
+func (a *Reporting_RevenueApiService) GetRefundRevenue(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (RevenueReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -185,7 +185,7 @@ func (a *ReportingRevenueApiService) GetRefundRevenue(ctx context.Context, curre
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ReportingRevenueApiService Get revenue info by country
+/* Reporting_RevenueApiService Get revenue info by country
  Get basic info about revenue from sales of all types, summed up within a time range and split out by country. Sorted for largest revenue at the top. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_REVENUE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param currencyCode The code for a currency to get sales data for
@@ -195,7 +195,7 @@ func (a *ReportingRevenueApiService) GetRefundRevenue(ctx context.Context, curre
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceRevenueCountryReportResource*/
-func (a *ReportingRevenueApiService) GetRevenueByCountry(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceRevenueCountryReportResource,  *http.Response, error) {
+func (a *Reporting_RevenueApiService) GetRevenueByCountry(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceRevenueCountryReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -278,7 +278,7 @@ func (a *ReportingRevenueApiService) GetRevenueByCountry(ctx context.Context, cu
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ReportingRevenueApiService Get revenue info by item
+/* Reporting_RevenueApiService Get revenue info by item
  Get basic info about revenue from sales of all types, summed up within a time range and split out by specific item. Sorted for largest revenue at the top. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_REVENUE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param currencyCode The code for a currency to get sales data for
@@ -288,7 +288,7 @@ func (a *ReportingRevenueApiService) GetRevenueByCountry(ctx context.Context, cu
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceRevenueProductReportResource*/
-func (a *ReportingRevenueApiService) GetRevenueByItem(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceRevenueProductReportResource,  *http.Response, error) {
+func (a *Reporting_RevenueApiService) GetRevenueByItem(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceRevenueProductReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -371,7 +371,7 @@ func (a *ReportingRevenueApiService) GetRevenueByItem(ctx context.Context, curre
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ReportingRevenueApiService Get subscription revenue info
+/* Reporting_RevenueApiService Get subscription revenue info
  Get basic info about revenue from sales of new subscriptions as well as recurring payemnts, summed up within a time range. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_REVENUE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param currencyCode The code for a currency to get sales data for
@@ -379,7 +379,7 @@ func (a *ReportingRevenueApiService) GetRevenueByItem(ctx context.Context, curre
      @param "startDate" (int64) The start of the time range to aggregate, unix timestamp in seconds. Default is beginning of time
      @param "endDate" (int64) The end of the time range to aggregate, unix timestamp in seconds. Default is end of time
  @return RevenueReportResource*/
-func (a *ReportingRevenueApiService) GetSubscriptionRevenue(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (RevenueReportResource,  *http.Response, error) {
+func (a *Reporting_RevenueApiService) GetSubscriptionRevenue(ctx context.Context, currencyCode string, localVarOptionals map[string]interface{}) (RevenueReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

@@ -23,16 +23,16 @@ var (
 	_ context.Context
 )
 
-type PaymentsPayPalClassicApiService service
+type Payments_PayPalClassicApiService service
 
 
-/* PaymentsPayPalClassicApiService Create a PayPal Classic billing agreement for the user
+/* Payments_PayPalClassicApiService Create a PayPal Classic billing agreement for the user
  Returns the token that should be used to forward the user to PayPal so they can accept the agreement. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYPAL_CLASSIC_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (CreateBillingAgreementRequest) The request to create a PayPal billing agreement
  @return string*/
-func (a *PaymentsPayPalClassicApiService) CreatePayPalBillingAgreementUrl(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *Payments_PayPalClassicApiService) CreatePayPalBillingAgreementUrl(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -94,13 +94,13 @@ func (a *PaymentsPayPalClassicApiService) CreatePayPalBillingAgreementUrl(ctx co
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PaymentsPayPalClassicApiService Create a payment token for PayPal express checkout
+/* Payments_PayPalClassicApiService Create a payment token for PayPal express checkout
  Returns the token that should be used to forward the user to PayPal so they can complete the checkout. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYPAL_CLASSIC_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (CreatePayPalPaymentRequest) The request to create a PayPal payment token
  @return string*/
-func (a *PaymentsPayPalClassicApiService) CreatePayPalExpressCheckout(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *Payments_PayPalClassicApiService) CreatePayPalExpressCheckout(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -162,13 +162,13 @@ func (a *PaymentsPayPalClassicApiService) CreatePayPalExpressCheckout(ctx contex
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PaymentsPayPalClassicApiService Finalizes a billing agreement after the user has accepted through PayPal
+/* Payments_PayPalClassicApiService Finalizes a billing agreement after the user has accepted through PayPal
  Returns the ID of the new payment method created for the user for the billing agreement. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYPAL_CLASSIC_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (FinalizeBillingAgreementRequest) The request to finalize a PayPal billing agreement
  @return int32*/
-func (a *PaymentsPayPalClassicApiService) FinalizePayPalBillingAgreement(ctx context.Context, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
+func (a *Payments_PayPalClassicApiService) FinalizePayPalBillingAgreement(ctx context.Context, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -230,13 +230,13 @@ func (a *PaymentsPayPalClassicApiService) FinalizePayPalBillingAgreement(ctx con
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PaymentsPayPalClassicApiService Finalizes a payment after the user has completed checkout with PayPal
+/* Payments_PayPalClassicApiService Finalizes a payment after the user has completed checkout with PayPal
  The invoice will be marked paid/failed by asynchronous IPN callback. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYPAL_CLASSIC_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (FinalizePayPalPaymentRequest) The request to finalize the payment
  @return */
-func (a *PaymentsPayPalClassicApiService) FinalizePayPalCheckout(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Payments_PayPalClassicApiService) FinalizePayPalCheckout(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}

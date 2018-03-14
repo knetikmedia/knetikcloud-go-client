@@ -24,17 +24,17 @@ var (
 	_ context.Context
 )
 
-type StoreBundlesApiService service
+type Store_BundlesApiService service
 
 
-/* StoreBundlesApiService Create a bundle item
+/* Store_BundlesApiService Create a bundle item
  The SKU for the bundle itself must be unique and there can only be one SKU.  Extra notes for price_override:  The price of all the items (multiplied by the quantity) must equal the price of the bundle.  With individual prices set, items will be processed individually and can be refunded as such.  However, if all prices are set to null, the price of the bundle will be used and will be treated as one item. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "bundleItem" (BundleItem) The bundle item object
  @return BundleItem*/
-func (a *StoreBundlesApiService) CreateBundleItem(ctx context.Context, localVarOptionals map[string]interface{}) (BundleItem,  *http.Response, error) {
+func (a *Store_BundlesApiService) CreateBundleItem(ctx context.Context, localVarOptionals map[string]interface{}) (BundleItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -102,13 +102,13 @@ func (a *StoreBundlesApiService) CreateBundleItem(ctx context.Context, localVarO
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreBundlesApiService Create a bundle template
+/* Store_BundlesApiService Create a bundle template
  Bundle Templates define a type of bundle and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "bundleTemplateResource" (ItemTemplateResource) The new bundle template
  @return ItemTemplateResource*/
-func (a *StoreBundlesApiService) CreateBundleTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *Store_BundlesApiService) CreateBundleTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -170,12 +170,12 @@ func (a *StoreBundlesApiService) CreateBundleTemplate(ctx context.Context, local
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreBundlesApiService Delete a bundle item
+/* Store_BundlesApiService Delete a bundle item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the bundle
  @return */
-func (a *StoreBundlesApiService) DeleteBundleItem(ctx context.Context, id int32) ( *http.Response, error) {
+func (a *Store_BundlesApiService) DeleteBundleItem(ctx context.Context, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -228,14 +228,14 @@ func (a *StoreBundlesApiService) DeleteBundleItem(ctx context.Context, id int32)
 	return localVarHttpResponse, err
 }
 
-/* StoreBundlesApiService Delete a bundle template
+/* Store_BundlesApiService Delete a bundle template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach
  @return */
-func (a *StoreBundlesApiService) DeleteBundleTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Store_BundlesApiService) DeleteBundleTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -294,12 +294,12 @@ func (a *StoreBundlesApiService) DeleteBundleTemplate(ctx context.Context, id st
 	return localVarHttpResponse, err
 }
 
-/* StoreBundlesApiService Get a single bundle item
+/* Store_BundlesApiService Get a single bundle item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the bundle
  @return BundleItem*/
-func (a *StoreBundlesApiService) GetBundleItem(ctx context.Context, id int32) (BundleItem,  *http.Response, error) {
+func (a *Store_BundlesApiService) GetBundleItem(ctx context.Context, id int32) (BundleItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -358,12 +358,12 @@ func (a *StoreBundlesApiService) GetBundleItem(ctx context.Context, id int32) (B
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreBundlesApiService Get a single bundle template
+/* Store_BundlesApiService Get a single bundle template
  Bundle Templates define a type of bundle and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
-func (a *StoreBundlesApiService) GetBundleTemplate(ctx context.Context, id string) (ItemTemplateResource,  *http.Response, error) {
+func (a *Store_BundlesApiService) GetBundleTemplate(ctx context.Context, id string) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -422,7 +422,7 @@ func (a *StoreBundlesApiService) GetBundleTemplate(ctx context.Context, id strin
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreBundlesApiService List and search bundle templates
+/* Store_BundlesApiService List and search bundle templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -430,7 +430,7 @@ func (a *StoreBundlesApiService) GetBundleTemplate(ctx context.Context, id strin
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceItemTemplateResource*/
-func (a *StoreBundlesApiService) GetBundleTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
+func (a *Store_BundlesApiService) GetBundleTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -506,7 +506,7 @@ func (a *StoreBundlesApiService) GetBundleTemplates(ctx context.Context, localVa
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreBundlesApiService Update a bundle item
+/* Store_BundlesApiService Update a bundle item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the bundle
@@ -514,7 +514,7 @@ func (a *StoreBundlesApiService) GetBundleTemplates(ctx context.Context, localVa
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "bundleItem" (BundleItem) The bundle item object
  @return BundleItem*/
-func (a *StoreBundlesApiService) UpdateBundleItem(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (BundleItem,  *http.Response, error) {
+func (a *Store_BundlesApiService) UpdateBundleItem(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (BundleItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -583,14 +583,14 @@ func (a *StoreBundlesApiService) UpdateBundleItem(ctx context.Context, id int32,
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreBundlesApiService Update a bundle template
+/* Store_BundlesApiService Update a bundle template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; BUNDLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "bundleTemplateResource" (ItemTemplateResource) The bundle template resource object
  @return ItemTemplateResource*/
-func (a *StoreBundlesApiService) UpdateBundleTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *Store_BundlesApiService) UpdateBundleTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

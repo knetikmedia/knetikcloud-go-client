@@ -1,6 +1,6 @@
 # \FulfillmentApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **id** | **int32**| The id | 
+  **id** | **int32**| The fulfillment id | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -163,7 +163,7 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int32**| The id | 
+ **id** | **int32**| The fulfillment id | 
  **fulfillmentType** | [**FulfillmentType**](FulfillmentType.md)| The fulfillment type | 
 
 ### Return type

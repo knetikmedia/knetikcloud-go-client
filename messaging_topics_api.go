@@ -24,17 +24,17 @@ var (
 	_ context.Context
 )
 
-type MessagingTopicsApiService service
+type Messaging_TopicsApiService service
 
 
-/* MessagingTopicsApiService Enable or disable messages for a user
- Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options.
+/* Messaging_TopicsApiService Enable or disable messages for a user
+ Useful for opt-out options on a single topic. Consider multiple topics for multiple opt-out options. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TOPICS_ADMIN or self
  * @param ctx context.Context Authentication Context 
  @param id The id of the topic
  @param userId The id of the subscriber or &#39;me&#39;
  @param disabled disabled
  @return */
-func (a *MessagingTopicsApiService) DisableTopicSubscriber(ctx context.Context, id string, userId string, disabled ValueWrapperboolean) ( *http.Response, error) {
+func (a *Messaging_TopicsApiService) DisableTopicSubscriber(ctx context.Context, id string, userId string, disabled ValueWrapperboolean) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -90,13 +90,13 @@ func (a *MessagingTopicsApiService) DisableTopicSubscriber(ctx context.Context, 
 	return localVarHttpResponse, err
 }
 
-/* MessagingTopicsApiService Get a subscriber to a topic
- &lt;b&gt;Permissions Needed:&lt;/b&gt; TOPICS_ADMIN
+/* Messaging_TopicsApiService Get a subscriber to a topic
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TOPICS_ADMIN or self
  * @param ctx context.Context Authentication Context 
  @param id The id of the topic
  @param userId The id of the subscriber or &#39;me&#39;
  @return TopicSubscriberResource*/
-func (a *MessagingTopicsApiService) GetTopicSubscriber(ctx context.Context, id string, userId string) (TopicSubscriberResource,  *http.Response, error) {
+func (a *Messaging_TopicsApiService) GetTopicSubscriber(ctx context.Context, id string, userId string) (TopicSubscriberResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -156,76 +156,12 @@ func (a *MessagingTopicsApiService) GetTopicSubscriber(ctx context.Context, id s
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MessagingTopicsApiService Get all subscribers to a topic
- &lt;b&gt;Permissions Needed:&lt;/b&gt; TOPICS_ADMIN
- * @param ctx context.Context Authentication Context 
- @param id The id of the topic
- @return PageResourceTopicSubscriberResource*/
-func (a *MessagingTopicsApiService) GetTopicSubscribers(ctx context.Context, id string) (PageResourceTopicSubscriberResource,  *http.Response, error) {
-	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  PageResourceTopicSubscriberResource
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/messaging/topics/{id}/subscribers"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{
-		"application/json",
-		}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return successPayload, nil, err
-	}
-
-	 localVarHttpResponse, err := a.client.callAPI(r)
-	 if err != nil || localVarHttpResponse == nil {
-		  return successPayload, localVarHttpResponse, err
-	 }
-	 defer localVarHttpResponse.Body.Close()
-	 if localVarHttpResponse.StatusCode >= 300 {
-		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
-	 }
-	
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-	 	return successPayload, localVarHttpResponse, err
-	}
-
-
-	return successPayload, localVarHttpResponse, err
-}
-
-/* MessagingTopicsApiService Get all messaging topics for a given user
- &lt;b&gt;Permissions Needed:&lt;/b&gt; TOPICS_ADMIN
+/* Messaging_TopicsApiService Get all messaging topics for a given user
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TOPICS_ADMIN or self
  * @param ctx context.Context Authentication Context 
  @param id The id of the user or &#39;me&#39;
  @return PageResourceTopicResource*/
-func (a *MessagingTopicsApiService) GetUserTopics(ctx context.Context, id string) (PageResourceTopicResource,  *http.Response, error) {
+func (a *Messaging_TopicsApiService) GetUserTopics(ctx context.Context, id string) (PageResourceTopicResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

@@ -23,14 +23,14 @@ var (
 	_ context.Context
 )
 
-type UtilHealthApiService service
+type Util_HealthApiService service
 
 
-/* UtilHealthApiService Get health info
+/* Util_HealthApiService Get health info
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return interface{}*/
-func (a *UtilHealthApiService) GetHealth(ctx context.Context, ) (interface{},  *http.Response, error) {
+func (a *Util_HealthApiService) GetHealth(ctx context.Context, ) (interface{},  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

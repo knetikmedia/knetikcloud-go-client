@@ -24,17 +24,17 @@ var (
 	_ context.Context
 )
 
-type UsersAddressesApiService service
+type Users_AddressesApiService service
 
 
-/* UsersAddressesApiService Create a new address
+/* Users_AddressesApiService Create a new address
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "savedAddressResource" (SavedAddressResource) The new address
  @return SavedAddressResource*/
-func (a *UsersAddressesApiService) CreateAddress(ctx context.Context, userId string, localVarOptionals map[string]interface{}) (SavedAddressResource,  *http.Response, error) {
+func (a *Users_AddressesApiService) CreateAddress(ctx context.Context, userId string, localVarOptionals map[string]interface{}) (SavedAddressResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -97,13 +97,13 @@ func (a *UsersAddressesApiService) CreateAddress(ctx context.Context, userId str
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersAddressesApiService Delete an address
+/* Users_AddressesApiService Delete an address
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param id The id of the address
  @return */
-func (a *UsersAddressesApiService) DeleteAddress(ctx context.Context, userId string, id int32) ( *http.Response, error) {
+func (a *Users_AddressesApiService) DeleteAddress(ctx context.Context, userId string, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -157,13 +157,13 @@ func (a *UsersAddressesApiService) DeleteAddress(ctx context.Context, userId str
 	return localVarHttpResponse, err
 }
 
-/* UsersAddressesApiService Get a single address
+/* Users_AddressesApiService Get a single address
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param id The id of the address
  @return SavedAddressResource*/
-func (a *UsersAddressesApiService) GetAddress(ctx context.Context, userId string, id int32) (SavedAddressResource,  *http.Response, error) {
+func (a *Users_AddressesApiService) GetAddress(ctx context.Context, userId string, id int32) (SavedAddressResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -223,7 +223,7 @@ func (a *UsersAddressesApiService) GetAddress(ctx context.Context, userId string
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersAddressesApiService List and search addresses
+/* Users_AddressesApiService List and search addresses
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
@@ -232,7 +232,7 @@ func (a *UsersAddressesApiService) GetAddress(ctx context.Context, userId string
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceSavedAddressResource*/
-func (a *UsersAddressesApiService) GetAddresses(ctx context.Context, userId string, localVarOptionals map[string]interface{}) (PageResourceSavedAddressResource,  *http.Response, error) {
+func (a *Users_AddressesApiService) GetAddresses(ctx context.Context, userId string, localVarOptionals map[string]interface{}) (PageResourceSavedAddressResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -309,7 +309,7 @@ func (a *UsersAddressesApiService) GetAddresses(ctx context.Context, userId stri
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersAddressesApiService Update an address
+/* Users_AddressesApiService Update an address
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
@@ -317,7 +317,7 @@ func (a *UsersAddressesApiService) GetAddresses(ctx context.Context, userId stri
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "savedAddressResource" (SavedAddressResource) The saved address resource object
  @return SavedAddressResource*/
-func (a *UsersAddressesApiService) UpdateAddress(ctx context.Context, userId string, id int32, localVarOptionals map[string]interface{}) (SavedAddressResource,  *http.Response, error) {
+func (a *Users_AddressesApiService) UpdateAddress(ctx context.Context, userId string, id int32, localVarOptionals map[string]interface{}) (SavedAddressResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

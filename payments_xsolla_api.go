@@ -23,16 +23,16 @@ var (
 	_ context.Context
 )
 
-type PaymentsXsollaApiService service
+type Payments_XsollaApiService service
 
 
-/* PaymentsXsollaApiService Create a payment token that should be used to forward the user to Xsolla so they can complete payment
+/* Payments_XsollaApiService Create a payment token that should be used to forward the user to Xsolla so they can complete payment
  &lt;b&gt;Permissions Needed:&lt;/b&gt; XSOLLA_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (XsollaPaymentRequest) The payment request to be sent to XSolla
  @return string*/
-func (a *PaymentsXsollaApiService) CreateXsollaTokenUrl(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *Payments_XsollaApiService) CreateXsollaTokenUrl(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}

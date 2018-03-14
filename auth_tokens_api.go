@@ -24,17 +24,17 @@ var (
 	_ context.Context
 )
 
-type AuthTokensApiService service
+type Auth_TokensApiService service
 
 
-/* AuthTokensApiService Delete tokens by username, client id, or both
+/* Auth_TokensApiService Delete tokens by username, client id, or both
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TOKENS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "username" (string) The username of the user
      @param "clientId" (string) The id of the client
  @return */
-func (a *AuthTokensApiService) DeleteTokens(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Auth_TokensApiService) DeleteTokens(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -98,13 +98,13 @@ func (a *AuthTokensApiService) DeleteTokens(ctx context.Context, localVarOptiona
 	return localVarHttpResponse, err
 }
 
-/* AuthTokensApiService Get a single token by username and client id
+/* Auth_TokensApiService Get a single token by username and client id
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TOKENS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param username The username of the user
  @param clientId The id of the client
  @return OauthAccessTokenResource*/
-func (a *AuthTokensApiService) GetToken(ctx context.Context, username string, clientId string) (OauthAccessTokenResource,  *http.Response, error) {
+func (a *Auth_TokensApiService) GetToken(ctx context.Context, username string, clientId string) (OauthAccessTokenResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -164,7 +164,7 @@ func (a *AuthTokensApiService) GetToken(ctx context.Context, username string, cl
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthTokensApiService List usernames and client ids
+/* Auth_TokensApiService List usernames and client ids
  Token value not shown. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TOKENS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -174,7 +174,7 @@ func (a *AuthTokensApiService) GetToken(ctx context.Context, username string, cl
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceOauthAccessTokenResource*/
-func (a *AuthTokensApiService) GetTokens(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceOauthAccessTokenResource,  *http.Response, error) {
+func (a *Auth_TokensApiService) GetTokens(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceOauthAccessTokenResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

@@ -44,90 +44,88 @@ type APIClient struct {
 	common 	service 		// Reuse a single struct instead of allocating one for each service on the heap.
 
 	 // API Services
-	AccessTokenApi	*AccessTokenApiService
+	Access_TokenApi	*Access_TokenApiService
 	ActivitiesApi	*ActivitiesApiService
-	AmazonWebServicesS3Api	*AmazonWebServicesS3ApiService
-	AuthClientsApi	*AuthClientsApiService
-	AuthPermissionsApi	*AuthPermissionsApiService
-	AuthRolesApi	*AuthRolesApiService
-	AuthTokensApi	*AuthTokensApiService
-	BRERuleEngineActionsApi	*BRERuleEngineActionsApiService
-	BRERuleEngineCategoriesApi	*BRERuleEngineCategoriesApiService
-	BRERuleEngineEventsApi	*BRERuleEngineEventsApiService
-	BRERuleEngineExpressionsApi	*BRERuleEngineExpressionsApiService
-	BRERuleEngineGlobalsApi	*BRERuleEngineGlobalsApiService
-	BRERuleEngineRulesApi	*BRERuleEngineRulesApiService
-	BRERuleEngineTriggersApi	*BRERuleEngineTriggersApiService
-	BRERuleEngineVariablesApi	*BRERuleEngineVariablesApiService
+	Amazon_Web_Services_S3Api	*Amazon_Web_Services_S3ApiService
+	Auth_ClientsApi	*Auth_ClientsApiService
+	Auth_PermissionsApi	*Auth_PermissionsApiService
+	Auth_RolesApi	*Auth_RolesApiService
+	Auth_TokensApi	*Auth_TokensApiService
 	CampaignsApi	*CampaignsApiService
-	CampaignsChallengesApi	*CampaignsChallengesApiService
-	CampaignsRewardsApi	*CampaignsRewardsApiService
+	Campaigns_ChallengesApi	*Campaigns_ChallengesApiService
+	Campaigns_RewardsApi	*Campaigns_RewardsApiService
 	CategoriesApi	*CategoriesApiService
 	ChatApi	*ChatApiService
 	ConfigsApi	*ConfigsApiService
-	ContentArticlesApi	*ContentArticlesApiService
-	ContentCommentsApi	*ContentCommentsApiService
-	ContentPollsApi	*ContentPollsApiService
+	Content_ArticlesApi	*Content_ArticlesApiService
+	Content_CommentsApi	*Content_CommentsApiService
 	CurrenciesApi	*CurrenciesApiService
 	DevicesApi	*DevicesApiService
 	DispositionsApi	*DispositionsApiService
 	FulfillmentApi	*FulfillmentApiService
-	GamificationAchievementsApi	*GamificationAchievementsApiService
-	GamificationLeaderboardsApi	*GamificationLeaderboardsApiService
-	GamificationLevelingApi	*GamificationLevelingApiService
-	GamificationMetricsApi	*GamificationMetricsApiService
-	GamificationTriviaApi	*GamificationTriviaApiService
+	Gamification_AchievementsApi	*Gamification_AchievementsApiService
+	Gamification_LeaderboardsApi	*Gamification_LeaderboardsApiService
+	Gamification_LevelingApi	*Gamification_LevelingApiService
+	Gamification_MetricsApi	*Gamification_MetricsApiService
+	Gamification_TriviaApi	*Gamification_TriviaApiService
 	InvoicesApi	*InvoicesApiService
 	LocationsApi	*LocationsApiService
 	LogsApi	*LogsApiService
-	MediaArtistsApi	*MediaArtistsApiService
-	MediaModerationApi	*MediaModerationApiService
-	MediaVideosApi	*MediaVideosApiService
+	Media_ArtistsApi	*Media_ArtistsApiService
+	Media_ModerationApi	*Media_ModerationApiService
+	Media_PollsApi	*Media_PollsApiService
+	Media_VideosApi	*Media_VideosApiService
 	MessagingApi	*MessagingApiService
-	MessagingTopicsApi	*MessagingTopicsApiService
+	Messaging_TopicsApi	*Messaging_TopicsApiService
 	NotificationsApi	*NotificationsApiService
 	ObjectsApi	*ObjectsApiService
 	PaymentsApi	*PaymentsApiService
-	PaymentsAppleApi	*PaymentsAppleApiService
-	PaymentsFattMerchantApi	*PaymentsFattMerchantApiService
-	PaymentsGoogleApi	*PaymentsGoogleApiService
-	PaymentsOptimalApi	*PaymentsOptimalApiService
-	PaymentsPayPalClassicApi	*PaymentsPayPalClassicApiService
-	PaymentsStripeApi	*PaymentsStripeApiService
-	PaymentsTransactionsApi	*PaymentsTransactionsApiService
-	PaymentsWalletsApi	*PaymentsWalletsApiService
-	PaymentsXsollaApi	*PaymentsXsollaApiService
-	ReportingChallengesApi	*ReportingChallengesApiService
-	ReportingOrdersApi	*ReportingOrdersApiService
-	ReportingRevenueApi	*ReportingRevenueApiService
-	ReportingSubscriptionsApi	*ReportingSubscriptionsApiService
-	ReportingUsageApi	*ReportingUsageApiService
-	ReportingUsersApi	*ReportingUsersApiService
+	Payments_AppleApi	*Payments_AppleApiService
+	Payments_FattMerchantApi	*Payments_FattMerchantApiService
+	Payments_OptimalApi	*Payments_OptimalApiService
+	Payments_PayPalClassicApi	*Payments_PayPalClassicApiService
+	Payments_StripeApi	*Payments_StripeApiService
+	Payments_TransactionsApi	*Payments_TransactionsApiService
+	Payments_WalletsApi	*Payments_WalletsApiService
+	Payments_XsollaApi	*Payments_XsollaApiService
+	Reporting_ChallengesApi	*Reporting_ChallengesApiService
+	Reporting_OrdersApi	*Reporting_OrdersApiService
+	Reporting_RevenueApi	*Reporting_RevenueApiService
+	Reporting_SubscriptionsApi	*Reporting_SubscriptionsApiService
+	Reporting_UsageApi	*Reporting_UsageApiService
+	Reporting_UsersApi	*Reporting_UsersApiService
+	Rule_Engine_ActionsApi	*Rule_Engine_ActionsApiService
+	Rule_Engine_EventsApi	*Rule_Engine_EventsApiService
+	Rule_Engine_ExpressionsApi	*Rule_Engine_ExpressionsApiService
+	Rule_Engine_GlobalsApi	*Rule_Engine_GlobalsApiService
+	Rule_Engine_RulesApi	*Rule_Engine_RulesApiService
+	Rule_Engine_TriggersApi	*Rule_Engine_TriggersApiService
+	Rule_Engine_VariablesApi	*Rule_Engine_VariablesApiService
 	SearchApi	*SearchApiService
-	SocialFacebookApi	*SocialFacebookApiService
-	SocialGoogleApi	*SocialGoogleApiService
+	Social_FacebookApi	*Social_FacebookApiService
+	Social_GoogleApi	*Social_GoogleApiService
 	StoreApi	*StoreApiService
-	StoreBundlesApi	*StoreBundlesApiService
-	StoreCouponsApi	*StoreCouponsApiService
-	StoreSalesApi	*StoreSalesApiService
-	StoreShippingApi	*StoreShippingApiService
-	StoreShoppingCartsApi	*StoreShoppingCartsApiService
-	StoreSubscriptionsApi	*StoreSubscriptionsApiService
-	StoreVendorsApi	*StoreVendorsApiService
+	Store_BundlesApi	*Store_BundlesApiService
+	Store_CouponsApi	*Store_CouponsApiService
+	Store_SalesApi	*Store_SalesApiService
+	Store_ShippingApi	*Store_ShippingApiService
+	Store_Shopping_CartsApi	*Store_Shopping_CartsApiService
+	Store_SubscriptionsApi	*Store_SubscriptionsApiService
+	Store_VendorsApi	*Store_VendorsApiService
 	TaxesApi	*TaxesApiService
-	TemplatesPropertiesApi	*TemplatesPropertiesApiService
+	Templates_PropertiesApi	*Templates_PropertiesApiService
 	UsersApi	*UsersApiService
-	UsersAddressesApi	*UsersAddressesApiService
-	UsersFriendshipsApi	*UsersFriendshipsApiService
-	UsersGroupsApi	*UsersGroupsApiService
-	UsersInventoryApi	*UsersInventoryApiService
-	UsersRelationshipsApi	*UsersRelationshipsApiService
-	UsersSubscriptionsApi	*UsersSubscriptionsApiService
-	UtilBatchApi	*UtilBatchApiService
-	UtilHealthApi	*UtilHealthApiService
-	UtilMaintenanceApi	*UtilMaintenanceApiService
-	UtilSecurityApi	*UtilSecurityApiService
-	UtilVersionApi	*UtilVersionApiService
+	Users_AddressesApi	*Users_AddressesApiService
+	Users_FriendshipsApi	*Users_FriendshipsApiService
+	Users_GroupsApi	*Users_GroupsApiService
+	Users_InventoryApi	*Users_InventoryApiService
+	Users_RelationshipsApi	*Users_RelationshipsApiService
+	Users_SubscriptionsApi	*Users_SubscriptionsApiService
+	Util_BatchApi	*Util_BatchApiService
+	Util_HealthApi	*Util_HealthApiService
+	Util_MaintenanceApi	*Util_MaintenanceApiService
+	Util_SecurityApi	*Util_SecurityApiService
+	Util_VersionApi	*Util_VersionApiService
 }
 
 type service struct {
@@ -146,90 +144,88 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.AccessTokenApi = (*AccessTokenApiService)(&c.common)
+	c.Access_TokenApi = (*Access_TokenApiService)(&c.common)
 	c.ActivitiesApi = (*ActivitiesApiService)(&c.common)
-	c.AmazonWebServicesS3Api = (*AmazonWebServicesS3ApiService)(&c.common)
-	c.AuthClientsApi = (*AuthClientsApiService)(&c.common)
-	c.AuthPermissionsApi = (*AuthPermissionsApiService)(&c.common)
-	c.AuthRolesApi = (*AuthRolesApiService)(&c.common)
-	c.AuthTokensApi = (*AuthTokensApiService)(&c.common)
-	c.BRERuleEngineActionsApi = (*BRERuleEngineActionsApiService)(&c.common)
-	c.BRERuleEngineCategoriesApi = (*BRERuleEngineCategoriesApiService)(&c.common)
-	c.BRERuleEngineEventsApi = (*BRERuleEngineEventsApiService)(&c.common)
-	c.BRERuleEngineExpressionsApi = (*BRERuleEngineExpressionsApiService)(&c.common)
-	c.BRERuleEngineGlobalsApi = (*BRERuleEngineGlobalsApiService)(&c.common)
-	c.BRERuleEngineRulesApi = (*BRERuleEngineRulesApiService)(&c.common)
-	c.BRERuleEngineTriggersApi = (*BRERuleEngineTriggersApiService)(&c.common)
-	c.BRERuleEngineVariablesApi = (*BRERuleEngineVariablesApiService)(&c.common)
+	c.Amazon_Web_Services_S3Api = (*Amazon_Web_Services_S3ApiService)(&c.common)
+	c.Auth_ClientsApi = (*Auth_ClientsApiService)(&c.common)
+	c.Auth_PermissionsApi = (*Auth_PermissionsApiService)(&c.common)
+	c.Auth_RolesApi = (*Auth_RolesApiService)(&c.common)
+	c.Auth_TokensApi = (*Auth_TokensApiService)(&c.common)
 	c.CampaignsApi = (*CampaignsApiService)(&c.common)
-	c.CampaignsChallengesApi = (*CampaignsChallengesApiService)(&c.common)
-	c.CampaignsRewardsApi = (*CampaignsRewardsApiService)(&c.common)
+	c.Campaigns_ChallengesApi = (*Campaigns_ChallengesApiService)(&c.common)
+	c.Campaigns_RewardsApi = (*Campaigns_RewardsApiService)(&c.common)
 	c.CategoriesApi = (*CategoriesApiService)(&c.common)
 	c.ChatApi = (*ChatApiService)(&c.common)
 	c.ConfigsApi = (*ConfigsApiService)(&c.common)
-	c.ContentArticlesApi = (*ContentArticlesApiService)(&c.common)
-	c.ContentCommentsApi = (*ContentCommentsApiService)(&c.common)
-	c.ContentPollsApi = (*ContentPollsApiService)(&c.common)
+	c.Content_ArticlesApi = (*Content_ArticlesApiService)(&c.common)
+	c.Content_CommentsApi = (*Content_CommentsApiService)(&c.common)
 	c.CurrenciesApi = (*CurrenciesApiService)(&c.common)
 	c.DevicesApi = (*DevicesApiService)(&c.common)
 	c.DispositionsApi = (*DispositionsApiService)(&c.common)
 	c.FulfillmentApi = (*FulfillmentApiService)(&c.common)
-	c.GamificationAchievementsApi = (*GamificationAchievementsApiService)(&c.common)
-	c.GamificationLeaderboardsApi = (*GamificationLeaderboardsApiService)(&c.common)
-	c.GamificationLevelingApi = (*GamificationLevelingApiService)(&c.common)
-	c.GamificationMetricsApi = (*GamificationMetricsApiService)(&c.common)
-	c.GamificationTriviaApi = (*GamificationTriviaApiService)(&c.common)
+	c.Gamification_AchievementsApi = (*Gamification_AchievementsApiService)(&c.common)
+	c.Gamification_LeaderboardsApi = (*Gamification_LeaderboardsApiService)(&c.common)
+	c.Gamification_LevelingApi = (*Gamification_LevelingApiService)(&c.common)
+	c.Gamification_MetricsApi = (*Gamification_MetricsApiService)(&c.common)
+	c.Gamification_TriviaApi = (*Gamification_TriviaApiService)(&c.common)
 	c.InvoicesApi = (*InvoicesApiService)(&c.common)
 	c.LocationsApi = (*LocationsApiService)(&c.common)
 	c.LogsApi = (*LogsApiService)(&c.common)
-	c.MediaArtistsApi = (*MediaArtistsApiService)(&c.common)
-	c.MediaModerationApi = (*MediaModerationApiService)(&c.common)
-	c.MediaVideosApi = (*MediaVideosApiService)(&c.common)
+	c.Media_ArtistsApi = (*Media_ArtistsApiService)(&c.common)
+	c.Media_ModerationApi = (*Media_ModerationApiService)(&c.common)
+	c.Media_PollsApi = (*Media_PollsApiService)(&c.common)
+	c.Media_VideosApi = (*Media_VideosApiService)(&c.common)
 	c.MessagingApi = (*MessagingApiService)(&c.common)
-	c.MessagingTopicsApi = (*MessagingTopicsApiService)(&c.common)
+	c.Messaging_TopicsApi = (*Messaging_TopicsApiService)(&c.common)
 	c.NotificationsApi = (*NotificationsApiService)(&c.common)
 	c.ObjectsApi = (*ObjectsApiService)(&c.common)
 	c.PaymentsApi = (*PaymentsApiService)(&c.common)
-	c.PaymentsAppleApi = (*PaymentsAppleApiService)(&c.common)
-	c.PaymentsFattMerchantApi = (*PaymentsFattMerchantApiService)(&c.common)
-	c.PaymentsGoogleApi = (*PaymentsGoogleApiService)(&c.common)
-	c.PaymentsOptimalApi = (*PaymentsOptimalApiService)(&c.common)
-	c.PaymentsPayPalClassicApi = (*PaymentsPayPalClassicApiService)(&c.common)
-	c.PaymentsStripeApi = (*PaymentsStripeApiService)(&c.common)
-	c.PaymentsTransactionsApi = (*PaymentsTransactionsApiService)(&c.common)
-	c.PaymentsWalletsApi = (*PaymentsWalletsApiService)(&c.common)
-	c.PaymentsXsollaApi = (*PaymentsXsollaApiService)(&c.common)
-	c.ReportingChallengesApi = (*ReportingChallengesApiService)(&c.common)
-	c.ReportingOrdersApi = (*ReportingOrdersApiService)(&c.common)
-	c.ReportingRevenueApi = (*ReportingRevenueApiService)(&c.common)
-	c.ReportingSubscriptionsApi = (*ReportingSubscriptionsApiService)(&c.common)
-	c.ReportingUsageApi = (*ReportingUsageApiService)(&c.common)
-	c.ReportingUsersApi = (*ReportingUsersApiService)(&c.common)
+	c.Payments_AppleApi = (*Payments_AppleApiService)(&c.common)
+	c.Payments_FattMerchantApi = (*Payments_FattMerchantApiService)(&c.common)
+	c.Payments_OptimalApi = (*Payments_OptimalApiService)(&c.common)
+	c.Payments_PayPalClassicApi = (*Payments_PayPalClassicApiService)(&c.common)
+	c.Payments_StripeApi = (*Payments_StripeApiService)(&c.common)
+	c.Payments_TransactionsApi = (*Payments_TransactionsApiService)(&c.common)
+	c.Payments_WalletsApi = (*Payments_WalletsApiService)(&c.common)
+	c.Payments_XsollaApi = (*Payments_XsollaApiService)(&c.common)
+	c.Reporting_ChallengesApi = (*Reporting_ChallengesApiService)(&c.common)
+	c.Reporting_OrdersApi = (*Reporting_OrdersApiService)(&c.common)
+	c.Reporting_RevenueApi = (*Reporting_RevenueApiService)(&c.common)
+	c.Reporting_SubscriptionsApi = (*Reporting_SubscriptionsApiService)(&c.common)
+	c.Reporting_UsageApi = (*Reporting_UsageApiService)(&c.common)
+	c.Reporting_UsersApi = (*Reporting_UsersApiService)(&c.common)
+	c.Rule_Engine_ActionsApi = (*Rule_Engine_ActionsApiService)(&c.common)
+	c.Rule_Engine_EventsApi = (*Rule_Engine_EventsApiService)(&c.common)
+	c.Rule_Engine_ExpressionsApi = (*Rule_Engine_ExpressionsApiService)(&c.common)
+	c.Rule_Engine_GlobalsApi = (*Rule_Engine_GlobalsApiService)(&c.common)
+	c.Rule_Engine_RulesApi = (*Rule_Engine_RulesApiService)(&c.common)
+	c.Rule_Engine_TriggersApi = (*Rule_Engine_TriggersApiService)(&c.common)
+	c.Rule_Engine_VariablesApi = (*Rule_Engine_VariablesApiService)(&c.common)
 	c.SearchApi = (*SearchApiService)(&c.common)
-	c.SocialFacebookApi = (*SocialFacebookApiService)(&c.common)
-	c.SocialGoogleApi = (*SocialGoogleApiService)(&c.common)
+	c.Social_FacebookApi = (*Social_FacebookApiService)(&c.common)
+	c.Social_GoogleApi = (*Social_GoogleApiService)(&c.common)
 	c.StoreApi = (*StoreApiService)(&c.common)
-	c.StoreBundlesApi = (*StoreBundlesApiService)(&c.common)
-	c.StoreCouponsApi = (*StoreCouponsApiService)(&c.common)
-	c.StoreSalesApi = (*StoreSalesApiService)(&c.common)
-	c.StoreShippingApi = (*StoreShippingApiService)(&c.common)
-	c.StoreShoppingCartsApi = (*StoreShoppingCartsApiService)(&c.common)
-	c.StoreSubscriptionsApi = (*StoreSubscriptionsApiService)(&c.common)
-	c.StoreVendorsApi = (*StoreVendorsApiService)(&c.common)
+	c.Store_BundlesApi = (*Store_BundlesApiService)(&c.common)
+	c.Store_CouponsApi = (*Store_CouponsApiService)(&c.common)
+	c.Store_SalesApi = (*Store_SalesApiService)(&c.common)
+	c.Store_ShippingApi = (*Store_ShippingApiService)(&c.common)
+	c.Store_Shopping_CartsApi = (*Store_Shopping_CartsApiService)(&c.common)
+	c.Store_SubscriptionsApi = (*Store_SubscriptionsApiService)(&c.common)
+	c.Store_VendorsApi = (*Store_VendorsApiService)(&c.common)
 	c.TaxesApi = (*TaxesApiService)(&c.common)
-	c.TemplatesPropertiesApi = (*TemplatesPropertiesApiService)(&c.common)
+	c.Templates_PropertiesApi = (*Templates_PropertiesApiService)(&c.common)
 	c.UsersApi = (*UsersApiService)(&c.common)
-	c.UsersAddressesApi = (*UsersAddressesApiService)(&c.common)
-	c.UsersFriendshipsApi = (*UsersFriendshipsApiService)(&c.common)
-	c.UsersGroupsApi = (*UsersGroupsApiService)(&c.common)
-	c.UsersInventoryApi = (*UsersInventoryApiService)(&c.common)
-	c.UsersRelationshipsApi = (*UsersRelationshipsApiService)(&c.common)
-	c.UsersSubscriptionsApi = (*UsersSubscriptionsApiService)(&c.common)
-	c.UtilBatchApi = (*UtilBatchApiService)(&c.common)
-	c.UtilHealthApi = (*UtilHealthApiService)(&c.common)
-	c.UtilMaintenanceApi = (*UtilMaintenanceApiService)(&c.common)
-	c.UtilSecurityApi = (*UtilSecurityApiService)(&c.common)
-	c.UtilVersionApi = (*UtilVersionApiService)(&c.common)
+	c.Users_AddressesApi = (*Users_AddressesApiService)(&c.common)
+	c.Users_FriendshipsApi = (*Users_FriendshipsApiService)(&c.common)
+	c.Users_GroupsApi = (*Users_GroupsApiService)(&c.common)
+	c.Users_InventoryApi = (*Users_InventoryApiService)(&c.common)
+	c.Users_RelationshipsApi = (*Users_RelationshipsApiService)(&c.common)
+	c.Users_SubscriptionsApi = (*Users_SubscriptionsApiService)(&c.common)
+	c.Util_BatchApi = (*Util_BatchApiService)(&c.common)
+	c.Util_HealthApi = (*Util_HealthApiService)(&c.common)
+	c.Util_MaintenanceApi = (*Util_MaintenanceApiService)(&c.common)
+	c.Util_SecurityApi = (*Util_SecurityApiService)(&c.common)
+	c.Util_VersionApi = (*Util_VersionApiService)(&c.common)
 
 	return c
 }

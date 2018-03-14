@@ -1,6 +1,6 @@
 # \NotificationsApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,6 +20,8 @@ Method | HTTP request | Description
 # **CreateNotificationType**
 > NotificationTypeResource CreateNotificationType(ctx, ctx, optional)
 Create a notification type
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 
 ### Required Parameters
 
@@ -55,6 +57,8 @@ Name | Type | Description  | Notes
 > DeleteNotificationType(ctx, ctx, id)
 Delete a notification type
 
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -81,6 +85,8 @@ Name | Type | Description  | Notes
 # **GetNotificationType**
 > NotificationTypeResource GetNotificationType(ctx, ctx, id)
 Get a single notification type
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 
 ### Required Parameters
 
@@ -109,7 +115,7 @@ Name | Type | Description  | Notes
 > PageResourceNotificationTypeResource GetNotificationTypes(ctx, ctx, optional)
 List and search notification types
 
-Get a list of notification type with optional filtering
+Get a list of notification type with optional filtering. <br><br><b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 
 ### Required Parameters
 
@@ -147,6 +153,8 @@ Name | Type | Description  | Notes
 > NotificationUserTypeResource GetUserNotificationInfo(ctx, ctx, typeId, userId)
 View a user's notification settings for a type
 
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -174,6 +182,8 @@ Name | Type | Description  | Notes
 # **GetUserNotificationInfoList**
 > PageResourceNotificationUserTypeResource GetUserNotificationInfoList(ctx, ctx, userId, optional)
 View a user's notification settings
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 
 ### Required Parameters
 
@@ -212,6 +222,8 @@ Name | Type | Description  | Notes
 # **GetUserNotifications**
 > PageResourceUserNotificationResource GetUserNotifications(ctx, ctx, id, optional)
 Get notifications
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 
 ### Required Parameters
 
@@ -252,6 +264,8 @@ Name | Type | Description  | Notes
 > NotificationResource SendNotification(ctx, ctx, optional)
 Send a notification
 
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -286,6 +300,8 @@ Name | Type | Description  | Notes
 > SetUserNotificationStatus(ctx, ctx, userId, notificationId, optional)
 Set notification status
 
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
+
 ### Required Parameters
 
 Name | Type | Description  | Notes
@@ -303,7 +319,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **string**| The id of the user or &#39;me&#39; | 
  **notificationId** | **string**| The id of the notification | 
- **notification** | [**ValueWrapperstring**](ValueWrapperstring.md)| status | 
+ **notification** | [**UserNotificationStatusWrapper**](UserNotificationStatusWrapper.md)| status | 
 
 ### Return type
 
@@ -324,7 +340,7 @@ Name | Type | Description  | Notes
 > SilenceDirectNotifications(ctx, ctx, typeId, userId, silenced)
 Enable or disable direct notifications for a user
 
-Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there.
+Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there. <br><br><b>Permissions Needed:</b> NOTIFICATIONS_ADMIN or self
 
 ### Required Parameters
 
@@ -354,6 +370,8 @@ Name | Type | Description  | Notes
 # **UpdateNotificationType**
 > NotificationTypeResource UpdateNotificationType(ctx, ctx, id, optional)
 Update a notificationType
+
+<b>Permissions Needed:</b> NOTIFICATIONS_ADMIN
 
 ### Required Parameters
 

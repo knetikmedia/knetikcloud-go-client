@@ -28,7 +28,7 @@ type ConfigsApiService service
 
 
 /* ConfigsApiService Create a new config
- &lt;b&gt;Permissions Needed:&lt;/b&gt; TOPICS_ADMIN
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; CONFIGS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "config" (Config) The config object

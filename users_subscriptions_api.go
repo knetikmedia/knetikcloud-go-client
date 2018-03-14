@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type UsersSubscriptionsApiService service
+type Users_SubscriptionsApiService service
 
 
-/* UsersSubscriptionsApiService Get details about a user&#39;s subscription
+/* Users_SubscriptionsApiService Get details about a user&#39;s subscription
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_SUBSCRIPTIONS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param inventoryId The id of the user&#39;s inventory
  @return InventorySubscriptionResource*/
-func (a *UsersSubscriptionsApiService) GetUserSubscriptionDetails(ctx context.Context, userId int32, inventoryId int32) (InventorySubscriptionResource,  *http.Response, error) {
+func (a *Users_SubscriptionsApiService) GetUserSubscriptionDetails(ctx context.Context, userId int32, inventoryId int32) (InventorySubscriptionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -93,12 +93,12 @@ func (a *UsersSubscriptionsApiService) GetUserSubscriptionDetails(ctx context.Co
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersSubscriptionsApiService Get details about a user&#39;s subscriptions
+/* Users_SubscriptionsApiService Get details about a user&#39;s subscriptions
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_SUBSCRIPTIONS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @return []InventorySubscriptionResource*/
-func (a *UsersSubscriptionsApiService) GetUsersSubscriptionDetails(ctx context.Context, userId int32) ([]InventorySubscriptionResource,  *http.Response, error) {
+func (a *Users_SubscriptionsApiService) GetUsersSubscriptionDetails(ctx context.Context, userId int32) ([]InventorySubscriptionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -157,7 +157,7 @@ func (a *UsersSubscriptionsApiService) GetUsersSubscriptionDetails(ctx context.C
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersSubscriptionsApiService Reactivate a subscription and charge fee
+/* Users_SubscriptionsApiService Reactivate a subscription and charge fee
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
@@ -165,7 +165,7 @@ func (a *UsersSubscriptionsApiService) GetUsersSubscriptionDetails(ctx context.C
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "reactivateSubscriptionRequest" (ReactivateSubscriptionRequest) The reactivate subscription request object inventory
  @return InvoiceResource*/
-func (a *UsersSubscriptionsApiService) ReactivateUserSubscription(ctx context.Context, userId int32, inventoryId int32, localVarOptionals map[string]interface{}) (InvoiceResource,  *http.Response, error) {
+func (a *Users_SubscriptionsApiService) ReactivateUserSubscription(ctx context.Context, userId int32, inventoryId int32, localVarOptionals map[string]interface{}) (InvoiceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -229,14 +229,14 @@ func (a *UsersSubscriptionsApiService) ReactivateUserSubscription(ctx context.Co
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersSubscriptionsApiService Set a new date to bill a subscription on
+/* Users_SubscriptionsApiService Set a new date to bill a subscription on
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param inventoryId The id of the user&#39;s inventory
  @param billDate The new bill date. Unix timestamp in seconds
  @return */
-func (a *UsersSubscriptionsApiService) SetSubscriptionBillDate(ctx context.Context, userId int32, inventoryId int32, billDate int64) ( *http.Response, error) {
+func (a *Users_SubscriptionsApiService) SetSubscriptionBillDate(ctx context.Context, userId int32, inventoryId int32, billDate int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -292,7 +292,7 @@ func (a *UsersSubscriptionsApiService) SetSubscriptionBillDate(ctx context.Conte
 	return localVarHttpResponse, err
 }
 
-/* UsersSubscriptionsApiService Set the payment method to use for a subscription
+/* Users_SubscriptionsApiService Set the payment method to use for a subscription
  May send null to use floating default. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_SUBSCRIPTIONS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
@@ -300,7 +300,7 @@ func (a *UsersSubscriptionsApiService) SetSubscriptionBillDate(ctx context.Conte
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "paymentMethodId" (IntWrapper) The id of the payment method
  @return */
-func (a *UsersSubscriptionsApiService) SetSubscriptionPaymentMethod(ctx context.Context, userId int32, inventoryId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_SubscriptionsApiService) SetSubscriptionPaymentMethod(ctx context.Context, userId int32, inventoryId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -358,14 +358,14 @@ func (a *UsersSubscriptionsApiService) SetSubscriptionPaymentMethod(ctx context.
 	return localVarHttpResponse, err
 }
 
-/* UsersSubscriptionsApiService Set the status of a subscription
+/* Users_SubscriptionsApiService Set the status of a subscription
  Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_SUBSCRIPTIONS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param inventoryId The id of the user&#39;s inventory
- @param status The new status for the subscription. Actual options may differ from the indicated set if the invoice status type data has been altered.  Allowable values: (&#39;current&#39;, &#39;canceled&#39;, &#39;stopped&#39;, &#39;payment_failed&#39;, &#39;suspended&#39;)
+ @param status The new status for the subscription
  @return */
-func (a *UsersSubscriptionsApiService) SetSubscriptionStatus(ctx context.Context, userId int32, inventoryId int32, status StringWrapper) ( *http.Response, error) {
+func (a *Users_SubscriptionsApiService) SetSubscriptionStatus(ctx context.Context, userId int32, inventoryId int32, status SubscriptionStatusWrapper) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -421,7 +421,7 @@ func (a *UsersSubscriptionsApiService) SetSubscriptionStatus(ctx context.Context
 	return localVarHttpResponse, err
 }
 
-/* UsersSubscriptionsApiService Set a new subscription plan for a user
+/* Users_SubscriptionsApiService Set a new subscription plan for a user
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
@@ -429,7 +429,7 @@ func (a *UsersSubscriptionsApiService) SetSubscriptionStatus(ctx context.Context
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "planId" (StringWrapper) The id of the new plan. Must be from the same subscription
  @return */
-func (a *UsersSubscriptionsApiService) SetUserSubscriptionPlan(ctx context.Context, userId int32, inventoryId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_SubscriptionsApiService) SetUserSubscriptionPlan(ctx context.Context, userId int32, inventoryId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -487,7 +487,7 @@ func (a *UsersSubscriptionsApiService) SetUserSubscriptionPlan(ctx context.Conte
 	return localVarHttpResponse, err
 }
 
-/* UsersSubscriptionsApiService Set a new subscription price for a user
+/* Users_SubscriptionsApiService Set a new subscription price for a user
  This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; USERS_SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
@@ -495,7 +495,7 @@ func (a *UsersSubscriptionsApiService) SetUserSubscriptionPlan(ctx context.Conte
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "theOverrideDetails" (SubscriptionPriceOverrideRequest) override
  @return */
-func (a *UsersSubscriptionsApiService) SetUserSubscriptionPrice(ctx context.Context, userId int32, inventoryId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_SubscriptionsApiService) SetUserSubscriptionPrice(ctx context.Context, userId int32, inventoryId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

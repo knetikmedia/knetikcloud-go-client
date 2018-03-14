@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type ContentCommentsApiService service
+type Content_CommentsApiService service
 
 
-/* ContentCommentsApiService Add a new comment
+/* Content_CommentsApiService Add a new comment
  &lt;b&gt;Permissions Needed:&lt;/b&gt; COMMENTS_USER or COMMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "commentResource" (CommentResource) The comment to be added
  @return CommentResource*/
-func (a *ContentCommentsApiService) AddComment(ctx context.Context, localVarOptionals map[string]interface{}) (CommentResource,  *http.Response, error) {
+func (a *Content_CommentsApiService) AddComment(ctx context.Context, localVarOptionals map[string]interface{}) (CommentResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,12 +95,12 @@ func (a *ContentCommentsApiService) AddComment(ctx context.Context, localVarOpti
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ContentCommentsApiService Delete a comment
+/* Content_CommentsApiService Delete a comment
  &lt;b&gt;Permissions Needed:&lt;/b&gt; COMMENTS_USER or COMMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The comment id
  @return */
-func (a *ContentCommentsApiService) DeleteComment(ctx context.Context, id int64) ( *http.Response, error) {
+func (a *Content_CommentsApiService) DeleteComment(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -153,12 +153,12 @@ func (a *ContentCommentsApiService) DeleteComment(ctx context.Context, id int64)
 	return localVarHttpResponse, err
 }
 
-/* ContentCommentsApiService Return a comment
+/* Content_CommentsApiService Return a comment
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The comment id
  @return CommentResource*/
-func (a *ContentCommentsApiService) GetComment(ctx context.Context, id int64) (CommentResource,  *http.Response, error) {
+func (a *Content_CommentsApiService) GetComment(ctx context.Context, id int64) (CommentResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -217,7 +217,7 @@ func (a *ContentCommentsApiService) GetComment(ctx context.Context, id int64) (C
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ContentCommentsApiService Returns a page of comments
+/* Content_CommentsApiService Returns a page of comments
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param context Get comments by context type
@@ -226,7 +226,7 @@ func (a *ContentCommentsApiService) GetComment(ctx context.Context, id int64) (C
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceCommentResource*/
-func (a *ContentCommentsApiService) GetComments(ctx context.Context, context string, contextId int32, localVarOptionals map[string]interface{}) (PageResourceCommentResource,  *http.Response, error) {
+func (a *Content_CommentsApiService) GetComments(ctx context.Context, context string, contextId int32, localVarOptionals map[string]interface{}) (PageResourceCommentResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -298,14 +298,14 @@ func (a *ContentCommentsApiService) GetComments(ctx context.Context, context str
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ContentCommentsApiService Update a comment
+/* Content_CommentsApiService Update a comment
  &lt;b&gt;Permissions Needed:&lt;/b&gt; COMMENTS_USER or COMMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The comment id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "content" (StringWrapper) The comment content
  @return */
-func (a *ContentCommentsApiService) UpdateComment(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Content_CommentsApiService) UpdateComment(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type AuthRolesApiService service
+type Auth_RolesApiService service
 
 
-/* AuthRolesApiService Create a new role
+/* Auth_RolesApiService Create a new role
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "roleResource" (RoleResource) The role resource object
  @return RoleResource*/
-func (a *AuthRolesApiService) CreateRole(ctx context.Context, localVarOptionals map[string]interface{}) (RoleResource,  *http.Response, error) {
+func (a *Auth_RolesApiService) CreateRole(ctx context.Context, localVarOptionals map[string]interface{}) (RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,14 +95,14 @@ func (a *AuthRolesApiService) CreateRole(ctx context.Context, localVarOptionals 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthRolesApiService Delete a role
+/* Auth_RolesApiService Delete a role
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param role The role value
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "force" (bool) If true, removes role from users/clients
  @return */
-func (a *AuthRolesApiService) DeleteRole(ctx context.Context, role string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Auth_RolesApiService) DeleteRole(ctx context.Context, role string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -161,12 +161,12 @@ func (a *AuthRolesApiService) DeleteRole(ctx context.Context, role string, local
 	return localVarHttpResponse, err
 }
 
-/* AuthRolesApiService Get roles for a client
+/* Auth_RolesApiService Get roles for a client
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The client key
  @return []RoleResource*/
-func (a *AuthRolesApiService) GetClientRoles(ctx context.Context, clientKey string) ([]RoleResource,  *http.Response, error) {
+func (a *Auth_RolesApiService) GetClientRoles(ctx context.Context, clientKey string) ([]RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -225,12 +225,12 @@ func (a *AuthRolesApiService) GetClientRoles(ctx context.Context, clientKey stri
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthRolesApiService Get a single role
+/* Auth_RolesApiService Get a single role
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param role The role value
  @return RoleResource*/
-func (a *AuthRolesApiService) GetRole(ctx context.Context, role string) (RoleResource,  *http.Response, error) {
+func (a *Auth_RolesApiService) GetRole(ctx context.Context, role string) (RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -289,7 +289,7 @@ func (a *AuthRolesApiService) GetRole(ctx context.Context, role string) (RoleRes
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthRolesApiService List and search roles
+/* Auth_RolesApiService List and search roles
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -299,7 +299,7 @@ func (a *AuthRolesApiService) GetRole(ctx context.Context, role string) (RoleRes
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceRoleResource*/
-func (a *AuthRolesApiService) GetRoles(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceRoleResource,  *http.Response, error) {
+func (a *Auth_RolesApiService) GetRoles(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceRoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -387,12 +387,12 @@ func (a *AuthRolesApiService) GetRoles(ctx context.Context, localVarOptionals ma
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthRolesApiService Get roles for a user
+/* Auth_RolesApiService Get roles for a user
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @return []RoleResource*/
-func (a *AuthRolesApiService) GetUserRoles(ctx context.Context, userId int32) ([]RoleResource,  *http.Response, error) {
+func (a *Auth_RolesApiService) GetUserRoles(ctx context.Context, userId int32) ([]RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -451,14 +451,14 @@ func (a *AuthRolesApiService) GetUserRoles(ctx context.Context, userId int32) ([
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthRolesApiService Set roles for a client
+/* Auth_RolesApiService Set roles for a client
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The client key
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "rolesList" ([]string) The list of unique roles
  @return ClientResource*/
-func (a *AuthRolesApiService) SetClientRoles(ctx context.Context, clientKey string, localVarOptionals map[string]interface{}) (ClientResource,  *http.Response, error) {
+func (a *Auth_RolesApiService) SetClientRoles(ctx context.Context, clientKey string, localVarOptionals map[string]interface{}) (ClientResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -524,14 +524,14 @@ func (a *AuthRolesApiService) SetClientRoles(ctx context.Context, clientKey stri
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthRolesApiService Set permissions for a role
+/* Auth_RolesApiService Set permissions for a role
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param role The role value
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "permissionsList" ([]string) The list of unique permissions
  @return RoleResource*/
-func (a *AuthRolesApiService) SetPermissionsForRole(ctx context.Context, role string, localVarOptionals map[string]interface{}) (RoleResource,  *http.Response, error) {
+func (a *Auth_RolesApiService) SetPermissionsForRole(ctx context.Context, role string, localVarOptionals map[string]interface{}) (RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -597,14 +597,14 @@ func (a *AuthRolesApiService) SetPermissionsForRole(ctx context.Context, role st
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthRolesApiService Set roles for a user
+/* Auth_RolesApiService Set roles for a user
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user&#39;s id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "rolesList" ([]string) The list of unique roles
  @return UserResource*/
-func (a *AuthRolesApiService) SetUserRoles(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) (UserResource,  *http.Response, error) {
+func (a *Auth_RolesApiService) SetUserRoles(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) (UserResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -670,14 +670,14 @@ func (a *AuthRolesApiService) SetUserRoles(ctx context.Context, userId int32, lo
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthRolesApiService Update a role
+/* Auth_RolesApiService Update a role
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ROLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param role The role value
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "roleResource" (RoleResource) The role resource object
  @return RoleResource*/
-func (a *AuthRolesApiService) UpdateRole(ctx context.Context, role string, localVarOptionals map[string]interface{}) (RoleResource,  *http.Response, error) {
+func (a *Auth_RolesApiService) UpdateRole(ctx context.Context, role string, localVarOptionals map[string]interface{}) (RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

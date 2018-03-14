@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type AuthClientsApiService service
+type Auth_ClientsApiService service
 
 
-/* AuthClientsApiService Create a new client
+/* Auth_ClientsApiService Create a new client
  &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "clientResource" (ClientResource) The client resource object
  @return ClientResource*/
-func (a *AuthClientsApiService) CreateClient(ctx context.Context, localVarOptionals map[string]interface{}) (ClientResource,  *http.Response, error) {
+func (a *Auth_ClientsApiService) CreateClient(ctx context.Context, localVarOptionals map[string]interface{}) (ClientResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,12 +95,12 @@ func (a *AuthClientsApiService) CreateClient(ctx context.Context, localVarOption
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthClientsApiService Delete a client
+/* Auth_ClientsApiService Delete a client
  &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @return */
-func (a *AuthClientsApiService) DeleteClient(ctx context.Context, clientKey string) ( *http.Response, error) {
+func (a *Auth_ClientsApiService) DeleteClient(ctx context.Context, clientKey string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -153,12 +153,12 @@ func (a *AuthClientsApiService) DeleteClient(ctx context.Context, clientKey stri
 	return localVarHttpResponse, err
 }
 
-/* AuthClientsApiService Get a single client
+/* Auth_ClientsApiService Get a single client
  &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @return ClientResource*/
-func (a *AuthClientsApiService) GetClient(ctx context.Context, clientKey string) (ClientResource,  *http.Response, error) {
+func (a *Auth_ClientsApiService) GetClient(ctx context.Context, clientKey string) (ClientResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -217,11 +217,11 @@ func (a *AuthClientsApiService) GetClient(ctx context.Context, clientKey string)
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthClientsApiService List available client grant types
+/* Auth_ClientsApiService List available client grant types
  &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @return []GrantTypeResource*/
-func (a *AuthClientsApiService) GetClientGrantTypes(ctx context.Context, ) ([]GrantTypeResource,  *http.Response, error) {
+func (a *Auth_ClientsApiService) GetClientGrantTypes(ctx context.Context, ) ([]GrantTypeResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -279,7 +279,7 @@ func (a *AuthClientsApiService) GetClientGrantTypes(ctx context.Context, ) ([]Gr
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthClientsApiService List and search clients
+/* Auth_ClientsApiService List and search clients
  &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -287,7 +287,7 @@ func (a *AuthClientsApiService) GetClientGrantTypes(ctx context.Context, ) ([]Gr
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceClientResource*/
-func (a *AuthClientsApiService) GetClients(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceClientResource,  *http.Response, error) {
+func (a *Auth_ClientsApiService) GetClients(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceClientResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -363,14 +363,14 @@ func (a *AuthClientsApiService) GetClients(ctx context.Context, localVarOptional
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthClientsApiService Set grant types for a client
+/* Auth_ClientsApiService Set grant types for a client
  &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "grantList" ([]string) A list of unique grant types
  @return */
-func (a *AuthClientsApiService) SetClientGrantTypes(ctx context.Context, clientKey string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Auth_ClientsApiService) SetClientGrantTypes(ctx context.Context, clientKey string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -430,14 +430,14 @@ func (a *AuthClientsApiService) SetClientGrantTypes(ctx context.Context, clientK
 	return localVarHttpResponse, err
 }
 
-/* AuthClientsApiService Set redirect uris for a client
+/* Auth_ClientsApiService Set redirect uris for a client
  &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "redirectList" ([]string) A list of unique redirect uris
  @return */
-func (a *AuthClientsApiService) SetClientRedirectUris(ctx context.Context, clientKey string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Auth_ClientsApiService) SetClientRedirectUris(ctx context.Context, clientKey string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -497,14 +497,14 @@ func (a *AuthClientsApiService) SetClientRedirectUris(ctx context.Context, clien
 	return localVarHttpResponse, err
 }
 
-/* AuthClientsApiService Update a client
+/* Auth_ClientsApiService Update a client
  &lt;b&gt;Permissions Needed:&lt;/b&gt; CLIENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param clientKey The key of the client
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "clientResource" (ClientResource) The client resource object
  @return ClientResource*/
-func (a *AuthClientsApiService) UpdateClient(ctx context.Context, clientKey string, localVarOptionals map[string]interface{}) (ClientResource,  *http.Response, error) {
+func (a *Auth_ClientsApiService) UpdateClient(ctx context.Context, clientKey string, localVarOptionals map[string]interface{}) (ClientResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

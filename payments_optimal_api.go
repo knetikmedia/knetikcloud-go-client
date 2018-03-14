@@ -23,16 +23,16 @@ var (
 	_ context.Context
 )
 
-type PaymentsOptimalApiService service
+type Payments_OptimalApiService service
 
 
-/* PaymentsOptimalApiService Initiate silent post with Optimal
+/* Payments_OptimalApiService Initiate silent post with Optimal
  Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; OPTIMAL_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (OptimalPaymentRequest) The payment request to initiate
  @return string*/
-func (a *PaymentsOptimalApiService) SilentPostOptimal(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
+func (a *Payments_OptimalApiService) SilentPostOptimal(ctx context.Context, localVarOptionals map[string]interface{}) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}

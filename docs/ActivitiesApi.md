@@ -1,6 +1,6 @@
 # \ActivitiesApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 > ActivityOccurrenceResource GetActivityOccurrenceDetails(ctx, ctx, activityOccurrenceId)
 Load a single activity occurrence details
 
-<b>Permissions Needed:</b> ACTIVITIES_ADMIN
+<b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 
 ### Required Parameters
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 > PageResourceActivityOccurrenceResource ListActivityOccurrences(ctx, ctx, optional)
 List activity occurrences
 
-<b>Permissions Needed:</b> ACTIVITIES_ADMIN
+<b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 
 ### Required Parameters
 
@@ -492,7 +492,7 @@ Name | Type | Description  | Notes
 > ActivityOccurrenceResults SetActivityOccurrenceResults(ctx, ctx, activityOccurrenceId, optional)
 Sets the status of an activity occurrence to FINISHED and logs metrics
 
-In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
+In addition to user permissions requirements there is security based on the core_settings.results_trust setting. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN
 
 ### Required Parameters
 
@@ -529,6 +529,8 @@ Name | Type | Description  | Notes
 # **SetActivityOccurrenceSettings**
 > ActivityOccurrenceResource SetActivityOccurrenceSettings(ctx, ctx, activityOccurrenceId, optional)
 Sets the settings of an activity occurrence
+
+<b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN
 
 ### Required Parameters
 
@@ -583,7 +585,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activityOccurrenceId** | **int64**| The id of the activity occurrence | 
  **userId** | **string**| The id of the user | 
- **status** | **string**| The new status | 
+ **status** | [**ActivityUserStatusWrapper**](ActivityUserStatusWrapper.md)| The new status | 
 
 ### Return type
 
@@ -642,7 +644,7 @@ Name | Type | Description  | Notes
 > UpdateActivityOccurrenceStatus(ctx, ctx, activityOccurrenceId, optional)
 Update the status of an activity occurrence
 
-If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
+If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN
 
 ### Required Parameters
 
@@ -659,7 +661,7 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activityOccurrenceId** | **int64**| The id of the activity occurrence | 
- **activityOccurrenceStatus** | [**ValueWrapperstring**](ValueWrapperstring.md)| The activity occurrence status object | 
+ **activityOccurrenceStatus** | [**ActivityOccurrenceStatusWrapper**](ActivityOccurrenceStatusWrapper.md)| The activity occurrence status object | 
 
 ### Return type
 

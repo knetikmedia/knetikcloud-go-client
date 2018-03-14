@@ -23,17 +23,17 @@ var (
 	_ context.Context
 )
 
-type ReportingSubscriptionsApiService service
+type Reporting_SubscriptionsApiService service
 
 
-/* ReportingSubscriptionsApiService Get a list of available subscription reports in most recent first order
+/* Reporting_SubscriptionsApiService Get a list of available subscription reports in most recent first order
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SUBSCRIPTIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceBillingReport*/
-func (a *ReportingSubscriptionsApiService) GetSubscriptionReports(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceBillingReport,  *http.Response, error) {
+func (a *Reporting_SubscriptionsApiService) GetSubscriptionReports(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceBillingReport,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

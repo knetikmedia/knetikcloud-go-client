@@ -23,10 +23,10 @@ var (
 	_ context.Context
 )
 
-type UtilSecurityApiService service
+type Util_SecurityApiService service
 
 
-/* UtilSecurityApiService Returns the authentication log for a user
+/* Util_SecurityApiService Returns the authentication log for a user
  A log entry is recorded everytime a user requests a new token. Standard pagination available. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SECURITY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -35,7 +35,7 @@ type UtilSecurityApiService service
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceLocationLogResource*/
-func (a *UtilSecurityApiService) GetUserLocationLog(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceLocationLogResource,  *http.Response, error) {
+func (a *Util_SecurityApiService) GetUserLocationLog(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceLocationLogResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -117,11 +117,11 @@ func (a *UtilSecurityApiService) GetUserLocationLog(ctx context.Context, localVa
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UtilSecurityApiService Returns the authentication token details. Use /users endpoint for detailed user&#39;s info
+/* Util_SecurityApiService Returns the authentication token details. Use /users endpoint for detailed user&#39;s info
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SECURITY_ADMIN
  * @param ctx context.Context Authentication Context 
  @return TokenDetailsResource*/
-func (a *UtilSecurityApiService) GetUserTokenDetails(ctx context.Context, ) (TokenDetailsResource,  *http.Response, error) {
+func (a *Util_SecurityApiService) GetUserTokenDetails(ctx context.Context, ) (TokenDetailsResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

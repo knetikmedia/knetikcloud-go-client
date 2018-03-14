@@ -24,17 +24,17 @@ var (
 	_ context.Context
 )
 
-type StoreCouponsApiService service
+type Store_CouponsApiService service
 
 
-/* StoreCouponsApiService Create a coupon item
+/* Store_CouponsApiService Create a coupon item
  SKUs have to be unique in the entire store. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; COUPONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "couponItem" (CouponItem) The coupon item object
  @return CouponItem*/
-func (a *StoreCouponsApiService) CreateCouponItem(ctx context.Context, localVarOptionals map[string]interface{}) (CouponItem,  *http.Response, error) {
+func (a *Store_CouponsApiService) CreateCouponItem(ctx context.Context, localVarOptionals map[string]interface{}) (CouponItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -102,13 +102,13 @@ func (a *StoreCouponsApiService) CreateCouponItem(ctx context.Context, localVarO
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreCouponsApiService Create a coupon template
+/* Store_CouponsApiService Create a coupon template
  Coupon Templates define a type of coupon and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "couponTemplateResource" (ItemTemplateResource) The new coupon template
  @return ItemTemplateResource*/
-func (a *StoreCouponsApiService) CreateCouponTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *Store_CouponsApiService) CreateCouponTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -170,12 +170,12 @@ func (a *StoreCouponsApiService) CreateCouponTemplate(ctx context.Context, local
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreCouponsApiService Delete a coupon item
+/* Store_CouponsApiService Delete a coupon item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; COUPONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the coupon
  @return */
-func (a *StoreCouponsApiService) DeleteCouponItem(ctx context.Context, id int32) ( *http.Response, error) {
+func (a *Store_CouponsApiService) DeleteCouponItem(ctx context.Context, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -228,14 +228,14 @@ func (a *StoreCouponsApiService) DeleteCouponItem(ctx context.Context, id int32)
 	return localVarHttpResponse, err
 }
 
-/* StoreCouponsApiService Delete a coupon template
+/* Store_CouponsApiService Delete a coupon template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach
  @return */
-func (a *StoreCouponsApiService) DeleteCouponTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Store_CouponsApiService) DeleteCouponTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -294,12 +294,12 @@ func (a *StoreCouponsApiService) DeleteCouponTemplate(ctx context.Context, id st
 	return localVarHttpResponse, err
 }
 
-/* StoreCouponsApiService Get a single coupon item
+/* Store_CouponsApiService Get a single coupon item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; COUPONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the coupon
  @return CouponItem*/
-func (a *StoreCouponsApiService) GetCouponItem(ctx context.Context, id int32) (CouponItem,  *http.Response, error) {
+func (a *Store_CouponsApiService) GetCouponItem(ctx context.Context, id int32) (CouponItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -358,12 +358,12 @@ func (a *StoreCouponsApiService) GetCouponItem(ctx context.Context, id int32) (C
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreCouponsApiService Get a coupon by sku
+/* Store_CouponsApiService Get a coupon by sku
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param sku A sku of the coupon
  @return CouponItem*/
-func (a *StoreCouponsApiService) GetCouponItemBySku(ctx context.Context, sku string) (CouponItem,  *http.Response, error) {
+func (a *Store_CouponsApiService) GetCouponItemBySku(ctx context.Context, sku string) (CouponItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -422,12 +422,12 @@ func (a *StoreCouponsApiService) GetCouponItemBySku(ctx context.Context, sku str
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreCouponsApiService Get a single coupon template
+/* Store_CouponsApiService Get a single coupon template
  Coupon Templates define a type of coupon and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or COUPONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
-func (a *StoreCouponsApiService) GetCouponTemplate(ctx context.Context, id string) (ItemTemplateResource,  *http.Response, error) {
+func (a *Store_CouponsApiService) GetCouponTemplate(ctx context.Context, id string) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -486,7 +486,7 @@ func (a *StoreCouponsApiService) GetCouponTemplate(ctx context.Context, id strin
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreCouponsApiService List and search coupon templates
+/* Store_CouponsApiService List and search coupon templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or COUPONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -494,7 +494,7 @@ func (a *StoreCouponsApiService) GetCouponTemplate(ctx context.Context, id strin
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceItemTemplateResource*/
-func (a *StoreCouponsApiService) GetCouponTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
+func (a *Store_CouponsApiService) GetCouponTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -570,7 +570,7 @@ func (a *StoreCouponsApiService) GetCouponTemplates(ctx context.Context, localVa
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreCouponsApiService Update a coupon item
+/* Store_CouponsApiService Update a coupon item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; COUPONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the coupon
@@ -578,7 +578,7 @@ func (a *StoreCouponsApiService) GetCouponTemplates(ctx context.Context, localVa
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "couponItem" (CouponItem) The coupon item object
  @return CouponItem*/
-func (a *StoreCouponsApiService) UpdateCouponItem(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (CouponItem,  *http.Response, error) {
+func (a *Store_CouponsApiService) UpdateCouponItem(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (CouponItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -647,14 +647,14 @@ func (a *StoreCouponsApiService) UpdateCouponItem(ctx context.Context, id int32,
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreCouponsApiService Update a coupon template
+/* Store_CouponsApiService Update a coupon template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "couponTemplateResource" (ItemTemplateResource) The coupon template resource object
  @return ItemTemplateResource*/
-func (a *StoreCouponsApiService) UpdateCouponTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *Store_CouponsApiService) UpdateCouponTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

@@ -28,6 +28,7 @@ type NotificationsApiService service
 
 
 /* NotificationsApiService Create a notification type
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; NOTIFICATIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "notificationType" (NotificationTypeResource) notificationType
@@ -95,6 +96,7 @@ func (a *NotificationsApiService) CreateNotificationType(ctx context.Context, lo
 }
 
 /* NotificationsApiService Delete a notification type
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; NOTIFICATIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id id
  @return */
@@ -152,6 +154,7 @@ func (a *NotificationsApiService) DeleteNotificationType(ctx context.Context, id
 }
 
 /* NotificationsApiService Get a single notification type
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; NOTIFICATIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id id
  @return NotificationTypeResource*/
@@ -215,7 +218,7 @@ func (a *NotificationsApiService) GetNotificationType(ctx context.Context, id st
 }
 
 /* NotificationsApiService List and search notification types
- Get a list of notification type with optional filtering
+ Get a list of notification type with optional filtering. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NOTIFICATIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "size" (int32) The number of objects returned per page
@@ -299,6 +302,7 @@ func (a *NotificationsApiService) GetNotificationTypes(ctx context.Context, loca
 }
 
 /* NotificationsApiService View a user&#39;s notification settings for a type
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; NOTIFICATIONS_ADMIN or self
  * @param ctx context.Context Authentication Context 
  @param typeId The id of the topic
  @param userId The id of the subscriber or &#39;me&#39;
@@ -364,6 +368,7 @@ func (a *NotificationsApiService) GetUserNotificationInfo(ctx context.Context, t
 }
 
 /* NotificationsApiService View a user&#39;s notification settings
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; NOTIFICATIONS_ADMIN or self
  * @param ctx context.Context Authentication Context 
  @param userId The id of the subscriber or &#39;me&#39;
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -449,6 +454,7 @@ func (a *NotificationsApiService) GetUserNotificationInfoList(ctx context.Contex
 }
 
 /* NotificationsApiService Get notifications
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; NOTIFICATIONS_ADMIN or self
  * @param ctx context.Context Authentication Context 
  @param id The id of the user or &#39;me&#39;
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -541,6 +547,7 @@ func (a *NotificationsApiService) GetUserNotifications(ctx context.Context, id s
 }
 
 /* NotificationsApiService Send a notification
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; NOTIFICATIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "notification" (NotificationResource) notification
@@ -608,11 +615,12 @@ func (a *NotificationsApiService) SendNotification(ctx context.Context, localVar
 }
 
 /* NotificationsApiService Set notification status
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; NOTIFICATIONS_ADMIN or self
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39;
  @param notificationId The id of the notification
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "notification" (ValueWrapperstring) status
+     @param "notification" (UserNotificationStatusWrapper) status
  @return */
 func (a *NotificationsApiService) SetUserNotificationStatus(ctx context.Context, userId string, notificationId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
@@ -652,7 +660,7 @@ func (a *NotificationsApiService) SetUserNotificationStatus(ctx context.Context,
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	if localVarTempParam, localVarOk := localVarOptionals["notification"].(ValueWrapperstring); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["notification"].(UserNotificationStatusWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -673,7 +681,7 @@ func (a *NotificationsApiService) SetUserNotificationStatus(ctx context.Context,
 }
 
 /* NotificationsApiService Enable or disable direct notifications for a user
- Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there.
+ Allows enabling or disabling messages for a given notification type when sent direct to the user. Notifications can still be retrieved by endpoint. For notifications broadcased to a topic, see the topic service to disable messages for the user there. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; NOTIFICATIONS_ADMIN or self
  * @param ctx context.Context Authentication Context 
  @param typeId The id of the topic
  @param userId The id of the subscriber or &#39;me&#39;
@@ -736,6 +744,7 @@ func (a *NotificationsApiService) SilenceDirectNotifications(ctx context.Context
 }
 
 /* NotificationsApiService Update a notificationType
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; NOTIFICATIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id id
  @param optional (nil or map[string]interface{}) with one or more of:

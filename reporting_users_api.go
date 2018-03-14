@@ -23,10 +23,10 @@ var (
 	_ context.Context
 )
 
-type ReportingUsersApiService service
+type Reporting_UsersApiService service
 
 
-/* ReportingUsersApiService Get user registration info
+/* Reporting_UsersApiService Get user registration info
  Get user registration counts grouped by time range. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_USER_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -36,7 +36,7 @@ type ReportingUsersApiService service
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceAggregateCountResource*/
-func (a *ReportingUsersApiService) GetUserRegistrations(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceAggregateCountResource,  *http.Response, error) {
+func (a *Reporting_UsersApiService) GetUserRegistrations(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceAggregateCountResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

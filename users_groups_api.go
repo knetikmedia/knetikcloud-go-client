@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type UsersGroupsApiService service
+type Users_GroupsApiService service
 
 
-/* UsersGroupsApiService Adds a new member to the group
+/* Users_GroupsApiService Adds a new member to the group
  &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or self if open
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param user The id and status for a user to add to the group
  @return GroupMemberResource*/
-func (a *UsersGroupsApiService) AddMemberToGroup(ctx context.Context, uniqueName string, user GroupMemberResource) (GroupMemberResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) AddMemberToGroup(ctx context.Context, uniqueName string, user GroupMemberResource) (GroupMemberResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -94,13 +94,13 @@ func (a *UsersGroupsApiService) AddMemberToGroup(ctx context.Context, uniqueName
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Adds multiple members to the group
+/* Users_GroupsApiService Adds multiple members to the group
  &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param users The id and status for a list of users to add to the group
  @return []GroupMemberResource*/
-func (a *UsersGroupsApiService) AddMembersToGroup(ctx context.Context, uniqueName string, users []GroupMemberResource) ([]GroupMemberResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) AddMembersToGroup(ctx context.Context, uniqueName string, users []GroupMemberResource) ([]GroupMemberResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -161,13 +161,13 @@ func (a *UsersGroupsApiService) AddMembersToGroup(ctx context.Context, uniqueNam
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Create a group
+/* Users_GroupsApiService Create a group
  &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupResource" (GroupResource) The new group
  @return GroupResource*/
-func (a *UsersGroupsApiService) CreateGroup(ctx context.Context, localVarOptionals map[string]interface{}) (GroupResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) CreateGroup(ctx context.Context, localVarOptionals map[string]interface{}) (GroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -229,13 +229,13 @@ func (a *UsersGroupsApiService) CreateGroup(ctx context.Context, localVarOptiona
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Create an group member template
+/* Users_GroupsApiService Create an group member template
  GroupMember Templates define a type of group member and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupMemberTemplateResource" (TemplateResource) The group member template resource object
  @return TemplateResource*/
-func (a *UsersGroupsApiService) CreateGroupMemberTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) CreateGroupMemberTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -297,13 +297,13 @@ func (a *UsersGroupsApiService) CreateGroupMemberTemplate(ctx context.Context, l
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Create a group template
+/* Users_GroupsApiService Create a group template
  Group Templates define a type of group and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupTemplateResource" (TemplateResource) The group template resource object
  @return TemplateResource*/
-func (a *UsersGroupsApiService) CreateGroupTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) CreateGroupTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -365,12 +365,12 @@ func (a *UsersGroupsApiService) CreateGroupTemplate(ctx context.Context, localVa
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Removes a group from the system
+/* Users_GroupsApiService Removes a group from the system
  All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group&#39;s parent if they were not added to it directly as well. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @return */
-func (a *UsersGroupsApiService) DeleteGroup(ctx context.Context, uniqueName string) ( *http.Response, error) {
+func (a *Users_GroupsApiService) DeleteGroup(ctx context.Context, uniqueName string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -423,14 +423,14 @@ func (a *UsersGroupsApiService) DeleteGroup(ctx context.Context, uniqueName stri
 	return localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Delete an group member template
+/* Users_GroupsApiService Delete an group member template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *UsersGroupsApiService) DeleteGroupMemberTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_GroupsApiService) DeleteGroupMemberTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -489,14 +489,14 @@ func (a *UsersGroupsApiService) DeleteGroupMemberTemplate(ctx context.Context, i
 	return localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Delete a group template
+/* Users_GroupsApiService Delete a group template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *UsersGroupsApiService) DeleteGroupTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_GroupsApiService) DeleteGroupTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -555,13 +555,14 @@ func (a *UsersGroupsApiService) DeleteGroupTemplate(ctx context.Context, id stri
 	return localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Enable or disable notification of group messages
+/* Users_GroupsApiService Enable or disable notification of group messages
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TOPICS_ADMIN or self
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param userId The user id of the member or &#39;me&#39;
  @param disabled disabled
  @return */
-func (a *UsersGroupsApiService) DisableGroupNotification(ctx context.Context, uniqueName string, userId string, disabled ValueWrapperboolean) ( *http.Response, error) {
+func (a *Users_GroupsApiService) DisableGroupNotification(ctx context.Context, uniqueName string, userId string, disabled ValueWrapperboolean) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -617,12 +618,12 @@ func (a *UsersGroupsApiService) DisableGroupNotification(ctx context.Context, un
 	return localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Loads a specific group&#39;s details
+/* Users_GroupsApiService Loads a specific group&#39;s details
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @return GroupResource*/
-func (a *UsersGroupsApiService) GetGroup(ctx context.Context, uniqueName string) (GroupResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) GetGroup(ctx context.Context, uniqueName string) (GroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -681,12 +682,12 @@ func (a *UsersGroupsApiService) GetGroup(ctx context.Context, uniqueName string)
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Get group ancestors
+/* Users_GroupsApiService Get group ancestors
  Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @return []GroupResource*/
-func (a *UsersGroupsApiService) GetGroupAncestors(ctx context.Context, uniqueName string) ([]GroupResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) GetGroupAncestors(ctx context.Context, uniqueName string) ([]GroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -745,13 +746,13 @@ func (a *UsersGroupsApiService) GetGroupAncestors(ctx context.Context, uniqueNam
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Get a user from a group
+/* Users_GroupsApiService Get a user from a group
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param userId The id of the user
  @return GroupMemberResource*/
-func (a *UsersGroupsApiService) GetGroupMember(ctx context.Context, uniqueName string, userId int32) (GroupMemberResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) GetGroupMember(ctx context.Context, uniqueName string, userId int32) (GroupMemberResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -811,12 +812,12 @@ func (a *UsersGroupsApiService) GetGroupMember(ctx context.Context, uniqueName s
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Get a single group member template
+/* Users_GroupsApiService Get a single group member template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
-func (a *UsersGroupsApiService) GetGroupMemberTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) GetGroupMemberTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -875,7 +876,7 @@ func (a *UsersGroupsApiService) GetGroupMemberTemplate(ctx context.Context, id s
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService List and search group member templates
+/* Users_GroupsApiService List and search group member templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -883,7 +884,7 @@ func (a *UsersGroupsApiService) GetGroupMemberTemplate(ctx context.Context, id s
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *UsersGroupsApiService) GetGroupMemberTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) GetGroupMemberTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -959,7 +960,7 @@ func (a *UsersGroupsApiService) GetGroupMemberTemplates(ctx context.Context, loc
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Lists members of the group
+/* Users_GroupsApiService Lists members of the group
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
@@ -968,7 +969,7 @@ func (a *UsersGroupsApiService) GetGroupMemberTemplates(ctx context.Context, loc
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceGroupMemberResource*/
-func (a *UsersGroupsApiService) GetGroupMembers(ctx context.Context, uniqueName string, localVarOptionals map[string]interface{}) (PageResourceGroupMemberResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) GetGroupMembers(ctx context.Context, uniqueName string, localVarOptionals map[string]interface{}) (PageResourceGroupMemberResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1045,7 +1046,7 @@ func (a *UsersGroupsApiService) GetGroupMembers(ctx context.Context, uniqueName 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Get a list of group messages
+/* Users_GroupsApiService Get a list of group messages
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
@@ -1053,7 +1054,7 @@ func (a *UsersGroupsApiService) GetGroupMembers(ctx context.Context, uniqueName 
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceChatMessageResource*/
-func (a *UsersGroupsApiService) GetGroupMessages(ctx context.Context, uniqueName string, localVarOptionals map[string]interface{}) (PageResourceChatMessageResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) GetGroupMessages(ctx context.Context, uniqueName string, localVarOptionals map[string]interface{}) (PageResourceChatMessageResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1124,12 +1125,12 @@ func (a *UsersGroupsApiService) GetGroupMessages(ctx context.Context, uniqueName
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Get a single group template
+/* Users_GroupsApiService Get a single group template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
-func (a *UsersGroupsApiService) GetGroupTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) GetGroupTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1188,7 +1189,7 @@ func (a *UsersGroupsApiService) GetGroupTemplate(ctx context.Context, id string)
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService List and search group templates
+/* Users_GroupsApiService List and search group templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1196,7 +1197,7 @@ func (a *UsersGroupsApiService) GetGroupTemplate(ctx context.Context, id string)
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *UsersGroupsApiService) GetGroupTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) GetGroupTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1272,14 +1273,14 @@ func (a *UsersGroupsApiService) GetGroupTemplates(ctx context.Context, localVarO
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService List groups a user is in
+/* Users_GroupsApiService List groups a user is in
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterChildren" (bool) Whether to limit group list to children of groups only. If true, shows only groups with parents. If false, shows only groups with no parent.
  @return []string*/
-func (a *UsersGroupsApiService) GetGroupsForUser(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) ([]string,  *http.Response, error) {
+func (a *Users_GroupsApiService) GetGroupsForUser(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) ([]string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1344,7 +1345,7 @@ func (a *UsersGroupsApiService) GetGroupsForUser(ctx context.Context, userId int
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService List and search groups
+/* Users_GroupsApiService List and search groups
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1358,7 +1359,7 @@ func (a *UsersGroupsApiService) GetGroupsForUser(ctx context.Context, userId int
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceGroupResource*/
-func (a *UsersGroupsApiService) ListGroups(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceGroupResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) ListGroups(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceGroupResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1470,13 +1471,13 @@ func (a *UsersGroupsApiService) ListGroups(ctx context.Context, localVarOptional
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Send a group message
+/* Users_GroupsApiService Send a group message
 
  @param uniqueName The group unique name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "chatMessageRequest" (ChatMessageRequest) The chat message request
  @return ChatMessageResource*/
-func (a *UsersGroupsApiService) PostGroupMessage(uniqueName string, localVarOptionals map[string]interface{}) (ChatMessageResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) PostGroupMessage(uniqueName string, localVarOptionals map[string]interface{}) (ChatMessageResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -1539,13 +1540,13 @@ func (a *UsersGroupsApiService) PostGroupMessage(uniqueName string, localVarOpti
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Removes a user from a group
+/* Users_GroupsApiService Removes a user from a group
  &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or self if open
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param userId The id of the user to remove
  @return */
-func (a *UsersGroupsApiService) RemoveGroupMember(ctx context.Context, uniqueName string, userId int32) ( *http.Response, error) {
+func (a *Users_GroupsApiService) RemoveGroupMember(ctx context.Context, uniqueName string, userId int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -1599,14 +1600,14 @@ func (a *UsersGroupsApiService) RemoveGroupMember(ctx context.Context, uniqueNam
 	return localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Update a group
+/* Users_GroupsApiService Update a group
  If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN or admin of the group
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupResource" (GroupResource) The updated group
  @return */
-func (a *UsersGroupsApiService) UpdateGroup(ctx context.Context, uniqueName string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_GroupsApiService) UpdateGroup(ctx context.Context, uniqueName string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1663,14 +1664,14 @@ func (a *UsersGroupsApiService) UpdateGroup(ctx context.Context, uniqueName stri
 	return localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Change a user&#39;s order
+/* Users_GroupsApiService Change a user&#39;s order
  &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param userId The user id of the member to modify
  @param order The new order for the membership
  @return */
-func (a *UsersGroupsApiService) UpdateGroupMemberProperties(ctx context.Context, uniqueName string, userId int32, order StringWrapper) ( *http.Response, error) {
+func (a *Users_GroupsApiService) UpdateGroupMemberProperties(ctx context.Context, uniqueName string, userId int32, order StringWrapper) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1726,14 +1727,14 @@ func (a *UsersGroupsApiService) UpdateGroupMemberProperties(ctx context.Context,
 	return localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Change a user&#39;s membership properties
+/* Users_GroupsApiService Change a user&#39;s membership properties
  &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param userId The user id of the member to modify
  @param properties The new properties for the membership
  @return */
-func (a *UsersGroupsApiService) UpdateGroupMemberProperties1(ctx context.Context, uniqueName string, userId int32, properties interface{}) ( *http.Response, error) {
+func (a *Users_GroupsApiService) UpdateGroupMemberProperties1(ctx context.Context, uniqueName string, userId int32, properties interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1789,14 +1790,14 @@ func (a *UsersGroupsApiService) UpdateGroupMemberProperties1(ctx context.Context
 	return localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Change a user&#39;s status
+/* Users_GroupsApiService Change a user&#39;s status
  &lt;b&gt;Permissions Needed:&lt;/b&gt; GROUP_ADMIN
  * @param ctx context.Context Authentication Context 
  @param uniqueName The group unique name
  @param userId The user id of the member to modify
  @param status The new status for the user
  @return */
-func (a *UsersGroupsApiService) UpdateGroupMemberStatus(ctx context.Context, uniqueName string, userId int32, status string) ( *http.Response, error) {
+func (a *Users_GroupsApiService) UpdateGroupMemberStatus(ctx context.Context, uniqueName string, userId int32, status GroupMemberStatusWrapper) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1852,14 +1853,14 @@ func (a *UsersGroupsApiService) UpdateGroupMemberStatus(ctx context.Context, uni
 	return localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Update an group member template
+/* Users_GroupsApiService Update an group member template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupMemberTemplateResource" (TemplateResource) The group member template resource object
  @return TemplateResource*/
-func (a *UsersGroupsApiService) UpdateGroupMemberTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) UpdateGroupMemberTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1922,14 +1923,14 @@ func (a *UsersGroupsApiService) UpdateGroupMemberTemplate(ctx context.Context, i
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersGroupsApiService Update a group template
+/* Users_GroupsApiService Update a group template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "groupTemplateResource" (TemplateResource) The group template resource object
  @return TemplateResource*/
-func (a *UsersGroupsApiService) UpdateGroupTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Users_GroupsApiService) UpdateGroupTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

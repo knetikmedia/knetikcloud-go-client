@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type StoreSalesApiService service
+type Store_SalesApiService service
 
 
-/* StoreSalesApiService Create a sale
+/* Store_SalesApiService Create a sale
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SALES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "catalogSale" (CatalogSale) The catalog sale object
  @return CatalogSale*/
-func (a *StoreSalesApiService) CreateCatalogSale(ctx context.Context, localVarOptionals map[string]interface{}) (CatalogSale,  *http.Response, error) {
+func (a *Store_SalesApiService) CreateCatalogSale(ctx context.Context, localVarOptionals map[string]interface{}) (CatalogSale,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,12 +95,12 @@ func (a *StoreSalesApiService) CreateCatalogSale(ctx context.Context, localVarOp
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreSalesApiService Delete a sale
+/* Store_SalesApiService Delete a sale
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SALES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the sale
  @return */
-func (a *StoreSalesApiService) DeleteCatalogSale(ctx context.Context, id int32) ( *http.Response, error) {
+func (a *Store_SalesApiService) DeleteCatalogSale(ctx context.Context, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -153,12 +153,12 @@ func (a *StoreSalesApiService) DeleteCatalogSale(ctx context.Context, id int32) 
 	return localVarHttpResponse, err
 }
 
-/* StoreSalesApiService Get a single sale
+/* Store_SalesApiService Get a single sale
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SALES_USER or SALES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the sale
  @return CatalogSale*/
-func (a *StoreSalesApiService) GetCatalogSale(ctx context.Context, id int32) (CatalogSale,  *http.Response, error) {
+func (a *Store_SalesApiService) GetCatalogSale(ctx context.Context, id int32) (CatalogSale,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -217,7 +217,7 @@ func (a *StoreSalesApiService) GetCatalogSale(ctx context.Context, id int32) (Ca
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreSalesApiService List and search sales
+/* Store_SalesApiService List and search sales
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SALES_USER or SALES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -225,7 +225,7 @@ func (a *StoreSalesApiService) GetCatalogSale(ctx context.Context, id int32) (Ca
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceCatalogSale*/
-func (a *StoreSalesApiService) GetCatalogSales(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceCatalogSale,  *http.Response, error) {
+func (a *Store_SalesApiService) GetCatalogSales(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceCatalogSale,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -301,14 +301,14 @@ func (a *StoreSalesApiService) GetCatalogSales(ctx context.Context, localVarOpti
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreSalesApiService Update a sale
+/* Store_SalesApiService Update a sale
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SALES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the sale
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "catalogSale" (CatalogSale) The catalog sale object
  @return CatalogSale*/
-func (a *StoreSalesApiService) UpdateCatalogSale(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (CatalogSale,  *http.Response, error) {
+func (a *Store_SalesApiService) UpdateCatalogSale(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (CatalogSale,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

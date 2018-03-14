@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type UsersRelationshipsApiService service
+type Users_RelationshipsApiService service
 
 
-/* UsersRelationshipsApiService Create a user relationship
+/* Users_RelationshipsApiService Create a user relationship
  &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "relationship" (UserRelationshipResource) The new relationship
  @return UserRelationshipResource*/
-func (a *UsersRelationshipsApiService) CreateUserRelationship(ctx context.Context, localVarOptionals map[string]interface{}) (UserRelationshipResource,  *http.Response, error) {
+func (a *Users_RelationshipsApiService) CreateUserRelationship(ctx context.Context, localVarOptionals map[string]interface{}) (UserRelationshipResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,12 +95,12 @@ func (a *UsersRelationshipsApiService) CreateUserRelationship(ctx context.Contex
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersRelationshipsApiService Delete a user relationship
+/* Users_RelationshipsApiService Delete a user relationship
  &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the relationship
  @return */
-func (a *UsersRelationshipsApiService) DeleteUserRelationship(ctx context.Context, id int64) ( *http.Response, error) {
+func (a *Users_RelationshipsApiService) DeleteUserRelationship(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -153,12 +153,12 @@ func (a *UsersRelationshipsApiService) DeleteUserRelationship(ctx context.Contex
 	return localVarHttpResponse, err
 }
 
-/* UsersRelationshipsApiService Get a user relationship
+/* Users_RelationshipsApiService Get a user relationship
  &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the relationship
  @return UserRelationshipResource*/
-func (a *UsersRelationshipsApiService) GetUserRelationship(ctx context.Context, id int64) (UserRelationshipResource,  *http.Response, error) {
+func (a *Users_RelationshipsApiService) GetUserRelationship(ctx context.Context, id int64) (UserRelationshipResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -217,7 +217,7 @@ func (a *UsersRelationshipsApiService) GetUserRelationship(ctx context.Context, 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersRelationshipsApiService Get a list of user relationships
+/* Users_RelationshipsApiService Get a list of user relationships
  &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_USER or RELATIONSHIPS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -225,7 +225,7 @@ func (a *UsersRelationshipsApiService) GetUserRelationship(ctx context.Context, 
      @param "page" (int32) The number of the page returned
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceUserRelationshipResource*/
-func (a *UsersRelationshipsApiService) GetUserRelationships(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceUserRelationshipResource,  *http.Response, error) {
+func (a *Users_RelationshipsApiService) GetUserRelationships(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceUserRelationshipResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -301,14 +301,14 @@ func (a *UsersRelationshipsApiService) GetUserRelationships(ctx context.Context,
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersRelationshipsApiService Update a user relationship
+/* Users_RelationshipsApiService Update a user relationship
  &lt;b&gt;Permissions Needed:&lt;/b&gt; RELATIONSHIPS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the relationship
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "relationship" (UserRelationshipResource) The new relationship
  @return UserRelationshipResource*/
-func (a *UsersRelationshipsApiService) UpdateUserRelationship(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (UserRelationshipResource,  *http.Response, error) {
+func (a *Users_RelationshipsApiService) UpdateUserRelationship(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (UserRelationshipResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

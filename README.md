@@ -18,11 +18,11 @@ Put the package under your project folder and add the following in import:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccessTokenApi* | [**GetOAuthToken**](docs/AccessTokenApi.md#getoauthtoken) | **Post** /oauth/token | Get access token
+*Access_TokenApi* | [**GetOAuthToken**](docs/Access_TokenApi.md#getoauthtoken) | **Post** /oauth/token | Get access token
 *ActivitiesApi* | [**AddUser**](docs/ActivitiesApi.md#adduser) | **Post** /activity-occurrences/{activity_occurrence_id}/users | Add a user to an occurrence
 *ActivitiesApi* | [**CreateActivity**](docs/ActivitiesApi.md#createactivity) | **Post** /activities | Create an activity
 *ActivitiesApi* | [**CreateActivityOccurrence**](docs/ActivitiesApi.md#createactivityoccurrence) | **Post** /activity-occurrences | Create a new activity occurrence. Ex: start a game
@@ -42,66 +42,34 @@ Class | Method | HTTP request | Description
 *ActivitiesApi* | [**UpdateActivity**](docs/ActivitiesApi.md#updateactivity) | **Put** /activities/{id} | Update an activity
 *ActivitiesApi* | [**UpdateActivityOccurrenceStatus**](docs/ActivitiesApi.md#updateactivityoccurrencestatus) | **Put** /activity-occurrences/{activity_occurrence_id}/status | Update the status of an activity occurrence
 *ActivitiesApi* | [**UpdateActivityTemplate**](docs/ActivitiesApi.md#updateactivitytemplate) | **Put** /activities/templates/{id} | Update an activity template
-*AmazonWebServicesS3Api* | [**GetDownloadURL**](docs/AmazonWebServicesS3Api.md#getdownloadurl) | **Get** /amazon/s3/downloadurl | Get a temporary signed S3 URL for download
-*AmazonWebServicesS3Api* | [**GetSignedS3URL**](docs/AmazonWebServicesS3Api.md#getsigneds3url) | **Get** /amazon/s3/signedposturl | Get a signed S3 URL for upload
-*AuthClientsApi* | [**CreateClient**](docs/AuthClientsApi.md#createclient) | **Post** /auth/clients | Create a new client
-*AuthClientsApi* | [**DeleteClient**](docs/AuthClientsApi.md#deleteclient) | **Delete** /auth/clients/{client_key} | Delete a client
-*AuthClientsApi* | [**GetClient**](docs/AuthClientsApi.md#getclient) | **Get** /auth/clients/{client_key} | Get a single client
-*AuthClientsApi* | [**GetClientGrantTypes**](docs/AuthClientsApi.md#getclientgranttypes) | **Get** /auth/clients/grant-types | List available client grant types
-*AuthClientsApi* | [**GetClients**](docs/AuthClientsApi.md#getclients) | **Get** /auth/clients | List and search clients
-*AuthClientsApi* | [**SetClientGrantTypes**](docs/AuthClientsApi.md#setclientgranttypes) | **Put** /auth/clients/{client_key}/grant-types | Set grant types for a client
-*AuthClientsApi* | [**SetClientRedirectUris**](docs/AuthClientsApi.md#setclientredirecturis) | **Put** /auth/clients/{client_key}/redirect-uris | Set redirect uris for a client
-*AuthClientsApi* | [**UpdateClient**](docs/AuthClientsApi.md#updateclient) | **Put** /auth/clients/{client_key} | Update a client
-*AuthPermissionsApi* | [**CreatePermission**](docs/AuthPermissionsApi.md#createpermission) | **Post** /auth/permissions | Create a new permission
-*AuthPermissionsApi* | [**DeletePermission**](docs/AuthPermissionsApi.md#deletepermission) | **Delete** /auth/permissions/{permission} | Delete a permission
-*AuthPermissionsApi* | [**GetPermission**](docs/AuthPermissionsApi.md#getpermission) | **Get** /auth/permissions/{permission} | Get a single permission
-*AuthPermissionsApi* | [**GetPermissions**](docs/AuthPermissionsApi.md#getpermissions) | **Get** /auth/permissions | List and search permissions
-*AuthPermissionsApi* | [**UpdatePermission**](docs/AuthPermissionsApi.md#updatepermission) | **Put** /auth/permissions/{permission} | Update a permission
-*AuthRolesApi* | [**CreateRole**](docs/AuthRolesApi.md#createrole) | **Post** /auth/roles | Create a new role
-*AuthRolesApi* | [**DeleteRole**](docs/AuthRolesApi.md#deleterole) | **Delete** /auth/roles/{role} | Delete a role
-*AuthRolesApi* | [**GetClientRoles**](docs/AuthRolesApi.md#getclientroles) | **Get** /auth/clients/{client_key}/roles | Get roles for a client
-*AuthRolesApi* | [**GetRole**](docs/AuthRolesApi.md#getrole) | **Get** /auth/roles/{role} | Get a single role
-*AuthRolesApi* | [**GetRoles**](docs/AuthRolesApi.md#getroles) | **Get** /auth/roles | List and search roles
-*AuthRolesApi* | [**GetUserRoles**](docs/AuthRolesApi.md#getuserroles) | **Get** /auth/users/{user_id}/roles | Get roles for a user
-*AuthRolesApi* | [**SetClientRoles**](docs/AuthRolesApi.md#setclientroles) | **Put** /auth/clients/{client_key}/roles | Set roles for a client
-*AuthRolesApi* | [**SetPermissionsForRole**](docs/AuthRolesApi.md#setpermissionsforrole) | **Put** /auth/roles/{role}/permissions | Set permissions for a role
-*AuthRolesApi* | [**SetUserRoles**](docs/AuthRolesApi.md#setuserroles) | **Put** /auth/users/{user_id}/roles | Set roles for a user
-*AuthRolesApi* | [**UpdateRole**](docs/AuthRolesApi.md#updaterole) | **Put** /auth/roles/{role} | Update a role
-*AuthTokensApi* | [**DeleteTokens**](docs/AuthTokensApi.md#deletetokens) | **Delete** /auth/tokens | Delete tokens by username, client id, or both
-*AuthTokensApi* | [**GetToken**](docs/AuthTokensApi.md#gettoken) | **Get** /auth/tokens/{username}/{client_id} | Get a single token by username and client id
-*AuthTokensApi* | [**GetTokens**](docs/AuthTokensApi.md#gettokens) | **Get** /auth/tokens | List usernames and client ids
-*BRERuleEngineActionsApi* | [**GetBREActions**](docs/BRERuleEngineActionsApi.md#getbreactions) | **Get** /bre/actions | Get a list of available actions
-*BRERuleEngineCategoriesApi* | [**CreateBRECategoryTemplate**](docs/BRERuleEngineCategoriesApi.md#createbrecategorytemplate) | **Post** /bre/categories/templates | Create a BRE category template
-*BRERuleEngineCategoriesApi* | [**DeleteBRECategoryTemplate**](docs/BRERuleEngineCategoriesApi.md#deletebrecategorytemplate) | **Delete** /bre/categories/templates/{id} | Delete a BRE category template
-*BRERuleEngineCategoriesApi* | [**GetBRECategories**](docs/BRERuleEngineCategoriesApi.md#getbrecategories) | **Get** /bre/categories | List categories
-*BRERuleEngineCategoriesApi* | [**GetBRECategory**](docs/BRERuleEngineCategoriesApi.md#getbrecategory) | **Get** /bre/categories/{name} | Get a single category
-*BRERuleEngineCategoriesApi* | [**GetBRECategoryTemplate**](docs/BRERuleEngineCategoriesApi.md#getbrecategorytemplate) | **Get** /bre/categories/templates/{id} | Get a single BRE category template
-*BRERuleEngineCategoriesApi* | [**GetBRECategoryTemplates**](docs/BRERuleEngineCategoriesApi.md#getbrecategorytemplates) | **Get** /bre/categories/templates | List and search BRE category templates
-*BRERuleEngineCategoriesApi* | [**UpdateBRECategory**](docs/BRERuleEngineCategoriesApi.md#updatebrecategory) | **Put** /bre/categories/{name} | Update a category
-*BRERuleEngineCategoriesApi* | [**UpdateBRECategoryTemplate**](docs/BRERuleEngineCategoriesApi.md#updatebrecategorytemplate) | **Put** /bre/categories/templates/{id} | Update a BRE category template
-*BRERuleEngineEventsApi* | [**SendBREEvent**](docs/BRERuleEngineEventsApi.md#sendbreevent) | **Post** /bre/events | Fire a new event, based on an existing trigger
-*BRERuleEngineExpressionsApi* | [**GetBREExpression**](docs/BRERuleEngineExpressionsApi.md#getbreexpression) | **Get** /bre/expressions/{type} | Lookup a specific expression
-*BRERuleEngineExpressionsApi* | [**GetBREExpressions**](docs/BRERuleEngineExpressionsApi.md#getbreexpressions) | **Get** /bre/expressions | Get a list of supported expressions to use in conditions or actions
-*BRERuleEngineExpressionsApi* | [**GetExpressionAsText**](docs/BRERuleEngineExpressionsApi.md#getexpressionastext) | **Post** /bre/expressions | Returns the textual representation of an expression
-*BRERuleEngineGlobalsApi* | [**CreateBREGlobal**](docs/BRERuleEngineGlobalsApi.md#createbreglobal) | **Post** /bre/globals/definitions | Create a global definition
-*BRERuleEngineGlobalsApi* | [**DeleteBREGlobal**](docs/BRERuleEngineGlobalsApi.md#deletebreglobal) | **Delete** /bre/globals/definitions/{id} | Delete a global
-*BRERuleEngineGlobalsApi* | [**GetBREGlobal**](docs/BRERuleEngineGlobalsApi.md#getbreglobal) | **Get** /bre/globals/definitions/{id} | Get a single global definition
-*BRERuleEngineGlobalsApi* | [**GetBREGlobals**](docs/BRERuleEngineGlobalsApi.md#getbreglobals) | **Get** /bre/globals/definitions | List global definitions
-*BRERuleEngineGlobalsApi* | [**UpdateBREGlobal**](docs/BRERuleEngineGlobalsApi.md#updatebreglobal) | **Put** /bre/globals/definitions/{id} | Update a global definition
-*BRERuleEngineRulesApi* | [**CreateBRERule**](docs/BRERuleEngineRulesApi.md#createbrerule) | **Post** /bre/rules | Create a rule
-*BRERuleEngineRulesApi* | [**DeleteBRERule**](docs/BRERuleEngineRulesApi.md#deletebrerule) | **Delete** /bre/rules/{id} | Delete a rule
-*BRERuleEngineRulesApi* | [**GetBREExpressionAsString**](docs/BRERuleEngineRulesApi.md#getbreexpressionasstring) | **Post** /bre/rules/expression-as-string | Returns a string representation of the provided expression
-*BRERuleEngineRulesApi* | [**GetBRERule**](docs/BRERuleEngineRulesApi.md#getbrerule) | **Get** /bre/rules/{id} | Get a single rule
-*BRERuleEngineRulesApi* | [**GetBRERules**](docs/BRERuleEngineRulesApi.md#getbrerules) | **Get** /bre/rules | List rules
-*BRERuleEngineRulesApi* | [**SetBRERule**](docs/BRERuleEngineRulesApi.md#setbrerule) | **Put** /bre/rules/{id}/enabled | Enable or disable a rule
-*BRERuleEngineRulesApi* | [**UpdateBRERule**](docs/BRERuleEngineRulesApi.md#updatebrerule) | **Put** /bre/rules/{id} | Update a rule
-*BRERuleEngineTriggersApi* | [**CreateBRETrigger**](docs/BRERuleEngineTriggersApi.md#createbretrigger) | **Post** /bre/triggers | Create a trigger
-*BRERuleEngineTriggersApi* | [**DeleteBRETrigger**](docs/BRERuleEngineTriggersApi.md#deletebretrigger) | **Delete** /bre/triggers/{event_name} | Delete a trigger
-*BRERuleEngineTriggersApi* | [**GetBRETrigger**](docs/BRERuleEngineTriggersApi.md#getbretrigger) | **Get** /bre/triggers/{event_name} | Get a single trigger
-*BRERuleEngineTriggersApi* | [**GetBRETriggers**](docs/BRERuleEngineTriggersApi.md#getbretriggers) | **Get** /bre/triggers | List triggers
-*BRERuleEngineTriggersApi* | [**UpdateBRETrigger**](docs/BRERuleEngineTriggersApi.md#updatebretrigger) | **Put** /bre/triggers/{event_name} | Update a trigger
-*BRERuleEngineVariablesApi* | [**GetBREVariableTypes**](docs/BRERuleEngineVariablesApi.md#getbrevariabletypes) | **Get** /bre/variable-types | Get a list of variable types available
-*BRERuleEngineVariablesApi* | [**GetBREVariableValues**](docs/BRERuleEngineVariablesApi.md#getbrevariablevalues) | **Get** /bre/variable-types/{name}/values | List valid values for a type
+*Amazon_Web_Services_S3Api* | [**GetDownloadURL**](docs/Amazon_Web_Services_S3Api.md#getdownloadurl) | **Get** /amazon/s3/downloadurl | Get a temporary signed S3 URL for download
+*Amazon_Web_Services_S3Api* | [**GetSignedS3URL**](docs/Amazon_Web_Services_S3Api.md#getsigneds3url) | **Get** /amazon/s3/signedposturl | Get a signed S3 URL for upload
+*Auth_ClientsApi* | [**CreateClient**](docs/Auth_ClientsApi.md#createclient) | **Post** /auth/clients | Create a new client
+*Auth_ClientsApi* | [**DeleteClient**](docs/Auth_ClientsApi.md#deleteclient) | **Delete** /auth/clients/{client_key} | Delete a client
+*Auth_ClientsApi* | [**GetClient**](docs/Auth_ClientsApi.md#getclient) | **Get** /auth/clients/{client_key} | Get a single client
+*Auth_ClientsApi* | [**GetClientGrantTypes**](docs/Auth_ClientsApi.md#getclientgranttypes) | **Get** /auth/clients/grant-types | List available client grant types
+*Auth_ClientsApi* | [**GetClients**](docs/Auth_ClientsApi.md#getclients) | **Get** /auth/clients | List and search clients
+*Auth_ClientsApi* | [**SetClientGrantTypes**](docs/Auth_ClientsApi.md#setclientgranttypes) | **Put** /auth/clients/{client_key}/grant-types | Set grant types for a client
+*Auth_ClientsApi* | [**SetClientRedirectUris**](docs/Auth_ClientsApi.md#setclientredirecturis) | **Put** /auth/clients/{client_key}/redirect-uris | Set redirect uris for a client
+*Auth_ClientsApi* | [**UpdateClient**](docs/Auth_ClientsApi.md#updateclient) | **Put** /auth/clients/{client_key} | Update a client
+*Auth_PermissionsApi* | [**CreatePermission**](docs/Auth_PermissionsApi.md#createpermission) | **Post** /auth/permissions | Create a new permission
+*Auth_PermissionsApi* | [**DeletePermission**](docs/Auth_PermissionsApi.md#deletepermission) | **Delete** /auth/permissions/{permission} | Delete a permission
+*Auth_PermissionsApi* | [**GetPermission**](docs/Auth_PermissionsApi.md#getpermission) | **Get** /auth/permissions/{permission} | Get a single permission
+*Auth_PermissionsApi* | [**GetPermissions**](docs/Auth_PermissionsApi.md#getpermissions) | **Get** /auth/permissions | List and search permissions
+*Auth_PermissionsApi* | [**UpdatePermission**](docs/Auth_PermissionsApi.md#updatepermission) | **Put** /auth/permissions/{permission} | Update a permission
+*Auth_RolesApi* | [**CreateRole**](docs/Auth_RolesApi.md#createrole) | **Post** /auth/roles | Create a new role
+*Auth_RolesApi* | [**DeleteRole**](docs/Auth_RolesApi.md#deleterole) | **Delete** /auth/roles/{role} | Delete a role
+*Auth_RolesApi* | [**GetClientRoles**](docs/Auth_RolesApi.md#getclientroles) | **Get** /auth/clients/{client_key}/roles | Get roles for a client
+*Auth_RolesApi* | [**GetRole**](docs/Auth_RolesApi.md#getrole) | **Get** /auth/roles/{role} | Get a single role
+*Auth_RolesApi* | [**GetRoles**](docs/Auth_RolesApi.md#getroles) | **Get** /auth/roles | List and search roles
+*Auth_RolesApi* | [**GetUserRoles**](docs/Auth_RolesApi.md#getuserroles) | **Get** /auth/users/{user_id}/roles | Get roles for a user
+*Auth_RolesApi* | [**SetClientRoles**](docs/Auth_RolesApi.md#setclientroles) | **Put** /auth/clients/{client_key}/roles | Set roles for a client
+*Auth_RolesApi* | [**SetPermissionsForRole**](docs/Auth_RolesApi.md#setpermissionsforrole) | **Put** /auth/roles/{role}/permissions | Set permissions for a role
+*Auth_RolesApi* | [**SetUserRoles**](docs/Auth_RolesApi.md#setuserroles) | **Put** /auth/users/{user_id}/roles | Set roles for a user
+*Auth_RolesApi* | [**UpdateRole**](docs/Auth_RolesApi.md#updaterole) | **Put** /auth/roles/{role} | Update a role
+*Auth_TokensApi* | [**DeleteTokens**](docs/Auth_TokensApi.md#deletetokens) | **Delete** /auth/tokens | Delete tokens by username, client id, or both
+*Auth_TokensApi* | [**GetToken**](docs/Auth_TokensApi.md#gettoken) | **Get** /auth/tokens/{username}/{client_id} | Get a single token by username and client id
+*Auth_TokensApi* | [**GetTokens**](docs/Auth_TokensApi.md#gettokens) | **Get** /auth/tokens | List usernames and client ids
 *CampaignsApi* | [**AddChallengeToCampaign**](docs/CampaignsApi.md#addchallengetocampaign) | **Post** /campaigns/{id}/challenges | Add a challenge to a campaign
 *CampaignsApi* | [**CreateCampaign**](docs/CampaignsApi.md#createcampaign) | **Post** /campaigns | Create a campaign
 *CampaignsApi* | [**CreateCampaignTemplate**](docs/CampaignsApi.md#createcampaigntemplate) | **Post** /campaigns/templates | Create a campaign template
@@ -115,34 +83,34 @@ Class | Method | HTTP request | Description
 *CampaignsApi* | [**RemoveChallengeFromCampaign**](docs/CampaignsApi.md#removechallengefromcampaign) | **Delete** /campaigns/{campaign_id}/challenges/{id} | Remove a challenge from a campaign
 *CampaignsApi* | [**UpdateCampaign**](docs/CampaignsApi.md#updatecampaign) | **Put** /campaigns/{id} | Update a campaign
 *CampaignsApi* | [**UpdateCampaignTemplate**](docs/CampaignsApi.md#updatecampaigntemplate) | **Put** /campaigns/templates/{id} | Update an campaign template
-*CampaignsChallengesApi* | [**CreateChallenge**](docs/CampaignsChallengesApi.md#createchallenge) | **Post** /challenges | Create a challenge
-*CampaignsChallengesApi* | [**CreateChallengeActivity**](docs/CampaignsChallengesApi.md#createchallengeactivity) | **Post** /challenges/{challenge_id}/activities | Create a challenge activity
-*CampaignsChallengesApi* | [**CreateChallengeActivityTemplate**](docs/CampaignsChallengesApi.md#createchallengeactivitytemplate) | **Post** /challenge-activities/templates | Create a challenge activity template
-*CampaignsChallengesApi* | [**CreateChallengeTemplate**](docs/CampaignsChallengesApi.md#createchallengetemplate) | **Post** /challenges/templates | Create a challenge template
-*CampaignsChallengesApi* | [**DeleteChallenge**](docs/CampaignsChallengesApi.md#deletechallenge) | **Delete** /challenges/{id} | Delete a challenge
-*CampaignsChallengesApi* | [**DeleteChallengeActivity**](docs/CampaignsChallengesApi.md#deletechallengeactivity) | **Delete** /challenges/{challenge_id}/activities/{id} | Delete a challenge activity
-*CampaignsChallengesApi* | [**DeleteChallengeActivityTemplate**](docs/CampaignsChallengesApi.md#deletechallengeactivitytemplate) | **Delete** /challenge-activities/templates/{id} | Delete a challenge activity template
-*CampaignsChallengesApi* | [**DeleteChallengeEvent**](docs/CampaignsChallengesApi.md#deletechallengeevent) | **Delete** /challenges/events/{id} | Delete a challenge event
-*CampaignsChallengesApi* | [**DeleteChallengeTemplate**](docs/CampaignsChallengesApi.md#deletechallengetemplate) | **Delete** /challenges/templates/{id} | Delete a challenge template
-*CampaignsChallengesApi* | [**GetChallenge**](docs/CampaignsChallengesApi.md#getchallenge) | **Get** /challenges/{id} | Retrieve a challenge
-*CampaignsChallengesApi* | [**GetChallengeActivities**](docs/CampaignsChallengesApi.md#getchallengeactivities) | **Get** /challenges/{challenge_id}/activities | List and search challenge activities
-*CampaignsChallengesApi* | [**GetChallengeActivity**](docs/CampaignsChallengesApi.md#getchallengeactivity) | **Get** /challenges/{challenge_id}/activities/{id} | Get a single challenge activity
-*CampaignsChallengesApi* | [**GetChallengeActivityTemplate**](docs/CampaignsChallengesApi.md#getchallengeactivitytemplate) | **Get** /challenge-activities/templates/{id} | Get a single challenge activity template
-*CampaignsChallengesApi* | [**GetChallengeActivityTemplates**](docs/CampaignsChallengesApi.md#getchallengeactivitytemplates) | **Get** /challenge-activities/templates | List and search challenge activity templates
-*CampaignsChallengesApi* | [**GetChallengeEvent**](docs/CampaignsChallengesApi.md#getchallengeevent) | **Get** /challenges/events/{id} | Retrieve a single challenge event details
-*CampaignsChallengesApi* | [**GetChallengeEvents**](docs/CampaignsChallengesApi.md#getchallengeevents) | **Get** /challenges/events | Retrieve a list of challenge events
-*CampaignsChallengesApi* | [**GetChallengeTemplate**](docs/CampaignsChallengesApi.md#getchallengetemplate) | **Get** /challenges/templates/{id} | Get a single challenge template
-*CampaignsChallengesApi* | [**GetChallengeTemplates**](docs/CampaignsChallengesApi.md#getchallengetemplates) | **Get** /challenges/templates | List and search challenge templates
-*CampaignsChallengesApi* | [**GetChallenges**](docs/CampaignsChallengesApi.md#getchallenges) | **Get** /challenges | Retrieve a list of challenges
-*CampaignsChallengesApi* | [**UpdateChallenge**](docs/CampaignsChallengesApi.md#updatechallenge) | **Put** /challenges/{id} | Update a challenge
-*CampaignsChallengesApi* | [**UpdateChallengeActivity**](docs/CampaignsChallengesApi.md#updatechallengeactivity) | **Put** /challenges/{challenge_id}/activities/{id} | Update a challenge activity
-*CampaignsChallengesApi* | [**UpdateChallengeActivityTemplate**](docs/CampaignsChallengesApi.md#updatechallengeactivitytemplate) | **Put** /challenge-activities/templates/{id} | Update an challenge activity template
-*CampaignsChallengesApi* | [**UpdateChallengeTemplate**](docs/CampaignsChallengesApi.md#updatechallengetemplate) | **Put** /challenges/templates/{id} | Update a challenge template
-*CampaignsRewardsApi* | [**CreateRewardSet**](docs/CampaignsRewardsApi.md#createrewardset) | **Post** /rewards | Create a reward set
-*CampaignsRewardsApi* | [**DeleteRewardSet**](docs/CampaignsRewardsApi.md#deleterewardset) | **Delete** /rewards/{id} | Delete a reward set
-*CampaignsRewardsApi* | [**GetRewardSet**](docs/CampaignsRewardsApi.md#getrewardset) | **Get** /rewards/{id} | Get a single reward set
-*CampaignsRewardsApi* | [**GetRewardSets**](docs/CampaignsRewardsApi.md#getrewardsets) | **Get** /rewards | List and search reward sets
-*CampaignsRewardsApi* | [**UpdateRewardSet**](docs/CampaignsRewardsApi.md#updaterewardset) | **Put** /rewards/{id} | Update a reward set
+*Campaigns_ChallengesApi* | [**CreateChallenge**](docs/Campaigns_ChallengesApi.md#createchallenge) | **Post** /challenges | Create a challenge
+*Campaigns_ChallengesApi* | [**CreateChallengeActivity**](docs/Campaigns_ChallengesApi.md#createchallengeactivity) | **Post** /challenges/{challenge_id}/activities | Create a challenge activity
+*Campaigns_ChallengesApi* | [**CreateChallengeActivityTemplate**](docs/Campaigns_ChallengesApi.md#createchallengeactivitytemplate) | **Post** /challenge-activities/templates | Create a challenge activity template
+*Campaigns_ChallengesApi* | [**CreateChallengeTemplate**](docs/Campaigns_ChallengesApi.md#createchallengetemplate) | **Post** /challenges/templates | Create a challenge template
+*Campaigns_ChallengesApi* | [**DeleteChallenge**](docs/Campaigns_ChallengesApi.md#deletechallenge) | **Delete** /challenges/{id} | Delete a challenge
+*Campaigns_ChallengesApi* | [**DeleteChallengeActivity**](docs/Campaigns_ChallengesApi.md#deletechallengeactivity) | **Delete** /challenges/{challenge_id}/activities/{id} | Delete a challenge activity
+*Campaigns_ChallengesApi* | [**DeleteChallengeActivityTemplate**](docs/Campaigns_ChallengesApi.md#deletechallengeactivitytemplate) | **Delete** /challenge-activities/templates/{id} | Delete a challenge activity template
+*Campaigns_ChallengesApi* | [**DeleteChallengeEvent**](docs/Campaigns_ChallengesApi.md#deletechallengeevent) | **Delete** /challenges/events/{id} | Delete a challenge event
+*Campaigns_ChallengesApi* | [**DeleteChallengeTemplate**](docs/Campaigns_ChallengesApi.md#deletechallengetemplate) | **Delete** /challenges/templates/{id} | Delete a challenge template
+*Campaigns_ChallengesApi* | [**GetChallenge**](docs/Campaigns_ChallengesApi.md#getchallenge) | **Get** /challenges/{id} | Retrieve a challenge
+*Campaigns_ChallengesApi* | [**GetChallengeActivities**](docs/Campaigns_ChallengesApi.md#getchallengeactivities) | **Get** /challenges/{challenge_id}/activities | List and search challenge activities
+*Campaigns_ChallengesApi* | [**GetChallengeActivity**](docs/Campaigns_ChallengesApi.md#getchallengeactivity) | **Get** /challenges/{challenge_id}/activities/{id} | Get a single challenge activity
+*Campaigns_ChallengesApi* | [**GetChallengeActivityTemplate**](docs/Campaigns_ChallengesApi.md#getchallengeactivitytemplate) | **Get** /challenge-activities/templates/{id} | Get a single challenge activity template
+*Campaigns_ChallengesApi* | [**GetChallengeActivityTemplates**](docs/Campaigns_ChallengesApi.md#getchallengeactivitytemplates) | **Get** /challenge-activities/templates | List and search challenge activity templates
+*Campaigns_ChallengesApi* | [**GetChallengeEvent**](docs/Campaigns_ChallengesApi.md#getchallengeevent) | **Get** /challenges/events/{id} | Retrieve a single challenge event details
+*Campaigns_ChallengesApi* | [**GetChallengeEvents**](docs/Campaigns_ChallengesApi.md#getchallengeevents) | **Get** /challenges/events | Retrieve a list of challenge events
+*Campaigns_ChallengesApi* | [**GetChallengeTemplate**](docs/Campaigns_ChallengesApi.md#getchallengetemplate) | **Get** /challenges/templates/{id} | Get a single challenge template
+*Campaigns_ChallengesApi* | [**GetChallengeTemplates**](docs/Campaigns_ChallengesApi.md#getchallengetemplates) | **Get** /challenges/templates | List and search challenge templates
+*Campaigns_ChallengesApi* | [**GetChallenges**](docs/Campaigns_ChallengesApi.md#getchallenges) | **Get** /challenges | Retrieve a list of challenges
+*Campaigns_ChallengesApi* | [**UpdateChallenge**](docs/Campaigns_ChallengesApi.md#updatechallenge) | **Put** /challenges/{id} | Update a challenge
+*Campaigns_ChallengesApi* | [**UpdateChallengeActivity**](docs/Campaigns_ChallengesApi.md#updatechallengeactivity) | **Put** /challenges/{challenge_id}/activities/{id} | Update a challenge activity
+*Campaigns_ChallengesApi* | [**UpdateChallengeActivityTemplate**](docs/Campaigns_ChallengesApi.md#updatechallengeactivitytemplate) | **Put** /challenge-activities/templates/{id} | Update an challenge activity template
+*Campaigns_ChallengesApi* | [**UpdateChallengeTemplate**](docs/Campaigns_ChallengesApi.md#updatechallengetemplate) | **Put** /challenges/templates/{id} | Update a challenge template
+*Campaigns_RewardsApi* | [**CreateRewardSet**](docs/Campaigns_RewardsApi.md#createrewardset) | **Post** /rewards | Create a reward set
+*Campaigns_RewardsApi* | [**DeleteRewardSet**](docs/Campaigns_RewardsApi.md#deleterewardset) | **Delete** /rewards/{id} | Delete a reward set
+*Campaigns_RewardsApi* | [**GetRewardSet**](docs/Campaigns_RewardsApi.md#getrewardset) | **Get** /rewards/{id} | Get a single reward set
+*Campaigns_RewardsApi* | [**GetRewardSets**](docs/Campaigns_RewardsApi.md#getrewardsets) | **Get** /rewards | List and search reward sets
+*Campaigns_RewardsApi* | [**UpdateRewardSet**](docs/Campaigns_RewardsApi.md#updaterewardset) | **Put** /rewards/{id} | Update a reward set
 *CategoriesApi* | [**CreateCategory**](docs/CategoriesApi.md#createcategory) | **Post** /categories | Create a new category
 *CategoriesApi* | [**CreateCategoryTemplate**](docs/CategoriesApi.md#createcategorytemplate) | **Post** /categories/templates | Create a category template
 *CategoriesApi* | [**DeleteCategory**](docs/CategoriesApi.md#deletecategory) | **Delete** /categories/{id} | Delete an existing category
@@ -165,39 +133,33 @@ Class | Method | HTTP request | Description
 *ChatApi* | [**GetThreadMessages**](docs/ChatApi.md#getthreadmessages) | **Get** /chat/threads/{id}/messages | List messages in a thread
 *ChatApi* | [**GetTopicMessages**](docs/ChatApi.md#gettopicmessages) | **Get** /chat/topics/{id}/messages | List messages in a topic
 *ChatApi* | [**RemoveChatBlacklist**](docs/ChatApi.md#removechatblacklist) | **Delete** /chat/users/{id}/blacklist/{blacklisted_user_id} | Remove a user from a blacklist
-*ChatApi* | [**SendMessage**](docs/ChatApi.md#sendmessage) | **Post** /chat/messages | Send a message
+*ChatApi* | [**SendChatMessage**](docs/ChatApi.md#sendchatmessage) | **Post** /chat/messages | Send a message
 *ConfigsApi* | [**CreateConfig**](docs/ConfigsApi.md#createconfig) | **Post** /configs | Create a new config
 *ConfigsApi* | [**DeleteConfig**](docs/ConfigsApi.md#deleteconfig) | **Delete** /configs/{name} | Delete an existing config
 *ConfigsApi* | [**GetConfig**](docs/ConfigsApi.md#getconfig) | **Get** /configs/{name} | Get a single config
 *ConfigsApi* | [**GetConfigs**](docs/ConfigsApi.md#getconfigs) | **Get** /configs | List and search configs
 *ConfigsApi* | [**UpdateConfig**](docs/ConfigsApi.md#updateconfig) | **Put** /configs/{name} | Update an existing config
-*ContentArticlesApi* | [**CreateArticle**](docs/ContentArticlesApi.md#createarticle) | **Post** /content/articles | Create a new article
-*ContentArticlesApi* | [**CreateArticleTemplate**](docs/ContentArticlesApi.md#createarticletemplate) | **Post** /content/articles/templates | Create an article template
-*ContentArticlesApi* | [**DeleteArticle**](docs/ContentArticlesApi.md#deletearticle) | **Delete** /content/articles/{id} | Delete an existing article
-*ContentArticlesApi* | [**DeleteArticleTemplate**](docs/ContentArticlesApi.md#deletearticletemplate) | **Delete** /content/articles/templates/{id} | Delete an article template
-*ContentArticlesApi* | [**GetArticle**](docs/ContentArticlesApi.md#getarticle) | **Get** /content/articles/{id} | Get a single article
-*ContentArticlesApi* | [**GetArticleTemplate**](docs/ContentArticlesApi.md#getarticletemplate) | **Get** /content/articles/templates/{id} | Get a single article template
-*ContentArticlesApi* | [**GetArticleTemplates**](docs/ContentArticlesApi.md#getarticletemplates) | **Get** /content/articles/templates | List and search article templates
-*ContentArticlesApi* | [**GetArticles**](docs/ContentArticlesApi.md#getarticles) | **Get** /content/articles | List and search articles
-*ContentArticlesApi* | [**UpdateArticle**](docs/ContentArticlesApi.md#updatearticle) | **Put** /content/articles/{id} | Update an existing article
-*ContentArticlesApi* | [**UpdateArticleTemplate**](docs/ContentArticlesApi.md#updatearticletemplate) | **Put** /content/articles/templates/{id} | Update an article template
-*ContentCommentsApi* | [**AddComment**](docs/ContentCommentsApi.md#addcomment) | **Post** /comments | Add a new comment
-*ContentCommentsApi* | [**DeleteComment**](docs/ContentCommentsApi.md#deletecomment) | **Delete** /comments/{id} | Delete a comment
-*ContentCommentsApi* | [**GetComment**](docs/ContentCommentsApi.md#getcomment) | **Get** /comments/{id} | Return a comment
-*ContentCommentsApi* | [**GetComments**](docs/ContentCommentsApi.md#getcomments) | **Get** /comments | Returns a page of comments
-*ContentCommentsApi* | [**UpdateComment**](docs/ContentCommentsApi.md#updatecomment) | **Put** /comments/{id}/content | Update a comment
-*ContentPollsApi* | [**AnswerPoll**](docs/ContentPollsApi.md#answerpoll) | **Post** /media/polls/{id}/response | Add your vote to a poll
-*ContentPollsApi* | [**CreatePoll**](docs/ContentPollsApi.md#createpoll) | **Post** /media/polls | Create a new poll
-*ContentPollsApi* | [**CreatePollTemplate**](docs/ContentPollsApi.md#createpolltemplate) | **Post** /media/polls/templates | Create a poll template
-*ContentPollsApi* | [**DeletePoll**](docs/ContentPollsApi.md#deletepoll) | **Delete** /media/polls/{id} | Delete an existing poll
-*ContentPollsApi* | [**DeletePollTemplate**](docs/ContentPollsApi.md#deletepolltemplate) | **Delete** /media/polls/templates/{id} | Delete a poll template
-*ContentPollsApi* | [**GetPoll**](docs/ContentPollsApi.md#getpoll) | **Get** /media/polls/{id} | Get a single poll
-*ContentPollsApi* | [**GetPollAnswer**](docs/ContentPollsApi.md#getpollanswer) | **Get** /media/polls/{id}/response | Get poll answer
-*ContentPollsApi* | [**GetPollTemplate**](docs/ContentPollsApi.md#getpolltemplate) | **Get** /media/polls/templates/{id} | Get a single poll template
-*ContentPollsApi* | [**GetPollTemplates**](docs/ContentPollsApi.md#getpolltemplates) | **Get** /media/polls/templates | List and search poll templates
-*ContentPollsApi* | [**GetPolls**](docs/ContentPollsApi.md#getpolls) | **Get** /media/polls | List and search polls
-*ContentPollsApi* | [**UpdatePoll**](docs/ContentPollsApi.md#updatepoll) | **Put** /media/polls/{id} | Update an existing poll
-*ContentPollsApi* | [**UpdatePollTemplate**](docs/ContentPollsApi.md#updatepolltemplate) | **Put** /media/polls/templates/{id} | Update a poll template
+*Content_ArticlesApi* | [**CreateArticle**](docs/Content_ArticlesApi.md#createarticle) | **Post** /content/articles | Create a new article
+*Content_ArticlesApi* | [**CreateArticleTemplate**](docs/Content_ArticlesApi.md#createarticletemplate) | **Post** /content/articles/templates | Create an article template
+*Content_ArticlesApi* | [**CreateTemplate**](docs/Content_ArticlesApi.md#createtemplate) | **Post** /templates/{type_hint} | Create a template
+*Content_ArticlesApi* | [**DeleteArticle**](docs/Content_ArticlesApi.md#deletearticle) | **Delete** /content/articles/{id} | Delete an existing article
+*Content_ArticlesApi* | [**DeleteArticleTemplate**](docs/Content_ArticlesApi.md#deletearticletemplate) | **Delete** /content/articles/templates/{id} | Delete an article template
+*Content_ArticlesApi* | [**DeleteTemplate**](docs/Content_ArticlesApi.md#deletetemplate) | **Delete** /templates/{type_hint}/{id} | Delete a template
+*Content_ArticlesApi* | [**GetArticle**](docs/Content_ArticlesApi.md#getarticle) | **Get** /content/articles/{id} | Get a single article
+*Content_ArticlesApi* | [**GetArticleTemplate**](docs/Content_ArticlesApi.md#getarticletemplate) | **Get** /content/articles/templates/{id} | Get a single article template
+*Content_ArticlesApi* | [**GetArticleTemplates**](docs/Content_ArticlesApi.md#getarticletemplates) | **Get** /content/articles/templates | List and search article templates
+*Content_ArticlesApi* | [**GetArticles**](docs/Content_ArticlesApi.md#getarticles) | **Get** /content/articles | List and search articles
+*Content_ArticlesApi* | [**GetTemplate**](docs/Content_ArticlesApi.md#gettemplate) | **Get** /templates/{type_hint}/{id} | Get a template
+*Content_ArticlesApi* | [**GetTemplates**](docs/Content_ArticlesApi.md#gettemplates) | **Get** /templates/{type_hint} | List and search templates
+*Content_ArticlesApi* | [**UpdateArticle**](docs/Content_ArticlesApi.md#updatearticle) | **Put** /content/articles/{id} | Update an existing article
+*Content_ArticlesApi* | [**UpdateArticleTemplate**](docs/Content_ArticlesApi.md#updatearticletemplate) | **Put** /content/articles/templates/{id} | Update an article template
+*Content_ArticlesApi* | [**UpdateTemplate**](docs/Content_ArticlesApi.md#updatetemplate) | **Put** /templates/{type_hint}/{id} | Update a template
+*Content_ArticlesApi* | [**Validate**](docs/Content_ArticlesApi.md#validate) | **Post** /templates/{type_hint}/validate | Validate a templated resource
+*Content_CommentsApi* | [**AddComment**](docs/Content_CommentsApi.md#addcomment) | **Post** /comments | Add a new comment
+*Content_CommentsApi* | [**DeleteComment**](docs/Content_CommentsApi.md#deletecomment) | **Delete** /comments/{id} | Delete a comment
+*Content_CommentsApi* | [**GetComment**](docs/Content_CommentsApi.md#getcomment) | **Get** /comments/{id} | Return a comment
+*Content_CommentsApi* | [**GetComments**](docs/Content_CommentsApi.md#getcomments) | **Get** /comments | Returns a page of comments
+*Content_CommentsApi* | [**UpdateComment**](docs/Content_CommentsApi.md#updatecomment) | **Put** /comments/{id}/content | Update a comment
 *CurrenciesApi* | [**CreateCurrency**](docs/CurrenciesApi.md#createcurrency) | **Post** /currencies | Create a currency
 *CurrenciesApi* | [**DeleteCurrency**](docs/CurrenciesApi.md#deletecurrency) | **Delete** /currencies/{code} | Delete a currency
 *CurrenciesApi* | [**GetCurrencies**](docs/CurrenciesApi.md#getcurrencies) | **Get** /currencies | List and search currencies
@@ -226,68 +188,68 @@ Class | Method | HTTP request | Description
 *FulfillmentApi* | [**GetFulfillmentType**](docs/FulfillmentApi.md#getfulfillmenttype) | **Get** /store/fulfillment/types/{id} | Get a single fulfillment type
 *FulfillmentApi* | [**GetFulfillmentTypes**](docs/FulfillmentApi.md#getfulfillmenttypes) | **Get** /store/fulfillment/types | List and search fulfillment types
 *FulfillmentApi* | [**UpdateFulfillmentType**](docs/FulfillmentApi.md#updatefulfillmenttype) | **Put** /store/fulfillment/types/{id} | Update a fulfillment type
-*GamificationAchievementsApi* | [**CreateAchievement**](docs/GamificationAchievementsApi.md#createachievement) | **Post** /achievements | Create a new achievement definition
-*GamificationAchievementsApi* | [**CreateAchievementTemplate**](docs/GamificationAchievementsApi.md#createachievementtemplate) | **Post** /achievements/templates | Create an achievement template
-*GamificationAchievementsApi* | [**DeleteAchievement**](docs/GamificationAchievementsApi.md#deleteachievement) | **Delete** /achievements/{name} | Delete an achievement definition
-*GamificationAchievementsApi* | [**DeleteAchievementTemplate**](docs/GamificationAchievementsApi.md#deleteachievementtemplate) | **Delete** /achievements/templates/{id} | Delete an achievement template
-*GamificationAchievementsApi* | [**GetAchievement**](docs/GamificationAchievementsApi.md#getachievement) | **Get** /achievements/{name} | Get a single achievement definition
-*GamificationAchievementsApi* | [**GetAchievementTemplate**](docs/GamificationAchievementsApi.md#getachievementtemplate) | **Get** /achievements/templates/{id} | Get a single achievement template
-*GamificationAchievementsApi* | [**GetAchievementTemplates**](docs/GamificationAchievementsApi.md#getachievementtemplates) | **Get** /achievements/templates | List and search achievement templates
-*GamificationAchievementsApi* | [**GetAchievementTriggers**](docs/GamificationAchievementsApi.md#getachievementtriggers) | **Get** /achievements/triggers | Get the list of triggers that can be used to trigger an achievement progress update
-*GamificationAchievementsApi* | [**GetAchievements**](docs/GamificationAchievementsApi.md#getachievements) | **Get** /achievements | Get all achievement definitions in the system
-*GamificationAchievementsApi* | [**GetDerivedAchievements**](docs/GamificationAchievementsApi.md#getderivedachievements) | **Get** /achievements/derived/{name} | Get a list of derived achievements
-*GamificationAchievementsApi* | [**GetUserAchievementProgress**](docs/GamificationAchievementsApi.md#getuserachievementprogress) | **Get** /users/{user_id}/achievements/{achievement_name} | Retrieve progress on a given achievement for a given user
-*GamificationAchievementsApi* | [**GetUserAchievementsProgress**](docs/GamificationAchievementsApi.md#getuserachievementsprogress) | **Get** /users/{user_id}/achievements | Retrieve progress on achievements for a given user
-*GamificationAchievementsApi* | [**GetUsersAchievementProgress**](docs/GamificationAchievementsApi.md#getusersachievementprogress) | **Get** /users/achievements/{achievement_name} | Retrieve progress on a given achievement for all users
-*GamificationAchievementsApi* | [**GetUsersAchievementsProgress**](docs/GamificationAchievementsApi.md#getusersachievementsprogress) | **Get** /users/achievements | Retrieve progress on achievements for all users
-*GamificationAchievementsApi* | [**IncrementAchievementProgress**](docs/GamificationAchievementsApi.md#incrementachievementprogress) | **Post** /users/{user_id}/achievements/{achievement_name}/progress | Increment an achievement progress record for a user
-*GamificationAchievementsApi* | [**SetAchievementProgress**](docs/GamificationAchievementsApi.md#setachievementprogress) | **Put** /users/{user_id}/achievements/{achievement_name}/progress | Set an achievement progress record for a user
-*GamificationAchievementsApi* | [**UpdateAchievement**](docs/GamificationAchievementsApi.md#updateachievement) | **Put** /achievements/{name} | Update an achievement definition
-*GamificationAchievementsApi* | [**UpdateAchievementTemplate**](docs/GamificationAchievementsApi.md#updateachievementtemplate) | **Put** /achievements/templates/{id} | Update an achievement template
-*GamificationLeaderboardsApi* | [**GetLeaderboard**](docs/GamificationLeaderboardsApi.md#getleaderboard) | **Get** /leaderboards/{context_type}/{context_id} | Retrieves leaderboard details and paginated entries
-*GamificationLeaderboardsApi* | [**GetLeaderboardRank**](docs/GamificationLeaderboardsApi.md#getleaderboardrank) | **Get** /leaderboards/{context_type}/{context_id}/users/{id}/rank | Retrieves a specific user entry with rank
-*GamificationLeaderboardsApi* | [**GetLeaderboardStrategies**](docs/GamificationLeaderboardsApi.md#getleaderboardstrategies) | **Get** /leaderboards/strategies | Get a list of available leaderboard strategy names
-*GamificationLevelingApi* | [**CreateLevel**](docs/GamificationLevelingApi.md#createlevel) | **Post** /leveling | Create a level schema
-*GamificationLevelingApi* | [**DeleteLevel**](docs/GamificationLevelingApi.md#deletelevel) | **Delete** /leveling/{name} | Delete a level
-*GamificationLevelingApi* | [**GetLevel**](docs/GamificationLevelingApi.md#getlevel) | **Get** /leveling/{name} | Retrieve a level
-*GamificationLevelingApi* | [**GetLevelTriggers**](docs/GamificationLevelingApi.md#getleveltriggers) | **Get** /leveling/triggers | Get the list of triggers that can be used to trigger a leveling progress update
-*GamificationLevelingApi* | [**GetLevels**](docs/GamificationLevelingApi.md#getlevels) | **Get** /leveling | List and search levels
-*GamificationLevelingApi* | [**GetUserLevel**](docs/GamificationLevelingApi.md#getuserlevel) | **Get** /users/{user_id}/leveling/{name} | Get a user&#39;s progress for a given level schema
-*GamificationLevelingApi* | [**GetUserLevels**](docs/GamificationLevelingApi.md#getuserlevels) | **Get** /users/{user_id}/leveling | Get a user&#39;s progress for all level schemas
-*GamificationLevelingApi* | [**IncrementProgress**](docs/GamificationLevelingApi.md#incrementprogress) | **Post** /users/{user_id}/leveling/{name}/progress | Update or create a leveling progress record for a user
-*GamificationLevelingApi* | [**SetProgress**](docs/GamificationLevelingApi.md#setprogress) | **Put** /users/{user_id}/leveling/{name}/progress | Set leveling progress for a user
-*GamificationLevelingApi* | [**UpdateLevel**](docs/GamificationLevelingApi.md#updatelevel) | **Put** /leveling/{name} | Update a level
-*GamificationMetricsApi* | [**AddMetric**](docs/GamificationMetricsApi.md#addmetric) | **Post** /metrics | Add a metric
-*GamificationTriviaApi* | [**AddQuestionAnswers**](docs/GamificationTriviaApi.md#addquestionanswers) | **Post** /trivia/questions/{question_id}/answers | Add an answer to a question
-*GamificationTriviaApi* | [**AddQuestionTag**](docs/GamificationTriviaApi.md#addquestiontag) | **Post** /trivia/questions/{id}/tags | Add a tag to a question
-*GamificationTriviaApi* | [**AddTagToQuestionsBatch**](docs/GamificationTriviaApi.md#addtagtoquestionsbatch) | **Post** /trivia/questions/tags | Add a tag to a batch of questions
-*GamificationTriviaApi* | [**CreateImportJob**](docs/GamificationTriviaApi.md#createimportjob) | **Post** /trivia/import | Create an import job
-*GamificationTriviaApi* | [**CreateQuestion**](docs/GamificationTriviaApi.md#createquestion) | **Post** /trivia/questions | Create a question
-*GamificationTriviaApi* | [**CreateQuestionTemplate**](docs/GamificationTriviaApi.md#createquestiontemplate) | **Post** /trivia/questions/templates | Create a question template
-*GamificationTriviaApi* | [**DeleteImportJob**](docs/GamificationTriviaApi.md#deleteimportjob) | **Delete** /trivia/import/{id} | Delete an import job
-*GamificationTriviaApi* | [**DeleteQuestion**](docs/GamificationTriviaApi.md#deletequestion) | **Delete** /trivia/questions/{id} | Delete a question
-*GamificationTriviaApi* | [**DeleteQuestionAnswers**](docs/GamificationTriviaApi.md#deletequestionanswers) | **Delete** /trivia/questions/{question_id}/answers/{id} | Remove an answer from a question
-*GamificationTriviaApi* | [**DeleteQuestionTemplate**](docs/GamificationTriviaApi.md#deletequestiontemplate) | **Delete** /trivia/questions/templates/{id} | Delete a question template
-*GamificationTriviaApi* | [**GetImportJob**](docs/GamificationTriviaApi.md#getimportjob) | **Get** /trivia/import/{id} | Get an import job
-*GamificationTriviaApi* | [**GetImportJobs**](docs/GamificationTriviaApi.md#getimportjobs) | **Get** /trivia/import | Get a list of import job
-*GamificationTriviaApi* | [**GetQuestion**](docs/GamificationTriviaApi.md#getquestion) | **Get** /trivia/questions/{id} | Get a single question
-*GamificationTriviaApi* | [**GetQuestionAnswer**](docs/GamificationTriviaApi.md#getquestionanswer) | **Get** /trivia/questions/{question_id}/answers/{id} | Get an answer for a question
-*GamificationTriviaApi* | [**GetQuestionAnswers**](docs/GamificationTriviaApi.md#getquestionanswers) | **Get** /trivia/questions/{question_id}/answers | List the answers available for a question
-*GamificationTriviaApi* | [**GetQuestionDeltas**](docs/GamificationTriviaApi.md#getquestiondeltas) | **Get** /trivia/questions/delta | List question deltas in ascending order of updated date
-*GamificationTriviaApi* | [**GetQuestionTags**](docs/GamificationTriviaApi.md#getquestiontags) | **Get** /trivia/questions/{id}/tags | List the tags for a question
-*GamificationTriviaApi* | [**GetQuestionTemplate**](docs/GamificationTriviaApi.md#getquestiontemplate) | **Get** /trivia/questions/templates/{id} | Get a single question template
-*GamificationTriviaApi* | [**GetQuestionTemplates**](docs/GamificationTriviaApi.md#getquestiontemplates) | **Get** /trivia/questions/templates | List and search question templates
-*GamificationTriviaApi* | [**GetQuestions**](docs/GamificationTriviaApi.md#getquestions) | **Get** /trivia/questions | List and search questions
-*GamificationTriviaApi* | [**GetQuestionsCount**](docs/GamificationTriviaApi.md#getquestionscount) | **Get** /trivia/questions/count | Count questions based on filters
-*GamificationTriviaApi* | [**ProcessImportJob**](docs/GamificationTriviaApi.md#processimportjob) | **Post** /trivia/import/{id}/process | Start processing an import job
-*GamificationTriviaApi* | [**RemoveQuestionTag**](docs/GamificationTriviaApi.md#removequestiontag) | **Delete** /trivia/questions/{id}/tags/{tag} | Remove a tag from a question
-*GamificationTriviaApi* | [**RemoveTagToQuestionsBatch**](docs/GamificationTriviaApi.md#removetagtoquestionsbatch) | **Delete** /trivia/questions/tags/{tag} | Remove a tag from a batch of questions
-*GamificationTriviaApi* | [**SearchQuestionTags**](docs/GamificationTriviaApi.md#searchquestiontags) | **Get** /trivia/tags | List and search tags by the beginning of the string
-*GamificationTriviaApi* | [**UpdateImportJob**](docs/GamificationTriviaApi.md#updateimportjob) | **Put** /trivia/import/{id} | Update an import job
-*GamificationTriviaApi* | [**UpdateQuestion**](docs/GamificationTriviaApi.md#updatequestion) | **Put** /trivia/questions/{id} | Update a question
-*GamificationTriviaApi* | [**UpdateQuestionAnswer**](docs/GamificationTriviaApi.md#updatequestionanswer) | **Put** /trivia/questions/{question_id}/answers/{id} | Update an answer for a question
-*GamificationTriviaApi* | [**UpdateQuestionTemplate**](docs/GamificationTriviaApi.md#updatequestiontemplate) | **Put** /trivia/questions/templates/{id} | Update a question template
-*GamificationTriviaApi* | [**UpdateQuestionsInBulk**](docs/GamificationTriviaApi.md#updatequestionsinbulk) | **Put** /trivia/questions | Bulk update questions
+*Gamification_AchievementsApi* | [**CreateAchievement**](docs/Gamification_AchievementsApi.md#createachievement) | **Post** /achievements | Create a new achievement definition
+*Gamification_AchievementsApi* | [**CreateAchievementTemplate**](docs/Gamification_AchievementsApi.md#createachievementtemplate) | **Post** /achievements/templates | Create an achievement template
+*Gamification_AchievementsApi* | [**DeleteAchievement**](docs/Gamification_AchievementsApi.md#deleteachievement) | **Delete** /achievements/{name} | Delete an achievement definition
+*Gamification_AchievementsApi* | [**DeleteAchievementTemplate**](docs/Gamification_AchievementsApi.md#deleteachievementtemplate) | **Delete** /achievements/templates/{id} | Delete an achievement template
+*Gamification_AchievementsApi* | [**GetAchievement**](docs/Gamification_AchievementsApi.md#getachievement) | **Get** /achievements/{name} | Get a single achievement definition
+*Gamification_AchievementsApi* | [**GetAchievementTemplate**](docs/Gamification_AchievementsApi.md#getachievementtemplate) | **Get** /achievements/templates/{id} | Get a single achievement template
+*Gamification_AchievementsApi* | [**GetAchievementTemplates**](docs/Gamification_AchievementsApi.md#getachievementtemplates) | **Get** /achievements/templates | List and search achievement templates
+*Gamification_AchievementsApi* | [**GetAchievementTriggers**](docs/Gamification_AchievementsApi.md#getachievementtriggers) | **Get** /achievements/triggers | Get the list of triggers that can be used to trigger an achievement progress update
+*Gamification_AchievementsApi* | [**GetAchievements**](docs/Gamification_AchievementsApi.md#getachievements) | **Get** /achievements | Get all achievement definitions in the system
+*Gamification_AchievementsApi* | [**GetDerivedAchievements**](docs/Gamification_AchievementsApi.md#getderivedachievements) | **Get** /achievements/derived/{name} | Get a list of derived achievements
+*Gamification_AchievementsApi* | [**GetUserAchievementProgress**](docs/Gamification_AchievementsApi.md#getuserachievementprogress) | **Get** /users/{user_id}/achievements/{achievement_name} | Retrieve progress on a given achievement for a given user
+*Gamification_AchievementsApi* | [**GetUserAchievementsProgress**](docs/Gamification_AchievementsApi.md#getuserachievementsprogress) | **Get** /users/{user_id}/achievements | Retrieve progress on achievements for a given user
+*Gamification_AchievementsApi* | [**GetUsersAchievementProgress**](docs/Gamification_AchievementsApi.md#getusersachievementprogress) | **Get** /users/achievements/{achievement_name} | Retrieve progress on a given achievement for all users
+*Gamification_AchievementsApi* | [**GetUsersAchievementsProgress**](docs/Gamification_AchievementsApi.md#getusersachievementsprogress) | **Get** /users/achievements | Retrieve progress on achievements for all users
+*Gamification_AchievementsApi* | [**IncrementAchievementProgress**](docs/Gamification_AchievementsApi.md#incrementachievementprogress) | **Post** /users/{user_id}/achievements/{achievement_name}/progress | Increment an achievement progress record for a user
+*Gamification_AchievementsApi* | [**SetAchievementProgress**](docs/Gamification_AchievementsApi.md#setachievementprogress) | **Put** /users/{user_id}/achievements/{achievement_name}/progress | Set an achievement progress record for a user
+*Gamification_AchievementsApi* | [**UpdateAchievement**](docs/Gamification_AchievementsApi.md#updateachievement) | **Put** /achievements/{name} | Update an achievement definition
+*Gamification_AchievementsApi* | [**UpdateAchievementTemplate**](docs/Gamification_AchievementsApi.md#updateachievementtemplate) | **Put** /achievements/templates/{id} | Update an achievement template
+*Gamification_LeaderboardsApi* | [**GetLeaderboard**](docs/Gamification_LeaderboardsApi.md#getleaderboard) | **Get** /leaderboards/{context_type}/{context_id} | Retrieves leaderboard details and paginated entries
+*Gamification_LeaderboardsApi* | [**GetLeaderboardRank**](docs/Gamification_LeaderboardsApi.md#getleaderboardrank) | **Get** /leaderboards/{context_type}/{context_id}/users/{id}/rank | Retrieves a specific user entry with rank
+*Gamification_LeaderboardsApi* | [**GetLeaderboardStrategies**](docs/Gamification_LeaderboardsApi.md#getleaderboardstrategies) | **Get** /leaderboards/strategies | Get a list of available leaderboard strategy names
+*Gamification_LevelingApi* | [**CreateLevel**](docs/Gamification_LevelingApi.md#createlevel) | **Post** /leveling | Create a level schema
+*Gamification_LevelingApi* | [**DeleteLevel**](docs/Gamification_LevelingApi.md#deletelevel) | **Delete** /leveling/{name} | Delete a level
+*Gamification_LevelingApi* | [**GetLevel**](docs/Gamification_LevelingApi.md#getlevel) | **Get** /leveling/{name} | Retrieve a level
+*Gamification_LevelingApi* | [**GetLevelTriggers**](docs/Gamification_LevelingApi.md#getleveltriggers) | **Get** /leveling/triggers | Get the list of triggers that can be used to trigger a leveling progress update
+*Gamification_LevelingApi* | [**GetLevels**](docs/Gamification_LevelingApi.md#getlevels) | **Get** /leveling | List and search levels
+*Gamification_LevelingApi* | [**GetUserLevel**](docs/Gamification_LevelingApi.md#getuserlevel) | **Get** /users/{user_id}/leveling/{name} | Get a user&#39;s progress for a given level schema
+*Gamification_LevelingApi* | [**GetUserLevels**](docs/Gamification_LevelingApi.md#getuserlevels) | **Get** /users/{user_id}/leveling | Get a user&#39;s progress for all level schemas
+*Gamification_LevelingApi* | [**IncrementProgress**](docs/Gamification_LevelingApi.md#incrementprogress) | **Post** /users/{user_id}/leveling/{name}/progress | Update or create a leveling progress record for a user
+*Gamification_LevelingApi* | [**SetProgress**](docs/Gamification_LevelingApi.md#setprogress) | **Put** /users/{user_id}/leveling/{name}/progress | Set leveling progress for a user
+*Gamification_LevelingApi* | [**UpdateLevel**](docs/Gamification_LevelingApi.md#updatelevel) | **Put** /leveling/{name} | Update a level
+*Gamification_MetricsApi* | [**AddMetric**](docs/Gamification_MetricsApi.md#addmetric) | **Post** /metrics | Add a metric
+*Gamification_TriviaApi* | [**AddQuestionAnswers**](docs/Gamification_TriviaApi.md#addquestionanswers) | **Post** /trivia/questions/{question_id}/answers | Add an answer to a question
+*Gamification_TriviaApi* | [**AddQuestionTag**](docs/Gamification_TriviaApi.md#addquestiontag) | **Post** /trivia/questions/{id}/tags | Add a tag to a question
+*Gamification_TriviaApi* | [**AddTagToQuestionsBatch**](docs/Gamification_TriviaApi.md#addtagtoquestionsbatch) | **Post** /trivia/questions/tags | Add a tag to a batch of questions
+*Gamification_TriviaApi* | [**CreateImportJob**](docs/Gamification_TriviaApi.md#createimportjob) | **Post** /trivia/import | Create an import job
+*Gamification_TriviaApi* | [**CreateQuestion**](docs/Gamification_TriviaApi.md#createquestion) | **Post** /trivia/questions | Create a question
+*Gamification_TriviaApi* | [**CreateQuestionTemplate**](docs/Gamification_TriviaApi.md#createquestiontemplate) | **Post** /trivia/questions/templates | Create a question template
+*Gamification_TriviaApi* | [**DeleteImportJob**](docs/Gamification_TriviaApi.md#deleteimportjob) | **Delete** /trivia/import/{id} | Delete an import job
+*Gamification_TriviaApi* | [**DeleteQuestion**](docs/Gamification_TriviaApi.md#deletequestion) | **Delete** /trivia/questions/{id} | Delete a question
+*Gamification_TriviaApi* | [**DeleteQuestionAnswers**](docs/Gamification_TriviaApi.md#deletequestionanswers) | **Delete** /trivia/questions/{question_id}/answers/{id} | Remove an answer from a question
+*Gamification_TriviaApi* | [**DeleteQuestionTemplate**](docs/Gamification_TriviaApi.md#deletequestiontemplate) | **Delete** /trivia/questions/templates/{id} | Delete a question template
+*Gamification_TriviaApi* | [**GetImportJob**](docs/Gamification_TriviaApi.md#getimportjob) | **Get** /trivia/import/{id} | Get an import job
+*Gamification_TriviaApi* | [**GetImportJobs**](docs/Gamification_TriviaApi.md#getimportjobs) | **Get** /trivia/import | Get a list of import job
+*Gamification_TriviaApi* | [**GetQuestion**](docs/Gamification_TriviaApi.md#getquestion) | **Get** /trivia/questions/{id} | Get a single question
+*Gamification_TriviaApi* | [**GetQuestionAnswer**](docs/Gamification_TriviaApi.md#getquestionanswer) | **Get** /trivia/questions/{question_id}/answers/{id} | Get an answer for a question
+*Gamification_TriviaApi* | [**GetQuestionAnswers**](docs/Gamification_TriviaApi.md#getquestionanswers) | **Get** /trivia/questions/{question_id}/answers | List the answers available for a question
+*Gamification_TriviaApi* | [**GetQuestionDeltas**](docs/Gamification_TriviaApi.md#getquestiondeltas) | **Get** /trivia/questions/delta | List question deltas in ascending order of updated date
+*Gamification_TriviaApi* | [**GetQuestionTags**](docs/Gamification_TriviaApi.md#getquestiontags) | **Get** /trivia/questions/{id}/tags | List the tags for a question
+*Gamification_TriviaApi* | [**GetQuestionTemplate**](docs/Gamification_TriviaApi.md#getquestiontemplate) | **Get** /trivia/questions/templates/{id} | Get a single question template
+*Gamification_TriviaApi* | [**GetQuestionTemplates**](docs/Gamification_TriviaApi.md#getquestiontemplates) | **Get** /trivia/questions/templates | List and search question templates
+*Gamification_TriviaApi* | [**GetQuestions**](docs/Gamification_TriviaApi.md#getquestions) | **Get** /trivia/questions | List and search questions
+*Gamification_TriviaApi* | [**GetQuestionsCount**](docs/Gamification_TriviaApi.md#getquestionscount) | **Get** /trivia/questions/count | Count questions based on filters
+*Gamification_TriviaApi* | [**ProcessImportJob**](docs/Gamification_TriviaApi.md#processimportjob) | **Post** /trivia/import/{id}/process | Start processing an import job
+*Gamification_TriviaApi* | [**RemoveQuestionTag**](docs/Gamification_TriviaApi.md#removequestiontag) | **Delete** /trivia/questions/{id}/tags/{tag} | Remove a tag from a question
+*Gamification_TriviaApi* | [**RemoveTagToQuestionsBatch**](docs/Gamification_TriviaApi.md#removetagtoquestionsbatch) | **Delete** /trivia/questions/tags/{tag} | Remove a tag from a batch of questions
+*Gamification_TriviaApi* | [**SearchQuestionTags**](docs/Gamification_TriviaApi.md#searchquestiontags) | **Get** /trivia/tags | List and search tags by the beginning of the string
+*Gamification_TriviaApi* | [**UpdateImportJob**](docs/Gamification_TriviaApi.md#updateimportjob) | **Put** /trivia/import/{id} | Update an import job
+*Gamification_TriviaApi* | [**UpdateQuestion**](docs/Gamification_TriviaApi.md#updatequestion) | **Put** /trivia/questions/{id} | Update a question
+*Gamification_TriviaApi* | [**UpdateQuestionAnswer**](docs/Gamification_TriviaApi.md#updatequestionanswer) | **Put** /trivia/questions/{question_id}/answers/{id} | Update an answer for a question
+*Gamification_TriviaApi* | [**UpdateQuestionTemplate**](docs/Gamification_TriviaApi.md#updatequestiontemplate) | **Put** /trivia/questions/templates/{id} | Update a question template
+*Gamification_TriviaApi* | [**UpdateQuestionsInBulk**](docs/Gamification_TriviaApi.md#updatequestionsinbulk) | **Put** /trivia/questions | Bulk update questions
 *InvoicesApi* | [**CreateInvoice**](docs/InvoicesApi.md#createinvoice) | **Post** /invoices | Create an invoice
 *InvoicesApi* | [**GetFulFillmentStatuses**](docs/InvoicesApi.md#getfulfillmentstatuses) | **Get** /invoices/fulfillment-statuses | Lists available fulfillment statuses
 *InvoicesApi* | [**GetInvoice**](docs/InvoicesApi.md#getinvoice) | **Get** /invoices/{id} | Retrieve an invoice
@@ -312,57 +274,69 @@ Class | Method | HTTP request | Description
 *LogsApi* | [**GetBREForwardLogs**](docs/LogsApi.md#getbreforwardlogs) | **Get** /bre/logs/forward-log | Returns a list of forward log entries
 *LogsApi* | [**GetUserLog**](docs/LogsApi.md#getuserlog) | **Get** /audit/logs/{id} | Returns a user log entry by id
 *LogsApi* | [**GetUserLogs**](docs/LogsApi.md#getuserlogs) | **Get** /audit/logs | Returns a page of user logs entries
-*MediaArtistsApi* | [**AddArtist**](docs/MediaArtistsApi.md#addartist) | **Post** /media/artists | Adds a new artist in the system
-*MediaArtistsApi* | [**CreateArtistTemplate**](docs/MediaArtistsApi.md#createartisttemplate) | **Post** /media/artists/templates | Create an artist template
-*MediaArtistsApi* | [**DeleteArtist**](docs/MediaArtistsApi.md#deleteartist) | **Delete** /media/artists/{id} | Removes an artist from the system IF no resources are attached to it
-*MediaArtistsApi* | [**DeleteArtistTemplate**](docs/MediaArtistsApi.md#deleteartisttemplate) | **Delete** /media/artists/templates/{id} | Delete an artist template
-*MediaArtistsApi* | [**GetArtist**](docs/MediaArtistsApi.md#getartist) | **Get** /media/artists/{id} | Loads a specific artist details
-*MediaArtistsApi* | [**GetArtistTemplate**](docs/MediaArtistsApi.md#getartisttemplate) | **Get** /media/artists/templates/{id} | Get a single artist template
-*MediaArtistsApi* | [**GetArtistTemplates**](docs/MediaArtistsApi.md#getartisttemplates) | **Get** /media/artists/templates | List and search artist templates
-*MediaArtistsApi* | [**GetArtists**](docs/MediaArtistsApi.md#getartists) | **Get** /media/artists | Search for artists
-*MediaArtistsApi* | [**UpdateArtist**](docs/MediaArtistsApi.md#updateartist) | **Put** /media/artists/{id} | Modifies an artist details
-*MediaArtistsApi* | [**UpdateArtistTemplate**](docs/MediaArtistsApi.md#updateartisttemplate) | **Put** /media/artists/templates/{id} | Update an artist template
-*MediaModerationApi* | [**AddFlag**](docs/MediaModerationApi.md#addflag) | **Post** /moderation/flags | Add a flag
-*MediaModerationApi* | [**DeleteFlag**](docs/MediaModerationApi.md#deleteflag) | **Delete** /moderation/flags | Delete a flag
-*MediaModerationApi* | [**GetFlags**](docs/MediaModerationApi.md#getflags) | **Get** /moderation/flags | Returns a page of flags
-*MediaModerationApi* | [**GetModerationReport**](docs/MediaModerationApi.md#getmoderationreport) | **Get** /moderation/reports/{id} | Get a flag report
-*MediaModerationApi* | [**GetModerationReports**](docs/MediaModerationApi.md#getmoderationreports) | **Get** /moderation/reports | Returns a page of flag reports
-*MediaModerationApi* | [**UpdateModerationReport**](docs/MediaModerationApi.md#updatemoderationreport) | **Put** /moderation/reports/{id} | Update a flag report
-*MediaVideosApi* | [**AddUserToVideoWhitelist**](docs/MediaVideosApi.md#addusertovideowhitelist) | **Post** /media/videos/{id}/whitelist | Adds a user to a video&#39;s whitelist
-*MediaVideosApi* | [**AddVideo**](docs/MediaVideosApi.md#addvideo) | **Post** /media/videos | Adds a new video in the system
-*MediaVideosApi* | [**AddVideoComment**](docs/MediaVideosApi.md#addvideocomment) | **Post** /media/videos/{video_id}/comments | Add a new video comment
-*MediaVideosApi* | [**AddVideoContributor**](docs/MediaVideosApi.md#addvideocontributor) | **Post** /media/videos/{video_id}/contributors | Adds a contributor to a video
-*MediaVideosApi* | [**AddVideoFlag**](docs/MediaVideosApi.md#addvideoflag) | **Post** /media/videos/{video_id}/moderation | Add a new flag
-*MediaVideosApi* | [**AddVideoRelationships**](docs/MediaVideosApi.md#addvideorelationships) | **Post** /media/videos/{video_id}/related | Adds one or more existing videos as related to this one
-*MediaVideosApi* | [**CreateVideoDisposition**](docs/MediaVideosApi.md#createvideodisposition) | **Post** /media/videos/{video_id}/dispositions | Create a video disposition
-*MediaVideosApi* | [**CreateVideoTemplate**](docs/MediaVideosApi.md#createvideotemplate) | **Post** /media/videos/templates | Create a video template
-*MediaVideosApi* | [**DeleteVideo**](docs/MediaVideosApi.md#deletevideo) | **Delete** /media/videos/{id} | Deletes a video from the system if no resources are attached to it
-*MediaVideosApi* | [**DeleteVideoComment**](docs/MediaVideosApi.md#deletevideocomment) | **Delete** /media/videos/{video_id}/comments/{id} | Delete a video comment
-*MediaVideosApi* | [**DeleteVideoDisposition**](docs/MediaVideosApi.md#deletevideodisposition) | **Delete** /media/videos/{video_id}/dispositions/{disposition_id} | Delete a video disposition
-*MediaVideosApi* | [**DeleteVideoFlag**](docs/MediaVideosApi.md#deletevideoflag) | **Delete** /media/videos/{video_id}/moderation | Delete a flag
-*MediaVideosApi* | [**DeleteVideoRelationship**](docs/MediaVideosApi.md#deletevideorelationship) | **Delete** /media/videos/{video_id}/related/{id} | Delete a video&#39;s relationship
-*MediaVideosApi* | [**DeleteVideoTemplate**](docs/MediaVideosApi.md#deletevideotemplate) | **Delete** /media/videos/templates/{id} | Delete a video template
-*MediaVideosApi* | [**GetUserVideos**](docs/MediaVideosApi.md#getuservideos) | **Get** /users/{user_id}/videos | Get user videos
-*MediaVideosApi* | [**GetVideo**](docs/MediaVideosApi.md#getvideo) | **Get** /media/videos/{id} | Loads a specific video details
-*MediaVideosApi* | [**GetVideoComments**](docs/MediaVideosApi.md#getvideocomments) | **Get** /media/videos/{video_id}/comments | Returns a page of comments for a video
-*MediaVideosApi* | [**GetVideoDispositions**](docs/MediaVideosApi.md#getvideodispositions) | **Get** /media/videos/{video_id}/dispositions | Returns a page of dispositions for a video
-*MediaVideosApi* | [**GetVideoRelationships**](docs/MediaVideosApi.md#getvideorelationships) | **Get** /media/videos/{video_id}/related | Returns a page of video relationships
-*MediaVideosApi* | [**GetVideoTemplate**](docs/MediaVideosApi.md#getvideotemplate) | **Get** /media/videos/templates/{id} | Get a single video template
-*MediaVideosApi* | [**GetVideoTemplates**](docs/MediaVideosApi.md#getvideotemplates) | **Get** /media/videos/templates | List and search video templates
-*MediaVideosApi* | [**GetVideos**](docs/MediaVideosApi.md#getvideos) | **Get** /media/videos | Search videos using the documented filters
-*MediaVideosApi* | [**RemoveUserFromVideoWhitelist**](docs/MediaVideosApi.md#removeuserfromvideowhitelist) | **Delete** /media/videos/{video_id}/whitelist/{id} | Removes a user from a video&#39;s whitelist
-*MediaVideosApi* | [**RemoveVideoContributor**](docs/MediaVideosApi.md#removevideocontributor) | **Delete** /media/videos/{video_id}/contributors/{id} | Removes a contributor from a video
-*MediaVideosApi* | [**UpdateVideo**](docs/MediaVideosApi.md#updatevideo) | **Put** /media/videos/{id} | Modifies a video&#39;s details
-*MediaVideosApi* | [**UpdateVideoComment**](docs/MediaVideosApi.md#updatevideocomment) | **Put** /media/videos/{video_id}/comments/{id}/content | Update a video comment
-*MediaVideosApi* | [**UpdateVideoRelationship**](docs/MediaVideosApi.md#updatevideorelationship) | **Put** /media/videos/{video_id}/related/{id}/relationship_details | Update a video&#39;s relationship details
-*MediaVideosApi* | [**UpdateVideoTemplate**](docs/MediaVideosApi.md#updatevideotemplate) | **Put** /media/videos/templates/{id} | Update a video template
-*MediaVideosApi* | [**ViewVideo**](docs/MediaVideosApi.md#viewvideo) | **Post** /media/videos/{id}/views | Increment a video&#39;s view count
+*Media_ArtistsApi* | [**AddArtist**](docs/Media_ArtistsApi.md#addartist) | **Post** /media/artists | Adds a new artist in the system
+*Media_ArtistsApi* | [**CreateArtistTemplate**](docs/Media_ArtistsApi.md#createartisttemplate) | **Post** /media/artists/templates | Create an artist template
+*Media_ArtistsApi* | [**DeleteArtist**](docs/Media_ArtistsApi.md#deleteartist) | **Delete** /media/artists/{id} | Removes an artist from the system IF no resources are attached to it
+*Media_ArtistsApi* | [**DeleteArtistTemplate**](docs/Media_ArtistsApi.md#deleteartisttemplate) | **Delete** /media/artists/templates/{id} | Delete an artist template
+*Media_ArtistsApi* | [**GetArtist**](docs/Media_ArtistsApi.md#getartist) | **Get** /media/artists/{id} | Loads a specific artist details
+*Media_ArtistsApi* | [**GetArtistTemplate**](docs/Media_ArtistsApi.md#getartisttemplate) | **Get** /media/artists/templates/{id} | Get a single artist template
+*Media_ArtistsApi* | [**GetArtistTemplates**](docs/Media_ArtistsApi.md#getartisttemplates) | **Get** /media/artists/templates | List and search artist templates
+*Media_ArtistsApi* | [**GetArtists**](docs/Media_ArtistsApi.md#getartists) | **Get** /media/artists | Search for artists
+*Media_ArtistsApi* | [**UpdateArtist**](docs/Media_ArtistsApi.md#updateartist) | **Put** /media/artists/{id} | Modifies an artist details
+*Media_ArtistsApi* | [**UpdateArtistTemplate**](docs/Media_ArtistsApi.md#updateartisttemplate) | **Put** /media/artists/templates/{id} | Update an artist template
+*Media_ModerationApi* | [**AddFlag**](docs/Media_ModerationApi.md#addflag) | **Post** /moderation/flags | Add a flag
+*Media_ModerationApi* | [**DeleteFlag**](docs/Media_ModerationApi.md#deleteflag) | **Delete** /moderation/flags | Delete a flag
+*Media_ModerationApi* | [**GetFlags**](docs/Media_ModerationApi.md#getflags) | **Get** /moderation/flags | Returns a page of flags
+*Media_ModerationApi* | [**GetModerationReport**](docs/Media_ModerationApi.md#getmoderationreport) | **Get** /moderation/reports/{id} | Get a flag report
+*Media_ModerationApi* | [**GetModerationReports**](docs/Media_ModerationApi.md#getmoderationreports) | **Get** /moderation/reports | Returns a page of flag reports
+*Media_ModerationApi* | [**UpdateModerationReport**](docs/Media_ModerationApi.md#updatemoderationreport) | **Put** /moderation/reports/{id} | Update a flag report
+*Media_PollsApi* | [**AnswerPoll**](docs/Media_PollsApi.md#answerpoll) | **Post** /media/polls/{id}/response | Add your vote to a poll
+*Media_PollsApi* | [**CreatePoll**](docs/Media_PollsApi.md#createpoll) | **Post** /media/polls | Create a new poll
+*Media_PollsApi* | [**CreatePollTemplate**](docs/Media_PollsApi.md#createpolltemplate) | **Post** /media/polls/templates | Create a poll template
+*Media_PollsApi* | [**DeletePoll**](docs/Media_PollsApi.md#deletepoll) | **Delete** /media/polls/{id} | Delete an existing poll
+*Media_PollsApi* | [**DeletePollTemplate**](docs/Media_PollsApi.md#deletepolltemplate) | **Delete** /media/polls/templates/{id} | Delete a poll template
+*Media_PollsApi* | [**GetPoll**](docs/Media_PollsApi.md#getpoll) | **Get** /media/polls/{id} | Get a single poll
+*Media_PollsApi* | [**GetPollAnswer**](docs/Media_PollsApi.md#getpollanswer) | **Get** /media/polls/{id}/response | Get poll answer
+*Media_PollsApi* | [**GetPollTemplate**](docs/Media_PollsApi.md#getpolltemplate) | **Get** /media/polls/templates/{id} | Get a single poll template
+*Media_PollsApi* | [**GetPollTemplates**](docs/Media_PollsApi.md#getpolltemplates) | **Get** /media/polls/templates | List and search poll templates
+*Media_PollsApi* | [**GetPolls**](docs/Media_PollsApi.md#getpolls) | **Get** /media/polls | List and search polls
+*Media_PollsApi* | [**UpdatePoll**](docs/Media_PollsApi.md#updatepoll) | **Put** /media/polls/{id} | Update an existing poll
+*Media_PollsApi* | [**UpdatePollTemplate**](docs/Media_PollsApi.md#updatepolltemplate) | **Put** /media/polls/templates/{id} | Update a poll template
+*Media_VideosApi* | [**AddUserToVideoWhitelist**](docs/Media_VideosApi.md#addusertovideowhitelist) | **Post** /media/videos/{id}/whitelist | Adds a user to a video&#39;s whitelist
+*Media_VideosApi* | [**AddVideo**](docs/Media_VideosApi.md#addvideo) | **Post** /media/videos | Adds a new video in the system
+*Media_VideosApi* | [**AddVideoComment**](docs/Media_VideosApi.md#addvideocomment) | **Post** /media/videos/{video_id}/comments | Add a new video comment
+*Media_VideosApi* | [**AddVideoContributor**](docs/Media_VideosApi.md#addvideocontributor) | **Post** /media/videos/{video_id}/contributors | Adds a contributor to a video
+*Media_VideosApi* | [**AddVideoFlag**](docs/Media_VideosApi.md#addvideoflag) | **Post** /media/videos/{video_id}/moderation | Add a new flag
+*Media_VideosApi* | [**AddVideoRelationships**](docs/Media_VideosApi.md#addvideorelationships) | **Post** /media/videos/{video_id}/related | Adds one or more existing videos as related to this one
+*Media_VideosApi* | [**CreateVideoDisposition**](docs/Media_VideosApi.md#createvideodisposition) | **Post** /media/videos/{video_id}/dispositions | Create a video disposition
+*Media_VideosApi* | [**CreateVideoTemplate**](docs/Media_VideosApi.md#createvideotemplate) | **Post** /media/videos/templates | Create a video template
+*Media_VideosApi* | [**DeleteVideo**](docs/Media_VideosApi.md#deletevideo) | **Delete** /media/videos/{id} | Deletes a video from the system if no resources are attached to it
+*Media_VideosApi* | [**DeleteVideoComment**](docs/Media_VideosApi.md#deletevideocomment) | **Delete** /media/videos/{video_id}/comments/{id} | Delete a video comment
+*Media_VideosApi* | [**DeleteVideoDisposition**](docs/Media_VideosApi.md#deletevideodisposition) | **Delete** /media/videos/{video_id}/dispositions/{disposition_id} | Delete a video disposition
+*Media_VideosApi* | [**DeleteVideoFlag**](docs/Media_VideosApi.md#deletevideoflag) | **Delete** /media/videos/{video_id}/moderation | Delete a flag
+*Media_VideosApi* | [**DeleteVideoRelationship**](docs/Media_VideosApi.md#deletevideorelationship) | **Delete** /media/videos/{video_id}/related/{id} | Delete a video&#39;s relationship
+*Media_VideosApi* | [**DeleteVideoTemplate**](docs/Media_VideosApi.md#deletevideotemplate) | **Delete** /media/videos/templates/{id} | Delete a video template
+*Media_VideosApi* | [**GetUserVideos**](docs/Media_VideosApi.md#getuservideos) | **Get** /users/{user_id}/videos | Get user videos
+*Media_VideosApi* | [**GetVideo**](docs/Media_VideosApi.md#getvideo) | **Get** /media/videos/{id} | Loads a specific video details
+*Media_VideosApi* | [**GetVideoComments**](docs/Media_VideosApi.md#getvideocomments) | **Get** /media/videos/{video_id}/comments | Returns a page of comments for a video
+*Media_VideosApi* | [**GetVideoDispositions**](docs/Media_VideosApi.md#getvideodispositions) | **Get** /media/videos/{video_id}/dispositions | Returns a page of dispositions for a video
+*Media_VideosApi* | [**GetVideoRelationships**](docs/Media_VideosApi.md#getvideorelationships) | **Get** /media/videos/{video_id}/related | Returns a page of video relationships
+*Media_VideosApi* | [**GetVideoTemplate**](docs/Media_VideosApi.md#getvideotemplate) | **Get** /media/videos/templates/{id} | Get a single video template
+*Media_VideosApi* | [**GetVideoTemplates**](docs/Media_VideosApi.md#getvideotemplates) | **Get** /media/videos/templates | List and search video templates
+*Media_VideosApi* | [**GetVideos**](docs/Media_VideosApi.md#getvideos) | **Get** /media/videos | Search videos using the documented filters
+*Media_VideosApi* | [**RemoveUserFromVideoWhitelist**](docs/Media_VideosApi.md#removeuserfromvideowhitelist) | **Delete** /media/videos/{video_id}/whitelist/{id} | Removes a user from a video&#39;s whitelist
+*Media_VideosApi* | [**RemoveVideoContributor**](docs/Media_VideosApi.md#removevideocontributor) | **Delete** /media/videos/{video_id}/contributors/{id} | Removes a contributor from a video
+*Media_VideosApi* | [**UpdateVideo**](docs/Media_VideosApi.md#updatevideo) | **Put** /media/videos/{id} | Modifies a video&#39;s details
+*Media_VideosApi* | [**UpdateVideoComment**](docs/Media_VideosApi.md#updatevideocomment) | **Put** /media/videos/{video_id}/comments/{id}/content | Update a video comment
+*Media_VideosApi* | [**UpdateVideoRelationship**](docs/Media_VideosApi.md#updatevideorelationship) | **Put** /media/videos/{video_id}/related/{id}/relationship_details | Update a video&#39;s relationship details
+*Media_VideosApi* | [**UpdateVideoTemplate**](docs/Media_VideosApi.md#updatevideotemplate) | **Put** /media/videos/templates/{id} | Update a video template
+*Media_VideosApi* | [**ViewVideo**](docs/Media_VideosApi.md#viewvideo) | **Post** /media/videos/{id}/views | Increment a video&#39;s view count
 *MessagingApi* | [**CompileMessageTemplate**](docs/MessagingApi.md#compilemessagetemplate) | **Post** /messaging/templates/compilations | Compile a message template
 *MessagingApi* | [**CreateMessageTemplate**](docs/MessagingApi.md#createmessagetemplate) | **Post** /messaging/templates | Create a message template
 *MessagingApi* | [**DeleteMessageTemplate**](docs/MessagingApi.md#deletemessagetemplate) | **Delete** /messaging/templates/{id} | Delete an existing message template
 *MessagingApi* | [**GetMessageTemplate**](docs/MessagingApi.md#getmessagetemplate) | **Get** /messaging/templates/{id} | Get a single message template
 *MessagingApi* | [**GetMessageTemplates**](docs/MessagingApi.md#getmessagetemplates) | **Get** /messaging/templates | List and search message templates
-*MessagingApi* | [**SendMessage1**](docs/MessagingApi.md#sendmessage1) | **Post** /messaging/message | Send a message
+*MessagingApi* | [**SendMessage**](docs/MessagingApi.md#sendmessage) | **Post** /messaging/message | Send a message
 *MessagingApi* | [**SendRawEmail**](docs/MessagingApi.md#sendrawemail) | **Post** /messaging/raw-email | Send a raw email to one or more users
 *MessagingApi* | [**SendRawPush**](docs/MessagingApi.md#sendrawpush) | **Post** /messaging/raw-push | Send a raw push notification
 *MessagingApi* | [**SendRawSMS**](docs/MessagingApi.md#sendrawsms) | **Post** /messaging/raw-sms | Send a raw SMS
@@ -371,10 +345,9 @@ Class | Method | HTTP request | Description
 *MessagingApi* | [**SendTemplatedSMS**](docs/MessagingApi.md#sendtemplatedsms) | **Post** /messaging/templated-sms | Send a new templated SMS
 *MessagingApi* | [**SendWebsocket**](docs/MessagingApi.md#sendwebsocket) | **Post** /messaging/websocket-message | Send a websocket message
 *MessagingApi* | [**UpdateMessageTemplate**](docs/MessagingApi.md#updatemessagetemplate) | **Put** /messaging/templates/{id} | Update an existing message template
-*MessagingTopicsApi* | [**DisableTopicSubscriber**](docs/MessagingTopicsApi.md#disabletopicsubscriber) | **Put** /messaging/topics/{id}/subscribers/{user_id}/disabled | Enable or disable messages for a user
-*MessagingTopicsApi* | [**GetTopicSubscriber**](docs/MessagingTopicsApi.md#gettopicsubscriber) | **Get** /messaging/topics/{id}/subscribers/{user_id} | Get a subscriber to a topic
-*MessagingTopicsApi* | [**GetTopicSubscribers**](docs/MessagingTopicsApi.md#gettopicsubscribers) | **Get** /messaging/topics/{id}/subscribers | Get all subscribers to a topic
-*MessagingTopicsApi* | [**GetUserTopics**](docs/MessagingTopicsApi.md#getusertopics) | **Get** /users/{id}/topics | Get all messaging topics for a given user
+*Messaging_TopicsApi* | [**DisableTopicSubscriber**](docs/Messaging_TopicsApi.md#disabletopicsubscriber) | **Put** /messaging/topics/{id}/subscribers/{user_id}/disabled | Enable or disable messages for a user
+*Messaging_TopicsApi* | [**GetTopicSubscriber**](docs/Messaging_TopicsApi.md#gettopicsubscriber) | **Get** /messaging/topics/{id}/subscribers/{user_id} | Get a subscriber to a topic
+*Messaging_TopicsApi* | [**GetUserTopics**](docs/Messaging_TopicsApi.md#getusertopics) | **Get** /users/{id}/topics | Get all messaging topics for a given user
 *NotificationsApi* | [**CreateNotificationType**](docs/NotificationsApi.md#createnotificationtype) | **Post** /notifications/types | Create a notification type
 *NotificationsApi* | [**DeleteNotificationType**](docs/NotificationsApi.md#deletenotificationtype) | **Delete** /notifications/types/{id} | Delete a notification type
 *NotificationsApi* | [**GetNotificationType**](docs/NotificationsApi.md#getnotificationtype) | **Get** /notifications/types/{id} | Get a single notification type
@@ -405,43 +378,66 @@ Class | Method | HTTP request | Description
 *PaymentsApi* | [**PaymentAuthorization**](docs/PaymentsApi.md#paymentauthorization) | **Post** /payment/authorizations | Authorize payment of an invoice for later capture
 *PaymentsApi* | [**PaymentCapture**](docs/PaymentsApi.md#paymentcapture) | **Post** /payment/authorizations/{id}/capture | Capture an existing invoice payment authorization
 *PaymentsApi* | [**UpdatePaymentMethod**](docs/PaymentsApi.md#updatepaymentmethod) | **Put** /users/{user_id}/payment-methods/{id} | Update an existing payment method for a user
-*PaymentsAppleApi* | [**VerifyAppleReceipt**](docs/PaymentsAppleApi.md#verifyapplereceipt) | **Post** /payment/provider/apple/receipt | Pay invoice with Apple receipt
-*PaymentsFattMerchantApi* | [**CreateOrUpdateFattMerchantPaymentMethod**](docs/PaymentsFattMerchantApi.md#createorupdatefattmerchantpaymentmethod) | **Put** /payment/provider/fattmerchant/payment-methods | Create or update a FattMerchant payment method for a user
-*PaymentsGoogleApi* | [**HandleGooglePayment**](docs/PaymentsGoogleApi.md#handlegooglepayment) | **Post** /payment/provider/google/payments | Mark an invoice paid with Google
-*PaymentsOptimalApi* | [**SilentPostOptimal**](docs/PaymentsOptimalApi.md#silentpostoptimal) | **Post** /payment/provider/optimal/silent | Initiate silent post with Optimal
-*PaymentsPayPalClassicApi* | [**CreatePayPalBillingAgreementUrl**](docs/PaymentsPayPalClassicApi.md#createpaypalbillingagreementurl) | **Post** /payment/provider/paypal/classic/agreements/start | Create a PayPal Classic billing agreement for the user
-*PaymentsPayPalClassicApi* | [**CreatePayPalExpressCheckout**](docs/PaymentsPayPalClassicApi.md#createpaypalexpresscheckout) | **Post** /payment/provider/paypal/classic/checkout/start | Create a payment token for PayPal express checkout
-*PaymentsPayPalClassicApi* | [**FinalizePayPalBillingAgreement**](docs/PaymentsPayPalClassicApi.md#finalizepaypalbillingagreement) | **Post** /payment/provider/paypal/classic/agreements/finish | Finalizes a billing agreement after the user has accepted through PayPal
-*PaymentsPayPalClassicApi* | [**FinalizePayPalCheckout**](docs/PaymentsPayPalClassicApi.md#finalizepaypalcheckout) | **Post** /payment/provider/paypal/classic/checkout/finish | Finalizes a payment after the user has completed checkout with PayPal
-*PaymentsStripeApi* | [**CreateStripePaymentMethod**](docs/PaymentsStripeApi.md#createstripepaymentmethod) | **Post** /payment/provider/stripe/payment-methods | Create a Stripe payment method for a user
-*PaymentsStripeApi* | [**PayStripeInvoice**](docs/PaymentsStripeApi.md#paystripeinvoice) | **Post** /payment/provider/stripe/payments | Pay with a single use token
-*PaymentsTransactionsApi* | [**GetTransaction**](docs/PaymentsTransactionsApi.md#gettransaction) | **Get** /transactions/{id} | Get the details for a single transaction
-*PaymentsTransactionsApi* | [**GetTransactions**](docs/PaymentsTransactionsApi.md#gettransactions) | **Get** /transactions | List and search transactions
-*PaymentsTransactionsApi* | [**RefundTransaction**](docs/PaymentsTransactionsApi.md#refundtransaction) | **Post** /transactions/{id}/refunds | Refund a payment transaction, in full or in part
-*PaymentsWalletsApi* | [**GetUserWallet**](docs/PaymentsWalletsApi.md#getuserwallet) | **Get** /users/{user_id}/wallets/{currency_code} | Returns the user&#39;s wallet for the given currency code
-*PaymentsWalletsApi* | [**GetUserWalletTransactions**](docs/PaymentsWalletsApi.md#getuserwallettransactions) | **Get** /users/{user_id}/wallets/{currency_code}/transactions | Retrieve a user&#39;s wallet transactions
-*PaymentsWalletsApi* | [**GetUserWallets**](docs/PaymentsWalletsApi.md#getuserwallets) | **Get** /users/{user_id}/wallets | List all of a user&#39;s wallets
-*PaymentsWalletsApi* | [**GetWalletBalances**](docs/PaymentsWalletsApi.md#getwalletbalances) | **Get** /wallets/totals | Retrieves a summation of wallet balances by currency code
-*PaymentsWalletsApi* | [**GetWalletTransactions**](docs/PaymentsWalletsApi.md#getwallettransactions) | **Get** /wallets/transactions | Retrieve wallet transactions across the system
-*PaymentsWalletsApi* | [**GetWallets**](docs/PaymentsWalletsApi.md#getwallets) | **Get** /wallets | Retrieve a list of wallets across the system
-*PaymentsWalletsApi* | [**UpdateWalletBalance**](docs/PaymentsWalletsApi.md#updatewalletbalance) | **Put** /users/{user_id}/wallets/{currency_code}/balance | Updates the balance for a user&#39;s wallet
-*PaymentsXsollaApi* | [**CreateXsollaTokenUrl**](docs/PaymentsXsollaApi.md#createxsollatokenurl) | **Post** /payment/provider/xsolla/payment | Create a payment token that should be used to forward the user to Xsolla so they can complete payment
-*ReportingChallengesApi* | [**GetChallengeEventLeaderboard**](docs/ReportingChallengesApi.md#getchallengeeventleaderboard) | **Get** /reporting/events/leaderboard | Retrieve a challenge event leaderboard details
-*ReportingChallengesApi* | [**GetChallengeEventParticipants**](docs/ReportingChallengesApi.md#getchallengeeventparticipants) | **Get** /reporting/events/participants | Retrieve a challenge event participant details
-*ReportingOrdersApi* | [**GetInvoiceReports**](docs/ReportingOrdersApi.md#getinvoicereports) | **Get** /reporting/orders/count/{currency_code} | Retrieve invoice counts aggregated by time ranges
-*ReportingRevenueApi* | [**GetItemRevenue**](docs/ReportingRevenueApi.md#getitemrevenue) | **Get** /reporting/revenue/item-sales/{currency_code} | Get item revenue info
-*ReportingRevenueApi* | [**GetRefundRevenue**](docs/ReportingRevenueApi.md#getrefundrevenue) | **Get** /reporting/revenue/refunds/{currency_code} | Get refund revenue info
-*ReportingRevenueApi* | [**GetRevenueByCountry**](docs/ReportingRevenueApi.md#getrevenuebycountry) | **Get** /reporting/revenue/countries/{currency_code} | Get revenue info by country
-*ReportingRevenueApi* | [**GetRevenueByItem**](docs/ReportingRevenueApi.md#getrevenuebyitem) | **Get** /reporting/revenue/products/{currency_code} | Get revenue info by item
-*ReportingRevenueApi* | [**GetSubscriptionRevenue**](docs/ReportingRevenueApi.md#getsubscriptionrevenue) | **Get** /reporting/revenue/subscription-sales/{currency_code} | Get subscription revenue info
-*ReportingSubscriptionsApi* | [**GetSubscriptionReports**](docs/ReportingSubscriptionsApi.md#getsubscriptionreports) | **Get** /reporting/subscription | Get a list of available subscription reports in most recent first order
-*ReportingUsageApi* | [**GetUsageByDay**](docs/ReportingUsageApi.md#getusagebyday) | **Get** /reporting/usage/day | Returns aggregated endpoint usage information by day
-*ReportingUsageApi* | [**GetUsageByHour**](docs/ReportingUsageApi.md#getusagebyhour) | **Get** /reporting/usage/hour | Returns aggregated endpoint usage information by hour
-*ReportingUsageApi* | [**GetUsageByMinute**](docs/ReportingUsageApi.md#getusagebyminute) | **Get** /reporting/usage/minute | Returns aggregated endpoint usage information by minute
-*ReportingUsageApi* | [**GetUsageByMonth**](docs/ReportingUsageApi.md#getusagebymonth) | **Get** /reporting/usage/month | Returns aggregated endpoint usage information by month
-*ReportingUsageApi* | [**GetUsageByYear**](docs/ReportingUsageApi.md#getusagebyyear) | **Get** /reporting/usage/year | Returns aggregated endpoint usage information by year
-*ReportingUsageApi* | [**GetUsageEndpoints**](docs/ReportingUsageApi.md#getusageendpoints) | **Get** /reporting/usage/endpoints | Returns list of endpoints called (method and url)
-*ReportingUsersApi* | [**GetUserRegistrations**](docs/ReportingUsersApi.md#getuserregistrations) | **Get** /reporting/users/registrations | Get user registration info
+*Payments_AppleApi* | [**VerifyAppleReceipt**](docs/Payments_AppleApi.md#verifyapplereceipt) | **Post** /payment/provider/apple/receipt | Pay invoice with Apple receipt
+*Payments_FattMerchantApi* | [**CreateOrUpdateFattMerchantPaymentMethod**](docs/Payments_FattMerchantApi.md#createorupdatefattmerchantpaymentmethod) | **Put** /payment/provider/fattmerchant/payment-methods | Create or update a FattMerchant payment method for a user
+*Payments_OptimalApi* | [**SilentPostOptimal**](docs/Payments_OptimalApi.md#silentpostoptimal) | **Post** /payment/provider/optimal/silent | Initiate silent post with Optimal
+*Payments_PayPalClassicApi* | [**CreatePayPalBillingAgreementUrl**](docs/Payments_PayPalClassicApi.md#createpaypalbillingagreementurl) | **Post** /payment/provider/paypal/classic/agreements/start | Create a PayPal Classic billing agreement for the user
+*Payments_PayPalClassicApi* | [**CreatePayPalExpressCheckout**](docs/Payments_PayPalClassicApi.md#createpaypalexpresscheckout) | **Post** /payment/provider/paypal/classic/checkout/start | Create a payment token for PayPal express checkout
+*Payments_PayPalClassicApi* | [**FinalizePayPalBillingAgreement**](docs/Payments_PayPalClassicApi.md#finalizepaypalbillingagreement) | **Post** /payment/provider/paypal/classic/agreements/finish | Finalizes a billing agreement after the user has accepted through PayPal
+*Payments_PayPalClassicApi* | [**FinalizePayPalCheckout**](docs/Payments_PayPalClassicApi.md#finalizepaypalcheckout) | **Post** /payment/provider/paypal/classic/checkout/finish | Finalizes a payment after the user has completed checkout with PayPal
+*Payments_StripeApi* | [**CreateStripePaymentMethod**](docs/Payments_StripeApi.md#createstripepaymentmethod) | **Post** /payment/provider/stripe/payment-methods | Create a Stripe payment method for a user
+*Payments_StripeApi* | [**PayStripeInvoice**](docs/Payments_StripeApi.md#paystripeinvoice) | **Post** /payment/provider/stripe/payments | Pay with a single use token
+*Payments_TransactionsApi* | [**GetTransaction**](docs/Payments_TransactionsApi.md#gettransaction) | **Get** /transactions/{id} | Get the details for a single transaction
+*Payments_TransactionsApi* | [**GetTransactions**](docs/Payments_TransactionsApi.md#gettransactions) | **Get** /transactions | List and search transactions
+*Payments_TransactionsApi* | [**RefundTransaction**](docs/Payments_TransactionsApi.md#refundtransaction) | **Post** /transactions/{id}/refunds | Refund a payment transaction, in full or in part
+*Payments_WalletsApi* | [**GetUserWallet**](docs/Payments_WalletsApi.md#getuserwallet) | **Get** /users/{user_id}/wallets/{currency_code} | Returns the user&#39;s wallet for the given currency code
+*Payments_WalletsApi* | [**GetUserWalletTransactions**](docs/Payments_WalletsApi.md#getuserwallettransactions) | **Get** /users/{user_id}/wallets/{currency_code}/transactions | Retrieve a user&#39;s wallet transactions
+*Payments_WalletsApi* | [**GetUserWallets**](docs/Payments_WalletsApi.md#getuserwallets) | **Get** /users/{user_id}/wallets | List all of a user&#39;s wallets
+*Payments_WalletsApi* | [**GetWalletBalances**](docs/Payments_WalletsApi.md#getwalletbalances) | **Get** /wallets/totals | Retrieves a summation of wallet balances by currency code
+*Payments_WalletsApi* | [**GetWalletTransactions**](docs/Payments_WalletsApi.md#getwallettransactions) | **Get** /wallets/transactions | Retrieve wallet transactions across the system
+*Payments_WalletsApi* | [**GetWallets**](docs/Payments_WalletsApi.md#getwallets) | **Get** /wallets | Retrieve a list of wallets across the system
+*Payments_WalletsApi* | [**UpdateWalletBalance**](docs/Payments_WalletsApi.md#updatewalletbalance) | **Put** /users/{user_id}/wallets/{currency_code}/balance | Updates the balance for a user&#39;s wallet
+*Payments_XsollaApi* | [**CreateXsollaTokenUrl**](docs/Payments_XsollaApi.md#createxsollatokenurl) | **Post** /payment/provider/xsolla/payment | Create a payment token that should be used to forward the user to Xsolla so they can complete payment
+*Reporting_ChallengesApi* | [**GetChallengeEventLeaderboard**](docs/Reporting_ChallengesApi.md#getchallengeeventleaderboard) | **Get** /reporting/events/leaderboard | Retrieve a challenge event leaderboard details
+*Reporting_ChallengesApi* | [**GetChallengeEventParticipants**](docs/Reporting_ChallengesApi.md#getchallengeeventparticipants) | **Get** /reporting/events/participants | Retrieve a challenge event participant details
+*Reporting_OrdersApi* | [**GetInvoiceReports**](docs/Reporting_OrdersApi.md#getinvoicereports) | **Get** /reporting/orders/count/{currency_code} | Retrieve invoice counts aggregated by time ranges
+*Reporting_RevenueApi* | [**GetItemRevenue**](docs/Reporting_RevenueApi.md#getitemrevenue) | **Get** /reporting/revenue/item-sales/{currency_code} | Get item revenue info
+*Reporting_RevenueApi* | [**GetRefundRevenue**](docs/Reporting_RevenueApi.md#getrefundrevenue) | **Get** /reporting/revenue/refunds/{currency_code} | Get refund revenue info
+*Reporting_RevenueApi* | [**GetRevenueByCountry**](docs/Reporting_RevenueApi.md#getrevenuebycountry) | **Get** /reporting/revenue/countries/{currency_code} | Get revenue info by country
+*Reporting_RevenueApi* | [**GetRevenueByItem**](docs/Reporting_RevenueApi.md#getrevenuebyitem) | **Get** /reporting/revenue/products/{currency_code} | Get revenue info by item
+*Reporting_RevenueApi* | [**GetSubscriptionRevenue**](docs/Reporting_RevenueApi.md#getsubscriptionrevenue) | **Get** /reporting/revenue/subscription-sales/{currency_code} | Get subscription revenue info
+*Reporting_SubscriptionsApi* | [**GetSubscriptionReports**](docs/Reporting_SubscriptionsApi.md#getsubscriptionreports) | **Get** /reporting/subscription | Get a list of available subscription reports in most recent first order
+*Reporting_UsageApi* | [**GetUsageByDay**](docs/Reporting_UsageApi.md#getusagebyday) | **Get** /reporting/usage/day | Returns aggregated endpoint usage information by day
+*Reporting_UsageApi* | [**GetUsageByHour**](docs/Reporting_UsageApi.md#getusagebyhour) | **Get** /reporting/usage/hour | Returns aggregated endpoint usage information by hour
+*Reporting_UsageApi* | [**GetUsageByMinute**](docs/Reporting_UsageApi.md#getusagebyminute) | **Get** /reporting/usage/minute | Returns aggregated endpoint usage information by minute
+*Reporting_UsageApi* | [**GetUsageByMonth**](docs/Reporting_UsageApi.md#getusagebymonth) | **Get** /reporting/usage/month | Returns aggregated endpoint usage information by month
+*Reporting_UsageApi* | [**GetUsageByYear**](docs/Reporting_UsageApi.md#getusagebyyear) | **Get** /reporting/usage/year | Returns aggregated endpoint usage information by year
+*Reporting_UsageApi* | [**GetUsageEndpoints**](docs/Reporting_UsageApi.md#getusageendpoints) | **Get** /reporting/usage/endpoints | Returns list of endpoints called (method and url)
+*Reporting_UsersApi* | [**GetUserRegistrations**](docs/Reporting_UsersApi.md#getuserregistrations) | **Get** /reporting/users/registrations | Get user registration info
+*Rule_Engine_ActionsApi* | [**GetBREActions**](docs/Rule_Engine_ActionsApi.md#getbreactions) | **Get** /bre/actions | Get a list of available actions
+*Rule_Engine_EventsApi* | [**SendBREEvent**](docs/Rule_Engine_EventsApi.md#sendbreevent) | **Post** /bre/events | Fire a new event, based on an existing trigger
+*Rule_Engine_ExpressionsApi* | [**GetBREExpression**](docs/Rule_Engine_ExpressionsApi.md#getbreexpression) | **Get** /bre/expressions/{type} | Lookup a specific expression
+*Rule_Engine_ExpressionsApi* | [**GetBREExpressions**](docs/Rule_Engine_ExpressionsApi.md#getbreexpressions) | **Get** /bre/expressions | Get a list of supported expressions to use in conditions or actions.
+*Rule_Engine_ExpressionsApi* | [**GetExpressionAsText**](docs/Rule_Engine_ExpressionsApi.md#getexpressionastext) | **Post** /bre/expressions | Returns the textual representation of an expression
+*Rule_Engine_GlobalsApi* | [**CreateBREGlobal**](docs/Rule_Engine_GlobalsApi.md#createbreglobal) | **Post** /bre/globals/definitions | Create a global definition
+*Rule_Engine_GlobalsApi* | [**DeleteBREGlobal**](docs/Rule_Engine_GlobalsApi.md#deletebreglobal) | **Delete** /bre/globals/definitions/{id} | Delete a global
+*Rule_Engine_GlobalsApi* | [**GetBREGlobal**](docs/Rule_Engine_GlobalsApi.md#getbreglobal) | **Get** /bre/globals/definitions/{id} | Get a single global definition
+*Rule_Engine_GlobalsApi* | [**GetBREGlobals**](docs/Rule_Engine_GlobalsApi.md#getbreglobals) | **Get** /bre/globals/definitions | List global definitions
+*Rule_Engine_GlobalsApi* | [**UpdateBREGlobal**](docs/Rule_Engine_GlobalsApi.md#updatebreglobal) | **Put** /bre/globals/definitions/{id} | Update a global definition
+*Rule_Engine_RulesApi* | [**CreateBRERule**](docs/Rule_Engine_RulesApi.md#createbrerule) | **Post** /bre/rules | Create a rule
+*Rule_Engine_RulesApi* | [**DeleteBRERule**](docs/Rule_Engine_RulesApi.md#deletebrerule) | **Delete** /bre/rules/{id} | Delete a rule
+*Rule_Engine_RulesApi* | [**GetBREExpressionAsString**](docs/Rule_Engine_RulesApi.md#getbreexpressionasstring) | **Post** /bre/rules/expression-as-string | Returns a string representation of the provided expression
+*Rule_Engine_RulesApi* | [**GetBRERule**](docs/Rule_Engine_RulesApi.md#getbrerule) | **Get** /bre/rules/{id} | Get a single rule
+*Rule_Engine_RulesApi* | [**GetBRERules**](docs/Rule_Engine_RulesApi.md#getbrerules) | **Get** /bre/rules | List rules
+*Rule_Engine_RulesApi* | [**SetBRERule**](docs/Rule_Engine_RulesApi.md#setbrerule) | **Put** /bre/rules/{id}/enabled | Enable or disable a rule
+*Rule_Engine_RulesApi* | [**UpdateBRERule**](docs/Rule_Engine_RulesApi.md#updatebrerule) | **Put** /bre/rules/{id} | Update a rule
+*Rule_Engine_TriggersApi* | [**CreateBRETrigger**](docs/Rule_Engine_TriggersApi.md#createbretrigger) | **Post** /bre/triggers | Create a trigger
+*Rule_Engine_TriggersApi* | [**DeleteBRETrigger**](docs/Rule_Engine_TriggersApi.md#deletebretrigger) | **Delete** /bre/triggers/{event_name} | Delete a trigger
+*Rule_Engine_TriggersApi* | [**GetBRETrigger**](docs/Rule_Engine_TriggersApi.md#getbretrigger) | **Get** /bre/triggers/{event_name} | Get a single trigger
+*Rule_Engine_TriggersApi* | [**GetBRETriggers**](docs/Rule_Engine_TriggersApi.md#getbretriggers) | **Get** /bre/triggers | List triggers
+*Rule_Engine_TriggersApi* | [**UpdateBRETrigger**](docs/Rule_Engine_TriggersApi.md#updatebretrigger) | **Put** /bre/triggers/{event_name} | Update a trigger
+*Rule_Engine_VariablesApi* | [**GetBREVariableTypes**](docs/Rule_Engine_VariablesApi.md#getbrevariabletypes) | **Get** /bre/variable-types | Get a list of variable types available
+*Rule_Engine_VariablesApi* | [**GetBREVariableValues**](docs/Rule_Engine_VariablesApi.md#getbrevariablevalues) | **Get** /bre/variable-types/{name}/values | List valid values for a type
 *SearchApi* | [**SearchCountGET**](docs/SearchApi.md#searchcountget) | **Get** /search/count/{type} | Count matches with no template
 *SearchApi* | [**SearchCountPOST**](docs/SearchApi.md#searchcountpost) | **Post** /search/count/{type} | Count matches with no template
 *SearchApi* | [**SearchCountWithTemplateGET**](docs/SearchApi.md#searchcountwithtemplateget) | **Get** /search/count/{type}/{template} | Count matches with a template
@@ -463,8 +459,8 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**SearchValidatePOST**](docs/SearchApi.md#searchvalidatepost) | **Post** /search/validate/{type} | Validate matches with no template
 *SearchApi* | [**SearchValidateWithTemplateGET**](docs/SearchApi.md#searchvalidatewithtemplateget) | **Get** /search/validate/{type}/{template} | Validate matches with a template
 *SearchApi* | [**SearchValidateWithTemplatePOST**](docs/SearchApi.md#searchvalidatewithtemplatepost) | **Post** /search/validate/{type}/{template} | Validate matches with a template
-*SocialFacebookApi* | [**LinkAccounts**](docs/SocialFacebookApi.md#linkaccounts) | **Post** /social/facebook/users | Link facebook account
-*SocialGoogleApi* | [**LinkAccounts1**](docs/SocialGoogleApi.md#linkaccounts1) | **Post** /social/google/users | Link google account
+*Social_FacebookApi* | [**LinkAccounts**](docs/Social_FacebookApi.md#linkaccounts) | **Post** /social/facebook/users | Link facebook account
+*Social_GoogleApi* | [**LinkAccounts1**](docs/Social_GoogleApi.md#linkaccounts1) | **Post** /social/google/users | Link google account
 *StoreApi* | [**CreateItemTemplate**](docs/StoreApi.md#createitemtemplate) | **Post** /store/items/templates | Create an item template
 *StoreApi* | [**CreateStoreItem**](docs/StoreApi.md#createstoreitem) | **Post** /store/items | Create a store item
 *StoreApi* | [**DeleteItemTemplate**](docs/StoreApi.md#deleteitemtemplate) | **Delete** /store/items/templates/{id} | Delete an item template
@@ -477,73 +473,73 @@ Class | Method | HTTP request | Description
 *StoreApi* | [**QuickBuy**](docs/StoreApi.md#quickbuy) | **Post** /store/quick-buy | One-step purchase and pay for a single SKU item from a user&#39;s wallet
 *StoreApi* | [**UpdateItemTemplate**](docs/StoreApi.md#updateitemtemplate) | **Put** /store/items/templates/{id} | Update an item template
 *StoreApi* | [**UpdateStoreItem**](docs/StoreApi.md#updatestoreitem) | **Put** /store/items/{id} | Update a store item
-*StoreBundlesApi* | [**CreateBundleItem**](docs/StoreBundlesApi.md#createbundleitem) | **Post** /store/bundles | Create a bundle item
-*StoreBundlesApi* | [**CreateBundleTemplate**](docs/StoreBundlesApi.md#createbundletemplate) | **Post** /store/bundles/templates | Create a bundle template
-*StoreBundlesApi* | [**DeleteBundleItem**](docs/StoreBundlesApi.md#deletebundleitem) | **Delete** /store/bundles/{id} | Delete a bundle item
-*StoreBundlesApi* | [**DeleteBundleTemplate**](docs/StoreBundlesApi.md#deletebundletemplate) | **Delete** /store/bundles/templates/{id} | Delete a bundle template
-*StoreBundlesApi* | [**GetBundleItem**](docs/StoreBundlesApi.md#getbundleitem) | **Get** /store/bundles/{id} | Get a single bundle item
-*StoreBundlesApi* | [**GetBundleTemplate**](docs/StoreBundlesApi.md#getbundletemplate) | **Get** /store/bundles/templates/{id} | Get a single bundle template
-*StoreBundlesApi* | [**GetBundleTemplates**](docs/StoreBundlesApi.md#getbundletemplates) | **Get** /store/bundles/templates | List and search bundle templates
-*StoreBundlesApi* | [**UpdateBundleItem**](docs/StoreBundlesApi.md#updatebundleitem) | **Put** /store/bundles/{id} | Update a bundle item
-*StoreBundlesApi* | [**UpdateBundleTemplate**](docs/StoreBundlesApi.md#updatebundletemplate) | **Put** /store/bundles/templates/{id} | Update a bundle template
-*StoreCouponsApi* | [**CreateCouponItem**](docs/StoreCouponsApi.md#createcouponitem) | **Post** /store/coupons | Create a coupon item
-*StoreCouponsApi* | [**CreateCouponTemplate**](docs/StoreCouponsApi.md#createcoupontemplate) | **Post** /store/coupons/templates | Create a coupon template
-*StoreCouponsApi* | [**DeleteCouponItem**](docs/StoreCouponsApi.md#deletecouponitem) | **Delete** /store/coupons/{id} | Delete a coupon item
-*StoreCouponsApi* | [**DeleteCouponTemplate**](docs/StoreCouponsApi.md#deletecoupontemplate) | **Delete** /store/coupons/templates/{id} | Delete a coupon template
-*StoreCouponsApi* | [**GetCouponItem**](docs/StoreCouponsApi.md#getcouponitem) | **Get** /store/coupons/{id} | Get a single coupon item
-*StoreCouponsApi* | [**GetCouponItemBySku**](docs/StoreCouponsApi.md#getcouponitembysku) | **Get** /store/coupons/skus/{sku} | Get a coupon by sku
-*StoreCouponsApi* | [**GetCouponTemplate**](docs/StoreCouponsApi.md#getcoupontemplate) | **Get** /store/coupons/templates/{id} | Get a single coupon template
-*StoreCouponsApi* | [**GetCouponTemplates**](docs/StoreCouponsApi.md#getcoupontemplates) | **Get** /store/coupons/templates | List and search coupon templates
-*StoreCouponsApi* | [**UpdateCouponItem**](docs/StoreCouponsApi.md#updatecouponitem) | **Put** /store/coupons/{id} | Update a coupon item
-*StoreCouponsApi* | [**UpdateCouponTemplate**](docs/StoreCouponsApi.md#updatecoupontemplate) | **Put** /store/coupons/templates/{id} | Update a coupon template
-*StoreSalesApi* | [**CreateCatalogSale**](docs/StoreSalesApi.md#createcatalogsale) | **Post** /store/sales | Create a sale
-*StoreSalesApi* | [**DeleteCatalogSale**](docs/StoreSalesApi.md#deletecatalogsale) | **Delete** /store/sales/{id} | Delete a sale
-*StoreSalesApi* | [**GetCatalogSale**](docs/StoreSalesApi.md#getcatalogsale) | **Get** /store/sales/{id} | Get a single sale
-*StoreSalesApi* | [**GetCatalogSales**](docs/StoreSalesApi.md#getcatalogsales) | **Get** /store/sales | List and search sales
-*StoreSalesApi* | [**UpdateCatalogSale**](docs/StoreSalesApi.md#updatecatalogsale) | **Put** /store/sales/{id} | Update a sale
-*StoreShippingApi* | [**CreateShippingItem**](docs/StoreShippingApi.md#createshippingitem) | **Post** /store/shipping | Create a shipping item
-*StoreShippingApi* | [**CreateShippingTemplate**](docs/StoreShippingApi.md#createshippingtemplate) | **Post** /store/shipping/templates | Create a shipping template
-*StoreShippingApi* | [**DeleteShippingItem**](docs/StoreShippingApi.md#deleteshippingitem) | **Delete** /store/shipping/{id} | Delete a shipping item
-*StoreShippingApi* | [**DeleteShippingTemplate**](docs/StoreShippingApi.md#deleteshippingtemplate) | **Delete** /store/shipping/templates/{id} | Delete a shipping template
-*StoreShippingApi* | [**GetShippingItem**](docs/StoreShippingApi.md#getshippingitem) | **Get** /store/shipping/{id} | Get a single shipping item
-*StoreShippingApi* | [**GetShippingTemplate**](docs/StoreShippingApi.md#getshippingtemplate) | **Get** /store/shipping/templates/{id} | Get a single shipping template
-*StoreShippingApi* | [**GetShippingTemplates**](docs/StoreShippingApi.md#getshippingtemplates) | **Get** /store/shipping/templates | List and search shipping templates
-*StoreShippingApi* | [**UpdateShippingItem**](docs/StoreShippingApi.md#updateshippingitem) | **Put** /store/shipping/{id} | Update a shipping item
-*StoreShippingApi* | [**UpdateShippingTemplate**](docs/StoreShippingApi.md#updateshippingtemplate) | **Put** /store/shipping/templates/{id} | Update a shipping template
-*StoreShoppingCartsApi* | [**AddCustomDiscount**](docs/StoreShoppingCartsApi.md#addcustomdiscount) | **Post** /carts/{id}/custom-discounts | Adds a custom discount to the cart
-*StoreShoppingCartsApi* | [**AddDiscountToCart**](docs/StoreShoppingCartsApi.md#adddiscounttocart) | **Post** /carts/{id}/discounts | Adds a discount coupon to the cart
-*StoreShoppingCartsApi* | [**AddItemToCart**](docs/StoreShoppingCartsApi.md#additemtocart) | **Post** /carts/{id}/items | Add an item to the cart
-*StoreShoppingCartsApi* | [**CreateCart**](docs/StoreShoppingCartsApi.md#createcart) | **Post** /carts | Create a cart
-*StoreShoppingCartsApi* | [**GetCart**](docs/StoreShoppingCartsApi.md#getcart) | **Get** /carts/{id} | Returns the cart with the given GUID
-*StoreShoppingCartsApi* | [**GetCarts**](docs/StoreShoppingCartsApi.md#getcarts) | **Get** /carts | Get a list of carts
-*StoreShoppingCartsApi* | [**GetShippable**](docs/StoreShoppingCartsApi.md#getshippable) | **Get** /carts/{id}/shippable | Returns whether a cart requires shipping
-*StoreShoppingCartsApi* | [**GetShippingCountries**](docs/StoreShoppingCartsApi.md#getshippingcountries) | **Get** /carts/{id}/countries | Get the list of available shipping countries per vendor
-*StoreShoppingCartsApi* | [**RemoveDiscountFromCart**](docs/StoreShoppingCartsApi.md#removediscountfromcart) | **Delete** /carts/{id}/discounts/{code} | Removes a discount coupon from the cart
-*StoreShoppingCartsApi* | [**SetCartCurrency**](docs/StoreShoppingCartsApi.md#setcartcurrency) | **Put** /carts/{id}/currency | Sets the currency to use for the cart
-*StoreShoppingCartsApi* | [**SetCartOwner**](docs/StoreShoppingCartsApi.md#setcartowner) | **Put** /carts/{id}/owner | Sets the owner of a cart if none is set already
-*StoreShoppingCartsApi* | [**UpdateItemInCart**](docs/StoreShoppingCartsApi.md#updateitemincart) | **Put** /carts/{id}/items | Changes the quantity of an item already in the cart
-*StoreShoppingCartsApi* | [**UpdateShippingAddress**](docs/StoreShoppingCartsApi.md#updateshippingaddress) | **Put** /carts/{id}/shipping-address | Modifies or sets the order shipping address
-*StoreSubscriptionsApi* | [**CreateSubscription**](docs/StoreSubscriptionsApi.md#createsubscription) | **Post** /subscriptions | Creates a subscription item and associated plans
-*StoreSubscriptionsApi* | [**CreateSubscriptionTemplate**](docs/StoreSubscriptionsApi.md#createsubscriptiontemplate) | **Post** /subscriptions/templates | Create a subscription template
-*StoreSubscriptionsApi* | [**DeleteSubscription**](docs/StoreSubscriptionsApi.md#deletesubscription) | **Delete** /subscriptions/{id}/plans/{plan_id} | Delete a subscription plan
-*StoreSubscriptionsApi* | [**DeleteSubscriptionTemplate**](docs/StoreSubscriptionsApi.md#deletesubscriptiontemplate) | **Delete** /subscriptions/templates/{id} | Delete a subscription template
-*StoreSubscriptionsApi* | [**GetSubscription**](docs/StoreSubscriptionsApi.md#getsubscription) | **Get** /subscriptions/{id} | Retrieve a single subscription item and associated plans
-*StoreSubscriptionsApi* | [**GetSubscriptionTemplate**](docs/StoreSubscriptionsApi.md#getsubscriptiontemplate) | **Get** /subscriptions/templates/{id} | Get a single subscription template
-*StoreSubscriptionsApi* | [**GetSubscriptionTemplates**](docs/StoreSubscriptionsApi.md#getsubscriptiontemplates) | **Get** /subscriptions/templates | List and search subscription templates
-*StoreSubscriptionsApi* | [**GetSubscriptions**](docs/StoreSubscriptionsApi.md#getsubscriptions) | **Get** /subscriptions | List available subscription items and associated plans
-*StoreSubscriptionsApi* | [**ProcessSubscriptions**](docs/StoreSubscriptionsApi.md#processsubscriptions) | **Post** /subscriptions/process | Processes subscriptions and charge dues
-*StoreSubscriptionsApi* | [**UpdateSubscription**](docs/StoreSubscriptionsApi.md#updatesubscription) | **Put** /subscriptions/{id} | Updates a subscription item and associated plans
-*StoreSubscriptionsApi* | [**UpdateSubscriptionTemplate**](docs/StoreSubscriptionsApi.md#updatesubscriptiontemplate) | **Put** /subscriptions/templates/{id} | Update a subscription template
-*StoreVendorsApi* | [**CreateVendor**](docs/StoreVendorsApi.md#createvendor) | **Post** /vendors | Create a vendor
-*StoreVendorsApi* | [**CreateVendorTemplate**](docs/StoreVendorsApi.md#createvendortemplate) | **Post** /vendors/templates | Create a vendor template
-*StoreVendorsApi* | [**DeleteVendor**](docs/StoreVendorsApi.md#deletevendor) | **Delete** /vendors/{id} | Delete a vendor
-*StoreVendorsApi* | [**DeleteVendorTemplate**](docs/StoreVendorsApi.md#deletevendortemplate) | **Delete** /vendors/templates/{id} | Delete a vendor template
-*StoreVendorsApi* | [**GetVendor**](docs/StoreVendorsApi.md#getvendor) | **Get** /vendors/{id} | Get a single vendor
-*StoreVendorsApi* | [**GetVendorTemplate**](docs/StoreVendorsApi.md#getvendortemplate) | **Get** /vendors/templates/{id} | Get a single vendor template
-*StoreVendorsApi* | [**GetVendorTemplates**](docs/StoreVendorsApi.md#getvendortemplates) | **Get** /vendors/templates | List and search vendor templates
-*StoreVendorsApi* | [**GetVendors**](docs/StoreVendorsApi.md#getvendors) | **Get** /vendors | List and search vendors
-*StoreVendorsApi* | [**UpdateVendor**](docs/StoreVendorsApi.md#updatevendor) | **Put** /vendors/{id} | Update a vendor
-*StoreVendorsApi* | [**UpdateVendorTemplate**](docs/StoreVendorsApi.md#updatevendortemplate) | **Put** /vendors/templates/{id} | Update a vendor template
+*Store_BundlesApi* | [**CreateBundleItem**](docs/Store_BundlesApi.md#createbundleitem) | **Post** /store/bundles | Create a bundle item
+*Store_BundlesApi* | [**CreateBundleTemplate**](docs/Store_BundlesApi.md#createbundletemplate) | **Post** /store/bundles/templates | Create a bundle template
+*Store_BundlesApi* | [**DeleteBundleItem**](docs/Store_BundlesApi.md#deletebundleitem) | **Delete** /store/bundles/{id} | Delete a bundle item
+*Store_BundlesApi* | [**DeleteBundleTemplate**](docs/Store_BundlesApi.md#deletebundletemplate) | **Delete** /store/bundles/templates/{id} | Delete a bundle template
+*Store_BundlesApi* | [**GetBundleItem**](docs/Store_BundlesApi.md#getbundleitem) | **Get** /store/bundles/{id} | Get a single bundle item
+*Store_BundlesApi* | [**GetBundleTemplate**](docs/Store_BundlesApi.md#getbundletemplate) | **Get** /store/bundles/templates/{id} | Get a single bundle template
+*Store_BundlesApi* | [**GetBundleTemplates**](docs/Store_BundlesApi.md#getbundletemplates) | **Get** /store/bundles/templates | List and search bundle templates
+*Store_BundlesApi* | [**UpdateBundleItem**](docs/Store_BundlesApi.md#updatebundleitem) | **Put** /store/bundles/{id} | Update a bundle item
+*Store_BundlesApi* | [**UpdateBundleTemplate**](docs/Store_BundlesApi.md#updatebundletemplate) | **Put** /store/bundles/templates/{id} | Update a bundle template
+*Store_CouponsApi* | [**CreateCouponItem**](docs/Store_CouponsApi.md#createcouponitem) | **Post** /store/coupons | Create a coupon item
+*Store_CouponsApi* | [**CreateCouponTemplate**](docs/Store_CouponsApi.md#createcoupontemplate) | **Post** /store/coupons/templates | Create a coupon template
+*Store_CouponsApi* | [**DeleteCouponItem**](docs/Store_CouponsApi.md#deletecouponitem) | **Delete** /store/coupons/{id} | Delete a coupon item
+*Store_CouponsApi* | [**DeleteCouponTemplate**](docs/Store_CouponsApi.md#deletecoupontemplate) | **Delete** /store/coupons/templates/{id} | Delete a coupon template
+*Store_CouponsApi* | [**GetCouponItem**](docs/Store_CouponsApi.md#getcouponitem) | **Get** /store/coupons/{id} | Get a single coupon item
+*Store_CouponsApi* | [**GetCouponItemBySku**](docs/Store_CouponsApi.md#getcouponitembysku) | **Get** /store/coupons/skus/{sku} | Get a coupon by sku
+*Store_CouponsApi* | [**GetCouponTemplate**](docs/Store_CouponsApi.md#getcoupontemplate) | **Get** /store/coupons/templates/{id} | Get a single coupon template
+*Store_CouponsApi* | [**GetCouponTemplates**](docs/Store_CouponsApi.md#getcoupontemplates) | **Get** /store/coupons/templates | List and search coupon templates
+*Store_CouponsApi* | [**UpdateCouponItem**](docs/Store_CouponsApi.md#updatecouponitem) | **Put** /store/coupons/{id} | Update a coupon item
+*Store_CouponsApi* | [**UpdateCouponTemplate**](docs/Store_CouponsApi.md#updatecoupontemplate) | **Put** /store/coupons/templates/{id} | Update a coupon template
+*Store_SalesApi* | [**CreateCatalogSale**](docs/Store_SalesApi.md#createcatalogsale) | **Post** /store/sales | Create a sale
+*Store_SalesApi* | [**DeleteCatalogSale**](docs/Store_SalesApi.md#deletecatalogsale) | **Delete** /store/sales/{id} | Delete a sale
+*Store_SalesApi* | [**GetCatalogSale**](docs/Store_SalesApi.md#getcatalogsale) | **Get** /store/sales/{id} | Get a single sale
+*Store_SalesApi* | [**GetCatalogSales**](docs/Store_SalesApi.md#getcatalogsales) | **Get** /store/sales | List and search sales
+*Store_SalesApi* | [**UpdateCatalogSale**](docs/Store_SalesApi.md#updatecatalogsale) | **Put** /store/sales/{id} | Update a sale
+*Store_ShippingApi* | [**CreateShippingItem**](docs/Store_ShippingApi.md#createshippingitem) | **Post** /store/shipping | Create a shipping item
+*Store_ShippingApi* | [**CreateShippingTemplate**](docs/Store_ShippingApi.md#createshippingtemplate) | **Post** /store/shipping/templates | Create a shipping template
+*Store_ShippingApi* | [**DeleteShippingItem**](docs/Store_ShippingApi.md#deleteshippingitem) | **Delete** /store/shipping/{id} | Delete a shipping item
+*Store_ShippingApi* | [**DeleteShippingTemplate**](docs/Store_ShippingApi.md#deleteshippingtemplate) | **Delete** /store/shipping/templates/{id} | Delete a shipping template
+*Store_ShippingApi* | [**GetShippingItem**](docs/Store_ShippingApi.md#getshippingitem) | **Get** /store/shipping/{id} | Get a single shipping item
+*Store_ShippingApi* | [**GetShippingTemplate**](docs/Store_ShippingApi.md#getshippingtemplate) | **Get** /store/shipping/templates/{id} | Get a single shipping template
+*Store_ShippingApi* | [**GetShippingTemplates**](docs/Store_ShippingApi.md#getshippingtemplates) | **Get** /store/shipping/templates | List and search shipping templates
+*Store_ShippingApi* | [**UpdateShippingItem**](docs/Store_ShippingApi.md#updateshippingitem) | **Put** /store/shipping/{id} | Update a shipping item
+*Store_ShippingApi* | [**UpdateShippingTemplate**](docs/Store_ShippingApi.md#updateshippingtemplate) | **Put** /store/shipping/templates/{id} | Update a shipping template
+*Store_Shopping_CartsApi* | [**AddCustomDiscount**](docs/Store_Shopping_CartsApi.md#addcustomdiscount) | **Post** /carts/{id}/custom-discounts | Adds a custom discount to the cart
+*Store_Shopping_CartsApi* | [**AddDiscountToCart**](docs/Store_Shopping_CartsApi.md#adddiscounttocart) | **Post** /carts/{id}/discounts | Adds a discount coupon to the cart
+*Store_Shopping_CartsApi* | [**AddItemToCart**](docs/Store_Shopping_CartsApi.md#additemtocart) | **Post** /carts/{id}/items | Add an item to the cart
+*Store_Shopping_CartsApi* | [**CreateCart**](docs/Store_Shopping_CartsApi.md#createcart) | **Post** /carts | Create a cart
+*Store_Shopping_CartsApi* | [**GetCart**](docs/Store_Shopping_CartsApi.md#getcart) | **Get** /carts/{id} | Returns the cart with the given GUID
+*Store_Shopping_CartsApi* | [**GetCarts**](docs/Store_Shopping_CartsApi.md#getcarts) | **Get** /carts | Get a list of carts
+*Store_Shopping_CartsApi* | [**GetShippable**](docs/Store_Shopping_CartsApi.md#getshippable) | **Get** /carts/{id}/shippable | Returns whether a cart requires shipping
+*Store_Shopping_CartsApi* | [**GetShippingCountries**](docs/Store_Shopping_CartsApi.md#getshippingcountries) | **Get** /carts/{id}/countries | Get the list of available shipping countries per vendor
+*Store_Shopping_CartsApi* | [**RemoveDiscountFromCart**](docs/Store_Shopping_CartsApi.md#removediscountfromcart) | **Delete** /carts/{id}/discounts/{code} | Removes a discount coupon from the cart
+*Store_Shopping_CartsApi* | [**SetCartCurrency**](docs/Store_Shopping_CartsApi.md#setcartcurrency) | **Put** /carts/{id}/currency | Sets the currency to use for the cart
+*Store_Shopping_CartsApi* | [**SetCartOwner**](docs/Store_Shopping_CartsApi.md#setcartowner) | **Put** /carts/{id}/owner | Sets the owner of a cart if none is set already
+*Store_Shopping_CartsApi* | [**UpdateItemInCart**](docs/Store_Shopping_CartsApi.md#updateitemincart) | **Put** /carts/{id}/items | Changes the quantity of an item already in the cart
+*Store_Shopping_CartsApi* | [**UpdateShippingAddress**](docs/Store_Shopping_CartsApi.md#updateshippingaddress) | **Put** /carts/{id}/shipping-address | Modifies or sets the order shipping address
+*Store_SubscriptionsApi* | [**CreateSubscription**](docs/Store_SubscriptionsApi.md#createsubscription) | **Post** /subscriptions | Creates a subscription item and associated plans
+*Store_SubscriptionsApi* | [**CreateSubscriptionTemplate**](docs/Store_SubscriptionsApi.md#createsubscriptiontemplate) | **Post** /subscriptions/templates | Create a subscription template
+*Store_SubscriptionsApi* | [**DeleteSubscription**](docs/Store_SubscriptionsApi.md#deletesubscription) | **Delete** /subscriptions/{id}/plans/{plan_id} | Delete a subscription plan
+*Store_SubscriptionsApi* | [**DeleteSubscriptionTemplate**](docs/Store_SubscriptionsApi.md#deletesubscriptiontemplate) | **Delete** /subscriptions/templates/{id} | Delete a subscription template
+*Store_SubscriptionsApi* | [**GetSubscription**](docs/Store_SubscriptionsApi.md#getsubscription) | **Get** /subscriptions/{id} | Retrieve a single subscription item and associated plans
+*Store_SubscriptionsApi* | [**GetSubscriptionTemplate**](docs/Store_SubscriptionsApi.md#getsubscriptiontemplate) | **Get** /subscriptions/templates/{id} | Get a single subscription template
+*Store_SubscriptionsApi* | [**GetSubscriptionTemplates**](docs/Store_SubscriptionsApi.md#getsubscriptiontemplates) | **Get** /subscriptions/templates | List and search subscription templates
+*Store_SubscriptionsApi* | [**GetSubscriptions**](docs/Store_SubscriptionsApi.md#getsubscriptions) | **Get** /subscriptions | List available subscription items and associated plans
+*Store_SubscriptionsApi* | [**ProcessSubscriptions**](docs/Store_SubscriptionsApi.md#processsubscriptions) | **Post** /subscriptions/process | Processes subscriptions and charge dues
+*Store_SubscriptionsApi* | [**UpdateSubscription**](docs/Store_SubscriptionsApi.md#updatesubscription) | **Put** /subscriptions/{id} | Updates a subscription item and associated plans
+*Store_SubscriptionsApi* | [**UpdateSubscriptionTemplate**](docs/Store_SubscriptionsApi.md#updatesubscriptiontemplate) | **Put** /subscriptions/templates/{id} | Update a subscription template
+*Store_VendorsApi* | [**CreateVendor**](docs/Store_VendorsApi.md#createvendor) | **Post** /vendors | Create a vendor
+*Store_VendorsApi* | [**CreateVendorTemplate**](docs/Store_VendorsApi.md#createvendortemplate) | **Post** /vendors/templates | Create a vendor template
+*Store_VendorsApi* | [**DeleteVendor**](docs/Store_VendorsApi.md#deletevendor) | **Delete** /vendors/{id} | Delete a vendor
+*Store_VendorsApi* | [**DeleteVendorTemplate**](docs/Store_VendorsApi.md#deletevendortemplate) | **Delete** /vendors/templates/{id} | Delete a vendor template
+*Store_VendorsApi* | [**GetVendor**](docs/Store_VendorsApi.md#getvendor) | **Get** /vendors/{id} | Get a single vendor
+*Store_VendorsApi* | [**GetVendorTemplate**](docs/Store_VendorsApi.md#getvendortemplate) | **Get** /vendors/templates/{id} | Get a single vendor template
+*Store_VendorsApi* | [**GetVendorTemplates**](docs/Store_VendorsApi.md#getvendortemplates) | **Get** /vendors/templates | List and search vendor templates
+*Store_VendorsApi* | [**GetVendors**](docs/Store_VendorsApi.md#getvendors) | **Get** /vendors | List and search vendors
+*Store_VendorsApi* | [**UpdateVendor**](docs/Store_VendorsApi.md#updatevendor) | **Put** /vendors/{id} | Update a vendor
+*Store_VendorsApi* | [**UpdateVendorTemplate**](docs/Store_VendorsApi.md#updatevendortemplate) | **Put** /vendors/templates/{id} | Update a vendor template
 *TaxesApi* | [**CreateCountryTax**](docs/TaxesApi.md#createcountrytax) | **Post** /tax/countries | Create a country tax
 *TaxesApi* | [**CreateStateTax**](docs/TaxesApi.md#createstatetax) | **Post** /tax/countries/{country_code_iso3}/states | Create a state tax
 *TaxesApi* | [**DeleteCountryTax**](docs/TaxesApi.md#deletecountrytax) | **Delete** /tax/countries/{country_code_iso3} | Delete an existing tax
@@ -555,12 +551,12 @@ Class | Method | HTTP request | Description
 *TaxesApi* | [**GetStateTaxesForCountry**](docs/TaxesApi.md#getstatetaxesforcountry) | **Get** /tax/countries/{country_code_iso3}/states | List and search taxes within a country
 *TaxesApi* | [**UpdateCountryTax**](docs/TaxesApi.md#updatecountrytax) | **Put** /tax/countries/{country_code_iso3} | Create or update a tax
 *TaxesApi* | [**UpdateStateTax**](docs/TaxesApi.md#updatestatetax) | **Put** /tax/countries/{country_code_iso3}/states/{state_code} | Create or update a state tax
-*TemplatesPropertiesApi* | [**GetTemplatePropertyType**](docs/TemplatesPropertiesApi.md#gettemplatepropertytype) | **Get** /templates/properties/{type} | Get details for a template property type
-*TemplatesPropertiesApi* | [**GetTemplatePropertyTypes**](docs/TemplatesPropertiesApi.md#gettemplatepropertytypes) | **Get** /templates/properties | List template property types
+*Templates_PropertiesApi* | [**GetTemplatePropertyType**](docs/Templates_PropertiesApi.md#gettemplatepropertytype) | **Get** /templates/properties/{type} | Get details for a template property type
+*Templates_PropertiesApi* | [**GetTemplatePropertyTypes**](docs/Templates_PropertiesApi.md#gettemplatepropertytypes) | **Get** /templates/properties | List template property types
 *UsersApi* | [**AddUserTag**](docs/UsersApi.md#addusertag) | **Post** /users/{user_id}/tags | Add a tag to a user
 *UsersApi* | [**CreateUserTemplate**](docs/UsersApi.md#createusertemplate) | **Post** /users/templates | Create a user template
 *UsersApi* | [**DeleteUserTemplate**](docs/UsersApi.md#deleteusertemplate) | **Delete** /users/templates/{id} | Delete a user template
-*UsersApi* | [**GetDirectMessages1**](docs/UsersApi.md#getdirectmessages1) | **Get** /users/users/{recipient_id}/messages | Get a list of direct messages with this user
+*UsersApi* | [**GetDirectMessages1**](docs/UsersApi.md#getdirectmessages1) | **Get** /users/{recipient_id}/messages | Get a list of direct messages with this user
 *UsersApi* | [**GetUser**](docs/UsersApi.md#getuser) | **Get** /users/{id} | Get a single user
 *UsersApi* | [**GetUserTags**](docs/UsersApi.md#getusertags) | **Get** /users/{user_id}/tags | List tags for a user
 *UsersApi* | [**GetUserTemplate**](docs/UsersApi.md#getusertemplate) | **Get** /users/templates/{id} | Get a single user template
@@ -575,89 +571,89 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**SubmitPasswordReset**](docs/UsersApi.md#submitpasswordreset) | **Post** /users/password-reset | Reset a user&#39;s password without user id
 *UsersApi* | [**UpdateUser**](docs/UsersApi.md#updateuser) | **Put** /users/{id} | Update a user
 *UsersApi* | [**UpdateUserTemplate**](docs/UsersApi.md#updateusertemplate) | **Put** /users/templates/{id} | Update a user template
-*UsersAddressesApi* | [**CreateAddress**](docs/UsersAddressesApi.md#createaddress) | **Post** /users/{user_id}/addresses | Create a new address
-*UsersAddressesApi* | [**DeleteAddress**](docs/UsersAddressesApi.md#deleteaddress) | **Delete** /users/{user_id}/addresses/{id} | Delete an address
-*UsersAddressesApi* | [**GetAddress**](docs/UsersAddressesApi.md#getaddress) | **Get** /users/{user_id}/addresses/{id} | Get a single address
-*UsersAddressesApi* | [**GetAddresses**](docs/UsersAddressesApi.md#getaddresses) | **Get** /users/{user_id}/addresses | List and search addresses
-*UsersAddressesApi* | [**UpdateAddress**](docs/UsersAddressesApi.md#updateaddress) | **Put** /users/{user_id}/addresses/{id} | Update an address
-*UsersFriendshipsApi* | [**AddFriend**](docs/UsersFriendshipsApi.md#addfriend) | **Post** /users/{user_id}/friends/{id} | Add a friend
-*UsersFriendshipsApi* | [**GetFriends**](docs/UsersFriendshipsApi.md#getfriends) | **Get** /users/{user_id}/friends | Get friends list
-*UsersFriendshipsApi* | [**GetInviteToken**](docs/UsersFriendshipsApi.md#getinvitetoken) | **Get** /users/{user_id}/invite-token | Returns the invite token
-*UsersFriendshipsApi* | [**GetInvites**](docs/UsersFriendshipsApi.md#getinvites) | **Get** /users/{user_id}/invites | Get pending invites
-*UsersFriendshipsApi* | [**RedeemFriendshipToken**](docs/UsersFriendshipsApi.md#redeemfriendshiptoken) | **Post** /users/{user_id}/friends/tokens | Redeem friendship token
-*UsersFriendshipsApi* | [**RemoveOrDeclineFriend**](docs/UsersFriendshipsApi.md#removeordeclinefriend) | **Delete** /users/{user_id}/friends/{id} | Remove or decline a friend
-*UsersGroupsApi* | [**AddMemberToGroup**](docs/UsersGroupsApi.md#addmembertogroup) | **Post** /users/groups/{unique_name}/members | Adds a new member to the group
-*UsersGroupsApi* | [**AddMembersToGroup**](docs/UsersGroupsApi.md#addmemberstogroup) | **Post** /users/groups/{unique_name}/members/batch-add | Adds multiple members to the group
-*UsersGroupsApi* | [**CreateGroup**](docs/UsersGroupsApi.md#creategroup) | **Post** /users/groups | Create a group
-*UsersGroupsApi* | [**CreateGroupMemberTemplate**](docs/UsersGroupsApi.md#creategroupmembertemplate) | **Post** /users/groups/members/templates | Create an group member template
-*UsersGroupsApi* | [**CreateGroupTemplate**](docs/UsersGroupsApi.md#creategrouptemplate) | **Post** /users/groups/templates | Create a group template
-*UsersGroupsApi* | [**DeleteGroup**](docs/UsersGroupsApi.md#deletegroup) | **Delete** /users/groups/{unique_name} | Removes a group from the system
-*UsersGroupsApi* | [**DeleteGroupMemberTemplate**](docs/UsersGroupsApi.md#deletegroupmembertemplate) | **Delete** /users/groups/members/templates/{id} | Delete an group member template
-*UsersGroupsApi* | [**DeleteGroupTemplate**](docs/UsersGroupsApi.md#deletegrouptemplate) | **Delete** /users/groups/templates/{id} | Delete a group template
-*UsersGroupsApi* | [**DisableGroupNotification**](docs/UsersGroupsApi.md#disablegroupnotification) | **Put** /users/groups/{unique_name}/members/{user_id}/messages/disabled | Enable or disable notification of group messages
-*UsersGroupsApi* | [**GetGroup**](docs/UsersGroupsApi.md#getgroup) | **Get** /users/groups/{unique_name} | Loads a specific group&#39;s details
-*UsersGroupsApi* | [**GetGroupAncestors**](docs/UsersGroupsApi.md#getgroupancestors) | **Get** /users/groups/{unique_name}/ancestors | Get group ancestors
-*UsersGroupsApi* | [**GetGroupMember**](docs/UsersGroupsApi.md#getgroupmember) | **Get** /users/groups/{unique_name}/members/{user_id} | Get a user from a group
-*UsersGroupsApi* | [**GetGroupMemberTemplate**](docs/UsersGroupsApi.md#getgroupmembertemplate) | **Get** /users/groups/members/templates/{id} | Get a single group member template
-*UsersGroupsApi* | [**GetGroupMemberTemplates**](docs/UsersGroupsApi.md#getgroupmembertemplates) | **Get** /users/groups/members/templates | List and search group member templates
-*UsersGroupsApi* | [**GetGroupMembers**](docs/UsersGroupsApi.md#getgroupmembers) | **Get** /users/groups/{unique_name}/members | Lists members of the group
-*UsersGroupsApi* | [**GetGroupMessages**](docs/UsersGroupsApi.md#getgroupmessages) | **Get** /users/groups/{unique_name}/messages | Get a list of group messages
-*UsersGroupsApi* | [**GetGroupTemplate**](docs/UsersGroupsApi.md#getgrouptemplate) | **Get** /users/groups/templates/{id} | Get a single group template
-*UsersGroupsApi* | [**GetGroupTemplates**](docs/UsersGroupsApi.md#getgrouptemplates) | **Get** /users/groups/templates | List and search group templates
-*UsersGroupsApi* | [**GetGroupsForUser**](docs/UsersGroupsApi.md#getgroupsforuser) | **Get** /users/{user_id}/groups | List groups a user is in
-*UsersGroupsApi* | [**ListGroups**](docs/UsersGroupsApi.md#listgroups) | **Get** /users/groups | List and search groups
-*UsersGroupsApi* | [**PostGroupMessage**](docs/UsersGroupsApi.md#postgroupmessage) | **Post** /users/groups/{unique_name}/messages | Send a group message
-*UsersGroupsApi* | [**RemoveGroupMember**](docs/UsersGroupsApi.md#removegroupmember) | **Delete** /users/groups/{unique_name}/members/{user_id} | Removes a user from a group
-*UsersGroupsApi* | [**UpdateGroup**](docs/UsersGroupsApi.md#updategroup) | **Put** /users/groups/{unique_name} | Update a group
-*UsersGroupsApi* | [**UpdateGroupMemberProperties**](docs/UsersGroupsApi.md#updategroupmemberproperties) | **Put** /users/groups/{unique_name}/members/{user_id}/order | Change a user&#39;s order
-*UsersGroupsApi* | [**UpdateGroupMemberProperties1**](docs/UsersGroupsApi.md#updategroupmemberproperties1) | **Put** /users/groups/{unique_name}/members/{user_id}/properties | Change a user&#39;s membership properties
-*UsersGroupsApi* | [**UpdateGroupMemberStatus**](docs/UsersGroupsApi.md#updategroupmemberstatus) | **Put** /users/groups/{unique_name}/members/{user_id}/status | Change a user&#39;s status
-*UsersGroupsApi* | [**UpdateGroupMemberTemplate**](docs/UsersGroupsApi.md#updategroupmembertemplate) | **Put** /users/groups/members/templates/{id} | Update an group member template
-*UsersGroupsApi* | [**UpdateGroupTemplate**](docs/UsersGroupsApi.md#updategrouptemplate) | **Put** /users/groups/templates/{id} | Update a group template
-*UsersInventoryApi* | [**AddItemToUserInventory**](docs/UsersInventoryApi.md#additemtouserinventory) | **Post** /users/{id}/inventory | Adds an item to the user inventory
-*UsersInventoryApi* | [**CheckUserEntitlementItem**](docs/UsersInventoryApi.md#checkuserentitlementitem) | **Get** /users/{user_id}/entitlements/{item_id}/check | Check for access to an item without consuming
-*UsersInventoryApi* | [**CreateEntitlementItem**](docs/UsersInventoryApi.md#createentitlementitem) | **Post** /entitlements | Create an entitlement item
-*UsersInventoryApi* | [**CreateEntitlementTemplate**](docs/UsersInventoryApi.md#createentitlementtemplate) | **Post** /entitlements/templates | Create an entitlement template
-*UsersInventoryApi* | [**DeleteEntitlementItem**](docs/UsersInventoryApi.md#deleteentitlementitem) | **Delete** /entitlements/{entitlement_id} | Delete an entitlement item
-*UsersInventoryApi* | [**DeleteEntitlementTemplate**](docs/UsersInventoryApi.md#deleteentitlementtemplate) | **Delete** /entitlements/templates/{id} | Delete an entitlement template
-*UsersInventoryApi* | [**GetEntitlementItem**](docs/UsersInventoryApi.md#getentitlementitem) | **Get** /entitlements/{entitlement_id} | Get a single entitlement item
-*UsersInventoryApi* | [**GetEntitlementItems**](docs/UsersInventoryApi.md#getentitlementitems) | **Get** /entitlements | List and search entitlement items
-*UsersInventoryApi* | [**GetEntitlementTemplate**](docs/UsersInventoryApi.md#getentitlementtemplate) | **Get** /entitlements/templates/{id} | Get a single entitlement template
-*UsersInventoryApi* | [**GetEntitlementTemplates**](docs/UsersInventoryApi.md#getentitlementtemplates) | **Get** /entitlements/templates | List and search entitlement templates
-*UsersInventoryApi* | [**GetUserInventories**](docs/UsersInventoryApi.md#getuserinventories) | **Get** /users/{id}/inventory | List the user inventory entries for a given user
-*UsersInventoryApi* | [**GetUserInventory**](docs/UsersInventoryApi.md#getuserinventory) | **Get** /users/{user_id}/inventory/{id} | Get an inventory entry
-*UsersInventoryApi* | [**GetUserInventoryLog**](docs/UsersInventoryApi.md#getuserinventorylog) | **Get** /users/{user_id}/inventory/{id}/log | List the log entries for this inventory entry
-*UsersInventoryApi* | [**GetUsersInventory**](docs/UsersInventoryApi.md#getusersinventory) | **Get** /inventories | List the user inventory entries for all users
-*UsersInventoryApi* | [**GrantUserEntitlement**](docs/UsersInventoryApi.md#grantuserentitlement) | **Post** /users/{user_id}/entitlements | Grant an entitlement
-*UsersInventoryApi* | [**UpdateEntitlementItem**](docs/UsersInventoryApi.md#updateentitlementitem) | **Put** /entitlements/{entitlement_id} | Update an entitlement item
-*UsersInventoryApi* | [**UpdateEntitlementTemplate**](docs/UsersInventoryApi.md#updateentitlementtemplate) | **Put** /entitlements/templates/{id} | Update an entitlement template
-*UsersInventoryApi* | [**UpdateUserInventoryBehaviorData**](docs/UsersInventoryApi.md#updateuserinventorybehaviordata) | **Put** /users/{user_id}/inventory/{id}/behavior-data | Set the behavior data for an inventory entry
-*UsersInventoryApi* | [**UpdateUserInventoryExpires**](docs/UsersInventoryApi.md#updateuserinventoryexpires) | **Put** /users/{user_id}/inventory/{id}/expires | Set the expiration date
-*UsersInventoryApi* | [**UpdateUserInventoryStatus**](docs/UsersInventoryApi.md#updateuserinventorystatus) | **Put** /users/{user_id}/inventory/{id}/status | Set the status for an inventory entry
-*UsersInventoryApi* | [**UseUserEntitlementItem**](docs/UsersInventoryApi.md#useuserentitlementitem) | **Post** /users/{user_id}/entitlements/{item_id}/use | Use an item
-*UsersRelationshipsApi* | [**CreateUserRelationship**](docs/UsersRelationshipsApi.md#createuserrelationship) | **Post** /users/relationships | Create a user relationship
-*UsersRelationshipsApi* | [**DeleteUserRelationship**](docs/UsersRelationshipsApi.md#deleteuserrelationship) | **Delete** /users/relationships/{id} | Delete a user relationship
-*UsersRelationshipsApi* | [**GetUserRelationship**](docs/UsersRelationshipsApi.md#getuserrelationship) | **Get** /users/relationships/{id} | Get a user relationship
-*UsersRelationshipsApi* | [**GetUserRelationships**](docs/UsersRelationshipsApi.md#getuserrelationships) | **Get** /users/relationships | Get a list of user relationships
-*UsersRelationshipsApi* | [**UpdateUserRelationship**](docs/UsersRelationshipsApi.md#updateuserrelationship) | **Put** /users/relationships/{id} | Update a user relationship
-*UsersSubscriptionsApi* | [**GetUserSubscriptionDetails**](docs/UsersSubscriptionsApi.md#getusersubscriptiondetails) | **Get** /users/{user_id}/subscriptions/{inventory_id} | Get details about a user&#39;s subscription
-*UsersSubscriptionsApi* | [**GetUsersSubscriptionDetails**](docs/UsersSubscriptionsApi.md#getuserssubscriptiondetails) | **Get** /users/{user_id}/subscriptions | Get details about a user&#39;s subscriptions
-*UsersSubscriptionsApi* | [**ReactivateUserSubscription**](docs/UsersSubscriptionsApi.md#reactivateusersubscription) | **Post** /users/{user_id}/subscriptions/{inventory_id}/reactivate | Reactivate a subscription and charge fee
-*UsersSubscriptionsApi* | [**SetSubscriptionBillDate**](docs/UsersSubscriptionsApi.md#setsubscriptionbilldate) | **Put** /users/{user_id}/subscriptions/{inventory_id}/bill-date | Set a new date to bill a subscription on
-*UsersSubscriptionsApi* | [**SetSubscriptionPaymentMethod**](docs/UsersSubscriptionsApi.md#setsubscriptionpaymentmethod) | **Put** /users/{user_id}/subscriptions/{inventory_id}/payment-method | Set the payment method to use for a subscription
-*UsersSubscriptionsApi* | [**SetSubscriptionStatus**](docs/UsersSubscriptionsApi.md#setsubscriptionstatus) | **Put** /users/{user_id}/subscriptions/{inventory_id}/status | Set the status of a subscription
-*UsersSubscriptionsApi* | [**SetUserSubscriptionPlan**](docs/UsersSubscriptionsApi.md#setusersubscriptionplan) | **Put** /users/{user_id}/subscriptions/{inventory_id}/plan | Set a new subscription plan for a user
-*UsersSubscriptionsApi* | [**SetUserSubscriptionPrice**](docs/UsersSubscriptionsApi.md#setusersubscriptionprice) | **Put** /users/{user_id}/subscriptions/{inventory_id}/price-override | Set a new subscription price for a user
-*UtilBatchApi* | [**GetBatch**](docs/UtilBatchApi.md#getbatch) | **Get** /batch/{token} | Get batch result with token
-*UtilBatchApi* | [**SendBatch**](docs/UtilBatchApi.md#sendbatch) | **Post** /batch | Request to run API call given the method, content type, path url, and body of request
-*UtilHealthApi* | [**GetHealth**](docs/UtilHealthApi.md#gethealth) | **Get** /health | Get health info
-*UtilMaintenanceApi* | [**DeleteMaintenance**](docs/UtilMaintenanceApi.md#deletemaintenance) | **Delete** /maintenance | Delete maintenance info
-*UtilMaintenanceApi* | [**GetMaintenance**](docs/UtilMaintenanceApi.md#getmaintenance) | **Get** /maintenance | Get current maintenance info
-*UtilMaintenanceApi* | [**SetMaintenance**](docs/UtilMaintenanceApi.md#setmaintenance) | **Post** /maintenance | Set current maintenance info
-*UtilMaintenanceApi* | [**UpdateMaintenance**](docs/UtilMaintenanceApi.md#updatemaintenance) | **Put** /maintenance | Update current maintenance info
-*UtilSecurityApi* | [**GetUserLocationLog**](docs/UtilSecurityApi.md#getuserlocationlog) | **Get** /security/country-log | Returns the authentication log for a user
-*UtilSecurityApi* | [**GetUserTokenDetails**](docs/UtilSecurityApi.md#getusertokendetails) | **Get** /me | Returns the authentication token details. Use /users endpoint for detailed user&#39;s info
-*UtilVersionApi* | [**GetVersion**](docs/UtilVersionApi.md#getversion) | **Get** /version | Get current version info
+*Users_AddressesApi* | [**CreateAddress**](docs/Users_AddressesApi.md#createaddress) | **Post** /users/{user_id}/addresses | Create a new address
+*Users_AddressesApi* | [**DeleteAddress**](docs/Users_AddressesApi.md#deleteaddress) | **Delete** /users/{user_id}/addresses/{id} | Delete an address
+*Users_AddressesApi* | [**GetAddress**](docs/Users_AddressesApi.md#getaddress) | **Get** /users/{user_id}/addresses/{id} | Get a single address
+*Users_AddressesApi* | [**GetAddresses**](docs/Users_AddressesApi.md#getaddresses) | **Get** /users/{user_id}/addresses | List and search addresses
+*Users_AddressesApi* | [**UpdateAddress**](docs/Users_AddressesApi.md#updateaddress) | **Put** /users/{user_id}/addresses/{id} | Update an address
+*Users_FriendshipsApi* | [**AddFriend**](docs/Users_FriendshipsApi.md#addfriend) | **Post** /users/{user_id}/friends/{id} | Add a friend
+*Users_FriendshipsApi* | [**GetFriends**](docs/Users_FriendshipsApi.md#getfriends) | **Get** /users/{user_id}/friends | Get friends list
+*Users_FriendshipsApi* | [**GetInviteToken**](docs/Users_FriendshipsApi.md#getinvitetoken) | **Get** /users/{user_id}/invite-token | Returns the invite token
+*Users_FriendshipsApi* | [**GetInvites**](docs/Users_FriendshipsApi.md#getinvites) | **Get** /users/{user_id}/invites | Get pending invites
+*Users_FriendshipsApi* | [**RedeemFriendshipToken**](docs/Users_FriendshipsApi.md#redeemfriendshiptoken) | **Post** /users/{user_id}/friends/tokens | Redeem friendship token
+*Users_FriendshipsApi* | [**RemoveOrDeclineFriend**](docs/Users_FriendshipsApi.md#removeordeclinefriend) | **Delete** /users/{user_id}/friends/{id} | Remove or decline a friend
+*Users_GroupsApi* | [**AddMemberToGroup**](docs/Users_GroupsApi.md#addmembertogroup) | **Post** /users/groups/{unique_name}/members | Adds a new member to the group
+*Users_GroupsApi* | [**AddMembersToGroup**](docs/Users_GroupsApi.md#addmemberstogroup) | **Post** /users/groups/{unique_name}/members/batch-add | Adds multiple members to the group
+*Users_GroupsApi* | [**CreateGroup**](docs/Users_GroupsApi.md#creategroup) | **Post** /users/groups | Create a group
+*Users_GroupsApi* | [**CreateGroupMemberTemplate**](docs/Users_GroupsApi.md#creategroupmembertemplate) | **Post** /users/groups/members/templates | Create an group member template
+*Users_GroupsApi* | [**CreateGroupTemplate**](docs/Users_GroupsApi.md#creategrouptemplate) | **Post** /users/groups/templates | Create a group template
+*Users_GroupsApi* | [**DeleteGroup**](docs/Users_GroupsApi.md#deletegroup) | **Delete** /users/groups/{unique_name} | Removes a group from the system
+*Users_GroupsApi* | [**DeleteGroupMemberTemplate**](docs/Users_GroupsApi.md#deletegroupmembertemplate) | **Delete** /users/groups/members/templates/{id} | Delete an group member template
+*Users_GroupsApi* | [**DeleteGroupTemplate**](docs/Users_GroupsApi.md#deletegrouptemplate) | **Delete** /users/groups/templates/{id} | Delete a group template
+*Users_GroupsApi* | [**DisableGroupNotification**](docs/Users_GroupsApi.md#disablegroupnotification) | **Put** /users/groups/{unique_name}/members/{user_id}/messages/disabled | Enable or disable notification of group messages
+*Users_GroupsApi* | [**GetGroup**](docs/Users_GroupsApi.md#getgroup) | **Get** /users/groups/{unique_name} | Loads a specific group&#39;s details
+*Users_GroupsApi* | [**GetGroupAncestors**](docs/Users_GroupsApi.md#getgroupancestors) | **Get** /users/groups/{unique_name}/ancestors | Get group ancestors
+*Users_GroupsApi* | [**GetGroupMember**](docs/Users_GroupsApi.md#getgroupmember) | **Get** /users/groups/{unique_name}/members/{user_id} | Get a user from a group
+*Users_GroupsApi* | [**GetGroupMemberTemplate**](docs/Users_GroupsApi.md#getgroupmembertemplate) | **Get** /users/groups/members/templates/{id} | Get a single group member template
+*Users_GroupsApi* | [**GetGroupMemberTemplates**](docs/Users_GroupsApi.md#getgroupmembertemplates) | **Get** /users/groups/members/templates | List and search group member templates
+*Users_GroupsApi* | [**GetGroupMembers**](docs/Users_GroupsApi.md#getgroupmembers) | **Get** /users/groups/{unique_name}/members | Lists members of the group
+*Users_GroupsApi* | [**GetGroupMessages**](docs/Users_GroupsApi.md#getgroupmessages) | **Get** /users/groups/{unique_name}/messages | Get a list of group messages
+*Users_GroupsApi* | [**GetGroupTemplate**](docs/Users_GroupsApi.md#getgrouptemplate) | **Get** /users/groups/templates/{id} | Get a single group template
+*Users_GroupsApi* | [**GetGroupTemplates**](docs/Users_GroupsApi.md#getgrouptemplates) | **Get** /users/groups/templates | List and search group templates
+*Users_GroupsApi* | [**GetGroupsForUser**](docs/Users_GroupsApi.md#getgroupsforuser) | **Get** /users/{user_id}/groups | List groups a user is in
+*Users_GroupsApi* | [**ListGroups**](docs/Users_GroupsApi.md#listgroups) | **Get** /users/groups | List and search groups
+*Users_GroupsApi* | [**PostGroupMessage**](docs/Users_GroupsApi.md#postgroupmessage) | **Post** /users/groups/{unique_name}/messages | Send a group message
+*Users_GroupsApi* | [**RemoveGroupMember**](docs/Users_GroupsApi.md#removegroupmember) | **Delete** /users/groups/{unique_name}/members/{user_id} | Removes a user from a group
+*Users_GroupsApi* | [**UpdateGroup**](docs/Users_GroupsApi.md#updategroup) | **Put** /users/groups/{unique_name} | Update a group
+*Users_GroupsApi* | [**UpdateGroupMemberProperties**](docs/Users_GroupsApi.md#updategroupmemberproperties) | **Put** /users/groups/{unique_name}/members/{user_id}/order | Change a user&#39;s order
+*Users_GroupsApi* | [**UpdateGroupMemberProperties1**](docs/Users_GroupsApi.md#updategroupmemberproperties1) | **Put** /users/groups/{unique_name}/members/{user_id}/properties | Change a user&#39;s membership properties
+*Users_GroupsApi* | [**UpdateGroupMemberStatus**](docs/Users_GroupsApi.md#updategroupmemberstatus) | **Put** /users/groups/{unique_name}/members/{user_id}/status | Change a user&#39;s status
+*Users_GroupsApi* | [**UpdateGroupMemberTemplate**](docs/Users_GroupsApi.md#updategroupmembertemplate) | **Put** /users/groups/members/templates/{id} | Update an group member template
+*Users_GroupsApi* | [**UpdateGroupTemplate**](docs/Users_GroupsApi.md#updategrouptemplate) | **Put** /users/groups/templates/{id} | Update a group template
+*Users_InventoryApi* | [**AddItemToUserInventory**](docs/Users_InventoryApi.md#additemtouserinventory) | **Post** /users/{id}/inventory | Adds an item to the user inventory
+*Users_InventoryApi* | [**CheckUserEntitlementItem**](docs/Users_InventoryApi.md#checkuserentitlementitem) | **Get** /users/{user_id}/entitlements/{item_id}/check | Check for access to an item without consuming
+*Users_InventoryApi* | [**CreateEntitlementItem**](docs/Users_InventoryApi.md#createentitlementitem) | **Post** /entitlements | Create an entitlement item
+*Users_InventoryApi* | [**CreateEntitlementTemplate**](docs/Users_InventoryApi.md#createentitlementtemplate) | **Post** /entitlements/templates | Create an entitlement template
+*Users_InventoryApi* | [**DeleteEntitlementItem**](docs/Users_InventoryApi.md#deleteentitlementitem) | **Delete** /entitlements/{entitlement_id} | Delete an entitlement item
+*Users_InventoryApi* | [**DeleteEntitlementTemplate**](docs/Users_InventoryApi.md#deleteentitlementtemplate) | **Delete** /entitlements/templates/{id} | Delete an entitlement template
+*Users_InventoryApi* | [**GetEntitlementItem**](docs/Users_InventoryApi.md#getentitlementitem) | **Get** /entitlements/{entitlement_id} | Get a single entitlement item
+*Users_InventoryApi* | [**GetEntitlementItems**](docs/Users_InventoryApi.md#getentitlementitems) | **Get** /entitlements | List and search entitlement items
+*Users_InventoryApi* | [**GetEntitlementTemplate**](docs/Users_InventoryApi.md#getentitlementtemplate) | **Get** /entitlements/templates/{id} | Get a single entitlement template
+*Users_InventoryApi* | [**GetEntitlementTemplates**](docs/Users_InventoryApi.md#getentitlementtemplates) | **Get** /entitlements/templates | List and search entitlement templates
+*Users_InventoryApi* | [**GetUserInventories**](docs/Users_InventoryApi.md#getuserinventories) | **Get** /users/{id}/inventory | List the user inventory entries for a given user
+*Users_InventoryApi* | [**GetUserInventory**](docs/Users_InventoryApi.md#getuserinventory) | **Get** /users/{user_id}/inventory/{id} | Get an inventory entry
+*Users_InventoryApi* | [**GetUserInventoryLog**](docs/Users_InventoryApi.md#getuserinventorylog) | **Get** /users/{user_id}/inventory/{id}/log | List the log entries for this inventory entry
+*Users_InventoryApi* | [**GetUsersInventory**](docs/Users_InventoryApi.md#getusersinventory) | **Get** /inventories | List the user inventory entries for all users
+*Users_InventoryApi* | [**GrantUserEntitlement**](docs/Users_InventoryApi.md#grantuserentitlement) | **Post** /users/{user_id}/entitlements | Grant an entitlement
+*Users_InventoryApi* | [**UpdateEntitlementItem**](docs/Users_InventoryApi.md#updateentitlementitem) | **Put** /entitlements/{entitlement_id} | Update an entitlement item
+*Users_InventoryApi* | [**UpdateEntitlementTemplate**](docs/Users_InventoryApi.md#updateentitlementtemplate) | **Put** /entitlements/templates/{id} | Update an entitlement template
+*Users_InventoryApi* | [**UpdateUserInventoryBehaviorData**](docs/Users_InventoryApi.md#updateuserinventorybehaviordata) | **Put** /users/{user_id}/inventory/{id}/behavior-data | Set the behavior data for an inventory entry
+*Users_InventoryApi* | [**UpdateUserInventoryExpires**](docs/Users_InventoryApi.md#updateuserinventoryexpires) | **Put** /users/{user_id}/inventory/{id}/expires | Set the expiration date
+*Users_InventoryApi* | [**UpdateUserInventoryStatus**](docs/Users_InventoryApi.md#updateuserinventorystatus) | **Put** /users/{user_id}/inventory/{id}/status | Set the status for an inventory entry
+*Users_InventoryApi* | [**UseUserEntitlementItem**](docs/Users_InventoryApi.md#useuserentitlementitem) | **Post** /users/{user_id}/entitlements/{item_id}/use | Use an item
+*Users_RelationshipsApi* | [**CreateUserRelationship**](docs/Users_RelationshipsApi.md#createuserrelationship) | **Post** /users/relationships | Create a user relationship
+*Users_RelationshipsApi* | [**DeleteUserRelationship**](docs/Users_RelationshipsApi.md#deleteuserrelationship) | **Delete** /users/relationships/{id} | Delete a user relationship
+*Users_RelationshipsApi* | [**GetUserRelationship**](docs/Users_RelationshipsApi.md#getuserrelationship) | **Get** /users/relationships/{id} | Get a user relationship
+*Users_RelationshipsApi* | [**GetUserRelationships**](docs/Users_RelationshipsApi.md#getuserrelationships) | **Get** /users/relationships | Get a list of user relationships
+*Users_RelationshipsApi* | [**UpdateUserRelationship**](docs/Users_RelationshipsApi.md#updateuserrelationship) | **Put** /users/relationships/{id} | Update a user relationship
+*Users_SubscriptionsApi* | [**GetUserSubscriptionDetails**](docs/Users_SubscriptionsApi.md#getusersubscriptiondetails) | **Get** /users/{user_id}/subscriptions/{inventory_id} | Get details about a user&#39;s subscription
+*Users_SubscriptionsApi* | [**GetUsersSubscriptionDetails**](docs/Users_SubscriptionsApi.md#getuserssubscriptiondetails) | **Get** /users/{user_id}/subscriptions | Get details about a user&#39;s subscriptions
+*Users_SubscriptionsApi* | [**ReactivateUserSubscription**](docs/Users_SubscriptionsApi.md#reactivateusersubscription) | **Post** /users/{user_id}/subscriptions/{inventory_id}/reactivate | Reactivate a subscription and charge fee
+*Users_SubscriptionsApi* | [**SetSubscriptionBillDate**](docs/Users_SubscriptionsApi.md#setsubscriptionbilldate) | **Put** /users/{user_id}/subscriptions/{inventory_id}/bill-date | Set a new date to bill a subscription on
+*Users_SubscriptionsApi* | [**SetSubscriptionPaymentMethod**](docs/Users_SubscriptionsApi.md#setsubscriptionpaymentmethod) | **Put** /users/{user_id}/subscriptions/{inventory_id}/payment-method | Set the payment method to use for a subscription
+*Users_SubscriptionsApi* | [**SetSubscriptionStatus**](docs/Users_SubscriptionsApi.md#setsubscriptionstatus) | **Put** /users/{user_id}/subscriptions/{inventory_id}/status | Set the status of a subscription
+*Users_SubscriptionsApi* | [**SetUserSubscriptionPlan**](docs/Users_SubscriptionsApi.md#setusersubscriptionplan) | **Put** /users/{user_id}/subscriptions/{inventory_id}/plan | Set a new subscription plan for a user
+*Users_SubscriptionsApi* | [**SetUserSubscriptionPrice**](docs/Users_SubscriptionsApi.md#setusersubscriptionprice) | **Put** /users/{user_id}/subscriptions/{inventory_id}/price-override | Set a new subscription price for a user
+*Util_BatchApi* | [**GetBatch**](docs/Util_BatchApi.md#getbatch) | **Get** /batch/{token} | Get batch result with token
+*Util_BatchApi* | [**SendBatch**](docs/Util_BatchApi.md#sendbatch) | **Post** /batch | Request to run API call given the method, content type, path url, and body of request
+*Util_HealthApi* | [**GetHealth**](docs/Util_HealthApi.md#gethealth) | **Get** /health | Get health info
+*Util_MaintenanceApi* | [**DeleteMaintenance**](docs/Util_MaintenanceApi.md#deletemaintenance) | **Delete** /maintenance | Delete maintenance info
+*Util_MaintenanceApi* | [**GetMaintenance**](docs/Util_MaintenanceApi.md#getmaintenance) | **Get** /maintenance | Get current maintenance info
+*Util_MaintenanceApi* | [**SetMaintenance**](docs/Util_MaintenanceApi.md#setmaintenance) | **Post** /maintenance | Set current maintenance info
+*Util_MaintenanceApi* | [**UpdateMaintenance**](docs/Util_MaintenanceApi.md#updatemaintenance) | **Put** /maintenance | Update current maintenance info
+*Util_SecurityApi* | [**GetUserLocationLog**](docs/Util_SecurityApi.md#getuserlocationlog) | **Get** /security/country-log | Returns the authentication log for a user
+*Util_SecurityApi* | [**GetUserTokenDetails**](docs/Util_SecurityApi.md#getusertokendetails) | **Get** /me | Returns the authentication token details. Use /users endpoint for detailed user&#39;s info
+*Util_VersionApi* | [**GetVersion**](docs/Util_VersionApi.md#getversion) | **Get** /version | Get current version info
 
 
 ## Documentation For Models
@@ -673,8 +669,10 @@ Class | Method | HTTP request | Description
  - [ActivityOccurrenceResults](docs/ActivityOccurrenceResults.md)
  - [ActivityOccurrenceResultsResource](docs/ActivityOccurrenceResultsResource.md)
  - [ActivityOccurrenceSettingsResource](docs/ActivityOccurrenceSettingsResource.md)
+ - [ActivityOccurrenceStatusWrapper](docs/ActivityOccurrenceStatusWrapper.md)
  - [ActivityResource](docs/ActivityResource.md)
  - [ActivityUserResource](docs/ActivityUserResource.md)
+ - [ActivityUserStatusWrapper](docs/ActivityUserStatusWrapper.md)
  - [AddressResource](docs/AddressResource.md)
  - [AggregateCountResource](docs/AggregateCountResource.md)
  - [AggregateInvoiceReportResource](docs/AggregateInvoiceReportResource.md)
@@ -687,6 +685,7 @@ Class | Method | HTTP request | Description
  - [AvailableSettingResource](docs/AvailableSettingResource.md)
  - [BareActivityResource](docs/BareActivityResource.md)
  - [BareChallengeActivityResource](docs/BareChallengeActivityResource.md)
+ - [BasicTemplatedResource](docs/BasicTemplatedResource.md)
  - [Batch](docs/Batch.md)
  - [BatchRequest](docs/BatchRequest.md)
  - [BatchResult](docs/BatchResult.md)
@@ -696,7 +695,6 @@ Class | Method | HTTP request | Description
  - [BillingReport](docs/BillingReport.md)
  - [BooleanResource](docs/BooleanResource.md)
  - [BreActionLog](docs/BreActionLog.md)
- - [BreCategoryResource](docs/BreCategoryResource.md)
  - [BreEvent](docs/BreEvent.md)
  - [BreEventLog](docs/BreEventLog.md)
  - [BreGlobalResource](docs/BreGlobalResource.md)
@@ -769,16 +767,17 @@ Class | Method | HTTP request | Description
  - [FulfillmentType](docs/FulfillmentType.md)
  - [GlobalCheckAndIncrementResource](docs/GlobalCheckAndIncrementResource.md)
  - [GlobalResource](docs/GlobalResource.md)
- - [GooglePaymentRequest](docs/GooglePaymentRequest.md)
  - [GoogleToken](docs/GoogleToken.md)
  - [GrantTypeResource](docs/GrantTypeResource.md)
  - [GroupMemberResource](docs/GroupMemberResource.md)
+ - [GroupMemberStatusWrapper](docs/GroupMemberStatusWrapper.md)
  - [GroupResource](docs/GroupResource.md)
  - [IdRef](docs/IdRef.md)
  - [ImportJobOutputResource](docs/ImportJobOutputResource.md)
  - [ImportJobResource](docs/ImportJobResource.md)
  - [IntWrapper](docs/IntWrapper.md)
  - [IntegerOperationResource](docs/IntegerOperationResource.md)
+ - [InventoryStatusWrapper](docs/InventoryStatusWrapper.md)
  - [InventorySubscriptionResource](docs/InventorySubscriptionResource.md)
  - [InvoiceCreateRequest](docs/InvoiceCreateRequest.md)
  - [InvoiceItemResource](docs/InvoiceItemResource.md)
@@ -826,7 +825,6 @@ Class | Method | HTTP request | Description
  - [PageResourceBareActivityResource](docs/PageResourceBareActivityResource.md)
  - [PageResourceBareChallengeActivityResource](docs/PageResourceBareChallengeActivityResource.md)
  - [PageResourceBillingReport](docs/PageResourceBillingReport.md)
- - [PageResourceBreCategoryResource](docs/PageResourceBreCategoryResource.md)
  - [PageResourceBreEventLog](docs/PageResourceBreEventLog.md)
  - [PageResourceBreGlobalResource](docs/PageResourceBreGlobalResource.md)
  - [PageResourceBreRule](docs/PageResourceBreRule.md)
@@ -885,7 +883,6 @@ Class | Method | HTTP request | Description
  - [PageResourceSubscriptionTemplateResource](docs/PageResourceSubscriptionTemplateResource.md)
  - [PageResourceTemplateResource](docs/PageResourceTemplateResource.md)
  - [PageResourceTopicResource](docs/PageResourceTopicResource.md)
- - [PageResourceTopicSubscriberResource](docs/PageResourceTopicSubscriberResource.md)
  - [PageResourceTransactionResource](docs/PageResourceTransactionResource.md)
  - [PageResourceUsageInfo](docs/PageResourceUsageInfo.md)
  - [PageResourceUserAchievementGroupResource](docs/PageResourceUserAchievementGroupResource.md)
@@ -928,6 +925,7 @@ Class | Method | HTTP request | Description
  - [ReactivateSubscriptionRequest](docs/ReactivateSubscriptionRequest.md)
  - [RefundRequest](docs/RefundRequest.md)
  - [RefundResource](docs/RefundResource.md)
+ - [ResourceTypeDescription](docs/ResourceTypeDescription.md)
  - [Result](docs/Result.md)
  - [RevenueCountryReportResource](docs/RevenueCountryReportResource.md)
  - [RevenueProductReportResource](docs/RevenueProductReportResource.md)
@@ -965,6 +963,7 @@ Class | Method | HTTP request | Description
  - [SubscriptionPlanResource](docs/SubscriptionPlanResource.md)
  - [SubscriptionPriceOverrideRequest](docs/SubscriptionPriceOverrideRequest.md)
  - [SubscriptionResource](docs/SubscriptionResource.md)
+ - [SubscriptionStatusWrapper](docs/SubscriptionStatusWrapper.md)
  - [SubscriptionTemplateResource](docs/SubscriptionTemplateResource.md)
  - [TemplateEmailResource](docs/TemplateEmailResource.md)
  - [TemplatePushResource](docs/TemplatePushResource.md)
@@ -991,12 +990,12 @@ Class | Method | HTTP request | Description
  - [UserItemLogResource](docs/UserItemLogResource.md)
  - [UserLevelingResource](docs/UserLevelingResource.md)
  - [UserNotificationResource](docs/UserNotificationResource.md)
+ - [UserNotificationStatusWrapper](docs/UserNotificationStatusWrapper.md)
  - [UserRelationshipReferenceResource](docs/UserRelationshipReferenceResource.md)
  - [UserRelationshipResource](docs/UserRelationshipResource.md)
  - [UserResource](docs/UserResource.md)
  - [UsernameLookupResource](docs/UsernameLookupResource.md)
  - [ValueWrapperboolean](docs/ValueWrapperboolean.md)
- - [ValueWrapperstring](docs/ValueWrapperstring.md)
  - [VariableTypeResource](docs/VariableTypeResource.md)
  - [VendorEmailLookupResource](docs/VendorEmailLookupResource.md)
  - [VendorResource](docs/VendorResource.md)
@@ -1043,6 +1042,7 @@ Class | Method | HTTP request | Description
  - [PreReqEntitlement](docs/PreReqEntitlement.md)
  - [PriceOverridable](docs/PriceOverridable.md)
  - [RemoveCustomerEvent](docs/RemoveCustomerEvent.md)
+ - [ServiceDeployedEvent](docs/ServiceDeployedEvent.md)
  - [Spendable](docs/Spendable.md)
  - [StoreItem](docs/StoreItem.md)
  - [TextProperty](docs/TextProperty.md)

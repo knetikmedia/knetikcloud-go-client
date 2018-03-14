@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type AuthPermissionsApiService service
+type Auth_PermissionsApiService service
 
 
-/* AuthPermissionsApiService Create a new permission
+/* Auth_PermissionsApiService Create a new permission
  &lt;b&gt;Permissions Needed:&lt;/b&gt; PERMISSIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "permissionResource" (PermissionResource) The permission resource object
  @return PermissionResource*/
-func (a *AuthPermissionsApiService) CreatePermission(ctx context.Context, localVarOptionals map[string]interface{}) (PermissionResource,  *http.Response, error) {
+func (a *Auth_PermissionsApiService) CreatePermission(ctx context.Context, localVarOptionals map[string]interface{}) (PermissionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,14 +95,14 @@ func (a *AuthPermissionsApiService) CreatePermission(ctx context.Context, localV
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthPermissionsApiService Delete a permission
+/* Auth_PermissionsApiService Delete a permission
  &lt;b&gt;Permissions Needed:&lt;/b&gt; PERMISSIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param permission The permission value
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "force" (bool) If true, removes permission assigned to roles
  @return */
-func (a *AuthPermissionsApiService) DeletePermission(ctx context.Context, permission string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Auth_PermissionsApiService) DeletePermission(ctx context.Context, permission string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -161,12 +161,12 @@ func (a *AuthPermissionsApiService) DeletePermission(ctx context.Context, permis
 	return localVarHttpResponse, err
 }
 
-/* AuthPermissionsApiService Get a single permission
+/* Auth_PermissionsApiService Get a single permission
  &lt;b&gt;Permissions Needed:&lt;/b&gt; PERMISSIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param permission The permission value
  @return PermissionResource*/
-func (a *AuthPermissionsApiService) GetPermission(ctx context.Context, permission string) (PermissionResource,  *http.Response, error) {
+func (a *Auth_PermissionsApiService) GetPermission(ctx context.Context, permission string) (PermissionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -225,7 +225,7 @@ func (a *AuthPermissionsApiService) GetPermission(ctx context.Context, permissio
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthPermissionsApiService List and search permissions
+/* Auth_PermissionsApiService List and search permissions
  &lt;b&gt;Permissions Needed:&lt;/b&gt; PERMISSIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -233,7 +233,7 @@ func (a *AuthPermissionsApiService) GetPermission(ctx context.Context, permissio
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourcePermissionResource*/
-func (a *AuthPermissionsApiService) GetPermissions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourcePermissionResource,  *http.Response, error) {
+func (a *Auth_PermissionsApiService) GetPermissions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourcePermissionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -309,14 +309,14 @@ func (a *AuthPermissionsApiService) GetPermissions(ctx context.Context, localVar
 	return successPayload, localVarHttpResponse, err
 }
 
-/* AuthPermissionsApiService Update a permission
+/* Auth_PermissionsApiService Update a permission
  &lt;b&gt;Permissions Needed:&lt;/b&gt; PERMISSIONS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param permission The permission value
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "permissionResource" (PermissionResource) The permission resource object
  @return PermissionResource*/
-func (a *AuthPermissionsApiService) UpdatePermission(ctx context.Context, permission string, localVarOptionals map[string]interface{}) (PermissionResource,  *http.Response, error) {
+func (a *Auth_PermissionsApiService) UpdatePermission(ctx context.Context, permission string, localVarOptionals map[string]interface{}) (PermissionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

@@ -24,17 +24,17 @@ var (
 	_ context.Context
 )
 
-type StoreShippingApiService service
+type Store_ShippingApiService service
 
 
-/* StoreShippingApiService Create a shipping item
+/* Store_ShippingApiService Create a shipping item
  A shipping item represents a shipping option and cost. SKUs have to be unique in the entire store. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; SHIPPING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "shippingItem" (ShippingItem) The shipping item object
  @return ShippingItem*/
-func (a *StoreShippingApiService) CreateShippingItem(ctx context.Context, localVarOptionals map[string]interface{}) (ShippingItem,  *http.Response, error) {
+func (a *Store_ShippingApiService) CreateShippingItem(ctx context.Context, localVarOptionals map[string]interface{}) (ShippingItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -102,13 +102,13 @@ func (a *StoreShippingApiService) CreateShippingItem(ctx context.Context, localV
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreShippingApiService Create a shipping template
+/* Store_ShippingApiService Create a shipping template
  Shipping Templates define a type of shipping and the properties they have.
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "shippingTemplateResource" (ItemTemplateResource) The new shipping template
  @return ItemTemplateResource*/
-func (a *StoreShippingApiService) CreateShippingTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *Store_ShippingApiService) CreateShippingTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -170,12 +170,12 @@ func (a *StoreShippingApiService) CreateShippingTemplate(ctx context.Context, lo
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreShippingApiService Delete a shipping item
+/* Store_ShippingApiService Delete a shipping item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SHIPPING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the shipping item
  @return */
-func (a *StoreShippingApiService) DeleteShippingItem(ctx context.Context, id int32) ( *http.Response, error) {
+func (a *Store_ShippingApiService) DeleteShippingItem(ctx context.Context, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -228,14 +228,14 @@ func (a *StoreShippingApiService) DeleteShippingItem(ctx context.Context, id int
 	return localVarHttpResponse, err
 }
 
-/* StoreShippingApiService Delete a shipping template
+/* Store_ShippingApiService Delete a shipping template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) force deleting the template if it&#39;s attached to other objects, cascade &#x3D; detach
  @return */
-func (a *StoreShippingApiService) DeleteShippingTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Store_ShippingApiService) DeleteShippingTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -294,12 +294,12 @@ func (a *StoreShippingApiService) DeleteShippingTemplate(ctx context.Context, id
 	return localVarHttpResponse, err
 }
 
-/* StoreShippingApiService Get a single shipping item
+/* Store_ShippingApiService Get a single shipping item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The id of the shipping item
  @return ShippingItem*/
-func (a *StoreShippingApiService) GetShippingItem(ctx context.Context, id int32) (ShippingItem,  *http.Response, error) {
+func (a *Store_ShippingApiService) GetShippingItem(ctx context.Context, id int32) (ShippingItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -358,12 +358,12 @@ func (a *StoreShippingApiService) GetShippingItem(ctx context.Context, id int32)
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreShippingApiService Get a single shipping template
+/* Store_ShippingApiService Get a single shipping template
  Shipping Templates define a type of shipping and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SHIPPING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
-func (a *StoreShippingApiService) GetShippingTemplate(ctx context.Context, id string) (ItemTemplateResource,  *http.Response, error) {
+func (a *Store_ShippingApiService) GetShippingTemplate(ctx context.Context, id string) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -422,7 +422,7 @@ func (a *StoreShippingApiService) GetShippingTemplate(ctx context.Context, id st
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreShippingApiService List and search shipping templates
+/* Store_ShippingApiService List and search shipping templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or SHIPPING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -430,7 +430,7 @@ func (a *StoreShippingApiService) GetShippingTemplate(ctx context.Context, id st
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceItemTemplateResource*/
-func (a *StoreShippingApiService) GetShippingTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
+func (a *Store_ShippingApiService) GetShippingTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -506,7 +506,7 @@ func (a *StoreShippingApiService) GetShippingTemplates(ctx context.Context, loca
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreShippingApiService Update a shipping item
+/* Store_ShippingApiService Update a shipping item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; SHIPPING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the shipping item
@@ -514,7 +514,7 @@ func (a *StoreShippingApiService) GetShippingTemplates(ctx context.Context, loca
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "shippingItem" (ShippingItem) The shipping item object
  @return ShippingItem*/
-func (a *StoreShippingApiService) UpdateShippingItem(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (ShippingItem,  *http.Response, error) {
+func (a *Store_ShippingApiService) UpdateShippingItem(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (ShippingItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -583,14 +583,14 @@ func (a *StoreShippingApiService) UpdateShippingItem(ctx context.Context, id int
 	return successPayload, localVarHttpResponse, err
 }
 
-/* StoreShippingApiService Update a shipping template
+/* Store_ShippingApiService Update a shipping template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "shippingTemplateResource" (ItemTemplateResource) The shipping template resource object
  @return ItemTemplateResource*/
-func (a *StoreShippingApiService) UpdateShippingTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *Store_ShippingApiService) UpdateShippingTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

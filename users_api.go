@@ -240,7 +240,7 @@ func (a *UsersApiService) GetDirectMessages1(ctx context.Context, recipientId in
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/users/users/{recipient_id}/messages"
+	localVarPath := a.client.cfg.BasePath + "/users/{recipient_id}/messages"
 	localVarPath = strings.Replace(localVarPath, "{"+"recipient_id"+"}", fmt.Sprintf("%v", recipientId), -1)
 
 	localVarHeaderParams := make(map[string]string)

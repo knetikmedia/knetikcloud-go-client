@@ -22,16 +22,16 @@ var (
 	_ context.Context
 )
 
-type GamificationMetricsApiService service
+type Gamification_MetricsApiService service
 
 
-/* GamificationMetricsApiService Add a metric
+/* Gamification_MetricsApiService Add a metric
  Post a new score/stat for an activity occurrence without ending the occurrence itself
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "metric" (MetricResource) The new metric
  @return */
-func (a *GamificationMetricsApiService) AddMetric(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Gamification_MetricsApiService) AddMetric(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}

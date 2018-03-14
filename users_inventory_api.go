@@ -24,17 +24,17 @@ var (
 	_ context.Context
 )
 
-type UsersInventoryApiService service
+type Users_InventoryApiService service
 
 
-/* UsersInventoryApiService Adds an item to the user inventory
+/* Users_InventoryApiService Adds an item to the user inventory
  The inventory is fulfilled asynchronously UNLESS the invoice is explicitely skipped. Depending on the use case, it might require the client to verify that the entitlement was added after the fact or configure a BRE rule to get a notification in real time. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userInventoryAddRequest" (UserInventoryAddRequest) The user inventory add request object
  @return InvoiceResource*/
-func (a *UsersInventoryApiService) AddItemToUserInventory(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (InvoiceResource,  *http.Response, error) {
+func (a *Users_InventoryApiService) AddItemToUserInventory(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (InvoiceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -97,7 +97,7 @@ func (a *UsersInventoryApiService) AddItemToUserInventory(ctx context.Context, i
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Check for access to an item without consuming
+/* Users_InventoryApiService Check for access to an item without consuming
  Useful for pre-check and accounts for all various buisness rules. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user to check for or &#39;me&#39; for logged in user
@@ -105,7 +105,7 @@ func (a *UsersInventoryApiService) AddItemToUserInventory(ctx context.Context, i
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "sku" (string) The specific sku of an entitlement list addition to check entitlement for. This is of very limited and specific use and should generally be left out
  @return */
-func (a *UsersInventoryApiService) CheckUserEntitlementItem(ctx context.Context, userId string, itemId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_InventoryApiService) CheckUserEntitlementItem(ctx context.Context, userId string, itemId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -165,14 +165,14 @@ func (a *UsersInventoryApiService) CheckUserEntitlementItem(ctx context.Context,
 	return localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Create an entitlement item
+/* Users_InventoryApiService Create an entitlement item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "entitlementItem" (EntitlementItem) The entitlement item object
  @return EntitlementItem*/
-func (a *UsersInventoryApiService) CreateEntitlementItem(ctx context.Context, localVarOptionals map[string]interface{}) (EntitlementItem,  *http.Response, error) {
+func (a *Users_InventoryApiService) CreateEntitlementItem(ctx context.Context, localVarOptionals map[string]interface{}) (EntitlementItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -240,13 +240,13 @@ func (a *UsersInventoryApiService) CreateEntitlementItem(ctx context.Context, lo
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Create an entitlement template
+/* Users_InventoryApiService Create an entitlement template
  Entitlement templates define a type of entitlement and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (ItemTemplateResource) The entitlement template to be created
  @return ItemTemplateResource*/
-func (a *UsersInventoryApiService) CreateEntitlementTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *Users_InventoryApiService) CreateEntitlementTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -308,12 +308,12 @@ func (a *UsersInventoryApiService) CreateEntitlementTemplate(ctx context.Context
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Delete an entitlement item
+/* Users_InventoryApiService Delete an entitlement item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param entitlementId The id of the entitlement
  @return */
-func (a *UsersInventoryApiService) DeleteEntitlementItem(ctx context.Context, entitlementId int32) ( *http.Response, error) {
+func (a *Users_InventoryApiService) DeleteEntitlementItem(ctx context.Context, entitlementId int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -366,14 +366,14 @@ func (a *UsersInventoryApiService) DeleteEntitlementItem(ctx context.Context, en
 	return localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Delete an entitlement template
+/* Users_InventoryApiService Delete an entitlement template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *UsersInventoryApiService) DeleteEntitlementTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_InventoryApiService) DeleteEntitlementTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -432,12 +432,12 @@ func (a *UsersInventoryApiService) DeleteEntitlementTemplate(ctx context.Context
 	return localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Get a single entitlement item
+/* Users_InventoryApiService Get a single entitlement item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param entitlementId The id of the entitlement
  @return EntitlementItem*/
-func (a *UsersInventoryApiService) GetEntitlementItem(ctx context.Context, entitlementId int32) (EntitlementItem,  *http.Response, error) {
+func (a *Users_InventoryApiService) GetEntitlementItem(ctx context.Context, entitlementId int32) (EntitlementItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -496,7 +496,7 @@ func (a *UsersInventoryApiService) GetEntitlementItem(ctx context.Context, entit
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService List and search entitlement items
+/* Users_InventoryApiService List and search entitlement items
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -505,7 +505,7 @@ func (a *UsersInventoryApiService) GetEntitlementItem(ctx context.Context, entit
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceEntitlementItem*/
-func (a *UsersInventoryApiService) GetEntitlementItems(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceEntitlementItem,  *http.Response, error) {
+func (a *Users_InventoryApiService) GetEntitlementItems(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceEntitlementItem,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -587,12 +587,12 @@ func (a *UsersInventoryApiService) GetEntitlementItems(ctx context.Context, loca
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Get a single entitlement template
+/* Users_InventoryApiService Get a single entitlement template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return ItemTemplateResource*/
-func (a *UsersInventoryApiService) GetEntitlementTemplate(ctx context.Context, id string) (ItemTemplateResource,  *http.Response, error) {
+func (a *Users_InventoryApiService) GetEntitlementTemplate(ctx context.Context, id string) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -651,7 +651,7 @@ func (a *UsersInventoryApiService) GetEntitlementTemplate(ctx context.Context, i
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService List and search entitlement templates
+/* Users_InventoryApiService List and search entitlement templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ACHIEVEMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -659,7 +659,7 @@ func (a *UsersInventoryApiService) GetEntitlementTemplate(ctx context.Context, i
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceItemTemplateResource*/
-func (a *UsersInventoryApiService) GetEntitlementTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
+func (a *Users_InventoryApiService) GetEntitlementTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -735,7 +735,7 @@ func (a *UsersInventoryApiService) GetEntitlementTemplates(ctx context.Context, 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService List the user inventory entries for a given user
+/* Users_InventoryApiService List the user inventory entries for a given user
  &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id The id of the user
@@ -749,7 +749,7 @@ func (a *UsersInventoryApiService) GetEntitlementTemplates(ctx context.Context, 
      @param "filterGroup" (string) Filter by entries owned by the users in a given group, by unique name
      @param "filterDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds. Can be repeated for a range, eg: GT,123,LT,456  Allowed operators: (GT, LT, EQ, GOE, LOE).
  @return PageResourceUserInventoryResource*/
-func (a *UsersInventoryApiService) GetUserInventories(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (PageResourceUserInventoryResource,  *http.Response, error) {
+func (a *Users_InventoryApiService) GetUserInventories(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (PageResourceUserInventoryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -856,13 +856,13 @@ func (a *UsersInventoryApiService) GetUserInventories(ctx context.Context, id in
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Get an inventory entry
+/* Users_InventoryApiService Get an inventory entry
  &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the inventory owner or &#39;me&#39; for the logged in user
  @param id The id of the user inventory
  @return UserInventoryResource*/
-func (a *UsersInventoryApiService) GetUserInventory(ctx context.Context, userId string, id int32) (UserInventoryResource,  *http.Response, error) {
+func (a *Users_InventoryApiService) GetUserInventory(ctx context.Context, userId string, id int32) (UserInventoryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -922,7 +922,7 @@ func (a *UsersInventoryApiService) GetUserInventory(ctx context.Context, userId 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService List the log entries for this inventory entry
+/* Users_InventoryApiService List the log entries for this inventory entry
  &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the inventory owner or &#39;me&#39; for the logged in user
@@ -931,7 +931,7 @@ func (a *UsersInventoryApiService) GetUserInventory(ctx context.Context, userId 
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUserItemLogResource*/
-func (a *UsersInventoryApiService) GetUserInventoryLog(ctx context.Context, userId string, id int32, localVarOptionals map[string]interface{}) (PageResourceUserItemLogResource,  *http.Response, error) {
+func (a *Users_InventoryApiService) GetUserInventoryLog(ctx context.Context, userId string, id int32, localVarOptionals map[string]interface{}) (PageResourceUserItemLogResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1003,7 +1003,7 @@ func (a *UsersInventoryApiService) GetUserInventoryLog(ctx context.Context, user
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService List the user inventory entries for all users
+/* Users_InventoryApiService List the user inventory entries for all users
  &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1016,7 +1016,7 @@ func (a *UsersInventoryApiService) GetUserInventoryLog(ctx context.Context, user
      @param "filterGroup" (string) Filter by entries owned by the users in a given group, by unique name
      @param "filterDate" (string) A comma separated string without spaces.  First value is the operator to search on, second value is the log start date, a unix timestamp in seconds. Can be repeated for a range, eg: GT,123,LT,456  Allowed operators: (GT, LT, EQ, GOE, LOE).
  @return PageResourceUserInventoryResource*/
-func (a *UsersInventoryApiService) GetUsersInventory(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceUserInventoryResource,  *http.Response, error) {
+func (a *Users_InventoryApiService) GetUsersInventory(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceUserInventoryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1122,13 +1122,13 @@ func (a *UsersInventoryApiService) GetUsersInventory(ctx context.Context, localV
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Grant an entitlement
+/* Users_InventoryApiService Grant an entitlement
  &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user to grant the entitlement to
  @param grantRequest grantRequest
  @return */
-func (a *UsersInventoryApiService) GrantUserEntitlement(ctx context.Context, userId int32, grantRequest EntitlementGrantRequest) ( *http.Response, error) {
+func (a *Users_InventoryApiService) GrantUserEntitlement(ctx context.Context, userId int32, grantRequest EntitlementGrantRequest) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -1183,7 +1183,7 @@ func (a *UsersInventoryApiService) GrantUserEntitlement(ctx context.Context, use
 	return localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Update an entitlement item
+/* Users_InventoryApiService Update an entitlement item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param entitlementId The id of the entitlement
@@ -1191,7 +1191,7 @@ func (a *UsersInventoryApiService) GrantUserEntitlement(ctx context.Context, use
      @param "cascade" (bool) Whether to cascade group changes, such as in the limited gettable behavior. A 400 error will return otherwise if the group is already in use with different values.
      @param "entitlementItem" (EntitlementItem) The entitlement item object
  @return */
-func (a *UsersInventoryApiService) UpdateEntitlementItem(ctx context.Context, entitlementId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_InventoryApiService) UpdateEntitlementItem(ctx context.Context, entitlementId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1254,14 +1254,14 @@ func (a *UsersInventoryApiService) UpdateEntitlementItem(ctx context.Context, en
 	return localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Update an entitlement template
+/* Users_InventoryApiService Update an entitlement template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "template" (ItemTemplateResource) The updated template
  @return ItemTemplateResource*/
-func (a *UsersInventoryApiService) UpdateEntitlementTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
+func (a *Users_InventoryApiService) UpdateEntitlementTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ItemTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1324,7 +1324,7 @@ func (a *UsersInventoryApiService) UpdateEntitlementTemplate(ctx context.Context
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Set the behavior data for an inventory entry
+/* Users_InventoryApiService Set the behavior data for an inventory entry
  &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
@@ -1332,7 +1332,7 @@ func (a *UsersInventoryApiService) UpdateEntitlementTemplate(ctx context.Context
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "data" (interface{}) The data map
  @return */
-func (a *UsersInventoryApiService) UpdateUserInventoryBehaviorData(ctx context.Context, userId int32, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_InventoryApiService) UpdateUserInventoryBehaviorData(ctx context.Context, userId int32, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1390,7 +1390,7 @@ func (a *UsersInventoryApiService) UpdateUserInventoryBehaviorData(ctx context.C
 	return localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Set the expiration date
+/* Users_InventoryApiService Set the expiration date
  Will change the current grace period for a subscription but not the bill date (possibly even ending before having the chance to re-bill). &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId user_id
@@ -1398,7 +1398,7 @@ func (a *UsersInventoryApiService) UpdateUserInventoryBehaviorData(ctx context.C
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "timestamp" (int64) The new expiration date as a unix timestamp in seconds. May be null (no body).
  @return */
-func (a *UsersInventoryApiService) UpdateUserInventoryExpires(ctx context.Context, userId int32, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_InventoryApiService) UpdateUserInventoryExpires(ctx context.Context, userId int32, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1459,15 +1459,15 @@ func (a *UsersInventoryApiService) UpdateUserInventoryExpires(ctx context.Contex
 	return localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Set the status for an inventory entry
+/* Users_InventoryApiService Set the status for an inventory entry
  &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
  @param id The id of the user inventory
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "inventoryStatus" (string) The inventory status object
+     @param "inventoryStatus" (InventoryStatusWrapper) The inventory status object
  @return */
-func (a *UsersInventoryApiService) UpdateUserInventoryStatus(ctx context.Context, userId int32, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_InventoryApiService) UpdateUserInventoryStatus(ctx context.Context, userId int32, id int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1484,9 +1484,6 @@ func (a *UsersInventoryApiService) UpdateUserInventoryStatus(ctx context.Context
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if err := typeCheckParameter(localVarOptionals["inventoryStatus"], "string", "inventoryStatus"); err != nil {
-		return nil, err
-	}
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -1508,7 +1505,7 @@ func (a *UsersInventoryApiService) UpdateUserInventoryStatus(ctx context.Context
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	if localVarTempParam, localVarOk := localVarOptionals["inventoryStatus"].(string); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["inventoryStatus"].(InventoryStatusWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -1528,7 +1525,7 @@ func (a *UsersInventoryApiService) UpdateUserInventoryStatus(ctx context.Context
 	return localVarHttpResponse, err
 }
 
-/* UsersInventoryApiService Use an item
+/* Users_InventoryApiService Use an item
  &lt;b&gt;Permissions Needed:&lt;/b&gt; INVENTORY_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user to check for or &#39;me&#39; for logged in user
@@ -1537,7 +1534,7 @@ func (a *UsersInventoryApiService) UpdateUserInventoryStatus(ctx context.Context
      @param "sku" (string) The specific sku of an entitlement_list addition to check entitlement for. This is of very limited and specific use and should generally be left out
      @param "info" (string) Any additional info to add to the log about this use
  @return */
-func (a *UsersInventoryApiService) UseUserEntitlementItem(ctx context.Context, userId string, itemId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_InventoryApiService) UseUserEntitlementItem(ctx context.Context, userId string, itemId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}

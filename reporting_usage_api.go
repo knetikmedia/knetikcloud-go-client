@@ -23,10 +23,10 @@ var (
 	_ context.Context
 )
 
-type ReportingUsageApiService service
+type Reporting_UsageApiService service
 
 
-/* ReportingUsageApiService Returns aggregated endpoint usage information by day
+/* Reporting_UsageApiService Returns aggregated endpoint usage information by day
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param startDate The beginning of the range being requested, unix timestamp in seconds
@@ -38,7 +38,7 @@ type ReportingUsageApiService service
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUsageInfo*/
-func (a *ReportingUsageApiService) GetUsageByDay(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+func (a *Reporting_UsageApiService) GetUsageByDay(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -128,7 +128,7 @@ func (a *ReportingUsageApiService) GetUsageByDay(ctx context.Context, startDate 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ReportingUsageApiService Returns aggregated endpoint usage information by hour
+/* Reporting_UsageApiService Returns aggregated endpoint usage information by hour
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param startDate The beginning of the range being requested, unix timestamp in seconds
@@ -140,7 +140,7 @@ func (a *ReportingUsageApiService) GetUsageByDay(ctx context.Context, startDate 
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUsageInfo*/
-func (a *ReportingUsageApiService) GetUsageByHour(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+func (a *Reporting_UsageApiService) GetUsageByHour(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -230,7 +230,7 @@ func (a *ReportingUsageApiService) GetUsageByHour(ctx context.Context, startDate
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ReportingUsageApiService Returns aggregated endpoint usage information by minute
+/* Reporting_UsageApiService Returns aggregated endpoint usage information by minute
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param startDate The beginning of the range being requested, unix timestamp in seconds
@@ -242,7 +242,7 @@ func (a *ReportingUsageApiService) GetUsageByHour(ctx context.Context, startDate
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUsageInfo*/
-func (a *ReportingUsageApiService) GetUsageByMinute(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+func (a *Reporting_UsageApiService) GetUsageByMinute(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -332,7 +332,7 @@ func (a *ReportingUsageApiService) GetUsageByMinute(ctx context.Context, startDa
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ReportingUsageApiService Returns aggregated endpoint usage information by month
+/* Reporting_UsageApiService Returns aggregated endpoint usage information by month
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param startDate The beginning of the range being requested, unix timestamp in seconds
@@ -344,7 +344,7 @@ func (a *ReportingUsageApiService) GetUsageByMinute(ctx context.Context, startDa
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUsageInfo*/
-func (a *ReportingUsageApiService) GetUsageByMonth(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+func (a *Reporting_UsageApiService) GetUsageByMonth(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -434,7 +434,7 @@ func (a *ReportingUsageApiService) GetUsageByMonth(ctx context.Context, startDat
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ReportingUsageApiService Returns aggregated endpoint usage information by year
+/* Reporting_UsageApiService Returns aggregated endpoint usage information by year
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param startDate The beginning of the range being requested, unix timestamp in seconds
@@ -446,7 +446,7 @@ func (a *ReportingUsageApiService) GetUsageByMonth(ctx context.Context, startDat
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceUsageInfo*/
-func (a *ReportingUsageApiService) GetUsageByYear(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
+func (a *Reporting_UsageApiService) GetUsageByYear(ctx context.Context, startDate int64, endDate int64, localVarOptionals map[string]interface{}) (PageResourceUsageInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -536,13 +536,13 @@ func (a *ReportingUsageApiService) GetUsageByYear(ctx context.Context, startDate
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ReportingUsageApiService Returns list of endpoints called (method and url)
+/* Reporting_UsageApiService Returns list of endpoints called (method and url)
  &lt;b&gt;Permissions Needed:&lt;/b&gt; USAGE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param startDate The beginning of the range being requested, unix timestamp in seconds
  @param endDate The ending of the range being requested, unix timestamp in seconds
  @return []string*/
-func (a *ReportingUsageApiService) GetUsageEndpoints(ctx context.Context, startDate int64, endDate int64) ([]string,  *http.Response, error) {
+func (a *Reporting_UsageApiService) GetUsageEndpoints(ctx context.Context, startDate int64, endDate int64) ([]string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

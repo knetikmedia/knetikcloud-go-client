@@ -1,6 +1,6 @@
 # \MessagingApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**DeleteMessageTemplate**](MessagingApi.md#DeleteMessageTemplate) | **Delete** /messaging/templates/{id} | Delete an existing message template
 [**GetMessageTemplate**](MessagingApi.md#GetMessageTemplate) | **Get** /messaging/templates/{id} | Get a single message template
 [**GetMessageTemplates**](MessagingApi.md#GetMessageTemplates) | **Get** /messaging/templates | List and search message templates
-[**SendMessage1**](MessagingApi.md#SendMessage1) | **Post** /messaging/message | Send a message
+[**SendMessage**](MessagingApi.md#SendMessage) | **Post** /messaging/message | Send a message
 [**SendRawEmail**](MessagingApi.md#SendRawEmail) | **Post** /messaging/raw-email | Send a raw email to one or more users
 [**SendRawPush**](MessagingApi.md#SendRawPush) | **Post** /messaging/raw-push | Send a raw push notification
 [**SendRawSMS**](MessagingApi.md#SendRawSMS) | **Post** /messaging/raw-sms | Send a raw SMS
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 > DeleteMessageTemplate(ctx, ctx, id)
 Delete an existing message template
 
-<b>Permissions Needed:</b> ARTICLES_ADMIN
+<b>Permissions Needed:</b> MESSAGING_ADMIN
 
 ### Required Parameters
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 > MessageTemplateResource GetMessageTemplate(ctx, ctx, id)
 Get a single message template
 
-<b>Permissions Needed:</b> ARTICLES_ADMIN
+<b>Permissions Needed:</b> MESSAGING_ADMIN
 
 ### Required Parameters
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 > PageResourceMessageTemplateResource GetMessageTemplates(ctx, ctx, optional)
 List and search message templates
 
-Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> ARTICLES_ADMIN
+Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN
 
 ### Required Parameters
 
@@ -191,8 +191,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **SendMessage1**
-> SendMessage1(ctx, ctx, optional)
+# **SendMessage**
+> SendMessage(ctx, ctx, optional)
 Send a message
 
 Sends a message with one or more formats to one or more users. Fill in any message formats desired (email, sms, websockets) and each user will recieve all valid formats. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 > MessageTemplateResource UpdateMessageTemplate(ctx, ctx, id, optional)
 Update an existing message template
 
-<b>Permissions Needed:</b> ARTICLES_ADMIN
+<b>Permissions Needed:</b> MESSAGING_ADMIN
 
 ### Required Parameters
 

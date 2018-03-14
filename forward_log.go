@@ -17,11 +17,17 @@ type ForwardLog struct {
 
 	ErrorMsg string `json:"error_msg,omitempty"`
 
+	EventId string `json:"event_id,omitempty"`
+
+	Headers string `json:"headers,omitempty"`
+
 	// The http status code the forward log entry
 	HttpStatusCode int32 `json:"http_status_code,omitempty"`
 
 	// The id of the forward log entry
 	Id string `json:"id,omitempty"`
+
+	Method string `json:"method,omitempty"`
 
 	// The payload of the forward log entry
 	Payload *interface{} `json:"payload,omitempty"`
@@ -32,8 +38,14 @@ type ForwardLog struct {
 	// The retry count of the forward log entry
 	RetryCount int32 `json:"retry_count,omitempty"`
 
+	Retryable bool `json:"retryable,omitempty"`
+
+	RuleId string `json:"rule_id,omitempty"`
+
 	// The start date of the forward log entry
 	StartDate int64 `json:"start_date,omitempty"`
+
+	Success bool `json:"success,omitempty"`
 
 	// The endpoint url of the forward log entry
 	Url string `json:"url,omitempty"`

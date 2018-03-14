@@ -24,15 +24,15 @@ var (
 	_ context.Context
 )
 
-type PaymentsTransactionsApiService service
+type Payments_TransactionsApiService service
 
 
-/* PaymentsTransactionsApiService Get the details for a single transaction
+/* Payments_TransactionsApiService Get the details for a single transaction
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRANSACTIONS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param id id
  @return TransactionResource*/
-func (a *PaymentsTransactionsApiService) GetTransaction(ctx context.Context, id int32) (TransactionResource,  *http.Response, error) {
+func (a *Payments_TransactionsApiService) GetTransaction(ctx context.Context, id int32) (TransactionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -91,7 +91,7 @@ func (a *PaymentsTransactionsApiService) GetTransaction(ctx context.Context, id 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PaymentsTransactionsApiService List and search transactions
+/* Payments_TransactionsApiService List and search transactions
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRANSACTIONS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -100,7 +100,7 @@ func (a *PaymentsTransactionsApiService) GetTransaction(ctx context.Context, id 
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTransactionResource*/
-func (a *PaymentsTransactionsApiService) GetTransactions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTransactionResource,  *http.Response, error) {
+func (a *Payments_TransactionsApiService) GetTransactions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTransactionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -182,14 +182,14 @@ func (a *PaymentsTransactionsApiService) GetTransactions(ctx context.Context, lo
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PaymentsTransactionsApiService Refund a payment transaction, in full or in part
+/* Payments_TransactionsApiService Refund a payment transaction, in full or in part
  Will not allow for refunding more than the full amount even with multiple partial refunds. Money is refunded to the payment method used to make the original payment. Payment method must support refunds. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; PAYMENTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the transaction to refund
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (RefundRequest) Request containing refund details
  @return RefundResource*/
-func (a *PaymentsTransactionsApiService) RefundTransaction(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (RefundResource,  *http.Response, error) {
+func (a *Payments_TransactionsApiService) RefundTransaction(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (RefundResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}

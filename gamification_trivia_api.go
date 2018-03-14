@@ -24,17 +24,17 @@ var (
 	_ context.Context
 )
 
-type GamificationTriviaApiService service
+type Gamification_TriviaApiService service
 
 
-/* GamificationTriviaApiService Add an answer to a question
+/* Gamification_TriviaApiService Add an answer to a question
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "answer" (AnswerResource) The new answer
  @return AnswerResource*/
-func (a *GamificationTriviaApiService) AddQuestionAnswers(ctx context.Context, questionId string, localVarOptionals map[string]interface{}) (AnswerResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) AddQuestionAnswers(ctx context.Context, questionId string, localVarOptionals map[string]interface{}) (AnswerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -97,14 +97,14 @@ func (a *GamificationTriviaApiService) AddQuestionAnswers(ctx context.Context, q
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Add a tag to a question
+/* Gamification_TriviaApiService Add a tag to a question
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "tag" (StringWrapper) The new tag
  @return */
-func (a *GamificationTriviaApiService) AddQuestionTag(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Gamification_TriviaApiService) AddQuestionTag(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -161,7 +161,7 @@ func (a *GamificationTriviaApiService) AddQuestionTag(ctx context.Context, id st
 	return localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Add a tag to a batch of questions
+/* Gamification_TriviaApiService Add a tag to a batch of questions
  All questions that dont&#39;t have the tag and match filters will have it added. The returned number is the number of questions updated. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -175,7 +175,7 @@ func (a *GamificationTriviaApiService) AddQuestionTag(ctx context.Context, id st
      @param "filterPublished" (bool) Filter for questions currenctly published or not
      @param "filterImportId" (int64) Filter for questions from a specific import job
  @return int32*/
-func (a *GamificationTriviaApiService) AddTagToQuestionsBatch(ctx context.Context, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) AddTagToQuestionsBatch(ctx context.Context, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -285,13 +285,13 @@ func (a *GamificationTriviaApiService) AddTagToQuestionsBatch(ctx context.Contex
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Create an import job
+/* Gamification_TriviaApiService Create an import job
  Set up a job to import a set of trivia questions from a cvs file at a remote url. the file will be validated asynchronously but will not be processed until started manually with the process endpoint. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (ImportJobResource) The new import job
  @return ImportJobResource*/
-func (a *GamificationTriviaApiService) CreateImportJob(ctx context.Context, localVarOptionals map[string]interface{}) (ImportJobResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) CreateImportJob(ctx context.Context, localVarOptionals map[string]interface{}) (ImportJobResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -353,13 +353,13 @@ func (a *GamificationTriviaApiService) CreateImportJob(ctx context.Context, loca
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Create a question
+/* Gamification_TriviaApiService Create a question
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "question" (QuestionResource) The new question
  @return QuestionResource*/
-func (a *GamificationTriviaApiService) CreateQuestion(ctx context.Context, localVarOptionals map[string]interface{}) (QuestionResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) CreateQuestion(ctx context.Context, localVarOptionals map[string]interface{}) (QuestionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -421,13 +421,13 @@ func (a *GamificationTriviaApiService) CreateQuestion(ctx context.Context, local
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Create a question template
+/* Gamification_TriviaApiService Create a question template
  Question templates define a type of question and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "questionTemplateResource" (QuestionTemplateResource) The question template resource object
  @return QuestionTemplateResource*/
-func (a *GamificationTriviaApiService) CreateQuestionTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (QuestionTemplateResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) CreateQuestionTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (QuestionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -489,12 +489,12 @@ func (a *GamificationTriviaApiService) CreateQuestionTemplate(ctx context.Contex
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Delete an import job
+/* Gamification_TriviaApiService Delete an import job
  Also deletes all questions that were imported by it. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the job
  @return */
-func (a *GamificationTriviaApiService) DeleteImportJob(ctx context.Context, id int64) ( *http.Response, error) {
+func (a *Gamification_TriviaApiService) DeleteImportJob(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -547,12 +547,12 @@ func (a *GamificationTriviaApiService) DeleteImportJob(ctx context.Context, id i
 	return localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Delete a question
+/* Gamification_TriviaApiService Delete a question
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @return */
-func (a *GamificationTriviaApiService) DeleteQuestion(ctx context.Context, id string) ( *http.Response, error) {
+func (a *Gamification_TriviaApiService) DeleteQuestion(ctx context.Context, id string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -605,13 +605,13 @@ func (a *GamificationTriviaApiService) DeleteQuestion(ctx context.Context, id st
 	return localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Remove an answer from a question
+/* Gamification_TriviaApiService Remove an answer from a question
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @param id The id of the answer
  @return */
-func (a *GamificationTriviaApiService) DeleteQuestionAnswers(ctx context.Context, questionId string, id string) ( *http.Response, error) {
+func (a *Gamification_TriviaApiService) DeleteQuestionAnswers(ctx context.Context, questionId string, id string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -665,14 +665,14 @@ func (a *GamificationTriviaApiService) DeleteQuestionAnswers(ctx context.Context
 	return localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Delete a question template
+/* Gamification_TriviaApiService Delete a question template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *GamificationTriviaApiService) DeleteQuestionTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Gamification_TriviaApiService) DeleteQuestionTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -731,12 +731,12 @@ func (a *GamificationTriviaApiService) DeleteQuestionTemplate(ctx context.Contex
 	return localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Get an import job
+/* Gamification_TriviaApiService Get an import job
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the job
  @return ImportJobResource*/
-func (a *GamificationTriviaApiService) GetImportJob(ctx context.Context, id int64) (ImportJobResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) GetImportJob(ctx context.Context, id int64) (ImportJobResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -795,7 +795,7 @@ func (a *GamificationTriviaApiService) GetImportJob(ctx context.Context, id int6
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Get a list of import job
+/* Gamification_TriviaApiService Get a list of import job
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -807,7 +807,7 @@ func (a *GamificationTriviaApiService) GetImportJob(ctx context.Context, id int6
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceImportJobResource*/
-func (a *GamificationTriviaApiService) GetImportJobs(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceImportJobResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) GetImportJobs(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceImportJobResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -907,12 +907,12 @@ func (a *GamificationTriviaApiService) GetImportJobs(ctx context.Context, localV
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Get a single question
+/* Gamification_TriviaApiService Get a single question
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @return QuestionResource*/
-func (a *GamificationTriviaApiService) GetQuestion(ctx context.Context, id string) (QuestionResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) GetQuestion(ctx context.Context, id string) (QuestionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -971,13 +971,13 @@ func (a *GamificationTriviaApiService) GetQuestion(ctx context.Context, id strin
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Get an answer for a question
+/* Gamification_TriviaApiService Get an answer for a question
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @param id The id of the answer
  @return AnswerResource*/
-func (a *GamificationTriviaApiService) GetQuestionAnswer(ctx context.Context, questionId string, id string) (AnswerResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) GetQuestionAnswer(ctx context.Context, questionId string, id string) (AnswerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1037,12 +1037,12 @@ func (a *GamificationTriviaApiService) GetQuestionAnswer(ctx context.Context, qu
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService List the answers available for a question
+/* Gamification_TriviaApiService List the answers available for a question
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
  @return []AnswerResource*/
-func (a *GamificationTriviaApiService) GetQuestionAnswers(ctx context.Context, questionId string) ([]AnswerResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) GetQuestionAnswers(ctx context.Context, questionId string) ([]AnswerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1101,13 +1101,13 @@ func (a *GamificationTriviaApiService) GetQuestionAnswers(ctx context.Context, q
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService List question deltas in ascending order of updated date
+/* Gamification_TriviaApiService List question deltas in ascending order of updated date
  The &#39;since&#39; parameter is important to avoid getting a full list of all questions. Implementors should make sure they pass the updated date of the last resource loaded, not the date of the last request, in order to avoid gaps. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "since" (int64) Timestamp in seconds
  @return []DeltaResource*/
-func (a *GamificationTriviaApiService) GetQuestionDeltas(ctx context.Context, localVarOptionals map[string]interface{}) ([]DeltaResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) GetQuestionDeltas(ctx context.Context, localVarOptionals map[string]interface{}) ([]DeltaResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1171,12 +1171,12 @@ func (a *GamificationTriviaApiService) GetQuestionDeltas(ctx context.Context, lo
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService List the tags for a question
+/* Gamification_TriviaApiService List the tags for a question
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @return []string*/
-func (a *GamificationTriviaApiService) GetQuestionTags(ctx context.Context, id string) ([]string,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) GetQuestionTags(ctx context.Context, id string) ([]string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1235,12 +1235,12 @@ func (a *GamificationTriviaApiService) GetQuestionTags(ctx context.Context, id s
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Get a single question template
+/* Gamification_TriviaApiService Get a single question template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return QuestionTemplateResource*/
-func (a *GamificationTriviaApiService) GetQuestionTemplate(ctx context.Context, id string) (QuestionTemplateResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) GetQuestionTemplate(ctx context.Context, id string) (QuestionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1299,7 +1299,7 @@ func (a *GamificationTriviaApiService) GetQuestionTemplate(ctx context.Context, 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService List and search question templates
+/* Gamification_TriviaApiService List and search question templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1307,7 +1307,7 @@ func (a *GamificationTriviaApiService) GetQuestionTemplate(ctx context.Context, 
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceQuestionTemplateResource*/
-func (a *GamificationTriviaApiService) GetQuestionTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceQuestionTemplateResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) GetQuestionTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceQuestionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1383,7 +1383,7 @@ func (a *GamificationTriviaApiService) GetQuestionTemplates(ctx context.Context,
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService List and search questions
+/* Gamification_TriviaApiService List and search questions
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1399,7 +1399,7 @@ func (a *GamificationTriviaApiService) GetQuestionTemplates(ctx context.Context,
      @param "filterPublished" (bool) Filter for questions currenctly published or not
      @param "filterImportId" (int64) Filter for questions from a specific import job
  @return PageResourceQuestionResource*/
-func (a *GamificationTriviaApiService) GetQuestions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceQuestionResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) GetQuestions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceQuestionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1523,7 +1523,7 @@ func (a *GamificationTriviaApiService) GetQuestions(ctx context.Context, localVa
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Count questions based on filters
+/* Gamification_TriviaApiService Count questions based on filters
  This is also provided by the list endpoint so you don&#39;t need to call this for pagination purposes. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1535,7 +1535,7 @@ func (a *GamificationTriviaApiService) GetQuestions(ctx context.Context, localVa
      @param "filterType" (string) Filter for questions with specified type.  Allowable values: (&#39;TEXT&#39;, &#39;IMAGE&#39;, &#39;VIDEO&#39;, &#39;AUDIO&#39;)
      @param "filterPublished" (bool) Filter for questions currenctly published or not
  @return int64*/
-func (a *GamificationTriviaApiService) GetQuestionsCount(ctx context.Context, localVarOptionals map[string]interface{}) (int64,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) GetQuestionsCount(ctx context.Context, localVarOptionals map[string]interface{}) (int64,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1635,13 +1635,13 @@ func (a *GamificationTriviaApiService) GetQuestionsCount(ctx context.Context, lo
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Start processing an import job
+/* Gamification_TriviaApiService Start processing an import job
  Will process the CSV file and add new questions asynchronously. The status of the job must be &#39;VALID&#39;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the job
  @param publishNow Whether the new questions should be published live immediately
  @return ImportJobResource*/
-func (a *GamificationTriviaApiService) ProcessImportJob(ctx context.Context, id int64, publishNow bool) (ImportJobResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) ProcessImportJob(ctx context.Context, id int64, publishNow bool) (ImportJobResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -1701,13 +1701,13 @@ func (a *GamificationTriviaApiService) ProcessImportJob(ctx context.Context, id 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Remove a tag from a question
+/* Gamification_TriviaApiService Remove a tag from a question
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @param tag The tag to remove
  @return */
-func (a *GamificationTriviaApiService) RemoveQuestionTag(ctx context.Context, id string, tag string) ( *http.Response, error) {
+func (a *Gamification_TriviaApiService) RemoveQuestionTag(ctx context.Context, id string, tag string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -1761,7 +1761,7 @@ func (a *GamificationTriviaApiService) RemoveQuestionTag(ctx context.Context, id
 	return localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Remove a tag from a batch of questions
+/* Gamification_TriviaApiService Remove a tag from a batch of questions
  ll questions that have the tag and match filters will have it removed. The returned number is the number of questions updated. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param tag The tag to remove
@@ -1775,7 +1775,7 @@ func (a *GamificationTriviaApiService) RemoveQuestionTag(ctx context.Context, id
      @param "filterPublished" (bool) Filter for questions currenctly published or not
      @param "filterImportId" (int64) Filter for questions from a specific import job
  @return int32*/
-func (a *GamificationTriviaApiService) RemoveTagToQuestionsBatch(ctx context.Context, tag string, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) RemoveTagToQuestionsBatch(ctx context.Context, tag string, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -1882,7 +1882,7 @@ func (a *GamificationTriviaApiService) RemoveTagToQuestionsBatch(ctx context.Con
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService List and search tags by the beginning of the string
+/* Gamification_TriviaApiService List and search tags by the beginning of the string
  For performance reasons, search &amp; category filters are mutually exclusive. If category is specified, search filter will be ignored in order to do fast matches for typeahead. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1890,7 +1890,7 @@ func (a *GamificationTriviaApiService) RemoveTagToQuestionsBatch(ctx context.Con
      @param "filterCategory" (string) Filter for tags on questions from a specific category
      @param "filterImportId" (int64) Filter for tags on questions from a specific import job
  @return []string*/
-func (a *GamificationTriviaApiService) SearchQuestionTags(ctx context.Context, localVarOptionals map[string]interface{}) ([]string,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) SearchQuestionTags(ctx context.Context, localVarOptionals map[string]interface{}) ([]string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1966,14 +1966,14 @@ func (a *GamificationTriviaApiService) SearchQuestionTags(ctx context.Context, l
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Update an import job
+/* Gamification_TriviaApiService Update an import job
  Changes should be made before process is started for there to be any effect. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the job
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (ImportJobResource) The updated job
  @return ImportJobResource*/
-func (a *GamificationTriviaApiService) UpdateImportJob(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (ImportJobResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) UpdateImportJob(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (ImportJobResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -2036,14 +2036,14 @@ func (a *GamificationTriviaApiService) UpdateImportJob(ctx context.Context, id i
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Update a question
+/* Gamification_TriviaApiService Update a question
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the question
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "question" (QuestionResource) The updated question
  @return QuestionResource*/
-func (a *GamificationTriviaApiService) UpdateQuestion(ctx context.Context, id string, localVarOptionals map[string]interface{}) (QuestionResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) UpdateQuestion(ctx context.Context, id string, localVarOptionals map[string]interface{}) (QuestionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -2106,7 +2106,7 @@ func (a *GamificationTriviaApiService) UpdateQuestion(ctx context.Context, id st
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Update an answer for a question
+/* Gamification_TriviaApiService Update an answer for a question
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param questionId The id of the question
@@ -2114,7 +2114,7 @@ func (a *GamificationTriviaApiService) UpdateQuestion(ctx context.Context, id st
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "answer" (AnswerResource) The updated answer
  @return */
-func (a *GamificationTriviaApiService) UpdateQuestionAnswer(ctx context.Context, questionId string, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Gamification_TriviaApiService) UpdateQuestionAnswer(ctx context.Context, questionId string, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -2172,14 +2172,14 @@ func (a *GamificationTriviaApiService) UpdateQuestionAnswer(ctx context.Context,
 	return localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Update a question template
+/* Gamification_TriviaApiService Update a question template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "questionTemplateResource" (QuestionTemplateResource) The question template resource object
  @return QuestionTemplateResource*/
-func (a *GamificationTriviaApiService) UpdateQuestionTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (QuestionTemplateResource,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) UpdateQuestionTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (QuestionTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -2242,7 +2242,7 @@ func (a *GamificationTriviaApiService) UpdateQuestionTemplate(ctx context.Contex
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationTriviaApiService Bulk update questions
+/* Gamification_TriviaApiService Bulk update questions
  Will update all questions that match filters used (or all questions in system if no filters used). Body should match a question resource with only those properties you wish to set. Null values will be ignored. Returned number is how many were updated. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TRIVIA_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -2255,7 +2255,7 @@ func (a *GamificationTriviaApiService) UpdateQuestionTemplate(ctx context.Contex
      @param "filterPublished" (bool) Filter for questions currenctly published or not
      @param "filterImportId" (int64) Filter for questions from a specific import job
  @return int32*/
-func (a *GamificationTriviaApiService) UpdateQuestionsInBulk(ctx context.Context, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
+func (a *Gamification_TriviaApiService) UpdateQuestionsInBulk(ctx context.Context, localVarOptionals map[string]interface{}) (int32,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

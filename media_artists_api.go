@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type MediaArtistsApiService service
+type Media_ArtistsApiService service
 
 
-/* MediaArtistsApiService Adds a new artist in the system
+/* Media_ArtistsApiService Adds a new artist in the system
  Adds a new artist in the system. Use specific media contributions endpoint to add contributions. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "artistResource" (ArtistResource) The new artist
  @return ArtistResource*/
-func (a *MediaArtistsApiService) AddArtist(ctx context.Context, localVarOptionals map[string]interface{}) (ArtistResource,  *http.Response, error) {
+func (a *Media_ArtistsApiService) AddArtist(ctx context.Context, localVarOptionals map[string]interface{}) (ArtistResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,13 +95,13 @@ func (a *MediaArtistsApiService) AddArtist(ctx context.Context, localVarOptional
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaArtistsApiService Create an artist template
+/* Media_ArtistsApiService Create an artist template
  Artist Templates define a type of artist and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "artistTemplateResource" (TemplateResource) The artist template resource object
  @return TemplateResource*/
-func (a *MediaArtistsApiService) CreateArtistTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Media_ArtistsApiService) CreateArtistTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -163,12 +163,12 @@ func (a *MediaArtistsApiService) CreateArtistTemplate(ctx context.Context, local
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaArtistsApiService Removes an artist from the system IF no resources are attached to it
+/* Media_ArtistsApiService Removes an artist from the system IF no resources are attached to it
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTISTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The artist id
  @return */
-func (a *MediaArtistsApiService) DeleteArtist(ctx context.Context, id int64) ( *http.Response, error) {
+func (a *Media_ArtistsApiService) DeleteArtist(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -221,14 +221,14 @@ func (a *MediaArtistsApiService) DeleteArtist(ctx context.Context, id int64) ( *
 	return localVarHttpResponse, err
 }
 
-/* MediaArtistsApiService Delete an artist template
+/* Media_ArtistsApiService Delete an artist template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *MediaArtistsApiService) DeleteArtistTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Media_ArtistsApiService) DeleteArtistTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -287,14 +287,14 @@ func (a *MediaArtistsApiService) DeleteArtistTemplate(ctx context.Context, id st
 	return localVarHttpResponse, err
 }
 
-/* MediaArtistsApiService Loads a specific artist details
+/* Media_ArtistsApiService Loads a specific artist details
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The artist id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "showContributions" (int32) The number of contributions to show fetch
  @return ArtistResource*/
-func (a *MediaArtistsApiService) GetArtist(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (ArtistResource,  *http.Response, error) {
+func (a *Media_ArtistsApiService) GetArtist(ctx context.Context, id int64, localVarOptionals map[string]interface{}) (ArtistResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -359,12 +359,12 @@ func (a *MediaArtistsApiService) GetArtist(ctx context.Context, id int64, localV
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaArtistsApiService Get a single artist template
+/* Media_ArtistsApiService Get a single artist template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTISTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
-func (a *MediaArtistsApiService) GetArtistTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *Media_ArtistsApiService) GetArtistTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -423,7 +423,7 @@ func (a *MediaArtistsApiService) GetArtistTemplate(ctx context.Context, id strin
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaArtistsApiService List and search artist templates
+/* Media_ArtistsApiService List and search artist templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTISTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -431,7 +431,7 @@ func (a *MediaArtistsApiService) GetArtistTemplate(ctx context.Context, id strin
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *MediaArtistsApiService) GetArtistTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *Media_ArtistsApiService) GetArtistTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -507,7 +507,7 @@ func (a *MediaArtistsApiService) GetArtistTemplates(ctx context.Context, localVa
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaArtistsApiService Search for artists
+/* Media_ArtistsApiService Search for artists
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -516,7 +516,7 @@ func (a *MediaArtistsApiService) GetArtistTemplates(ctx context.Context, localVa
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceArtistResource*/
-func (a *MediaArtistsApiService) GetArtists(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceArtistResource,  *http.Response, error) {
+func (a *Media_ArtistsApiService) GetArtists(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceArtistResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -598,14 +598,14 @@ func (a *MediaArtistsApiService) GetArtists(ctx context.Context, localVarOptiona
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaArtistsApiService Modifies an artist details
+/* Media_ArtistsApiService Modifies an artist details
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTISTS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The artist id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "artistResource" (ArtistResource) The new artist
  @return */
-func (a *MediaArtistsApiService) UpdateArtist(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Media_ArtistsApiService) UpdateArtist(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -662,14 +662,14 @@ func (a *MediaArtistsApiService) UpdateArtist(ctx context.Context, id int64, loc
 	return localVarHttpResponse, err
 }
 
-/* MediaArtistsApiService Update an artist template
+/* Media_ArtistsApiService Update an artist template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "artistTemplateResource" (TemplateResource) The artist template resource object
  @return TemplateResource*/
-func (a *MediaArtistsApiService) UpdateArtistTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Media_ArtistsApiService) UpdateArtistTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

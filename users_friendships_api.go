@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type UsersFriendshipsApiService service
+type Users_FriendshipsApiService service
 
 
-/* UsersFriendshipsApiService Add a friend
+/* Users_FriendshipsApiService Add a friend
  As a user, either creates or confirm a pending request. As an admin, call this endpoint twice while inverting the IDs to create a confirmed friendship. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39; if logged in
  @param id The id of the user to befriend
  @return */
-func (a *UsersFriendshipsApiService) AddFriend(ctx context.Context, userId string, id int32) ( *http.Response, error) {
+func (a *Users_FriendshipsApiService) AddFriend(ctx context.Context, userId string, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -87,7 +87,7 @@ func (a *UsersFriendshipsApiService) AddFriend(ctx context.Context, userId strin
 	return localVarHttpResponse, err
 }
 
-/* UsersFriendshipsApiService Get friends list
+/* Users_FriendshipsApiService Get friends list
  &lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39;
@@ -97,7 +97,7 @@ func (a *UsersFriendshipsApiService) AddFriend(ctx context.Context, userId strin
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceSimpleUserResource*/
-func (a *UsersFriendshipsApiService) GetFriends(ctx context.Context, userId string, localVarOptionals map[string]interface{}) (PageResourceSimpleUserResource,  *http.Response, error) {
+func (a *Users_FriendshipsApiService) GetFriends(ctx context.Context, userId string, localVarOptionals map[string]interface{}) (PageResourceSimpleUserResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -180,12 +180,12 @@ func (a *UsersFriendshipsApiService) GetFriends(ctx context.Context, userId stri
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersFriendshipsApiService Returns the invite token
- This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)flow instead if confirmation is required
+/* Users_FriendshipsApiService Returns the invite token
+ This is a unique invite token that allows direct connection to the request user.  Exposing that token presents privacy issues if the token is leaked. Use friend request flow instead if confirmation is required. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39; if logged in
  @return string*/
-func (a *UsersFriendshipsApiService) GetInviteToken(ctx context.Context, userId string) (string,  *http.Response, error) {
+func (a *Users_FriendshipsApiService) GetInviteToken(ctx context.Context, userId string) (string,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -244,7 +244,7 @@ func (a *UsersFriendshipsApiService) GetInviteToken(ctx context.Context, userId 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersFriendshipsApiService Get pending invites
+/* Users_FriendshipsApiService Get pending invites
  Invites that the specified user received. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39;
@@ -252,7 +252,7 @@ func (a *UsersFriendshipsApiService) GetInviteToken(ctx context.Context, userId 
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceSimpleUserResource*/
-func (a *UsersFriendshipsApiService) GetInvites(ctx context.Context, userId string, localVarOptionals map[string]interface{}) (PageResourceSimpleUserResource,  *http.Response, error) {
+func (a *Users_FriendshipsApiService) GetInvites(ctx context.Context, userId string, localVarOptionals map[string]interface{}) (PageResourceSimpleUserResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -323,14 +323,14 @@ func (a *UsersFriendshipsApiService) GetInvites(ctx context.Context, userId stri
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UsersFriendshipsApiService Redeem friendship token
+/* Users_FriendshipsApiService Redeem friendship token
  Immediately connects the requested user with the user mapped by the provided invite token. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39; if logged in
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "token" (StringWrapper) The invite token
  @return */
-func (a *UsersFriendshipsApiService) RedeemFriendshipToken(ctx context.Context, userId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Users_FriendshipsApiService) RedeemFriendshipToken(ctx context.Context, userId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -387,13 +387,13 @@ func (a *UsersFriendshipsApiService) RedeemFriendshipToken(ctx context.Context, 
 	return localVarHttpResponse, err
 }
 
-/* UsersFriendshipsApiService Remove or decline a friend
+/* Users_FriendshipsApiService Remove or decline a friend
  &lt;b&gt;Permissions Needed:&lt;/b&gt; FRIENDSHIPS_ADMIN or (FRIENDSHIPS_USER and owner)
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39; if logged in
  @param id The id of the user to befriend
  @return */
-func (a *UsersFriendshipsApiService) RemoveOrDeclineFriend(ctx context.Context, userId string, id int32) ( *http.Response, error) {
+func (a *Users_FriendshipsApiService) RemoveOrDeclineFriend(ctx context.Context, userId string, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}

@@ -24,15 +24,15 @@ var (
 	_ context.Context
 )
 
-type TemplatesPropertiesApiService service
+type Templates_PropertiesApiService service
 
 
-/* TemplatesPropertiesApiService Get details for a template property type
+/* Templates_PropertiesApiService Get details for a template property type
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param type_ type
  @return PropertyFieldListResource*/
-func (a *TemplatesPropertiesApiService) GetTemplatePropertyType(ctx context.Context, type_ string) (PropertyFieldListResource,  *http.Response, error) {
+func (a *Templates_PropertiesApiService) GetTemplatePropertyType(ctx context.Context, type_ string) (PropertyFieldListResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -91,11 +91,11 @@ func (a *TemplatesPropertiesApiService) GetTemplatePropertyType(ctx context.Cont
 	return successPayload, localVarHttpResponse, err
 }
 
-/* TemplatesPropertiesApiService List template property types
+/* Templates_PropertiesApiService List template property types
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return []PropertyFieldListResource*/
-func (a *TemplatesPropertiesApiService) GetTemplatePropertyTypes(ctx context.Context, ) ([]PropertyFieldListResource,  *http.Response, error) {
+func (a *Templates_PropertiesApiService) GetTemplatePropertyTypes(ctx context.Context, ) ([]PropertyFieldListResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

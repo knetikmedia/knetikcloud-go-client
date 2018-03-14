@@ -22,16 +22,16 @@ var (
 	_ context.Context
 )
 
-type SocialGoogleApiService service
+type Social_GoogleApiService service
 
 
-/* SocialGoogleApiService Link google account
+/* Social_GoogleApiService Link google account
  Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; Non-google user token
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "googleToken" (GoogleToken) The token from google
  @return */
-func (a *SocialGoogleApiService) LinkAccounts1(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Social_GoogleApiService) LinkAccounts1(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}

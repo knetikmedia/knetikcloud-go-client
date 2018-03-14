@@ -1,6 +1,6 @@
 # \ChatApi
 
-All URIs are relative to *https://sandbox.knetikcloud.com*
+All URIs are relative to *https://jsapi-integration.us-east-1.elasticbeanstalk.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**GetThreadMessages**](ChatApi.md#GetThreadMessages) | **Get** /chat/threads/{id}/messages | List messages in a thread
 [**GetTopicMessages**](ChatApi.md#GetTopicMessages) | **Get** /chat/topics/{id}/messages | List messages in a topic
 [**RemoveChatBlacklist**](ChatApi.md#RemoveChatBlacklist) | **Delete** /chat/users/{id}/blacklist/{blacklisted_user_id} | Remove a user from a blacklist
-[**SendMessage**](ChatApi.md#SendMessage) | **Post** /chat/messages | Send a message
+[**SendChatMessage**](ChatApi.md#SendChatMessage) | **Post** /chat/messages | Send a message
 
 
 # **AcknowledgeChatMessage**
@@ -399,8 +399,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **SendMessage**
-> ChatMessageResource SendMessage(ctx, ctx, optional)
+# **SendChatMessage**
+> ChatMessageResource SendChatMessage(ctx, ctx, optional)
 Send a message
 
 <b>Permissions Needed:</b> ANY

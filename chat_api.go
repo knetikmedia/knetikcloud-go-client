@@ -812,7 +812,7 @@ func (a *ChatApiService) RemoveChatBlacklist(ctx context.Context, blacklistedUse
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "chatMessageResource" (ChatMessageResource) The chat message resource
  @return ChatMessageResource*/
-func (a *ChatApiService) SendMessage(ctx context.Context, localVarOptionals map[string]interface{}) (ChatMessageResource,  *http.Response, error) {
+func (a *ChatApiService) SendChatMessage(ctx context.Context, localVarOptionals map[string]interface{}) (ChatMessageResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}

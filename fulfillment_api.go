@@ -304,7 +304,7 @@ func (a *FulfillmentApiService) GetFulfillmentTypes(ctx context.Context, localVa
 /* FulfillmentApiService Update a fulfillment type
  &lt;b&gt;Permissions Needed:&lt;/b&gt; FULFILLMENT_ADMIN
  * @param ctx context.Context Authentication Context 
- @param id The id
+ @param id The fulfillment id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "fulfillmentType" (FulfillmentType) The fulfillment type
  @return */

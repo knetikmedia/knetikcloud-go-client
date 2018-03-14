@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type ContentArticlesApiService service
+type Content_ArticlesApiService service
 
 
-/* ContentArticlesApiService Create a new article
+/* Content_ArticlesApiService Create a new article
  Articles are blobs of text with titles, a category and assets. Formatting and display of the text is in the hands of the front end.&lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions:&lt;/b&gt; ARTICLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "articleResource" (ArticleResource) The new article
  @return ArticleResource*/
-func (a *ContentArticlesApiService) CreateArticle(ctx context.Context, localVarOptionals map[string]interface{}) (ArticleResource,  *http.Response, error) {
+func (a *Content_ArticlesApiService) CreateArticle(ctx context.Context, localVarOptionals map[string]interface{}) (ArticleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,13 +95,13 @@ func (a *ContentArticlesApiService) CreateArticle(ctx context.Context, localVarO
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ContentArticlesApiService Create an article template
+/* Content_ArticlesApiService Create an article template
  Article Templates define a type of article and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "articleTemplateResource" (TemplateResource) The article template resource object
  @return TemplateResource*/
-func (a *ContentArticlesApiService) CreateArticleTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Content_ArticlesApiService) CreateArticleTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -163,12 +163,82 @@ func (a *ContentArticlesApiService) CreateArticleTemplate(ctx context.Context, l
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ContentArticlesApiService Delete an existing article
+/* Content_ArticlesApiService Create a template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATES_ADMIN
+ * @param ctx context.Context Authentication Context 
+ @param typeHint The type for the resource this template applies to
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "template" (TemplateResource) The template
+ @return TemplateResource*/
+func (a *Content_ArticlesApiService) CreateTemplate(ctx context.Context, typeHint string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  TemplateResource
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/templates/{type_hint}"
+	localVarPath = strings.Replace(localVarPath, "{"+"type_hint"+"}", fmt.Sprintf("%v", typeHint), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarTempParam, localVarOk := localVarOptionals["template"].(TemplateResource); localVarOk {
+		localVarPostBody = &localVarTempParam
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Content_ArticlesApiService Delete an existing article
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTICLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The article id
  @return */
-func (a *ContentArticlesApiService) DeleteArticle(ctx context.Context, id string) ( *http.Response, error) {
+func (a *Content_ArticlesApiService) DeleteArticle(ctx context.Context, id string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -221,14 +291,14 @@ func (a *ContentArticlesApiService) DeleteArticle(ctx context.Context, id string
 	return localVarHttpResponse, err
 }
 
-/* ContentArticlesApiService Delete an article template
+/* Content_ArticlesApiService Delete an article template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *ContentArticlesApiService) DeleteArticleTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Content_ArticlesApiService) DeleteArticleTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -287,12 +357,81 @@ func (a *ContentArticlesApiService) DeleteArticleTemplate(ctx context.Context, i
 	return localVarHttpResponse, err
 }
 
-/* ContentArticlesApiService Get a single article
+/* Content_ArticlesApiService Delete a template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATES_ADMIN
+ * @param ctx context.Context Authentication Context 
+ @param typeHint The type for the resource this template applies to
+ @param id The id of the template
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "cascade" (string) How to cascade the delete
+ @return */
+func (a *Content_ArticlesApiService) DeleteTemplate(ctx context.Context, typeHint string, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/templates/{type_hint}/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"type_hint"+"}", fmt.Sprintf("%v", typeHint), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["cascade"], "string", "cascade"); err != nil {
+		return nil, err
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarTempParam, localVarOk := localVarOptionals["cascade"].(string); localVarOk {
+		localVarPostBody = &localVarTempParam
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+
+	return localVarHttpResponse, err
+}
+
+/* Content_ArticlesApiService Get a single article
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The article id
  @return ArticleResource*/
-func (a *ContentArticlesApiService) GetArticle(ctx context.Context, id string) (ArticleResource,  *http.Response, error) {
+func (a *Content_ArticlesApiService) GetArticle(ctx context.Context, id string) (ArticleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -351,12 +490,12 @@ func (a *ContentArticlesApiService) GetArticle(ctx context.Context, id string) (
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ContentArticlesApiService Get a single article template
+/* Content_ArticlesApiService Get a single article template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTICLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
-func (a *ContentArticlesApiService) GetArticleTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *Content_ArticlesApiService) GetArticleTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -415,7 +554,7 @@ func (a *ContentArticlesApiService) GetArticleTemplate(ctx context.Context, id s
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ContentArticlesApiService List and search article templates
+/* Content_ArticlesApiService List and search article templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or ARTICLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -423,7 +562,7 @@ func (a *ContentArticlesApiService) GetArticleTemplate(ctx context.Context, id s
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *ContentArticlesApiService) GetArticleTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *Content_ArticlesApiService) GetArticleTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -499,7 +638,7 @@ func (a *ContentArticlesApiService) GetArticleTemplates(ctx context.Context, loc
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ContentArticlesApiService List and search articles
+/* Content_ArticlesApiService List and search articles
  Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single article&#39; to retrieve the full resource with assets for a given item as needed. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -513,7 +652,7 @@ func (a *ContentArticlesApiService) GetArticleTemplates(ctx context.Context, loc
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceArticleResource*/
-func (a *ContentArticlesApiService) GetArticles(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceArticleResource,  *http.Response, error) {
+func (a *Content_ArticlesApiService) GetArticles(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceArticleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -625,14 +764,166 @@ func (a *ContentArticlesApiService) GetArticles(ctx context.Context, localVarOpt
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ContentArticlesApiService Update an existing article
+/* Content_ArticlesApiService Get a template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATES_ADMIN
+ * @param ctx context.Context Authentication Context 
+ @param typeHint The type for the resource this template applies to
+ @param id The id of the template
+ @return TemplateResource*/
+func (a *Content_ArticlesApiService) GetTemplate(ctx context.Context, typeHint string, id string) (TemplateResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  TemplateResource
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/templates/{type_hint}/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"type_hint"+"}", fmt.Sprintf("%v", typeHint), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Content_ArticlesApiService List and search templates
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATES_ADMIN
+ * @param ctx context.Context Authentication Context 
+ @param typeHint The type for the resource this template applies to
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "size" (int32) The number of objects returned per page
+     @param "page" (int32) The number of the page returned, starting with 1
+     @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
+ @return PageResourceTemplateResource*/
+func (a *Content_ArticlesApiService) GetTemplates(ctx context.Context, typeHint string, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PageResourceTemplateResource
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/templates/{type_hint}"
+	localVarPath = strings.Replace(localVarPath, "{"+"type_hint"+"}", fmt.Sprintf("%v", typeHint), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["size"], "int32", "size"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["order"], "string", "order"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam, localVarOk := localVarOptionals["size"].(int32); localVarOk {
+		localVarQueryParams.Add("size", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
+		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["order"].(string); localVarOk {
+		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Content_ArticlesApiService Update an existing article
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTICLES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The article id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "articleResource" (ArticleResource) The article object
  @return ArticleResource*/
-func (a *ContentArticlesApiService) UpdateArticle(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ArticleResource,  *http.Response, error) {
+func (a *Content_ArticlesApiService) UpdateArticle(ctx context.Context, id string, localVarOptionals map[string]interface{}) (ArticleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -695,14 +986,14 @@ func (a *ContentArticlesApiService) UpdateArticle(ctx context.Context, id string
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ContentArticlesApiService Update an article template
+/* Content_ArticlesApiService Update an article template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "articleTemplateResource" (TemplateResource) The article template resource object
  @return TemplateResource*/
-func (a *ContentArticlesApiService) UpdateArticleTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Content_ArticlesApiService) UpdateArticleTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -763,5 +1054,141 @@ func (a *ContentArticlesApiService) UpdateArticleTemplate(ctx context.Context, i
 
 
 	return successPayload, localVarHttpResponse, err
+}
+
+/* Content_ArticlesApiService Update a template
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATES_ADMIN
+ * @param ctx context.Context Authentication Context 
+ @param typeHint The type for the resource this template applies to
+ @param id The id of the template
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "template" (TemplateResource) The template
+ @return TemplateResource*/
+func (a *Content_ArticlesApiService) UpdateTemplate(ctx context.Context, typeHint string, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  TemplateResource
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/templates/{type_hint}/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"type_hint"+"}", fmt.Sprintf("%v", typeHint), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarTempParam, localVarOk := localVarOptionals["template"].(TemplateResource); localVarOk {
+		localVarPostBody = &localVarTempParam
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return successPayload, localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
+
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Content_ArticlesApiService Validate a templated resource
+ Error code thrown if invalid.&lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATES_ADMIN
+ * @param ctx context.Context Authentication Context 
+ @param typeHint The type for the resource this template applies to
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "resource" (BasicTemplatedResource) The resource to validate
+ @return */
+func (a *Content_ArticlesApiService) Validate(ctx context.Context, typeHint string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/templates/{type_hint}/validate"
+	localVarPath = strings.Replace(localVarPath, "{"+"type_hint"+"}", fmt.Sprintf("%v", typeHint), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarTempParam, localVarOk := localVarOptionals["resource"].(BasicTemplatedResource); localVarOk {
+		localVarPostBody = &localVarTempParam
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	 localVarHttpResponse, err := a.client.callAPI(r)
+	 if err != nil || localVarHttpResponse == nil {
+		  return localVarHttpResponse, err
+	 }
+	 defer localVarHttpResponse.Body.Close()
+	 if localVarHttpResponse.StatusCode >= 300 {
+		return localVarHttpResponse, reportError(localVarHttpResponse.Status)
+	 }
+
+	return localVarHttpResponse, err
 }
 

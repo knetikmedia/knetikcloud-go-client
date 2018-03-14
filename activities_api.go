@@ -616,7 +616,7 @@ func (a *ActivitiesApiService) GetActivity(ctx context.Context, id int64) (Activ
 }
 
 /* ActivitiesApiService Load a single activity occurrence details
- &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_ADMIN
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_USER or ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param activityOccurrenceId The id of the activity occurrence
  @return ActivityOccurrenceResource*/
@@ -828,7 +828,7 @@ func (a *ActivitiesApiService) GetActivityTemplates(ctx context.Context, localVa
 }
 
 /* ActivitiesApiService List activity occurrences
- &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_ADMIN
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_USER or ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterActivity" (string) Filter for occurrences of the given activity ID
@@ -1014,7 +1014,7 @@ func (a *ActivitiesApiService) RemoveUser(ctx context.Context, activityOccurrenc
 }
 
 /* ActivitiesApiService Sets the status of an activity occurrence to FINISHED and logs metrics
- In addition to user permissions requirements there is security based on the core_settings.results_trust setting.
+ In addition to user permissions requirements there is security based on the core_settings.results_trust setting. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_USER or ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param activityOccurrenceId The id of the activity occurrence
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1084,6 +1084,7 @@ func (a *ActivitiesApiService) SetActivityOccurrenceResults(ctx context.Context,
 }
 
 /* ActivitiesApiService Sets the settings of an activity occurrence
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_USER and host or ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param activityOccurrenceId The id of the activity occurrence
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1157,7 +1158,7 @@ func (a *ActivitiesApiService) SetActivityOccurrenceSettings(ctx context.Context
  @param activityOccurrenceId The id of the activity occurrence
  @param userId The id of the user
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "status" (string) The new status
+     @param "status" (ActivityUserStatusWrapper) The new status
  @return ActivityUserResource*/
 func (a *ActivitiesApiService) SetUserStatus(ctx context.Context, activityOccurrenceId int64, userId string, localVarOptionals map[string]interface{}) (ActivityUserResource,  *http.Response, error) {
 	var (
@@ -1177,9 +1178,6 @@ func (a *ActivitiesApiService) SetUserStatus(ctx context.Context, activityOccurr
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if err := typeCheckParameter(localVarOptionals["status"], "string", "status"); err != nil {
-		return successPayload, nil, err
-	}
 
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -1201,7 +1199,7 @@ func (a *ActivitiesApiService) SetUserStatus(ctx context.Context, activityOccurr
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	if localVarTempParam, localVarOk := localVarOptionals["status"].(string); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["status"].(ActivityUserStatusWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -1297,11 +1295,11 @@ func (a *ActivitiesApiService) UpdateActivity(ctx context.Context, id int64, loc
 }
 
 /* ActivitiesApiService Update the status of an activity occurrence
- If setting to &#39;FINISHED&#39; reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true
+ If setting to &#39;FINISHED&#39; reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ACTIVITIES_USER and host or ACTIVITIES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param activityOccurrenceId The id of the activity occurrence
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "activityOccurrenceStatus" (ValueWrapperstring) The activity occurrence status object
+     @param "activityOccurrenceStatus" (ActivityOccurrenceStatusWrapper) The activity occurrence status object
  @return */
 func (a *ActivitiesApiService) UpdateActivityOccurrenceStatus(ctx context.Context, activityOccurrenceId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
@@ -1340,7 +1338,7 @@ func (a *ActivitiesApiService) UpdateActivityOccurrenceStatus(ctx context.Contex
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	if localVarTempParam, localVarOk := localVarOptionals["activityOccurrenceStatus"].(ValueWrapperstring); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["activityOccurrenceStatus"].(ActivityOccurrenceStatusWrapper); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)

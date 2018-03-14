@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type CampaignsRewardsApiService service
+type Campaigns_RewardsApiService service
 
 
-/* CampaignsRewardsApiService Create a reward set
+/* Campaigns_RewardsApiService Create a reward set
  &lt;b&gt;Permissions Needed:&lt;/b&gt; REWARDS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "rewardSetResource" (RewardSetResource) The reward set resource object
  @return RewardSetResource*/
-func (a *CampaignsRewardsApiService) CreateRewardSet(ctx context.Context, localVarOptionals map[string]interface{}) (RewardSetResource,  *http.Response, error) {
+func (a *Campaigns_RewardsApiService) CreateRewardSet(ctx context.Context, localVarOptionals map[string]interface{}) (RewardSetResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,12 +95,12 @@ func (a *CampaignsRewardsApiService) CreateRewardSet(ctx context.Context, localV
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsRewardsApiService Delete a reward set
+/* Campaigns_RewardsApiService Delete a reward set
  &lt;b&gt;Permissions Needed:&lt;/b&gt; REWARDS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The reward id
  @return */
-func (a *CampaignsRewardsApiService) DeleteRewardSet(ctx context.Context, id int32) ( *http.Response, error) {
+func (a *Campaigns_RewardsApiService) DeleteRewardSet(ctx context.Context, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -153,12 +153,12 @@ func (a *CampaignsRewardsApiService) DeleteRewardSet(ctx context.Context, id int
 	return localVarHttpResponse, err
 }
 
-/* CampaignsRewardsApiService Get a single reward set
+/* Campaigns_RewardsApiService Get a single reward set
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The reward id
  @return RewardSetResource*/
-func (a *CampaignsRewardsApiService) GetRewardSet(ctx context.Context, id int32) (RewardSetResource,  *http.Response, error) {
+func (a *Campaigns_RewardsApiService) GetRewardSet(ctx context.Context, id int32) (RewardSetResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -217,7 +217,7 @@ func (a *CampaignsRewardsApiService) GetRewardSet(ctx context.Context, id int32)
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsRewardsApiService List and search reward sets
+/* Campaigns_RewardsApiService List and search reward sets
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -225,7 +225,7 @@ func (a *CampaignsRewardsApiService) GetRewardSet(ctx context.Context, id int32)
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceRewardSetResource*/
-func (a *CampaignsRewardsApiService) GetRewardSets(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceRewardSetResource,  *http.Response, error) {
+func (a *Campaigns_RewardsApiService) GetRewardSets(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceRewardSetResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -301,14 +301,14 @@ func (a *CampaignsRewardsApiService) GetRewardSets(ctx context.Context, localVar
 	return successPayload, localVarHttpResponse, err
 }
 
-/* CampaignsRewardsApiService Update a reward set
+/* Campaigns_RewardsApiService Update a reward set
  &lt;b&gt;Permissions Needed:&lt;/b&gt; REWARDS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The reward id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "rewardSetResource" (RewardSetResource) The reward set resource object
  @return RewardSetResource*/
-func (a *CampaignsRewardsApiService) UpdateRewardSet(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (RewardSetResource,  *http.Response, error) {
+func (a *Campaigns_RewardsApiService) UpdateRewardSet(ctx context.Context, id int32, localVarOptionals map[string]interface{}) (RewardSetResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type MediaModerationApiService service
+type Media_ModerationApiService service
 
 
-/* MediaModerationApiService Add a flag
+/* Media_ModerationApiService Add a flag
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "flagResource" (FlagResource) The flag resource object
  @return FlagResource*/
-func (a *MediaModerationApiService) AddFlag(ctx context.Context, localVarOptionals map[string]interface{}) (FlagResource,  *http.Response, error) {
+func (a *Media_ModerationApiService) AddFlag(ctx context.Context, localVarOptionals map[string]interface{}) (FlagResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,7 +95,7 @@ func (a *MediaModerationApiService) AddFlag(ctx context.Context, localVarOptiona
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaModerationApiService Delete a flag
+/* Media_ModerationApiService Delete a flag
  &lt;b&gt;Permissions Needed:&lt;/b&gt; MODERATION_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -103,7 +103,7 @@ func (a *MediaModerationApiService) AddFlag(ctx context.Context, localVarOptiona
      @param "contextId" (string) The id of the context
      @param "userId" (int32) The id of the user
  @return */
-func (a *MediaModerationApiService) DeleteFlag(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Media_ModerationApiService) DeleteFlag(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -173,7 +173,7 @@ func (a *MediaModerationApiService) DeleteFlag(ctx context.Context, localVarOpti
 	return localVarHttpResponse, err
 }
 
-/* MediaModerationApiService Returns a page of flags
+/* Media_ModerationApiService Returns a page of flags
  &lt;b&gt;Permissions Needed:&lt;/b&gt; MODERATION_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -183,7 +183,7 @@ func (a *MediaModerationApiService) DeleteFlag(ctx context.Context, localVarOpti
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceFlagResource*/
-func (a *MediaModerationApiService) GetFlags(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceFlagResource,  *http.Response, error) {
+func (a *Media_ModerationApiService) GetFlags(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceFlagResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -271,12 +271,12 @@ func (a *MediaModerationApiService) GetFlags(ctx context.Context, localVarOption
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaModerationApiService Get a flag report
+/* Media_ModerationApiService Get a flag report
  &lt;b&gt;Permissions Needed:&lt;/b&gt; MODERATION_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The flag report id
  @return FlagReportResource*/
-func (a *MediaModerationApiService) GetModerationReport(ctx context.Context, id int64) (FlagReportResource,  *http.Response, error) {
+func (a *Media_ModerationApiService) GetModerationReport(ctx context.Context, id int64) (FlagReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -335,7 +335,7 @@ func (a *MediaModerationApiService) GetModerationReport(ctx context.Context, id 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaModerationApiService Returns a page of flag reports
+/* Media_ModerationApiService Returns a page of flag reports
  Context can be either a free-form string or a pre-defined context name. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; MODERATION_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -344,8 +344,9 @@ func (a *MediaModerationApiService) GetModerationReport(ctx context.Context, id 
      @param "filterContextId" (string) Filter by moderation context ID
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
+     @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceFlagReportResource*/
-func (a *MediaModerationApiService) GetModerationReports(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceFlagReportResource,  *http.Response, error) {
+func (a *Media_ModerationApiService) GetModerationReports(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceFlagReportResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -376,6 +377,9 @@ func (a *MediaModerationApiService) GetModerationReports(ctx context.Context, lo
 	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(localVarOptionals["order"], "string", "order"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["excludeResolved"].(bool); localVarOk {
 		localVarQueryParams.Add("exclude_resolved", parameterToString(localVarTempParam, ""))
@@ -391,6 +395,9 @@ func (a *MediaModerationApiService) GetModerationReports(ctx context.Context, lo
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
 		localVarQueryParams.Add("page", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["order"].(string); localVarOk {
+		localVarQueryParams.Add("order", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{  }
@@ -433,14 +440,14 @@ func (a *MediaModerationApiService) GetModerationReports(ctx context.Context, lo
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaModerationApiService Update a flag report
+/* Media_ModerationApiService Update a flag report
  Lets you set the resolution of a report. Resolution types is {banned,ignore} in case of &#39;banned&#39; you will need to pass the reason. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; MODERATION_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The flag report id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "flagReportResource" (FlagReportResource) The new flag report
  @return */
-func (a *MediaModerationApiService) UpdateModerationReport(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Media_ModerationApiService) UpdateModerationReport(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

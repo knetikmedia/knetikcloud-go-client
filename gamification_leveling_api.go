@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type GamificationLevelingApiService service
+type Gamification_LevelingApiService service
 
 
-/* GamificationLevelingApiService Create a level schema
+/* Gamification_LevelingApiService Create a level schema
  &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "level" (LevelingResource) The level schema definition
  @return LevelingResource*/
-func (a *GamificationLevelingApiService) CreateLevel(ctx context.Context, localVarOptionals map[string]interface{}) (LevelingResource,  *http.Response, error) {
+func (a *Gamification_LevelingApiService) CreateLevel(ctx context.Context, localVarOptionals map[string]interface{}) (LevelingResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -95,12 +95,12 @@ func (a *GamificationLevelingApiService) CreateLevel(ctx context.Context, localV
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationLevelingApiService Delete a level
+/* Gamification_LevelingApiService Delete a level
  &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The level schema name
  @return */
-func (a *GamificationLevelingApiService) DeleteLevel(ctx context.Context, name string) ( *http.Response, error) {
+func (a *Gamification_LevelingApiService) DeleteLevel(ctx context.Context, name string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -153,12 +153,12 @@ func (a *GamificationLevelingApiService) DeleteLevel(ctx context.Context, name s
 	return localVarHttpResponse, err
 }
 
-/* GamificationLevelingApiService Retrieve a level
- &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
+/* Gamification_LevelingApiService Retrieve a level
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_USER
  * @param ctx context.Context Authentication Context 
  @param name The level schema name
  @return LevelingResource*/
-func (a *GamificationLevelingApiService) GetLevel(ctx context.Context, name string) (LevelingResource,  *http.Response, error) {
+func (a *Gamification_LevelingApiService) GetLevel(ctx context.Context, name string) (LevelingResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -217,11 +217,11 @@ func (a *GamificationLevelingApiService) GetLevel(ctx context.Context, name stri
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationLevelingApiService Get the list of triggers that can be used to trigger a leveling progress update
+/* Gamification_LevelingApiService Get the list of triggers that can be used to trigger a leveling progress update
  &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @return []BreTriggerResource*/
-func (a *GamificationLevelingApiService) GetLevelTriggers(ctx context.Context, ) ([]BreTriggerResource,  *http.Response, error) {
+func (a *Gamification_LevelingApiService) GetLevelTriggers(ctx context.Context, ) ([]BreTriggerResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -279,8 +279,8 @@ func (a *GamificationLevelingApiService) GetLevelTriggers(ctx context.Context, )
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationLevelingApiService List and search levels
- Get a list of levels schemas with optional filtering. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
+/* Gamification_LevelingApiService List and search levels
+ Get a list of levels schemas with optional filtering. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_USER
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterName" (string) Filter for level schemas whose name contains a given string
@@ -288,7 +288,7 @@ func (a *GamificationLevelingApiService) GetLevelTriggers(ctx context.Context, )
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceLevelingResource*/
-func (a *GamificationLevelingApiService) GetLevels(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceLevelingResource,  *http.Response, error) {
+func (a *Gamification_LevelingApiService) GetLevels(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceLevelingResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -370,13 +370,13 @@ func (a *GamificationLevelingApiService) GetLevels(ctx context.Context, localVar
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationLevelingApiService Get a user&#39;s progress for a given level schema
- &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN or self
+/* Gamification_LevelingApiService Get a user&#39;s progress for a given level schema
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_USER or self
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39;
  @param name The level schema name
  @return UserLevelingResource*/
-func (a *GamificationLevelingApiService) GetUserLevel(ctx context.Context, userId string, name string) (UserLevelingResource,  *http.Response, error) {
+func (a *Gamification_LevelingApiService) GetUserLevel(ctx context.Context, userId string, name string) (UserLevelingResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -436,8 +436,8 @@ func (a *GamificationLevelingApiService) GetUserLevel(ctx context.Context, userI
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationLevelingApiService Get a user&#39;s progress for all level schemas
- Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN or self
+/* Gamification_LevelingApiService Get a user&#39;s progress for all level schemas
+ Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_USER or self
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user or &#39;me&#39;
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -446,7 +446,7 @@ func (a *GamificationLevelingApiService) GetUserLevel(ctx context.Context, userI
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceUserLevelingResource*/
-func (a *GamificationLevelingApiService) GetUserLevels(ctx context.Context, userId string, localVarOptionals map[string]interface{}) (PageResourceUserLevelingResource,  *http.Response, error) {
+func (a *Gamification_LevelingApiService) GetUserLevels(ctx context.Context, userId string, localVarOptionals map[string]interface{}) (PageResourceUserLevelingResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -529,7 +529,7 @@ func (a *GamificationLevelingApiService) GetUserLevels(ctx context.Context, user
 	return successPayload, localVarHttpResponse, err
 }
 
-/* GamificationLevelingApiService Update or create a leveling progress record for a user
+/* Gamification_LevelingApiService Update or create a leveling progress record for a user
  If no progress record yet exists for the user, it will be created. Otherwise the provided value will be added to it. May be negative. If progress meets or exceeds the level&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
@@ -537,7 +537,7 @@ func (a *GamificationLevelingApiService) GetUserLevels(ctx context.Context, user
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "progress" (IntWrapper) The amount of progress to add
  @return */
-func (a *GamificationLevelingApiService) IncrementProgress(ctx context.Context, userId int32, name string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Gamification_LevelingApiService) IncrementProgress(ctx context.Context, userId int32, name string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -595,7 +595,7 @@ func (a *GamificationLevelingApiService) IncrementProgress(ctx context.Context, 
 	return localVarHttpResponse, err
 }
 
-/* GamificationLevelingApiService Set leveling progress for a user
+/* Gamification_LevelingApiService Set leveling progress for a user
  If no progress record yet exists for the user, it will be created. Otherwise it will be updated to the provided value. If progress meets or exceeds the level&#39;s max_value it will be marked as earned and a BRE event will be triggered for the &lt;code&gt;BreAchievementEarnedTrigger&lt;/code&gt;. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The id of the user
@@ -603,7 +603,7 @@ func (a *GamificationLevelingApiService) IncrementProgress(ctx context.Context, 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "progress" (IntWrapper) The new progress amount
  @return */
-func (a *GamificationLevelingApiService) SetProgress(ctx context.Context, userId int32, name string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Gamification_LevelingApiService) SetProgress(ctx context.Context, userId int32, name string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -661,14 +661,14 @@ func (a *GamificationLevelingApiService) SetProgress(ctx context.Context, userId
 	return localVarHttpResponse, err
 }
 
-/* GamificationLevelingApiService Update a level
+/* Gamification_LevelingApiService Update a level
  &lt;b&gt;Permissions Needed:&lt;/b&gt; LEVELING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param name The level schema name
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "newLevel" (LevelingResource) The level schema definition
  @return LevelingResource*/
-func (a *GamificationLevelingApiService) UpdateLevel(ctx context.Context, name string, localVarOptionals map[string]interface{}) (LevelingResource,  *http.Response, error) {
+func (a *Gamification_LevelingApiService) UpdateLevel(ctx context.Context, name string, localVarOptionals map[string]interface{}) (LevelingResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

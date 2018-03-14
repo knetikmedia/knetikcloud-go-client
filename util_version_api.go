@@ -23,14 +23,14 @@ var (
 	_ context.Context
 )
 
-type UtilVersionApiService service
+type Util_VersionApiService service
 
 
-/* UtilVersionApiService Get current version info
+/* Util_VersionApiService Get current version info
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return Version*/
-func (a *UtilVersionApiService) GetVersion(ctx context.Context, ) (Version,  *http.Response, error) {
+func (a *Util_VersionApiService) GetVersion(ctx context.Context, ) (Version,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

@@ -23,14 +23,14 @@ var (
 	_ context.Context
 )
 
-type UtilMaintenanceApiService service
+type Util_MaintenanceApiService service
 
 
-/* UtilMaintenanceApiService Delete maintenance info
+/* Util_MaintenanceApiService Delete maintenance info
  &lt;b&gt;Permissions Needed:&lt;/b&gt; MAINTENANCE_ADMIN
  * @param ctx context.Context Authentication Context 
  @return */
-func (a *UtilMaintenanceApiService) DeleteMaintenance(ctx context.Context, ) ( *http.Response, error) {
+func (a *Util_MaintenanceApiService) DeleteMaintenance(ctx context.Context, ) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -82,11 +82,11 @@ func (a *UtilMaintenanceApiService) DeleteMaintenance(ctx context.Context, ) ( *
 	return localVarHttpResponse, err
 }
 
-/* UtilMaintenanceApiService Get current maintenance info
+/* Util_MaintenanceApiService Get current maintenance info
  Get current maintenance info. 404 if no maintenance. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @return Maintenance*/
-func (a *UtilMaintenanceApiService) GetMaintenance(ctx context.Context, ) (Maintenance,  *http.Response, error) {
+func (a *Util_MaintenanceApiService) GetMaintenance(ctx context.Context, ) (Maintenance,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -144,13 +144,13 @@ func (a *UtilMaintenanceApiService) GetMaintenance(ctx context.Context, ) (Maint
 	return successPayload, localVarHttpResponse, err
 }
 
-/* UtilMaintenanceApiService Set current maintenance info
+/* Util_MaintenanceApiService Set current maintenance info
  &lt;b&gt;Permissions Needed:&lt;/b&gt; MAINTENANCE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "maintenance" (Maintenance) The maintenance object
  @return */
-func (a *UtilMaintenanceApiService) SetMaintenance(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Util_MaintenanceApiService) SetMaintenance(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -206,13 +206,13 @@ func (a *UtilMaintenanceApiService) SetMaintenance(ctx context.Context, localVar
 	return localVarHttpResponse, err
 }
 
-/* UtilMaintenanceApiService Update current maintenance info
+/* Util_MaintenanceApiService Update current maintenance info
  &lt;b&gt;Permissions Needed:&lt;/b&gt; MAINTENANCE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "maintenance" (Maintenance) The maintenance object
  @return */
-func (a *UtilMaintenanceApiService) UpdateMaintenance(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Util_MaintenanceApiService) UpdateMaintenance(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

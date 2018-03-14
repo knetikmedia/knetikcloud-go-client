@@ -164,7 +164,7 @@ func (a *MessagingApiService) CreateMessageTemplate(ctx context.Context, localVa
 }
 
 /* MessagingApiService Delete an existing message template
- &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTICLES_ADMIN
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; MESSAGING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The message_template id
  @return */
@@ -222,7 +222,7 @@ func (a *MessagingApiService) DeleteMessageTemplate(ctx context.Context, id stri
 }
 
 /* MessagingApiService Get a single message template
- &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTICLES_ADMIN
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; MESSAGING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The message_template id
  @return MessageTemplateResource*/
@@ -286,7 +286,7 @@ func (a *MessagingApiService) GetMessageTemplate(ctx context.Context, id string)
 }
 
 /* MessagingApiService List and search message templates
- Get a list of message templates with optional filtering. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; ARTICLES_ADMIN
+ Get a list of message templates with optional filtering. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; MESSAGING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "filterTagset" (string) Filter for message templates with at least one of a specified set of tags (separated by comma)
@@ -396,7 +396,7 @@ func (a *MessagingApiService) GetMessageTemplates(ctx context.Context, localVarO
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "messageResource" (MessageResource) The message to be sent
  @return */
-func (a *MessagingApiService) SendMessage1(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *MessagingApiService) SendMessage(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -887,7 +887,7 @@ func (a *MessagingApiService) SendWebsocket(ctx context.Context, localVarOptiona
 }
 
 /* MessagingApiService Update an existing message template
- &lt;b&gt;Permissions Needed:&lt;/b&gt; ARTICLES_ADMIN
+ &lt;b&gt;Permissions Needed:&lt;/b&gt; MESSAGING_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The message_template id
  @param optional (nil or map[string]interface{}) with one or more of:

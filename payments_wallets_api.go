@@ -24,16 +24,16 @@ var (
 	_ context.Context
 )
 
-type PaymentsWalletsApiService service
+type Payments_WalletsApiService service
 
 
-/* PaymentsWalletsApiService Returns the user&#39;s wallet for the given currency code
+/* Payments_WalletsApiService Returns the user&#39;s wallet for the given currency code
  &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The ID of the user for whom wallet is being retrieved
  @param currencyCode Currency code of the user&#39;s wallet
  @return SimpleWallet*/
-func (a *PaymentsWalletsApiService) GetUserWallet(ctx context.Context, userId int32, currencyCode string) (SimpleWallet,  *http.Response, error) {
+func (a *Payments_WalletsApiService) GetUserWallet(ctx context.Context, userId int32, currencyCode string) (SimpleWallet,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -93,7 +93,7 @@ func (a *PaymentsWalletsApiService) GetUserWallet(ctx context.Context, userId in
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PaymentsWalletsApiService Retrieve a user&#39;s wallet transactions
+/* Payments_WalletsApiService Retrieve a user&#39;s wallet transactions
  &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The ID of the user for whom wallet transactions are being retrieved
@@ -107,7 +107,7 @@ func (a *PaymentsWalletsApiService) GetUserWallet(ctx context.Context, userId in
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceWalletTransactionResource*/
-func (a *PaymentsWalletsApiService) GetUserWalletTransactions(ctx context.Context, userId int32, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceWalletTransactionResource,  *http.Response, error) {
+func (a *Payments_WalletsApiService) GetUserWalletTransactions(ctx context.Context, userId int32, currencyCode string, localVarOptionals map[string]interface{}) (PageResourceWalletTransactionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -209,12 +209,12 @@ func (a *PaymentsWalletsApiService) GetUserWalletTransactions(ctx context.Contex
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PaymentsWalletsApiService List all of a user&#39;s wallets
+/* Payments_WalletsApiService List all of a user&#39;s wallets
  &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN or owner
  * @param ctx context.Context Authentication Context 
  @param userId The ID of the user for whom wallets are being retrieved
  @return []SimpleWallet*/
-func (a *PaymentsWalletsApiService) GetUserWallets(ctx context.Context, userId int32) ([]SimpleWallet,  *http.Response, error) {
+func (a *Payments_WalletsApiService) GetUserWallets(ctx context.Context, userId int32) ([]SimpleWallet,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -273,11 +273,11 @@ func (a *PaymentsWalletsApiService) GetUserWallets(ctx context.Context, userId i
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PaymentsWalletsApiService Retrieves a summation of wallet balances by currency code
+/* Payments_WalletsApiService Retrieves a summation of wallet balances by currency code
  &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN
  * @param ctx context.Context Authentication Context 
  @return PageResourceWalletTotalResponse*/
-func (a *PaymentsWalletsApiService) GetWalletBalances(ctx context.Context, ) (PageResourceWalletTotalResponse,  *http.Response, error) {
+func (a *Payments_WalletsApiService) GetWalletBalances(ctx context.Context, ) (PageResourceWalletTotalResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -335,7 +335,7 @@ func (a *PaymentsWalletsApiService) GetWalletBalances(ctx context.Context, ) (Pa
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PaymentsWalletsApiService Retrieve wallet transactions across the system
+/* Payments_WalletsApiService Retrieve wallet transactions across the system
  &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -351,7 +351,7 @@ func (a *PaymentsWalletsApiService) GetWalletBalances(ctx context.Context, ) (Pa
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceWalletTransactionResource*/
-func (a *PaymentsWalletsApiService) GetWalletTransactions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceWalletTransactionResource,  *http.Response, error) {
+func (a *Payments_WalletsApiService) GetWalletTransactions(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceWalletTransactionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -475,7 +475,7 @@ func (a *PaymentsWalletsApiService) GetWalletTransactions(ctx context.Context, l
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PaymentsWalletsApiService Retrieve a list of wallets across the system
+/* Payments_WalletsApiService Retrieve a list of wallets across the system
  &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -483,7 +483,7 @@ func (a *PaymentsWalletsApiService) GetWalletTransactions(ctx context.Context, l
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceSimpleWallet*/
-func (a *PaymentsWalletsApiService) GetWallets(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceSimpleWallet,  *http.Response, error) {
+func (a *Payments_WalletsApiService) GetWallets(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceSimpleWallet,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -559,7 +559,7 @@ func (a *PaymentsWalletsApiService) GetWallets(ctx context.Context, localVarOpti
 	return successPayload, localVarHttpResponse, err
 }
 
-/* PaymentsWalletsApiService Updates the balance for a user&#39;s wallet
+/* Payments_WalletsApiService Updates the balance for a user&#39;s wallet
  &lt;b&gt;Permissions Needed:&lt;/b&gt; WALLETS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The ID of the user for whom wallet is being modified
@@ -567,7 +567,7 @@ func (a *PaymentsWalletsApiService) GetWallets(ctx context.Context, localVarOpti
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "request" (WalletAlterRequest) The requested balance modification to be made to the user&#39;s wallet
  @return WalletTransactionResource*/
-func (a *PaymentsWalletsApiService) UpdateWalletBalance(ctx context.Context, userId int32, currencyCode string, localVarOptionals map[string]interface{}) (WalletTransactionResource,  *http.Response, error) {
+func (a *Payments_WalletsApiService) UpdateWalletBalance(ctx context.Context, userId int32, currencyCode string, localVarOptionals map[string]interface{}) (WalletTransactionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}

@@ -23,10 +23,10 @@ var (
 	_ context.Context
 )
 
-type ReportingChallengesApiService service
+type Reporting_ChallengesApiService service
 
 
-/* ReportingChallengesApiService Retrieve a challenge event leaderboard details
+/* Reporting_ChallengesApiService Retrieve a challenge event leaderboard details
  Lists all leaderboard entries with additional user details. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -35,7 +35,7 @@ type ReportingChallengesApiService service
      @param "page" (int32) The number of the page returned
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceChallengeEventParticipantResource*/
-func (a *ReportingChallengesApiService) GetChallengeEventLeaderboard(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceChallengeEventParticipantResource,  *http.Response, error) {
+func (a *Reporting_ChallengesApiService) GetChallengeEventLeaderboard(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceChallengeEventParticipantResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -117,7 +117,7 @@ func (a *ReportingChallengesApiService) GetChallengeEventLeaderboard(ctx context
 	return successPayload, localVarHttpResponse, err
 }
 
-/* ReportingChallengesApiService Retrieve a challenge event participant details
+/* Reporting_ChallengesApiService Retrieve a challenge event participant details
  Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; REPORTING_CHALLENGES_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -126,7 +126,7 @@ func (a *ReportingChallengesApiService) GetChallengeEventLeaderboard(ctx context
      @param "page" (int32) The number of the page returned
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceChallengeEventParticipantResource*/
-func (a *ReportingChallengesApiService) GetChallengeEventParticipants(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceChallengeEventParticipantResource,  *http.Response, error) {
+func (a *Reporting_ChallengesApiService) GetChallengeEventParticipants(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceChallengeEventParticipantResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}

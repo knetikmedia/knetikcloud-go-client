@@ -24,17 +24,17 @@ var (
 	_ context.Context
 )
 
-type MediaVideosApiService service
+type Media_VideosApiService service
 
 
-/* MediaVideosApiService Adds a user to a video&#39;s whitelist
+/* Media_VideosApiService Adds a user to a video&#39;s whitelist
  Whitelisted users can view video regardless of privacy setting. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "userId" (IntWrapper) The user id
  @return */
-func (a *MediaVideosApiService) AddUserToVideoWhitelist(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Media_VideosApiService) AddUserToVideoWhitelist(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -91,13 +91,13 @@ func (a *MediaVideosApiService) AddUserToVideoWhitelist(ctx context.Context, id 
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Adds a new video in the system
+/* Media_VideosApiService Adds a new video in the system
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "videoResource" (VideoResource) The video object
  @return VideoResource*/
-func (a *MediaVideosApiService) AddVideo(ctx context.Context, localVarOptionals map[string]interface{}) (VideoResource,  *http.Response, error) {
+func (a *Media_VideosApiService) AddVideo(ctx context.Context, localVarOptionals map[string]interface{}) (VideoResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -159,14 +159,14 @@ func (a *MediaVideosApiService) AddVideo(ctx context.Context, localVarOptionals 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Add a new video comment
+/* Media_VideosApiService Add a new video comment
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "commentResource" (CommentResource) The comment object
  @return CommentResource*/
-func (a *MediaVideosApiService) AddVideoComment(ctx context.Context, videoId int32, localVarOptionals map[string]interface{}) (CommentResource,  *http.Response, error) {
+func (a *Media_VideosApiService) AddVideoComment(ctx context.Context, videoId int32, localVarOptionals map[string]interface{}) (CommentResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -229,14 +229,14 @@ func (a *MediaVideosApiService) AddVideoComment(ctx context.Context, videoId int
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Adds a contributor to a video
+/* Media_VideosApiService Adds a contributor to a video
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "contributionResource" (ContributionResource) The contribution object
  @return */
-func (a *MediaVideosApiService) AddVideoContributor(ctx context.Context, videoId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Media_VideosApiService) AddVideoContributor(ctx context.Context, videoId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -293,14 +293,14 @@ func (a *MediaVideosApiService) AddVideoContributor(ctx context.Context, videoId
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Add a new flag
+/* Media_VideosApiService Add a new flag
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "reason" (StringWrapper) The flag reason
  @return FlagResource*/
-func (a *MediaVideosApiService) AddVideoFlag(ctx context.Context, videoId int64, localVarOptionals map[string]interface{}) (FlagResource,  *http.Response, error) {
+func (a *Media_VideosApiService) AddVideoFlag(ctx context.Context, videoId int64, localVarOptionals map[string]interface{}) (FlagResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -363,14 +363,14 @@ func (a *MediaVideosApiService) AddVideoFlag(ctx context.Context, videoId int64,
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Adds one or more existing videos as related to this one
+/* Media_VideosApiService Adds one or more existing videos as related to this one
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "videoRelationshipResource" (VideoRelationshipResource) The video relationship object 
  @return VideoRelationshipResource*/
-func (a *MediaVideosApiService) AddVideoRelationships(ctx context.Context, videoId int64, localVarOptionals map[string]interface{}) (VideoRelationshipResource,  *http.Response, error) {
+func (a *Media_VideosApiService) AddVideoRelationships(ctx context.Context, videoId int64, localVarOptionals map[string]interface{}) (VideoRelationshipResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -433,14 +433,14 @@ func (a *MediaVideosApiService) AddVideoRelationships(ctx context.Context, video
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Create a video disposition
+/* Media_VideosApiService Create a video disposition
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "dispositionResource" (DispositionResource) The disposition object
  @return DispositionResource*/
-func (a *MediaVideosApiService) CreateVideoDisposition(ctx context.Context, videoId int32, localVarOptionals map[string]interface{}) (DispositionResource,  *http.Response, error) {
+func (a *Media_VideosApiService) CreateVideoDisposition(ctx context.Context, videoId int32, localVarOptionals map[string]interface{}) (DispositionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -503,13 +503,13 @@ func (a *MediaVideosApiService) CreateVideoDisposition(ctx context.Context, vide
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Create a video template
+/* Media_VideosApiService Create a video template
  Video Templates define a type of video and the properties they have. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "videoTemplateResource" (TemplateResource) The video template resource object
  @return TemplateResource*/
-func (a *MediaVideosApiService) CreateVideoTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Media_VideosApiService) CreateVideoTemplate(ctx context.Context, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -571,12 +571,12 @@ func (a *MediaVideosApiService) CreateVideoTemplate(ctx context.Context, localVa
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Deletes a video from the system if no resources are attached to it
+/* Media_VideosApiService Deletes a video from the system if no resources are attached to it
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The video id
  @return */
-func (a *MediaVideosApiService) DeleteVideo(ctx context.Context, id int64) ( *http.Response, error) {
+func (a *Media_VideosApiService) DeleteVideo(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -629,13 +629,13 @@ func (a *MediaVideosApiService) DeleteVideo(ctx context.Context, id int64) ( *ht
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Delete a video comment
+/* Media_VideosApiService Delete a video comment
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param id The comment id
  @return */
-func (a *MediaVideosApiService) DeleteVideoComment(ctx context.Context, videoId int64, id int64) ( *http.Response, error) {
+func (a *Media_VideosApiService) DeleteVideoComment(ctx context.Context, videoId int64, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -689,12 +689,12 @@ func (a *MediaVideosApiService) DeleteVideoComment(ctx context.Context, videoId 
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Delete a video disposition
+/* Media_VideosApiService Delete a video disposition
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param dispositionId The disposition id
  @return */
-func (a *MediaVideosApiService) DeleteVideoDisposition(ctx context.Context, dispositionId int64) ( *http.Response, error) {
+func (a *Media_VideosApiService) DeleteVideoDisposition(ctx context.Context, dispositionId int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -747,12 +747,12 @@ func (a *MediaVideosApiService) DeleteVideoDisposition(ctx context.Context, disp
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Delete a flag
+/* Media_VideosApiService Delete a flag
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @return */
-func (a *MediaVideosApiService) DeleteVideoFlag(ctx context.Context, videoId int64) ( *http.Response, error) {
+func (a *Media_VideosApiService) DeleteVideoFlag(ctx context.Context, videoId int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -805,13 +805,13 @@ func (a *MediaVideosApiService) DeleteVideoFlag(ctx context.Context, videoId int
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Delete a video&#39;s relationship
+/* Media_VideosApiService Delete a video&#39;s relationship
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param id The relationship id
  @return */
-func (a *MediaVideosApiService) DeleteVideoRelationship(ctx context.Context, videoId int64, id int64) ( *http.Response, error) {
+func (a *Media_VideosApiService) DeleteVideoRelationship(ctx context.Context, videoId int64, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -865,14 +865,14 @@ func (a *MediaVideosApiService) DeleteVideoRelationship(ctx context.Context, vid
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Delete a video template
+/* Media_VideosApiService Delete a video template
  If cascade &#x3D; &#39;detach&#39;, it will force delete the template even if it&#39;s attached to other objects. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "cascade" (string) The value needed to delete used templates
  @return */
-func (a *MediaVideosApiService) DeleteVideoTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Media_VideosApiService) DeleteVideoTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -931,7 +931,7 @@ func (a *MediaVideosApiService) DeleteVideoTemplate(ctx context.Context, id stri
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Get user videos
+/* Media_VideosApiService Get user videos
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param userId The user id
@@ -940,7 +940,7 @@ func (a *MediaVideosApiService) DeleteVideoTemplate(ctx context.Context, id stri
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceVideoResource*/
-func (a *MediaVideosApiService) GetUserVideos(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) (PageResourceVideoResource,  *http.Response, error) {
+func (a *Media_VideosApiService) GetUserVideos(ctx context.Context, userId int32, localVarOptionals map[string]interface{}) (PageResourceVideoResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1017,12 +1017,12 @@ func (a *MediaVideosApiService) GetUserVideos(ctx context.Context, userId int32,
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Loads a specific video details
+/* Media_VideosApiService Loads a specific video details
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The video id
  @return VideoResource*/
-func (a *MediaVideosApiService) GetVideo(ctx context.Context, id int64) (VideoResource,  *http.Response, error) {
+func (a *Media_VideosApiService) GetVideo(ctx context.Context, id int64) (VideoResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1081,7 +1081,7 @@ func (a *MediaVideosApiService) GetVideo(ctx context.Context, id int64) (VideoRe
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Returns a page of comments for a video
+/* Media_VideosApiService Returns a page of comments for a video
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
@@ -1089,7 +1089,7 @@ func (a *MediaVideosApiService) GetVideo(ctx context.Context, id int64) (VideoRe
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceCommentResource*/
-func (a *MediaVideosApiService) GetVideoComments(ctx context.Context, videoId int32, localVarOptionals map[string]interface{}) (PageResourceCommentResource,  *http.Response, error) {
+func (a *Media_VideosApiService) GetVideoComments(ctx context.Context, videoId int32, localVarOptionals map[string]interface{}) (PageResourceCommentResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1160,7 +1160,7 @@ func (a *MediaVideosApiService) GetVideoComments(ctx context.Context, videoId in
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Returns a page of dispositions for a video
+/* Media_VideosApiService Returns a page of dispositions for a video
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
@@ -1168,7 +1168,7 @@ func (a *MediaVideosApiService) GetVideoComments(ctx context.Context, videoId in
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceDispositionResource*/
-func (a *MediaVideosApiService) GetVideoDispositions(ctx context.Context, videoId int32, localVarOptionals map[string]interface{}) (PageResourceDispositionResource,  *http.Response, error) {
+func (a *Media_VideosApiService) GetVideoDispositions(ctx context.Context, videoId int32, localVarOptionals map[string]interface{}) (PageResourceDispositionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1239,7 +1239,7 @@ func (a *MediaVideosApiService) GetVideoDispositions(ctx context.Context, videoI
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Returns a page of video relationships
+/* Media_VideosApiService Returns a page of video relationships
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
@@ -1247,7 +1247,7 @@ func (a *MediaVideosApiService) GetVideoDispositions(ctx context.Context, videoI
      @param "size" (int32) The number of objects returned per page
      @param "page" (int32) The number of the page returned, starting with 1
  @return PageResourceVideoRelationshipResource*/
-func (a *MediaVideosApiService) GetVideoRelationships(ctx context.Context, videoId int64, localVarOptionals map[string]interface{}) (PageResourceVideoRelationshipResource,  *http.Response, error) {
+func (a *Media_VideosApiService) GetVideoRelationships(ctx context.Context, videoId int64, localVarOptionals map[string]interface{}) (PageResourceVideoRelationshipResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1318,12 +1318,12 @@ func (a *MediaVideosApiService) GetVideoRelationships(ctx context.Context, video
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Get a single video template
+/* Media_VideosApiService Get a single video template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @return TemplateResource*/
-func (a *MediaVideosApiService) GetVideoTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
+func (a *Media_VideosApiService) GetVideoTemplate(ctx context.Context, id string) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1382,7 +1382,7 @@ func (a *MediaVideosApiService) GetVideoTemplate(ctx context.Context, id string)
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService List and search video templates
+/* Media_VideosApiService List and search video templates
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1390,7 +1390,7 @@ func (a *MediaVideosApiService) GetVideoTemplate(ctx context.Context, id string)
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceTemplateResource*/
-func (a *MediaVideosApiService) GetVideoTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
+func (a *Media_VideosApiService) GetVideoTemplates(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceTemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1466,7 +1466,7 @@ func (a *MediaVideosApiService) GetVideoTemplates(ctx context.Context, localVarO
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Search videos using the documented filters
+/* Media_VideosApiService Search videos using the documented filters
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1486,7 +1486,7 @@ func (a *MediaVideosApiService) GetVideoTemplates(ctx context.Context, localVarO
      @param "page" (int32) The number of the page returned, starting with 1
      @param "order" (string) A comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]
  @return PageResourceVideoResource*/
-func (a *MediaVideosApiService) GetVideos(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceVideoResource,  *http.Response, error) {
+func (a *Media_VideosApiService) GetVideos(ctx context.Context, localVarOptionals map[string]interface{}) (PageResourceVideoResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -1634,13 +1634,13 @@ func (a *MediaVideosApiService) GetVideos(ctx context.Context, localVarOptionals
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Removes a user from a video&#39;s whitelist
+/* Media_VideosApiService Removes a user from a video&#39;s whitelist
  Remove the user with the id given in the path from the whitelist of users that can view this video regardless of privacy setting. &lt;br&gt;&lt;br&gt;&lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param id The user id
  @return */
-func (a *MediaVideosApiService) RemoveUserFromVideoWhitelist(ctx context.Context, videoId int64, id int32) ( *http.Response, error) {
+func (a *Media_VideosApiService) RemoveUserFromVideoWhitelist(ctx context.Context, videoId int64, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -1694,13 +1694,13 @@ func (a *MediaVideosApiService) RemoveUserFromVideoWhitelist(ctx context.Context
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Removes a contributor from a video
+/* Media_VideosApiService Removes a contributor from a video
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
  @param id The contributor id
  @return */
-func (a *MediaVideosApiService) RemoveVideoContributor(ctx context.Context, videoId int64, id int32) ( *http.Response, error) {
+func (a *Media_VideosApiService) RemoveVideoContributor(ctx context.Context, videoId int64, id int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
@@ -1754,14 +1754,14 @@ func (a *MediaVideosApiService) RemoveVideoContributor(ctx context.Context, vide
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Modifies a video&#39;s details
+/* Media_VideosApiService Modifies a video&#39;s details
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The video id
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "videoResource" (VideoResource) The video object
  @return */
-func (a *MediaVideosApiService) UpdateVideo(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Media_VideosApiService) UpdateVideo(ctx context.Context, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1818,7 +1818,7 @@ func (a *MediaVideosApiService) UpdateVideo(ctx context.Context, id int64, local
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Update a video comment
+/* Media_VideosApiService Update a video comment
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
@@ -1826,7 +1826,7 @@ func (a *MediaVideosApiService) UpdateVideo(ctx context.Context, id int64, local
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "content" (StringWrapper) The comment content
  @return */
-func (a *MediaVideosApiService) UpdateVideoComment(ctx context.Context, videoId int64, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Media_VideosApiService) UpdateVideoComment(ctx context.Context, videoId int64, id int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1884,7 +1884,7 @@ func (a *MediaVideosApiService) UpdateVideoComment(ctx context.Context, videoId 
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Update a video&#39;s relationship details
+/* Media_VideosApiService Update a video&#39;s relationship details
  &lt;b&gt;Permissions Needed:&lt;/b&gt; VIDEOS_USER or VIDEOS_ADMIN
  * @param ctx context.Context Authentication Context 
  @param videoId The video id
@@ -1892,7 +1892,7 @@ func (a *MediaVideosApiService) UpdateVideoComment(ctx context.Context, videoId 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "details" (StringWrapper) The video relationship details
  @return */
-func (a *MediaVideosApiService) UpdateVideoRelationship(ctx context.Context, videoId int64, relationshipId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+func (a *Media_VideosApiService) UpdateVideoRelationship(ctx context.Context, videoId int64, relationshipId int64, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -1950,14 +1950,14 @@ func (a *MediaVideosApiService) UpdateVideoRelationship(ctx context.Context, vid
 	return localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Update a video template
+/* Media_VideosApiService Update a video template
  &lt;b&gt;Permissions Needed:&lt;/b&gt; TEMPLATE_ADMIN
  * @param ctx context.Context Authentication Context 
  @param id The id of the template
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "videoTemplateResource" (TemplateResource) The video template resource object
  @return TemplateResource*/
-func (a *MediaVideosApiService) UpdateVideoTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
+func (a *Media_VideosApiService) UpdateVideoTemplate(ctx context.Context, id string, localVarOptionals map[string]interface{}) (TemplateResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -2020,12 +2020,12 @@ func (a *MediaVideosApiService) UpdateVideoTemplate(ctx context.Context, id stri
 	return successPayload, localVarHttpResponse, err
 }
 
-/* MediaVideosApiService Increment a video&#39;s view count
+/* Media_VideosApiService Increment a video&#39;s view count
  &lt;b&gt;Permissions Needed:&lt;/b&gt; ANY
  * @param ctx context.Context Authentication Context 
  @param id The video id
  @return */
-func (a *MediaVideosApiService) ViewVideo(ctx context.Context, id int64) ( *http.Response, error) {
+func (a *Media_VideosApiService) ViewVideo(ctx context.Context, id int64) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
